@@ -23,6 +23,10 @@ library(microbenchmark)
 
 fun <- function(x) chk_length(x, c(1,2,3))
 
+fun_no <- function(x) {
+  x
+}
+
 fun_chk <- function(x, chk = TRUE) {
   if(isTRUE(chk)) fun(x)
   x
@@ -33,6 +37,8 @@ fun_option <- function(x) {
   x
 }
 
+fun_no2 <- function(x) fun_no(x)
+
 fun_chk2 <- function(x) fun_chk(x, chk = FALSE)
 
 fun_option2 <- function(x) {
@@ -42,6 +48,8 @@ fun_option2 <- function(x) {
 }
 
 microbenchmark(
+  fun_no2(numeric(0)),
+  fun_no2(1),
   fun_chk2(numeric(0)),
   fun_chk2(1),
   fun_option2(numeric(0)),

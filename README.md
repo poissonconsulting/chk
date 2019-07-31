@@ -104,8 +104,10 @@ don’t check any of their inputs (other than the first argument of
 course\!).
 
 Checking user supplied inputs is vital but it slows code down when there
-are lots of checks. To allow checking only when specified the developer
-can use something like
+are *lots* of checks in a function (see
+[microbenching-chk](https://poissonconsulting.github.io/chk/articles/benchmarking-chk.html)
+vignette). To allow checking only when specified the developer can use
+something like
 
 ``` r
 fun_chk <- function(x, chk = TRUE) {
