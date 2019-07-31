@@ -20,17 +20,20 @@ library(microbenchmark)
 ```
 
 ```{r}
+
+fun <- function(x) chk_length(x, c(1,2,3))
+
 fun_chk <- function(x, chk = TRUE) {
-  if(isTRUE(chk)) chk_flag(x)
+  if(isTRUE(chk)) fun(x)
+  x
+}
+
+fun_option <- function(x) {
+  if(isTRUE(getOption("chk.chk", TRUE))) fun(x)
   x
 }
 
 fun_chk2 <- function(x) fun_chk(x, chk = FALSE)
-
-fun_option <- function(x) {
-  if(isTRUE(getOption("chk.chk", TRUE))) chk_flag(x)
-  x
-}
 
 fun_option2 <- function(x) {
   chk.chk <- options(chk.chk = FALSE)
@@ -39,9 +42,9 @@ fun_option2 <- function(x) {
 }
 
 microbenchmark(
+  fun_chk2(numeric(0)),
   fun_chk2(1),
-  fun_chk2(TRUE),
-  fun_option2(1),
-  fun_option2(TRUE)
+  fun_option2(numeric(0)),
+  fun_option2(1)
 )
 ```
