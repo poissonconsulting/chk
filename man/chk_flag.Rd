@@ -10,6 +10,7 @@
 \alias{chk_null}
 \alias{chk_function}
 \alias{chk_is}
+\alias{chk_no_missing}
 \alias{chk_unused}
 \alias{chk_used}
 \alias{chk_length}
@@ -30,6 +31,8 @@ chk_null(x, err = TRUE)
 chk_function(x, err = TRUE)
 
 chk_is(x, class, err = TRUE)
+
+chk_no_missing(x, err = TRUE)
 
 chk_unused(..., err = TRUE)
 
@@ -71,6 +74,8 @@ A flag is a non-missing logical scalar.
 \item \code{chk_function}: Check function
 
 \item \code{chk_is}: Check inherits from class
+
+\item \code{chk_no_missing}: Check no missing values
 
 \item \code{chk_unused}: Check unused
 

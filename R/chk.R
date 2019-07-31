@@ -122,6 +122,15 @@ chk_is <- function(x, class, err = TRUE) {
   err(x, " must inherit from ", class)
 }
 
+#' @describeIn chk_flag Check no missing values
+#' @export
+chk_no_missing <- function(x, err = TRUE) {
+  if(!anyNA(x)) return(TRUE)
+  if(!err) return(FALSE)
+  x <- deparse(substitute(x))
+  err(x, " must not have missing values")
+}
+
 #' @describeIn chk_flag Check unused
 #' @export
 chk_unused <- function (..., err = TRUE) {

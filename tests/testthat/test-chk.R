@@ -73,6 +73,13 @@ test_that("chk_is", {
   expect_error(chk_is(matrix(1), "numeric"), "matrix[(]1[)] must inherit from numeric$")
 })
 
+test_that("chk_no_missing", {
+  expect_true(chk_no_missing(1))
+  expect_true(chk_no_missing(integer(0)))
+  expect_false(chk_no_missing(NA, err = FALSE))
+  expect_false(chk_no_missing(c(NA, 1), err = FALSE))
+})
+
 test_that("chk_unused", {
   expect_true(chk_unused())
   expect_false(chk_unused(1, err = FALSE))
