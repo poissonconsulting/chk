@@ -20,7 +20,7 @@ CC0](https://img.shields.io/badge/License-CC0-blue.svg)](https://creativecommons
 `chk` is an R package for developers to check user-supplied inputs to
 their functions.
 
-It is designed to be simple, fast and customisable.
+It is designed to be simple, customisable and fast.
 
 ## Installation
 
@@ -56,14 +56,44 @@ chk_flag(y)
 chk_string(y)
 #> [1] TRUE
 
-chkor(chk_flag(y), chk_number(y))
-#> Error: y must be a flag (TRUE or FALSE) OR y must be a number (non-missing numeric scalar)
-chkor(chk_flag(y), chk_string(y))
+z <- "b"
+chkor(chk_flag(z), chk_number(z))
+#> Error: z must be a flag (TRUE or FALSE) OR z must be a number (non-missing numeric scalar)
+chkor(chk_flag(z), chk_string(z))
 #> [1] TRUE
 ```
 
 As the functions are not expected to be used in pipes they simply return
 a flag (non-missing logical scalar).
+
+### Customisable
+
+The functions are designed to be customisable.
+
+If `err = FALSE` the `chk` functions return FALSE on check failure.
+
+``` r
+chk_flag(1, err = FALSE)
+#> [1] FALSE
+```
+
+This allows developers to provide their own error messages.
+
+``` r
+fun <- function(x) {
+  if(!chk_flag(x, err = FALSE)) {
+    stop("x really should be a flag (try as.logical())")
+  }
+}
+fun(1)
+#> Error in fun(1): x really should be a flag (try as.logical())
+```
+
+In addition, `chk` is released under the
+[CC0](https://creativecommons.org/publicdomain/zero/1.0/) licence so
+developers can copy and paste individual functions (and tests) into
+their packages without any need for creditation which is useful if they
+don’t want `chk` as a dependency.
 
 ### Fast
 
@@ -87,38 +117,39 @@ fun <- function(x, chk = TRUE) {
 
 fun(1) # when called by user
 #> Error: x must be a flag (TRUE or FALSE)
-fun(1, chk = FALSE) # when called internally
+
+fun2 <- function(x) {
+  fun(x, chk = FALSE) # when called internally
+}
+fun2(1)
 #> [1] 1
 ```
 
-### Customisable
-
-The functions are designed to be customisable.
-
-If `err = FALSE` the `chk` functions return FALSE on check failure.
-
-``` r
-chk_flag(1, err = FALSE)
-#> [1] FALSE
-```
-
-This allows developers to provide their own error message.
+An alternative approach is to use something like
 
 ``` r
 fun <- function(x) {
-  if(!chk_flag(x, err = FALSE)) {
-    stop("x really should be a flag (try as.logical())")
+  if(isTRUE(getOption("chk.chk", TRUE))) {
+    chk_flag(x)
   }
+  x
 }
-fun(1)
-#> Error in fun(1): x really should be a flag (try as.logical())
-```
 
-In addition, `chk` is released under the
-[CC0](https://creativecommons.org/publicdomain/zero/1.0/) licence so
-developers can copy and paste individual functions (and tests) into
-their packages without any need for creditation which is useful if they
-don’t want `chk` as a dependency.
+fun(1) # when called by user
+#> Error: x must be a flag (TRUE or FALSE)
+
+fun2 <- function(x) {
+  chk.chk <- options(chk.chk = FALSE)
+  on.exit(options(chk.chk))
+  fun(x) # when called internally
+}
+getOption("chk.chk")
+#> NULL
+fun2(1)
+#> [1] 1
+getOption("chk.chk")
+#> NULL
+```
 
 ## Inspiration
 

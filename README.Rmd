@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 
 `chk` is an R package for developers to check user-supplied inputs to their functions.
 
-It is designed to be simple, fast and customisable.
+It is designed to be simple, customisable and fast.
 
 ## Installation
 
@@ -55,11 +55,38 @@ y <- "a"
 chk_flag(y)
 chk_string(y)
 
-chkor(chk_flag(y), chk_number(y))
-chkor(chk_flag(y), chk_string(y))
+z <- "b"
+chkor(chk_flag(z), chk_number(z))
+chkor(chk_flag(z), chk_string(z))
 ```
 
 As the functions are not expected to be used in pipes they simply return a flag (non-missing logical scalar).
+
+### Customisable
+
+The functions are designed to be customisable.
+
+If `err = FALSE` the `chk` functions return FALSE on check failure.
+
+```{r}
+chk_flag(1, err = FALSE)
+```
+
+This allows developers to provide their own error messages.
+
+```{r, error = TRUE}
+fun <- function(x) {
+  if(!chk_flag(x, err = FALSE)) {
+    stop("x really should be a flag (try as.logical())")
+  }
+}
+fun(1)
+```
+
+In addition, `chk` is released under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/) licence so developers 
+can copy and paste individual functions (and tests) into their packages 
+without any need for creditation which is useful if they don't want `chk` 
+as a dependency.
 
 ### Fast
 
@@ -79,34 +106,33 @@ fun <- function(x, chk = TRUE) {
 }
 
 fun(1) # when called by user
-fun(1, chk = FALSE) # when called internally
+
+fun2 <- function(x) {
+  fun(x, chk = FALSE) # when called internally
+}
+fun2(1)
 ```
 
-### Customisable
-
-The functions are designed to be customisable.
-
-If `err = FALSE` the `chk` functions return FALSE on check failure.
-```{r}
-chk_flag(1, err = FALSE)
-```
-
-This allows developers to provide their own error message.
+An alternative approach is to use something like
 ```{r, error = TRUE}
 fun <- function(x) {
-  if(!chk_flag(x, err = FALSE)) {
-    stop("x really should be a flag (try as.logical())")
+  if(isTRUE(getOption("chk.chk", TRUE))) {
+    chk_flag(x)
   }
+  x
 }
-fun(1)
+
+fun(1) # when called by user
+
+fun2 <- function(x) {
+  chk.chk <- options(chk.chk = FALSE)
+  on.exit(options(chk.chk))
+  fun(x) # when called internally
+}
+getOption("chk.chk")
+fun2(1)
+getOption("chk.chk")
 ```
-
-In addition, `chk` is released under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/) licence so developers 
-can copy and paste individual functions (and tests) into their packages 
-without any need for creditation which is useful if they don't want `chk` 
-as a dependency.
-
-
 
 ## Inspiration
 
