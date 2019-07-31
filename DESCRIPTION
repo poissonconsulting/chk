@@ -6,7 +6,7 @@ Authors@R: c(
     person("Poisson Consulting", role = c("cph", "fnd"))
     )
 Description: What the package does (one paragraph).
-License: MIT + file LICENSE
+License: CC0
 Depends: R (>= 3.5)
 Suggests: 
     covr,

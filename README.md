@@ -14,12 +14,7 @@ status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/chk
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/chk/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/chk?branch=master)
 [![License:
-MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Tinyverse
-status](https://tinyverse.netlify.com/badge/chk)](https://CRAN.R-project.org/package=chk)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/chk)](https://cran.r-project.org/package=chk)
-![CRAN downloads](http://cranlogs.r-pkg.org/badges/chk)
+CC0](https://img.shields.io/badge/License-CC0-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 <!-- badges: end -->
 
 chk provides a template for a new R package.
