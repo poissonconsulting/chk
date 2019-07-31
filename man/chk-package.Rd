@@ -21,8 +21,6 @@ Useful links:
 
 Other contributors:
 \itemize{
-  \item Sebastian Dalgarno \email{seb@poissonconsulting.ca} (0000-0002-3658-4517) [contributor]
-  \item Evan Amies-Galonski \email{evan@poissonconsulting.ca} (-3188) [contributor]
   \item Poisson Consulting [copyright holder, funder]
 }
 

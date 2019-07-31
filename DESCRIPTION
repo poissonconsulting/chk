@@ -3,22 +3,14 @@ Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: c(
     person("Joe", "Thorley", , "joe@poissonconsulting.ca", c("aut", "cre"), comment = c(ORCID = "0000-0002-7683-4592")),
-    person("Sebastian", "Dalgarno", , "seb@poissonconsulting.ca", "ctb", comment = c(ORCID = "0000-0002-3658-4517")),
-    person("Evan", "Amies-Galonski", , "evan@poissonconsulting.ca", "ctb", comment = c(ORCID = 0000-0003-1096-2089)),
     person("Poisson Consulting", role = c("cph", "fnd"))
     )
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Depends: R (>= 3.5)
-Imports: 
-  err,
-  checkr
 Suggests: 
     covr,
     testthat
-Remotes:
-  poissonconsulting/err,
-  poissonconsulting/checkr
 URL: https://github.com/poissonconsulting/chk
 BugReports: https://github.com/poissonconsulting/chk/issues
 Encoding: UTF-8
