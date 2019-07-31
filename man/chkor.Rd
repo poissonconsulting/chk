@@ -13,7 +13,7 @@ chkor(..., err = TRUE)
 message if the check fails.}
 }
 \value{
-A flag or an error if the check fails and \code{isTRUE(err)}.
+A flag or an error if the check fails and err == TRUE.
 }
 \description{
 Check OR

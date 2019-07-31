@@ -29,7 +29,7 @@ fun_chk <- function(x, chk = TRUE) {
 }
 
 fun_option <- function(x) {
-  if(isTRUE(getOption("chk.chk", TRUE))) fun(x)
+  if(getOption("chk.chk", TRUE)) fun(x)
   x
 }
 

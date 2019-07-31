@@ -20,7 +20,7 @@
 #' cc(3:1, bracket = "'")
 #' cc(1:11)
 cc <- function(x, con = " or ", bracket = "", chk = TRUE) {
-  if(isTRUE(chk)) {
+  if(chk) {
     chk_string(con)
     chk_string(bracket)
   }

@@ -3,7 +3,7 @@
 #' @param ... Multiple \code{\link{chk}} functions.
 #' @inheritParams chk_flag
 #'
-#' @return A flag or an error if the check fails and \code{isTRUE(err)}.
+#' @return A flag or an error if the check fails and err == TRUE.
 #' @export
 #'
 #' @examples
@@ -19,7 +19,7 @@ chkor <- function (..., err = TRUE) {
   args <- lapply(args, try_chk)
   args <- args[vapply(args, inherits, TRUE, "try-error")]
   if (!identical(length(args), n)) return(TRUE)
-  if(!isTRUE(err)) return(FALSE)
+  if(!err) return(FALSE)
   
   args <- unlist(lapply(args, try_msg))
   args <- args[!duplicated(args)]

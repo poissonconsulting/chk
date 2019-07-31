@@ -51,7 +51,7 @@ message if the check fails.}
 two values then it is considered to be a length range.}
 }
 \value{
-A flag or an error if the check fails and \code{isTRUE(err)}.
+A flag or an error if the check fails and err == TRUE.
 }
 \description{
 A flag is a non-missing logical scalar.
