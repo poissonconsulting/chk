@@ -69,11 +69,13 @@ a flag (non-missing logical scalar).
 
 The functions are designed to be fast.
 
-As they are not expected to be exposed to users they don’t check any of
-their inputs (other than the first argument of course\!).
+As they are not expected to be exposed to users the `chk` functions
+don’t check any of their inputs (other than the first argument of
+course\!).
 
-To allow conditional checking depending on whether the function is
-called internal or externally the developer can use something like
+Checking user supplied inputs is vital but it slows code down when those
+checks are unnecessary ie the code is called internally. To allow
+conditional checking the developer can use something like
 
 ``` r
 fun <- function(x, chk = TRUE) {
@@ -114,9 +116,9 @@ fun(1)
 
 In addition, `chk` is released under the
 [CC0](https://creativecommons.org/publicdomain/zero/1.0/) licence so
-developers can copy and paste individual functions into their packages
-without any need for creditation which is useful if they don’t want
-`chk` as a dependency.
+developers can copy and paste individual functions (and tests) into
+their packages without any need for creditation which is useful if they
+don’t want `chk` as a dependency.
 
 ## Inspiration
 
