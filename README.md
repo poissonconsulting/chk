@@ -108,44 +108,44 @@ checks are unnecessary ie the code is called internally. To allow
 conditional checking the developer can use something like
 
 ``` r
-fun <- function(x, chk = TRUE) {
+fun_chk <- function(x, chk = TRUE) {
   if(isTRUE(chk)) {
     chk_flag(x)
   }
   x
 }
 
-fun(1) # when called by user
+fun_chk(1) # when called by user
 #> Error: x must be a flag (TRUE or FALSE)
 
-fun2 <- function(x) {
-  fun(x, chk = FALSE) # when called internally
+fun_chk2 <- function(x) {
+  fun_chk(x, chk = FALSE) # when called internally
 }
-fun2(1)
+fun_chk2(1)
 #> [1] 1
 ```
 
 An alternative approach is to use something like
 
 ``` r
-fun <- function(x) {
+fun_option <- function(x) {
   if(isTRUE(getOption("chk.chk", TRUE))) {
     chk_flag(x)
   }
   x
 }
 
-fun(1) # when called by user
+fun_option(1) # when called by user
 #> Error: x must be a flag (TRUE or FALSE)
 
-fun2 <- function(x) {
+fun_option2 <- function(x) {
   chk.chk <- options(chk.chk = FALSE)
   on.exit(options(chk.chk))
-  fun(x) # when called internally
+  fun_option(x) # when called internally
 }
 getOption("chk.chk")
 #> NULL
-fun2(1)
+fun_option2(1)
 #> [1] 1
 getOption("chk.chk")
 #> NULL

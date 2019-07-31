@@ -1,0 +1,47 @@
+---
+title: "Microbenchmarking chk"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Microbenchmarking chk}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(chk)
+library(microbenchmark)
+```
+
+```{r}
+fun_chk <- function(x, chk = TRUE) {
+  if(isTRUE(chk)) chk_flag(x)
+  x
+}
+
+fun_chk2 <- function(x) fun_chk(x, chk = FALSE)
+
+fun_option <- function(x) {
+  if(isTRUE(getOption("chk.chk", TRUE))) chk_flag(x)
+  x
+}
+
+fun_option2 <- function(x) {
+  chk.chk <- options(chk.chk = FALSE)
+  on.exit(options(chk.chk))
+  fun_option(x)
+}
+
+microbenchmark(
+  fun_chk2(1),
+  fun_chk2(TRUE),
+  fun_option2(1),
+  fun_option2(TRUE)
+)
+```
