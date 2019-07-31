@@ -103,9 +103,9 @@ As they are not expected to be exposed to users the `chk` functions
 don’t check any of their inputs (other than the first argument of
 course\!).
 
-Checking user supplied inputs is vital but it slows code down when those
-checks are unnecessary ie the code is called internally. To allow
-conditional checking the developer can use something like
+Checking user supplied inputs is vital but it slows code down when there
+are lots of checks. To allow checking only when specified the developer
+can use something like
 
 ``` r
 fun_chk <- function(x, chk = TRUE) {
