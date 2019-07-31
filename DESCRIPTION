@@ -1,4 +1,4 @@
-Package: pkgtemplate
+Package: chk
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: c(
@@ -19,8 +19,8 @@ Suggests:
 Remotes:
   poissonconsulting/err,
   poissonconsulting/checkr
-URL: https://github.com/poissonconsulting/pkgtemplate
-BugReports: https://github.com/poissonconsulting/pkgtemplate/issues
+URL: https://github.com/poissonconsulting/chk
+BugReports: https://github.com/poissonconsulting/chk/issues
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
