@@ -5,6 +5,7 @@
 #' @param x The object to check. 
 #' @param err A flag specifying whether to generate an error
 #' message if the check fails.
+#' @param class A string specifying the class.
 #' @param ... Additional arguments.
 #'
 #' @return A flag or an error if the check fails and \code{isTRUE(err)}.
@@ -94,6 +95,15 @@ chk_named <- function(x, err = TRUE) {
   err(x, " must be named")
 }
 
+#' @describeIn chk_flag Check NULL
+#' @export
+chk_null <- function(x, err = TRUE) {
+  if(is.null(x)) return(TRUE)
+  if(!isTRUE(err)) return(FALSE)
+  x <- deparse(substitute(x))
+  err(x, " must be NULL")
+}
+
 #' @describeIn chk_flag Check function
 #' @export
 chk_function <- function(x, err = TRUE) {
@@ -101,6 +111,15 @@ chk_function <- function(x, err = TRUE) {
   if(!isTRUE(err)) return(FALSE)
   x <- deparse(substitute(x))
   err(x, " must be a function")
+}
+
+#' @describeIn chk_flag Check inherits from class
+#' @export
+chk_is <- function(x, class, err = TRUE) {
+  if(inherits(x, class)) return(TRUE)
+  if(!isTRUE(err)) return(FALSE)
+  x <- deparse(substitute(x))
+  err(x, " must inherit from ", class)
 }
 
 #' @describeIn chk_flag Check unused
@@ -117,4 +136,33 @@ chk_used <- function (..., err = TRUE) {
   if(length(list(...))) return(TRUE)
   if(!isTRUE(err)) return(FALSE)
   err("... must be used")
+}
+
+#' @describeIn chk_flag Check length
+#' @param length An integer vector of the permitted lengths. If
+#' two values then it is considered to be a length range.
+#' @export
+chk_length <- function (x, length = c(1L, 2147483647), err = TRUE) {
+  n <- length(x)
+  length <- unique(length)
+  
+  if(length(length) == 1L) {
+    if(n == length) return(TRUE)
+    if(!isTRUE(err)) return(FALSE)
+    x <- deparse(substitute(x))
+    err(x, " must have a length of ", length)
+  }
+  
+  length <- sort(length)
+  
+  if(length(length) == 2L) {
+    if(n >= length[1] && n <= length[2]) return(TRUE)
+    if(!isTRUE(err)) return(FALSE)
+    x <- deparse(substitute(x))
+    err(x, " must have a length between ", length[1], " and ", length[2])
+  }
+  if(n %in% length) return(TRUE)
+  if(!isTRUE(err)) return(FALSE)
+  x <- deparse(substitute(x))
+  err(x, " must have a length of ", cc(length, chk = FALSE))
 }

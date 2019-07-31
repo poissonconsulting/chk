@@ -7,9 +7,12 @@
 \alias{chk_number}
 \alias{chk_string}
 \alias{chk_named}
+\alias{chk_null}
 \alias{chk_function}
+\alias{chk_is}
 \alias{chk_unused}
 \alias{chk_used}
+\alias{chk_length}
 \title{Check Object}
 \usage{
 chk_flag(x, err = TRUE)
@@ -22,11 +25,17 @@ chk_string(x, err = TRUE)
 
 chk_named(x, err = TRUE)
 
+chk_null(x, err = TRUE)
+
 chk_function(x, err = TRUE)
+
+chk_is(x, class, err = TRUE)
 
 chk_unused(..., err = TRUE)
 
 chk_used(..., err = TRUE)
+
+chk_length(x, length = c(1L, 2147483647), err = TRUE)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -34,7 +43,12 @@ chk_used(..., err = TRUE)
 \item{err}{A flag specifying whether to generate an error
 message if the check fails.}
 
+\item{class}{A string specifying the class.}
+
 \item{...}{Additional arguments.}
+
+\item{length}{An integer vector of the permitted lengths. If
+two values then it is considered to be a length range.}
 }
 \value{
 A flag or an error if the check fails and \code{isTRUE(err)}.
@@ -52,11 +66,17 @@ A flag is a non-missing logical scalar.
 
 \item \code{chk_named}: Check named
 
+\item \code{chk_null}: Check NULL
+
 \item \code{chk_function}: Check function
+
+\item \code{chk_is}: Check inherits from class
 
 \item \code{chk_unused}: Check unused
 
 \item \code{chk_used}: Check used
+
+\item \code{chk_length}: Check length
 }}
 
 \examples{

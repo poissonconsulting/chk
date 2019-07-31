@@ -52,11 +52,25 @@ test_that("chk_named", {
   expect_error(chk_named(1), "^1 must be named$")
 })
 
+test_that("chk_null", {
+  expect_true(chk_null(NULL))
+  expect_false(chk_null(1, err = FALSE))
+  expect_error(chk_null(1), "^1 must be NULL$")
+})
+
 test_that("chk_function", {
   expect_true(chk_function(p))
   expect_true(chk_function(function(){}))
   expect_false(chk_function(1, err = FALSE))
   expect_error(chk_function(1), "^1 must be a function$")
+})
+
+test_that("chk_is", {
+  expect_true(chk_is(1, "numeric"))
+  expect_false(chk_is(1L, "numeric", err = FALSE))
+  expect_true(chk_is(1L, "integer"))
+  expect_error(chk_is(1, "integer"), "^1 must inherit from integer$")
+  expect_error(chk_is(matrix(1), "numeric"), "matrix[(]1[)] must inherit from numeric$")
 })
 
 test_that("chk_unused", {
@@ -71,3 +85,19 @@ test_that("chk_used", {
   expect_error(chk_used(), "^... must be used$")
 })
 
+test_that("chk_length", {
+  expect_true(chk_length(1))
+  expect_true(chk_length(1:3))
+  expect_true(chk_length(numeric(0), 0L))
+  expect_true(chk_length(1, c(1,2,3)))
+  expect_false(chk_length(numeric(0), err = FALSE))
+  expect_error(chk_length(numeric(0)), 
+               "numeric[(]0[)] must have a length between 1 and 2147483647")
+  expect_error(chk_length(1, 0), "1 must have a length of 0")
+  expect_false(chk_length(1, 0, err = FALSE))
+  expect_error(chk_length(1, 2), "1 must have a length of 2")
+  expect_false(chk_length(1, c(3,2,2), err = FALSE))
+  expect_error(chk_length(1, c(3,2,2)), "1 must have a length between 2 and 3")
+  expect_false(chk_length(1, c(2,4,3), err = FALSE))
+  expect_error(chk_length(1, c(2,4,3)), "1 must have a length of 2, 3 or 4")
+})

@@ -105,6 +105,10 @@ In addition, `chk` is released under the [CC0](https://creativecommons.org/publi
 can copy and paste individual functions into their packages without any 
 need for creditation which is useful if they don't want `chk` as a dependency.
 
+## Inspiration
+
+- [checkr](https://github.com/poissonconsulting/checkr/)
+
 ## Contribution
 
 Please report any [issues](https://github.com/poissonconsulting/chk/issues).
