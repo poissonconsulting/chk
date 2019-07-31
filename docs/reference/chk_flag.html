@@ -66,7 +66,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9001</span>
       </span>
     </div>
 
@@ -127,11 +127,17 @@
 
 <span class='fu'>chk_named</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
+<span class='fu'>chk_null</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
 <span class='fu'>chk_function</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='fu'>chk_is</span>(<span class='no'>x</span>, <span class='no'>class</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>chk_unused</span>(<span class='no'>...</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>chk_used</span>(<span class='no'>...</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+<span class='fu'>chk_used</span>(<span class='no'>...</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='fu'>chk_length</span>(<span class='no'>x</span>, <span class='kw'>length</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fl'>2147483647</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -146,8 +152,17 @@
 message if the check fails.</p></td>
     </tr>
     <tr>
+      <th>class</th>
+      <td><p>A string specifying the class.</p></td>
+    </tr>
+    <tr>
       <th>...</th>
       <td><p>Additional arguments.</p></td>
+    </tr>
+    <tr>
+      <th>length</th>
+      <td><p>An integer vector of the permitted lengths. If
+two values then it is considered to be a length range.</p></td>
     </tr>
     </table>
     
@@ -162,9 +177,12 @@ message if the check fails.</p></td>
 <li><p><code>chk_number</code>: Check number (non-mising numeric scalar)</p></li>
 <li><p><code>chk_string</code>: Check string (non-mising character scalar)</p></li>
 <li><p><code>chk_named</code>: Check named</p></li>
+<li><p><code>chk_null</code>: Check NULL</p></li>
 <li><p><code>chk_function</code>: Check function</p></li>
+<li><p><code>chk_is</code>: Check inherits from class</p></li>
 <li><p><code>chk_unused</code>: Check unused</p></li>
 <li><p><code>chk_used</code>: Check used</p></li>
+<li><p><code>chk_length</code>: Check length</p></li>
 </ul>
     
 
