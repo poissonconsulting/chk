@@ -9,6 +9,7 @@
 #'
 #' @return A flag or an error if the check fails and \code{isTRUE(err)}.
 #' @name chk_flag
+#' @aliases chk
 #' @export
 #'
 #' @examples

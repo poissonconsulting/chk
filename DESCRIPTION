@@ -1,11 +1,12 @@
 Package: chk
-Title: What the Package Does (One Line, Title Case)
+Title: Check User-Supplied Function Arguments
 Version: 0.0.0.9000
 Authors@R: c(
     person("Joe", "Thorley", , "joe@poissonconsulting.ca", c("aut", "cre"), comment = c(ORCID = "0000-0002-7683-4592")),
     person("Poisson Consulting", role = c("cph", "fnd"))
     )
-Description: What the package does (one paragraph).
+Description: For developers to check user-supplied inputs to their functions.
+        It is designed to be simple, fast and customisable.
 License: CC0
 Depends: R (>= 3.5)
 Suggests: 

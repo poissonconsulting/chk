@@ -12,6 +12,7 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
+
 # chk
 
 <!-- badges: start -->
@@ -24,12 +25,7 @@ knitr::opts_chunk$set(
 
 `chk` is an R package for developers to check user-supplied inputs to their functions.
 
-It is designed to `chk` is designed to be simple, fast and customisable.
-
-```{r}
-library(chk)
-chk_lgl(x)
-```
+It is designed to be simple, fast and customisable.
 
 ## Installation
 
@@ -43,6 +39,71 @@ To install the latest development version from [GitHub](https://github.com/poiss
 # install.packages("remotes")
 remotes::install_github("poissonconsulting/chk")
 ```
+
+## Demonstration
+
+### Simple
+
+`chk` provides simple commonly used checks which can be combined together
+for more complex checking.
+
+```{r, error = TRUE}
+library(chk)
+
+y <- "a"
+
+chk_flag(y)
+chk_string(y)
+
+chkor(chk_flag(y), chk_number(y))
+chkor(chk_flag(y), chk_string(y))
+```
+
+As the functions are not expected to be used in pipes they simply return a flag (non-missing logical scalar).
+
+### Fast
+
+The functions are designed to be fast. 
+
+As they are not expected to be exposed to users they don't check any of their
+inputs (other than the first argument of course!).
+
+To allow conditional checking depending on whether the function is called internal or externally the developer can use something like
+
+```{r, error = TRUE}
+fun <- function(x, chk = TRUE) {
+  if(isTRUE(chk)) {
+    chk_flag(x)
+  }
+  x
+}
+
+fun(1) # when called by user
+fun(1, chk = FALSE) # when called internally
+```
+
+### Customisable
+
+The functions are designed to be customisable.
+
+If `err = FALSE` the `chk` functions return FALSE on check failure.
+```{r}
+chk_flag(1, err = FALSE)
+```
+
+This allows developers to provide their own error message.
+```{r, error = TRUE}
+fun <- function(x) {
+  if(!chk_flag(x, err = FALSE)) {
+    stop("x really should be a flag (try as.logical())")
+  }
+}
+fun(1)
+```
+
+In addition, `chk` is released under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/) licence so developers 
+can copy and paste individual functions into their packages without any 
+need for creditation which is useful if they don't want `chk` as a dependency.
 
 ## Contribution
 

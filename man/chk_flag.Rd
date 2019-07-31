@@ -2,6 +2,7 @@
 % Please edit documentation in R/chk.R
 \name{chk_flag}
 \alias{chk_flag}
+\alias{chk}
 \alias{chk_lgl}
 \alias{chk_number}
 \alias{chk_string}
