@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9002</span>
       </span>
     </div>
 
@@ -117,8 +117,8 @@
 <h3 class="hasAnchor">
 <a href="#fast" class="anchor"></a>Fast</h3>
 <p>The functions are designed to be fast.</p>
-<p>As they are not expected to be exposed to users they don’t check any of their inputs (other than the first argument of course!).</p>
-<p>To allow conditional checking depending on whether the function is called internal or externally the developer can use something like</p>
+<p>As they are not expected to be exposed to users the <code>chk</code> functions don’t check any of their inputs (other than the first argument of course!).</p>
+<p>Checking user supplied inputs is vital but it slows code down when those checks are unnecessary ie the code is called internally. To allow conditional checking the developer can use something like</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>fun &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">chk =</span> <span class="ot">TRUE</span>) {</span>
 <span id="cb4-2"><a href="#cb4-2"></a>  <span class="cf">if</span>(<span class="kw"><a href="https://rdrr.io/r/base/Logic.html">isTRUE</a></span>(chk)) {</span>
 <span id="cb4-3"><a href="#cb4-3"></a>    <span class="kw"><a href="reference/chk_flag.html">chk_flag</a></span>(x)</span>
@@ -146,7 +146,7 @@
 <span id="cb6-5"><a href="#cb6-5"></a>}</span>
 <span id="cb6-6"><a href="#cb6-6"></a><span class="kw">fun</span>(<span class="dv">1</span>)</span>
 <span id="cb6-7"><a href="#cb6-7"></a><span class="co">#&gt; Error in fun(1): x really should be a flag (try as.logical())</span></span></code></pre></div>
-<p>In addition, <code>chk</code> is released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> licence so developers can copy and paste individual functions into their packages without any need for creditation which is useful if they don’t want <code>chk</code> as a dependency.</p>
+<p>In addition, <code>chk</code> is released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> licence so developers can copy and paste individual functions (and tests) into their packages without any need for creditation which is useful if they don’t want <code>chk</code> as a dependency.</p>
 </div>
 </div>
 <div id="inspiration" class="section level2">
@@ -161,7 +161,7 @@
 <a href="#contribution" class="anchor"></a>Contribution</h2>
 <p>Please report any <a href="https://github.com/poissonconsulting/chk/issues">issues</a>.</p>
 <p><a href="https://github.com/poissonconsulting/chk/pulls">Pull requests</a> are always welcome.</p>
-<p>Please note that this project is released with a <a href="https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>. By contributing, you agree to abide by its terms.</p>
+<p>Please note that this project is released with a <a href="https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>. By contributing, you agree to abide by its terms</p>
 </div>
 </div>
   </div>
