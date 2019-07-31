@@ -47,6 +47,18 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/benchmarking-chk.html">Microbenchmarking chk</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="news/index.html">Changelog</a>
 </li>
@@ -137,40 +149,40 @@
 <p>The functions are designed to be fast.</p>
 <p>As they are not expected to be exposed to users the <code>chk</code> functions don’t check any of their inputs (other than the first argument of course!).</p>
 <p>Checking user supplied inputs is vital but it slows code down when those checks are unnecessary ie the code is called internally. To allow conditional checking the developer can use something like</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>fun &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">chk =</span> <span class="ot">TRUE</span>) {</span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>fun_chk &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">chk =</span> <span class="ot">TRUE</span>) {</span>
 <span id="cb6-2"><a href="#cb6-2"></a>  <span class="cf">if</span>(<span class="kw"><a href="https://rdrr.io/r/base/Logic.html">isTRUE</a></span>(chk)) {</span>
 <span id="cb6-3"><a href="#cb6-3"></a>    <span class="kw"><a href="reference/chk_flag.html">chk_flag</a></span>(x)</span>
 <span id="cb6-4"><a href="#cb6-4"></a>  }</span>
 <span id="cb6-5"><a href="#cb6-5"></a>  x</span>
 <span id="cb6-6"><a href="#cb6-6"></a>}</span>
 <span id="cb6-7"><a href="#cb6-7"></a></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="kw">fun</span>(<span class="dv">1</span>) <span class="co"># when called by user</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="kw">fun_chk</span>(<span class="dv">1</span>) <span class="co"># when called by user</span></span>
 <span id="cb6-9"><a href="#cb6-9"></a><span class="co">#&gt; Error: x must be a flag (TRUE or FALSE)</span></span>
 <span id="cb6-10"><a href="#cb6-10"></a></span>
-<span id="cb6-11"><a href="#cb6-11"></a>fun2 &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb6-12"><a href="#cb6-12"></a>  <span class="kw">fun</span>(x, <span class="dt">chk =</span> <span class="ot">FALSE</span>) <span class="co"># when called internally</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>fun_chk2 &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb6-12"><a href="#cb6-12"></a>  <span class="kw">fun_chk</span>(x, <span class="dt">chk =</span> <span class="ot">FALSE</span>) <span class="co"># when called internally</span></span>
 <span id="cb6-13"><a href="#cb6-13"></a>}</span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="kw">fun2</span>(<span class="dv">1</span>)</span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="kw">fun_chk2</span>(<span class="dv">1</span>)</span>
 <span id="cb6-15"><a href="#cb6-15"></a><span class="co">#&gt; [1] 1</span></span></code></pre></div>
 <p>An alternative approach is to use something like</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>fun &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>fun_option &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
 <span id="cb7-2"><a href="#cb7-2"></a>  <span class="cf">if</span>(<span class="kw"><a href="https://rdrr.io/r/base/Logic.html">isTRUE</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/options.html">getOption</a></span>(<span class="st">"chk.chk"</span>, <span class="ot">TRUE</span>))) {</span>
 <span id="cb7-3"><a href="#cb7-3"></a>    <span class="kw"><a href="reference/chk_flag.html">chk_flag</a></span>(x)</span>
 <span id="cb7-4"><a href="#cb7-4"></a>  }</span>
 <span id="cb7-5"><a href="#cb7-5"></a>  x</span>
 <span id="cb7-6"><a href="#cb7-6"></a>}</span>
 <span id="cb7-7"><a href="#cb7-7"></a></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="kw">fun</span>(<span class="dv">1</span>) <span class="co"># when called by user</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="kw">fun_option</span>(<span class="dv">1</span>) <span class="co"># when called by user</span></span>
 <span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt; Error: x must be a flag (TRUE or FALSE)</span></span>
 <span id="cb7-10"><a href="#cb7-10"></a></span>
-<span id="cb7-11"><a href="#cb7-11"></a>fun2 &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb7-11"><a href="#cb7-11"></a>fun_option2 &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
 <span id="cb7-12"><a href="#cb7-12"></a>  chk.chk &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(<span class="dt">chk.chk =</span> <span class="ot">FALSE</span>)</span>
 <span id="cb7-13"><a href="#cb7-13"></a>  <span class="kw"><a href="https://rdrr.io/r/base/on.exit.html">on.exit</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(chk.chk))</span>
-<span id="cb7-14"><a href="#cb7-14"></a>  <span class="kw">fun</span>(x) <span class="co"># when called internally</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a>  <span class="kw">fun_option</span>(x) <span class="co"># when called internally</span></span>
 <span id="cb7-15"><a href="#cb7-15"></a>}</span>
 <span id="cb7-16"><a href="#cb7-16"></a><span class="kw"><a href="https://rdrr.io/r/base/options.html">getOption</a></span>(<span class="st">"chk.chk"</span>)</span>
 <span id="cb7-17"><a href="#cb7-17"></a><span class="co">#&gt; NULL</span></span>
-<span id="cb7-18"><a href="#cb7-18"></a><span class="kw">fun2</span>(<span class="dv">1</span>)</span>
+<span id="cb7-18"><a href="#cb7-18"></a><span class="kw">fun_option2</span>(<span class="dv">1</span>)</span>
 <span id="cb7-19"><a href="#cb7-19"></a><span class="co">#&gt; [1] 1</span></span>
 <span id="cb7-20"><a href="#cb7-20"></a><span class="kw"><a href="https://rdrr.io/r/base/options.html">getOption</a></span>(<span class="st">"chk.chk"</span>)</span>
 <span id="cb7-21"><a href="#cb7-21"></a><span class="co">#&gt; NULL</span></span></code></pre></div>
