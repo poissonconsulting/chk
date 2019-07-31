@@ -97,7 +97,7 @@ test_that("chk_length", {
   expect_false(chk_length(1, 0, err = FALSE))
   expect_error(chk_length(1, 2), "1 must have a length of 2")
   expect_false(chk_length(1, c(3,2,2), err = FALSE))
-  expect_error(chk_length(1, c(3,2,2)), "1 must have a length between 2 and 3")
+  expect_error(chk_length(1, c(3,2,2)), "1 must have a length of 2 or 3")
   expect_false(chk_length(1, c(2,4,3), err = FALSE))
   expect_error(chk_length(1, c(2,4,3)), "1 must have a length of 2, 3 or 4")
 })

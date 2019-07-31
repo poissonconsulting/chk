@@ -144,7 +144,8 @@ chk_used <- function (..., err = TRUE) {
 #' @export
 chk_length <- function (x, length = c(1L, 2147483647), err = TRUE) {
   n <- length(x)
-  length <- unique(length)
+  
+  if(all(length == length[1])) length <- length[1]
   
   if(length(length) == 1L) {
     if(n == length) return(TRUE)
@@ -161,6 +162,8 @@ chk_length <- function (x, length = c(1L, 2147483647), err = TRUE) {
     x <- deparse(substitute(x))
     err(x, " must have a length between ", length[1], " and ", length[2])
   }
+  length <- unique(length)
+
   if(n %in% length) return(TRUE)
   if(!isTRUE(err)) return(FALSE)
   x <- deparse(substitute(x))
