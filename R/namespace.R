@@ -1,0 +1,2 @@
+#' @import err checkr
+NULL
