@@ -118,6 +118,10 @@ developers can copy and paste individual functions into their packages
 without any need for creditation which is useful if they don’t want
 `chk` as a dependency.
 
+## Inspiration
+
+  - [checkr](https://github.com/poissonconsulting/checkr/)
+
 ## Contribution
 
 Please report any
@@ -128,4 +132,4 @@ always welcome.
 
 Please note that this project is released with a [Contributor Code of
 Conduct](https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md).
-By contributing, you agree to abide by its terms.
+By contributing, you agree to abide by its terms
