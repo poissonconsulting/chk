@@ -2,7 +2,7 @@
 % Please edit documentation in R/err.R
 \name{wrn}
 \alias{wrn}
-\title{Warning Messages}
+\title{Warning}
 \usage{
 wrn(...)
 }

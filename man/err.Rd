@@ -3,7 +3,7 @@
 \name{err}
 \alias{err}
 \alias{error}
-\title{Stop Function Execution}
+\title{Stop}
 \usage{
 err(...)
 }
