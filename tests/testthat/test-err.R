@@ -4,3 +4,8 @@ test_that("err",{
   expect_error(err(), "^$")
   expect_error(err("this", "is"), "^thisis$")
 })
+
+test_that("wrn",{
+  expect_warning(wrn(), "^$")
+  expect_warning(wrn("this", "is"), "^thisis$")
+})
