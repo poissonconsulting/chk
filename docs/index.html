@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9002</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9003</span>
       </span>
     </div>
 
@@ -55,7 +55,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/benchmarking-chk.html">Microbenchmarking chk</a>
+      <a href="articles/benchmarking-chk.html">Benchmarking chk</a>
     </li>
   </ul>
 </li>
@@ -119,79 +119,67 @@
 <span id="cb3-7"><a href="#cb3-7"></a><span class="kw"><a href="reference/chk_flag.html">chk_string</a></span>(y)</span>
 <span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt; [1] TRUE</span></span>
 <span id="cb3-9"><a href="#cb3-9"></a></span>
-<span id="cb3-10"><a href="#cb3-10"></a>z &lt;-<span class="st"> "b"</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="kw"><a href="reference/chkor.html">chkor</a></span>(<span class="kw"><a href="reference/chk_flag.html">chk_flag</a></span>(z), <span class="kw"><a href="reference/chk_flag.html">chk_number</a></span>(z))</span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt; Error: z must be a flag (TRUE or FALSE) OR z must be a number (non-missing numeric scalar)</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="kw"><a href="reference/chkor.html">chkor</a></span>(<span class="kw"><a href="reference/chk_flag.html">chk_flag</a></span>(z), <span class="kw"><a href="reference/chk_flag.html">chk_string</a></span>(z))</span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
-<p>As the functions are not expected to be used in pipes they simply return a flag (non-missing logical scalar).</p>
+<span id="cb3-10"><a href="#cb3-10"></a>data &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(<span class="dt">x =</span> <span class="dv">1</span>)</span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="kw"><a href="reference/chk_flag.html">chk_is</a></span>(data, <span class="st">"data.frame"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="kw"><a href="reference/chk_flag.html">chk_length</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(data), <span class="dv">1</span>)</span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="kw"><a href="reference/chk_flag.html">chk_length</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(data), <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>)</span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="co">#&gt; Error: nrow(data) must have a length between 2 and 3</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a></span>
+<span id="cb3-18"><a href="#cb3-18"></a>z &lt;-<span class="st"> "b"</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="kw"><a href="reference/chkor.html">chkor</a></span>(<span class="kw"><a href="reference/chk_flag.html">chk_flag</a></span>(z), <span class="kw"><a href="reference/chk_flag.html">chk_number</a></span>(z))</span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="co">#&gt; Error: z must be a flag (TRUE or FALSE) OR z must be a number (non-missing numeric scalar)</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="kw"><a href="reference/chkor.html">chkor</a></span>(<span class="kw"><a href="reference/chk_flag.html">chk_flag</a></span>(z), <span class="kw"><a href="reference/chk_flag.html">chk_string</a></span>(z))</span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<p>By default, each check returns TRUE if successful or throws an informative error.</p>
 </div>
 <div id="customisable" class="section level3">
 <h3 class="hasAnchor">
 <a href="#customisable" class="anchor"></a>Customisable</h3>
 <p>The functions are designed to be customisable.</p>
-<p>If <code>err = FALSE</code> the <code>chk</code> functions return FALSE on check failure.</p>
+<p>If <code>err = FALSE</code> a check returns FALSE (instead of throwing an error) on check failure.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="reference/chk_flag.html">chk_flag</a></span>(<span class="dv">1</span>, <span class="dt">err =</span> <span class="ot">FALSE</span>)</span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 <p>This allows developers to provide their own error messages.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>fun &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb5-2"><a href="#cb5-2"></a>  <span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="reference/chk_flag.html">chk_flag</a></span>(x, <span class="dt">err =</span> <span class="ot">FALSE</span>)) {</span>
-<span id="cb5-3"><a href="#cb5-3"></a>    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(<span class="st">"x really should be a flag (try as.logical())"</span>)</span>
-<span id="cb5-4"><a href="#cb5-4"></a>  }</span>
-<span id="cb5-5"><a href="#cb5-5"></a>}</span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="kw">fun</span>(<span class="dv">1</span>)</span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt; Error in fun(1): x really should be a flag (try as.logical())</span></span></code></pre></div>
-<p>In addition, <code>chk</code> is released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> licence so developers can copy and paste individual functions (and tests) into their packages without any need for creditation which is useful if they don’t want <code>chk</code> as a dependency.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="reference/chk_flag.html">chk_flag</a></span>(<span class="dv">1</span>, <span class="dt">err =</span> <span class="ot">FALSE</span>)) <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(<span class="st">"x MUST be a flag (try as.logical())"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#&gt; Error in eval(expr, envir, enclos): x MUST be a flag (try as.logical())</span></span></code></pre></div>
+<p><code>chk</code> is released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> licence so developers can copy and paste individual functions (and tests) into their packages without any need for creditation which is useful if they want to minimise their dependencies.</p>
 </div>
 <div id="fast" class="section level3">
 <h3 class="hasAnchor">
 <a href="#fast" class="anchor"></a>Fast</h3>
 <p>The functions are designed to be fast.</p>
-<p>As they are not expected to be exposed to users the <code>chk</code> functions don’t check any of their inputs (other than the first argument of course!).</p>
-<p>Checking user supplied inputs is vital but it slows code down when there are <em>lots</em> of checks in a function (see <a href="https://poissonconsulting.github.io/chk/articles/benchmarking-chk.html">microbenching-chk</a> vignette). To allow checking only when specified the developer can use something like</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>fun_chk &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">chk =</span> <span class="ot">TRUE</span>) {</span>
-<span id="cb6-2"><a href="#cb6-2"></a>  <span class="cf">if</span>(<span class="kw"><a href="https://rdrr.io/r/base/Logic.html">isTRUE</a></span>(chk)) {</span>
+<p>As they are not expected to be directly exposed to users the <code>chk</code> functions don’t check any of their inputs (other than the first argument of course!).</p>
+<p>If a function is being called internally the checks can be turned off as follows</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>fun &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...) {</span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="cf">if</span>(<span class="kw"><a href="reference/chk_on.html">is_chk_on</a></span>()) {</span>
 <span id="cb6-3"><a href="#cb6-3"></a>    <span class="kw"><a href="reference/chk_flag.html">chk_flag</a></span>(x)</span>
-<span id="cb6-4"><a href="#cb6-4"></a>  }</span>
-<span id="cb6-5"><a href="#cb6-5"></a>  x</span>
-<span id="cb6-6"><a href="#cb6-6"></a>}</span>
-<span id="cb6-7"><a href="#cb6-7"></a></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="kw">fun_chk</span>(<span class="dv">1</span>) <span class="co"># when called by user</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="co">#&gt; Error: x must be a flag (TRUE or FALSE)</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a></span>
-<span id="cb6-11"><a href="#cb6-11"></a>fun_chk2 &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb6-12"><a href="#cb6-12"></a>  <span class="kw">fun_chk</span>(x, <span class="dt">chk =</span> <span class="ot">FALSE</span>) <span class="co"># when called internally</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a>}</span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="kw">fun_chk2</span>(<span class="dv">1</span>)</span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="co">#&gt; [1] 1</span></span></code></pre></div>
-<p>An alternative approach is to use something like</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>fun_option &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb7-2"><a href="#cb7-2"></a>  <span class="cf">if</span>(<span class="kw"><a href="https://rdrr.io/r/base/Logic.html">isTRUE</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/options.html">getOption</a></span>(<span class="st">"chk.chk"</span>, <span class="ot">TRUE</span>))) {</span>
-<span id="cb7-3"><a href="#cb7-3"></a>    <span class="kw"><a href="reference/chk_flag.html">chk_flag</a></span>(x)</span>
-<span id="cb7-4"><a href="#cb7-4"></a>  }</span>
-<span id="cb7-5"><a href="#cb7-5"></a>  x</span>
-<span id="cb7-6"><a href="#cb7-6"></a>}</span>
-<span id="cb7-7"><a href="#cb7-7"></a></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="kw">fun_option</span>(<span class="dv">1</span>) <span class="co"># when called by user</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt; Error: x must be a flag (TRUE or FALSE)</span></span>
-<span id="cb7-10"><a href="#cb7-10"></a></span>
-<span id="cb7-11"><a href="#cb7-11"></a>fun_option2 &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb7-12"><a href="#cb7-12"></a>  chk.chk &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(<span class="dt">chk.chk =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb7-13"><a href="#cb7-13"></a>  <span class="kw"><a href="https://rdrr.io/r/base/on.exit.html">on.exit</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(chk.chk))</span>
-<span id="cb7-14"><a href="#cb7-14"></a>  <span class="kw">fun_option</span>(x) <span class="co"># when called internally</span></span>
-<span id="cb7-15"><a href="#cb7-15"></a>}</span>
-<span id="cb7-16"><a href="#cb7-16"></a><span class="kw"><a href="https://rdrr.io/r/base/options.html">getOption</a></span>(<span class="st">"chk.chk"</span>)</span>
-<span id="cb7-17"><a href="#cb7-17"></a><span class="co">#&gt; NULL</span></span>
-<span id="cb7-18"><a href="#cb7-18"></a><span class="kw">fun_option2</span>(<span class="dv">1</span>)</span>
-<span id="cb7-19"><a href="#cb7-19"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb7-20"><a href="#cb7-20"></a><span class="kw"><a href="https://rdrr.io/r/base/options.html">getOption</a></span>(<span class="st">"chk.chk"</span>)</span>
-<span id="cb7-21"><a href="#cb7-21"></a><span class="co">#&gt; NULL</span></span></code></pre></div>
+<span id="cb6-4"><a href="#cb6-4"></a>    <span class="kw"><a href="reference/chk_flag.html">chk_unused</a></span>(...)</span>
+<span id="cb6-5"><a href="#cb6-5"></a>  }</span>
+<span id="cb6-6"><a href="#cb6-6"></a>  x</span>
+<span id="cb6-7"><a href="#cb6-7"></a>}</span>
+<span id="cb6-8"><a href="#cb6-8"></a></span>
+<span id="cb6-9"><a href="#cb6-9"></a>wrapper_on_fun &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb6-10"><a href="#cb6-10"></a>  <span class="cf">if</span>(<span class="kw"><a href="reference/chk_on.html">is_chk_on</a></span>()) {</span>
+<span id="cb6-11"><a href="#cb6-11"></a>    <span class="kw"><a href="reference/chk_on.html">chk_off</a></span>()</span>
+<span id="cb6-12"><a href="#cb6-12"></a>    <span class="kw"><a href="https://rdrr.io/r/base/on.exit.html">on.exit</a></span>(<span class="kw"><a href="reference/chk_on.html">chk_on</a></span>())</span>
+<span id="cb6-13"><a href="#cb6-13"></a>  }</span>
+<span id="cb6-14"><a href="#cb6-14"></a>  <span class="kw">fun</span>(x)</span>
+<span id="cb6-15"><a href="#cb6-15"></a>}</span>
+<span id="cb6-16"><a href="#cb6-16"></a></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="kw">fun</span>(<span class="ot">FALSE</span>) <span class="co"># calls fun with checking as being called by user</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a><span class="kw">wrapper_on_fun</span>(<span class="ot">FALSE</span>) <span class="co"># calls fun without checking as being used internally</span></span>
+<span id="cb6-20"><a href="#cb6-20"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+<p>It is only worth doing this if the checks are substantially slower than the time required to test and set checking on and off (see <a href="https://poissonconsulting.github.io/chk/articles/benchmarking-chk.html">Benchmarking chk</a>)</p>
 </div>
 </div>
 <div id="inspiration" class="section level2">
 <h2 class="hasAnchor">
 <a href="#inspiration" class="anchor"></a>Inspiration</h2>
 <ul>
+<li><a href="https://github.com/poissonconsulting/datacheckr/">datacheckr</a></li>
 <li><a href="https://github.com/poissonconsulting/checkr/">checkr</a></li>
 </ul>
 </div>

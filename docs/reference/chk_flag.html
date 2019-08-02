@@ -66,7 +66,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9002</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9003</span>
       </span>
     </div>
 
@@ -89,7 +89,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/benchmarking-chk.html">Microbenchmarking chk</a>
+      <a href="../articles/benchmarking-chk.html">Benchmarking chk</a>
     </li>
   </ul>
 </li>
@@ -145,6 +145,8 @@
 
 <span class='fu'>chk_is</span>(<span class='no'>x</span>, <span class='no'>class</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
+<span class='fu'>chk_no_missing</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
 <span class='fu'>chk_unused</span>(<span class='no'>...</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>chk_used</span>(<span class='no'>...</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
@@ -192,6 +194,7 @@ two values then it is considered to be a length range.</p></td>
 <li><p><code>chk_null</code>: Check NULL</p></li>
 <li><p><code>chk_function</code>: Check function</p></li>
 <li><p><code>chk_is</code>: Check inherits from class</p></li>
+<li><p><code>chk_no_missing</code>: Check no missing values</p></li>
 <li><p><code>chk_unused</code>: Check unused</p></li>
 <li><p><code>chk_used</code>: Check used</p></li>
 <li><p><code>chk_length</code>: Check length</p></li>

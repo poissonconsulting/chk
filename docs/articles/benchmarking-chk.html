@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Microbenchmarking chk • chk</title>
+<title>Benchmarking chk • chk</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Microbenchmarking chk">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Benchmarking chk">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9002</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9003</span>
       </span>
     </div>
 
@@ -54,7 +54,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/benchmarking-chk.html">Microbenchmarking chk</a>
+      <a href="../articles/benchmarking-chk.html">Benchmarking chk</a>
     </li>
   </ul>
 </li>
@@ -82,7 +82,7 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Microbenchmarking chk</h1>
+      <h1>Benchmarking chk</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/master/vignettes/benchmarking-chk.Rmd"><code>vignettes/benchmarking-chk.Rmd</code></a></small>
@@ -95,55 +95,57 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(chk)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(microbenchmark)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2"></a>fun &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="kw"><a href="../reference/chk_flag.html">chk_length</a></span>(x, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a>fun_no &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb2-2"><a href="#cb2-2"></a>fun_checking &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...) {</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="kw"><a href="../reference/chk_flag.html">chk_flag</a></span>(x)</span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="kw"><a href="../reference/chk_flag.html">chk_unused</a></span>(...)  </span>
 <span id="cb2-5"><a href="#cb2-5"></a>  x</span>
 <span id="cb2-6"><a href="#cb2-6"></a>}</span>
 <span id="cb2-7"><a href="#cb2-7"></a></span>
-<span id="cb2-8"><a href="#cb2-8"></a>fun_chk &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">chk =</span> <span class="ot">TRUE</span>) {</span>
-<span id="cb2-9"><a href="#cb2-9"></a>  <span class="cf">if</span>(<span class="kw"><a href="https://rdrr.io/r/base/Logic.html">isTRUE</a></span>(chk)) <span class="kw">fun</span>(x)</span>
-<span id="cb2-10"><a href="#cb2-10"></a>  x</span>
-<span id="cb2-11"><a href="#cb2-11"></a>}</span>
-<span id="cb2-12"><a href="#cb2-12"></a></span>
-<span id="cb2-13"><a href="#cb2-13"></a>fun_option &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb2-14"><a href="#cb2-14"></a>  <span class="cf">if</span>(<span class="kw"><a href="https://rdrr.io/r/base/options.html">getOption</a></span>(<span class="st">"chk.chk"</span>, <span class="ot">TRUE</span>)) <span class="kw">fun</span>(x)</span>
-<span id="cb2-15"><a href="#cb2-15"></a>  x</span>
-<span id="cb2-16"><a href="#cb2-16"></a>}</span>
-<span id="cb2-17"><a href="#cb2-17"></a></span>
-<span id="cb2-18"><a href="#cb2-18"></a>fun_no2 &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="kw">fun_no</span>(x)</span>
+<span id="cb2-8"><a href="#cb2-8"></a>fun_conditional_checking &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...) {</span>
+<span id="cb2-9"><a href="#cb2-9"></a>  <span class="cf">if</span>(<span class="kw"><a href="../reference/chk_on.html">is_chk_on</a></span>()) {</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    <span class="kw"><a href="../reference/chk_flag.html">chk_flag</a></span>(x)</span>
+<span id="cb2-11"><a href="#cb2-11"></a>    <span class="kw"><a href="../reference/chk_flag.html">chk_unused</a></span>(...)</span>
+<span id="cb2-12"><a href="#cb2-12"></a>  }</span>
+<span id="cb2-13"><a href="#cb2-13"></a>  x</span>
+<span id="cb2-14"><a href="#cb2-14"></a>}</span>
+<span id="cb2-15"><a href="#cb2-15"></a></span>
+<span id="cb2-16"><a href="#cb2-16"></a>wrapper_on_fun_checking &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb2-17"><a href="#cb2-17"></a>  <span class="kw">fun_checking</span>(x)</span>
+<span id="cb2-18"><a href="#cb2-18"></a>}</span>
 <span id="cb2-19"><a href="#cb2-19"></a></span>
-<span id="cb2-20"><a href="#cb2-20"></a>fun_chk2 &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="kw">fun_chk</span>(x, <span class="dt">chk =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb2-21"><a href="#cb2-21"></a></span>
-<span id="cb2-22"><a href="#cb2-22"></a>fun_option2 &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb2-23"><a href="#cb2-23"></a>  chk.chk &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(<span class="dt">chk.chk =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb2-24"><a href="#cb2-24"></a>  <span class="kw"><a href="https://rdrr.io/r/base/on.exit.html">on.exit</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(chk.chk))</span>
-<span id="cb2-25"><a href="#cb2-25"></a>  <span class="kw">fun_option</span>(x)</span>
+<span id="cb2-20"><a href="#cb2-20"></a>wrapper_on_fun_conditional_checking &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb2-21"><a href="#cb2-21"></a>  <span class="cf">if</span>(<span class="kw"><a href="../reference/chk_on.html">is_chk_on</a></span>()) {</span>
+<span id="cb2-22"><a href="#cb2-22"></a>    <span class="kw"><a href="../reference/chk_on.html">chk_off</a></span>()</span>
+<span id="cb2-23"><a href="#cb2-23"></a>    <span class="kw"><a href="https://rdrr.io/r/base/on.exit.html">on.exit</a></span>(<span class="kw"><a href="../reference/chk_on.html">chk_on</a></span>())</span>
+<span id="cb2-24"><a href="#cb2-24"></a>  }</span>
+<span id="cb2-25"><a href="#cb2-25"></a>  <span class="kw">fun_conditional_checking</span>(x)</span>
 <span id="cb2-26"><a href="#cb2-26"></a>}</span>
 <span id="cb2-27"><a href="#cb2-27"></a></span>
-<span id="cb2-28"><a href="#cb2-28"></a><span class="kw"><a href="https://rdrr.io/pkg/microbenchmark/man/microbenchmark.html">microbenchmark</a></span>(</span>
-<span id="cb2-29"><a href="#cb2-29"></a>  <span class="kw">fun_no2</span>(<span class="kw"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span>(<span class="dv">0</span>)),</span>
-<span id="cb2-30"><a href="#cb2-30"></a>  <span class="kw">fun_no2</span>(<span class="dv">1</span>),</span>
-<span id="cb2-31"><a href="#cb2-31"></a>  <span class="kw">fun_chk2</span>(<span class="kw"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span>(<span class="dv">0</span>)),</span>
-<span id="cb2-32"><a href="#cb2-32"></a>  <span class="kw">fun_chk2</span>(<span class="dv">1</span>),</span>
-<span id="cb2-33"><a href="#cb2-33"></a>  <span class="kw">fun_option2</span>(<span class="kw"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span>(<span class="dv">0</span>)),</span>
-<span id="cb2-34"><a href="#cb2-34"></a>  <span class="kw">fun_option2</span>(<span class="dv">1</span>)</span>
-<span id="cb2-35"><a href="#cb2-35"></a>)</span>
-<span id="cb2-36"><a href="#cb2-36"></a><span class="co">#&gt; Unit: nanoseconds</span></span>
-<span id="cb2-37"><a href="#cb2-37"></a><span class="co">#&gt;                     expr  min     lq      mean median     uq      max</span></span>
-<span id="cb2-38"><a href="#cb2-38"></a><span class="co">#&gt;      fun_no2(numeric(0))  756  868.5  14292.07  919.5 1031.5  1328998</span></span>
-<span id="cb2-39"><a href="#cb2-39"></a><span class="co">#&gt;               fun_no2(1)  391  448.5    512.81  484.5  520.5     2124</span></span>
-<span id="cb2-40"><a href="#cb2-40"></a><span class="co">#&gt;     fun_chk2(numeric(0)) 1358 1432.0   1645.59 1500.0 1596.0     6564</span></span>
-<span id="cb2-41"><a href="#cb2-41"></a><span class="co">#&gt;              fun_chk2(1)  933 1050.5  22522.80 1119.0 1177.5  2137936</span></span>
-<span id="cb2-42"><a href="#cb2-42"></a><span class="co">#&gt;  fun_option2(numeric(0)) 2911 3211.5 169307.14 3376.5 3592.0 16560840</span></span>
-<span id="cb2-43"><a href="#cb2-43"></a><span class="co">#&gt;           fun_option2(1) 2373 2712.0   3148.40 2844.0 3005.0    16900</span></span>
-<span id="cb2-44"><a href="#cb2-44"></a><span class="co">#&gt;  neval</span></span>
-<span id="cb2-45"><a href="#cb2-45"></a><span class="co">#&gt;    100</span></span>
-<span id="cb2-46"><a href="#cb2-46"></a><span class="co">#&gt;    100</span></span>
-<span id="cb2-47"><a href="#cb2-47"></a><span class="co">#&gt;    100</span></span>
-<span id="cb2-48"><a href="#cb2-48"></a><span class="co">#&gt;    100</span></span>
-<span id="cb2-49"><a href="#cb2-49"></a><span class="co">#&gt;    100</span></span>
-<span id="cb2-50"><a href="#cb2-50"></a><span class="co">#&gt;    100</span></span></code></pre></div>
+<span id="cb2-28"><a href="#cb2-28"></a><span class="kw"><a href="../reference/chk_on.html">chk_on</a></span>()</span>
+<span id="cb2-29"><a href="#cb2-29"></a><span class="kw"><a href="https://rdrr.io/pkg/microbenchmark/man/microbenchmark.html">microbenchmark</a></span>(</span>
+<span id="cb2-30"><a href="#cb2-30"></a>  <span class="kw">wrapper_on_fun_checking</span>(<span class="ot">TRUE</span>),</span>
+<span id="cb2-31"><a href="#cb2-31"></a>  <span class="kw">wrapper_on_fun_conditional_checking</span>(<span class="ot">TRUE</span>)</span>
+<span id="cb2-32"><a href="#cb2-32"></a>)</span>
+<span id="cb2-33"><a href="#cb2-33"></a><span class="co">#&gt; Unit: microseconds</span></span>
+<span id="cb2-34"><a href="#cb2-34"></a><span class="co">#&gt;                                       expr   min     lq      mean median</span></span>
+<span id="cb2-35"><a href="#cb2-35"></a><span class="co">#&gt;              wrapper_on_fun_checking(TRUE) 1.949 2.0475 185.95876 2.1915</span></span>
+<span id="cb2-36"><a href="#cb2-36"></a><span class="co">#&gt;  wrapper_on_fun_conditional_checking(TRUE) 4.138 4.4100  47.97181 4.6205</span></span>
+<span id="cb2-37"><a href="#cb2-37"></a><span class="co">#&gt;      uq       max neval</span></span>
+<span id="cb2-38"><a href="#cb2-38"></a><span class="co">#&gt;  2.3665 18141.622   100</span></span>
+<span id="cb2-39"><a href="#cb2-39"></a><span class="co">#&gt;  4.9500  4172.176   100</span></span>
+<span id="cb2-40"><a href="#cb2-40"></a></span>
+<span id="cb2-41"><a href="#cb2-41"></a><span class="kw"><a href="../reference/chk_on.html">chk_off</a></span>()</span>
+<span id="cb2-42"><a href="#cb2-42"></a><span class="kw"><a href="https://rdrr.io/pkg/microbenchmark/man/microbenchmark.html">microbenchmark</a></span>(</span>
+<span id="cb2-43"><a href="#cb2-43"></a>  <span class="kw">wrapper_on_fun_checking</span>(<span class="ot">TRUE</span>),</span>
+<span id="cb2-44"><a href="#cb2-44"></a>  <span class="kw">wrapper_on_fun_conditional_checking</span>(<span class="ot">TRUE</span>)</span>
+<span id="cb2-45"><a href="#cb2-45"></a>)</span>
+<span id="cb2-46"><a href="#cb2-46"></a><span class="co">#&gt; Unit: microseconds</span></span>
+<span id="cb2-47"><a href="#cb2-47"></a><span class="co">#&gt;                                       expr   min    lq    mean median</span></span>
+<span id="cb2-48"><a href="#cb2-48"></a><span class="co">#&gt;              wrapper_on_fun_checking(TRUE) 1.717 1.773 1.90553 1.8285</span></span>
+<span id="cb2-49"><a href="#cb2-49"></a><span class="co">#&gt;  wrapper_on_fun_conditional_checking(TRUE) 1.827 1.888 2.05777 2.0115</span></span>
+<span id="cb2-50"><a href="#cb2-50"></a><span class="co">#&gt;      uq   max neval</span></span>
+<span id="cb2-51"><a href="#cb2-51"></a><span class="co">#&gt;  1.8795 8.243   100</span></span>
+<span id="cb2-52"><a href="#cb2-52"></a><span class="co">#&gt;  2.0875 7.063   100</span></span></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

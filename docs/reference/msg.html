@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Stop — err • chk</title>
+<title>Message — msg • chk</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="Stop — err" />
+<meta property="og:title" content="Message — msg" />
 
-<meta property="og:description" content="A wrapper on stop(..., call. = FALSE, domain = NA)." />
+<meta property="og:description" content="A wrapper on message(..., domain = NA)." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -118,18 +118,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Stop</h1>
+    <h1>Message</h1>
     <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/messages.R'><code>R/messages.R</code></a></small>
-    <div class="hidden name"><code>err.Rd</code></div>
+    <div class="hidden name"><code>msg.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A wrapper on <code><a href='https://rdrr.io/r/base/stop.html'>stop</a>(..., call. = FALSE, domain = NA)</code>.</p>
+    <p>A wrapper on <code><a href='https://rdrr.io/r/base/message.html'>message</a>(..., domain = NA)</code>.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>err</span>(<span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>msg</span>(<span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -137,15 +137,15 @@
     <tr>
       <th>...</th>
       <td><p>zero or more objects which can be coerced to character
-    (and which are pasted together with no separator) or a single
-    condition object.</p></td>
+    (and which are pasted together with no separator) or (for
+    <code>message</code> only) a single condition object.</p></td>
     </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'>err</span>(<span class='st'>"this is an error"</span>)
+<span class='fu'>msg</span>(<span class='st'>"this is a message"</span>)
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
