@@ -13,6 +13,7 @@ after_success:
   - Rscript -e 'covr::codecov()'
 
 notifications:
+  email: false
   slack:
     rooms:
       - poissonconsulting:BKjfn7jsVh8zXTu2rq7BEQEb
