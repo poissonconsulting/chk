@@ -56,6 +56,14 @@ chk_flag(y)
 chk_string(y)
 #> [1] TRUE
 
+data <- data.frame(x = 1)
+chk_is(data, "data.frame")
+#> [1] TRUE
+chk_length(nrow(data), 1)
+#> [1] TRUE
+chk_length(nrow(data), 2:3)
+#> Error: nrow(data) must have a length between 2 and 3
+
 z <- "b"
 chkor(chk_flag(z), chk_number(z))
 #> Error: z must be a flag (TRUE or FALSE) OR z must be a number (non-missing numeric scalar)
@@ -63,14 +71,15 @@ chkor(chk_flag(z), chk_string(z))
 #> [1] TRUE
 ```
 
-As the functions are not expected to be used in pipes they simply return
-a flag (non-missing logical scalar).
+By default, each check returns TRUE if successful or throws an
+informative error.
 
 ### Customisable
 
 The functions are designed to be customisable.
 
-If `err = FALSE` the `chk` functions return FALSE on check failure.
+If `err = FALSE` a check returns FALSE (instead of throwing an error) on
+check failure.
 
 ``` r
 chk_flag(1, err = FALSE)
@@ -80,81 +89,57 @@ chk_flag(1, err = FALSE)
 This allows developers to provide their own error messages.
 
 ``` r
-fun <- function(x) {
-  if(!chk_flag(x, err = FALSE)) {
-    stop("x really should be a flag (try as.logical())")
-  }
-}
-fun(1)
-#> Error in fun(1): x really should be a flag (try as.logical())
+if(!chk_flag(1, err = FALSE)) stop("x MUST be a flag (try as.logical())")
+#> Error in eval(expr, envir, enclos): x MUST be a flag (try as.logical())
 ```
 
-In addition, `chk` is released under the
+`chk` is released under the
 [CC0](https://creativecommons.org/publicdomain/zero/1.0/) licence so
 developers can copy and paste individual functions (and tests) into
 their packages without any need for creditation which is useful if they
-don’t want `chk` as a dependency.
+want to minimise their dependencies.
 
 ### Fast
 
 The functions are designed to be fast.
 
-As they are not expected to be exposed to users the `chk` functions
-don’t check any of their inputs (other than the first argument of
-course\!).
+As they are not expected to be directly exposed to users the `chk`
+functions don’t check any of their inputs (other than the first argument
+of course\!).
 
-Checking user supplied inputs is vital but it slows code down when there
-are *lots* of checks in a function (see
-[microbenching-chk](https://poissonconsulting.github.io/chk/articles/benchmarking-chk.html)
-vignette). To allow checking only when specified the developer can use
-something like
+If a function is being called internally the checks can be turned off as
+follows
 
 ``` r
-fun_chk <- function(x, chk = TRUE) {
-  if(isTRUE(chk)) {
+fun <- function(x, ...) {
+  if(is_chk_on()) {
     chk_flag(x)
+    chk_unused(...)
   }
   x
 }
 
-fun_chk(1) # when called by user
-#> Error: x must be a flag (TRUE or FALSE)
-
-fun_chk2 <- function(x) {
-  fun_chk(x, chk = FALSE) # when called internally
-}
-fun_chk2(1)
-#> [1] 1
-```
-
-An alternative approach is to use something like
-
-``` r
-fun_option <- function(x) {
-  if(isTRUE(getOption("chk.chk", TRUE))) {
-    chk_flag(x)
+wrapper_on_fun <- function(x) {
+  if(is_chk_on()) {
+    chk_off()
+    on.exit(chk_on())
   }
-  x
+  fun(x)
 }
 
-fun_option(1) # when called by user
-#> Error: x must be a flag (TRUE or FALSE)
-
-fun_option2 <- function(x) {
-  chk.chk <- options(chk.chk = FALSE)
-  on.exit(options(chk.chk))
-  fun_option(x) # when called internally
-}
-getOption("chk.chk")
-#> NULL
-fun_option2(1)
-#> [1] 1
-getOption("chk.chk")
-#> NULL
+fun(FALSE) # calls fun with checking as being called by user
+#> [1] FALSE
+wrapper_on_fun(FALSE) # calls fun without checking as being used internally
+#> [1] FALSE
 ```
+
+It is only worth doing this if the checks are substantially slower than
+the time required to test and set checking on and off (see [Benchmarking
+chk](https://poissonconsulting.github.io/chk/articles/benchmarking-chk.html))
 
 ## Inspiration
 
+  - [datacheckr](https://github.com/poissonconsulting/datacheckr/)
   - [checkr](https://github.com/poissonconsulting/checkr/)
 
 ## Contribution

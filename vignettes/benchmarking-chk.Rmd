@@ -1,16 +1,16 @@
 ---
-title: "Microbenchmarking chk"
+title: "Benchmarking chk"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Microbenchmarking chk}
+  %\VignetteIndexEntry{Benchmarking chk}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-
+  
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
+collapse = TRUE,
+comment = "#>"
 )
 ```
 
@@ -21,38 +21,41 @@ library(microbenchmark)
 
 ```{r}
 
-fun <- function(x) chk_length(x, c(1,2,3))
-
-fun_no <- function(x) {
+fun_checking <- function(x, ...) {
+  chk_flag(x)
+  chk_unused(...)  
   x
 }
 
-fun_chk <- function(x, chk = TRUE) {
-  if(isTRUE(chk)) fun(x)
+fun_conditional_checking <- function(x, ...) {
+  if(is_chk_on()) {
+    chk_flag(x)
+    chk_unused(...)
+  }
   x
 }
 
-fun_option <- function(x) {
-  if(getOption("chk.chk", TRUE)) fun(x)
-  x
+wrapper_on_fun_checking <- function(x) {
+  fun_checking(x)
 }
 
-fun_no2 <- function(x) fun_no(x)
-
-fun_chk2 <- function(x) fun_chk(x, chk = FALSE)
-
-fun_option2 <- function(x) {
-  chk.chk <- options(chk.chk = FALSE)
-  on.exit(options(chk.chk))
-  fun_option(x)
+wrapper_on_fun_conditional_checking <- function(x) {
+  if(is_chk_on()) {
+    chk_off()
+    on.exit(chk_on())
+  }
+  fun_conditional_checking(x)
 }
 
+chk_on()
 microbenchmark(
-  fun_no2(numeric(0)),
-  fun_no2(1),
-  fun_chk2(numeric(0)),
-  fun_chk2(1),
-  fun_option2(numeric(0)),
-  fun_option2(1)
+  wrapper_on_fun_checking(TRUE),
+  wrapper_on_fun_conditional_checking(TRUE)
+)
+
+chk_off()
+microbenchmark(
+  wrapper_on_fun_checking(TRUE),
+  wrapper_on_fun_conditional_checking(TRUE)
 )
 ```

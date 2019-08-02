@@ -78,6 +78,7 @@ test_that("chk_no_missing", {
   expect_true(chk_no_missing(integer(0)))
   expect_false(chk_no_missing(NA, err = FALSE))
   expect_false(chk_no_missing(c(NA, 1), err = FALSE))
+  expect_error(chk_no_missing(NA), "NA must not have missing values")
 })
 
 test_that("chk_unused", {
