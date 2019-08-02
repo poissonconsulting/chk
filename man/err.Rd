@@ -2,7 +2,6 @@
 % Please edit documentation in R/messages.R
 \name{err}
 \alias{err}
-\alias{error}
 \title{Stop}
 \usage{
 err(...)
