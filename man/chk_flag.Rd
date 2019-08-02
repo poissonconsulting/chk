@@ -14,6 +14,8 @@
 \alias{chk_unused}
 \alias{chk_used}
 \alias{chk_length}
+\alias{chk_dir}
+\alias{chk_file}
 \title{Check Object}
 \usage{
 chk_flag(x, err = TRUE)
@@ -39,6 +41,10 @@ chk_unused(..., err = TRUE)
 chk_used(..., err = TRUE)
 
 chk_length(x, length = c(1L, 2147483647), err = TRUE)
+
+chk_dir(x, err = TRUE)
+
+chk_file(x, err = TRUE)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -82,6 +88,10 @@ A flag is a non-missing logical scalar.
 \item \code{chk_used}: Check used
 
 \item \code{chk_length}: Check length
+
+\item \code{chk_dir}: Check directory exists
+
+\item \code{chk_file}: Check file exists
 }}
 
 \examples{

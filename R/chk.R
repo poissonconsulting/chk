@@ -178,3 +178,19 @@ chk_length <- function (x, length = c(1L, 2147483647), err = TRUE) {
   x <- deparse(substitute(x))
   err(x, " must have a length of ", cc(length, chk = FALSE))
 }
+
+#' @describeIn chk_flag Check directory exists
+#' @export
+chk_dir <- function(x, err = TRUE) {
+  if(dir.exists(x)) return(TRUE)
+  if(!err) return(FALSE)
+  err("directory '", x, "' not found")
+}
+
+#' @describeIn chk_flag Check file exists
+#' @export
+chk_file <- function(x, err = TRUE) {
+  if(file.exists(x)) return(TRUE)
+  if(!err) return(FALSE)
+  err("file '", x, "' not found")
+}
