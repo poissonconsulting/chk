@@ -89,7 +89,7 @@ Check Object
 \details{
 Checks if non-missing logical scalar using:
 
-\code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{is.na}(x)}
+\code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
 }
 \section{Functions}{
 \itemize{
@@ -101,23 +101,23 @@ Checks if non-missing logical scalar using:
 
 Checks if logical scalar using:
 
-\code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{is.na}(x)}
+\code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
 
 \item \code{chk_number}: Check Number
 
 Checks if non-mising numeric scalar using:
 
-\code{is.numeric(x) && length(x) == 1L && !\link{is.na}(x)}
+\code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x)}
 
 \item \code{chk_whole_number}: Check Whole Number
  
 Checks if non-mising integer scalar or double equivalent using:
 
-\code{is.numeric(x) && length(x) == 1L && !\link{is.na}(x) && x == as.integer(x)}
+\code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x) && x == as.integer(x)}
 
 \item \code{chk_string}: Check String
 
-\code{\link{is.character}(x) && \link{length}(x) == 1L && !\link{is.na}(x)}
+\code{\link{is.character}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
 
 \item \code{chk_named}: Check Named
 

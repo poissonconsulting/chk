@@ -3,7 +3,7 @@
 #' @details  
 #' Checks if non-missing logical scalar using:
 #' 
-#' \code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{is.na}(x)}
+#' \code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
 #' 
 #' @param x The object to check. 
 #' @param err A flag specifying whether to generate an error
@@ -29,7 +29,7 @@
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_flag <- function(x, err = TRUE) {
-  if(is.logical(x) && length(x) == 1L && !is.na(x)) return(TRUE)
+  if(is.logical(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
   stop("`", x_name, "` must be a flag (TRUE or FALSE).", call. = FALSE)
@@ -39,7 +39,7 @@ chk_flag <- function(x, err = TRUE) {
 #' 
 #' Checks if logical scalar using:
 #' 
-#' \code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{is.na}(x)}
+#' \code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
 #' @export
 #' 
 #' @examples 
@@ -58,7 +58,7 @@ chk_lgl <- function(x, err = TRUE) {
 #' 
 #' Checks if non-mising numeric scalar using:
 #' 
-#' \code{is.numeric(x) && length(x) == 1L && !\link{is.na}(x)}
+#' \code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x)}
 #' @export
 #' 
 #' @examples
@@ -66,7 +66,7 @@ chk_lgl <- function(x, err = TRUE) {
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_number <- function(x, err = TRUE) {
-  if(is.numeric(x) && length(x) == 1L && !is.na(x)) return(TRUE)
+  if(is.numeric(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
   stop("`", x_name, "` must be a number (non-missing numeric scalar).", 
@@ -77,7 +77,7 @@ chk_number <- function(x, err = TRUE) {
 #'  
 #' Checks if non-mising integer scalar or double equivalent using:
 #' 
-#' \code{is.numeric(x) && length(x) == 1L && !\link{is.na}(x) && x == as.integer(x)}
+#' \code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x) && x == as.integer(x)}
 #' @export
 #' 
 #' @examples
@@ -85,7 +85,7 @@ chk_number <- function(x, err = TRUE) {
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_whole_number <- function(x, err = TRUE) {
-  if(is.numeric(x) && length(x) == 1L && !is.na(x) && x == as.integer(x))
+  if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x == as.integer(x))
     return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
@@ -95,13 +95,13 @@ chk_whole_number <- function(x, err = TRUE) {
 
 #' @describeIn chk_flag Check String
 #' 
-#' \code{\link{is.character}(x) && \link{length}(x) == 1L && !\link{is.na}(x)}
+#' \code{\link{is.character}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
 #' @export
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_string <- function(x, err = TRUE) {
-  if(is.character(x) && length(x) == 1L && !is.na(x)) return(TRUE)
+  if(is.character(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
   stop("`", x_name, "` must be a string (non-missing character scalar).", 

@@ -43,8 +43,8 @@ remotes::install_github("poissonconsulting/chk")
 
 ### Simple
 
-`chk` provides simple commonly used checks which can be combined
-together for more complex checking.
+`chk` provides simple commonly used checks as (`chk_` functions) which
+can be combined together for more complex checking.
 
 ``` r
 library(chk)
@@ -62,16 +62,17 @@ chk_is(data, "data.frame")
 chk_match(nrow(data), c(3,8))
 #> Error: Values of `nrow(data)` must match 3 or 8.
 
-chk_match(data$x, c(2,4,8,NA))
-#> Error: Values of `data$x` must match 2, 4, 8 or NA.
+chk_values(data$x, c(3,8,NA))
+#> Error: All values of `data$x` must be between 3 and 8.
+
+chk_identical(data$x, 2:1)
+#> Error in chk_identical(data$x, 2:1): `data$x` not identical to: 2:1.
 
 z <- "b"
 chkor(chk_flag(z), chk_number(z))
 #> Error: At least one of the following conditions must be met:
 #> * `z` must be a flag (TRUE or FALSE).
 #> * `z` must be a number (non-missing numeric scalar).
-chkor(chk_flag(z), chk_string(z))
-#> [1] TRUE
 ```
 
 By default, each check returns TRUE if successful or throws an
@@ -105,11 +106,11 @@ if(!chk_flag(1, err = FALSE)) stop("x MUST be a flag (try as.logical())")
 
 `chk` is released under the
 [CC0](https://creativecommons.org/publicdomain/zero/1.0/) licence and
-most `chk` functions are standalone. This allows developers to easily
-copy and paste individual functions into their package which is useful
-if they want to minimise their dependencies. Copied functions should not
-be exported (to avoid namespace conflicts) and the following creditation
-preserved.
+almost all `chk_` functions are standalone. This allows developers to
+easily copy and paste individual functions into their package which is
+useful if they want to minimise their dependencies. Copied functions
+should not be exported (to avoid namespace conflicts) and the following
+creditation preserved.
 
 ``` r
 #  Licence: CC
@@ -120,11 +121,29 @@ preserved.
 
 The functions are designed to be fast.
 
+#### Check First
+
+As exemplified by `chk_flag`, almost all the `chk_` functions
+immediately evaluate their object in one line of code and return TRUE if
+the check is successful.
+
+``` r
+chk_flag
+#> function(x, err = TRUE) {
+#>   if(is.logical(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
+#>   if(!err) return(FALSE)
+#>   x_name <- deparse(substitute(x))
+#>   stop("`", x_name, "` must be a flag (TRUE or FALSE).", call. = FALSE)
+#> }
+#> <bytecode: 0x7f8037cc05f8>
+#> <environment: namespace:chk>
+```
+
 #### Minimal Checking
 
-As they are not expected to be directly exposed to users the `chk`
-functions don’t check any of their inputs (other than the first argument
-of course\!).
+As they are not expected to be directly exposed to users the `chk_`
+functions don’t check any of their arguments other than the object of
+interest of course\!).
 
 #### Turn Off Checking
 
@@ -163,6 +182,7 @@ chk](https://poissonconsulting.github.io/chk/articles/benchmarking-chk.html))
 
   - [datacheckr](https://github.com/poissonconsulting/datacheckr/)
   - [checkr](https://github.com/poissonconsulting/checkr/)
+  - [err](https://github.com/poissonconsulting/err/)
   - [testthat](https://github.com/r-lib/testthat/)
 
 ## Contribution
