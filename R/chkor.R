@@ -40,6 +40,8 @@ chkor <- function (..., err = TRUE) {
   
   args <- unlist(lapply(args, try_msg))
   args <- args[!duplicated(args)]
+  args <- sub("[.]$", "", args)
   args <- p(args, collapse = " OR ")
+  args <- p0(args, ".")
   stop(args, call. = FALSE)
 }
