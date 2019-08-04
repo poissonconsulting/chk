@@ -19,13 +19,14 @@ chk_values <- function (x, values = c(1, Inf), err = TRUE) {
     stop("`", x_name, "` must not have missing values.", call. = FALSE)
   }
   
-  x_name <- deparse(substitute(x))
-  x <- sort(unique(x)) # drop missing values
   values <- sort(unique(values), na.last = TRUE) # missing values to end
-  if(sum(!is.na(values)) == 2L) {
-    if(all(x >= values[1] && x <= values[2])) return(TRUE)
+  if(length(values) - is.na(values[length(values)]) == 2L) {
+    x_length <- length(x)
+    x_name <- deparse(substitute(x))
+    x <- x[!is.na(x)]
+    if(all(x >= values[1] & x <= values[2])) return(TRUE)
     if(!err) return(FALSE)
-    if(length(x) == 1) {
+    if(x_length == 1L) {
       stop("`", x_name, "` must be between ", cc(values[1:2], " and "), ", not ", 
            cc(x), ".", call. = FALSE)
     }
@@ -33,6 +34,7 @@ chk_values <- function (x, values = c(1, Inf), err = TRUE) {
          ".", call. = FALSE)
   }
   if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
   if(length(x) == 1) {
     stop("`", x_name, "` must be ", cc(values, " or "), ", not ", 
          cc(x), ".", call. = FALSE)

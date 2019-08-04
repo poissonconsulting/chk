@@ -28,7 +28,7 @@ test_that("chk_values", {
   expect_true(chk_values(c(1,NA), c(NA, 1)))
   expect_true(chk_values(c(1,NA), c(NA, 1:2)))
   expect_error(chk_values(c(1,NA), c(NA, 3:2)),
-              "^`c[(]1, NA[)]` must be between 2 and 3, not 1[.]$")
+              "^All values of `c[(]1, NA[)]` must be between 2 and 3[.]$")
   
   expect_false(chk_values(c(NA, 1), 1:2, err = FALSE)) 
   expect_error(chk_values(c(NA, 1), 1:2), 
