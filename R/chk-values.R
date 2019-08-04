@@ -18,11 +18,11 @@ chk_values <- function (x, values = c(0, Inf, NA), err = TRUE) {
       values <- c(values_not_na, NA)
     x_name <- deparse(substitute(x))
     if(length(x) == 1) {
-      stop("`", x_name, "` must be ", cc(values), 
-           ", not ", cc(x), ".", call. = FALSE)
+      stop("`", x_name, "` must be ", cc(values, " or "), 
+           ", not ", cc(x, " or "), ".", call. = FALSE)
     }
     stop("All values of `", x_name, "` must be ", 
-         cc(values), 
+         cc(values, " or "), 
          ".", call. = FALSE)
   }
   x_not_na <- x[!is.na(x)]
@@ -31,11 +31,11 @@ chk_values <- function (x, values = c(0, Inf, NA), err = TRUE) {
     x_name <- deparse(substitute(x))
     if(length(x) == 1) {
       stop("`", x_name, "` must be between ", 
-           cc(values_not_na, conj = " and "), 
-           ", not ", cc(x), ".", call. = FALSE)
+           cc(values_not_na, " and "), 
+           ", not ", cc(x, " or "), ".", call. = FALSE)
     }
     stop("All values of `", x_name, "` must be between ", 
-         cc(values_not_na, conj = " and "), 
+         cc(values_not_na, " and "), 
          ".", call. = FALSE)
   }
   if(length(x_not_na) != length(x) && length(values_not_na) == length(values)) {

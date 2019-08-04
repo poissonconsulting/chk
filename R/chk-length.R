@@ -30,6 +30,6 @@ chk_length <- function (x, length = c(1L, 2147483647), err = TRUE) {
   if(x_length %in% length) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be length ", cc(length), 
+  stop("`", x_name, "` must be length ", cc(length, " or "), 
        ", not length ", x_length, ".", call. = FALSE)
 }

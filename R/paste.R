@@ -41,14 +41,14 @@ p0 <- function (..., collapse = NULL)
 #'
 #' @examples
 #' cc(1:2)
-#' cc(1:2, conj = ",")
+#' cc(1:2, conj = " or")
 #' cc(3:1, brac = "'")
 #' cc(1:11)
 #' cc(as.character(1:2))
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-cc <- function(x, conj = " or ", 
+cc <- function(x, conj = ", ", 
                brac = if(is.character(x) || is.factor(x)) "'" else "") {
   chk_string(conj)
   chk_string(brac)
