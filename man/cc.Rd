@@ -4,7 +4,8 @@
 \alias{cc}
 \title{Concatenate with Commas}
 \usage{
-cc(x, conj = " or ", brac = "")
+cc(x, conj = " or ", brac = if (is.character(x) || is.factor(x)) "'"
+  else "")
 }
 \arguments{
 \item{x}{The object to concatenate.}
@@ -29,4 +30,5 @@ cc(1:2)
 cc(1:2, conj = ",")
 cc(3:1, brac = "'")
 cc(1:11)
+cc(as.character(1:2))
 }

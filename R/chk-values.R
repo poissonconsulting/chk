@@ -16,30 +16,26 @@ chk_values <- function (x, values = c(0, Inf, NA), err = TRUE) {
     if(!err) return(FALSE)
     if(length(values_not_na) != length(values)) 
       values <- c(values_not_na, NA)
-    brac_x <- if(is.character(x)) "'" else ""
-    brac_values <- if(is.character(values)) "'" else ""
     x_name <- deparse(substitute(x))
     if(length(x) == 1) {
-      stop("`", x_name, "` must be ", cc(values, brac = brac_values), 
-           ", not ", cc(x, brac = brac_x), ".", call. = FALSE)
+      stop("`", x_name, "` must be ", cc(values), 
+           ", not ", cc(x), ".", call. = FALSE)
     }
     stop("All values of `", x_name, "` must be ", 
-         cc(values, brac = brac_values), 
+         cc(values), 
          ".", call. = FALSE)
   }
   x_not_na <- x[!is.na(x)]
   if(!all(x_not_na >= min(values_not_na) & x_not_na <= max(values_not_na))) {
     if(!err) return(FALSE)
-    brac_x <- if(is.character(x)) "'" else ""
-    brac_values <- if(is.character(values)) "'" else ""
     x_name <- deparse(substitute(x))
     if(length(x) == 1) {
       stop("`", x_name, "` must be between ", 
-           cc(values_not_na, conj = " and ", brac = brac_values), 
-           ", not ", cc(x, brac = brac_x), ".", call. = FALSE)
+           cc(values_not_na, conj = " and "), 
+           ", not ", cc(x), ".", call. = FALSE)
     }
     stop("All values of `", x_name, "` must be between ", 
-         cc(values_not_na, conj = " and ", brac = brac_values), 
+         cc(values_not_na, conj = " and "), 
          ".", call. = FALSE)
   }
   if(length(x_not_na) != length(x) && length(values_not_na) == length(values)) {

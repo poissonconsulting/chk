@@ -23,6 +23,18 @@ test_that("cc with atomic vectors", {
                    "'11', '10', '9', '8', '7', '6', '5', '4', ..., '1'")
 })
 
+test_that("cc with character", {
+  expect_identical(cc(character(0)), character(0))
+  expect_identical(cc(as.character("")), "''")
+  expect_identical(cc(as.character("a")), "'a'")
+})
+
+test_that("cc with factor", {
+  expect_identical(cc(factor(1)[-1]), character(0))
+  expect_identical(cc(as.factor("")), "''")
+  expect_identical(cc(as.factor("a")), "'a'")
+})
+
 test_that("cc with random objects", {
   expect_identical(cc(list()), character(0))
   expect_identical(cc(list(1)), "1")
