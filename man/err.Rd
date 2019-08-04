@@ -12,7 +12,7 @@ err(...)
     condition object.}
 }
 \description{
-A wrapper on \code{\link[base]{stop}(..., call. = FALSE, domain = NA)}.
+A wrapper on \code{\link[base]{stop}(..., call. = FALSE)}.
 }
 \examples{
 \dontrun{

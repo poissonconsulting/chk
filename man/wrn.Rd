@@ -12,7 +12,7 @@ wrn(...)
     condition object.}
 }
 \description{
-A wrapper on \code{\link[base]{warning}(..., call. = FALSE, domain = NA)}.
+A wrapper on \code{\link[base]{warning}(..., call. = FALSE)}.
 }
 \examples{
 \dontrun{

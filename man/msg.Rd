@@ -12,7 +12,7 @@ msg(...)
     \code{message} only) a single condition object.}
 }
 \description{
-A wrapper on \code{\link[base]{message}(..., domain = NA)}.
+A wrapper on \code{\link[base]{message}(...)}.
 }
 \examples{
 \dontrun{

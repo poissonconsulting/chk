@@ -1,6 +1,6 @@
 #' Stop
 #'
-#' A wrapper on \code{\link[base]{stop}(..., call. = FALSE, domain = NA)}.
+#' A wrapper on \code{\link[base]{stop}(..., call. = FALSE)}.
 #' 
 #' @inheritParams base::stop
 #' @export
@@ -9,11 +9,14 @@
 #' \dontrun{
 #' err("this is an error")
 #' }
-err <- function (...) stop(..., call. = FALSE, domain = NA)
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+err <- function (...) stop(..., call. = FALSE)
 
 #' Warning
 #'
-#' A wrapper on \code{\link[base]{warning}(..., call. = FALSE, domain = NA)}.
+#' A wrapper on \code{\link[base]{warning}(..., call. = FALSE)}.
 #' 
 #' @inheritParams base::warning
 #' @export
@@ -22,11 +25,14 @@ err <- function (...) stop(..., call. = FALSE, domain = NA)
 #' \dontrun{
 #' wrn("this is a warning")
 #' }
-wrn <- function (...) warning(..., call. = FALSE, domain = NA)
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+wrn <- function (...) warning(..., call. = FALSE)
 
 #' Message
 #'
-#' A wrapper on \code{\link[base]{message}(..., domain = NA)}.
+#' A wrapper on \code{\link[base]{message}(...)}.
 #' 
 #' @inheritParams base::message
 #' @export
@@ -35,4 +41,7 @@ wrn <- function (...) warning(..., call. = FALSE, domain = NA)
 #' \dontrun{
 #' msg("this is a message")
 #' }
-msg <- function (...) message(..., domain = NA)
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+msg <- function (...) message(...)

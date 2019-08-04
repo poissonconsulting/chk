@@ -67,6 +67,8 @@ chkor(chk_flag(z), chk_string(z))
 
 By default, each check returns TRUE if successful or throws an informative error.
 
+Error messages follow the [tidyverse style guide](https://style.tidyverse.org/error-messages.html)
+
 ### Customisable
 
 The functions are designed to be customisable.
@@ -83,9 +85,16 @@ This allows developers to provide their own error messages.
 if(!chk_flag(1, err = FALSE)) stop("x MUST be a flag (try as.logical())")
 ```
 
-`chk` is released under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/) licence so developers 
-can copy and paste individual functions (and tests) into their packages 
-without any need for creditation which is useful if they want to minimise their dependencies.
+`chk` is released under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/) licence
+and most functions are standalone.
+This allows developers to easily copy and paste individual functions into their package
+which is useful if they want to minimise its dependencies.
+Copied functions should not be exported (to avoid namespace conflicts) and the 
+following creditation preserved.
+```r
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+```
 
 ### Fast
 

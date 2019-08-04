@@ -19,6 +19,9 @@
 #' cc(1:2, con = ",")
 #' cc(3:1, bracket = "'")
 #' cc(1:11)
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
 cc <- function(x, con = " or ", bracket = "", chk = TRUE) {
   if(chk) {
     chk_string(con)
