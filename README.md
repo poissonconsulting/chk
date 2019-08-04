@@ -60,10 +60,10 @@ data <- data.frame(x = 1:2)
 chk_is(data, "data.frame")
 #> [1] TRUE
 chk_match(nrow(data), c(3,8))
-#> Error: `nrow(data)` must be between 3 and 8, not 2.
+#> Error: Values of `nrow(data)` must match 3 or 8.
 
 chk_match(data$x, c(2,4,8,NA))
-#> Error: All values of `data$x` must be 2, 4, 8 or NA.
+#> Error: Values of `data$x` must match 2, 4, 8 or NA.
 
 z <- "b"
 chkor(chk_flag(z), chk_number(z))

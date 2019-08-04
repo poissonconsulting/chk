@@ -141,6 +141,7 @@ than the time required to test and turn checking on and off (see [Benchmarking c
 
 - [datacheckr](https://github.com/poissonconsulting/datacheckr/)
 - [checkr](https://github.com/poissonconsulting/checkr/)
+- [err](https://github.com/poissonconsulting/err/)
 - [testthat](https://github.com/r-lib/testthat/)
 
 ## Contribution

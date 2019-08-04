@@ -10,6 +10,7 @@
 #' @param class A string specifying the class.
 #' @param y An object to check against.
 #' @param tolerance A non-negative numeric scalar.
+#' @param match A vector of the permitted value(s).
 #' @param ... Additional arguments.
 #'
 #' @return A flag or an error if the check fails and err == TRUE.
