@@ -157,6 +157,21 @@ chk_equal <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE) 
   stop("`", x_name, "` not equal to: ", y, ".")
 }
 
+#' @describeIn chk_flag Check Equivalent
+#'
+#' \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_equivalent <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE) {
+  if(isTRUE(all.equal(x, y, tolerance, check.attributes = FALSE))) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  y <- utils::capture.output(dput(y, control = "all"))
+  stop("`", x_name, "` not equivalent to: ", y, ".")
+}
+
 #' @describeIn chk_flag Check No Missing Values
 #' 
 #' \code{!\link{anyNA}(x)}

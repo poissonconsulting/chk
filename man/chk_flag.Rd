@@ -12,6 +12,7 @@
 \alias{chk_is}
 \alias{chk_identical}
 \alias{chk_equal}
+\alias{chk_equivalent}
 \alias{chk_no_missing}
 \alias{chk_function}
 \alias{chk_unused}
@@ -39,6 +40,8 @@ chk_is(x, class, err = TRUE)
 chk_identical(x, y, err = TRUE)
 
 chk_equal(x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE)
+
+chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE)
 
 chk_no_missing(x, err = TRUE)
 
@@ -115,6 +118,10 @@ A flag is a non-missing logical scalar.
 \item \code{chk_equal}: Check Equal
 
 \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance))}
+
+\item \code{chk_equivalent}: Check Equivalent
+
+\code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}
 
 \item \code{chk_no_missing}: Check No Missing Values
 

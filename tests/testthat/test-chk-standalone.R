@@ -121,6 +121,28 @@ test_that("chk_equal", {
                "^`1` not equal to: c[(]1, 5, 1, 9[)][.]$")
 })
 
+test_that("chk_equivalent", {
+  expect_true(chk_equivalent(1, 1))
+  expect_true(chk_equivalent(1L, 1L))
+  expect_true(chk_equivalent(1, 1L))
+  expect_true(chk_equivalent(1L, 1))
+  
+  expect_true(chk_equivalent(c(1L), 1L))
+  expect_true(chk_equivalent(c(x = 1L), 1L))
+  expect_true(chk_equivalent(c(x = 1L), 1L))
+  expect_true(chk_equivalent(1L, c(x = 1L)))
+  expect_true(chk_equivalent(1L, c(x = 1L)))
+
+  expect_true(chk_equivalent(1, 1.00000001))
+  expect_true(chk_equivalent(1, 1.001, 0.01))
+  expect_true(chk_equivalent(1, 1.001, 0.001))
+  
+  expect_false(chk_equivalent(1, 1.001, 0.0001, err = FALSE))
+  expect_error(chk_equivalent(1, 1.001, 0.0001), c("^`1` not equivalent to: 1[.]001[.]$"))
+  expect_error(chk_equivalent(1, c(1,5,1,9)), 
+               "^`1` not equivalent to: c[(]1, 5, 1, 9[)][.]$")
+})
+
 test_that("chk_no_missing", {
   expect_true(chk_no_missing(1))
   expect_true(chk_no_missing(integer(0)))
