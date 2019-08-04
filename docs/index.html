@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9005</span>
       </span>
     </div>
 
@@ -110,7 +110,7 @@
 <div id="simple" class="section level3">
 <h3 class="hasAnchor">
 <a href="#simple" class="anchor"></a>Simple</h3>
-<p><code>chk</code> provides simple commonly used checks which can be combined together for more complex checking.</p>
+<p><code>chk</code> provides simple commonly used checks as (<code>chk_</code> functions) which can be combined together for more complex checking.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(chk)</span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a>y &lt;-<span class="st"> "a"</span></span>
@@ -124,18 +124,19 @@
 <span id="cb3-11"><a href="#cb3-11"></a><span class="kw"><a href="reference/chk_flag.html">chk_is</a></span>(data, <span class="st">"data.frame"</span>)</span>
 <span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt; [1] TRUE</span></span>
 <span id="cb3-13"><a href="#cb3-13"></a><span class="kw"><a href="reference/chk_flag.html">chk_match</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(data), <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">3</span>,<span class="dv">8</span>))</span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; Error: `nrow(data)` must be between 3 and 8, not 2.</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; Error: Values of `nrow(data)` must match 3 or 8.</span></span>
 <span id="cb3-15"><a href="#cb3-15"></a></span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="kw"><a href="reference/chk_flag.html">chk_match</a></span>(data<span class="op">$</span>x, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>,<span class="ot">NA</span>))</span>
-<span id="cb3-17"><a href="#cb3-17"></a><span class="co">#&gt; Error: All values of `data$x` must be 2, 4, 8 or NA.</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="kw"><a href="reference/chk_flag.html">chk_values</a></span>(data<span class="op">$</span>x, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">3</span>,<span class="dv">8</span>,<span class="ot">NA</span>))</span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="co">#&gt; Error: All values of `data$x` must be between 3 and 8.</span></span>
 <span id="cb3-18"><a href="#cb3-18"></a></span>
-<span id="cb3-19"><a href="#cb3-19"></a>z &lt;-<span class="st"> "b"</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a><span class="kw"><a href="reference/chkor.html">chkor</a></span>(<span class="kw"><a href="reference/chk_flag.html">chk_flag</a></span>(z), <span class="kw"><a href="reference/chk_flag.html">chk_number</a></span>(z))</span>
-<span id="cb3-21"><a href="#cb3-21"></a><span class="co">#&gt; Error: At least one of the following conditions must be met:</span></span>
-<span id="cb3-22"><a href="#cb3-22"></a><span class="co">#&gt; * `z` must be a flag (TRUE or FALSE).</span></span>
-<span id="cb3-23"><a href="#cb3-23"></a><span class="co">#&gt; * `z` must be a number (non-missing numeric scalar).</span></span>
-<span id="cb3-24"><a href="#cb3-24"></a><span class="kw"><a href="reference/chkor.html">chkor</a></span>(<span class="kw"><a href="reference/chk_flag.html">chk_flag</a></span>(z), <span class="kw"><a href="reference/chk_flag.html">chk_string</a></span>(z))</span>
-<span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="kw"><a href="reference/chk_flag.html">chk_identical</a></span>(data<span class="op">$</span>x, <span class="dv">2</span><span class="op">:</span><span class="dv">1</span>)</span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="co">#&gt; Error in chk_identical(data$x, 2:1): `data$x` not identical to: 2:1.</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a></span>
+<span id="cb3-22"><a href="#cb3-22"></a>z &lt;-<span class="st"> "b"</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="kw"><a href="reference/chkor.html">chkor</a></span>(<span class="kw"><a href="reference/chk_flag.html">chk_flag</a></span>(z), <span class="kw"><a href="reference/chk_flag.html">chk_number</a></span>(z))</span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="co">#&gt; Error: At least one of the following conditions must be met:</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt; * `z` must be a flag (TRUE or FALSE).</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a><span class="co">#&gt; * `z` must be a number (non-missing numeric scalar).</span></span></code></pre></div>
 <p>By default, each check returns TRUE if successful or throws an informative error.</p>
 <p>Error messages follow the <a href="https://style.tidyverse.org/error-messages.html">tidyverse style guide</a>.</p>
 </div>
@@ -156,7 +157,7 @@
 <div id="copy-and-paste" class="section level4">
 <h4 class="hasAnchor">
 <a href="#copy-and-paste" class="anchor"></a>Copy and Paste</h4>
-<p><code>chk</code> is released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> licence and most <code>chk</code> functions are standalone. This allows developers to easily copy and paste individual functions into their package which is useful if they want to minimise their dependencies. Copied functions should not be exported (to avoid namespace conflicts) and the following creditation preserved.</p>
+<p><code>chk</code> is released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> licence and almost all <code>chk_</code> functions are standalone. This allows developers to easily copy and paste individual functions into their package which is useful if they want to minimise their dependencies. Copied functions should not be exported (to avoid namespace conflicts) and the following creditation preserved.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#  Licence: CC</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="co">#  Repository: https://github.com/poissonconsulting/chk</span></span></code></pre></div>
 </div>
@@ -165,35 +166,49 @@
 <h3 class="hasAnchor">
 <a href="#fast" class="anchor"></a>Fast</h3>
 <p>The functions are designed to be fast.</p>
+<div id="check-first" class="section level4">
+<h4 class="hasAnchor">
+<a href="#check-first" class="anchor"></a>Check First</h4>
+<p>As exemplified by <code>chk_flag</code>, almost all the <code>chk_</code> functions immediately evaluate their object in one line of code and return TRUE if the check is successful.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>chk_flag</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">#&gt; function(x, err = TRUE) {</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt;   if(is.logical(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)) return(TRUE)</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt;   if(!err) return(FALSE)</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt;   x_name &lt;- deparse(substitute(x))</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt;   stop("`", x_name, "` must be a flag (TRUE or FALSE).", call. = FALSE)</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt; }</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt; &lt;bytecode: 0x7f90704a6df0&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt; &lt;environment: namespace:chk&gt;</span></span></code></pre></div>
+</div>
 <div id="minimal-checking" class="section level4">
 <h4 class="hasAnchor">
 <a href="#minimal-checking" class="anchor"></a>Minimal Checking</h4>
-<p>As they are not expected to be directly exposed to users the <code>chk</code> functions don’t check any of their inputs (other than the first argument of course!).</p>
+<p>As they are not expected to be directly exposed to users the <code>chk_</code> functions don’t check any of their arguments other than the object of interest of course!).</p>
 </div>
 <div id="turn-off-checking" class="section level4">
 <h4 class="hasAnchor">
 <a href="#turn-off-checking" class="anchor"></a>Turn Off Checking</h4>
 <p>If a function is being called internally the checks can be turned off as follows</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>fun &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...) {</span>
-<span id="cb7-2"><a href="#cb7-2"></a>  <span class="cf">if</span>(<span class="kw"><a href="reference/chk_on.html">is_chk_on</a></span>()) {</span>
-<span id="cb7-3"><a href="#cb7-3"></a>    <span class="kw"><a href="reference/chk_flag.html">chk_flag</a></span>(x)</span>
-<span id="cb7-4"><a href="#cb7-4"></a>    <span class="kw"><a href="reference/chk_flag.html">chk_unused</a></span>(...)</span>
-<span id="cb7-5"><a href="#cb7-5"></a>  }</span>
-<span id="cb7-6"><a href="#cb7-6"></a>  x</span>
-<span id="cb7-7"><a href="#cb7-7"></a>}</span>
-<span id="cb7-8"><a href="#cb7-8"></a></span>
-<span id="cb7-9"><a href="#cb7-9"></a>wrapper_on_fun &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb7-10"><a href="#cb7-10"></a>  <span class="cf">if</span>(<span class="kw"><a href="reference/chk_on.html">is_chk_on</a></span>()) {</span>
-<span id="cb7-11"><a href="#cb7-11"></a>    <span class="kw"><a href="reference/chk_on.html">chk_off</a></span>()</span>
-<span id="cb7-12"><a href="#cb7-12"></a>    <span class="kw"><a href="https://rdrr.io/r/base/on.exit.html">on.exit</a></span>(<span class="kw"><a href="reference/chk_on.html">chk_on</a></span>())</span>
-<span id="cb7-13"><a href="#cb7-13"></a>  }</span>
-<span id="cb7-14"><a href="#cb7-14"></a>  <span class="kw">fun</span>(x)</span>
-<span id="cb7-15"><a href="#cb7-15"></a>}</span>
-<span id="cb7-16"><a href="#cb7-16"></a></span>
-<span id="cb7-17"><a href="#cb7-17"></a><span class="kw">fun</span>(<span class="ot">FALSE</span>) <span class="co"># calls fun with checking as being called by user</span></span>
-<span id="cb7-18"><a href="#cb7-18"></a><span class="co">#&gt; [1] FALSE</span></span>
-<span id="cb7-19"><a href="#cb7-19"></a><span class="kw">wrapper_on_fun</span>(<span class="ot">FALSE</span>) <span class="co"># calls fun without checking as being used internally</span></span>
-<span id="cb7-20"><a href="#cb7-20"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>fun &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...) {</span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="cf">if</span>(<span class="kw"><a href="reference/chk_on.html">is_chk_on</a></span>()) {</span>
+<span id="cb8-3"><a href="#cb8-3"></a>    <span class="kw"><a href="reference/chk_flag.html">chk_flag</a></span>(x)</span>
+<span id="cb8-4"><a href="#cb8-4"></a>    <span class="kw"><a href="reference/chk_flag.html">chk_unused</a></span>(...)</span>
+<span id="cb8-5"><a href="#cb8-5"></a>  }</span>
+<span id="cb8-6"><a href="#cb8-6"></a>  x</span>
+<span id="cb8-7"><a href="#cb8-7"></a>}</span>
+<span id="cb8-8"><a href="#cb8-8"></a></span>
+<span id="cb8-9"><a href="#cb8-9"></a>wrapper_on_fun &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb8-10"><a href="#cb8-10"></a>  <span class="cf">if</span>(<span class="kw"><a href="reference/chk_on.html">is_chk_on</a></span>()) {</span>
+<span id="cb8-11"><a href="#cb8-11"></a>    <span class="kw"><a href="reference/chk_on.html">chk_off</a></span>()</span>
+<span id="cb8-12"><a href="#cb8-12"></a>    <span class="kw"><a href="https://rdrr.io/r/base/on.exit.html">on.exit</a></span>(<span class="kw"><a href="reference/chk_on.html">chk_on</a></span>())</span>
+<span id="cb8-13"><a href="#cb8-13"></a>  }</span>
+<span id="cb8-14"><a href="#cb8-14"></a>  <span class="kw">fun</span>(x)</span>
+<span id="cb8-15"><a href="#cb8-15"></a>}</span>
+<span id="cb8-16"><a href="#cb8-16"></a></span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="kw">fun</span>(<span class="ot">FALSE</span>) <span class="co"># calls fun with checking as being called by user</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="kw">wrapper_on_fun</span>(<span class="ot">FALSE</span>) <span class="co"># calls fun without checking as being used internally</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 <p>It is only worth doing this if the checks are substantially slower than the time required to test and turn checking on and off (see <a href="https://poissonconsulting.github.io/chk/articles/benchmarking-chk.html">Benchmarking chk</a>)</p>
 </div>
 </div>
@@ -204,6 +219,7 @@
 <ul>
 <li><a href="https://github.com/poissonconsulting/datacheckr/">datacheckr</a></li>
 <li><a href="https://github.com/poissonconsulting/checkr/">checkr</a></li>
+<li><a href="https://github.com/poissonconsulting/err/">err</a></li>
 <li><a href="https://github.com/r-lib/testthat/">testthat</a></li>
 </ul>
 </div>

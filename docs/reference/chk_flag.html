@@ -34,7 +34,7 @@
 
 <meta property="og:title" content="Check Object — chk_match" />
 
-<meta property="og:description" content="A flag is a non-missing logical scalar." />
+<meta property="og:description" content="Check Object" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -66,7 +66,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9005</span>
       </span>
     </div>
 
@@ -119,13 +119,13 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Check Object</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-match.R'><code>R/chk-match.R</code></a>, <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-standalone.R'><code>R/chk-standalone.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-match.R'><code>R/chk-match.R</code></a>, <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-standalone.R'><code>R/chk-standalone.R</code></a>, <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-values.R'><code>R/chk-values.R</code></a></small>
     <div class="hidden name"><code>chk_flag.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A flag is a non-missing logical scalar.</p>
+    <p>Check Object</p>
     
     </div>
 
@@ -136,6 +136,8 @@
 <span class='fu'>chk_lgl</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>chk_number</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='fu'>chk_whole_number</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>chk_string</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
@@ -161,7 +163,9 @@
 
 <span class='fu'>chk_dir</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>chk_file</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+<span class='fu'>chk_file</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='fu'>chk_values</span>(<span class='no'>x</span>, <span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>Inf</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -172,8 +176,7 @@
     </tr>
     <tr>
       <th>match</th>
-      <td><p>A vector of the permitted value(s). If
-two non-missing values then it is considered to be a value range.</p></td>
+      <td><p>A vector of the permitted value(s).</p></td>
     </tr>
     <tr>
       <th>err</th>
@@ -196,27 +199,38 @@ message if the check fails.</p></td>
       <th>...</th>
       <td><p>Additional arguments.</p></td>
     </tr>
+    <tr>
+      <th>values</th>
+      <td><p>A vector of the permitted value(s). If
+two non-missing values then it is considered to be a value range.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A flag or an error if the check fails and err == TRUE.</p>
+    <p>A flag or an error if the check fails and err = TRUE.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code><a href='https://rdrr.io/r/base/logical.html'>is.logical</a>(x) &amp;&amp; <a href='https://rdrr.io/r/base/length.html'>length</a>(x) == 1L &amp;&amp; !<a href='https://rdrr.io/r/base/NA.html'>is.na</a>(x)</code></p>
+    <p>Checks if non-missing logical scalar using:</p>
+<p><code><a href='https://rdrr.io/r/base/logical.html'>is.logical</a>(x) &amp;&amp; <a href='https://rdrr.io/r/base/length.html'>length</a>(x) == 1L &amp;&amp; !<a href='https://rdrr.io/r/base/NA.html'>anyNA</a>(x)</code></p>
     
     <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
 
     <ul>
 <li><p><code>chk_match</code>: Check Match</p>
 <p><code>all(<a href='https://rdrr.io/r/base/match.html'>match</a>(x, match, nomatch = 0) &gt; 0)</code></p></li>
-<li><p><code>chk_lgl</code>: Check Logical Scalar</p>
-<p><code><a href='https://rdrr.io/r/base/logical.html'>is.logical</a>(x) &amp;&amp; <a href='https://rdrr.io/r/base/length.html'>length</a>(x) == 1L &amp;&amp; !<a href='https://rdrr.io/r/base/NA.html'>is.na</a>(x)</code></p></li>
-<li><p><code>chk_number</code>: Check Number (non-mising numeric scalar)</p>
-<p><code><a href='https://rdrr.io/r/base/numeric.html'>is.numeric</a>(x) &amp;&amp; <a href='https://rdrr.io/r/base/length.html'>length</a>(x) == 1L &amp;&amp; !<a href='https://rdrr.io/r/base/NA.html'>is.na</a>(x)</code></p></li>
+<li><p><code>chk_lgl</code>: Check Lgl</p>
+<p>Checks if logical scalar using:</p>
+<p><code><a href='https://rdrr.io/r/base/logical.html'>is.logical</a>(x) &amp;&amp; <a href='https://rdrr.io/r/base/length.html'>length</a>(x) == 1L &amp;&amp; !<a href='https://rdrr.io/r/base/NA.html'>anyNA</a>(x)</code></p></li>
+<li><p><code>chk_number</code>: Check Number</p>
+<p>Checks if non-mising numeric scalar using:</p>
+<p><code>is.numeric(x) &amp;&amp; length(x) == 1L &amp;&amp; !<a href='https://rdrr.io/r/base/NA.html'>anyNA</a>(x)</code></p></li>
+<li><p><code>chk_whole_number</code>: Check Whole Number</p> 
+<p>Checks if non-mising integer scalar or double equivalent using:</p>
+<p><code>is.numeric(x) &amp;&amp; length(x) == 1L &amp;&amp; !<a href='https://rdrr.io/r/base/NA.html'>anyNA</a>(x) &amp;&amp; x == as.integer(x)</code></p></li>
 <li><p><code>chk_string</code>: Check String</p>
-<p><code><a href='https://rdrr.io/r/base/character.html'>is.character</a>(x) &amp;&amp; <a href='https://rdrr.io/r/base/length.html'>length</a>(x) == 1L &amp;&amp; !<a href='https://rdrr.io/r/base/NA.html'>is.na</a>(x)</code></p></li>
+<p><code><a href='https://rdrr.io/r/base/character.html'>is.character</a>(x) &amp;&amp; <a href='https://rdrr.io/r/base/length.html'>length</a>(x) == 1L &amp;&amp; !<a href='https://rdrr.io/r/base/NA.html'>anyNA</a>(x)</code></p></li>
 <li><p><code>chk_named</code>: Check Named</p>
 <p><code>!<a href='https://rdrr.io/r/base/NULL.html'>is.null</a>(<a href='https://rdrr.io/r/base/names.html'>names</a>(x))</code></p></li>
 <li><p><code>chk_null</code>: Check NULL</p>
@@ -241,12 +255,16 @@ message if the check fails.</p></td>
 <p><code><a href='https://rdrr.io/r/base/files2.html'>dir.exists</a>(x)</code></p></li>
 <li><p><code>chk_file</code>: Check File Exists</p>
 <p><code><a href='https://rdrr.io/r/base/files.html'>file.exists</a>(x)</code></p></li>
+<li><p><code>chk_values</code>: Check Values</p>
+<p><code>all(<a href='https://rdrr.io/r/base/match.html'>match</a>(x, match, nomatch = 0) &gt; 0)</code> 
+unless two non-missing values (in which case considered a value range).</p></li>
 </ul>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># chk_flag</span>
 <span class='fu'>chk_flag</span>(<span class='fl'>1</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>chk_flag</span>(<span class='fl'>NA</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>chk_flag</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_flag</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>FALSE</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+
 
 </div></pre>
   </div>
