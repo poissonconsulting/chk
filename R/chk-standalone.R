@@ -143,8 +143,11 @@ chk_function <- function(x, err = TRUE) {
 chk_is <- function(x, class, err = TRUE) {
   if(inherits(x, class)) return(TRUE)
   if(!err) return(FALSE)
+  x_class <- class(x)
+  x_class <- x_class[length(x_class)]
   x <- deparse(substitute(x))
-  stop("`", x, "` must inherit from class '", class, "'.", call. = FALSE)
+  stop("`", x, "` must inherit from class '", class, "', not class '", x_class, "'.", 
+       call. = FALSE)
 }
 
 #' @describeIn chk_flag Check no missing values

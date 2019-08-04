@@ -69,9 +69,9 @@ test_that("chk_is", {
   expect_true(chk_is(1, "numeric"))
   expect_false(chk_is(1L, "numeric", err = FALSE))
   expect_true(chk_is(1L, "integer"))
-  expect_error(chk_is(1, "integer"), "^`1` must inherit from class 'integer'[.]$")
+  expect_error(chk_is(1, "integer"), "^`1` must inherit from class 'integer', not class 'numeric'[.]$")
   expect_error(chk_is(matrix(1), "numeric"), 
-               "`matrix[(]1[)]` must inherit from class 'numeric'[.]$")
+               "`matrix[(]1[)]` must inherit from class 'numeric', not class 'matrix'[.]$")
 })
 
 test_that("chk_no_missing", {
