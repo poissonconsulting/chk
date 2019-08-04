@@ -23,7 +23,7 @@
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_flag <- function(x, err = TRUE) {
-  if(isTRUE(x) || isFALSE(x)) return(TRUE)
+  if(is.logical(x) && length(x) == 1L && !is.na(x)) return(TRUE)
   if(!err) return(FALSE)
   x <- deparse(substitute(x))
   stop("`", x, "` must be a flag (TRUE or FALSE).", call. = FALSE)
