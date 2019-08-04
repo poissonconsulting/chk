@@ -15,7 +15,7 @@ chk_length <- function (x, length = c(1L, 2147483647), err = TRUE) {
     if(n == length) return(TRUE)
     if(!err) return(FALSE)
     x <- deparse(substitute(x))
-    stop("'", x, "' must be length ", length, ", not ", n,".", call. = FALSE)
+    stop("`", x, "` must be length ", length, ", not ", n,".", call. = FALSE)
   }
   
   length <- sort(length)
@@ -24,7 +24,7 @@ chk_length <- function (x, length = c(1L, 2147483647), err = TRUE) {
     if(n >= length[1] && n <= length[2]) return(TRUE)
     if(!err) return(FALSE)
     x <- deparse(substitute(x))
-    stop("'", x, "' must be length ", length[1], " to ", length[2], 
+    stop("`", x, "` must be length ", length[1], " to ", length[2], 
          ", not ", n, ".", call. = FALSE)
   }
   length <- unique(length)
@@ -32,6 +32,6 @@ chk_length <- function (x, length = c(1L, 2147483647), err = TRUE) {
   if(n %in% length) return(TRUE)
   if(!err) return(FALSE)
   x <- deparse(substitute(x))
-  stop("'", x, "' must be length ", cc(length, chk = FALSE), ", not ", n, ".",
+  stop("`", x, "` must be length ", cc(length, chk = FALSE), ", not ", n, ".",
        call. = FALSE)
 }
