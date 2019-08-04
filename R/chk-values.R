@@ -8,5 +8,5 @@
 #  Repository: https://github.com/poissonconsulting/chk
 #  depends on R/cc.R
 chk_values <- function (x, values = c(-Inf, Inf, NA), err = TRUE) {
- return(TRUE)
+  return(TRUE)
 }

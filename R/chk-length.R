@@ -8,10 +8,9 @@
 #  depends on R/cc.R
 chk_length <- function (x, length = c(1L, 2147483647), err = TRUE) {
   n <- length(x)
-  
-  if(all(length == length[1])) length <- length[1]
-  
-  if(length(length) == 1L) {
+  nlength <- length(length)
+
+  if(nlength == 1L) {
     if(n == length) return(TRUE)
     if(!err) return(FALSE)
     x <- deparse(substitute(x))
@@ -19,17 +18,14 @@ chk_length <- function (x, length = c(1L, 2147483647), err = TRUE) {
          ", not length ", n,".", call. = FALSE)
   }
   
-  length <- sort(length)
-  
-  if(length(length) == 2L) {
-    if(n >= length[1] && n <= length[2]) return(TRUE)
+  if(nlength == 2L) {
+    if(n >= min(length) && n <= max(length)) return(TRUE)
     if(!err) return(FALSE)
     x <- deparse(substitute(x))
-    stop("`", x, "` must be length ", length[1], " to ", length[2], 
+    stop("`", x, "` must be length ", min(length), " to ", max(length), 
          ", not length ", n, ".", call. = FALSE)
   }
-  length <- unique(length)
-
+  if(nlength == 3L) length <- unique(length)
   if(n %in% length) return(TRUE)
   if(!err) return(FALSE)
   x <- deparse(substitute(x))

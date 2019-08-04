@@ -4,7 +4,7 @@ test_that("cc with atomic vectors", {
   expect_identical(cc(logical(0)), character(0))
   expect_identical(cc(1), "1")
   expect_identical(cc(1, bracket = "'"), "'1'")
-  expect_identical(cc(c(1,1)), "1")
+  expect_identical(cc(c(1,1)), "1 or 1")
   expect_identical(cc(1:2), "1 or 2")
   expect_identical(cc(1:2, con = ", "), "1, 2")
   expect_identical(cc(1:3), "1, 2 or 3")

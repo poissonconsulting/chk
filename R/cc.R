@@ -31,7 +31,6 @@ cc <- function(x, con = " or ", bracket = "", chk = TRUE) {
   
   if(!length(x)) return(character(0))
   x <- p0(bracket, x, bracket)
-  x <- unique(x)
   n <- length(x)
   if(n == 1L) return(x)
   if(n == 2L) return(p(x, collapse = con))
