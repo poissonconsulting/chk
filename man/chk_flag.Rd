@@ -10,6 +10,7 @@
 \alias{chk_string}
 \alias{chk_named}
 \alias{chk_null}
+\alias{chk_inherits}
 \alias{chk_is}
 \alias{chk_identical}
 \alias{chk_equal}
@@ -38,6 +39,8 @@ chk_string(x, err = TRUE)
 chk_named(x, err = TRUE)
 
 chk_null(x, err = TRUE)
+
+chk_inherits(x, class, err = TRUE)
 
 chk_is(x, class, err = TRUE)
 
@@ -69,7 +72,7 @@ chk_values(x, values = c(1, Inf), err = TRUE)
 \item{err}{A flag specifying whether to generate an error
 message if the check fails.}
 
-\item{class}{A string specifying the class.}
+\item{class}{A string specifying the class(es).}
 
 \item{y}{An object to check against.}
 
@@ -127,9 +130,14 @@ Checks if non-mising integer scalar or double equivalent using:
 
 \code{\link{is.null}(x)}
 
-\item \code{chk_is}: Check Inherits from Class
+\item \code{chk_inherits}: Check Inherits from Class
 
+Class should be a scalar
 \code{\link{inherits}(x, class)}
+
+\item \code{chk_is}: Check Is Class
+
+\code{\link{identical}(\link{class}(x), class)}
 
 \item \code{chk_identical}: Check Identical
 

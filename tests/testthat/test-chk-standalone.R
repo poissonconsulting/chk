@@ -76,13 +76,32 @@ test_that("chk_function", {
   expect_error(chk_function(1), "^`1` must be a function[.]$")
 })
 
+test_that("chk_inherits", {
+  expect_true(chk_inherits(1, "numeric"))
+  expect_false(chk_inherits(1L, "numeric", err = FALSE))
+  expect_true(chk_inherits(1L, "integer"))
+  expect_error(chk_inherits(1, "integer"), "^`1` must inherit from class 'integer'[.]$")
+  expect_error(chk_inherits(matrix(1), "numeric"), 
+               "`matrix[(]1[)]` must inherit from class 'numeric'[.]$")
+  x <- list()
+  class(x) <- c("a", "b")
+  expect_true(chk_inherits(x, "a"))
+  expect_true(chk_inherits(x, "b"))
+  expect_error(chk_inherits(x, "c"), "`x` must inherit from class 'c'")
+})
+
 test_that("chk_is", {
   expect_true(chk_is(1, "numeric"))
   expect_false(chk_is(1L, "numeric", err = FALSE))
   expect_true(chk_is(1L, "integer"))
-  expect_error(chk_is(1, "integer"), "^`1` must inherit from class 'integer', not class 'numeric'[.]$")
+  expect_error(chk_is(1, "integer"), "^`1` must be class 'integer', not 'numeric'[.]$")
   expect_error(chk_is(matrix(1), "numeric"), 
-               "`matrix[(]1[)]` must inherit from class 'numeric', not class 'matrix'[.]$")
+               "`matrix[(]1[)]` must be class 'numeric', not 'matrix'[.]$")
+  
+  x <- structure(list(), class = c("a", "b"))
+  expect_true(chk_is(x, c("a", "b")))
+  expect_error(chk_is(x, "b"), "^`x` must be class 'b', not c[(]'a', 'b'[)][.]$")
+  expect_error(chk_is(x, c("b", "a")), "^`x` must be class c[(]'b', 'a'[)], not c[(]'a', 'b'[)][.]$")
 })
 
 test_that("chk_identical", {

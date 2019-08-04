@@ -8,7 +8,7 @@
 #' @param x The object to check. 
 #' @param err A flag specifying whether to generate an error
 #' message if the check fails.
-#' @param class A string specifying the class.
+#' @param class A string specifying the class(es).
 #' @param y An object to check against.
 #' @param tolerance A non-negative numeric scalar.
 #' @param match A vector of the permitted value(s).
@@ -138,19 +138,34 @@ chk_null <- function(x, err = TRUE) {
 
 #' @describeIn chk_flag Check Inherits from Class
 #' 
+#' Class should be a scalar
 #' \code{\link{inherits}(x, class)}
 #' @export
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_is <- function(x, class, err = TRUE) {
+chk_inherits <- function(x, class, err = TRUE) {
   if(inherits(x, class)) return(TRUE)
   if(!err) return(FALSE)
-  x_class <- class(x)
-  x_class <- x_class[length(x_class)]
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must inherit from class '", class, "', not class '", 
-       x_class, "'.", call. = FALSE)
+  stop("`", x_name, "` must inherit from class '", class, "'.", call. = FALSE)
+}
+
+#' @describeIn chk_flag Check Is Class
+#' 
+#' \code{\link{identical}(\link{class}(x), class)}
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_is <- function(x, class, err = TRUE) {
+  if(identical(class(x), class)) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  class <- gsub("\"", "'", utils::capture.output(dput(class)))
+  x_class <- gsub("\"", "'", utils::capture.output(dput(class(x))))
+  stop("`", x_name, "` must be class ", class, ", not ", x_class, ".", 
+       call. = FALSE)
 }
 
 #' @describeIn chk_flag Check Identical
