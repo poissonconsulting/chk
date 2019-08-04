@@ -2,6 +2,7 @@
 
 export(cc)
 export(chk_dir)
+export(chk_equal)
 export(chk_file)
 export(chk_flag)
 export(chk_function)
@@ -25,5 +26,3 @@ export(msg)
 export(p)
 export(p0)
 export(wrn)
-importFrom(utils,capture.output)
-importFrom(utils,str)

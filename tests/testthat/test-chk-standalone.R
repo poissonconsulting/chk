@@ -79,16 +79,46 @@ test_that("chk_identical", {
   expect_true(chk_identical(1L, 1L))
   expect_false(chk_identical(1, 1L, err = FALSE))
   expect_false(chk_identical(1L, 1, err = FALSE))
+
+  expect_true(chk_identical(c(1L), 1L))
+  expect_false(chk_identical(c(x = 1L), 1L, err = FALSE))
+  expect_error(chk_identical(c(x = 1L), 1L), 
+               "^`c[(]x = 1L[)]` not identical to: 1L[.]$")
+  expect_false(chk_identical(1L, c(x = 1L), err = FALSE))
+  expect_error(chk_identical(1L, c(x = 1L)), 
+               "^`1L` not identical to: c[(]x = 1L[)][.]$")
   
-  expect_error(chk_identical(1, 1L), "^`1` not identical to:\n int 1[.]$")
+  expect_error(chk_identical(1, 1L), "^`1` not identical to: 1L[.]$")
   expect_error(chk_identical(1, 1:10), 
-               "^`1` not identical to:\n int \\[1:10\\] 1 2 3 4 5 6 7 8 9 10[.]$")
+               "^`1` not identical to: 1:10[.]$")
   expect_error(chk_identical(1, 1:100), 
-               "^`1` not identical to:\n int \\[1:100\\] 1 2 3 4 5 6 7 8 9 10 [.]{4,4}$")
-  expect_error(chk_identical(1, data.frame(x = 1:100, y = "character")), 
-               "^`1` not identical to:\n'data.frame':	100 obs. of  2 variables:\n [$] x: int  1 2 3 4 5 6 7 8 9 10 [.]{3,3}\n [$] y: Factor w/ 1 level \"character\": 1 1 1 1 1 1 1 1 1 1 [.]{4,4}$")
-  expect_error(chk_identical(1, as.list(data.frame(x = 1:100, y = "character"))), 
-               "^`1` not identical to:\nList of 2\n [$] x: int \\[1:100\\] 1 2 3 4 5 6 7 8 9 10 [.]{3,3}\n [$] y: Factor w/ 1 level \"character\": 1 1 1 1 1 1 1 1 1 1 [.]{4,4}$")
+               "^`1` not identical to: 1:100[.]$")
+  expect_error(chk_identical(1, c(1,5,1,9)), 
+               "^`1` not identical to: c[(]1, 5, 1, 9[)][.]$")
+})
+
+test_that("chk_equal", {
+  expect_true(chk_equal(1, 1))
+  expect_true(chk_equal(1L, 1L))
+  expect_true(chk_equal(1, 1L))
+  expect_true(chk_equal(1L, 1))
+  
+  expect_true(chk_equal(c(1L), 1L))
+  expect_false(chk_equal(c(x = 1L), 1L, err = FALSE))
+  expect_error(chk_equal(c(x = 1L), 1L), 
+               "^`c[(]x = 1L[)]` not equal to: 1L[.]$")
+  expect_false(chk_equal(1L, c(x = 1L), err = FALSE))
+  expect_error(chk_equal(1L, c(x = 1L)), 
+               "^`1L` not equal to: c[(]x = 1L[)][.]$")
+
+  expect_true(chk_equal(1, 1.00000001))
+  expect_true(chk_equal(1, 1.001, 0.01))
+  expect_true(chk_equal(1, 1.001, 0.001))
+  
+  expect_false(chk_equal(1, 1.001, 0.0001, err = FALSE))
+  expect_error(chk_equal(1, 1.001, 0.0001), c("^`1` not equal to: 1[.]001[.]$"))
+  expect_error(chk_equal(1, c(1,5,1,9)), 
+               "^`1` not equal to: c[(]1, 5, 1, 9[)][.]$")
 })
 
 test_that("chk_no_missing", {

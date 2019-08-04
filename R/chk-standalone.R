@@ -8,6 +8,8 @@
 #' @param err A flag specifying whether to generate an error
 #' message if the check fails.
 #' @param class A string specifying the class.
+#' @param y An object to check against.
+#' @param tolerance A non-negative numeric scalar.
 #' @param ... Additional arguments.
 #'
 #' @return A flag or an error if the check fails and err == TRUE.
@@ -57,7 +59,6 @@ chk_lgl <- function(x, err = TRUE) {
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-
 chk_number <- function(x, err = TRUE) {
   if(is.numeric(x) && length(x) == 1L && !is.na(x)) return(TRUE)
   if(!err) return(FALSE)
@@ -129,19 +130,31 @@ chk_is <- function(x, class, err = TRUE) {
 #' @describeIn chk_flag Check Identical
 #'
 #' \code{\link{identical}(x, y)}
-#' @param y The object to check against.
 #' @export
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-#  depends on R/paste.R
 chk_identical <- function (x, y, err = TRUE) {
   if(identical(x, y)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  y <- capture.output(str(y))
-  y <- paste0(y, collapse = "\n")
-  stop("`", x_name, "` not identical to:\n", y, ".")
+  y <- utils::capture.output(dput(y, control = "all"))
+  stop("`", x_name, "` not identical to: ", y, ".")
+}
+
+#' @describeIn chk_flag Check Equal
+#'
+#' \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance))}
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_equal <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE) {
+  if(isTRUE(all.equal(x, y, tolerance))) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  y <- utils::capture.output(dput(y, control = "all"))
+  stop("`", x_name, "` not equal to: ", y, ".")
 }
 
 #' @describeIn chk_flag Check No Missing Values
