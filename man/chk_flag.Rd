@@ -15,6 +15,7 @@
 \alias{chk_identical}
 \alias{chk_equal}
 \alias{chk_equivalent}
+\alias{chk_grepl}
 \alias{chk_no_missing}
 \alias{chk_function}
 \alias{chk_unused}
@@ -50,6 +51,8 @@ chk_equal(x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE)
 
 chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE)
 
+chk_grepl(x, pattern = ".+", err = TRUE)
+
 chk_no_missing(x, err = TRUE)
 
 chk_function(x, err = TRUE)
@@ -77,6 +80,8 @@ message if the check fails.}
 \item{y}{An object to check against.}
 
 \item{tolerance}{A non-negative numeric scalar.}
+
+\item{pattern}{A string of a regular expression.}
 
 \item{...}{Additional arguments.}
 
@@ -150,6 +155,10 @@ Class should be a scalar
 \item \code{chk_equivalent}: Check Equivalent
 
 \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}
+
+\item \code{chk_grepl}: Check Matches Regular Expression
+
+\code{all(\link{grepl}(pattern, x))}
 
 \item \code{chk_no_missing}: Check No Missing Values
 

@@ -12,6 +12,7 @@
 #' @param y An object to check against.
 #' @param tolerance A non-negative numeric scalar.
 #' @param match A vector of the permitted value(s).
+#' @param pattern A string of a regular expression.
 #' @param ... Additional arguments.
 #'
 #' @return A flag or an error if the check fails and err = TRUE.
@@ -211,6 +212,22 @@ chk_equivalent <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = T
   x_name <- deparse(substitute(x))
   y <- utils::capture.output(dput(y, control = "all"))
   stop("`", x_name, "` not equivalent to: ", y, ".")
+}
+
+#' @describeIn chk_flag Check Matches Regular Expression
+#'
+#' \code{all(\link{grepl}(pattern, x))}
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_grepl <- function (x, pattern = ".+", err = TRUE) {
+  if(all(grepl(pattern, x))) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  if(length(x) == 1)
+    stop("`", x_name, "` must match regular expression '", pattern, "'.")
+  stop("All values of `", x_name, "` must match regular expression '", pattern, "'.")
 }
 
 #' @describeIn chk_flag Check No Missing Values

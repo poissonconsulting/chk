@@ -90,6 +90,23 @@ test_that("chk_inherits", {
   expect_error(chk_inherits(x, "c"), "`x` must inherit from class 'c'")
 })
 
+test_that("chk_grepl", {
+  expect_true(chk_grepl(character(0)))
+  expect_true(chk_grepl(1))
+  expect_true(chk_grepl("a"))
+  expect_false(chk_grepl("", err = FALSE))
+  expect_error(chk_grepl(""), "^`\"\"` must match regular expression '.+'[.]$")
+  expect_error(chk_grepl(NA_character_), 
+               "`NA_character_` must match regular expression '.+'")
+  expect_true(chk_grepl(c("a", "b")))
+  expect_error(chk_grepl(c("a", "b"), "b"), 
+               "All values of `c[(]\"a\", \"b\"[)]` must match regular expression 'b'[.]$")
+  expect_error(chk_grepl(c("a", "b"), 'b'), 
+               "All values of `c[(]\"a\", \"b\"[)]` must match regular expression 'b'[.]$")
+  expect_error(chk_grepl(c(NA, "b"), 'b'), 
+               "All values of `c[(]NA, \"b\"[)]` must match regular expression 'b'[.]$")
+})
+
 test_that("chk_is", {
   expect_true(chk_is(1, "numeric"))
   expect_false(chk_is(1L, "numeric", err = FALSE))
