@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 [![License: CC0](https://img.shields.io/badge/License-CC0-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 <!-- badges: end -->
 
-`chk` is an R package for developers to check user-supplied inputs to their functions.
+`chk` is an R package for developers to check user-supplied function arguments.
 
 It is designed to be simple, customisable and fast.
 
@@ -55,10 +55,11 @@ y <- "a"
 chk_flag(y)
 chk_string(y)
 
-data <- data.frame(x = 1)
+data <- data.frame(x = 1:2)
 chk_is(data, "data.frame")
-chk_length(nrow(data), 1)
-chk_length(nrow(data), 2:3)
+chk_length(nrow(data), c(3,8))
+
+chk_values(data$x, c(2,4,8,NA))
 
 z <- "b"
 chkor(chk_flag(z), chk_number(z))

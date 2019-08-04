@@ -8,7 +8,7 @@
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 #  depends on R/paste.R
-chk_values <- function (x, values = c(0, Inf, NA), err = TRUE) {
+chk_values <- function (x, values = c(1, Inf), err = TRUE) {
   if(all(x %in% values)) return(TRUE)
   values_not_na <- values[!is.na(values)]
   

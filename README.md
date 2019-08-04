@@ -17,8 +17,8 @@ coverage](https://codecov.io/gh/poissonconsulting/chk/branch/master/graph/badge.
 CC0](https://img.shields.io/badge/License-CC0-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 <!-- badges: end -->
 
-`chk` is an R package for developers to check user-supplied inputs to
-their functions.
+`chk` is an R package for developers to check user-supplied function
+arguments.
 
 It is designed to be simple, customisable and fast.
 
@@ -52,21 +52,24 @@ library(chk)
 y <- "a"
 
 chk_flag(y)
-#> Error: 'y' must be a flag (TRUE or FALSE).
+#> Error: `y` must be a flag (TRUE or FALSE).
 chk_string(y)
 #> [1] TRUE
 
-data <- data.frame(x = 1)
+data <- data.frame(x = 1:2)
 chk_is(data, "data.frame")
 #> [1] TRUE
-chk_length(nrow(data), 1)
-#> [1] TRUE
-chk_length(nrow(data), 2:3)
-#> Error: 'nrow(data)' must have a length between 2 and 3.
+chk_length(nrow(data), c(3,8))
+#> Error: `nrow(data)` must be length 3 to 8, not length 1.
+
+chk_values(data$x, c(2,4,8,NA))
+#> Error: All values of `data$x` must be 2, 4, 8 or NA.
 
 z <- "b"
 chkor(chk_flag(z), chk_number(z))
-#> Error: 'z' must be a flag (TRUE or FALSE) OR 'z' must be a number (non-missing numeric scalar).
+#> Error: At least one of the following conditions must be met:
+#> * `z` must be a flag (TRUE or FALSE).
+#> * `z` must be a number (non-missing numeric scalar).
 chkor(chk_flag(z), chk_string(z))
 #> [1] TRUE
 ```
@@ -75,7 +78,9 @@ By default, each check returns TRUE if successful or throws an
 informative error.
 
 Error messages follow the [tidyverse style
-guide](https://style.tidyverse.org/error-messages.html)
+guide](https://style.tidyverse.org/error-messages.html).
+
+`chk` has no dependencies.
 
 ### Customisable
 
@@ -98,14 +103,14 @@ if(!chk_flag(1, err = FALSE)) stop("x MUST be a flag (try as.logical())")
 #> Error in eval(expr, envir, enclos): x MUST be a flag (try as.logical())
 ```
 
-#### Cut and Paste
+#### Copy and Paste
 
 `chk` is released under the
 [CC0](https://creativecommons.org/publicdomain/zero/1.0/) licence and
-most functions are standalone. This allows developers to easily copy and
-paste individual functions into their package which is useful if they
-want to minimise their dependencies. Copied functions should not be
-exported (to avoid namespace conflicts) and the following creditation
+most `chk` functions are standalone. This allows developers to easily
+copy and paste individual functions into their package which is useful
+if they want to minimise their dependencies. Copied functions should not
+be exported (to avoid namespace conflicts) and the following creditation
 preserved.
 
 ``` r

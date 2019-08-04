@@ -1,11 +1,11 @@
 Package: chk
 Title: Check User-Supplied Function Arguments
-Version: 0.0.0.9003
+Version: 0.0.0.9004
 Authors@R: c(
     person("Joe", "Thorley", , "joe@poissonconsulting.ca", c("aut", "cre"), comment = c(ORCID = "0000-0002-7683-4592")),
     person("Poisson Consulting", role = c("cph", "fnd"))
     )
-Description: For developers to check user-supplied inputs to their functions.
+Description: For developers to check user-supplied function arguments.
         It is designed to be simple, fast and customisable.
         Error messages follow the tidyverse style guide.
 License: CC0
