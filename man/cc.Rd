@@ -4,16 +4,14 @@
 \alias{cc}
 \title{Concatenate with Commas}
 \usage{
-cc(x, con = " or ", bracket = "", chk = TRUE)
+cc(x, conj = " or ", bracket = "")
 }
 \arguments{
 \item{x}{The object to concatenate.}
 
-\item{con}{A string of the conjunction to separate the last value by.}
+\item{conj}{A string of the conjunction to separate the last value by.}
 
 \item{bracket}{A string to bracket the values by.}
-
-\item{chk}{A flag specifying whether to check the other arguments.}
 }
 \value{
 A string.
@@ -28,7 +26,7 @@ are displayed (including the ellipsis)
 }
 \examples{
 cc(1:2)
-cc(1:2, con = ",")
+cc(1:2, conj = ",")
 cc(3:1, bracket = "'")
 cc(1:11)
 }

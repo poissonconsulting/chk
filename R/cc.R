@@ -7,36 +7,33 @@
 #' are displayed (including the ellipsis)
 #'
 #' @param x The object to concatenate.
-#' @param con A string of the conjunction to separate the last value by.
+#' @param conj A string of the conjunction to separate the last value by.
 #' @param bracket A string to bracket the values by.
-#' @param chk A flag specifying whether to check the other arguments.
 #'
 #' @return A string.
 #' @export
 #'
 #' @examples
 #' cc(1:2)
-#' cc(1:2, con = ",")
+#' cc(1:2, conj = ",")
 #' cc(3:1, bracket = "'")
 #' cc(1:11)
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 #  depends on R/paste.R
-cc <- function(x, con = " or ", bracket = "", chk = TRUE) {
-  if(chk) {
-    chk_string(con)
-    chk_string(bracket)
-  }
+cc <- function(x, conj = " or ", bracket = "") {
+  chk_string(conj)
+  chk_string(bracket)
   
   if(!length(x)) return(character(0))
   x <- p0(bracket, x, bracket)
   n <- length(x)
   if(n == 1L) return(x)
-  if(n == 2L) return(p(x, collapse = con))
+  if(n == 2L) return(p(x, collapse = conj))
   if(n > 10) {
     x <- c(x[1:8], "...", x[n])
     n <- 10
   }
-  p(c(p0(x[1:(n-1)], collapse = ", "), x[n]), collapse = con)
+  p(c(p0(x[1:(n-1)], collapse = ", "), x[n]), collapse = conj)
 }

@@ -29,10 +29,10 @@ chk_values <- function (x, values = c(-Inf, Inf, NA), err = TRUE) {
     if(!err) return(FALSE)
     x_name <- deparse(substitute(x))
     if(length(x) == 1) {
-      stop("`", x_name, "` must be ", cc(values, con = " to ", bracket = bracket), 
+      stop("`", x_name, "` must be ", cc(values, conj = " to ", bracket = bracket), 
            ", not ", cc(x, bracket = bracket), ".", call. = FALSE)
     }
-    stop("All values of `", x_name, "` must be ", cc(values, con = " to ", bracket = bracket), 
+    stop("All values of `", x_name, "` must be ", cc(values, conj = " to ", bracket = bracket), 
          ".", call. = FALSE)
   }
   if(length(x_not_na) != length(x) && length(values_not_na) == length(values)) {
