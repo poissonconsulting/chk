@@ -10,6 +10,7 @@ Description: For developers to check user-supplied function arguments.
         Error messages follow the tidyverse style guide.
 License: CC0
 Depends: R (>= 3.5)
+Imports: utils
 Suggests: 
     covr,
     testthat,

@@ -139,7 +139,9 @@ chk_identical <- function (x, y, err = TRUE) {
   if(identical(x, y)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop()
+  y <- capture.output(str(y))
+  y <- paste0(y, collapse = "\n")
+  stop("`", x_name, "` not identical to:\n", y, ".")
 }
 
 #' @describeIn chk_flag Check No Missing Values
