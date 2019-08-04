@@ -59,10 +59,10 @@ chk_string(y)
 data <- data.frame(x = 1:2)
 chk_is(data, "data.frame")
 #> [1] TRUE
-chk_values(nrow(data), c(3,8))
+chk_match(nrow(data), c(3,8))
 #> Error: `nrow(data)` must be between 3 and 8, not 2.
 
-chk_values(data$x, c(2,4,8,NA))
+chk_match(data$x, c(2,4,8,NA))
 #> Error: All values of `data$x` must be 2, 4, 8 or NA.
 
 z <- "b"
@@ -79,8 +79,6 @@ informative error.
 
 Error messages follow the [tidyverse style
 guide](https://style.tidyverse.org/error-messages.html).
-
-`chk` has no dependencies.
 
 ### Customisable
 
@@ -165,6 +163,7 @@ chk](https://poissonconsulting.github.io/chk/articles/benchmarking-chk.html))
 
   - [datacheckr](https://github.com/poissonconsulting/datacheckr/)
   - [checkr](https://github.com/poissonconsulting/checkr/)
+  - [testthat](https://github.com/r-lib/testthat/)
 
 ## Contribution
 

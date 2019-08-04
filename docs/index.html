@@ -123,10 +123,10 @@
 <span id="cb3-10"><a href="#cb3-10"></a>data &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)</span>
 <span id="cb3-11"><a href="#cb3-11"></a><span class="kw"><a href="reference/chk_flag.html">chk_is</a></span>(data, <span class="st">"data.frame"</span>)</span>
 <span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt; [1] TRUE</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="kw">chk_length</span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(data), <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">3</span>,<span class="dv">8</span>))</span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; Error in chk_length(nrow(data), c(3, 8)): could not find function "chk_length"</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="kw"><a href="reference/chk_flag.html">chk_match</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(data), <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">3</span>,<span class="dv">8</span>))</span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; Error: `nrow(data)` must be between 3 and 8, not 2.</span></span>
 <span id="cb3-15"><a href="#cb3-15"></a></span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="kw"><a href="reference/chk_flag.html">chk_values</a></span>(data<span class="op">$</span>x, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>,<span class="ot">NA</span>))</span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="kw"><a href="reference/chk_flag.html">chk_match</a></span>(data<span class="op">$</span>x, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>,<span class="ot">NA</span>))</span>
 <span id="cb3-17"><a href="#cb3-17"></a><span class="co">#&gt; Error: All values of `data$x` must be 2, 4, 8 or NA.</span></span>
 <span id="cb3-18"><a href="#cb3-18"></a></span>
 <span id="cb3-19"><a href="#cb3-19"></a>z &lt;-<span class="st"> "b"</span></span>
@@ -138,7 +138,6 @@
 <span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p>By default, each check returns TRUE if successful or throws an informative error.</p>
 <p>Error messages follow the <a href="https://style.tidyverse.org/error-messages.html">tidyverse style guide</a>.</p>
-<p><code>chk</code> has no dependencies.</p>
 </div>
 <div id="customisable" class="section level3">
 <h3 class="hasAnchor">
@@ -205,6 +204,7 @@
 <ul>
 <li><a href="https://github.com/poissonconsulting/datacheckr/">datacheckr</a></li>
 <li><a href="https://github.com/poissonconsulting/checkr/">checkr</a></li>
+<li><a href="https://github.com/r-lib/testthat/">testthat</a></li>
 </ul>
 </div>
 <div id="contribution" class="section level2">

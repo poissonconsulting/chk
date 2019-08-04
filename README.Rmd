@@ -57,9 +57,9 @@ chk_string(y)
 
 data <- data.frame(x = 1:2)
 chk_is(data, "data.frame")
-chk_values(nrow(data), c(3,8))
+chk_match(nrow(data), c(3,8))
 
-chk_values(data$x, c(2,4,8,NA))
+chk_match(data$x, c(2,4,8,NA))
 
 z <- "b"
 chkor(chk_flag(z), chk_number(z))
@@ -69,8 +69,6 @@ chkor(chk_flag(z), chk_string(z))
 By default, each check returns TRUE if successful or throws an informative error.
 
 Error messages follow the [tidyverse style guide](https://style.tidyverse.org/error-messages.html).
-
-`chk` has no dependencies.
 
 ### Customisable
 
