@@ -37,7 +37,7 @@ chk_flag <- function(x, err = TRUE) {
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_lgl <- function(x, err = TRUE) {
-  if(is.logical(x) && identical(length(x), 1L)) return(TRUE)
+  if(is.logical(x) && length(x) == 1L) return(TRUE)
   if(!err) return(FALSE)
   x <- deparse(substitute(x))
   stop("`", x, "` must be a logical scalar (TRUE, FALSE or NA).", call. = FALSE)
@@ -52,7 +52,7 @@ chk_lgl <- function(x, err = TRUE) {
 #  Repository: https://github.com/poissonconsulting/chk
 
 chk_number <- function(x, err = TRUE) {
-  if(is.numeric(x) && identical(length(x), 1L) && !is.na(x)) return(TRUE)
+  if(is.numeric(x) && length(x) == 1L && !is.na(x)) return(TRUE)
   if(!err) return(FALSE)
   x <- deparse(substitute(x))
   stop("`", x, "` must be a number (non-missing numeric scalar).", call. = FALSE)
@@ -66,7 +66,7 @@ chk_number <- function(x, err = TRUE) {
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_string <- function(x, err = TRUE) {
-  if(is.character(x) && identical(length(x), 1L) && !is.na(x)) return(TRUE)
+  if(is.character(x) && length(x) == 1L && !is.na(x)) return(TRUE)
   if(!err) return(FALSE)
   x <- deparse(substitute(x))
   stop("`", x, "` must be a string (non-missing character scalar).", call. = FALSE)

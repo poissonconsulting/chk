@@ -33,10 +33,10 @@ try_msg <- function (x) {
 chkor <- function (..., err = TRUE) {
   args <- substitute(list(...))[-1]
   n <- length(args)
-  if (identical(n, 0L)) return(TRUE)
+  if (n == 0L) return(TRUE)
   args <- lapply(args, try_chk)
   args <- args[vapply(args, inherits, TRUE, "try-error")]
-  if (!identical(length(args), n)) return(TRUE)
+  if (length(args) != n) return(TRUE)
   if(!err) return(FALSE)
   
   args <- unlist(lapply(args, try_msg))
