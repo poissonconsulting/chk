@@ -22,6 +22,7 @@
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
+#  depends on R/paste.R
 cc <- function(x, con = " or ", bracket = "", chk = TRUE) {
   if(chk) {
     chk_string(con)

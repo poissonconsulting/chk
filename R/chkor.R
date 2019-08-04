@@ -29,6 +29,7 @@ try_msg <- function (x) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
+#  depends on R/paste.R
 chkor <- function (..., err = TRUE) {
   args <- substitute(list(...))[-1]
   n <- length(args)

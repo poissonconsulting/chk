@@ -52,7 +52,7 @@ library(chk)
 y <- "a"
 
 chk_flag(y)
-#> Error: y must be a flag (TRUE or FALSE)
+#> Error: 'y' must be a flag (TRUE or FALSE).
 chk_string(y)
 #> [1] TRUE
 
@@ -62,11 +62,11 @@ chk_is(data, "data.frame")
 chk_length(nrow(data), 1)
 #> [1] TRUE
 chk_length(nrow(data), 2:3)
-#> Error: nrow(data) must have a length between 2 and 3
+#> Error: 'nrow(data)' must have a length between 2 and 3.
 
 z <- "b"
 chkor(chk_flag(z), chk_number(z))
-#> Error: z must be a flag (TRUE or FALSE) OR z must be a number (non-missing numeric scalar)
+#> Error: 'z' must be a flag (TRUE or FALSE) OR 'z' must be a number (non-missing numeric scalar).
 chkor(chk_flag(z), chk_string(z))
 #> [1] TRUE
 ```
@@ -74,9 +74,14 @@ chkor(chk_flag(z), chk_string(z))
 By default, each check returns TRUE if successful or throws an
 informative error.
 
+Error messages follow the [tidyverse style
+guide](https://style.tidyverse.org/error-messages.html)
+
 ### Customisable
 
 The functions are designed to be customisable.
+
+#### Custom Error Messages
 
 If `err = FALSE` a check returns FALSE (instead of throwing an error) on
 check failure.
@@ -93,19 +98,32 @@ if(!chk_flag(1, err = FALSE)) stop("x MUST be a flag (try as.logical())")
 #> Error in eval(expr, envir, enclos): x MUST be a flag (try as.logical())
 ```
 
+#### Cut and Paste
+
 `chk` is released under the
-[CC0](https://creativecommons.org/publicdomain/zero/1.0/) licence so
-developers can copy and paste individual functions (and tests) into
-their packages without any need for creditation which is useful if they
-want to minimise their dependencies.
+[CC0](https://creativecommons.org/publicdomain/zero/1.0/) licence and
+most functions are standalone. This allows developers to easily copy and
+paste individual functions into their package which is useful if they
+want to minimise their dependencies. Copied functions should not be
+exported (to avoid namespace conflicts) and the following creditation
+preserved.
+
+``` r
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+```
 
 ### Fast
 
 The functions are designed to be fast.
 
+#### Minimal Checking
+
 As they are not expected to be directly exposed to users the `chk`
 functions don’t check any of their inputs (other than the first argument
 of course\!).
+
+#### Turn Off Checking
 
 If a function is being called internally the checks can be turned off as
 follows
@@ -134,7 +152,8 @@ wrapper_on_fun(FALSE) # calls fun without checking as being used internally
 ```
 
 It is only worth doing this if the checks are substantially slower than
-the time required to test and set checking on and off (see [Benchmarking
+the time required to test and turn checking on and off (see
+[Benchmarking
 chk](https://poissonconsulting.github.io/chk/articles/benchmarking-chk.html))
 
 ## Inspiration

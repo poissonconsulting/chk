@@ -5,6 +5,7 @@
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
+#  depends on R/cc.R
 chk_length <- function (x, length = c(1L, 2147483647), err = TRUE) {
   n <- length(x)
   
