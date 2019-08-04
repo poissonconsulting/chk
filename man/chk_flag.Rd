@@ -10,9 +10,10 @@
 \alias{chk_string}
 \alias{chk_named}
 \alias{chk_null}
-\alias{chk_function}
 \alias{chk_is}
+\alias{chk_dim}
 \alias{chk_no_missing}
+\alias{chk_function}
 \alias{chk_unused}
 \alias{chk_used}
 \alias{chk_dir}
@@ -34,11 +35,13 @@ chk_named(x, err = TRUE)
 
 chk_null(x, err = TRUE)
 
-chk_function(x, err = TRUE)
-
 chk_is(x, class, err = TRUE)
 
+chk_dim(x, dim, err = TRUE)
+
 chk_no_missing(x, err = TRUE)
+
+chk_function(x, err = TRUE)
 
 chk_unused(..., err = TRUE)
 
@@ -60,6 +63,9 @@ two values then it is considered to be a length range.}
 message if the check fails.}
 
 \item{class}{A string specifying the class.}
+
+\item{dim}{An integer vector (or object that can be converted to an integer vector)
+of the dimensions of x.}
 
 \item{...}{Additional arguments.}
 
@@ -88,11 +94,13 @@ A string is a non-mising character scalar.
 
 \item \code{chk_null}: Check NULL
 
-\item \code{chk_function}: Check Function
-
 \item \code{chk_is}: Check Inherits from Class
 
+\item \code{chk_dim}: Check Dim
+
 \item \code{chk_no_missing}: Check No Missing Values
+
+\item \code{chk_function}: Check Function
 
 \item \code{chk_unused}: Check ... Unused
 
