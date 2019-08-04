@@ -41,8 +41,8 @@ chkor <- function (..., err = TRUE) {
   
   args <- unlist(lapply(args, try_msg))
   args <- args[!duplicated(args)]
-  args <- sub("[.]$", "", args)
-  args <- p(args, collapse = " OR ")
-  args <- p0(args, ".")
+  if(length(args) == 1) stop(args) 
+  args <- p0("\n* ", args)
+  args <- c("At least one of the following conditions must be met:", args)
   stop(args, call. = FALSE)
 }
