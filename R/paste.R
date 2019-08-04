@@ -50,10 +50,10 @@ p0 <- function (..., collapse = NULL)
 #  Repository: https://github.com/poissonconsulting/chk
 cc <- function(x, conj = ", ", 
                brac = if(is.character(x) || is.factor(x)) "'" else "") {
-  if(!is.character(conj) || length(conj) != 1) 
-    stop("`conj` must be a character scalar")
-  if(!is.character(brac)) stop("`brac` must inherit from class 'character'")
-  if(!length(brac) %in% 1:2) stop("`length(brac)` must be 1 or 2")
+  if(!(is.character(conj) && length(conj) == 1)) 
+    stop("`conj` must be a character scalar.")
+  if(!(is.character(brac) && length(brac) %in% 1:2))
+    stop("`brac` must be a character vector of length 1 or 2.")
 
   if(!length(x)) return(character(0))
   x <- p0(brac[1], x, brac[length(brac)])

@@ -23,6 +23,18 @@ test_that("cc with atomic vectors", {
                    "^'11', '10', '9', '8', '7', '6', '5', '4', ..., '1'$")
 })
 
+test_that("cc errors", {
+  expect_error(cc(1, conj = 1), "^`conj` must be a character scalar[.]$")
+  expect_error(cc(1, conj = character(0)), "^`conj` must be a character scalar[.]$")
+  expect_error(cc(1, conj = as.character(1:2)), "^`conj` must be a character scalar[.]$")
+  expect_error(cc(1, brac = 1), 
+               "^`brac` must be a character vector of length 1 or 2[.]$")
+  expect_error(cc(1, brac = character(0)), 
+               "^`brac` must be a character vector of length 1 or 2[.]$")
+  expect_error(cc(1, brac = as.character(1:3)), 
+               "^`brac` must be a character vector of length 1 or 2[.]$")
+})
+
 test_that("cc with character", {
   expect_identical(cc(character(0)), character(0))
   expect_match(cc(as.character("")), "^''$")

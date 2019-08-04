@@ -59,8 +59,8 @@ chk_string(y)
 data <- data.frame(x = 1:2)
 chk_is(data, "data.frame")
 #> [1] TRUE
-chk_length(nrow(data), c(3,8))
-#> Error: `nrow(data)` must be length 3 to 8, not length 1.
+chk_values(nrow(data), c(3,8))
+#> Error: `nrow(data)` must be between 3 and 8, not 2.
 
 chk_values(data$x, c(2,4,8,NA))
 #> Error: All values of `data$x` must be 2, 4, 8 or NA.
