@@ -4,14 +4,14 @@
 \alias{cc}
 \title{Concatenate with Commas}
 \usage{
-cc(x, conj = " or ", bracket = "")
+cc(x, conj = " or ", brac = "")
 }
 \arguments{
 \item{x}{The object to concatenate.}
 
 \item{conj}{A string of the conjunction to separate the last value by.}
 
-\item{bracket}{A string to bracket the values by.}
+\item{brac}{A string to brac the values by.}
 }
 \value{
 A string.
@@ -27,6 +27,6 @@ are displayed (including the ellipsis)
 \examples{
 cc(1:2)
 cc(1:2, conj = ",")
-cc(3:1, bracket = "'")
+cc(3:1, brac = "'")
 cc(1:11)
 }

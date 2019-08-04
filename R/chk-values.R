@@ -11,17 +11,17 @@
 chk_values <- function (x, values = c(-Inf, Inf, NA), err = TRUE) {
   if(all(x %in% values)) return(TRUE)
   values_not_na <- values[!is.na(values)]
-  bracket <- if(is.character(x)) "'" else ""
+  brac <- if(is.character(x)) "'" else ""
   if(length(values_not_na) != 2L) {
     if(!err) return(FALSE)
     if(length(values_not_na) != length(values)) 
       values <- c(values_not_na, NA)
     x_name <- deparse(substitute(x))
     if(length(x) == 1) {
-      stop("`", x_name, "` must be ", cc(values, bracket = bracket), 
-           ", not ", cc(x, bracket = bracket), ".", call. = FALSE)
+      stop("`", x_name, "` must be ", cc(values, brac = brac), 
+           ", not ", cc(x, brac = brac), ".", call. = FALSE)
     }
-    stop("All values of `", x_name, "` must be ", cc(values, bracket = bracket), 
+    stop("All values of `", x_name, "` must be ", cc(values, brac = brac), 
          ".", call. = FALSE)
   }
   x_not_na <- x[!is.na(x)]
@@ -29,10 +29,10 @@ chk_values <- function (x, values = c(-Inf, Inf, NA), err = TRUE) {
     if(!err) return(FALSE)
     x_name <- deparse(substitute(x))
     if(length(x) == 1) {
-      stop("`", x_name, "` must be ", cc(values, conj = " to ", bracket = bracket), 
-           ", not ", cc(x, bracket = bracket), ".", call. = FALSE)
+      stop("`", x_name, "` must be ", cc(values, conj = " to ", brac = brac), 
+           ", not ", cc(x, brac = brac), ".", call. = FALSE)
     }
-    stop("All values of `", x_name, "` must be ", cc(values, conj = " to ", bracket = bracket), 
+    stop("All values of `", x_name, "` must be ", cc(values, conj = " to ", brac = brac), 
          ".", call. = FALSE)
   }
   if(length(x_not_na) != length(x) && length(values_not_na) == length(values)) {
