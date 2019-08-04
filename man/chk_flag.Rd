@@ -64,7 +64,7 @@ message if the check fails.}
 \item{...}{Additional arguments.}
 
 \item{values}{A vector of the permitted value(s). If
-two values then it is considered to be a value range.}
+two non-missing values then it is considered to be a value range.}
 }
 \value{
 A flag or an error if the check fails and err == TRUE.
@@ -105,7 +105,8 @@ A string is a non-mising character scalar.
 A directory is considered to be a file.
 
 \item \code{chk_values}: Check Values
-Missing values are ignored
+
+Checks if all x are in values.
 }}
 
 \examples{
