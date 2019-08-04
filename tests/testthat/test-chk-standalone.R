@@ -20,6 +20,17 @@ test_that("chk_lgl", {
   expect_error(chk_lgl(1), "^`1` must be a logical scalar [(]TRUE, FALSE or NA[)][.]$")
 })
 
+test_that("chk_whole_number", {
+  expect_true(chk_whole_number(1L))
+  expect_true(chk_whole_number(1))
+  expect_true(chk_whole_number(-100))
+  expect_false(chk_whole_number(1:2, err = FALSE))
+  expect_false(chk_whole_number(1.00000001, err = FALSE))
+  expect_false(chk_whole_number(NA_integer_, err = FALSE))
+  expect_false(chk_whole_number(integer(0), err = FALSE))
+  expect_error(chk_whole_number(1.1), "^`1.1` must be a whole number [(]non-missing integer scalar or double equivalent[)][.]$")
+})
+
 test_that("chk_number", {
   expect_false(chk_number(numeric(0), err = FALSE))
   expect_false(chk_number(NA_integer_, err = FALSE))

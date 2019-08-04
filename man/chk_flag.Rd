@@ -6,6 +6,7 @@
 \alias{chk}
 \alias{chk_lgl}
 \alias{chk_number}
+\alias{chk_whole_number}
 \alias{chk_string}
 \alias{chk_named}
 \alias{chk_null}
@@ -29,6 +30,8 @@ chk_flag(x, err = TRUE)
 chk_lgl(x, err = TRUE)
 
 chk_number(x, err = TRUE)
+
+chk_whole_number(x, err = TRUE)
 
 chk_string(x, err = TRUE)
 
@@ -78,12 +81,14 @@ message if the check fails.}
 two non-missing values then it is considered to be a value range.}
 }
 \value{
-A flag or an error if the check fails and err == TRUE.
+A flag or an error if the check fails and err = TRUE.
 }
 \description{
-A flag is a non-missing logical scalar.
+Check Object
 }
 \details{
+Checks if non-missing logical scalar using:
+
 \code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{is.na}(x)}
 }
 \section{Functions}{
@@ -92,13 +97,23 @@ A flag is a non-missing logical scalar.
 
 \code{all(\link{match}(x, match, nomatch = 0) > 0)}
 
-\item \code{chk_lgl}: Check Logical Scalar
+\item \code{chk_lgl}: Check Lgl
+
+Checks if logical scalar using:
 
 \code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{is.na}(x)}
 
-\item \code{chk_number}: Check Number (non-mising numeric scalar)
+\item \code{chk_number}: Check Number
 
-\code{\link{is.numeric}(x) && \link{length}(x) == 1L && !\link{is.na}(x)}
+Checks if non-mising numeric scalar using:
+
+\code{is.numeric(x) && length(x) == 1L && !\link{is.na}(x)}
+
+\item \code{chk_whole_number}: Check Whole Number
+ 
+Checks if non-mising integer scalar or double equivalent using:
+
+\code{is.numeric(x) && length(x) == 1L && !\link{is.na}(x) && x == as.integer(x)}
 
 \item \code{chk_string}: Check String
 
@@ -164,6 +179,7 @@ chk_flag(1, err = FALSE)
 chk_flag(NA, err = FALSE)
 chk_flag(TRUE)
 chk_flag(c(TRUE, FALSE), err = FALSE)
+
 
 
 }

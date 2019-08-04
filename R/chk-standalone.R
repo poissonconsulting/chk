@@ -1,6 +1,7 @@
 #' Check Object
 #'
-#' A flag is a non-missing logical scalar.
+#' @details  
+#' Checks if non-missing logical scalar using:
 #' 
 #' \code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{is.na}(x)}
 #' 
@@ -13,7 +14,7 @@
 #' @param match A vector of the permitted value(s).
 #' @param ... Additional arguments.
 #'
-#' @return A flag or an error if the check fails and err == TRUE.
+#' @return A flag or an error if the check fails and err = TRUE.
 #' @name chk_flag
 #' @aliases chk
 #' @export
@@ -34,7 +35,9 @@ chk_flag <- function(x, err = TRUE) {
   stop("`", x_name, "` must be a flag (TRUE or FALSE).", call. = FALSE)
 }
 
-#' @describeIn chk_flag Check Logical Scalar
+#' @describeIn chk_flag Check Lgl
+#' 
+#' Checks if logical scalar using:
 #' 
 #' \code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{is.na}(x)}
 #' @export
@@ -51,9 +54,11 @@ chk_lgl <- function(x, err = TRUE) {
        call. = FALSE)
 }
 
-#' @describeIn chk_flag Check Number (non-mising numeric scalar)
+#' @describeIn chk_flag Check Number
 #' 
-#' \code{\link{is.numeric}(x) && \link{length}(x) == 1L && !\link{is.na}(x)}
+#' Checks if non-mising numeric scalar using:
+#' 
+#' \code{is.numeric(x) && length(x) == 1L && !\link{is.na}(x)}
 #' @export
 #' 
 #' @examples
@@ -65,6 +70,26 @@ chk_number <- function(x, err = TRUE) {
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
   stop("`", x_name, "` must be a number (non-missing numeric scalar).", 
+       call. = FALSE)
+}
+
+#' @describeIn chk_flag Check Whole Number
+#'  
+#' Checks if non-mising integer scalar or double equivalent using:
+#' 
+#' \code{is.numeric(x) && length(x) == 1L && !\link{is.na}(x) && x == as.integer(x)}
+#' @export
+#' 
+#' @examples
+#' 
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_whole_number <- function(x, err = TRUE) {
+  if(is.numeric(x) && length(x) == 1L && !is.na(x) && x == as.integer(x))
+    return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must be a whole number (non-missing integer scalar or double equivalent).", 
        call. = FALSE)
 }
 
