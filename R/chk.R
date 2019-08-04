@@ -26,7 +26,7 @@ chk_flag <- function(x, err = TRUE) {
   if(isTRUE(x) || isFALSE(x)) return(TRUE)
   if(!err) return(FALSE)
   x <- deparse(substitute(x))
-  err(x, " must be a flag (TRUE or FALSE)")
+  stop(x, " must be a flag (TRUE or FALSE)", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check logical Scalar
@@ -46,7 +46,7 @@ chk_lgl <- function(x, err = TRUE) {
   if(is.logical(x) && identical(length(x), 1L)) return(TRUE)
   if(!err) return(FALSE)
   x <- deparse(substitute(x))
-  err(x, " must be a logical scalar (TRUE, FALSE or NA)")
+  stop(x, " must be a logical scalar (TRUE, FALSE or NA)", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check number (non-mising numeric scalar)
@@ -67,7 +67,7 @@ chk_number <- function(x, err = TRUE) {
   if(is.numeric(x) && identical(length(x), 1L) && !is.na(x)) return(TRUE)
   if(!err) return(FALSE)
   x <- deparse(substitute(x))
-  err(x, " must be a number (non-missing numeric scalar)")
+  stop(x, " must be a number (non-missing numeric scalar)", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check string (non-mising character scalar)
@@ -87,7 +87,7 @@ chk_string <- function(x, err = TRUE) {
   if(is.character(x) && identical(length(x), 1L) && !is.na(x)) return(TRUE)
   if(!err) return(FALSE)
   x <- deparse(substitute(x))
-  err(x, " must be a string (non-missing character scalar)")
+  stop(x, " must be a string (non-missing character scalar)", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check named
@@ -108,7 +108,7 @@ chk_named <- function(x, err = TRUE) {
   if(!is.null(names(x))) return(TRUE)
   if(!err) return(FALSE)
   x <- deparse(substitute(x))
-  err(x, " must be named")
+  stop(x, " must be named", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check NULL
@@ -120,7 +120,7 @@ chk_null <- function(x, err = TRUE) {
   if(is.null(x)) return(TRUE)
   if(!err) return(FALSE)
   x <- deparse(substitute(x))
-  err(x, " must be NULL")
+  stop(x, " must be NULL", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check function
@@ -132,7 +132,7 @@ chk_function <- function(x, err = TRUE) {
   if(is.function(x)) return(TRUE)
   if(!err) return(FALSE)
   x <- deparse(substitute(x))
-  err(x, " must be a function")
+  stop(x, " must be a function", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check inherits from class
@@ -144,7 +144,7 @@ chk_is <- function(x, class, err = TRUE) {
   if(inherits(x, class)) return(TRUE)
   if(!err) return(FALSE)
   x <- deparse(substitute(x))
-  err(x, " must inherit from class '", class, "'")
+  stop(x, " must inherit from class '", class, "'", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check no missing values
@@ -156,7 +156,7 @@ chk_no_missing <- function(x, err = TRUE) {
   if(!anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
   x <- deparse(substitute(x))
-  err(x, " must not have missing values")
+  stop(x, " must not have missing values", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check unused
@@ -167,7 +167,7 @@ chk_no_missing <- function(x, err = TRUE) {
 chk_unused <- function (..., err = TRUE) {
   if(!length(list(...))) return(TRUE)
   if(!err) return(FALSE)
-  err("... must be unused")
+  stop("... must be unused", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check used
@@ -178,7 +178,7 @@ chk_unused <- function (..., err = TRUE) {
 chk_used <- function (..., err = TRUE) {
   if(length(list(...))) return(TRUE)
   if(!err) return(FALSE)
-  err("... must be used")
+  stop("... must be used", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check length
@@ -197,7 +197,7 @@ chk_length <- function (x, length = c(1L, 2147483647), err = TRUE) {
     if(n == length) return(TRUE)
     if(!err) return(FALSE)
     x <- deparse(substitute(x))
-    err(x, " must have a length of ", length)
+    stop(x, " must have a length of ", length, call. = FALSE)
   }
   
   length <- sort(length)
@@ -206,14 +206,15 @@ chk_length <- function (x, length = c(1L, 2147483647), err = TRUE) {
     if(n >= length[1] && n <= length[2]) return(TRUE)
     if(!err) return(FALSE)
     x <- deparse(substitute(x))
-    err(x, " must have a length between ", length[1], " and ", length[2])
+    stop(x, " must have a length between ", length[1], " and ", length[2], 
+         call. = FALSE)
   }
   length <- unique(length)
 
   if(n %in% length) return(TRUE)
   if(!err) return(FALSE)
   x <- deparse(substitute(x))
-  err(x, " must have a length of ", cc(length, chk = FALSE))
+  stop(x, " must have a length of ", cc(length, chk = FALSE), call. = FALSE)
 }
 
 #' @describeIn chk_flag Check directory exists
@@ -224,7 +225,7 @@ chk_length <- function (x, length = c(1L, 2147483647), err = TRUE) {
 chk_dir <- function(x, err = TRUE) {
   if(dir.exists(x)) return(TRUE)
   if(!err) return(FALSE)
-  err("directory '", x, "' not found")
+  stop("directory '", x, "' not found", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check file exists
@@ -235,5 +236,5 @@ chk_dir <- function(x, err = TRUE) {
 chk_file <- function(x, err = TRUE) {
   if(file.exists(x)) return(TRUE)
   if(!err) return(FALSE)
-  err("file '", x, "' not found")
+  stop("file '", x, "' not found", call. = FALSE)
 }

@@ -41,5 +41,5 @@ chkor <- function (..., err = TRUE) {
   args <- unlist(lapply(args, try_msg))
   args <- args[!duplicated(args)]
   args <- p(args, collapse = " OR ")
-  err(args)
+  stop(args, call. = FALSE)
 }
