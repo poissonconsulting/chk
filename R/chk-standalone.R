@@ -25,8 +25,8 @@
 chk_flag <- function(x, err = TRUE) {
   if(is.logical(x) && length(x) == 1L && !is.na(x)) return(TRUE)
   if(!err) return(FALSE)
-  x <- deparse(substitute(x))
-  stop("`", x, "` must be a flag (TRUE or FALSE).", call. = FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must be a flag (TRUE or FALSE).", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check Logical Scalar
@@ -39,8 +39,9 @@ chk_flag <- function(x, err = TRUE) {
 chk_lgl <- function(x, err = TRUE) {
   if(is.logical(x) && length(x) == 1L) return(TRUE)
   if(!err) return(FALSE)
-  x <- deparse(substitute(x))
-  stop("`", x, "` must be a logical scalar (TRUE, FALSE or NA).", call. = FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must be a logical scalar (TRUE, FALSE or NA).", 
+       call. = FALSE)
 }
 
 #' @describeIn chk_flag Check Number (non-mising numeric scalar)
@@ -54,8 +55,9 @@ chk_lgl <- function(x, err = TRUE) {
 chk_number <- function(x, err = TRUE) {
   if(is.numeric(x) && length(x) == 1L && !is.na(x)) return(TRUE)
   if(!err) return(FALSE)
-  x <- deparse(substitute(x))
-  stop("`", x, "` must be a number (non-missing numeric scalar).", call. = FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must be a number (non-missing numeric scalar).", 
+       call. = FALSE)
 }
 
 #' @describeIn chk_flag Check String
@@ -68,8 +70,9 @@ chk_number <- function(x, err = TRUE) {
 chk_string <- function(x, err = TRUE) {
   if(is.character(x) && length(x) == 1L && !is.na(x)) return(TRUE)
   if(!err) return(FALSE)
-  x <- deparse(substitute(x))
-  stop("`", x, "` must be a string (non-missing character scalar).", call. = FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must be a string (non-missing character scalar).", 
+       call. = FALSE)
 }
 
 #' @describeIn chk_flag Check Named
@@ -80,8 +83,8 @@ chk_string <- function(x, err = TRUE) {
 chk_named <- function(x, err = TRUE) {
   if(!is.null(names(x))) return(TRUE)
   if(!err) return(FALSE)
-  x <- deparse(substitute(x))
-  stop("`", x, "` must be named.", call. = FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must be named.", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check NULL
@@ -92,8 +95,8 @@ chk_named <- function(x, err = TRUE) {
 chk_null <- function(x, err = TRUE) {
   if(is.null(x)) return(TRUE)
   if(!err) return(FALSE)
-  x <- deparse(substitute(x))
-  stop("`", x, "` must be NULL.", call. = FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must be NULL.", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check Function
@@ -104,8 +107,8 @@ chk_null <- function(x, err = TRUE) {
 chk_function <- function(x, err = TRUE) {
   if(is.function(x)) return(TRUE)
   if(!err) return(FALSE)
-  x <- deparse(substitute(x))
-  stop("`", x, "` must be a function.", call. = FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must be a function.", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check Inherits from Class
@@ -118,9 +121,9 @@ chk_is <- function(x, class, err = TRUE) {
   if(!err) return(FALSE)
   x_class <- class(x)
   x_class <- x_class[length(x_class)]
-  x <- deparse(substitute(x))
-  stop("`", x, "` must inherit from class '", class, "', not class '", x_class, "'.", 
-       call. = FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must inherit from class '", class, "', not class '", 
+       x_class, "'.", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check No Missing Values
@@ -132,8 +135,8 @@ chk_is <- function(x, class, err = TRUE) {
 chk_no_missing <- function(x, err = TRUE) {
   if(!anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
-  x <- deparse(substitute(x))
-  stop("`", x, "` must not have missing values.", call. = FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must not have missing values.", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check ... Unused
