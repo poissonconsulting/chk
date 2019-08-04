@@ -51,10 +51,11 @@ p0 <- function (..., collapse = NULL)
 cc <- function(x, conj = ", ", 
                brac = if(is.character(x) || is.factor(x)) "'" else "") {
   chk_string(conj)
-  chk_string(brac)
+  chk_is(brac, "character")
+  chk_length(brac, 1:2)
   
   if(!length(x)) return(character(0))
-  x <- p0(brac, x, brac)
+  x <- p0(brac[1], x, brac[length(brac)])
   n <- length(x)
   if(n == 1L) return(x)
   if(n == 2L) return(p(x, collapse = conj))
