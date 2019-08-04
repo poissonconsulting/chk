@@ -189,7 +189,7 @@ chk_used <- function (..., err = TRUE) {
 chk_dir <- function(x, err = TRUE) {
   if(dir.exists(x)) return(TRUE)
   if(!err) return(FALSE)
-  stop("directory `", x, "` not found.", call. = FALSE)
+  stop("Can't find directory `", x, "`.", call. = FALSE)
 }
 
 #' @describeIn chk_flag Check file exists
@@ -200,5 +200,5 @@ chk_dir <- function(x, err = TRUE) {
 chk_file <- function(x, err = TRUE) {
   if(file.exists(x)) return(TRUE)
   if(!err) return(FALSE)
-  stop("file `", x, "` not found.", call. = FALSE)
+  stop("Can't find file `", x, "`.", call. = FALSE)
 }
