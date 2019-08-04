@@ -1,5 +1,5 @@
-#' @describeIn chk_flag Check length
-#' @param length An integer vector of the permitted lengths. If
+#' @describeIn chk_flag Check Length
+#' @param length An integer vector of the permitted length(s). If
 #' two values then it is considered to be a length range.
 #' @export
 #
