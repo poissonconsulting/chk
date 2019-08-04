@@ -1,11 +1,12 @@
 #' @describeIn chk_flag Check Length
+#' 
 #' @param length An integer vector of the permitted length(s). If
 #' two values then it is considered to be a length range.
 #' @export
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-#  depends on R/cc.R
+#  depends on R/paste.R
 chk_length <- function (x, length = c(1L, 2147483647), err = TRUE) {
   x_length <- length(x)
   length_n <- length(length)

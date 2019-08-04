@@ -48,7 +48,7 @@ chk_dir(x, err = TRUE)
 
 chk_file(x, err = TRUE)
 
-chk_values(x, values = c(-Inf, Inf, NA), err = TRUE)
+chk_values(x, values = c(0, Inf, NA), err = TRUE)
 }
 \arguments{
 \item{x}{The object to check.}
