@@ -15,4 +15,6 @@ test_that("chk_length", {
   expect_error(chk_length(1, c(3,2,2)), "^`1` must be length 2 or 3, not length 1[.]$")
   expect_false(chk_length(1, c(2,4,3), err = FALSE))
   expect_error(chk_length(1, c(2,4,3)), "^`1` must be length 2, 3 or 4, not length 1[.]$")
+  expect_error(chk_length(character(0), 1:10), "^`character[(]0[)]` must be length 1, 2, 3, 4, 5, 6, 7, 8, 9 or 10, not length 0[.]$")
+  expect_error(chk_length(character(0), 1:11), "^`character[(]0[)]` must be length 1, 2, 3, 4, 5, 6, 7, 8, ... or 11, not length 0[.]$")
 })
