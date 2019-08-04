@@ -36,6 +36,7 @@ test_that("chk_values", {
   
   expect_error(chk_values(2, c(1,1)), "^`2` must be 1, not 2[.]$")
   expect_error(chk_values(2, c(1,1,1)), "^`2` must be 1, not 2[.]$")
+  expect_error(chk_values(c(2,2), c(1,1,1)), "^All values of `c[(]2, 2[)]` must be 1[.]$")
 })
 
 test_that("chk_values(length)", {

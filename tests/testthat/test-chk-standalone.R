@@ -20,6 +20,24 @@ test_that("chk_lgl", {
   expect_error(chk_lgl(1), "^`1` must be a logical scalar [(]TRUE, FALSE or NA[)][.]$")
 })
 
+test_that("chk_false", {
+  expect_true(chk_false(FALSE))
+  expect_true(chk_false(c(x = FALSE)))
+  expect_false(chk_false(TRUE, err = FALSE))
+  expect_false(chk_false(NA, err = FALSE))
+  expect_false(chk_false(c(FALSE, FALSE), err = FALSE))
+  expect_error(chk_false(TRUE), "^`TRUE` must be FALSE[.]$")
+})
+
+test_that("chk_true", {
+  expect_true(chk_true(TRUE))
+  expect_true(chk_true(c(x = TRUE)))
+  expect_false(chk_true(FALSE, err = FALSE))
+  expect_false(chk_true(NA, err = FALSE))
+  expect_false(chk_true(c(TRUE, TRUE), err = FALSE))
+  expect_error(chk_true(FALSE), "^`FALSE` must be TRUE[.]$")
+})
+
 test_that("chk_whole_number", {
   expect_true(chk_whole_number(1L))
   expect_true(chk_whole_number(1))

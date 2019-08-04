@@ -5,6 +5,8 @@
 \alias{chk_flag}
 \alias{chk}
 \alias{chk_lgl}
+\alias{chk_false}
+\alias{chk_true}
 \alias{chk_number}
 \alias{chk_whole_number}
 \alias{chk_string}
@@ -30,6 +32,10 @@ chk_match(x, match = c(1, Inf), err = TRUE)
 chk_flag(x, err = TRUE)
 
 chk_lgl(x, err = TRUE)
+
+chk_false(x, err = TRUE)
+
+chk_true(x, err = TRUE)
 
 chk_number(x, err = TRUE)
 
@@ -110,6 +116,18 @@ Checks if non-missing logical scalar using:
 Checks if logical scalar using:
 
 \code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
+
+\item \code{chk_false}: Check False
+
+Checks if FALSE using:
+
+\code{\link{isFALSE}(x)}
+
+\item \code{chk_true}: Check True
+
+Checks if TRUE using:
+
+\code{\link{isTRUE}(x)}
 
 \item \code{chk_number}: Check Number
 
@@ -196,6 +214,8 @@ chk_flag(1, err = FALSE)
 chk_flag(NA, err = FALSE)
 chk_flag(TRUE)
 chk_flag(c(TRUE, FALSE), err = FALSE)
+
+
 
 
 

@@ -55,6 +55,44 @@ chk_lgl <- function(x, err = TRUE) {
        call. = FALSE)
 }
 
+#' @describeIn chk_flag Check False
+#' 
+#' Checks if FALSE using:
+#' 
+#' \code{\link{isFALSE}(x)}
+#' @export
+#' 
+#' @examples 
+#' 
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_false <- function(x, err = TRUE) {
+  if(isFALSE(x)) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must be FALSE.", 
+       call. = FALSE)
+}
+
+#' @describeIn chk_flag Check True
+#' 
+#' Checks if TRUE using:
+#' 
+#' \code{\link{isTRUE}(x)}
+#' @export
+#' 
+#' @examples 
+#' 
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_true <- function(x, err = TRUE) {
+  if(isTRUE(x)) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must be TRUE.", 
+       call. = FALSE)
+}
+
 #' @describeIn chk_flag Check Number
 #' 
 #' Checks if non-mising numeric scalar using:
