@@ -2,6 +2,8 @@
 #'
 #' A flag is a non-missing logical scalar.
 #' 
+#' \code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{is.na}(x)}
+#' 
 #' @param x The object to check. 
 #' @param err A flag specifying whether to generate an error
 #' message if the check fails.
@@ -30,6 +32,8 @@ chk_flag <- function(x, err = TRUE) {
 }
 
 #' @describeIn chk_flag Check Logical Scalar
+#' 
+#' \code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{is.na}(x)}
 #' @export
 #' 
 #' @examples 
@@ -45,6 +49,8 @@ chk_lgl <- function(x, err = TRUE) {
 }
 
 #' @describeIn chk_flag Check Number (non-mising numeric scalar)
+#' 
+#' \code{\link{is.numeric}(x) && \link{length}(x) == 1L && !\link{is.na}(x)}
 #' @export
 #' 
 #' @examples
@@ -62,7 +68,7 @@ chk_number <- function(x, err = TRUE) {
 
 #' @describeIn chk_flag Check String
 #' 
-#' A string is a non-mising character scalar.
+#' \code{\link{is.character}(x) && \link{length}(x) == 1L && !\link{is.na}(x)}
 #' @export
 #' 
 #  Licence: CC
@@ -76,6 +82,8 @@ chk_string <- function(x, err = TRUE) {
 }
 
 #' @describeIn chk_flag Check Named
+#' 
+#' \code{!\link{is.null}(\link{names}(x))}
 #' @export
 #' 
 #  Licence: CC
@@ -88,6 +96,8 @@ chk_named <- function(x, err = TRUE) {
 }
 
 #' @describeIn chk_flag Check NULL
+#' 
+#' \code{\link{is.null}(x)}
 #' @export
 #
 #  Licence: CC
@@ -100,6 +110,8 @@ chk_null <- function(x, err = TRUE) {
 }
 
 #' @describeIn chk_flag Check Inherits from Class
+#' 
+#' \code{\link{inherits}(x, class)}
 #' @export
 #
 #  Licence: CC
@@ -114,26 +126,25 @@ chk_is <- function(x, class, err = TRUE) {
        x_class, "'.", call. = FALSE)
 }
 
-#' @describeIn chk_flag Check Dim
-#' @param dim An integer vector (or object that can be converted to an integer vector)
-#'  of the dimensions of x.
+#' @describeIn chk_flag Check Identical
+#'
+#' \code{\link{identical}(x, y)}
+#' @param y The object to check against.
 #' @export
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_dim <- function(x, dim, err = TRUE) {
-  dim <- as.integer(dim)
-  if(identical(dim(x), as.integer(dim))) return(TRUE)
+#  depends on R/paste.R
+chk_identical <- function (x, y, err = TRUE) {
+  if(identical(x, y)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  dim <- paste0(dim, collapse = " ")
-  x_dim <- paste(dim(x), collapse = " ")
-  stop("`", x_name, "` dim must be '", dim, "', not '", 
-       x_dim, "'.", call. = FALSE)
+  stop()
 }
 
 #' @describeIn chk_flag Check No Missing Values
 #' 
+#' \code{!\link{anyNA}(x)}
 #' @export
 #
 #  Licence: CC
@@ -146,6 +157,8 @@ chk_no_missing <- function(x, err = TRUE) {
 }
 
 #' @describeIn chk_flag Check Function
+#' 
+#' \code{\link{is.function}(x)}
 #' @export
 #
 #  Licence: CC
@@ -158,6 +171,8 @@ chk_function <- function(x, err = TRUE) {
 }
 
 #' @describeIn chk_flag Check ... Unused
+#' 
+#' \code{!\link{length}(\link{list}(...))}
 #' @export
 #
 #  Licence: CC
@@ -169,6 +184,8 @@ chk_unused <- function (..., err = TRUE) {
 }
 
 #' @describeIn chk_flag Check ... Used
+#' 
+#' \code{\link{length}(\link{list}(...))}
 #' @export
 #
 #  Licence: CC
@@ -180,6 +197,8 @@ chk_used <- function (..., err = TRUE) {
 }
 
 #' @describeIn chk_flag Check Directory Exists
+#' 
+#' \code{\link{dir.exists}(x)}
 #' @export
 #
 #  Licence: CC
@@ -192,7 +211,7 @@ chk_dir <- function(x, err = TRUE) {
 
 #' @describeIn chk_flag Check File Exists
 #' 
-#' A directory is considered to be a file.
+#' \code{\link{file.exists}(x)}
 #' @export
 #
 #  Licence: CC

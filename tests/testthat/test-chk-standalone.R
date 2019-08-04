@@ -74,15 +74,6 @@ test_that("chk_is", {
                "`matrix[(]1[)]` must inherit from class 'numeric', not class 'matrix'[.]$")
 })
 
-test_that("chk_dim", {
-  expect_true(chk_dim(matrix(1), c(1,1)))
-  expect_false(chk_dim(matrix(1), 1, err = FALSE))
-  expect_error(chk_dim(matrix(1), 1), 
-               "^`matrix[(]1[)]` dim must be '1', not '1 1'[.]$")
-  expect_error(chk_dim(matrix(1:9,3), c(2L,3L)), 
-               "^`matrix[(]1:9, 3[)]` dim must be '2 3', not '3 3'[.]$")
-})
-
 test_that("chk_no_missing", {
   expect_true(chk_no_missing(1))
   expect_true(chk_no_missing(integer(0)))
