@@ -93,7 +93,7 @@ message if the check fails.}
 
 \item{pattern}{A string of a regular expression.}
 
-\item{class}{A string specifying the class(es).}
+\item{class}{A string specifying the class.}
 
 \item{y}{An object to check against.}
 
@@ -101,17 +101,16 @@ message if the check fails.}
 
 \item{...}{Additional arguments.}
 
-\item{values}{A vector of the permitted value(s).}
+\item{values}{A vector of the permitted values.}
 
-\item{range}{A sorted vector of length 2 of the lower and upper 
-permitted values.}
+\item{range}{A vector of length 2 of the lower and upper permitted values.}
 }
 \value{
-A flag or an error if the check fails and err = TRUE.
+TRUE if passes check. Otherwise if throws an informative error unless
+\code{err = FALSE} in which case it returns FALSE.
 }
 \description{
-Efficiently check if object passes test. Return TRUE if yes.
-If not throw an informative error or if \code{err = FALSE} return FALSE.
+Efficiently checks object.
 }
 \details{
 \code{chk_true()}: Check TRUE
@@ -132,31 +131,31 @@ Checks if FALSE using:
 
 Checks if non-missing logical scalar using:
 
-\code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
+\code{is.logical(x) && length(x) == 1L && !anyNA(x)}
 
 \item \code{chk_lgl}: Check Lgl
 
 Checks if logical scalar using:
 
-\code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
+\code{is.logical(x) && length(x) == 1L && !anyNA(x)}
 
 \item \code{chk_number}: Check Number
 
 Checks if non-mising numeric scalar using:
 
-\code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x)}
+\code{is.numeric(x) && length(x) == 1L && !anyNA(x)}
 
 \item \code{chk_proportion}: Check Proportion
 
 Checks if non-mising numeric scalar between 0 and 1 using:
 
-\code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x) && x >= 0 && x <= 1}
+\code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1}
 
 \item \code{chk_whole_number}: Check Whole Number
  
 Checks if non-mising integer scalar or double equivalent using:
 
-\code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x) && 
+\code{is.numeric(x) && length(x) == 1L && !anyNA(x) && 
   isTRUE(all.equal(x, as.integer(x)))}
 
 \item \code{chk_count}: Check Count
@@ -170,7 +169,7 @@ Checks if non-missing non-negative integer scalar or double equivalent using:
 
 Checks if non-missing character scalar using:
 
-\code{\link{is.character}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
+\code{is.character(x) && length(x) == 1L && !anyNA(x)}
 
 \item \code{chk_whole_numeric}: Check Whole Numeric
  
@@ -183,6 +182,8 @@ Checks if integer vector or double equivalent using the equivalent of:
 Checks if all values match regular expression pattern using:
 
 \code{all(\link{grepl}(pattern, x))}
+
+\code{pattern} should be a string.
 
 \item \code{chk_null}: Check NULL
 
@@ -214,7 +215,7 @@ Class should be a string.
 
 Checks if is class using:
 
-\code{\link{identical}(\link{class}(x), class)}
+\code{\link{identical}(class(x), class)}
 
 Class should be a character vector.
 
@@ -226,13 +227,13 @@ Checks if is identical to y using:
 
 \item \code{chk_equal}: Check Equal
 
-Checks if is equal to y using:
+Checks if is equal (identical within tolerance) to y using:
 
 \code{isTRUE(\link{all.equal}(x, y, tolerance))}
 
 \item \code{chk_equivalent}: Check Equivalent
 
-Checks if is equivalent (ignores attributes) to y using:
+Checks if is equivalent (equal ignoring attributes) to y using:
 
 \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}
 
@@ -244,15 +245,15 @@ Checks if is a function using:
 
 \item \code{chk_unused}: Check ... Unused
 
-Checks is if unused using:
+Checks if is ... unused using:
 
-\code{!\link{length}(\link{list}(...))}
+\code{!length(\link{list}(...))}
 
 \item \code{chk_used}: Check ... Used
 
-Checks is if used using:
+Checks if is ... used using:
 
-\code{\link{length}(\link{list}(...))}
+\code{length(\link{list}(...))}
 
 \item \code{chk_dir}: Check Directory Exists
 
@@ -268,7 +269,7 @@ Checks if file exists using:
 
 \item \code{chk_named}: Check Named
 
-Checks if is named using
+Checks if is named using:
 
 \code{!is.null(\link{names}(x))}
 
@@ -295,12 +296,4 @@ chk_true(1, err = FALSE)
 chk_true(NA, err = FALSE)
 chk_true(TRUE)
 chk_true(c(TRUE, FALSE), err = FALSE)
-
-
-
-
-
-
-
-
 }
