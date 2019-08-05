@@ -334,13 +334,13 @@ Checks if all values match values using equivalent of:
 
 Checks if directory exists using:
 
-\code{\link{dir.exists}(x)}
+\code{all(\link{dir.exists}(x))}
 
 \item \code{chk_file}: Check File Exists
 
 Checks if file exists using:
 
-\code{\link{file.exists}(x) && !dir.exists(x)}
+\code{all(\link{file.exists}(x) && !dir.exists(x))}
 }}
 
 \examples{

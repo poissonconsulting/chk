@@ -628,31 +628,38 @@ chk_match <- function (x, values = c(0, Inf), err = TRUE) {
 #' 
 #' Checks if directory exists using:
 #' 
-#' \code{\link{dir.exists}(x)}
+#' \code{all(\link{dir.exists}(x))}
 #' 
 #' @export
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_dir <- function(x, err = TRUE) {
-  if(dir.exists(x)) return(TRUE)
+  if(all(dir.exists(x))) return(TRUE)
   if(!err) return(FALSE)
-  err("Can't find directory '", x, "'.")
+  x <- unique(x)
+  x <- x[!dir.exists(x)]
+  if(length(x) == 1L)
+    err("Can't find directory '", x, "'.")
+  err("Can't find the following directories: ", cc(x, " or "), ".")
 }
 
 #' @describeIn chk_true Check File Exists
 #' 
 #' Checks if file exists using:
 #' 
-#' \code{\link{file.exists}(x) && !dir.exists(x)}
+#' \code{all(\link{file.exists}(x) && !dir.exists(x))}
 #' 
 #' @export
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_file <- function(x, err = TRUE) {
-  if(file.exists(x) && !dir.exists(x)) return(TRUE)
+  if(all(file.exists(x) & !dir.exists(x))) return(TRUE)
   if(!err) return(FALSE)
-  err("Can't find file '", x, "'.")
+  x <- unique(x)
+  x <- x[!file.exists(x) | dir.exists(x)]
+  if(length(x) == 1L)
+    err("Can't find file '", x, "'.")
+  err("Can't find the following files: ", cc(x, " or "), ".")
 }
-
