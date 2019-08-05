@@ -17,6 +17,7 @@
 #' @param y An object to check against.
 #' @param tolerance A non-negative numeric scalar.
 #' @param values A vector of the permitted values.
+#' @param value A non-missing scalar of a value.
 #' @param range A vector of length 2 of the lower and upper permitted values.
 #' @param pattern A string of a regular expression.
 #' @param ... Additional arguments.
@@ -243,7 +244,7 @@ chk_whole_numeric <- function(x, err = TRUE) {
 #'
 #' \code{all(\link{grepl}(pattern, x))}
 #' 
-#' \code{pattern} should be a string.
+#' \code{pattern} should be a non-missing character scalar.
 #' 
 #' @export
 #
@@ -256,6 +257,23 @@ chk_grepl <- function (x, pattern = ".+", err = TRUE) {
   if(length(x) == 1)
     err("`", x_name, "` must match regular expression '", pattern, "'.")
   err("All values of `", x_name, "` must match regular expression '", pattern, "'.")
+}
+
+#' @describeIn chk_true Check No Missing Values
+#' 
+#' Checks if no missing values using:
+#' 
+#' \code{!\link{anyNA}(x)}
+#' 
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_no_missing <- function(x, err = TRUE) {
+  if(!anyNA(x)) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  err("`", x_name, "` must not have missing values.")
 }
 
 #' @describeIn chk_true Check NULL
@@ -292,21 +310,70 @@ chk_not_null <- function(x, err = TRUE) {
   err("`", x_name, "` must not be NULL.")
 }
 
-#' @describeIn chk_true Check No Missing Values
+#' @describeIn chk_true Check Named
 #' 
-#' Checks if no missing values using:
+#' Checks if is named using:
 #' 
-#' \code{!\link{anyNA}(x)}
+#' \code{!is.null(\link{names}(x))}
+#' 
+#' @export
+#' 
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_named <- function(x, err = TRUE) {
+  if(!is.null(names(x))) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  err("`", x_name, "` must be named.")
+}
+
+#' @describeIn chk_true Check ... Unused
+#' 
+#' Checks if is ... unused using:
+#' 
+#' \code{!length(\link{list}(...))}
 #' 
 #' @export
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_no_missing <- function(x, err = TRUE) {
-  if(!anyNA(x)) return(TRUE)
+chk_unused <- function (..., err = TRUE) {
+  if(!length(list(...))) return(TRUE)
+  if(!err) return(FALSE)
+  err("`...` must be unused.")
+}
+
+#' @describeIn chk_true Check ... Used
+#' 
+#' Checks if is ... used using:
+#' 
+#' \code{length(\link{list}(...))}
+#' 
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_used <- function (..., err = TRUE) {
+  if(length(list(...))) return(TRUE)
+  if(!err) return(FALSE)
+  err("`...` must be used.")
+}
+
+#' @describeIn chk_true Check Function
+#' 
+#' Checks if is a function using:
+#' 
+#' \code{\link{is.function}(x)}
+#' 
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_function <- function(x, err = TRUE) {
+  if(is.function(x)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  err("`", x_name, "` must not have missing values.")
+  err("`", x_name, "` must be a function.")
 }
 
 #' @describeIn chk_true Check Inherits from Class
@@ -403,53 +470,136 @@ chk_equivalent <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = T
   err("`", x_name, "` not equivalent to: ", y, ".")
 }
 
-#' @describeIn chk_true Check Function
+#' @describeIn chk_true Check Less Than
 #' 
-#' Checks if is a function using:
+#' Checks if all non-missing values are less than value using:
 #' 
-#' \code{\link{is.function}(x)}
+#' \code{all(x[!is.na(x)] < value))}
+#' 
+#' \code{value} should be a non-missing scalar.
 #' 
 #' @export
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_function <- function(x, err = TRUE) {
-  if(is.function(x)) return(TRUE)
+chk_lt <- function (x, value = 0, err = TRUE) {
+  if(all(x[!is.na(x)] < value)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  err("`", x_name, "` must be a function.")
+  if(length(x) == 1L)
+    err("`", x_name, "` must be less than ", cc(value), ", not ", cc(x), ".")
+  err("Values of `", x_name, "` must be less than ", cc(value), ".")
 }
 
-#' @describeIn chk_true Check ... Unused
+#' @describeIn chk_true Check Less Than or Equal To
 #' 
-#' Checks if is ... unused using:
+#' Checks if all non-missing values are less than or equal to y using:
 #' 
-#' \code{!length(\link{list}(...))}
+#' \code{all(x[!is.na(x)] <= value))}
+#' 
+#' \code{value} should be a non-missing scalar.
 #' 
 #' @export
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_unused <- function (..., err = TRUE) {
-  if(!length(list(...))) return(TRUE)
+chk_lte <- function (x, value = 0, err = TRUE) {
+  if(all(x[!is.na(x)] <= value)) return(TRUE)
   if(!err) return(FALSE)
-  err("`...` must be unused.")
+  x_name <- deparse(substitute(x))
+  if(length(x) == 1L)
+    err("`", x_name, "` must be less than or equal to ", cc(value), ", not ", cc(x), ".")
+  err("Values of `", x_name, "` must be less than or equal to ", cc(value), ".")
 }
 
-#' @describeIn chk_true Check ... Used
+#' @describeIn chk_true Check Greater Than
 #' 
-#' Checks if is ... used using:
+#' Checks if all non-missing values are greater than value using:
 #' 
-#' \code{length(\link{list}(...))}
+#' \code{all(x[!is.na(x)] > value))}
+#' 
+#' \code{value} should be a non-missing scalar.
 #' 
 #' @export
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_used <- function (..., err = TRUE) {
-  if(length(list(...))) return(TRUE)
+chk_gt <- function (x, value = 0, err = TRUE) {
+  if(all(x[!is.na(x)] > value)) return(TRUE)
   if(!err) return(FALSE)
-  err("`...` must be used.")
+  x_name <- deparse(substitute(x))
+  if(length(x) == 1L)
+    err("`", x_name, "` must be greater than ", cc(value), ", not ", cc(x), ".")
+  err("Values of `", x_name, "` must be greater than ", cc(value), ".")
+}
+
+#' @describeIn chk_true Check Greater Than or Equal To
+#' 
+#' Checks if all non-missing values are greater than or equal to y using:
+#' 
+#' \code{all(x[!is.na(x)] >= value))}
+#' 
+#' \code{value} should be a non-missing scalar.
+#' 
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_gte <- function (x, value = 0, err = TRUE) {
+  if(all(x[!is.na(x)] >= value)) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  if(length(x) == 1L)
+    err("`", x_name, "` must be greater than or equal to ", cc(value), 
+        ", not ", cc(x), ".")
+  err("Values of `", x_name, "` must be greater than or equal to ", cc(value), ".")
+}
+
+#' @describeIn chk_true Check Range
+#' 
+#' Checks if all non-missing values fall within range using:
+#' 
+#' \code{all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])}
+#' 
+#' Range should be a non-mising sorted vector of length 2.
+#' 
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_range <- function (x, range = c(0, Inf), err = TRUE) {
+  if(all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  if(length(x) == 1L) {
+    if(range[1] == range[2])
+      err("`", x_name, "` must be ", cc(range[1]), ", not ", cc(x), ".")
+    err("`", x_name, "` must be between ", cc(range, " and "), 
+        ", not ", cc(x), ".")
+  }
+  if(range[1] == range[2])
+    err("Values of `", x_name, "` must be ", cc(range[1]), ".")
+  err("Values of `", x_name, "` must be between ", cc(range, " and "), ".")
+}
+
+#' @describeIn chk_true Check Match
+#' 
+#' Checks if all values match values using equivalent of:
+#' 
+#' \code{all(\link{match}(x, values, nomatch = 0) > 0)}
+#' 
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_match <- function (x, values = c(0, Inf), err = TRUE) {
+  if(all(x %in% values)) return(TRUE)
+  if(!err) return(FALSE)
+  values <- sort(unique(values), na.last = TRUE)
+  x_name <- deparse(substitute(x))
+  if(length(x) == 1L)
+    err("`", x_name, "` must match ", cc(values, " or "), ", not ", cc(x), ".")
+  err("Values of `", x_name, "` must match ", cc(values, " or "), ".")
 }
 
 #' @describeIn chk_true Check Directory Exists
@@ -484,151 +634,3 @@ chk_file <- function(x, err = TRUE) {
   err("Can't find file `", x, "`.")
 }
 
-#' @describeIn chk_true Check Named
-#' 
-#' Checks if is named using:
-#' 
-#' \code{!is.null(\link{names}(x))}
-#' 
-#' @export
-#' 
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_named <- function(x, err = TRUE) {
-  if(!is.null(names(x))) return(TRUE)
-  if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
-  err("`", x_name, "` must be named.")
-}
-
-#' @describeIn chk_true Check Match
-#' 
-#' Checks if all values match values using equivalent of:
-#' 
-#' \code{all(\link{match}(x, values, nomatch = 0) > 0)}
-#' 
-#' @export
-#
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_match <- function (x, values = c(0, Inf), err = TRUE) {
-  if(all(x %in% values)) return(TRUE)
-  if(!err) return(FALSE)
-  values <- sort(unique(values), na.last = TRUE)
-  x_name <- deparse(substitute(x))
-  if(length(x) == 1L)
-    err("`", x_name, "` must match ", cc(values, " or "), ", not ", cc(x), ".")
-  err("Values of `", x_name, "` must match ", cc(values, " or "), ".")
-}
-
-#' @describeIn chk_true Check Less Than
-#' 
-#' Checks if all non-missing values are less than y using:
-#' 
-#' \code{all(x[!is.na(x)] < y))}
-#' 
-#' \code{y} should be a scalar.
-#' 
-#' @export
-#
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_lt <- function (x, y = 0, err = TRUE) {
-  if(all(x[!is.na(x)] < y)) return(TRUE)
-  if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
-  if(length(x) == 1L)
-    err("`", x_name, "` must be less than ", cc(y), ", not ", cc(x), ".")
-  err("Values of `", x_name, "` must be less than ", cc(y), ".")
-}
-
-#' @describeIn chk_true Check Less Than or Equal To
-#' 
-#' Checks if all non-missing values are less than or equal to y using:
-#' 
-#' \code{all(x[!is.na(x)] <= y))}
-#' 
-#' \code{y} should be a scalar.
-#' 
-#' @export
-#
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_lte <- function (x, y = 0, err = TRUE) {
-  if(all(x[!is.na(x)] <= y)) return(TRUE)
-  if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
-  if(length(x) == 1L)
-    err("`", x_name, "` must be less than or equal to ", cc(y), ", not ", cc(x), ".")
-  err("Values of `", x_name, "` must be less than or equal to ", cc(y), ".")
-}
-
-#' @describeIn chk_true Check Greater Than
-#' 
-#' Checks if all non-missing values are greater than y using:
-#' 
-#' \code{all(x[!is.na(x)] > y))}
-#' 
-#' \code{y} should be a scalar.
-#' 
-#' @export
-#
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_gt <- function (x, y = 0, err = TRUE) {
-  if(all(x[!is.na(x)] > y)) return(TRUE)
-  if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
-  if(length(x) == 1L)
-    err("`", x_name, "` must be greater than ", cc(y), ", not ", cc(x), ".")
-  err("Values of `", x_name, "` must be greater than ", cc(y), ".")
-}
-
-#' @describeIn chk_true Check Greater Than or Equal To
-#' 
-#' Checks if all non-missing values are greater than or equal to y using:
-#' 
-#' \code{all(x[!is.na(x)] >= y))}
-#' 
-#' \code{y} should be a scalar.
-#' 
-#' @export
-#
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_gte <- function (x, y = 0, err = TRUE) {
-  if(all(x[!is.na(x)] >= y)) return(TRUE)
-  if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
-  if(length(x) == 1L)
-    err("`", x_name, "` must be greater than or equal to ", cc(y), 
-        ", not ", cc(x), ".")
-  err("Values of `", x_name, "` must be greater than or equal to ", cc(y), ".")
-}
-
-#' @describeIn chk_true Check Range
-#' 
-#' Checks if all non-missing values fall within range using:
-#' 
-#' \code{all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])}
-#' 
-#' Range should be a non-mising sorted vector of length 2.
-#' 
-#' @export
-#
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_range <- function (x, range = c(0, Inf), err = TRUE) {
-  if(all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])) return(TRUE)
-  if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
-  if(length(x) == 1L) {
-    if(range[1] == range[2])
-      err("`", x_name, "` must be ", cc(range[1]), ", not ", cc(x), ".")
-    err("`", x_name, "` must be between ", cc(range, " and "), 
-        ", not ", cc(x), ".")
-  }
-  if(range[1] == range[2])
-    err("Values of `", x_name, "` must be ", cc(range[1]), ".")
-  err("Values of `", x_name, "` must be between ", cc(range, " and "), ".")
-}

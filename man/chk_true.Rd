@@ -13,26 +13,26 @@
 \alias{chk_string}
 \alias{chk_whole_numeric}
 \alias{chk_grepl}
+\alias{chk_no_missing}
 \alias{chk_null}
 \alias{chk_not_null}
-\alias{chk_no_missing}
+\alias{chk_named}
+\alias{chk_unused}
+\alias{chk_used}
+\alias{chk_function}
 \alias{chk_inherits}
 \alias{chk_is}
 \alias{chk_identical}
 \alias{chk_equal}
 \alias{chk_equivalent}
-\alias{chk_function}
-\alias{chk_unused}
-\alias{chk_used}
-\alias{chk_dir}
-\alias{chk_file}
-\alias{chk_named}
-\alias{chk_match}
 \alias{chk_lt}
 \alias{chk_lte}
 \alias{chk_gt}
 \alias{chk_gte}
 \alias{chk_range}
+\alias{chk_match}
+\alias{chk_dir}
+\alias{chk_file}
 \title{Check Object}
 \usage{
 chk_true(x, err = TRUE)
@@ -57,11 +57,19 @@ chk_whole_numeric(x, err = TRUE)
 
 chk_grepl(x, pattern = ".+", err = TRUE)
 
+chk_no_missing(x, err = TRUE)
+
 chk_null(x, err = TRUE)
 
 chk_not_null(x, err = TRUE)
 
-chk_no_missing(x, err = TRUE)
+chk_named(x, err = TRUE)
+
+chk_unused(..., err = TRUE)
+
+chk_used(..., err = TRUE)
+
+chk_function(x, err = TRUE)
 
 chk_inherits(x, class, err = TRUE)
 
@@ -73,29 +81,21 @@ chk_equal(x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE)
 
 chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE)
 
-chk_function(x, err = TRUE)
+chk_lt(x, value = 0, err = TRUE)
 
-chk_unused(..., err = TRUE)
+chk_lte(x, value = 0, err = TRUE)
 
-chk_used(..., err = TRUE)
+chk_gt(x, value = 0, err = TRUE)
+
+chk_gte(x, value = 0, err = TRUE)
+
+chk_range(x, range = c(0, Inf), err = TRUE)
+
+chk_match(x, values = c(0, Inf), err = TRUE)
 
 chk_dir(x, err = TRUE)
 
 chk_file(x, err = TRUE)
-
-chk_named(x, err = TRUE)
-
-chk_match(x, values = c(0, Inf), err = TRUE)
-
-chk_lt(x, y = 0, err = TRUE)
-
-chk_lte(x, y = 0, err = TRUE)
-
-chk_gt(x, y = 0, err = TRUE)
-
-chk_gte(x, y = 0, err = TRUE)
-
-chk_range(x, range = c(0, Inf), err = TRUE)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -105,17 +105,19 @@ message if the check fails.}
 
 \item{pattern}{A string of a regular expression.}
 
+\item{...}{Additional arguments.}
+
 \item{class}{A string specifying the class.}
 
 \item{y}{An object to check against.}
 
 \item{tolerance}{A non-negative numeric scalar.}
 
-\item{...}{Additional arguments.}
-
-\item{values}{A vector of the permitted values.}
+\item{value}{A non-missing scalar of a value.}
 
 \item{range}{A vector of length 2 of the lower and upper permitted values.}
+
+\item{values}{A vector of the permitted values.}
 }
 \value{
 TRUE if passes check. Otherwise if throws an informative error unless
@@ -195,7 +197,13 @@ Checks if all values match regular expression pattern using:
 
 \code{all(\link{grepl}(pattern, x))}
 
-\code{pattern} should be a string.
+\code{pattern} should be a non-missing character scalar.
+
+\item \code{chk_no_missing}: Check No Missing Values
+
+Checks if no missing values using:
+
+\code{!\link{anyNA}(x)}
 
 \item \code{chk_null}: Check NULL
 
@@ -209,11 +217,29 @@ Checks if not NULL using:
 
 \code{!\link{is.null}(x)}
 
-\item \code{chk_no_missing}: Check No Missing Values
+\item \code{chk_named}: Check Named
 
-Checks if no missing values using:
+Checks if is named using:
 
-\code{!\link{anyNA}(x)}
+\code{!is.null(\link{names}(x))}
+
+\item \code{chk_unused}: Check ... Unused
+
+Checks if is ... unused using:
+
+\code{!length(\link{list}(...))}
+
+\item \code{chk_used}: Check ... Used
+
+Checks if is ... used using:
+
+\code{length(\link{list}(...))}
+
+\item \code{chk_function}: Check Function
+
+Checks if is a function using:
+
+\code{\link{is.function}(x)}
 
 \item \code{chk_inherits}: Check Inherits from Class
 
@@ -249,23 +275,51 @@ Checks if is equivalent (equal ignoring attributes) to y using:
 
 \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}
 
-\item \code{chk_function}: Check Function
+\item \code{chk_lt}: Check Less Than
 
-Checks if is a function using:
+Checks if all non-missing values are less than value using:
 
-\code{\link{is.function}(x)}
+\code{all(x[!is.na(x)] < value))}
 
-\item \code{chk_unused}: Check ... Unused
+\code{value} should be a non-missing scalar.
 
-Checks if is ... unused using:
+\item \code{chk_lte}: Check Less Than or Equal To
 
-\code{!length(\link{list}(...))}
+Checks if all non-missing values are less than or equal to y using:
 
-\item \code{chk_used}: Check ... Used
+\code{all(x[!is.na(x)] <= value))}
 
-Checks if is ... used using:
+\code{value} should be a non-missing scalar.
 
-\code{length(\link{list}(...))}
+\item \code{chk_gt}: Check Greater Than
+
+Checks if all non-missing values are greater than value using:
+
+\code{all(x[!is.na(x)] > value))}
+
+\code{value} should be a non-missing scalar.
+
+\item \code{chk_gte}: Check Greater Than or Equal To
+
+Checks if all non-missing values are greater than or equal to y using:
+
+\code{all(x[!is.na(x)] >= value))}
+
+\code{value} should be a non-missing scalar.
+
+\item \code{chk_range}: Check Range
+
+Checks if all non-missing values fall within range using:
+
+\code{all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])}
+
+Range should be a non-mising sorted vector of length 2.
+
+\item \code{chk_match}: Check Match
+
+Checks if all values match values using equivalent of:
+
+\code{all(\link{match}(x, values, nomatch = 0) > 0)}
 
 \item \code{chk_dir}: Check Directory Exists
 
@@ -278,58 +332,6 @@ Checks if directory exists using:
 Checks if file exists using:
 
 \code{\link{file.exists}(x) && !dir.exists(x)}
-
-\item \code{chk_named}: Check Named
-
-Checks if is named using:
-
-\code{!is.null(\link{names}(x))}
-
-\item \code{chk_match}: Check Match
-
-Checks if all values match values using equivalent of:
-
-\code{all(\link{match}(x, values, nomatch = 0) > 0)}
-
-\item \code{chk_lt}: Check Less Than
-
-Checks if all non-missing values are less than y using:
-
-\code{all(x[!is.na(x)] < y))}
-
-\code{y} should be a scalar.
-
-\item \code{chk_lte}: Check Less Than or Equal To
-
-Checks if all non-missing values are less than or equal to y using:
-
-\code{all(x[!is.na(x)] <= y))}
-
-\code{y} should be a scalar.
-
-\item \code{chk_gt}: Check Greater Than
-
-Checks if all non-missing values are greater than y using:
-
-\code{all(x[!is.na(x)] > y))}
-
-\code{y} should be a scalar.
-
-\item \code{chk_gte}: Check Greater Than or Equal To
-
-Checks if all non-missing values are greater than or equal to y using:
-
-\code{all(x[!is.na(x)] >= y))}
-
-\code{y} should be a scalar.
-
-\item \code{chk_range}: Check Range
-
-Checks if all non-missing values fall within range using:
-
-\code{all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])}
-
-Range should be a non-mising sorted vector of length 2.
 }}
 
 \examples{
