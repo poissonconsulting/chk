@@ -276,6 +276,28 @@ chk_no_missing <- function(x, err = TRUE) {
   err("`", x_name, "` must not have missing values.")
 }
 
+#' @describeIn chk_true Check Unique
+#' 
+#' Checks if unique using:
+#' 
+#' \code{!\link{anyDuplicated}(x)}
+#' 
+#' @export
+#' 
+#' @examples 
+#' 
+#' # chk_unique
+#' chk_unique(NA)
+#' chk_unique(c(NA, NA), err = FALSE)
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_unique <- function(x, err = TRUE) {
+  if(!anyDuplicated(x)) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  err("`", x_name, "` must be unique.")
+}
+
 #' @describeIn chk_true Check NULL
 #' 
 #' Checks if NULL using:

@@ -14,6 +14,7 @@
 \alias{chk_whole_numeric}
 \alias{chk_grepl}
 \alias{chk_no_missing}
+\alias{chk_unique}
 \alias{chk_null}
 \alias{chk_not_null}
 \alias{chk_named}
@@ -58,6 +59,8 @@ chk_whole_numeric(x, err = TRUE)
 chk_grepl(x, pattern = ".+", err = TRUE)
 
 chk_no_missing(x, err = TRUE)
+
+chk_unique(x, err = TRUE)
 
 chk_null(x, err = TRUE)
 
@@ -204,6 +207,12 @@ Checks if all values match regular expression pattern using:
 Checks if no missing values using:
 
 \code{!\link{anyNA}(x)}
+
+\item \code{chk_unique}: Check Unique
+
+Checks if unique using:
+
+\code{!\link{anyDuplicated}(x)}
 
 \item \code{chk_null}: Check NULL
 
@@ -366,4 +375,8 @@ chk_lgl(TRUE)
 chk_lgl(FALSE)
 chk_lgl(c(TRUE, TRUE), err = FALSE)
 
+
+# chk_unique
+chk_unique(NA)
+chk_unique(c(NA, NA), err = FALSE)
 }

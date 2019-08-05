@@ -271,6 +271,18 @@ test_that("chk_no_missing", {
   expect_error(chk_no_missing(NA), "^`NA` must not have missing values[.]$")
 })
 
+test_that("chk_unique", {
+  expect_true(chk_unique(integer(0)))
+  expect_true(chk_unique(NA))
+  expect_true(chk_unique(1))
+  expect_true(chk_unique(c(1,2)))
+  expect_true(chk_unique(c(1,NA)))
+  expect_false(chk_unique(c(NA,NA), err = FALSE))
+  expect_false(chk_unique(c(1,1), err = FALSE))
+  expect_false(chk_unique(c(1,2,1), err = FALSE))
+  expect_error(chk_unique(c(1,1)), "^`c[(]1, 1[)]` must be unique[.]$")
+})
+
 test_that("chk_unused", {
   expect_true(chk_unused())
   expect_false(chk_unused(1, err = FALSE))
