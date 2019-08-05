@@ -2,6 +2,8 @@
 #'
 #' @details  
 #' 
+#' \code{chk_true()}: Check TRUE
+#' 
 #' Checks if TRUE using:
 #' 
 #' \code{\link{isTRUE}(x)}
@@ -113,11 +115,32 @@ chk_number <- function(x, err = TRUE) {
        call. = FALSE)
 }
 
+#' @describeIn chk_true Check Proportion
+#' 
+#' Checks if non-mising numeric scalar between 0 and 1 using:
+#' 
+#' \code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x) && all(x >= 0 & x <= 1)}
+#' @export
+#' 
+#' @examples
+#' 
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_proportion <- function(x, err = TRUE) {
+  if(is.numeric(x) && length(x) == 1L && !anyNA(x) && all(x >= 0 & x <= 1)) 
+    return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must be a proportion (non-missing numeric scalar between 0 and 1).", 
+       call. = FALSE)
+}
+
 #' @describeIn chk_true Check Whole Number
 #'  
 #' Checks if non-mising integer scalar or double equivalent using:
 #' 
-#' \code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x) && x == as.integer(x)}
+#' \code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x) && 
+#'   isTRUE(all.equal(x, as.integer(x)))}
 #' @export
 #' 
 #' @examples
@@ -125,11 +148,32 @@ chk_number <- function(x, err = TRUE) {
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_whole_number <- function(x, err = TRUE) {
-  if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x == as.integer(x))
+  if(is.numeric(x) && length(x) == 1L && !anyNA(x) && isTRUE(all.equal(x, as.integer(x))))
     return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
   stop("`", x_name, "` must be a whole number (non-missing integer scalar or double equivalent).", 
+       call. = FALSE)
+}
+
+#' @describeIn chk_true Check Count
+#'  
+#' Checks if non-missing non-negative integer scalar or double equivalent using:
+#' 
+#' \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && 
+#'   isTRUE(all.equal(x, as.integer(x)))}
+#' @export
+#' 
+#' @examples
+#' 
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_count <- function(x, err = TRUE) {
+  if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && isTRUE(all.equal(x, as.integer(x))))
+    return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must be a count (non-missing non-negative integer scalar or double equivalent).", 
        call. = FALSE)
 }
 
@@ -148,18 +192,40 @@ chk_string <- function(x, err = TRUE) {
        call. = FALSE)
 }
 
-#' @describeIn chk_true Check Named
+#' @describeIn chk_true Check Whole Numeric
+#'  
+#' Checks if integer vector or double equivalent using the equivalent of:
 #' 
-#' \code{!\link{is.null}(\link{names}(x))}
+#' \code{is.integer(x) || (is.double(x) && isTRUE(all.equal(x, as.integer(x))))}
 #' @export
+#' 
+#' @examples
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_named <- function(x, err = TRUE) {
-  if(!is.null(names(x))) return(TRUE)
+chk_whole_numeric <- function(x, err = TRUE) {
+  if(is.integer(x) || (is.double(x) && isTRUE(all.equal(x, as.integer(x)))))
+    return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be named.", call. = FALSE)
+  stop("`", x_name, "` must be a whole numeric vector (integer vector or double equivalent).", 
+       call. = FALSE)
+}
+
+#' @describeIn chk_true Check Matches Regular Expression
+#'
+#' \code{all(\link{grepl}(pattern, x))}
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_grepl <- function (x, pattern = ".+", err = TRUE) {
+  if(all(grepl(pattern, x))) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  if(length(x) == 1)
+    stop("`", x_name, "` must match regular expression '", pattern, "'.")
+  stop("All values of `", x_name, "` must match regular expression '", pattern, "'.")
 }
 
 #' @describeIn chk_true Check NULL
@@ -174,6 +240,34 @@ chk_null <- function(x, err = TRUE) {
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
   stop("`", x_name, "` must be NULL.", call. = FALSE)
+}
+
+#' @describeIn chk_true Check Not NULL
+#' 
+#' \code{!\link{is.null}(x)}
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_not_null <- function(x, err = TRUE) {
+  if(!is.null(x)) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must not be NULL.", call. = FALSE)
+}
+
+#' @describeIn chk_true Check No Missing Values
+#' 
+#' \code{!\link{anyNA}(x)}
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_no_missing <- function(x, err = TRUE) {
+  if(!anyNA(x)) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must not have missing values.", call. = FALSE)
 }
 
 #' @describeIn chk_true Check Inherits from Class
@@ -253,36 +347,6 @@ chk_equivalent <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = T
   stop("`", x_name, "` not equivalent to: ", y, ".")
 }
 
-#' @describeIn chk_true Check Matches Regular Expression
-#'
-#' \code{all(\link{grepl}(pattern, x))}
-#' @export
-#
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_grepl <- function (x, pattern = ".+", err = TRUE) {
-  if(all(grepl(pattern, x))) return(TRUE)
-  if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
-  if(length(x) == 1)
-    stop("`", x_name, "` must match regular expression '", pattern, "'.")
-  stop("All values of `", x_name, "` must match regular expression '", pattern, "'.")
-}
-
-#' @describeIn chk_true Check No Missing Values
-#' 
-#' \code{!\link{anyNA}(x)}
-#' @export
-#
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_no_missing <- function(x, err = TRUE) {
-  if(!anyNA(x)) return(TRUE)
-  if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must not have missing values.", call. = FALSE)
-}
-
 #' @describeIn chk_true Check Function
 #' 
 #' \code{\link{is.function}(x)}
@@ -347,4 +411,18 @@ chk_file <- function(x, err = TRUE) {
   if(file.exists(x)) return(TRUE)
   if(!err) return(FALSE)
   stop("Can't find file `", x, "`.", call. = FALSE)
+}
+
+#' @describeIn chk_true Check Named
+#' 
+#' \code{!\link{is.null}(\link{names}(x))}
+#' @export
+#' 
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_named <- function(x, err = TRUE) {
+  if(!is.null(names(x))) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must be named.", call. = FALSE)
 }

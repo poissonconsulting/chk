@@ -39,14 +39,29 @@ test_that("chk_true", {
 })
 
 test_that("chk_whole_number", {
+  expect_false(chk_whole_number(integer(0), err = FALSE))
+  expect_false(chk_whole_number(NA_integer_, err = FALSE))
   expect_true(chk_whole_number(1L))
   expect_true(chk_whole_number(1))
   expect_true(chk_whole_number(-100))
   expect_false(chk_whole_number(1:2, err = FALSE))
-  expect_false(chk_whole_number(1.00000001, err = FALSE))
-  expect_false(chk_whole_number(NA_integer_, err = FALSE))
-  expect_false(chk_whole_number(integer(0), err = FALSE))
+  expect_true(chk_whole_number(1.0000000000000000000001))
+  expect_false(chk_whole_number(1.1, err = FALSE))
+  expect_warning(chk_whole_number(Inf, err = FALSE), 
+                 "^NAs introduced by coercion to integer range$")
   expect_error(chk_whole_number(1.1), "^`1.1` must be a whole number [(]non-missing integer scalar or double equivalent[)][.]$")
+})
+
+test_that("chk_count", {
+  expect_true(chk_count(1L))
+  expect_true(chk_count(1))
+  expect_true(chk_count(0L))
+  expect_false(chk_count(-1L, err = FALSE))
+  expect_false(chk_count(1:2, err = FALSE))
+  expect_false(chk_count(1.1, err = FALSE))
+  expect_false(chk_count(NA_integer_, err = FALSE))
+  expect_false(chk_count(integer(0), err = FALSE))
+  expect_error(chk_count(1.1), "^`1.1` must be a count [(]non-missing non-negative integer scalar or double equivalent[)][.]$")
 })
 
 test_that("chk_number", {
@@ -60,6 +75,40 @@ test_that("chk_number", {
   expect_false(chk_number(c(1, 2), err = FALSE))
   expect_false(chk_number(TRUE, err = FALSE))
   expect_error(chk_number(TRUE), "^`TRUE` must be a number [(]non-missing numeric scalar[)][.]$")
+})
+
+test_that("chk_whole_numeric", {
+  expect_true(chk_whole_numeric(numeric(0)))
+  expect_true(chk_whole_numeric(integer(0)))
+  expect_false(chk_whole_numeric(logical(0), err = FALSE))
+  expect_true(chk_whole_numeric(NA_integer_))
+  expect_true(chk_whole_numeric(NA_real_))
+  expect_false(chk_whole_numeric(NA, err = FALSE))
+  expect_true(chk_whole_numeric(1))
+  expect_true(chk_whole_numeric(1L))
+  expect_false(chk_whole_numeric(1.1, err = FALSE))
+  expect_false(chk_whole_numeric(-1.1, err = FALSE))
+  expect_warning(chk_whole_numeric(Inf, err = FALSE), 
+                 "^NAs introduced by coercion to integer range$")
+  expect_true(chk_whole_numeric(c(1, 2)))
+  expect_false(chk_whole_numeric(TRUE, err = FALSE))
+  expect_error(chk_whole_numeric(TRUE), "^`TRUE` must be a whole numeric vector [(]integer vector or double equivalent[)][.]$")
+})
+
+chk_whole_numeric
+
+test_that("chk_proportion", {
+  expect_false(chk_proportion(numeric(0), err = FALSE))
+  expect_false(chk_proportion(NA_integer_, err = FALSE))
+  expect_true(chk_proportion(1))
+  expect_true(chk_proportion(1L))
+  expect_true(chk_proportion(0.1))
+  expect_true(chk_proportion(0))
+  expect_false(chk_proportion(1.0001, err = FALSE))
+  expect_false(chk_proportion(-0.0001, err = FALSE))
+  expect_false(chk_proportion(c(0.1, 0.5), err = FALSE))
+  expect_false(chk_proportion(TRUE, err = FALSE))
+  expect_error(chk_proportion(TRUE), "^`TRUE` must be a proportion [(]non-missing numeric scalar between 0 and 1[)][.]$")
 })
 
 test_that("chk_string", {
@@ -85,6 +134,12 @@ test_that("chk_null", {
   expect_true(chk_null(NULL))
   expect_false(chk_null(1, err = FALSE))
   expect_error(chk_null(1), "^`1` must be NULL[.]$")
+})
+
+test_that("chk_not_null", {
+  expect_true(chk_not_null(1))
+  expect_false(chk_not_null(NULL, err = FALSE))
+  expect_error(chk_not_null(NULL), "^`NULL` must not be NULL[.]$")
 })
 
 test_that("chk_function", {

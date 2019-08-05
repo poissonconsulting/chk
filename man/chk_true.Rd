@@ -7,22 +7,26 @@
 \alias{chk_flag}
 \alias{chk_lgl}
 \alias{chk_number}
+\alias{chk_proportion}
 \alias{chk_whole_number}
+\alias{chk_count}
 \alias{chk_string}
-\alias{chk_named}
+\alias{chk_whole_numeric}
+\alias{chk_grepl}
 \alias{chk_null}
+\alias{chk_not_null}
+\alias{chk_no_missing}
 \alias{chk_inherits}
 \alias{chk_is}
 \alias{chk_identical}
 \alias{chk_equal}
 \alias{chk_equivalent}
-\alias{chk_grepl}
-\alias{chk_no_missing}
 \alias{chk_function}
 \alias{chk_unused}
 \alias{chk_used}
 \alias{chk_dir}
 \alias{chk_file}
+\alias{chk_named}
 \alias{chk_match}
 \alias{chk_values}
 \title{Check Object}
@@ -37,13 +41,23 @@ chk_lgl(x, err = TRUE)
 
 chk_number(x, err = TRUE)
 
+chk_proportion(x, err = TRUE)
+
 chk_whole_number(x, err = TRUE)
+
+chk_count(x, err = TRUE)
 
 chk_string(x, err = TRUE)
 
-chk_named(x, err = TRUE)
+chk_whole_numeric(x, err = TRUE)
+
+chk_grepl(x, pattern = ".+", err = TRUE)
 
 chk_null(x, err = TRUE)
+
+chk_not_null(x, err = TRUE)
+
+chk_no_missing(x, err = TRUE)
 
 chk_inherits(x, class, err = TRUE)
 
@@ -55,10 +69,6 @@ chk_equal(x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE)
 
 chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE)
 
-chk_grepl(x, pattern = ".+", err = TRUE)
-
-chk_no_missing(x, err = TRUE)
-
 chk_function(x, err = TRUE)
 
 chk_unused(..., err = TRUE)
@@ -68,6 +78,8 @@ chk_used(..., err = TRUE)
 chk_dir(x, err = TRUE)
 
 chk_file(x, err = TRUE)
+
+chk_named(x, err = TRUE)
 
 chk_match(x, match = c(1, Inf), err = TRUE)
 
@@ -79,13 +91,13 @@ chk_values(x, values = c(1, Inf), err = TRUE)
 \item{err}{A flag specifying whether to generate an error
 message if the check fails.}
 
+\item{pattern}{A string of a regular expression.}
+
 \item{class}{A string specifying the class(es).}
 
 \item{y}{An object to check against.}
 
 \item{tolerance}{A non-negative numeric scalar.}
-
-\item{pattern}{A string of a regular expression.}
 
 \item{...}{Additional arguments.}
 
@@ -101,6 +113,8 @@ A flag or an error if the check fails and err = TRUE.
 Check Object
 }
 \details{
+\code{chk_true()}: Check TRUE
+
 Checks if TRUE using:
 
 \code{\link{isTRUE}(x)}
@@ -131,23 +145,51 @@ Checks if non-mising numeric scalar using:
 
 \code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x)}
 
+\item \code{chk_proportion}: Check Proportion
+
+Checks if non-mising numeric scalar between 0 and 1 using:
+
+\code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x) && all(x >= 0 & x <= 1)}
+
 \item \code{chk_whole_number}: Check Whole Number
  
 Checks if non-mising integer scalar or double equivalent using:
 
-\code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x) && x == as.integer(x)}
+\code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x) && 
+  isTRUE(all.equal(x, as.integer(x)))}
+
+\item \code{chk_count}: Check Count
+ 
+Checks if non-missing non-negative integer scalar or double equivalent using:
+
+\code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && 
+  isTRUE(all.equal(x, as.integer(x)))}
 
 \item \code{chk_string}: Check String
 
 \code{\link{is.character}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
 
-\item \code{chk_named}: Check Named
+\item \code{chk_whole_numeric}: Check Whole Numeric
+ 
+Checks if integer vector or double equivalent using the equivalent of:
 
-\code{!\link{is.null}(\link{names}(x))}
+\code{is.integer(x) || (is.double(x) && isTRUE(all.equal(x, as.integer(x))))}
+
+\item \code{chk_grepl}: Check Matches Regular Expression
+
+\code{all(\link{grepl}(pattern, x))}
 
 \item \code{chk_null}: Check NULL
 
 \code{\link{is.null}(x)}
+
+\item \code{chk_not_null}: Check Not NULL
+
+\code{!\link{is.null}(x)}
+
+\item \code{chk_no_missing}: Check No Missing Values
+
+\code{!\link{anyNA}(x)}
 
 \item \code{chk_inherits}: Check Inherits from Class
 
@@ -170,14 +212,6 @@ Class should be a scalar
 
 \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}
 
-\item \code{chk_grepl}: Check Matches Regular Expression
-
-\code{all(\link{grepl}(pattern, x))}
-
-\item \code{chk_no_missing}: Check No Missing Values
-
-\code{!\link{anyNA}(x)}
-
 \item \code{chk_function}: Check Function
 
 \code{\link{is.function}(x)}
@@ -198,6 +232,10 @@ Class should be a scalar
 
 \code{\link{file.exists}(x)}
 
+\item \code{chk_named}: Check Named
+
+\code{!\link{is.null}(\link{names}(x))}
+
 \item \code{chk_match}: Check Match
 
 \code{all(\link{match}(x, match, nomatch = 0) > 0)}
@@ -214,6 +252,9 @@ chk_true(1, err = FALSE)
 chk_true(NA, err = FALSE)
 chk_true(TRUE)
 chk_true(c(TRUE, FALSE), err = FALSE)
+
+
+
 
 
 
