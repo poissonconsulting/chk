@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9006</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9007</span>
       </span>
     </div>
 
@@ -96,15 +96,15 @@
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(microbenchmark)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a></span>
 <span id="cb2-2"><a href="#cb2-2"></a>fun_checking &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...) {</span>
-<span id="cb2-3"><a href="#cb2-3"></a>  <span class="kw"><a href="../reference/chk_flag.html">chk_flag</a></span>(x)</span>
-<span id="cb2-4"><a href="#cb2-4"></a>  <span class="kw"><a href="../reference/chk_flag.html">chk_unused</a></span>(...)  </span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_flag</a></span>(x)</span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_unused</a></span>(...)  </span>
 <span id="cb2-5"><a href="#cb2-5"></a>  x</span>
 <span id="cb2-6"><a href="#cb2-6"></a>}</span>
 <span id="cb2-7"><a href="#cb2-7"></a></span>
 <span id="cb2-8"><a href="#cb2-8"></a>fun_conditional_checking &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...) {</span>
 <span id="cb2-9"><a href="#cb2-9"></a>  <span class="cf">if</span>(<span class="kw"><a href="../reference/chk_on.html">is_chk_on</a></span>()) {</span>
-<span id="cb2-10"><a href="#cb2-10"></a>    <span class="kw"><a href="../reference/chk_flag.html">chk_flag</a></span>(x)</span>
-<span id="cb2-11"><a href="#cb2-11"></a>    <span class="kw"><a href="../reference/chk_flag.html">chk_unused</a></span>(...)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    <span class="kw"><a href="../reference/chk_true.html">chk_flag</a></span>(x)</span>
+<span id="cb2-11"><a href="#cb2-11"></a>    <span class="kw"><a href="../reference/chk_true.html">chk_unused</a></span>(...)</span>
 <span id="cb2-12"><a href="#cb2-12"></a>  }</span>
 <span id="cb2-13"><a href="#cb2-13"></a>  x</span>
 <span id="cb2-14"><a href="#cb2-14"></a>}</span>
@@ -128,11 +128,11 @@
 <span id="cb2-32"><a href="#cb2-32"></a>)</span>
 <span id="cb2-33"><a href="#cb2-33"></a><span class="co">#&gt; Unit: microseconds</span></span>
 <span id="cb2-34"><a href="#cb2-34"></a><span class="co">#&gt;                                       expr   min     lq      mean median</span></span>
-<span id="cb2-35"><a href="#cb2-35"></a><span class="co">#&gt;              wrapper_on_fun_checking(TRUE) 1.397 1.4455 162.40395  1.550</span></span>
-<span id="cb2-36"><a href="#cb2-36"></a><span class="co">#&gt;  wrapper_on_fun_conditional_checking(TRUE) 3.729 3.8725  42.02545  3.975</span></span>
+<span id="cb2-35"><a href="#cb2-35"></a><span class="co">#&gt;              wrapper_on_fun_checking(TRUE) 1.404 1.4800 151.89363 1.5675</span></span>
+<span id="cb2-36"><a href="#cb2-36"></a><span class="co">#&gt;  wrapper_on_fun_conditional_checking(TRUE) 3.762 3.9165  38.96162 4.0170</span></span>
 <span id="cb2-37"><a href="#cb2-37"></a><span class="co">#&gt;      uq       max neval</span></span>
-<span id="cb2-38"><a href="#cb2-38"></a><span class="co">#&gt;  1.6725 15922.376   100</span></span>
-<span id="cb2-39"><a href="#cb2-39"></a><span class="co">#&gt;  4.1030  3735.507   100</span></span>
+<span id="cb2-38"><a href="#cb2-38"></a><span class="co">#&gt;  1.6605 14873.705   100</span></span>
+<span id="cb2-39"><a href="#cb2-39"></a><span class="co">#&gt;  4.1525  3427.136   100</span></span>
 <span id="cb2-40"><a href="#cb2-40"></a></span>
 <span id="cb2-41"><a href="#cb2-41"></a><span class="kw"><a href="../reference/chk_on.html">chk_off</a></span>()</span>
 <span id="cb2-42"><a href="#cb2-42"></a><span class="kw"><a href="https://rdrr.io/pkg/microbenchmark/man/microbenchmark.html">microbenchmark</a></span>(</span>
@@ -141,11 +141,11 @@
 <span id="cb2-45"><a href="#cb2-45"></a>)</span>
 <span id="cb2-46"><a href="#cb2-46"></a><span class="co">#&gt; Unit: microseconds</span></span>
 <span id="cb2-47"><a href="#cb2-47"></a><span class="co">#&gt;                                       expr   min     lq    mean median</span></span>
-<span id="cb2-48"><a href="#cb2-48"></a><span class="co">#&gt;              wrapper_on_fun_checking(TRUE) 1.294 1.3265 1.42879 1.3770</span></span>
-<span id="cb2-49"><a href="#cb2-49"></a><span class="co">#&gt;  wrapper_on_fun_conditional_checking(TRUE) 1.657 1.7160 1.89260 1.8225</span></span>
-<span id="cb2-50"><a href="#cb2-50"></a><span class="co">#&gt;      uq   max neval</span></span>
-<span id="cb2-51"><a href="#cb2-51"></a><span class="co">#&gt;  1.4185 6.106   100</span></span>
-<span id="cb2-52"><a href="#cb2-52"></a><span class="co">#&gt;  1.8850 9.811   100</span></span></code></pre></div>
+<span id="cb2-48"><a href="#cb2-48"></a><span class="co">#&gt;              wrapper_on_fun_checking(TRUE) 1.265 1.3030 1.44699 1.3435</span></span>
+<span id="cb2-49"><a href="#cb2-49"></a><span class="co">#&gt;  wrapper_on_fun_conditional_checking(TRUE) 1.687 1.7295 1.87354 1.8150</span></span>
+<span id="cb2-50"><a href="#cb2-50"></a><span class="co">#&gt;     uq   max neval</span></span>
+<span id="cb2-51"><a href="#cb2-51"></a><span class="co">#&gt;  1.380 7.188   100</span></span>
+<span id="cb2-52"><a href="#cb2-52"></a><span class="co">#&gt;  1.877 7.311   100</span></span></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
