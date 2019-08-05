@@ -1,4 +1,7 @@
 #' Check Object
+#' 
+#' Efficiently check if object passes test. Return TRUE if yes.
+#' If not throw an informative error or if \code{err = FALSE} return FALSE.
 #'
 #' @details  
 #' 
@@ -15,7 +18,8 @@
 #' @param y An object to check against.
 #' @param tolerance A non-negative numeric scalar.
 #' @param values A vector of the permitted value(s).
-#' @param range A sorted vector of length 2 of the lower and upper permitted values.
+#' @param range A sorted vector of length 2 of the lower and upper 
+#' permitted values.
 #' @param pattern A string of a regular expression.
 #' @param ... Additional arguments.
 #'
@@ -40,7 +44,7 @@ chk_true <- function(x, err = TRUE) {
   err("`", x_name, "` must be TRUE.")
 }
 
-#' @describeIn chk_true Check False
+#' @describeIn chk_true Check FALSE
 #' 
 #' Checks if FALSE using:
 #' 
@@ -116,7 +120,7 @@ chk_number <- function(x, err = TRUE) {
 #' 
 #' Checks if non-mising numeric scalar between 0 and 1 using:
 #' 
-#' \code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x) && all(x >= 0 & x <= 1)}
+#' \code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x) && x >= 0 && x <= 1}
 #' @export
 #' 
 #' @examples
@@ -124,7 +128,7 @@ chk_number <- function(x, err = TRUE) {
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_proportion <- function(x, err = TRUE) {
-  if(is.numeric(x) && length(x) == 1L && !anyNA(x) && all(x >= 0 & x <= 1)) 
+  if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1) 
     return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
@@ -145,7 +149,8 @@ chk_proportion <- function(x, err = TRUE) {
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_whole_number <- function(x, err = TRUE) {
-  if(is.numeric(x) && length(x) == 1L && !anyNA(x) && isTRUE(all.equal(x, as.integer(x))))
+  if(is.numeric(x) && length(x) == 1L && !anyNA(x) && 
+     isTRUE(all.equal(x, as.integer(x))))
     return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
@@ -166,7 +171,8 @@ chk_whole_number <- function(x, err = TRUE) {
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_count <- function(x, err = TRUE) {
-  if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && isTRUE(all.equal(x, as.integer(x))))
+  if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && 
+     isTRUE(all.equal(x, as.integer(x))))
     return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
@@ -175,6 +181,8 @@ chk_count <- function(x, err = TRUE) {
 }
 
 #' @describeIn chk_true Check String
+#' 
+#' Checks if non-missing character scalar using:
 #' 
 #' \code{\link{is.character}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
 #' @export
@@ -209,6 +217,8 @@ chk_whole_numeric <- function(x, err = TRUE) {
 }
 
 #' @describeIn chk_true Check Matches Regular Expression
+#' 
+#' Checks if all values match regular expression pattern using:
 #'
 #' \code{all(\link{grepl}(pattern, x))}
 #' @export
@@ -226,6 +236,8 @@ chk_grepl <- function (x, pattern = ".+", err = TRUE) {
 
 #' @describeIn chk_true Check NULL
 #' 
+#' Checks if NULL using:
+#' 
 #' \code{\link{is.null}(x)}
 #' @export
 #
@@ -239,6 +251,8 @@ chk_null <- function(x, err = TRUE) {
 }
 
 #' @describeIn chk_true Check Not NULL
+#' 
+#' Checks if not NULL using:
 #' 
 #' \code{!\link{is.null}(x)}
 #' @export
@@ -254,6 +268,8 @@ chk_not_null <- function(x, err = TRUE) {
 
 #' @describeIn chk_true Check No Missing Values
 #' 
+#' Checks if no missing values using:
+#' 
 #' \code{!\link{anyNA}(x)}
 #' @export
 #
@@ -268,8 +284,11 @@ chk_no_missing <- function(x, err = TRUE) {
 
 #' @describeIn chk_true Check Inherits from Class
 #' 
-#' Class should be a scalar
+#' Checks if inherits from class using:
+#' 
 #' \code{\link{inherits}(x, class)}
+#' 
+#' Class should be a string.
 #' @export
 #
 #  Licence: CC
@@ -283,7 +302,11 @@ chk_inherits <- function(x, class, err = TRUE) {
 
 #' @describeIn chk_true Check Is Class
 #' 
+#' Checks if is class using:
+#' 
 #' \code{\link{identical}(\link{class}(x), class)}
+#' 
+#' Class should be a character vector.
 #' @export
 #
 #  Licence: CC
@@ -299,6 +322,8 @@ chk_is <- function(x, class, err = TRUE) {
 
 #' @describeIn chk_true Check Identical
 #'
+#' Checks if is identical to y using:
+#' 
 #' \code{\link{identical}(x, y)}
 #' @export
 #
@@ -313,8 +338,10 @@ chk_identical <- function (x, y, err = TRUE) {
 }
 
 #' @describeIn chk_true Check Equal
+#' 
+#' Checks if is equal to y using:
 #'
-#' \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance))}
+#' \code{isTRUE(\link{all.equal}(x, y, tolerance))}
 #' @export
 #
 #  Licence: CC
@@ -328,6 +355,8 @@ chk_equal <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE) 
 }
 
 #' @describeIn chk_true Check Equivalent
+#' 
+#' Checks if is equivalent (ignores attributes) to y using:
 #'
 #' \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}
 #' @export
@@ -344,6 +373,8 @@ chk_equivalent <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = T
 
 #' @describeIn chk_true Check Function
 #' 
+#' Checks if is a function using:
+#' 
 #' \code{\link{is.function}(x)}
 #' @export
 #
@@ -358,6 +389,8 @@ chk_function <- function(x, err = TRUE) {
 
 #' @describeIn chk_true Check ... Unused
 #' 
+#' Checks is if unused using:
+#' 
 #' \code{!\link{length}(\link{list}(...))}
 #' @export
 #
@@ -370,6 +403,8 @@ chk_unused <- function (..., err = TRUE) {
 }
 
 #' @describeIn chk_true Check ... Used
+#' 
+#' Checks is if used using:
 #' 
 #' \code{\link{length}(\link{list}(...))}
 #' @export
@@ -384,6 +419,8 @@ chk_used <- function (..., err = TRUE) {
 
 #' @describeIn chk_true Check Directory Exists
 #' 
+#' Checks if directory exists using:
+#' 
 #' \code{\link{dir.exists}(x)}
 #' @export
 #
@@ -396,6 +433,8 @@ chk_dir <- function(x, err = TRUE) {
 }
 
 #' @describeIn chk_true Check File Exists
+#' 
+#' Checks if file exists using:
 #' 
 #' \code{\link{file.exists}(x)}
 #' @export
@@ -410,7 +449,9 @@ chk_file <- function(x, err = TRUE) {
 
 #' @describeIn chk_true Check Named
 #' 
-#' \code{!\link{is.null}(\link{names}(x))}
+#' Checks if is named using
+#' 
+#' \code{!is.null(\link{names}(x))}
 #' @export
 #' 
 #  Licence: CC
@@ -424,7 +465,8 @@ chk_named <- function(x, err = TRUE) {
 
 #' @describeIn chk_true Check Match
 #' 
-#' Test if all values in x match values using equivalent of:
+#' Checks if all values match values using equivalent of:
+#' 
 #' \code{all(\link{match}(x, values, nomatch = 0) > 0)}
 #' 
 #' @export
@@ -443,11 +485,13 @@ chk_match <- function (x, values = c(1, Inf), err = TRUE) {
 
 #' @describeIn chk_true Check Range
 #' 
-#' Test if all non-missing values in x fall within range using equivalent of:
+#' Checks if all non-missing values fall within range using equivalent of:
 #' 
 #' \code{x <- x[!is.na(x)]}
 #' 
 #' \code{if(!length(x) || all(x >= range[1] & x <= range[2])) return(TRUE)}
+#' 
+#' Range should be a non-mising sorted vector of length 2.
 #' 
 #' @export
 #

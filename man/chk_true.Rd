@@ -103,13 +103,15 @@ message if the check fails.}
 
 \item{values}{A vector of the permitted value(s).}
 
-\item{range}{A sorted vector of length 2 of the lower and upper permitted values.}
+\item{range}{A sorted vector of length 2 of the lower and upper 
+permitted values.}
 }
 \value{
 A flag or an error if the check fails and err = TRUE.
 }
 \description{
-Check Object
+Efficiently check if object passes test. Return TRUE if yes.
+If not throw an informative error or if \code{err = FALSE} return FALSE.
 }
 \details{
 \code{chk_true()}: Check TRUE
@@ -120,7 +122,7 @@ Checks if TRUE using:
 }
 \section{Functions}{
 \itemize{
-\item \code{chk_false}: Check False
+\item \code{chk_false}: Check FALSE
 
 Checks if FALSE using:
 
@@ -148,7 +150,7 @@ Checks if non-mising numeric scalar using:
 
 Checks if non-mising numeric scalar between 0 and 1 using:
 
-\code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x) && all(x >= 0 & x <= 1)}
+\code{is.numeric(x) && length(x) == 1L && !\link{anyNA}(x) && x >= 0 && x <= 1}
 
 \item \code{chk_whole_number}: Check Whole Number
  
@@ -166,6 +168,8 @@ Checks if non-missing non-negative integer scalar or double equivalent using:
 
 \item \code{chk_string}: Check String
 
+Checks if non-missing character scalar using:
+
 \code{\link{is.character}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
 
 \item \code{chk_whole_numeric}: Check Whole Numeric
@@ -176,77 +180,113 @@ Checks if integer vector or double equivalent using the equivalent of:
 
 \item \code{chk_grepl}: Check Matches Regular Expression
 
+Checks if all values match regular expression pattern using:
+
 \code{all(\link{grepl}(pattern, x))}
 
 \item \code{chk_null}: Check NULL
+
+Checks if NULL using:
 
 \code{\link{is.null}(x)}
 
 \item \code{chk_not_null}: Check Not NULL
 
+Checks if not NULL using:
+
 \code{!\link{is.null}(x)}
 
 \item \code{chk_no_missing}: Check No Missing Values
+
+Checks if no missing values using:
 
 \code{!\link{anyNA}(x)}
 
 \item \code{chk_inherits}: Check Inherits from Class
 
-Class should be a scalar
+Checks if inherits from class using:
+
 \code{\link{inherits}(x, class)}
+
+Class should be a string.
 
 \item \code{chk_is}: Check Is Class
 
+Checks if is class using:
+
 \code{\link{identical}(\link{class}(x), class)}
 
+Class should be a character vector.
+
 \item \code{chk_identical}: Check Identical
+
+Checks if is identical to y using:
 
 \code{\link{identical}(x, y)}
 
 \item \code{chk_equal}: Check Equal
 
-\code{\link{isTRUE}(\link{all.equal}(x, y, tolerance))}
+Checks if is equal to y using:
+
+\code{isTRUE(\link{all.equal}(x, y, tolerance))}
 
 \item \code{chk_equivalent}: Check Equivalent
+
+Checks if is equivalent (ignores attributes) to y using:
 
 \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}
 
 \item \code{chk_function}: Check Function
 
+Checks if is a function using:
+
 \code{\link{is.function}(x)}
 
 \item \code{chk_unused}: Check ... Unused
+
+Checks is if unused using:
 
 \code{!\link{length}(\link{list}(...))}
 
 \item \code{chk_used}: Check ... Used
 
+Checks is if used using:
+
 \code{\link{length}(\link{list}(...))}
 
 \item \code{chk_dir}: Check Directory Exists
+
+Checks if directory exists using:
 
 \code{\link{dir.exists}(x)}
 
 \item \code{chk_file}: Check File Exists
 
+Checks if file exists using:
+
 \code{\link{file.exists}(x)}
 
 \item \code{chk_named}: Check Named
 
-\code{!\link{is.null}(\link{names}(x))}
+Checks if is named using
+
+\code{!is.null(\link{names}(x))}
 
 \item \code{chk_match}: Check Match
 
-Test if all values in x match values using equivalent of:
+Checks if all values match values using equivalent of:
+
 \code{all(\link{match}(x, values, nomatch = 0) > 0)}
 
 \item \code{chk_range}: Check Range
 
-Test if all non-missing values in x fall within range using equivalent of:
+Checks if all non-missing values fall within range using equivalent of:
 
 \code{x <- x[!is.na(x)]}
 
 \code{if(!length(x) || all(x >= range[1] & x <= range[2])) return(TRUE)}
+
+Range should be a non-mising sorted vector of length 2.
 }}
 
 \examples{
