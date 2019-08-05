@@ -28,6 +28,10 @@
 \alias{chk_file}
 \alias{chk_named}
 \alias{chk_match}
+\alias{chk_lt}
+\alias{chk_lte}
+\alias{chk_gt}
+\alias{chk_gte}
 \alias{chk_range}
 \title{Check Object}
 \usage{
@@ -82,6 +86,16 @@ chk_file(x, err = TRUE)
 chk_named(x, err = TRUE)
 
 chk_match(x, values = c(1, Inf), err = TRUE)
+
+chk_lt(x, y = 1, err = TRUE)
+
+chk_lte(x, y = 1, err = TRUE)
+
+chk_gt(x, y = 1, err = TRUE)
+
+chk_gte(x, y = 1, err = TRUE)
+
+chk_lte(x, y = 1, err = TRUE)
 
 chk_range(x, range = c(1, Inf), err = TRUE)
 }
@@ -279,21 +293,87 @@ Checks if all values match values using equivalent of:
 
 \code{all(\link{match}(x, values, nomatch = 0) > 0)}
 
+\item \code{chk_lt}: Check Less Than
+
+Checks if all non-missing values are less than y using:
+
+\code{all(x[!is.na(x)] < y))}
+
+\code{y} should be a scalar.
+
+\item \code{chk_lte}: Check Less Than or Equal To
+
+Checks if all non-missing values are less than or equal to y using:
+
+\code{all(x[!is.na(x)] <= y))}
+
+\code{y} should be a scalar.
+
+\item \code{chk_gt}: Check Greater Than
+
+Checks if all non-missing values are greater than y using:
+
+\code{all(x[!is.na(x)] > y))}
+
+\code{y} should be a scalar.
+
+\item \code{chk_gte}: Check Greater Than or Equal To
+
+Checks if all non-missing values are greater than or equal to y using:
+
+\code{all(x[!is.na(x)] >= y))}
+
+\code{y} should be a scalar.
+
+\item \code{chk_lte}: Check Less Than or Equal To
+
+Checks if all non-missing values are less than or equal to y using:
+
+\code{all(x[!is.na(x)] <= y))}
+
+\code{y} should be a scalar.
+
 \item \code{chk_range}: Check Range
 
 Checks if all non-missing values fall within range using equivalent of:
 
 \code{x <- x[!is.na(x)]}
 
-\code{if(!length(x) || all(x >= range[1] & x <= range[2])) return(TRUE)}
+\code{all(x >= range[1] & x <= range[2])}
 
 Range should be a non-mising sorted vector of length 2.
 }}
 
 \examples{
+
 # chk_true
 chk_true(1, err = FALSE)
 chk_true(NA, err = FALSE)
+chk_true(FALSE, err = FALSE)
 chk_true(TRUE)
-chk_true(c(TRUE, FALSE), err = FALSE)
+chk_true(c(TRUE, TRUE), err = FALSE)
+
+# chk_false
+chk_false(0, err = FALSE)
+chk_false(NA, err = FALSE)
+chk_false(TRUE, err = FALSE)
+chk_false(FALSE)
+chk_false(c(FALSE, FALSE), err = FALSE)
+
+
+# chk_flag
+chk_flag(1, err = FALSE)
+chk_flag(NA, err = FALSE)
+chk_flag(TRUE)
+chk_flag(FALSE)
+chk_flag(c(TRUE, TRUE), err = FALSE)
+
+
+# chk_lgl
+chk_lgl(1, err = FALSE)
+chk_lgl(NA)
+chk_lgl(TRUE)
+chk_lgl(FALSE)
+chk_lgl(c(TRUE, TRUE), err = FALSE)
+
 }
