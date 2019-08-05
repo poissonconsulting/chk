@@ -19,26 +19,28 @@ chk_values <- function (x, values = c(1, Inf), err = TRUE) {
     stop("`", x_name, "` must not have missing values.", call. = FALSE)
   }
   
-  values <- sort(unique(values), na.last = TRUE) # missing values to end
-  if(length(values) - is.na(values[length(values)]) == 2L) {
-    x_length <- length(x)
-    x_name <- deparse(substitute(x))
-    x <- x[!is.na(x)]
-    if(all(x >= values[1] & x <= values[2])) return(TRUE)
+  is_na <- is.na(values)
+  if(sum(!is_na) != 2L || length(unique(values[!is_na])) == 1L) {
+    values <- sort(unique(values), na.last = TRUE)
     if(!err) return(FALSE)
-    if(x_length == 1L) {
-      stop("`", x_name, "` must be between ", cc(values[1:2], " and "), ", not ", 
+    x_name <- deparse(substitute(x))
+    if(length(x) == 1) {
+      stop("`", x_name, "` must be ", cc(values, " or "), ", not ", 
            cc(x), ".", call. = FALSE)
     }
-    stop("All values of `", x_name, "` must be between ", cc(values[1:2], " and "), 
+    stop("All values of `", x_name, "` must be ", cc(values, " or "), 
          ".", call. = FALSE)
   }
-  if(!err) return(FALSE)
+  values <- sort(unique(values))
+  x_length <- length(x)
   x_name <- deparse(substitute(x))
-  if(length(x) == 1) {
-    stop("`", x_name, "` must be ", cc(values, " or "), ", not ", 
+  x <- x[!is.na(x)]
+  if(all(x >= values[1] & x <= values[2])) return(TRUE)
+  if(!err) return(FALSE)
+  if(x_length == 1L) {
+    stop("`", x_name, "` must be between ", cc(values[1:2], " and "), ", not ", 
          cc(x), ".", call. = FALSE)
   }
-  stop("All values of `", x_name, "` must be ", cc(values, " or "), 
+  stop("All values of `", x_name, "` must be between ", cc(values[1:2], " and "), 
        ".", call. = FALSE)
 }
