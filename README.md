@@ -135,14 +135,14 @@ chk_flag
 #>   x_name <- deparse(substitute(x))
 #>   stop("`", x_name, "` must be a flag (TRUE or FALSE).", call. = FALSE)
 #> }
-#> <bytecode: 0x7f8037cc05f8>
+#> <bytecode: 0x7fa952472958>
 #> <environment: namespace:chk>
 ```
 
 #### Minimal Checking
 
 As they are not expected to be directly exposed to users the `chk_`
-functions don’t check any of their arguments other than the object of
+functions don’t check any of their arguments (other than the object of
 interest of course\!).
 
 #### Turn Off Checking

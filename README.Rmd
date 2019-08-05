@@ -116,7 +116,7 @@ chk_flag
 #### Minimal Checking
 
 As they are not expected to be directly exposed to users the `chk_` functions 
-don't check any of their arguments other than the object of interest of course!).
+don't check any of their arguments (other than the object of interest of course!).
 
 #### Turn Off Checking
 
