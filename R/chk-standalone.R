@@ -1,10 +1,11 @@
 #' Check Object
 #'
 #' @details  
-#' Checks if non-missing logical scalar using:
 #' 
-#' \code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
+#' Checks if TRUE using:
 #' 
+#' \code{\link{isTRUE}(x)}
+#'  
 #' @param x The object to check. 
 #' @param err A flag specifying whether to generate an error
 #' message if the check fails.
@@ -16,46 +17,28 @@
 #' @param ... Additional arguments.
 #'
 #' @return A flag or an error if the check fails and err = TRUE.
-#' @name chk_flag
+#' @name chk_true
 #' @aliases chk
 #' @export
 #'
 #' @examples
-#' # chk_flag
-#' chk_flag(1, err = FALSE)
-#' chk_flag(NA, err = FALSE)
-#' chk_flag(TRUE)
-#' chk_flag(c(TRUE, FALSE), err = FALSE)
+#' # chk_true
+#' chk_true(1, err = FALSE)
+#' chk_true(NA, err = FALSE)
+#' chk_true(TRUE)
+#' chk_true(c(TRUE, FALSE), err = FALSE)
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_flag <- function(x, err = TRUE) {
-  if(is.logical(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
+chk_true <- function(x, err = TRUE) {
+  if(isTRUE(x)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be a flag (TRUE or FALSE).", call. = FALSE)
-}
-
-#' @describeIn chk_flag Check Lgl
-#' 
-#' Checks if logical scalar using:
-#' 
-#' \code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
-#' @export
-#' 
-#' @examples 
-#' 
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_lgl <- function(x, err = TRUE) {
-  if(is.logical(x) && length(x) == 1L) return(TRUE)
-  if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be a logical scalar (TRUE, FALSE or NA).", 
+  stop("`", x_name, "` must be TRUE.", 
        call. = FALSE)
 }
 
-#' @describeIn chk_flag Check False
+#' @describeIn chk_true Check False
 #' 
 #' Checks if FALSE using:
 #' 
@@ -74,26 +57,44 @@ chk_false <- function(x, err = TRUE) {
        call. = FALSE)
 }
 
-#' @describeIn chk_flag Check True
+#' @describeIn chk_true Check Flag
 #' 
-#' Checks if TRUE using:
+#' Checks if non-missing logical scalar using:
 #' 
-#' \code{\link{isTRUE}(x)}
+#' \code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
 #' @export
 #' 
 #' @examples 
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_true <- function(x, err = TRUE) {
-  if(isTRUE(x)) return(TRUE)
+chk_flag <- function(x, err = TRUE) {
+  if(is.logical(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be TRUE.", 
+  stop("`", x_name, "` must be a flag (TRUE or FALSE).", call. = FALSE)
+}
+
+#' @describeIn chk_true Check Lgl
+#' 
+#' Checks if logical scalar using:
+#' 
+#' \code{\link{is.logical}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
+#' @export
+#' 
+#' @examples 
+#' 
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_lgl <- function(x, err = TRUE) {
+  if(is.logical(x) && length(x) == 1L) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  stop("`", x_name, "` must be a logical scalar (TRUE, FALSE or NA).", 
        call. = FALSE)
 }
 
-#' @describeIn chk_flag Check Number
+#' @describeIn chk_true Check Number
 #' 
 #' Checks if non-mising numeric scalar using:
 #' 
@@ -112,7 +113,7 @@ chk_number <- function(x, err = TRUE) {
        call. = FALSE)
 }
 
-#' @describeIn chk_flag Check Whole Number
+#' @describeIn chk_true Check Whole Number
 #'  
 #' Checks if non-mising integer scalar or double equivalent using:
 #' 
@@ -132,7 +133,7 @@ chk_whole_number <- function(x, err = TRUE) {
        call. = FALSE)
 }
 
-#' @describeIn chk_flag Check String
+#' @describeIn chk_true Check String
 #' 
 #' \code{\link{is.character}(x) && \link{length}(x) == 1L && !\link{anyNA}(x)}
 #' @export
@@ -147,7 +148,7 @@ chk_string <- function(x, err = TRUE) {
        call. = FALSE)
 }
 
-#' @describeIn chk_flag Check Named
+#' @describeIn chk_true Check Named
 #' 
 #' \code{!\link{is.null}(\link{names}(x))}
 #' @export
@@ -161,7 +162,7 @@ chk_named <- function(x, err = TRUE) {
   stop("`", x_name, "` must be named.", call. = FALSE)
 }
 
-#' @describeIn chk_flag Check NULL
+#' @describeIn chk_true Check NULL
 #' 
 #' \code{\link{is.null}(x)}
 #' @export
@@ -175,7 +176,7 @@ chk_null <- function(x, err = TRUE) {
   stop("`", x_name, "` must be NULL.", call. = FALSE)
 }
 
-#' @describeIn chk_flag Check Inherits from Class
+#' @describeIn chk_true Check Inherits from Class
 #' 
 #' Class should be a scalar
 #' \code{\link{inherits}(x, class)}
@@ -190,7 +191,7 @@ chk_inherits <- function(x, class, err = TRUE) {
   stop("`", x_name, "` must inherit from class '", class, "'.", call. = FALSE)
 }
 
-#' @describeIn chk_flag Check Is Class
+#' @describeIn chk_true Check Is Class
 #' 
 #' \code{\link{identical}(\link{class}(x), class)}
 #' @export
@@ -207,7 +208,7 @@ chk_is <- function(x, class, err = TRUE) {
        call. = FALSE)
 }
 
-#' @describeIn chk_flag Check Identical
+#' @describeIn chk_true Check Identical
 #'
 #' \code{\link{identical}(x, y)}
 #' @export
@@ -222,7 +223,7 @@ chk_identical <- function (x, y, err = TRUE) {
   stop("`", x_name, "` not identical to: ", y, ".")
 }
 
-#' @describeIn chk_flag Check Equal
+#' @describeIn chk_true Check Equal
 #'
 #' \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance))}
 #' @export
@@ -237,7 +238,7 @@ chk_equal <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE) 
   stop("`", x_name, "` not equal to: ", y, ".")
 }
 
-#' @describeIn chk_flag Check Equivalent
+#' @describeIn chk_true Check Equivalent
 #'
 #' \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}
 #' @export
@@ -252,7 +253,7 @@ chk_equivalent <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = T
   stop("`", x_name, "` not equivalent to: ", y, ".")
 }
 
-#' @describeIn chk_flag Check Matches Regular Expression
+#' @describeIn chk_true Check Matches Regular Expression
 #'
 #' \code{all(\link{grepl}(pattern, x))}
 #' @export
@@ -268,7 +269,7 @@ chk_grepl <- function (x, pattern = ".+", err = TRUE) {
   stop("All values of `", x_name, "` must match regular expression '", pattern, "'.")
 }
 
-#' @describeIn chk_flag Check No Missing Values
+#' @describeIn chk_true Check No Missing Values
 #' 
 #' \code{!\link{anyNA}(x)}
 #' @export
@@ -282,7 +283,7 @@ chk_no_missing <- function(x, err = TRUE) {
   stop("`", x_name, "` must not have missing values.", call. = FALSE)
 }
 
-#' @describeIn chk_flag Check Function
+#' @describeIn chk_true Check Function
 #' 
 #' \code{\link{is.function}(x)}
 #' @export
@@ -296,7 +297,7 @@ chk_function <- function(x, err = TRUE) {
   stop("`", x_name, "` must be a function.", call. = FALSE)
 }
 
-#' @describeIn chk_flag Check ... Unused
+#' @describeIn chk_true Check ... Unused
 #' 
 #' \code{!\link{length}(\link{list}(...))}
 #' @export
@@ -309,7 +310,7 @@ chk_unused <- function (..., err = TRUE) {
   stop("`...` must be unused.", call. = FALSE)
 }
 
-#' @describeIn chk_flag Check ... Used
+#' @describeIn chk_true Check ... Used
 #' 
 #' \code{\link{length}(\link{list}(...))}
 #' @export
@@ -322,7 +323,7 @@ chk_used <- function (..., err = TRUE) {
   stop("`...` must be used.", call. = FALSE)
 }
 
-#' @describeIn chk_flag Check Directory Exists
+#' @describeIn chk_true Check Directory Exists
 #' 
 #' \code{\link{dir.exists}(x)}
 #' @export
@@ -335,7 +336,7 @@ chk_dir <- function(x, err = TRUE) {
   stop("Can't find directory `", x, "`.", call. = FALSE)
 }
 
-#' @describeIn chk_flag Check File Exists
+#' @describeIn chk_true Check File Exists
 #' 
 #' \code{\link{file.exists}(x)}
 #' @export
