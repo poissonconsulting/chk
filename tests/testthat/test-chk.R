@@ -293,7 +293,7 @@ test_that("chk_dir", {
 })
 
 test_that("chk_file", {
-  expect_true(chk_file(tempdir())) # quirk of base R (treats directory as file)
+  expect_false(chk_file(tempdir(), err = FALSE))
   file <- paste0(tempfile(), ".csv")
   expect_false(chk_file(file, err = FALSE))
   expect_error(chk_file(file), "^Can't find file `.*[.]csv`[.]$")

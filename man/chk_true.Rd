@@ -277,7 +277,7 @@ Checks if directory exists using:
 
 Checks if file exists using:
 
-\code{\link{file.exists}(x)}
+\code{\link{file.exists}(x) && !dir.exists(x)}
 
 \item \code{chk_named}: Check Named
 
@@ -325,11 +325,9 @@ Checks if all non-missing values are greater than or equal to y using:
 
 \item \code{chk_range}: Check Range
 
-Checks if all non-missing values fall within range using equivalent of:
+Checks if all non-missing values fall within range using:
 
-\code{x <- x[!is.na(x)]}
-
-\code{all(x >= range[1] & x <= range[2])}
+\code{all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])}
 
 Range should be a non-mising sorted vector of length 2.
 }}

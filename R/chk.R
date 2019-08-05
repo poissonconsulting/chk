@@ -472,14 +472,14 @@ chk_dir <- function(x, err = TRUE) {
 #' 
 #' Checks if file exists using:
 #' 
-#' \code{\link{file.exists}(x)}
+#' \code{\link{file.exists}(x) && !dir.exists(x)}
 #' 
 #' @export
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_file <- function(x, err = TRUE) {
-  if(file.exists(x)) return(TRUE)
+  if(file.exists(x) && !dir.exists(x)) return(TRUE)
   if(!err) return(FALSE)
   err("Can't find file `", x, "`.")
 }
@@ -608,11 +608,9 @@ chk_gte <- function (x, y = 0, err = TRUE) {
 
 #' @describeIn chk_true Check Range
 #' 
-#' Checks if all non-missing values fall within range using equivalent of:
+#' Checks if all non-missing values fall within range using:
 #' 
-#' \code{x <- x[!is.na(x)]}
-#' 
-#' \code{all(x >= range[1] & x <= range[2])}
+#' \code{all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])}
 #' 
 #' Range should be a non-mising sorted vector of length 2.
 #' 
@@ -621,8 +619,7 @@ chk_gte <- function (x, y = 0, err = TRUE) {
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_range <- function (x, range = c(0, Inf), err = TRUE) {
-  x2 <- x[!is.na(x)]
-  if(all(x2 >= range[1] & x2 <= range[2])) return(TRUE)
+  if(all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
   if(length(x) == 1L) {
