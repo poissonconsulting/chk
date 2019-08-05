@@ -303,13 +303,14 @@ test_that("chk_file", {
 })
 
 test_that("chk_match", {
-  expect_true(chk_match(1))
+  expect_true(chk_match(integer(0)))
+  expect_error(chk_match(NA), "^`NA` must match 0 or Inf, not NA[.]$")
   expect_false(chk_match(1:3, err = FALSE))
-  expect_error(chk_match(1:3, "^Values of `1:3` must match 1 or Inf[.]$"))
+  expect_error(chk_match(1:3, "^Values of `1:3` must match 0 or Inf[.]$"))
   expect_true(chk_match(numeric(0), 1L))
   
   expect_false(chk_match(-1, err = FALSE))
-  expect_error(chk_match(-1), "^`-1` must match 1 or Inf, not -1[.]$")
+  expect_error(chk_match(-1), "^`-1` must match 0 or Inf, not -1[.]$")
   
   expect_false(chk_match(1L, 0L, err = FALSE))
   expect_error(chk_match(c(1L, 1L), 0L), c("^Values of `c[(]1L, 1L[)]` must match 0[.]$"))
@@ -333,6 +334,49 @@ test_that("chk_match", {
                "^`3L` must match 1 or 7, not 3[.]$")
 })
 
+test_that("chk_lt", {
+  expect_true(chk_lt(numeric(0)))
+  expect_true(chk_lt(NA))
+  expect_true(chk_lt(-1))
+  expect_true(chk_lt(c(-1, -Inf)))
+  expect_false(chk_lt(0, err = FALSE))
+  expect_false(chk_lt(1, err = FALSE))
+  expect_error(chk_lt(1), "^`1` must be less than 0, not 1[.]$")
+  expect_error(chk_lt(c(1,-1)), "^Values of `c[(]1, -1[)]` must be less than 0[.]$")
+})
+
+test_that("chk_lte", {
+  expect_true(chk_lte(numeric(0)))
+  expect_true(chk_lte(NA))
+  expect_true(chk_lte(-1))
+  expect_true(chk_lte(c(-1, -Inf)))
+  expect_true(chk_lte(0))
+  expect_false(chk_lte(1, err = FALSE))
+  expect_error(chk_lte(1), "^`1` must be less than or equal to 0, not 1[.]$")
+  expect_error(chk_lte(c(1,-1)), "^Values of `c[(]1, -1[)]` must be less than or equal to 0[.]$")
+})
+
+test_that("chk_gt", {
+  expect_true(chk_gt(numeric(0)))
+  expect_true(chk_gt(NA))
+  expect_true(chk_gt(1))
+  expect_true(chk_gt(c(1, Inf)))
+  expect_false(chk_gt(0, err = FALSE))
+  expect_false(chk_gt(-1, err = FALSE))
+  expect_error(chk_gt(-1), "^`-1` must be greater than 0, not -1[.]$")
+  expect_error(chk_gt(c(1,-1)), "^Values of `c[(]1, -1[)]` must be greater than 0[.]$")
+})
+
+test_that("chk_gte", {
+  expect_true(chk_gte(numeric(0)))
+  expect_true(chk_gte(NA))
+  expect_true(chk_gte(1))
+  expect_true(chk_gte(c(1, Inf)))
+  expect_true(chk_gte(0))
+  expect_false(chk_gte(-1, err = FALSE))
+  expect_error(chk_gte(-1), "^`-1` must be greater than or equal to 0, not -1[.]$")
+  expect_error(chk_gte(c(1,-1)), "^Values of `c[(]1, -1[)]` must be greater than or equal to 0[.]$")
+})
 
 test_that("chk_range", {
   expect_true(chk_range(numeric(0)))
@@ -343,10 +387,11 @@ test_that("chk_range", {
   expect_true(chk_range(numeric(0), 1L))
   
   expect_false(chk_range(-1, err = FALSE))
-  expect_error(chk_range(-1), "^`-1` must be between 1 and Inf, not -1[.]$")
-  expect_error(chk_range(c(-1, NA)), "^Values of `c[(]-1, NA[)]` must be between 1 and Inf[.]$")
+  expect_error(chk_range(-1), "^`-1` must be between 0 and Inf, not -1[.]$")
+  expect_error(chk_range(c(-1, NA)), "^Values of `c[(]-1, NA[)]` must be between 0 and Inf[.]$")
   expect_true(chk_range(c(-1, -1), c(-2, -1)))
   expect_true(chk_range(c(NA, 1), 1:2)) 
   
   expect_error(chk_range(2, c(1,1)), "^`2` must be 1, not 2[.]$")
+  expect_error(chk_range(c(2,1), c(1,1)), "^Values of `c[(]2, 1[)]` must be 1[.]$")
 })

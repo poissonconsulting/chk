@@ -85,19 +85,17 @@ chk_file(x, err = TRUE)
 
 chk_named(x, err = TRUE)
 
-chk_match(x, values = c(1, Inf), err = TRUE)
+chk_match(x, values = c(0, Inf), err = TRUE)
 
-chk_lt(x, y = 1, err = TRUE)
+chk_lt(x, y = 0, err = TRUE)
 
-chk_lte(x, y = 1, err = TRUE)
+chk_lte(x, y = 0, err = TRUE)
 
-chk_gt(x, y = 1, err = TRUE)
+chk_gt(x, y = 0, err = TRUE)
 
-chk_gte(x, y = 1, err = TRUE)
+chk_gte(x, y = 0, err = TRUE)
 
-chk_lte(x, y = 1, err = TRUE)
-
-chk_range(x, range = c(1, Inf), err = TRUE)
+chk_range(x, range = c(0, Inf), err = TRUE)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -322,14 +320,6 @@ Checks if all non-missing values are greater than y using:
 Checks if all non-missing values are greater than or equal to y using:
 
 \code{all(x[!is.na(x)] >= y))}
-
-\code{y} should be a scalar.
-
-\item \code{chk_lte}: Check Less Than or Equal To
-
-Checks if all non-missing values are less than or equal to y using:
-
-\code{all(x[!is.na(x)] <= y))}
 
 \code{y} should be a scalar.
 
