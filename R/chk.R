@@ -14,7 +14,8 @@
 #' @param class A string specifying the class(es).
 #' @param y An object to check against.
 #' @param tolerance A non-negative numeric scalar.
-#' @param match A vector of the permitted value(s).
+#' @param values A vector of the permitted value(s).
+#' @param range A sorted vector of length 2 of the lower and upper permitted values.
 #' @param pattern A string of a regular expression.
 #' @param ... Additional arguments.
 #'
@@ -36,8 +37,7 @@ chk_true <- function(x, err = TRUE) {
   if(isTRUE(x)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be TRUE.", 
-       call. = FALSE)
+  err("`", x_name, "` must be TRUE.")
 }
 
 #' @describeIn chk_true Check False
@@ -55,8 +55,7 @@ chk_false <- function(x, err = TRUE) {
   if(isFALSE(x)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be FALSE.", 
-       call. = FALSE)
+  err("`", x_name, "` must be FALSE.")
 }
 
 #' @describeIn chk_true Check Flag
@@ -74,7 +73,7 @@ chk_flag <- function(x, err = TRUE) {
   if(is.logical(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be a flag (TRUE or FALSE).", call. = FALSE)
+  err("`", x_name, "` must be a flag (TRUE or FALSE).")
 }
 
 #' @describeIn chk_true Check Lgl
@@ -92,8 +91,7 @@ chk_lgl <- function(x, err = TRUE) {
   if(is.logical(x) && length(x) == 1L) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be a logical scalar (TRUE, FALSE or NA).", 
-       call. = FALSE)
+  err("`", x_name, "` must be a logical scalar (TRUE, FALSE or NA).")
 }
 
 #' @describeIn chk_true Check Number
@@ -111,8 +109,7 @@ chk_number <- function(x, err = TRUE) {
   if(is.numeric(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be a number (non-missing numeric scalar).", 
-       call. = FALSE)
+  err("`", x_name, "` must be a number (non-missing numeric scalar).")
 }
 
 #' @describeIn chk_true Check Proportion
@@ -131,8 +128,8 @@ chk_proportion <- function(x, err = TRUE) {
     return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be a proportion (non-missing numeric scalar between 0 and 1).", 
-       call. = FALSE)
+  err("`", x_name, 
+      "` must be a proportion (non-missing numeric scalar between 0 and 1).")
 }
 
 #' @describeIn chk_true Check Whole Number
@@ -152,8 +149,8 @@ chk_whole_number <- function(x, err = TRUE) {
     return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be a whole number (non-missing integer scalar or double equivalent).", 
-       call. = FALSE)
+  err("`", x_name, 
+      "` must be a whole number (non-missing integer scalar or double equivalent).")
 }
 
 #' @describeIn chk_true Check Count
@@ -173,8 +170,8 @@ chk_count <- function(x, err = TRUE) {
     return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be a count (non-missing non-negative integer scalar or double equivalent).", 
-       call. = FALSE)
+  err("`", x_name, 
+      "` must be a count (non-missing non-negative integer scalar or double equivalent).")
 }
 
 #' @describeIn chk_true Check String
@@ -188,8 +185,7 @@ chk_string <- function(x, err = TRUE) {
   if(is.character(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be a string (non-missing character scalar).", 
-       call. = FALSE)
+  err("`", x_name, "` must be a string (non-missing character scalar).")
 }
 
 #' @describeIn chk_true Check Whole Numeric
@@ -208,8 +204,8 @@ chk_whole_numeric <- function(x, err = TRUE) {
     return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be a whole numeric vector (integer vector or double equivalent).", 
-       call. = FALSE)
+  err("`", x_name, 
+      "` must be a whole numeric vector (integer vector or double equivalent).")
 }
 
 #' @describeIn chk_true Check Matches Regular Expression
@@ -224,8 +220,8 @@ chk_grepl <- function (x, pattern = ".+", err = TRUE) {
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
   if(length(x) == 1)
-    stop("`", x_name, "` must match regular expression '", pattern, "'.")
-  stop("All values of `", x_name, "` must match regular expression '", pattern, "'.")
+    err("`", x_name, "` must match regular expression '", pattern, "'.")
+  err("All values of `", x_name, "` must match regular expression '", pattern, "'.")
 }
 
 #' @describeIn chk_true Check NULL
@@ -239,7 +235,7 @@ chk_null <- function(x, err = TRUE) {
   if(is.null(x)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be NULL.", call. = FALSE)
+  err("`", x_name, "` must be NULL.")
 }
 
 #' @describeIn chk_true Check Not NULL
@@ -253,7 +249,7 @@ chk_not_null <- function(x, err = TRUE) {
   if(!is.null(x)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must not be NULL.", call. = FALSE)
+  err("`", x_name, "` must not be NULL.")
 }
 
 #' @describeIn chk_true Check No Missing Values
@@ -267,7 +263,7 @@ chk_no_missing <- function(x, err = TRUE) {
   if(!anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must not have missing values.", call. = FALSE)
+  err("`", x_name, "` must not have missing values.")
 }
 
 #' @describeIn chk_true Check Inherits from Class
@@ -282,7 +278,7 @@ chk_inherits <- function(x, class, err = TRUE) {
   if(inherits(x, class)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must inherit from class '", class, "'.", call. = FALSE)
+  err("`", x_name, "` must inherit from class '", class, "'.")
 }
 
 #' @describeIn chk_true Check Is Class
@@ -298,8 +294,7 @@ chk_is <- function(x, class, err = TRUE) {
   x_name <- deparse(substitute(x))
   class <- gsub("\"", "'", utils::capture.output(dput(class)))
   x_class <- gsub("\"", "'", utils::capture.output(dput(class(x))))
-  stop("`", x_name, "` must be class ", class, ", not ", x_class, ".", 
-       call. = FALSE)
+  err("`", x_name, "` must be class ", class, ", not ", x_class, ".")
 }
 
 #' @describeIn chk_true Check Identical
@@ -314,7 +309,7 @@ chk_identical <- function (x, y, err = TRUE) {
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
   y <- utils::capture.output(dput(y, control = "all"))
-  stop("`", x_name, "` not identical to: ", y, ".")
+  err("`", x_name, "` not identical to: ", y, ".")
 }
 
 #' @describeIn chk_true Check Equal
@@ -329,7 +324,7 @@ chk_equal <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE) 
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
   y <- utils::capture.output(dput(y, control = "all"))
-  stop("`", x_name, "` not equal to: ", y, ".")
+  err("`", x_name, "` not equal to: ", y, ".")
 }
 
 #' @describeIn chk_true Check Equivalent
@@ -344,7 +339,7 @@ chk_equivalent <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = T
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
   y <- utils::capture.output(dput(y, control = "all"))
-  stop("`", x_name, "` not equivalent to: ", y, ".")
+  err("`", x_name, "` not equivalent to: ", y, ".")
 }
 
 #' @describeIn chk_true Check Function
@@ -358,7 +353,7 @@ chk_function <- function(x, err = TRUE) {
   if(is.function(x)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be a function.", call. = FALSE)
+  err("`", x_name, "` must be a function.")
 }
 
 #' @describeIn chk_true Check ... Unused
@@ -371,7 +366,7 @@ chk_function <- function(x, err = TRUE) {
 chk_unused <- function (..., err = TRUE) {
   if(!length(list(...))) return(TRUE)
   if(!err) return(FALSE)
-  stop("`...` must be unused.", call. = FALSE)
+  err("`...` must be unused.")
 }
 
 #' @describeIn chk_true Check ... Used
@@ -384,7 +379,7 @@ chk_unused <- function (..., err = TRUE) {
 chk_used <- function (..., err = TRUE) {
   if(length(list(...))) return(TRUE)
   if(!err) return(FALSE)
-  stop("`...` must be used.", call. = FALSE)
+  err("`...` must be used.")
 }
 
 #' @describeIn chk_true Check Directory Exists
@@ -397,7 +392,7 @@ chk_used <- function (..., err = TRUE) {
 chk_dir <- function(x, err = TRUE) {
   if(dir.exists(x)) return(TRUE)
   if(!err) return(FALSE)
-  stop("Can't find directory `", x, "`.", call. = FALSE)
+  err("Can't find directory `", x, "`.")
 }
 
 #' @describeIn chk_true Check File Exists
@@ -410,7 +405,7 @@ chk_dir <- function(x, err = TRUE) {
 chk_file <- function(x, err = TRUE) {
   if(file.exists(x)) return(TRUE)
   if(!err) return(FALSE)
-  stop("Can't find file `", x, "`.", call. = FALSE)
+  err("Can't find file `", x, "`.")
 }
 
 #' @describeIn chk_true Check Named
@@ -424,5 +419,52 @@ chk_named <- function(x, err = TRUE) {
   if(!is.null(names(x))) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-  stop("`", x_name, "` must be named.", call. = FALSE)
+  err("`", x_name, "` must be named.")
+}
+
+#' @describeIn chk_true Check Match
+#' 
+#' Test if all values in x match values using equivalent of:
+#' \code{all(\link{match}(x, values, nomatch = 0) > 0)}
+#' 
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_match <- function (x, values = c(1, Inf), err = TRUE) {
+  if(all(x %in% values)) return(TRUE)
+  if(!err) return(FALSE)
+  values <- sort(unique(values), na.last = TRUE)
+  x_name <- deparse(substitute(x))
+  if(length(x) == 1L)
+  err("`", x_name, "` must match ", cc(values, " or "), ", not ", cc(x), ".")
+  err("Values of `", x_name, "` must match ", cc(values, " or "), ".")
+}
+
+#' @describeIn chk_true Check Range
+#' 
+#' Test if all non-missing values in x fall within range using equivalent of:
+#' 
+#' \code{x <- x[!is.na(x)]}
+#' 
+#' \code{if(!length(x) || all(x >= range[1] & x <= range[2])) return(TRUE)}
+#' 
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_range <- function (x, range = c(1, Inf), err = TRUE) {
+  x2 <- x[!is.na(x)]
+  if(!length(x2) || all(x2 >= range[1] & x2 <= range[2])) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  if(length(x) == 1L) {
+    if(range[1] == range[2])
+      err("`", x_name, "` must be ", cc(range[1]), ", not ", cc(x), ".")
+    err("`", x_name, "` must be between ", cc(range, " and "), 
+        ", not ", cc(x), ".")
+  }
+  if(range[1] == range[2])
+    err("Values of `", x_name, "` must be ", cc(range[1]), ".")
+  err("Values of `", x_name, "` must be between ", cc(range, " and "), ".")
 }

@@ -90,9 +90,8 @@ if(!chk_flag(1, err = FALSE)) stop("x MUST be a flag (try as.logical())")
 
 #### Copy and Paste
 
-`chk` is released under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/) licence
-and almost all `chk_` functions are standalone.
-This allows developers to easily copy and paste individual functions into their package
+`chk` is released under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/) licence.
+This allows developers to copy and paste functions into their package
 which is useful if they want to minimise their dependencies.
 Copied functions should not be exported (to avoid namespace conflicts) and the 
 following creditation preserved.

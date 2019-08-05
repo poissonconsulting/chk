@@ -29,7 +29,6 @@ try_msg <- function (x) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-#  depends on R/paste.R
 chkor <- function (..., err = TRUE) {
   args <- substitute(list(...))[-1]
   n <- length(args)
@@ -44,5 +43,5 @@ chkor <- function (..., err = TRUE) {
   if(length(args) == 1) stop(args) 
   args <- p0("\n* ", args)
   args <- c("At least one of the following conditions must be met:", args)
-  stop(args, call. = FALSE)
+  err(args)
 }

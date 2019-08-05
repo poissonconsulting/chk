@@ -199,7 +199,7 @@ test_that("chk_identical", {
   expect_true(chk_identical(1L, 1L))
   expect_false(chk_identical(1, 1L, err = FALSE))
   expect_false(chk_identical(1L, 1, err = FALSE))
-
+  
   expect_true(chk_identical(c(1L), 1L))
   expect_false(chk_identical(c(x = 1L), 1L, err = FALSE))
   expect_error(chk_identical(c(x = 1L), 1L), 
@@ -230,7 +230,7 @@ test_that("chk_equal", {
   expect_false(chk_equal(1L, c(x = 1L), err = FALSE))
   expect_error(chk_equal(1L, c(x = 1L)), 
                "^`1L` not equal to: c[(]x = 1L[)][.]$")
-
+  
   expect_true(chk_equal(1, 1.00000001))
   expect_true(chk_equal(1, 1.001, 0.01))
   expect_true(chk_equal(1, 1.001, 0.001))
@@ -252,7 +252,7 @@ test_that("chk_equivalent", {
   expect_true(chk_equivalent(c(x = 1L), 1L))
   expect_true(chk_equivalent(1L, c(x = 1L)))
   expect_true(chk_equivalent(1L, c(x = 1L)))
-
+  
   expect_true(chk_equivalent(1, 1.00000001))
   expect_true(chk_equivalent(1, 1.001, 0.01))
   expect_true(chk_equivalent(1, 1.001, 0.001))
@@ -300,4 +300,53 @@ test_that("chk_file", {
   teardown(unlink(file))
   write.csv(data.frame(x = 1), file)
   expect_true(chk_file(file))
+})
+
+test_that("chk_match", {
+  expect_true(chk_match(1))
+  expect_false(chk_match(1:3, err = FALSE))
+  expect_error(chk_match(1:3, "^Values of `1:3` must match 1 or Inf[.]$"))
+  expect_true(chk_match(numeric(0), 1L))
+  
+  expect_false(chk_match(-1, err = FALSE))
+  expect_error(chk_match(-1), "^`-1` must match 1 or Inf, not -1[.]$")
+  
+  expect_false(chk_match(1L, 0L, err = FALSE))
+  expect_error(chk_match(c(1L, 1L), 0L), c("^Values of `c[(]1L, 1L[)]` must match 0[.]$"))
+  expect_error(chk_match(1, ""), "^`1` must match '', not 1[.]$")
+  
+  expect_false(chk_match(1, NA, err = FALSE)) 
+  expect_error(chk_match(1, NA), 
+               "^`1` must match NA, not 1[.]$")
+  
+  expect_false(chk_match(c(NA, 1), 1, err = FALSE)) 
+  expect_error(chk_match(c(NA, 1), 1), 
+               "^Values of `c[(]NA, 1[)]` must match 1[.]$")
+  
+  expect_true(chk_match(NA, NA))
+  
+  expect_false(chk_match(c(NA, 1), 1:2, err = FALSE)) 
+  expect_error(chk_match(c(NA, 1), 1:2), 
+               "^Values of `c[(]NA, 1[)]` must match 1 or 2[.]$")
+  
+  expect_error(chk_match(3L, values = c(1L, 1L, 7L)), 
+               "^`3L` must match 1 or 7, not 3[.]$")
+})
+
+
+test_that("chk_range", {
+  expect_true(chk_range(numeric(0)))
+  expect_true(chk_range(numeric(0), c(1,1)))
+  expect_true(chk_range(NA_real_))
+  expect_true(chk_range(1))
+  expect_true(chk_range(1:3))
+  expect_true(chk_range(numeric(0), 1L))
+  
+  expect_false(chk_range(-1, err = FALSE))
+  expect_error(chk_range(-1), "^`-1` must be between 1 and Inf, not -1[.]$")
+  expect_error(chk_range(c(-1, NA)), "^Values of `c[(]-1, NA[)]` must be between 1 and Inf[.]$")
+  expect_true(chk_range(c(-1, -1), c(-2, -1)))
+  expect_true(chk_range(c(NA, 1), 1:2)) 
+  
+  expect_error(chk_range(2, c(1,1)), "^`2` must be 1, not 2[.]$")
 })
