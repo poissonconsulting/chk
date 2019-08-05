@@ -285,18 +285,18 @@ test_that("chk_used", {
 
 test_that("chk_dir", {
   expect_true(chk_dir(tempdir()))
-  expect_error(chk_dir(tempfile()), "^Can't find directory `.*`[.]$")
+  expect_error(chk_dir(tempfile()), "^Can't find directory '.*'[.]$")
   path <- file.path(tempdir(), "chk")
   unlink(path)
   expect_false(chk_dir(path, err = FALSE))
-  expect_error(chk_dir(path), "^Can't find directory `.*chk`[.]$")
+  expect_error(chk_dir(path), "^Can't find directory '.*chk'[.]$")
 })
 
 test_that("chk_file", {
   expect_false(chk_file(tempdir(), err = FALSE))
   file <- paste0(tempfile(), ".csv")
   expect_false(chk_file(file, err = FALSE))
-  expect_error(chk_file(file), "^Can't find file `.*[.]csv`[.]$")
+  expect_error(chk_file(file), "^Can't find file '.*[.]csv'[.]$")
   teardown(unlink(file))
   write.csv(data.frame(x = 1), file)
   expect_true(chk_file(file))

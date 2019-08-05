@@ -615,7 +615,7 @@ chk_match <- function (x, values = c(0, Inf), err = TRUE) {
 chk_dir <- function(x, err = TRUE) {
   if(dir.exists(x)) return(TRUE)
   if(!err) return(FALSE)
-  err("Can't find directory `", x, "`.")
+  err("Can't find directory '", x, "'.")
 }
 
 #' @describeIn chk_true Check File Exists
@@ -631,6 +631,6 @@ chk_dir <- function(x, err = TRUE) {
 chk_file <- function(x, err = TRUE) {
   if(file.exists(x) && !dir.exists(x)) return(TRUE)
   if(!err) return(FALSE)
-  err("Can't find file `", x, "`.")
+  err("Can't find file '", x, "'.")
 }
 
