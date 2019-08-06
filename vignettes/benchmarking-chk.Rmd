@@ -96,7 +96,6 @@ microbenchmark(
   chk_length(one),
   chk_whole_numeric(oneL),
   chk_whole_numeric(one),
-  chk_grepl(string),
   chk_no_missing(one),
   chk_unique(one),
   chk_null(null),
@@ -114,5 +113,7 @@ microbenchmark(
   chk_gt(one, 0),
   chk_gte(one, one),
   chk_range(one),
-  chk_in(one, one))
+  chk_in(one, one),
+  chk_match(string)
+)
 ```

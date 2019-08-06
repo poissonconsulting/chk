@@ -20,7 +20,7 @@
 #' @param values A vector of the permitted values.
 #' @param value A non-missing scalar of a value.
 #' @param range A vector of length 2 of the lower and upper permitted values.
-#' @param pattern A string of a regular expression.
+#' @param regexp A string of a regular expression.
 #' @param ... Additional arguments.
 #'
 #' @return TRUE if passes check. Otherwise if throws an informative error unless
@@ -290,27 +290,6 @@ chk_whole_numeric <- function(x, err = TRUE) {
   x_name <- deparse(substitute(x))
   err("`", x_name, 
       "` must be a whole numeric vector (integer vector or double equivalent).")
-}
-
-#' @describeIn chk_true Check Matches Regular Expression
-#' 
-#' Checks if all values match regular expression pattern using:
-#'
-#' \code{all(\link{grepl}(pattern, x))}
-#' 
-#' \code{pattern} should be a non-missing character scalar.
-#' 
-#' @export
-#
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_grepl <- function (x, pattern = ".+", err = TRUE) {
-  if(all(grepl(pattern, x))) return(TRUE)
-  if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
-  if(length(x) == 1)
-    err("`", x_name, "` must match regular expression '", pattern, "'.")
-  err("All values of `", x_name, "` must match regular expression '", pattern, "'.")
 }
 
 #' @describeIn chk_true Check No Missing Values
@@ -655,6 +634,27 @@ chk_in <- function (x, values = c(0, Inf), err = TRUE) {
   if(length(x) == 1L)
     err("`", x_name, "` must match ", cc(values, " or "), ", not ", cc(x), ".")
   err("Values of `", x_name, "` must match ", cc(values, " or "), ".")
+}
+
+#' @describeIn chk_true Check Matches
+#' 
+#' Checks if all values match regular expression using:
+#'
+#' \code{all(\link{grepl}(regexp, x))}
+#' 
+#' \code{regexp} should be a non-missing character scalar.
+#' 
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_match <- function (x, regexp = ".+", err = TRUE) {
+  if(all(grepl(regexp, x))) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  if(length(x) == 1)
+    err("`", x_name, "` must match regular expression '", regexp, "'.")
+  err("All values of `", x_name, "` must match regular expression '", regexp, "'.")
 }
 
 #' @describeIn chk_true Check Directory Exists

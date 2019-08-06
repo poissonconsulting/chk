@@ -15,7 +15,6 @@
 \alias{chk_datetime}
 \alias{chk_length}
 \alias{chk_whole_numeric}
-\alias{chk_grepl}
 \alias{chk_no_missing}
 \alias{chk_unique}
 \alias{chk_null}
@@ -34,6 +33,7 @@
 \alias{chk_gte}
 \alias{chk_range}
 \alias{chk_in}
+\alias{chk_match}
 \alias{chk_dir}
 \alias{chk_dirs}
 \alias{chk_file}
@@ -65,8 +65,6 @@ chk_datetime(x, err = TRUE)
 chk_length(x, length = 1L, err = TRUE)
 
 chk_whole_numeric(x, err = TRUE)
-
-chk_grepl(x, pattern = ".+", err = TRUE)
 
 chk_no_missing(x, err = TRUE)
 
@@ -104,6 +102,8 @@ chk_range(x, range = c(0, Inf), err = TRUE)
 
 chk_in(x, values = c(0, Inf), err = TRUE)
 
+chk_match(x, regexp = ".+", err = TRUE)
+
 chk_dir(x, err = TRUE)
 
 chk_dirs(x, err = TRUE)
@@ -120,8 +120,6 @@ message if the check fails.}
 
 \item{length}{A count of the length.}
 
-\item{pattern}{A string of a regular expression.}
-
 \item{...}{Additional arguments.}
 
 \item{class}{A string specifying the class.}
@@ -135,6 +133,8 @@ message if the check fails.}
 \item{range}{A vector of length 2 of the lower and upper permitted values.}
 
 \item{values}{A vector of the permitted values.}
+
+\item{regexp}{A string of a regular expression.}
 }
 \value{
 TRUE if passes check. Otherwise if throws an informative error unless
@@ -227,14 +227,6 @@ Checks if is length length using:
 Checks if integer vector or double equivalent using the equivalent of:
 
 \code{is.integer(x) || (is.double(x) && isTRUE(all.equal(x, as.integer(x))))}
-
-\item \code{chk_grepl}: Check Matches Regular Expression
-
-Checks if all values match regular expression pattern using:
-
-\code{all(\link{grepl}(pattern, x))}
-
-\code{pattern} should be a non-missing character scalar.
 
 \item \code{chk_no_missing}: Check No Missing Values
 
@@ -355,6 +347,14 @@ Range should be a non-mising sorted vector of length 2.
 Checks if all values in values using equivalent of:
 
 \code{all(\link{match}(x, values, nomatch = 0) > 0)}
+
+\item \code{chk_match}: Check Matches
+
+Checks if all values match regular expression using:
+
+\code{all(\link{grepl}(regexp, x))}
+
+\code{regexp} should be a non-missing character scalar.
 
 \item \code{chk_dir}: Check Directory Exists
 

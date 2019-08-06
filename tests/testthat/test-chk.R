@@ -190,20 +190,20 @@ test_that("chk_is", {
   expect_error(chk_is(x, "c"), "`x` must inherit from class 'c'")
 })
 
-test_that("chk_grepl", {
-  expect_true(chk_grepl(character(0)))
-  expect_true(chk_grepl(1))
-  expect_true(chk_grepl("a"))
-  expect_false(chk_grepl("", err = FALSE))
-  expect_error(chk_grepl(""), "^`\"\"` must match regular expression '.+'[.]$")
-  expect_error(chk_grepl(NA_character_), 
+test_that("chk_match", {
+  expect_true(chk_match(character(0)))
+  expect_true(chk_match(1))
+  expect_true(chk_match("a"))
+  expect_false(chk_match("", err = FALSE))
+  expect_error(chk_match(""), "^`\"\"` must match regular expression '.+'[.]$")
+  expect_error(chk_match(NA_character_), 
                "`NA_character_` must match regular expression '.+'")
-  expect_true(chk_grepl(c("a", "b")))
-  expect_error(chk_grepl(c("a", "b"), "b"), 
+  expect_true(chk_match(c("a", "b")))
+  expect_error(chk_match(c("a", "b"), "b"), 
                "All values of `c[(]\"a\", \"b\"[)]` must match regular expression 'b'[.]$")
-  expect_error(chk_grepl(c("a", "b"), 'b'), 
+  expect_error(chk_match(c("a", "b"), 'b'), 
                "All values of `c[(]\"a\", \"b\"[)]` must match regular expression 'b'[.]$")
-  expect_error(chk_grepl(c(NA, "b"), 'b'), 
+  expect_error(chk_match(c(NA, "b"), 'b'), 
                "All values of `c[(]NA, \"b\"[)]` must match regular expression 'b'[.]$")
 })
 
