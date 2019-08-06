@@ -195,7 +195,7 @@ chk_whole_number <- function(x, err = TRUE) {
 #  Repository: https://github.com/poissonconsulting/chk
 chk_count <- function(x, err = TRUE) {
   if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && 
-     isTRUE(all.equal(x, as.integer(x))))
+     (is.integer(x) || isTRUE(all.equal(x, as.integer(x)))))
     return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
