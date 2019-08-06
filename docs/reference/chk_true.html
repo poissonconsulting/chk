@@ -155,8 +155,6 @@
 
 <span class='fu'>chk_whole_numeric</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>chk_grepl</span>(<span class='no'>x</span>, <span class='kw'>pattern</span> <span class='kw'>=</span> <span class='st'>".+"</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
 <span class='fu'>chk_no_missing</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>chk_unique</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
@@ -193,6 +191,8 @@
 
 <span class='fu'>chk_in</span>(<span class='no'>x</span>, <span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>Inf</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
+<span class='fu'>chk_match</span>(<span class='no'>x</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>".+"</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
 <span class='fu'>chk_dir</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>chk_dirs</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
@@ -216,10 +216,6 @@ message if the check fails.</p></td>
     <tr>
       <th>length</th>
       <td><p>A count of the length.</p></td>
-    </tr>
-    <tr>
-      <th>pattern</th>
-      <td><p>A string of a regular expression.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -248,6 +244,10 @@ message if the check fails.</p></td>
     <tr>
       <th>values</th>
       <td><p>A vector of the permitted values.</p></td>
+    </tr>
+    <tr>
+      <th>regexp</th>
+      <td><p>A string of a regular expression.</p></td>
     </tr>
     </table>
     
@@ -304,10 +304,6 @@ message if the check fails.</p></td>
 <li><p><code>chk_whole_numeric</code>: Check Whole Numeric</p> 
 <p>Checks if integer vector or double equivalent using the equivalent of:</p>
 <p><code>is.integer(x) || (is.double(x) &amp;&amp; isTRUE(all.equal(x, as.integer(x))))</code></p></li>
-<li><p><code>chk_grepl</code>: Check Matches Regular Expression</p>
-<p>Checks if all values match regular expression pattern using:</p>
-<p><code>all(<a href='https://rdrr.io/r/base/grep.html'>grepl</a>(pattern, x))</code></p>
-<p><code>pattern</code> should be a non-missing character scalar.</p></li>
 <li><p><code>chk_no_missing</code>: Check No Missing Values</p>
 <p>Checks if no missing values using:</p>
 <p><code>!<a href='https://rdrr.io/r/base/NA.html'>anyNA</a>(x)</code></p></li>
@@ -368,6 +364,10 @@ message if the check fails.</p></td>
 <li><p><code>chk_in</code>: Check In</p>
 <p>Checks if all values in values using equivalent of:</p>
 <p><code>all(<a href='https://rdrr.io/r/base/match.html'>match</a>(x, values, nomatch = 0) &gt; 0)</code></p></li>
+<li><p><code>chk_match</code>: Check Matches</p>
+<p>Checks if all values match regular expression using:</p>
+<p><code>all(<a href='https://rdrr.io/r/base/grep.html'>grepl</a>(regexp, x))</code></p>
+<p><code>regexp</code> should be a non-missing character scalar.</p></li>
 <li><p><code>chk_dir</code>: Check Directory Exists</p>
 <p>Checks if directory exist using:</p>
 <p><code>length(x) == 1L &amp;&amp; <a href='https://rdrr.io/r/base/files2.html'>dir.exists</a>(x))</code></p></li>
