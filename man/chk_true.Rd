@@ -32,8 +32,8 @@
 \alias{chk_gte}
 \alias{chk_range}
 \alias{chk_match}
-\alias{chk_dir}
-\alias{chk_file}
+\alias{chk_dirs}
+\alias{chk_files}
 \title{Check Object}
 \usage{
 chk_true(x, err = TRUE)
@@ -96,9 +96,9 @@ chk_range(x, range = c(0, Inf), err = TRUE)
 
 chk_match(x, values = c(0, Inf), err = TRUE)
 
-chk_dir(x, err = TRUE)
+chk_dirs(x, err = TRUE)
 
-chk_file(x, err = TRUE)
+chk_files(x, err = TRUE)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -330,15 +330,15 @@ Checks if all values match values using equivalent of:
 
 \code{all(\link{match}(x, values, nomatch = 0) > 0)}
 
-\item \code{chk_dir}: Check Directory Exists
+\item \code{chk_dirs}: Check Directories Exists
 
-Checks if directory exists using:
+Checks if directories exist using:
 
 \code{all(\link{dir.exists}(x))}
 
-\item \code{chk_file}: Check File Exists
+\item \code{chk_files}: Check Files Exist
 
-Checks if file exists using:
+Checks if files exists using:
 
 \code{all(\link{file.exists}(x) && !dir.exists(x))}
 }}

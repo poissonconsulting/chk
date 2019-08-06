@@ -624,9 +624,9 @@ chk_match <- function (x, values = c(0, Inf), err = TRUE) {
   err("Values of `", x_name, "` must match ", cc(values, " or "), ".")
 }
 
-#' @describeIn chk_true Check Directory Exists
+#' @describeIn chk_true Check Directories Exists
 #' 
-#' Checks if directory exists using:
+#' Checks if directories exist using:
 #' 
 #' \code{all(\link{dir.exists}(x))}
 #' 
@@ -634,7 +634,7 @@ chk_match <- function (x, values = c(0, Inf), err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_dir <- function(x, err = TRUE) {
+chk_dirs <- function(x, err = TRUE) {
   if(all(dir.exists(x))) return(TRUE)
   if(!err) return(FALSE)
   x <- unique(x)
@@ -644,9 +644,9 @@ chk_dir <- function(x, err = TRUE) {
   err("Can't find the following directories: ", cc(x, " or "), ".")
 }
 
-#' @describeIn chk_true Check File Exists
+#' @describeIn chk_true Check Files Exist
 #' 
-#' Checks if file exists using:
+#' Checks if files exists using:
 #' 
 #' \code{all(\link{file.exists}(x) && !dir.exists(x))}
 #' 
@@ -654,7 +654,7 @@ chk_dir <- function(x, err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_file <- function(x, err = TRUE) {
+chk_files <- function(x, err = TRUE) {
   if(all(file.exists(x) & !dir.exists(x))) return(TRUE)
   if(!err) return(FALSE)
   x <- unique(x)
