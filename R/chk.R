@@ -166,7 +166,7 @@ chk_proportion <- function(x, err = TRUE) {
 #' Checks if non-mising integer scalar or double equivalent using:
 #' 
 #' \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && 
-#'   isTRUE(all.equal(x, as.integer(x)))}
+#'   (is.integer(x) || isTRUE(all.equal(x, as.integer(x))))}
 #'   
 #' @export
 #' 
@@ -174,7 +174,7 @@ chk_proportion <- function(x, err = TRUE) {
 #  Repository: https://github.com/poissonconsulting/chk
 chk_whole_number <- function(x, err = TRUE) {
   if(is.numeric(x) && length(x) == 1L && !anyNA(x) && 
-     isTRUE(all.equal(x, as.integer(x))))
+     (is.integer(x) || isTRUE(all.equal(x, as.integer(x)))))
     return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))

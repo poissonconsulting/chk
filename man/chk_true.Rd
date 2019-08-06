@@ -193,7 +193,7 @@ Checks if non-mising numeric scalar between 0 and 1 using:
 Checks if non-mising integer scalar or double equivalent using:
 
 \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && 
-  isTRUE(all.equal(x, as.integer(x)))}
+  (is.integer(x) || isTRUE(all.equal(x, as.integer(x))))}
 
 \item \code{chk_count}: Check Count
  
