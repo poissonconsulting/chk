@@ -134,19 +134,6 @@ test_that("chk_datetime", {
   expect_error(chk_datetime(1), "^`1` must be a datetime [(]non-missing POSIXct scalar[)][.]$")
 })
 
-test_that("chk_vector", {
-  expect_false(chk_vector(NULL, err = FALSE))
-  expect_true(chk_vector(integer(0)))
-  expect_true(chk_vector(1))
-  expect_true(chk_vector(NA))
-  expect_true(chk_vector(list()))
-  expect_true(chk_vector(list(x = 1)))
-  expect_error(chk_vector(NULL), 
-               "`NULL` must be a vector.")
-  expect_error(chk_vector(1, mode = "logical"), 
-               "`1` must be a vector of mode 'logical'.")
-})
-
 test_that("chk_length", {
   expect_false(chk_length(NULL, err = FALSE))
   expect_false(chk_length(integer(0), err = FALSE))
@@ -158,26 +145,6 @@ test_that("chk_length", {
                "^`NULL` must be length 1, not 0[.]$")
   expect_error(chk_length(1, 3), 
                "^`1` must be length 3, not 1[.]$")
-})
-
-test_that("chk_scalar", {
-  expect_false(chk_scalar(NULL, err = FALSE))
-  expect_false(chk_scalar(integer(0), err = FALSE))
-  expect_true(chk_scalar(1))
-  expect_true(chk_scalar(NA))
-  expect_false(chk_scalar(list(), err = FALSE))
-  expect_true(chk_scalar(list(x = 1)))
-  expect_error(chk_scalar(NULL), 
-               "^`NULL` must be a vector of length 1[.]$")
-  expect_error(chk_scalar(1, mode = "logical"), 
-               "^`1` must be a vector of length 1 and mode 'logical'[.]$")
-})
-
-test_that("chk_atomic", {
-  expect_true(chk_atomic(NULL))
-  expect_true(chk_atomic(1))
-  expect_false(chk_atomic(list(), err = FALSE))
-  expect_error(chk_atomic(list()), "`list[(][)]` must be an atomic [(]vector, matrix or array[)] object.")
 })
 
 test_that("chk_named", {

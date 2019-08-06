@@ -13,10 +13,7 @@
 \alias{chk_string}
 \alias{chk_date}
 \alias{chk_datetime}
-\alias{chk_scalar}
-\alias{chk_vector}
 \alias{chk_length}
-\alias{chk_atomic}
 \alias{chk_whole_numeric}
 \alias{chk_grepl}
 \alias{chk_no_missing}
@@ -65,13 +62,7 @@ chk_date(x, err = TRUE)
 
 chk_datetime(x, err = TRUE)
 
-chk_scalar(x, mode = "any", err = TRUE)
-
-chk_vector(x, mode = "any", err = TRUE)
-
 chk_length(x, length = 1L, err = TRUE)
-
-chk_atomic(x, err = TRUE)
 
 chk_whole_numeric(x, err = TRUE)
 
@@ -126,8 +117,6 @@ chk_files(x, err = TRUE)
 
 \item{err}{A flag specifying whether to generate an error
 message if the check fails.}
-
-\item{mode}{A string naming an atomic mode or "list" or "expression" or "any".}
 
 \item{length}{A count of the length.}
 
@@ -225,22 +214,6 @@ Checks if non-missing POSIXct scalar using:
 
 \code{inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)}
 
-\item \code{chk_scalar}: Check Scalar
-
-Checks if scalar using:
-
-\code{is.vector(x, mode = mode) && length(x) == 1L}
-
-\code{mode} should be a string.
-
-\item \code{chk_vector}: Check Vector
-
-Checks if vector using:
-
-\code{is.vector(x, mode = mode)}
-
-\code{mode} should be a string.
-
 \item \code{chk_length}: Check Length
 
 Checks if is length length using:
@@ -248,12 +221,6 @@ Checks if is length length using:
 \code{length(x) == length}
 
 \code{length} should be a count.
-
-\item \code{chk_atomic}: Check Atomic
-
-Checks if atomic using:
-
-\code{is.atomic(x)}
 
 \item \code{chk_whole_numeric}: Check Whole Numeric
  
