@@ -134,7 +134,7 @@ chk_flag
 #>   x_name <- deparse(substitute(x))
 #>   err("`", x_name, "` must be a flag (TRUE or FALSE).")
 #> }
-#> <bytecode: 0x7f8ce793fa80>
+#> <bytecode: 0x7fee62471e28>
 #> <environment: namespace:chk>
 ```
 
@@ -194,4 +194,4 @@ always welcome.
 
 Please note that this project is released with a [Contributor Code of
 Conduct](https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md).
-By contributing, you agree to abide by its terms
+By contributing, you agree to abide by its terms.

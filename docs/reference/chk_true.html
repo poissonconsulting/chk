@@ -66,7 +66,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9007</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9008</span>
       </span>
     </div>
 
@@ -147,17 +147,35 @@
 
 <span class='fu'>chk_string</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
+<span class='fu'>chk_date</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='fu'>chk_datetime</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='fu'>chk_scalar</span>(<span class='no'>x</span>, <span class='kw'>mode</span> <span class='kw'>=</span> <span class='st'>"any"</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='fu'>chk_vector</span>(<span class='no'>x</span>, <span class='kw'>mode</span> <span class='kw'>=</span> <span class='st'>"any"</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='fu'>chk_atomic</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
 <span class='fu'>chk_whole_numeric</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>chk_grepl</span>(<span class='no'>x</span>, <span class='kw'>pattern</span> <span class='kw'>=</span> <span class='st'>".+"</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='fu'>chk_no_missing</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='fu'>chk_unique</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>chk_null</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>chk_not_null</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>chk_no_missing</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>chk_named</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>chk_inherits</span>(<span class='no'>x</span>, <span class='no'>class</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>chk_unused</span>(<span class='no'>...</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='fu'>chk_used</span>(<span class='no'>...</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='fu'>chk_function</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>chk_is</span>(<span class='no'>x</span>, <span class='no'>class</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
@@ -167,29 +185,25 @@
 
 <span class='fu'>chk_equivalent</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>tolerance</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>(<span class='no'>.Machine</span>$<span class='no'>double.eps</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>chk_function</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>chk_lt</span>(<span class='no'>x</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>chk_unused</span>(<span class='no'>...</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>chk_lte</span>(<span class='no'>x</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>chk_used</span>(<span class='no'>...</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>chk_gt</span>(<span class='no'>x</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>chk_dir</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>chk_gte</span>(<span class='no'>x</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>chk_file</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_named</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>chk_range</span>(<span class='no'>x</span>, <span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>Inf</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>chk_match</span>(<span class='no'>x</span>, <span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>Inf</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>chk_lt</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>chk_dir</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>chk_lte</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>chk_dirs</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>chk_gt</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>chk_file</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>chk_gte</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_range</span>(<span class='no'>x</span>, <span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>Inf</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+<span class='fu'>chk_files</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -204,8 +218,16 @@
 message if the check fails.</p></td>
     </tr>
     <tr>
+      <th>mode</th>
+      <td><p>A string naming an atomic mode or "list" or "expression" or "any".</p></td>
+    </tr>
+    <tr>
       <th>pattern</th>
       <td><p>A string of a regular expression.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Additional arguments.</p></td>
     </tr>
     <tr>
       <th>class</th>
@@ -220,16 +242,16 @@ message if the check fails.</p></td>
       <td><p>A non-negative numeric scalar.</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>Additional arguments.</p></td>
-    </tr>
-    <tr>
-      <th>values</th>
-      <td><p>A vector of the permitted values.</p></td>
+      <th>value</th>
+      <td><p>A non-missing scalar of a value.</p></td>
     </tr>
     <tr>
       <th>range</th>
       <td><p>A vector of length 2 of the lower and upper permitted values.</p></td>
+    </tr>
+    <tr>
+      <th>values</th>
+      <td><p>A vector of the permitted values.</p></td>
     </tr>
     </table>
     
@@ -265,7 +287,7 @@ message if the check fails.</p></td>
 <li><p><code>chk_whole_number</code>: Check Whole Number</p> 
 <p>Checks if non-mising integer scalar or double equivalent using:</p>
 <p><code>is.numeric(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x) &amp;&amp; 
-  isTRUE(all.equal(x, as.integer(x)))</code></p></li>
+  (is.integer(x) || isTRUE(all.equal(x, as.integer(x))))</code></p></li>
 <li><p><code>chk_count</code>: Check Count</p> 
 <p>Checks if non-missing non-negative integer scalar or double equivalent using:</p>
 <p><code>is.numeric(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x) &amp;&amp; x &gt;= 0 &amp;&amp; 
@@ -273,30 +295,58 @@ message if the check fails.</p></td>
 <li><p><code>chk_string</code>: Check String</p>
 <p>Checks if non-missing character scalar using:</p>
 <p><code>is.character(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></p></li>
+<li><p><code>chk_date</code>: Check String</p>
+<p>Checks if non-missing Date scalar using:</p>
+<p><code>inherits(x, "Date") &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></p></li>
+<li><p><code>chk_datetime</code>: Check DateTime</p>
+<p>Checks if non-missing POSIXct scalar using:</p>
+<p><code>inherits(x, "POSIXct") &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></p></li>
+<li><p><code>chk_scalar</code>: Check Scalar</p>
+<p>Checks if scalar using:</p>
+<p><code>is.vector(x, mode = mode) &amp;&amp; length(x) == 1L</code></p>
+<p><code>mode</code> should be a string.</p></li>
+<li><p><code>chk_vector</code>: Check Vector</p>
+<p>Checks if vector using:</p>
+<p><code><a href='https://rdrr.io/r/base/vector.html'>is.vector(x, mode = mode)</a></code></p>
+<p><code>mode</code> should be a string.</p></li>
+<li><p><code>chk_atomic</code>: Check Atomic</p>
+<p>Checks if atomic using:</p>
+<p><code><a href='https://rdrr.io/r/base/is.recursive.html'>is.atomic(x)</a></code></p></li>
 <li><p><code>chk_whole_numeric</code>: Check Whole Numeric</p> 
 <p>Checks if integer vector or double equivalent using the equivalent of:</p>
 <p><code>is.integer(x) || (is.double(x) &amp;&amp; isTRUE(all.equal(x, as.integer(x))))</code></p></li>
 <li><p><code>chk_grepl</code>: Check Matches Regular Expression</p>
 <p>Checks if all values match regular expression pattern using:</p>
 <p><code>all(<a href='https://rdrr.io/r/base/grep.html'>grepl</a>(pattern, x))</code></p>
-<p><code>pattern</code> should be a string.</p></li>
+<p><code>pattern</code> should be a non-missing character scalar.</p></li>
+<li><p><code>chk_no_missing</code>: Check No Missing Values</p>
+<p>Checks if no missing values using:</p>
+<p><code>!<a href='https://rdrr.io/r/base/NA.html'>anyNA</a>(x)</code></p></li>
+<li><p><code>chk_unique</code>: Check Unique</p>
+<p>Checks if unique using:</p>
+<p><code>!<a href='https://rdrr.io/r/base/duplicated.html'>anyDuplicated</a>(x)</code></p></li>
 <li><p><code>chk_null</code>: Check NULL</p>
 <p>Checks if NULL using:</p>
 <p><code><a href='https://rdrr.io/r/base/NULL.html'>is.null</a>(x)</code></p></li>
 <li><p><code>chk_not_null</code>: Check Not NULL</p>
 <p>Checks if not NULL using:</p>
 <p><code>!<a href='https://rdrr.io/r/base/NULL.html'>is.null</a>(x)</code></p></li>
-<li><p><code>chk_no_missing</code>: Check No Missing Values</p>
-<p>Checks if no missing values using:</p>
-<p><code>!<a href='https://rdrr.io/r/base/NA.html'>anyNA</a>(x)</code></p></li>
-<li><p><code>chk_inherits</code>: Check Inherits from Class</p>
+<li><p><code>chk_named</code>: Check Named</p>
+<p>Checks if is named using:</p>
+<p><code>!is.null(<a href='https://rdrr.io/r/base/names.html'>names</a>(x))</code></p></li>
+<li><p><code>chk_unused</code>: Check ... Unused</p>
+<p>Checks if is ... unused using:</p>
+<p><code>!length(<a href='https://rdrr.io/r/base/list.html'>list</a>(...))</code></p></li>
+<li><p><code>chk_used</code>: Check ... Used</p>
+<p>Checks if is ... used using:</p>
+<p><code>length(<a href='https://rdrr.io/r/base/list.html'>list</a>(...))</code></p></li>
+<li><p><code>chk_function</code>: Check Function</p>
+<p>Checks if is a function using:</p>
+<p><code><a href='https://rdrr.io/r/base/is.function.html'>is.function</a>(x)</code></p></li>
+<li><p><code>chk_is</code>: Check Is</p>
 <p>Checks if inherits from class using:</p>
 <p><code><a href='https://rdrr.io/r/base/class.html'>inherits</a>(x, class)</code></p>
 <p>Class should be a string.</p></li>
-<li><p><code>chk_is</code>: Check Is Class</p>
-<p>Checks if is class using:</p>
-<p><code><a href='https://rdrr.io/r/base/identical.html'>identical</a>(class(x), class)</code></p>
-<p>Class should be a character vector.</p></li>
 <li><p><code>chk_identical</code>: Check Identical</p>
 <p>Checks if is identical to y using:</p>
 <p><code><a href='https://rdrr.io/r/base/identical.html'>identical</a>(x, y)</code></p></li>
@@ -306,47 +356,41 @@ message if the check fails.</p></td>
 <li><p><code>chk_equivalent</code>: Check Equivalent</p>
 <p>Checks if is equivalent (equal ignoring attributes) to y using:</p>
 <p><code><a href='https://rdrr.io/r/base/Logic.html'>isTRUE</a>(<a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a>(x, y, tolerance, check.attributes = FALSE))</code></p></li>
-<li><p><code>chk_function</code>: Check Function</p>
-<p>Checks if is a function using:</p>
-<p><code><a href='https://rdrr.io/r/base/is.function.html'>is.function</a>(x)</code></p></li>
-<li><p><code>chk_unused</code>: Check ... Unused</p>
-<p>Checks if is ... unused using:</p>
-<p><code>!length(<a href='https://rdrr.io/r/base/list.html'>list</a>(...))</code></p></li>
-<li><p><code>chk_used</code>: Check ... Used</p>
-<p>Checks if is ... used using:</p>
-<p><code>length(<a href='https://rdrr.io/r/base/list.html'>list</a>(...))</code></p></li>
-<li><p><code>chk_dir</code>: Check Directory Exists</p>
-<p>Checks if directory exists using:</p>
-<p><code><a href='https://rdrr.io/r/base/files2.html'>dir.exists</a>(x)</code></p></li>
-<li><p><code>chk_file</code>: Check File Exists</p>
-<p>Checks if file exists using:</p>
-<p><code><a href='https://rdrr.io/r/base/files.html'>file.exists</a>(x) &amp;&amp; !dir.exists(x)</code></p></li>
-<li><p><code>chk_named</code>: Check Named</p>
-<p>Checks if is named using:</p>
-<p><code>!is.null(<a href='https://rdrr.io/r/base/names.html'>names</a>(x))</code></p></li>
-<li><p><code>chk_match</code>: Check Match</p>
-<p>Checks if all values match values using equivalent of:</p>
-<p><code>all(<a href='https://rdrr.io/r/base/match.html'>match</a>(x, values, nomatch = 0) &gt; 0)</code></p></li>
 <li><p><code>chk_lt</code>: Check Less Than</p>
-<p>Checks if all non-missing values are less than y using:</p>
-<p><code>all(x[!is.na(x)] &lt; y))</code></p>
-<p><code>y</code> should be a scalar.</p></li>
+<p>Checks if all non-missing values are less than value using:</p>
+<p><code>all(x[!is.na(x)] &lt; value))</code></p>
+<p><code>value</code> should be a non-missing scalar.</p></li>
 <li><p><code>chk_lte</code>: Check Less Than or Equal To</p>
 <p>Checks if all non-missing values are less than or equal to y using:</p>
-<p><code>all(x[!is.na(x)] &lt;= y))</code></p>
-<p><code>y</code> should be a scalar.</p></li>
+<p><code>all(x[!is.na(x)] &lt;= value))</code></p>
+<p><code>value</code> should be a non-missing scalar.</p></li>
 <li><p><code>chk_gt</code>: Check Greater Than</p>
-<p>Checks if all non-missing values are greater than y using:</p>
-<p><code>all(x[!is.na(x)] &gt; y))</code></p>
-<p><code>y</code> should be a scalar.</p></li>
+<p>Checks if all non-missing values are greater than value using:</p>
+<p><code>all(x[!is.na(x)] &gt; value))</code></p>
+<p><code>value</code> should be a non-missing scalar.</p></li>
 <li><p><code>chk_gte</code>: Check Greater Than or Equal To</p>
 <p>Checks if all non-missing values are greater than or equal to y using:</p>
-<p><code>all(x[!is.na(x)] &gt;= y))</code></p>
-<p><code>y</code> should be a scalar.</p></li>
+<p><code>all(x[!is.na(x)] &gt;= value))</code></p>
+<p><code>value</code> should be a non-missing scalar.</p></li>
 <li><p><code>chk_range</code>: Check Range</p>
 <p>Checks if all non-missing values fall within range using:</p>
 <p><code>all(x[!is.na(x)] &gt;= range[1] &amp; x[!is.na(x)] &lt;= range[2])</code></p>
 <p>Range should be a non-mising sorted vector of length 2.</p></li>
+<li><p><code>chk_match</code>: Check Match</p>
+<p>Checks if all values match values using equivalent of:</p>
+<p><code>all(<a href='https://rdrr.io/r/base/match.html'>match</a>(x, values, nomatch = 0) &gt; 0)</code></p></li>
+<li><p><code>chk_dir</code>: Check Directory Exists</p>
+<p>Checks if directory exist using:</p>
+<p><code>length(x) == 1L &amp;&amp; <a href='https://rdrr.io/r/base/files2.html'>dir.exists</a>(x))</code></p></li>
+<li><p><code>chk_dirs</code>: Check Directories Exist</p>
+<p>Checks if directories exist using:</p>
+<p><code>all(<a href='https://rdrr.io/r/base/files2.html'>dir.exists</a>(x))</code></p></li>
+<li><p><code>chk_file</code>: Check File Exists</p>
+<p>Checks if file exists using:</p>
+<p><code>length(x) == 1L &amp; <a href='https://rdrr.io/r/base/files.html'>file.exists</a>(x) &amp;&amp; !dir.exists(x)</code></p></li>
+<li><p><code>chk_files</code>: Check Files Exist</p>
+<p>Checks if files exist using:</p>
+<p><code>all(<a href='https://rdrr.io/r/base/files.html'>file.exists</a>(x) &amp;&amp; !dir.exists(x))</code></p></li>
 </ul>
     
 
@@ -362,7 +406,9 @@ message if the check fails.</p></td>
 
 <span class='co'># chk_lgl</span>
 <span class='fu'>chk_lgl</span>(<span class='fl'>1</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>chk_lgl</span>(<span class='fl'>NA</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_lgl</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_lgl</span>(<span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_lgl</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
-</div></pre>
+
+<span class='co'># chk_unique</span>
+<span class='fu'>chk_unique</span>(<span class='fl'>NA</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_unique</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>NA</span>, <span class='fl'>NA</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
