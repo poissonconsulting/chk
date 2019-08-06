@@ -33,7 +33,7 @@
 \alias{chk_gt}
 \alias{chk_gte}
 \alias{chk_range}
-\alias{chk_match}
+\alias{chk_in}
 \alias{chk_dir}
 \alias{chk_dirs}
 \alias{chk_file}
@@ -102,7 +102,7 @@ chk_gte(x, value = 0, err = TRUE)
 
 chk_range(x, range = c(0, Inf), err = TRUE)
 
-chk_match(x, values = c(0, Inf), err = TRUE)
+chk_in(x, values = c(0, Inf), err = TRUE)
 
 chk_dir(x, err = TRUE)
 
@@ -350,9 +350,9 @@ Checks if all non-missing values fall within range using:
 
 Range should be a non-mising sorted vector of length 2.
 
-\item \code{chk_match}: Check Match
+\item \code{chk_in}: Check In
 
-Checks if all values match values using equivalent of:
+Checks if all values in values using equivalent of:
 
 \code{all(\link{match}(x, values, nomatch = 0) > 0)}
 

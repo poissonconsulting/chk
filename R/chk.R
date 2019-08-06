@@ -637,9 +637,9 @@ chk_range <- function (x, range = c(0, Inf), err = TRUE) {
   err("Values of `", x_name, "` must be between ", cc(range, " and "), ".")
 }
 
-#' @describeIn chk_true Check Match
+#' @describeIn chk_true Check In
 #' 
-#' Checks if all values match values using equivalent of:
+#' Checks if all values in values using equivalent of:
 #' 
 #' \code{all(\link{match}(x, values, nomatch = 0) > 0)}
 #' 
@@ -647,7 +647,7 @@ chk_range <- function (x, range = c(0, Inf), err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_match <- function (x, values = c(0, Inf), err = TRUE) {
+chk_in <- function (x, values = c(0, Inf), err = TRUE) {
   if(all(x %in% values)) return(TRUE)
   if(!err) return(FALSE)
   values <- sort(unique(values), na.last = TRUE)

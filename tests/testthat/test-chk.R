@@ -308,35 +308,35 @@ test_that("chk_used", {
   expect_error(chk_used(), "^`...` must be used[.]$")
 })
 
-test_that("chk_match", {
-  expect_true(chk_match(integer(0)))
-  expect_error(chk_match(NA), "^`NA` must match 0 or Inf, not NA[.]$")
-  expect_false(chk_match(1:3, err = FALSE))
-  expect_error(chk_match(1:3, "^Values of `1:3` must match 0 or Inf[.]$"))
-  expect_true(chk_match(numeric(0), 1L))
+test_that("chk_in", {
+  expect_true(chk_in(integer(0)))
+  expect_error(chk_in(NA), "^`NA` must match 0 or Inf, not NA[.]$")
+  expect_false(chk_in(1:3, err = FALSE))
+  expect_error(chk_in(1:3, "^Values of `1:3` must match 0 or Inf[.]$"))
+  expect_true(chk_in(numeric(0), 1L))
   
-  expect_false(chk_match(-1, err = FALSE))
-  expect_error(chk_match(-1), "^`-1` must match 0 or Inf, not -1[.]$")
+  expect_false(chk_in(-1, err = FALSE))
+  expect_error(chk_in(-1), "^`-1` must match 0 or Inf, not -1[.]$")
   
-  expect_false(chk_match(1L, 0L, err = FALSE))
-  expect_error(chk_match(c(1L, 1L), 0L), c("^Values of `c[(]1L, 1L[)]` must match 0[.]$"))
-  expect_error(chk_match(1, ""), "^`1` must match '', not 1[.]$")
+  expect_false(chk_in(1L, 0L, err = FALSE))
+  expect_error(chk_in(c(1L, 1L), 0L), c("^Values of `c[(]1L, 1L[)]` must match 0[.]$"))
+  expect_error(chk_in(1, ""), "^`1` must match '', not 1[.]$")
   
-  expect_false(chk_match(1, NA, err = FALSE)) 
-  expect_error(chk_match(1, NA), 
+  expect_false(chk_in(1, NA, err = FALSE)) 
+  expect_error(chk_in(1, NA), 
                "^`1` must match NA, not 1[.]$")
   
-  expect_false(chk_match(c(NA, 1), 1, err = FALSE)) 
-  expect_error(chk_match(c(NA, 1), 1), 
+  expect_false(chk_in(c(NA, 1), 1, err = FALSE)) 
+  expect_error(chk_in(c(NA, 1), 1), 
                "^Values of `c[(]NA, 1[)]` must match 1[.]$")
   
-  expect_true(chk_match(NA, NA))
+  expect_true(chk_in(NA, NA))
   
-  expect_false(chk_match(c(NA, 1), 1:2, err = FALSE)) 
-  expect_error(chk_match(c(NA, 1), 1:2), 
+  expect_false(chk_in(c(NA, 1), 1:2, err = FALSE)) 
+  expect_error(chk_in(c(NA, 1), 1:2), 
                "^Values of `c[(]NA, 1[)]` must match 1 or 2[.]$")
   
-  expect_error(chk_match(3L, values = c(1L, 1L, 7L)), 
+  expect_error(chk_in(3L, values = c(1L, 1L, 7L)), 
                "^`3L` must match 1 or 7, not 3[.]$")
 })
 
