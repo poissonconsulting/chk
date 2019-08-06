@@ -125,8 +125,8 @@
 <span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt; [1] TRUE</span></span>
 <span id="cb3-13"><a href="#cb3-13"></a><span class="kw"><a href="reference/chk_true.html">chk_range</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(data), <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">3</span>,<span class="dv">8</span>))</span>
 <span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; Error: `nrow(data)` must be between 3 and 8, not 2.</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="kw"><a href="reference/chk_true.html">chk_match</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(data), <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">3</span>,<span class="dv">8</span>))</span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="co">#&gt; Error: `nrow(data)` must match 3 or 8, not 2.</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="kw">chk_match</span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(data), <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">3</span>,<span class="dv">8</span>))</span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="co">#&gt; Error in chk_match(nrow(data), c(3, 8)): could not find function "chk_match"</span></span>
 <span id="cb3-17"><a href="#cb3-17"></a></span>
 <span id="cb3-18"><a href="#cb3-18"></a><span class="kw"><a href="reference/chk_true.html">chk_identical</a></span>(data<span class="op">$</span>x, <span class="dv">2</span><span class="op">:</span><span class="dv">1</span>)</span>
 <span id="cb3-19"><a href="#cb3-19"></a><span class="co">#&gt; Error: `data$x` not identical to: 2:1.</span></span>
@@ -177,7 +177,7 @@
 <span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt;   x_name &lt;- deparse(substitute(x))</span></span>
 <span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt;   err("`", x_name, "` must be a flag (TRUE or FALSE).")</span></span>
 <span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt; }</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt; &lt;bytecode: 0x7ff12bc2af10&gt;</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt; &lt;bytecode: 0x7fa7fec119a0&gt;</span></span>
 <span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt; &lt;environment: namespace:chk&gt;</span></span></code></pre></div>
 </div>
 <div id="minimal-checking" class="section level4">
@@ -228,7 +228,7 @@
 <a href="#contribution" class="anchor"></a>Contribution</h2>
 <p>Please report any <a href="https://github.com/poissonconsulting/chk/issues">issues</a>.</p>
 <p><a href="https://github.com/poissonconsulting/chk/pulls">Pull requests</a> are always welcome.</p>
-<p>Please note that this project is released with a <a href="https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>. By contributing, you agree to abide by its terms</p>
+<p>Please note that this project is released with a <a href="https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>. By contributing, you agree to abide by its terms.</p>
 </div>
 </div>
   </div>

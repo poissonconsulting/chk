@@ -191,7 +191,7 @@
 
 <span class='fu'>chk_range</span>(<span class='no'>x</span>, <span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>Inf</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>chk_match</span>(<span class='no'>x</span>, <span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>Inf</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>chk_in</span>(<span class='no'>x</span>, <span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>Inf</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>chk_dir</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
@@ -365,8 +365,8 @@ message if the check fails.</p></td>
 <p>Checks if all non-missing values fall within range using:</p>
 <p><code>all(x[!is.na(x)] &gt;= range[1] &amp; x[!is.na(x)] &lt;= range[2])</code></p>
 <p>Range should be a non-mising sorted vector of length 2.</p></li>
-<li><p><code>chk_match</code>: Check Match</p>
-<p>Checks if all values match values using equivalent of:</p>
+<li><p><code>chk_in</code>: Check In</p>
+<p>Checks if all values in values using equivalent of:</p>
 <p><code>all(<a href='https://rdrr.io/r/base/match.html'>match</a>(x, values, nomatch = 0) &gt; 0)</code></p></li>
 <li><p><code>chk_dir</code>: Check Directory Exists</p>
 <p>Checks if directory exist using:</p>

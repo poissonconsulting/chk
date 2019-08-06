@@ -62,7 +62,7 @@ chk_is(data, "data.frame")
 chk_range(nrow(data), c(3,8))
 #> Error: `nrow(data)` must be between 3 and 8, not 2.
 chk_match(nrow(data), c(3,8))
-#> Error: `nrow(data)` must match 3 or 8, not 2.
+#> Error in chk_match(nrow(data), c(3, 8)): could not find function "chk_match"
 
 chk_identical(data$x, 2:1)
 #> Error: `data$x` not identical to: 2:1.
@@ -134,7 +134,7 @@ chk_flag
 #>   x_name <- deparse(substitute(x))
 #>   err("`", x_name, "` must be a flag (TRUE or FALSE).")
 #> }
-#> <bytecode: 0x7f7fdf8fd118>
+#> <bytecode: 0x7fb17b090470>
 #> <environment: namespace:chk>
 ```
 
@@ -194,4 +194,4 @@ always welcome.
 
 Please note that this project is released with a [Contributor Code of
 Conduct](https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md).
-By contributing, you agree to abide by its terms
+By contributing, you agree to abide by its terms.
