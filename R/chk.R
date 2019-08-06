@@ -624,7 +624,26 @@ chk_match <- function (x, values = c(0, Inf), err = TRUE) {
   err("Values of `", x_name, "` must match ", cc(values, " or "), ".")
 }
 
-#' @describeIn chk_true Check Directories Exists
+#' @describeIn chk_true Check Directory Exists
+#' 
+#' Checks if directory exist using:
+#' 
+#' \code{length(x) == 1L && \link{dir.exists}(x))}
+#' 
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_dir <- function(x, err = TRUE) {
+  if(length(x) == 1L && dir.exists(x)) return(TRUE)
+  if(!err) return(FALSE)
+  if(length(x) == 1L)
+    err("Can't find directory '", x, "'.")
+  x_name <- deparse(substitute(x))
+  err("`", x_name, "` must be length 1, not ", length(x), ".")
+}
+
+#' @describeIn chk_true Check Directories Exist
 #' 
 #' Checks if directories exist using:
 #' 
@@ -644,9 +663,28 @@ chk_dirs <- function(x, err = TRUE) {
   err("Can't find the following directories: ", cc(x, " or "), ".")
 }
 
+#' @describeIn chk_true Check File Exists
+#' 
+#' Checks if file exists using:
+#' 
+#' \code{length(x) == 1L & \link{file.exists}(x) && !dir.exists(x)}
+#' 
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_file <- function(x, err = TRUE) {
+  if(length(x) == 1L & all(file.exists(x) & !dir.exists(x))) return(TRUE)
+  if(!err) return(FALSE)
+  if(length(x) == 1L)
+    err("Can't find file '", x, "'.")
+  x_name <- deparse(substitute(x))
+  err("`", x_name, "` must be length 1, not ", length(x), ".")
+}
+
 #' @describeIn chk_true Check Files Exist
 #' 
-#' Checks if files exists using:
+#' Checks if files exist using:
 #' 
 #' \code{all(\link{file.exists}(x) && !dir.exists(x))}
 #' 
