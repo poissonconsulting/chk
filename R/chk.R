@@ -254,6 +254,27 @@ chk_datetime <- function(x, err = TRUE) {
   err("`", x_name, "` must be a datetime (non-missing POSIXct scalar).")
 }
 
+#' @describeIn chk_true Check Scalar
+#' 
+#' Checks if scalar using:
+#' 
+#' \code{is.vector(x, mode = mode) && length(x) == 1L}
+#' 
+#' \code{mode} should be a string.
+#' 
+#' @export
+#' 
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_scalar <- function(x, mode = "any", err = TRUE) {
+  if(is.vector(x, mode = mode) && length(x) == 1L) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  if(mode == "any")
+    err("`", x_name, "` must be a vector of length 1.")
+  err("`", x_name, "` must be a vector of length 1 and mode '", mode, "'.")
+}
+
 #' @describeIn chk_true Check Vector
 #' 
 #' Checks if vector using:
@@ -289,7 +310,7 @@ chk_atomic <- function(x, err = TRUE) {
   if(is.atomic(x)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
-    err("`", x_name, "` must be an atomic (vector, matrix or array) object.")
+  err("`", x_name, "` must be an atomic (vector, matrix or array) object.")
 }
 
 #' @describeIn chk_true Check Whole Numeric
