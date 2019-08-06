@@ -151,11 +151,7 @@
 
 <span class='fu'>chk_datetime</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>chk_scalar</span>(<span class='no'>x</span>, <span class='kw'>mode</span> <span class='kw'>=</span> <span class='st'>"any"</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_vector</span>(<span class='no'>x</span>, <span class='kw'>mode</span> <span class='kw'>=</span> <span class='st'>"any"</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_atomic</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>chk_length</span>(<span class='no'>x</span>, <span class='kw'>length</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>chk_whole_numeric</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
@@ -218,8 +214,8 @@
 message if the check fails.</p></td>
     </tr>
     <tr>
-      <th>mode</th>
-      <td><p>A string naming an atomic mode or "list" or "expression" or "any".</p></td>
+      <th>length</th>
+      <td><p>A count of the length.</p></td>
     </tr>
     <tr>
       <th>pattern</th>
@@ -301,17 +297,10 @@ message if the check fails.</p></td>
 <li><p><code>chk_datetime</code>: Check DateTime</p>
 <p>Checks if non-missing POSIXct scalar using:</p>
 <p><code>inherits(x, "POSIXct") &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></p></li>
-<li><p><code>chk_scalar</code>: Check Scalar</p>
-<p>Checks if scalar using:</p>
-<p><code>is.vector(x, mode = mode) &amp;&amp; length(x) == 1L</code></p>
-<p><code>mode</code> should be a string.</p></li>
-<li><p><code>chk_vector</code>: Check Vector</p>
-<p>Checks if vector using:</p>
-<p><code><a href='https://rdrr.io/r/base/vector.html'>is.vector(x, mode = mode)</a></code></p>
-<p><code>mode</code> should be a string.</p></li>
-<li><p><code>chk_atomic</code>: Check Atomic</p>
-<p>Checks if atomic using:</p>
-<p><code><a href='https://rdrr.io/r/base/is.recursive.html'>is.atomic(x)</a></code></p></li>
+<li><p><code>chk_length</code>: Check Length</p>
+<p>Checks if is length length using:</p>
+<p><code>length(x) == length</code></p>
+<p><code>length</code> should be a count.</p></li>
 <li><p><code>chk_whole_numeric</code>: Check Whole Numeric</p> 
 <p>Checks if integer vector or double equivalent using the equivalent of:</p>
 <p><code>is.integer(x) || (is.double(x) &amp;&amp; isTRUE(all.equal(x, as.integer(x))))</code></p></li>

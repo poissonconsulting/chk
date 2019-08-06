@@ -126,12 +126,12 @@
 <span id="cb3-4"><a href="#cb3-4"></a>  <span class="kw">wrapper_on_fun_conditional_checking</span>(<span class="ot">TRUE</span>)</span>
 <span id="cb3-5"><a href="#cb3-5"></a>)</span>
 <span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt; Unit: microseconds</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt;                                       expr   min     lq      mean median</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt;              wrapper_on_fun_checking(TRUE) 1.383 1.4370 160.27883 1.5415</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt;  wrapper_on_fun_conditional_checking(TRUE) 3.768 3.9825  40.36906 4.0870</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt;                                       expr   min    lq      mean median</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt;              wrapper_on_fun_checking(TRUE) 1.294 1.354  21.35586 1.4190</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt;  wrapper_on_fun_conditional_checking(TRUE) 3.492 3.640 182.07438 3.7435</span></span>
 <span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt;     uq       max neval</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt;  1.655 15703.767   100</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt;  4.198  3562.345   100</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt;  1.529  1976.468   100</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt;  3.888 17733.660   100</span></span>
 <span id="cb3-13"><a href="#cb3-13"></a></span>
 <span id="cb3-14"><a href="#cb3-14"></a><span class="kw"><a href="../reference/chk_on.html">chk_off</a></span>()</span>
 <span id="cb3-15"><a href="#cb3-15"></a><span class="kw"><a href="https://rdrr.io/pkg/microbenchmark/man/microbenchmark.html">microbenchmark</a></span>(</span>
@@ -139,12 +139,12 @@
 <span id="cb3-17"><a href="#cb3-17"></a>  <span class="kw">wrapper_on_fun_conditional_checking</span>(<span class="ot">TRUE</span>)</span>
 <span id="cb3-18"><a href="#cb3-18"></a>)</span>
 <span id="cb3-19"><a href="#cb3-19"></a><span class="co">#&gt; Unit: microseconds</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a><span class="co">#&gt;                                       expr   min     lq    mean median</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a><span class="co">#&gt;              wrapper_on_fun_checking(TRUE) 1.243 1.2800 1.42748 1.3305</span></span>
-<span id="cb3-22"><a href="#cb3-22"></a><span class="co">#&gt;  wrapper_on_fun_conditional_checking(TRUE) 1.696 1.7515 1.91572 1.8305</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="co">#&gt;                                       expr   min    lq    mean median</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="co">#&gt;              wrapper_on_fun_checking(TRUE) 1.253 1.294 1.39482 1.3325</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="co">#&gt;  wrapper_on_fun_conditional_checking(TRUE) 1.705 1.765 1.93249 1.8615</span></span>
 <span id="cb3-23"><a href="#cb3-23"></a><span class="co">#&gt;     uq   max neval</span></span>
-<span id="cb3-24"><a href="#cb3-24"></a><span class="co">#&gt;  1.371 9.351   100</span></span>
-<span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt;  1.900 9.599   100</span></span></code></pre></div>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="co">#&gt;  1.374 6.096   100</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt;  1.919 9.394   100</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>true &lt;-<span class="st"> </span><span class="ot">TRUE</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>false &lt;-<span class="st"> </span><span class="ot">FALSE</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a>one &lt;-<span class="st"> </span><span class="dv">1</span></span>
@@ -171,72 +171,72 @@
 <span id="cb5-14"><a href="#cb5-14"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_string</a></span>(string),</span>
 <span id="cb5-15"><a href="#cb5-15"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_date</a></span>(date),</span>
 <span id="cb5-16"><a href="#cb5-16"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_datetime</a></span>(datetime),</span>
-<span id="cb5-17"><a href="#cb5-17"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_scalar</a></span>(one),</span>
-<span id="cb5-18"><a href="#cb5-18"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_vector</a></span>(one),</span>
-<span id="cb5-19"><a href="#cb5-19"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_atomic</a></span>(one),</span>
-<span id="cb5-20"><a href="#cb5-20"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_whole_numeric</a></span>(oneL),</span>
-<span id="cb5-21"><a href="#cb5-21"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_whole_numeric</a></span>(one),</span>
-<span id="cb5-22"><a href="#cb5-22"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_grepl</a></span>(string),</span>
-<span id="cb5-23"><a href="#cb5-23"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_no_missing</a></span>(one),</span>
-<span id="cb5-24"><a href="#cb5-24"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_unique</a></span>(one),</span>
-<span id="cb5-25"><a href="#cb5-25"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_null</a></span>(null),</span>
-<span id="cb5-26"><a href="#cb5-26"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_not_null</a></span>(one),</span>
-<span id="cb5-27"><a href="#cb5-27"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_named</a></span>(named),</span>
-<span id="cb5-28"><a href="#cb5-28"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_unused</a></span>(),</span>
-<span id="cb5-29"><a href="#cb5-29"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_used</a></span>(one),</span>
-<span id="cb5-30"><a href="#cb5-30"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_function</a></span>(fun),</span>
-<span id="cb5-31"><a href="#cb5-31"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_is</a></span>(one, <span class="st">"numeric"</span>),</span>
-<span id="cb5-32"><a href="#cb5-32"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_identical</a></span>(one, one),</span>
-<span id="cb5-33"><a href="#cb5-33"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_equal</a></span>(one, one),</span>
-<span id="cb5-34"><a href="#cb5-34"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_equivalent</a></span>(one, one),</span>
-<span id="cb5-35"><a href="#cb5-35"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_lt</a></span>(one, <span class="dv">2</span>),</span>
-<span id="cb5-36"><a href="#cb5-36"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_lte</a></span>(one, one),</span>
-<span id="cb5-37"><a href="#cb5-37"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_gt</a></span>(one, <span class="dv">0</span>),</span>
-<span id="cb5-38"><a href="#cb5-38"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_gte</a></span>(one, one),</span>
-<span id="cb5-39"><a href="#cb5-39"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_range</a></span>(one),</span>
-<span id="cb5-40"><a href="#cb5-40"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_match</a></span>(one, one))</span>
-<span id="cb5-41"><a href="#cb5-41"></a><span class="co">#&gt; Unit: nanoseconds</span></span>
-<span id="cb5-42"><a href="#cb5-42"></a><span class="co">#&gt;                      expr   min      lq     mean  median      uq    max</span></span>
-<span id="cb5-43"><a href="#cb5-43"></a><span class="co">#&gt;            chk_true(true)   801  1098.0  2167.64  1285.5  1474.0  80352</span></span>
-<span id="cb5-44"><a href="#cb5-44"></a><span class="co">#&gt;          chk_false(false)   873  1184.0  2329.29  1370.5  1568.0  90639</span></span>
-<span id="cb5-45"><a href="#cb5-45"></a><span class="co">#&gt;            chk_flag(true)   552   713.5  1023.76   813.5   970.0  10339</span></span>
-<span id="cb5-46"><a href="#cb5-46"></a><span class="co">#&gt;             chk_lgl(true)   352   560.0  1531.13   664.5   806.5  70060</span></span>
-<span id="cb5-47"><a href="#cb5-47"></a><span class="co">#&gt;          chk_number(oneL)   528   768.5   925.41   880.0  1033.0   1841</span></span>
-<span id="cb5-48"><a href="#cb5-48"></a><span class="co">#&gt;           chk_number(one)   533   701.0  1648.21   860.5  1011.0  67568</span></span>
-<span id="cb5-49"><a href="#cb5-49"></a><span class="co">#&gt;      chk_proportion(oneL)   598   846.0  1199.05  1023.0  1128.5   8415</span></span>
-<span id="cb5-50"><a href="#cb5-50"></a><span class="co">#&gt;       chk_proportion(one)   616   877.5  1882.58   987.5  1169.0  71943</span></span>
-<span id="cb5-51"><a href="#cb5-51"></a><span class="co">#&gt;    chk_whole_number(oneL)   543   783.5  2119.84   927.0  1067.5 107220</span></span>
-<span id="cb5-52"><a href="#cb5-52"></a><span class="co">#&gt;     chk_whole_number(one) 13969 15387.5 18720.98 16343.5 18172.0  45612</span></span>
-<span id="cb5-53"><a href="#cb5-53"></a><span class="co">#&gt;           chk_count(oneL)   635   884.0  1199.85   999.0  1181.5   8740</span></span>
-<span id="cb5-54"><a href="#cb5-54"></a><span class="co">#&gt;            chk_count(one) 13965 15791.5 20078.19 16736.0 20551.0 139086</span></span>
-<span id="cb5-55"><a href="#cb5-55"></a><span class="co">#&gt;        chk_string(string)   451   714.0  1569.50   839.0   932.5  73338</span></span>
-<span id="cb5-56"><a href="#cb5-56"></a><span class="co">#&gt;            chk_date(date)  3453  4899.0  6840.02  5356.0  6206.0  85344</span></span>
-<span id="cb5-57"><a href="#cb5-57"></a><span class="co">#&gt;    chk_datetime(datetime)  4410  5907.0  8474.33  6505.0  7158.0 155818</span></span>
-<span id="cb5-58"><a href="#cb5-58"></a><span class="co">#&gt;           chk_scalar(one)   542   780.0  2099.42   906.5  1123.0  99041</span></span>
-<span id="cb5-59"><a href="#cb5-59"></a><span class="co">#&gt;           chk_vector(one)   493   631.5  1720.11   754.5   870.5  91788</span></span>
-<span id="cb5-60"><a href="#cb5-60"></a><span class="co">#&gt;           chk_atomic(one)   330   488.0  1245.00   590.0   723.0  63870</span></span>
-<span id="cb5-61"><a href="#cb5-61"></a><span class="co">#&gt;   chk_whole_numeric(oneL)   293   429.5  1743.87   531.0   618.0 121109</span></span>
-<span id="cb5-62"><a href="#cb5-62"></a><span class="co">#&gt;    chk_whole_numeric(one) 13107 14929.0 21508.00 15900.0 17373.5 449339</span></span>
-<span id="cb5-63"><a href="#cb5-63"></a><span class="co">#&gt;         chk_grepl(string)  4336  5612.5  8113.49  6089.0  7299.5 109541</span></span>
-<span id="cb5-64"><a href="#cb5-64"></a><span class="co">#&gt;       chk_no_missing(one)   368   513.0  1349.87   629.0   729.5  66065</span></span>
-<span id="cb5-65"><a href="#cb5-65"></a><span class="co">#&gt;           chk_unique(one)  2669  3771.0  5488.09  4207.0  4887.5  80712</span></span>
-<span id="cb5-66"><a href="#cb5-66"></a><span class="co">#&gt;            chk_null(null)   272   433.0  1316.15   528.0   610.5  74113</span></span>
-<span id="cb5-67"><a href="#cb5-67"></a><span class="co">#&gt;         chk_not_null(one)   313   440.5  1265.78   554.0   661.0  65031</span></span>
-<span id="cb5-68"><a href="#cb5-68"></a><span class="co">#&gt;          chk_named(named)   413   564.5  1377.62   642.5   795.0  63756</span></span>
-<span id="cb5-69"><a href="#cb5-69"></a><span class="co">#&gt;              chk_unused()   373   650.5   913.88   755.5   860.0   8106</span></span>
-<span id="cb5-70"><a href="#cb5-70"></a><span class="co">#&gt;             chk_used(one)   457   716.5  1479.27   833.5   938.5  55009</span></span>
-<span id="cb5-71"><a href="#cb5-71"></a><span class="co">#&gt;         chk_function(fun)   337   532.5  1240.68   643.5   727.5  58535</span></span>
-<span id="cb5-72"><a href="#cb5-72"></a><span class="co">#&gt;    chk_is(one, "numeric")   631   935.0  1923.67  1096.0  1262.0  69972</span></span>
-<span id="cb5-73"><a href="#cb5-73"></a><span class="co">#&gt;   chk_identical(one, one)   599   856.5  1981.26  1029.0  1215.5  86458</span></span>
-<span id="cb5-74"><a href="#cb5-74"></a><span class="co">#&gt;       chk_equal(one, one) 13732 15488.5 20029.07 16531.0 18390.0 178799</span></span>
-<span id="cb5-75"><a href="#cb5-75"></a><span class="co">#&gt;  chk_equivalent(one, one)  9834 11628.5 15478.90 12493.5 14476.0 147838</span></span>
-<span id="cb5-76"><a href="#cb5-76"></a><span class="co">#&gt;            chk_lt(one, 2)   871  1272.5  2975.49  1415.5  1600.0 138060</span></span>
-<span id="cb5-77"><a href="#cb5-77"></a><span class="co">#&gt;         chk_lte(one, one)   807  1293.0  2976.86  1446.5  1689.5 123359</span></span>
-<span id="cb5-78"><a href="#cb5-78"></a><span class="co">#&gt;            chk_gt(one, 0)   844  1233.5  2708.24  1438.5  1689.0 114642</span></span>
-<span id="cb5-79"><a href="#cb5-79"></a><span class="co">#&gt;         chk_gte(one, one)   883  1270.0  2668.76  1498.5  1761.5 106118</span></span>
-<span id="cb5-80"><a href="#cb5-80"></a><span class="co">#&gt;            chk_range(one)  1807  2288.5  4975.99  2535.0  2883.0 216368</span></span>
-<span id="cb5-81"><a href="#cb5-81"></a><span class="co">#&gt;       chk_match(one, one)  1195  1812.0  3598.03  1988.5  2351.5 148454</span></span>
-<span id="cb5-82"><a href="#cb5-82"></a><span class="co">#&gt;  neval</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_length</a></span>(one),</span>
+<span id="cb5-18"><a href="#cb5-18"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_whole_numeric</a></span>(oneL),</span>
+<span id="cb5-19"><a href="#cb5-19"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_whole_numeric</a></span>(one),</span>
+<span id="cb5-20"><a href="#cb5-20"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_grepl</a></span>(string),</span>
+<span id="cb5-21"><a href="#cb5-21"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_no_missing</a></span>(one),</span>
+<span id="cb5-22"><a href="#cb5-22"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_unique</a></span>(one),</span>
+<span id="cb5-23"><a href="#cb5-23"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_null</a></span>(null),</span>
+<span id="cb5-24"><a href="#cb5-24"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_not_null</a></span>(one),</span>
+<span id="cb5-25"><a href="#cb5-25"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_named</a></span>(named),</span>
+<span id="cb5-26"><a href="#cb5-26"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_unused</a></span>(),</span>
+<span id="cb5-27"><a href="#cb5-27"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_used</a></span>(one),</span>
+<span id="cb5-28"><a href="#cb5-28"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_function</a></span>(fun),</span>
+<span id="cb5-29"><a href="#cb5-29"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_is</a></span>(one, <span class="st">"numeric"</span>),</span>
+<span id="cb5-30"><a href="#cb5-30"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_identical</a></span>(one, one),</span>
+<span id="cb5-31"><a href="#cb5-31"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_equal</a></span>(one, one),</span>
+<span id="cb5-32"><a href="#cb5-32"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_equivalent</a></span>(one, one),</span>
+<span id="cb5-33"><a href="#cb5-33"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_lt</a></span>(one, <span class="dv">2</span>),</span>
+<span id="cb5-34"><a href="#cb5-34"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_lte</a></span>(one, one),</span>
+<span id="cb5-35"><a href="#cb5-35"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_gt</a></span>(one, <span class="dv">0</span>),</span>
+<span id="cb5-36"><a href="#cb5-36"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_gte</a></span>(one, one),</span>
+<span id="cb5-37"><a href="#cb5-37"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_range</a></span>(one),</span>
+<span id="cb5-38"><a href="#cb5-38"></a>  <span class="kw"><a href="../reference/chk_true.html">chk_match</a></span>(one, one))</span>
+<span id="cb5-39"><a href="#cb5-39"></a><span class="co">#&gt; Unit: nanoseconds</span></span>
+<span id="cb5-40"><a href="#cb5-40"></a><span class="co">#&gt;                      expr   min      lq     mean  median      uq    max</span></span>
+<span id="cb5-41"><a href="#cb5-41"></a><span class="co">#&gt;            chk_true(true)   800  1027.5  2061.27  1151.0  1297.5  80877</span></span>
+<span id="cb5-42"><a href="#cb5-42"></a><span class="co">#&gt;          chk_false(false)   817  1091.5  1994.61  1248.0  1398.5  71218</span></span>
+<span id="cb5-43"><a href="#cb5-43"></a><span class="co">#&gt;            chk_flag(true)   508   638.0   745.02   715.0   827.0   1833</span></span>
+<span id="cb5-44"><a href="#cb5-44"></a><span class="co">#&gt;             chk_lgl(true)   330   485.0  1204.84   558.5   684.0  62777</span></span>
+<span id="cb5-45"><a href="#cb5-45"></a><span class="co">#&gt;          chk_number(oneL)   563   717.0  1599.85   823.0   929.0  78895</span></span>
+<span id="cb5-46"><a href="#cb5-46"></a><span class="co">#&gt;           chk_number(one)   507   715.5   932.24   819.0   926.5  11919</span></span>
+<span id="cb5-47"><a href="#cb5-47"></a><span class="co">#&gt;      chk_proportion(oneL)   552   806.0   969.64   905.5  1056.5   5019</span></span>
+<span id="cb5-48"><a href="#cb5-48"></a><span class="co">#&gt;       chk_proportion(one)   550   749.5  1610.72   865.5  1011.5  72355</span></span>
+<span id="cb5-49"><a href="#cb5-49"></a><span class="co">#&gt;    chk_whole_number(oneL)   517   711.0  2149.71   872.0   981.5 127726</span></span>
+<span id="cb5-50"><a href="#cb5-50"></a><span class="co">#&gt;     chk_whole_number(one) 12874 14318.5 16039.25 15168.5 16520.0  35704</span></span>
+<span id="cb5-51"><a href="#cb5-51"></a><span class="co">#&gt;           chk_count(oneL)   555   769.5  1929.95   859.5  1031.0  93200</span></span>
+<span id="cb5-52"><a href="#cb5-52"></a><span class="co">#&gt;            chk_count(one) 12448 14031.5 15469.35 14918.5 15724.5  27615</span></span>
+<span id="cb5-53"><a href="#cb5-53"></a><span class="co">#&gt;        chk_string(string)   441   626.0  1444.75   763.0   881.5  66356</span></span>
+<span id="cb5-54"><a href="#cb5-54"></a><span class="co">#&gt;            chk_date(date)  3561  4382.0  5816.79  4799.5  5320.0  90568</span></span>
+<span id="cb5-55"><a href="#cb5-55"></a><span class="co">#&gt;    chk_datetime(datetime)  4157  5572.5  6786.41  6047.0  6345.5  80532</span></span>
+<span id="cb5-56"><a href="#cb5-56"></a><span class="co">#&gt;           chk_length(one)   473   676.5  1597.86   772.0   887.0  81179</span></span>
+<span id="cb5-57"><a href="#cb5-57"></a><span class="co">#&gt;   chk_whole_numeric(oneL)   270   417.0   530.92   473.0   570.5   4457</span></span>
+<span id="cb5-58"><a href="#cb5-58"></a><span class="co">#&gt;    chk_whole_numeric(one) 12391 13654.0 15839.65 14734.0 15359.0 102685</span></span>
+<span id="cb5-59"><a href="#cb5-59"></a><span class="co">#&gt;         chk_grepl(string)  3775  5094.5  7045.60  5410.0  5771.0 124865</span></span>
+<span id="cb5-60"><a href="#cb5-60"></a><span class="co">#&gt;       chk_no_missing(one)   366   480.5  1227.43   572.5   668.0  64368</span></span>
+<span id="cb5-61"><a href="#cb5-61"></a><span class="co">#&gt;           chk_unique(one)  2495  3345.5  4611.52  3669.0  3979.0  81657</span></span>
+<span id="cb5-62"><a href="#cb5-62"></a><span class="co">#&gt;            chk_null(null)   251   382.0  1077.68   452.0   551.5  62591</span></span>
+<span id="cb5-63"><a href="#cb5-63"></a><span class="co">#&gt;         chk_not_null(one)   277   426.5  1123.07   508.5   612.5  61832</span></span>
+<span id="cb5-64"><a href="#cb5-64"></a><span class="co">#&gt;          chk_named(named)   350   511.0  1307.34   578.5   714.5  70847</span></span>
+<span id="cb5-65"><a href="#cb5-65"></a><span class="co">#&gt;              chk_unused()   340   572.5   737.37   678.5   784.0   5338</span></span>
+<span id="cb5-66"><a href="#cb5-66"></a><span class="co">#&gt;             chk_used(one)   388   600.0  1357.09   735.5   876.5  52904</span></span>
+<span id="cb5-67"><a href="#cb5-67"></a><span class="co">#&gt;         chk_function(fun)   372   488.5  1198.72   572.0   666.0  62303</span></span>
+<span id="cb5-68"><a href="#cb5-68"></a><span class="co">#&gt;    chk_is(one, "numeric")   530   809.5  1738.40   922.5  1094.5  72938</span></span>
+<span id="cb5-69"><a href="#cb5-69"></a><span class="co">#&gt;   chk_identical(one, one)   554   786.0  1802.09   898.5  1065.0  87095</span></span>
+<span id="cb5-70"><a href="#cb5-70"></a><span class="co">#&gt;       chk_equal(one, one) 13079 14137.5 21370.28 15230.5 16278.5 556875</span></span>
+<span id="cb5-71"><a href="#cb5-71"></a><span class="co">#&gt;  chk_equivalent(one, one)  9616 10727.5 12862.10 11296.5 11972.5 120696</span></span>
+<span id="cb5-72"><a href="#cb5-72"></a><span class="co">#&gt;            chk_lt(one, 2)   842  1138.5  2609.11  1295.5  1486.5 110064</span></span>
+<span id="cb5-73"><a href="#cb5-73"></a><span class="co">#&gt;         chk_lte(one, one)   936  1192.0  2461.61  1309.5  1480.0 105276</span></span>
+<span id="cb5-74"><a href="#cb5-74"></a><span class="co">#&gt;            chk_gt(one, 0)   851  1172.5  2465.83  1336.0  1530.5 108023</span></span>
+<span id="cb5-75"><a href="#cb5-75"></a><span class="co">#&gt;         chk_gte(one, one)   900  1207.5  2633.54  1375.5  1564.5 122070</span></span>
+<span id="cb5-76"><a href="#cb5-76"></a><span class="co">#&gt;            chk_range(one)  1611  2200.5  4293.97  2385.0  2670.5 181680</span></span>
+<span id="cb5-77"><a href="#cb5-77"></a><span class="co">#&gt;       chk_match(one, one)  1130  1641.5  3221.95  1859.5  2064.5 133356</span></span>
+<span id="cb5-78"><a href="#cb5-78"></a><span class="co">#&gt;  neval</span></span>
+<span id="cb5-79"><a href="#cb5-79"></a><span class="co">#&gt;    100</span></span>
+<span id="cb5-80"><a href="#cb5-80"></a><span class="co">#&gt;    100</span></span>
+<span id="cb5-81"><a href="#cb5-81"></a><span class="co">#&gt;    100</span></span>
+<span id="cb5-82"><a href="#cb5-82"></a><span class="co">#&gt;    100</span></span>
 <span id="cb5-83"><a href="#cb5-83"></a><span class="co">#&gt;    100</span></span>
 <span id="cb5-84"><a href="#cb5-84"></a><span class="co">#&gt;    100</span></span>
 <span id="cb5-85"><a href="#cb5-85"></a><span class="co">#&gt;    100</span></span>
@@ -269,13 +269,7 @@
 <span id="cb5-112"><a href="#cb5-112"></a><span class="co">#&gt;    100</span></span>
 <span id="cb5-113"><a href="#cb5-113"></a><span class="co">#&gt;    100</span></span>
 <span id="cb5-114"><a href="#cb5-114"></a><span class="co">#&gt;    100</span></span>
-<span id="cb5-115"><a href="#cb5-115"></a><span class="co">#&gt;    100</span></span>
-<span id="cb5-116"><a href="#cb5-116"></a><span class="co">#&gt;    100</span></span>
-<span id="cb5-117"><a href="#cb5-117"></a><span class="co">#&gt;    100</span></span>
-<span id="cb5-118"><a href="#cb5-118"></a><span class="co">#&gt;    100</span></span>
-<span id="cb5-119"><a href="#cb5-119"></a><span class="co">#&gt;    100</span></span>
-<span id="cb5-120"><a href="#cb5-120"></a><span class="co">#&gt;    100</span></span>
-<span id="cb5-121"><a href="#cb5-121"></a><span class="co">#&gt;    100</span></span></code></pre></div>
+<span id="cb5-115"><a href="#cb5-115"></a><span class="co">#&gt;    100</span></span></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
