@@ -14,6 +14,7 @@
 #' @param err A flag specifying whether to generate an error
 #' message if the check fails.
 #' @param mode A string naming an atomic mode or "list" or "expression" or "any".
+#' @param length A count of the length.
 #' @param class A string specifying the class.
 #' @param y An object to check against.
 #' @param tolerance A non-negative numeric scalar.
@@ -294,6 +295,25 @@ chk_vector <- function(x, mode = "any", err = TRUE) {
   if(mode == "any")
     err("`", x_name, "` must be a vector.")
   err("`", x_name, "` must be a vector of mode '", mode, "'.")
+}
+
+#' @describeIn chk_true Check Length
+#' 
+#' Checks if is length length using:
+#' 
+#' \code{length(x) == length}
+#' 
+#' \code{length} should be a count.
+#' 
+#' @export
+#' 
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_length <- function(x, length = 1L, err = TRUE) {
+  if(length(x) == length) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  err("`", x_name, "` must be length ", length, ", not ", length(x), ".")
 }
 
 #' @describeIn chk_true Check Atomic

@@ -94,6 +94,7 @@ microbenchmark(
   chk_date(date),
   chk_datetime(datetime),
   chk_scalar(one),
+  chk_length(one),
   chk_vector(one),
   chk_atomic(one),
   chk_whole_numeric(oneL),

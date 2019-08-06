@@ -15,6 +15,7 @@
 \alias{chk_datetime}
 \alias{chk_scalar}
 \alias{chk_vector}
+\alias{chk_length}
 \alias{chk_atomic}
 \alias{chk_whole_numeric}
 \alias{chk_grepl}
@@ -67,6 +68,8 @@ chk_datetime(x, err = TRUE)
 chk_scalar(x, mode = "any", err = TRUE)
 
 chk_vector(x, mode = "any", err = TRUE)
+
+chk_length(x, length = 1L, err = TRUE)
 
 chk_atomic(x, err = TRUE)
 
@@ -125,6 +128,8 @@ chk_files(x, err = TRUE)
 message if the check fails.}
 
 \item{mode}{A string naming an atomic mode or "list" or "expression" or "any".}
+
+\item{length}{A count of the length.}
 
 \item{pattern}{A string of a regular expression.}
 
@@ -235,6 +240,14 @@ Checks if vector using:
 \code{is.vector(x, mode = mode)}
 
 \code{mode} should be a string.
+
+\item \code{chk_length}: Check Length
+
+Checks if is length length using:
+
+\code{length(x) == length}
+
+\code{length} should be a count.
 
 \item \code{chk_atomic}: Check Atomic
 

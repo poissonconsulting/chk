@@ -147,6 +147,19 @@ test_that("chk_vector", {
                "`1` must be a vector of mode 'logical'.")
 })
 
+test_that("chk_length", {
+  expect_false(chk_length(NULL, err = FALSE))
+  expect_false(chk_length(integer(0), err = FALSE))
+  expect_true(chk_length(1))
+  expect_true(chk_length(NA))
+  expect_false(chk_length(list(), err = FALSE))
+  expect_true(chk_length(list(x = 1)))
+  expect_error(chk_length(NULL), 
+               "^`NULL` must be length 1, not 0[.]$")
+  expect_error(chk_length(1, 3), 
+               "^`1` must be length 3, not 1[.]$")
+})
+
 test_that("chk_scalar", {
   expect_false(chk_scalar(NULL, err = FALSE))
   expect_false(chk_scalar(integer(0), err = FALSE))
