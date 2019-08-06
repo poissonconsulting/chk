@@ -3,6 +3,8 @@
 export(cc)
 export(chk_atomic)
 export(chk_count)
+export(chk_date)
+export(chk_datetime)
 export(chk_dir)
 export(chk_dirs)
 export(chk_equal)

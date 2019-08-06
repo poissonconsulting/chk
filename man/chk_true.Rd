@@ -11,6 +11,8 @@
 \alias{chk_whole_number}
 \alias{chk_count}
 \alias{chk_string}
+\alias{chk_date}
+\alias{chk_datetime}
 \alias{chk_vector}
 \alias{chk_atomic}
 \alias{chk_whole_numeric}
@@ -56,6 +58,10 @@ chk_whole_number(x, err = TRUE)
 chk_count(x, err = TRUE)
 
 chk_string(x, err = TRUE)
+
+chk_date(x, err = TRUE)
+
+chk_datetime(x, err = TRUE)
 
 chk_vector(x, mode = "any", err = TRUE)
 
@@ -198,6 +204,18 @@ Checks if non-missing non-negative integer scalar or double equivalent using:
 Checks if non-missing character scalar using:
 
 \code{is.character(x) && length(x) == 1L && !anyNA(x)}
+
+\item \code{chk_date}: Check String
+
+Checks if non-missing Date scalar using:
+
+\code{inherits(x, "Date") && length(x) == 1L && !anyNA(x)}
+
+\item \code{chk_datetime}: Check DateTime
+
+Checks if non-missing POSIXct scalar using:
+
+\code{inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)}
 
 \item \code{chk_vector}: Check Vector
 

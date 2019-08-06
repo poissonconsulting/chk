@@ -220,6 +220,40 @@ chk_string <- function(x, err = TRUE) {
   err("`", x_name, "` must be a string (non-missing character scalar).")
 }
 
+#' @describeIn chk_true Check String
+#' 
+#' Checks if non-missing Date scalar using:
+#' 
+#' \code{inherits(x, "Date") && length(x) == 1L && !anyNA(x)}
+#' 
+#' @export
+#' 
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_date <- function(x, err = TRUE) {
+  if(inherits(x, "Date") && length(x) == 1L && !anyNA(x)) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  err("`", x_name, "` must be a date (non-missing Date scalar).")
+}
+
+#' @describeIn chk_true Check DateTime
+#' 
+#' Checks if non-missing POSIXct scalar using:
+#' 
+#' \code{inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)}
+#' 
+#' @export
+#' 
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_datetime <- function(x, err = TRUE) {
+  if(inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  err("`", x_name, "` must be a datetime (non-missing POSIXct scalar).")
+}
+
 #' @describeIn chk_true Check Vector
 #' 
 #' Checks if vector using:
