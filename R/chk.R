@@ -13,6 +13,7 @@
 #' @param x The object to check. 
 #' @param err A flag specifying whether to generate an error
 #' message if the check fails.
+#' @param mode A string naming an atomic mode or "list" or "expression" or "any".
 #' @param class A string specifying the class.
 #' @param y An object to check against.
 #' @param tolerance A non-negative numeric scalar.
@@ -217,6 +218,44 @@ chk_string <- function(x, err = TRUE) {
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
   err("`", x_name, "` must be a string (non-missing character scalar).")
+}
+
+#' @describeIn chk_true Check Vector
+#' 
+#' Checks if vector using:
+#' 
+#' \code{is.vector(x, mode = mode)}
+#' 
+#' \code{mode} should be a string.
+#' 
+#' @export
+#' 
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_vector <- function(x, mode = "any", err = TRUE) {
+  if(is.vector(x, mode = mode)) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  if(mode == "any")
+    err("`", x_name, "` must be a vector.")
+  err("`", x_name, "` must be a vector of mode '", mode, "'.")
+}
+
+#' @describeIn chk_true Check Atomic
+#' 
+#' Checks if atomic using:
+#' 
+#' \code{is.atomic(x)}
+#' 
+#' @export
+#' 
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_atomic <- function(x, err = TRUE) {
+  if(is.atomic(x)) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+    err("`", x_name, "` must be an atomic (vector, matrix or array) object.")
 }
 
 #' @describeIn chk_true Check Whole Numeric

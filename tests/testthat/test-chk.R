@@ -95,8 +95,6 @@ test_that("chk_whole_numeric", {
   expect_error(chk_whole_numeric(TRUE), "^`TRUE` must be a whole numeric vector [(]integer vector or double equivalent[)][.]$")
 })
 
-chk_whole_numeric
-
 test_that("chk_proportion", {
   expect_false(chk_proportion(numeric(0), err = FALSE))
   expect_false(chk_proportion(NA_integer_, err = FALSE))
@@ -118,6 +116,26 @@ test_that("chk_string", {
   expect_true(chk_string("a"))
   expect_false(chk_string(c("a", "b"), err = FALSE))
   expect_error(chk_string(1), "^`1` must be a string [(]non-missing character scalar[)][.]$")
+})
+
+test_that("chk_vector", {
+  expect_false(chk_vector(NULL, err = FALSE))
+  expect_true(chk_vector(integer(0)))
+  expect_true(chk_vector(1))
+  expect_true(chk_vector(NA))
+  expect_true(chk_vector(list()))
+  expect_true(chk_vector(list(x = 1)))
+  expect_error(chk_vector(NULL), 
+               "`NULL` must be a vector.")
+  expect_error(chk_vector(1, mode = "logical"), 
+               "`1` must be a vector of mode 'logical'.")
+})
+
+test_that("chk_atomic", {
+  expect_true(chk_atomic(NULL))
+  expect_true(chk_atomic(1))
+  expect_false(chk_atomic(list(), err = FALSE))
+  expect_error(chk_atomic(list()), "`list[(][)]` must be an atomic [(]vector, matrix or array[)] object.")
 })
 
 test_that("chk_named", {

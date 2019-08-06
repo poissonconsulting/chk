@@ -11,6 +11,8 @@
 \alias{chk_whole_number}
 \alias{chk_count}
 \alias{chk_string}
+\alias{chk_vector}
+\alias{chk_atomic}
 \alias{chk_whole_numeric}
 \alias{chk_grepl}
 \alias{chk_no_missing}
@@ -55,6 +57,10 @@ chk_whole_number(x, err = TRUE)
 chk_count(x, err = TRUE)
 
 chk_string(x, err = TRUE)
+
+chk_vector(x, mode = "any", err = TRUE)
+
+chk_atomic(x, err = TRUE)
 
 chk_whole_numeric(x, err = TRUE)
 
@@ -111,6 +117,8 @@ chk_files(x, err = TRUE)
 
 \item{err}{A flag specifying whether to generate an error
 message if the check fails.}
+
+\item{mode}{A string naming an atomic mode or "list" or "expression" or "any".}
 
 \item{pattern}{A string of a regular expression.}
 
@@ -193,6 +201,20 @@ Checks if non-missing non-negative integer scalar or double equivalent using:
 Checks if non-missing character scalar using:
 
 \code{is.character(x) && length(x) == 1L && !anyNA(x)}
+
+\item \code{chk_vector}: Check Vector
+
+Checks if vector using:
+
+\code{is.vector(x, mode = mode)}
+
+\code{mode} should be a string.
+
+\item \code{chk_atomic}: Check Atomic
+
+Checks if atomic using:
+
+\code{is.atomic(x)}
 
 \item \code{chk_whole_numeric}: Check Whole Numeric
  
