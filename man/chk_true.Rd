@@ -23,7 +23,6 @@
 \alias{chk_unused}
 \alias{chk_used}
 \alias{chk_function}
-\alias{chk_inherits}
 \alias{chk_is}
 \alias{chk_identical}
 \alias{chk_equal}
@@ -81,8 +80,6 @@ chk_unused(..., err = TRUE)
 chk_used(..., err = TRUE)
 
 chk_function(x, err = TRUE)
-
-chk_inherits(x, class, err = TRUE)
 
 chk_is(x, class, err = TRUE)
 
@@ -278,21 +275,13 @@ Checks if is a function using:
 
 \code{\link{is.function}(x)}
 
-\item \code{chk_inherits}: Check Inherits from Class
+\item \code{chk_is}: Check Is
 
 Checks if inherits from class using:
 
 \code{\link{inherits}(x, class)}
 
 Class should be a string.
-
-\item \code{chk_is}: Check Is Class
-
-Checks if is class using:
-
-\code{\link{identical}(class(x), class)}
-
-Class should be a character vector.
 
 \item \code{chk_identical}: Check Identical
 

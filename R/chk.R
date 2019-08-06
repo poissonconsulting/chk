@@ -437,7 +437,7 @@ chk_function <- function(x, err = TRUE) {
   err("`", x_name, "` must be a function.")
 }
 
-#' @describeIn chk_true Check Inherits from Class
+#' @describeIn chk_true Check Is
 #' 
 #' Checks if inherits from class using:
 #' 
@@ -449,32 +449,11 @@ chk_function <- function(x, err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_inherits <- function(x, class, err = TRUE) {
+chk_is <- function(x, class, err = TRUE) {
   if(inherits(x, class)) return(TRUE)
   if(!err) return(FALSE)
   x_name <- deparse(substitute(x))
   err("`", x_name, "` must inherit from class '", class, "'.")
-}
-
-#' @describeIn chk_true Check Is Class
-#' 
-#' Checks if is class using:
-#' 
-#' \code{\link{identical}(class(x), class)}
-#' 
-#' Class should be a character vector.
-#' 
-#' @export
-#
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_is <- function(x, class, err = TRUE) {
-  if(identical(class(x), class)) return(TRUE)
-  if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
-  class <- gsub("\"", "'", utils::capture.output(dput(class)))
-  x_class <- gsub("\"", "'", utils::capture.output(dput(class(x))))
-  err("`", x_name, "` must be class ", class, ", not ", x_class, ".")
 }
 
 #' @describeIn chk_true Check Identical
