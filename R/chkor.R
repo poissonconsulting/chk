@@ -33,15 +33,18 @@ chkor <- function (..., err = TRUE) {
   args <- substitute(list(...))[-1]
   n <- length(args)
   if (n == 0L) return(TRUE)
-  args <- lapply(args, try_chk)
-  args <- args[vapply(args, inherits, TRUE, "try-error")]
-  if (length(args) != n) return(TRUE)
+
+  msg <- as.list(rep(NA, n))
+  for(i in 1:n) {
+    try <- try_chk(args[[i]])
+    if(isTRUE(try)) return(TRUE)
+    msg[i] <- try
+  }
   if(!err) return(FALSE)
-  
-  args <- unlist(lapply(args, try_msg))
-  args <- args[!duplicated(args)]
-  if(length(args) == 1) stop(args) 
-  args <- p0("\n* ", args)
-  args <- c("At least one of the following conditions must be met:", args)
-  err(args)
+  msg <- unlist(lapply(msg, try_msg))
+  msg <- unique(msg)
+  if(length(msg) == 1) err(msg) 
+  msg <- p0("\n* ", msg)
+  msg <- c("At least one of the following conditions must be met:", msg)
+  err(msg)
 }
