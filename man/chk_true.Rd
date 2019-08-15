@@ -100,7 +100,7 @@ chk_gte(x, value = 0, err = TRUE)
 
 chk_range(x, range = c(0, Inf), err = TRUE)
 
-chk_in(x, values = c(0, Inf), err = TRUE)
+chk_in(x, values = c(0, 1, NA), err = TRUE)
 
 chk_match(x, regexp = ".+", err = TRUE)
 

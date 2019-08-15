@@ -626,7 +626,7 @@ chk_range <- function (x, range = c(0, Inf), err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_in <- function (x, values = c(0, Inf), err = TRUE) {
+chk_in <- function (x, values = c(0, 1, NA), err = TRUE) {
   if(all(x %in% values)) return(TRUE)
   if(!err) return(FALSE)
   values <- sort(unique(values), na.last = TRUE)
