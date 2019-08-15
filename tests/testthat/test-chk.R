@@ -463,7 +463,7 @@ test_that("chk_files", {
   file1 <- paste0(tempfile(), "1.csv")
   file2 <- paste0(tempfile(), "2.csv")
   expect_error(chk_files(c(file1, file2)), 
-                        "^Can't find the following files: '/var.*[.]csv' or '.*[.]csv'[.]$")
+                        "^Can't find the following files: '.*[.]csv' or '.*[.]csv'[.]$")
   teardown(unlink(file))
   write.csv(data.frame(x = 1), file)
   expect_true(chk_files(file))
