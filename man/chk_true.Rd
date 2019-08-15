@@ -23,6 +23,7 @@
 \alias{chk_unused}
 \alias{chk_used}
 \alias{chk_function}
+\alias{chk_list}
 \alias{chk_is}
 \alias{chk_identical}
 \alias{chk_equal}
@@ -81,6 +82,8 @@ chk_unused(..., err = TRUE)
 chk_used(..., err = TRUE)
 
 chk_function(x, err = TRUE)
+
+chk_list(x, err = TRUE)
 
 chk_is(x, class, err = TRUE)
 
@@ -275,6 +278,12 @@ Checks if is ... used using:
 Checks if is a function using:
 
 \code{\link{is.function}(x)}
+
+\item \code{chk_list}: Check List
+
+Checks if is a list using:
+
+\code{\link{is.list}(x)}
 
 \item \code{chk_is}: Check Is
 

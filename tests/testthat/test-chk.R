@@ -169,6 +169,17 @@ test_that("chk_not_null", {
   expect_error(chk_not_null(NULL), "^`NULL` must not be NULL[.]$")
 })
 
+test_that("chk_list", {
+  expect_true(chk_list(list()))
+  expect_true(chk_list(list(1)))
+  expect_true(chk_list(list(x = 1)))
+  x <- list(x = 1)
+  class(x) <- "nlist"
+  expect_true(chk_list(x))
+  expect_false(chk_list(1, err = FALSE))
+  expect_error(chk_list(1), "^`1` must be a list[.]$")
+})
+
 test_that("chk_function", {
   expect_true(chk_function(p))
   expect_true(chk_function(function(){}))
@@ -451,8 +462,8 @@ test_that("chk_files", {
   expect_error(chk_files(file), "^Can't find file '.*[.]csv'[.]$")
   file1 <- paste0(tempfile(), "1.csv")
   file2 <- paste0(tempfile(), "2.csv")
-  expect_error(chk_files(c(file1, file2), 
-                        "^Can't find the following files: '/var.*[.]csv' or '.*[.]csv'[.]$"))
+  expect_error(chk_files(c(file1, file2)), 
+                        "^Can't find the following files: '/var.*[.]csv' or '.*[.]csv'[.]$")
   teardown(unlink(file))
   write.csv(data.frame(x = 1), file)
   expect_true(chk_files(file))

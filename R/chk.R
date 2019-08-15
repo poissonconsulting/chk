@@ -431,6 +431,23 @@ chk_function <- function(x, err = TRUE) {
   err("`", x_name, "` must be a function.")
 }
 
+#' @describeIn chk_true Check List
+#' 
+#' Checks if is a list using:
+#' 
+#' \code{\link{is.list}(x)}
+#' 
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_list <- function(x, err = TRUE) {
+  if(is.list(x)) return(TRUE)
+  if(!err) return(FALSE)
+  x_name <- deparse(substitute(x))
+  err("`", x_name, "` must be a list.")
+}
+
 #' @describeIn chk_true Check Is
 #' 
 #' Checks if inherits from class using:
