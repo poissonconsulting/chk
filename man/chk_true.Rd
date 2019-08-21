@@ -41,77 +41,79 @@
 \alias{chk_files}
 \title{Check Object}
 \usage{
-chk_true(x, err = TRUE)
+chk_true(x, err = TRUE, x_name = NULL)
 
-chk_false(x, err = TRUE)
+chk_false(x, err = TRUE, x_name = NULL)
 
-chk_flag(x, err = TRUE)
+chk_flag(x, err = TRUE, x_name = NULL)
 
-chk_lgl(x, err = TRUE)
+chk_lgl(x, err = TRUE, x_name = NULL)
 
-chk_number(x, err = TRUE)
+chk_number(x, err = TRUE, x_name = NULL)
 
-chk_proportion(x, err = TRUE)
+chk_proportion(x, err = TRUE, x_name = NULL)
 
-chk_whole_number(x, err = TRUE)
+chk_whole_number(x, err = TRUE, x_name = NULL)
 
-chk_count(x, err = TRUE)
+chk_count(x, err = TRUE, x_name = NULL)
 
-chk_string(x, err = TRUE)
+chk_string(x, err = TRUE, x_name = NULL)
 
-chk_date(x, err = TRUE)
+chk_date(x, err = TRUE, x_name = NULL)
 
-chk_datetime(x, err = TRUE)
+chk_datetime(x, err = TRUE, x_name = NULL)
 
-chk_length(x, length = 1L, err = TRUE)
+chk_length(x, length = 1L, err = TRUE, x_name = NULL)
 
-chk_whole_numeric(x, err = TRUE)
+chk_whole_numeric(x, err = TRUE, x_name = NULL)
 
-chk_no_missing(x, err = TRUE)
+chk_no_missing(x, err = TRUE, x_name = NULL)
 
-chk_unique(x, err = TRUE)
+chk_unique(x, err = TRUE, x_name = NULL)
 
-chk_null(x, err = TRUE)
+chk_null(x, err = TRUE, x_name = NULL)
 
-chk_not_null(x, err = TRUE)
+chk_not_null(x, err = TRUE, x_name = NULL)
 
-chk_named(x, err = TRUE)
+chk_named(x, err = TRUE, x_name = NULL)
 
 chk_unused(..., err = TRUE)
 
 chk_used(..., err = TRUE)
 
-chk_function(x, err = TRUE)
+chk_function(x, err = TRUE, x_name = NULL)
 
-chk_list(x, err = TRUE)
+chk_list(x, err = TRUE, x_name = NULL)
 
-chk_is(x, class, err = TRUE)
+chk_is(x, class, err = TRUE, x_name = NULL)
 
-chk_identical(x, y, err = TRUE)
+chk_identical(x, y, err = TRUE, x_name = NULL)
 
-chk_equal(x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE)
+chk_equal(x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE,
+  x_name = NULL)
 
-chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE)
+chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE,
+  x_name = NULL)
 
-chk_lt(x, value = 0, err = TRUE)
+chk_lt(x, value = 0, err = TRUE, x_name = NULL)
 
-chk_lte(x, value = 0, err = TRUE)
+chk_lte(x, value = 0, err = TRUE, x_name = NULL)
 
-chk_gt(x, value = 0, err = TRUE)
+chk_gt(x, value = 0, err = TRUE, x_name = NULL)
 
-chk_gte(x, value = 0, err = TRUE)
+chk_gte(x, value = 0, err = TRUE, x_name = NULL)
 
-chk_range(x, range = c(0, Inf), err = TRUE)
+chk_range(x, range = c(0, Inf), err = TRUE, x_name = NULL)
 
-chk_in(x, values = c(0, 1, NA), err = TRUE)
+chk_in(x, values = c(0, 1, NA), err = TRUE, x_name = NULL)
 
-chk_match(x, regexp = ".+", err = TRUE)
+chk_match(x, regexp = ".+", err = TRUE, x_name = NULL)
 
-chk_dir(x, err = TRUE)
+chk_dir(x, err = TRUE, x_name = NULL)
 
 chk_dirs(x, err = TRUE)
 
-chk_file(x, err = TRUE)
+chk_file(x, err = TRUE, x_name = NULL)
 
 chk_files(x, err = TRUE)
 }
@@ -120,6 +122,8 @@ chk_files(x, err = TRUE)
 
 \item{err}{A flag specifying whether to generate an error
 message if the check fails.}
+
+\item{x_name}{A string of the name of object x or NULL.}
 
 \item{length}{A count of the length.}
 

@@ -13,6 +13,7 @@
 #' @param x The object to check. 
 #' @param err A flag specifying whether to generate an error
 #' message if the check fails.
+#' @param x_name A string of the name of object x or NULL.
 #' @param length A count of the length.
 #' @param class A string specifying the class.
 #' @param y An object to check against.
@@ -40,10 +41,10 @@
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_true <- function(x, err = TRUE) {
+chk_true <- function(x, err = TRUE, x_name = NULL){
   if(isTRUE(x)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must be TRUE.")
 }
 
@@ -66,10 +67,10 @@ chk_true <- function(x, err = TRUE) {
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_false <- function(x, err = TRUE) {
+chk_false <- function(x, err = TRUE, x_name = NULL){
   if(isFALSE(x)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must be FALSE.")
 }
 
@@ -92,10 +93,10 @@ chk_false <- function(x, err = TRUE) {
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_flag <- function(x, err = TRUE) {
+chk_flag <- function(x, err = TRUE, x_name = NULL){
   if(is.logical(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must be a flag (TRUE or FALSE).")
 }
 
@@ -118,10 +119,10 @@ chk_flag <- function(x, err = TRUE) {
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_lgl <- function(x, err = TRUE) {
+chk_lgl <- function(x, err = TRUE, x_name = NULL){
   if(is.logical(x) && length(x) == 1L) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must be a logical scalar (TRUE, FALSE or NA).")
 }
 
@@ -135,10 +136,10 @@ chk_lgl <- function(x, err = TRUE) {
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_number <- function(x, err = TRUE) {
+chk_number <- function(x, err = TRUE, x_name = NULL){
   if(is.numeric(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must be a number (non-missing numeric scalar).")
 }
 
@@ -152,11 +153,11 @@ chk_number <- function(x, err = TRUE) {
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_proportion <- function(x, err = TRUE) {
+chk_proportion <- function(x, err = TRUE, x_name = NULL){
   if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1) 
     return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, 
       "` must be a proportion (non-missing numeric scalar between 0 and 1).")
 }
@@ -172,12 +173,12 @@ chk_proportion <- function(x, err = TRUE) {
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_whole_number <- function(x, err = TRUE) {
+chk_whole_number <- function(x, err = TRUE, x_name = NULL){
   if(is.numeric(x) && length(x) == 1L && !anyNA(x) && 
      (is.integer(x) || isTRUE(all.equal(x, as.integer(x)))))
     return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, 
       "` must be a whole number (non-missing integer scalar or double equivalent).")
 }
@@ -193,12 +194,12 @@ chk_whole_number <- function(x, err = TRUE) {
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_count <- function(x, err = TRUE) {
+chk_count <- function(x, err = TRUE, x_name = NULL){
   if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && 
      (is.integer(x) || isTRUE(all.equal(x, as.integer(x)))))
     return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, 
       "` must be a count (non-missing non-negative integer scalar or double equivalent).")
 }
@@ -213,10 +214,10 @@ chk_count <- function(x, err = TRUE) {
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_string <- function(x, err = TRUE) {
+chk_string <- function(x, err = TRUE, x_name = NULL){
   if(is.character(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must be a string (non-missing character scalar).")
 }
 
@@ -230,10 +231,10 @@ chk_string <- function(x, err = TRUE) {
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_date <- function(x, err = TRUE) {
+chk_date <- function(x, err = TRUE, x_name = NULL){
   if(inherits(x, "Date") && length(x) == 1L && !anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must be a date (non-missing Date scalar).")
 }
 
@@ -247,10 +248,10 @@ chk_date <- function(x, err = TRUE) {
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_datetime <- function(x, err = TRUE) {
+chk_datetime <- function(x, err = TRUE, x_name = NULL){
   if(inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must be a datetime (non-missing POSIXct scalar).")
 }
 
@@ -266,10 +267,10 @@ chk_datetime <- function(x, err = TRUE) {
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_length <- function(x, length = 1L, err = TRUE) {
+chk_length <- function(x, length = 1L, err = TRUE, x_name = NULL) {
   if(length(x) == length) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must be length ", length, ", not ", length(x), ".")
 }
 
@@ -283,11 +284,11 @@ chk_length <- function(x, length = 1L, err = TRUE) {
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_whole_numeric <- function(x, err = TRUE) {
+chk_whole_numeric <- function(x, err = TRUE, x_name = NULL){
   if(is.integer(x) || (is.double(x) && isTRUE(all.equal(x, as.integer(x)))))
     return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, 
       "` must be a whole numeric vector (integer vector or double equivalent).")
 }
@@ -302,10 +303,10 @@ chk_whole_numeric <- function(x, err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_no_missing <- function(x, err = TRUE) {
+chk_no_missing <- function(x, err = TRUE, x_name = NULL){
   if(!anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must not have missing values.")
 }
 
@@ -324,10 +325,10 @@ chk_no_missing <- function(x, err = TRUE) {
 #' chk_unique(c(NA, NA), err = FALSE)
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_unique <- function(x, err = TRUE) {
+chk_unique <- function(x, err = TRUE, x_name = NULL){
   if(!anyDuplicated(x)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must be unique.")
 }
 
@@ -341,10 +342,10 @@ chk_unique <- function(x, err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_null <- function(x, err = TRUE) {
+chk_null <- function(x, err = TRUE, x_name = NULL){
   if(is.null(x)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must be NULL.")
 }
 
@@ -358,10 +359,10 @@ chk_null <- function(x, err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_not_null <- function(x, err = TRUE) {
+chk_not_null <- function(x, err = TRUE, x_name = NULL){
   if(!is.null(x)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must not be NULL.")
 }
 
@@ -375,10 +376,10 @@ chk_not_null <- function(x, err = TRUE) {
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_named <- function(x, err = TRUE) {
+chk_named <- function(x, err = TRUE, x_name = NULL){
   if(!is.null(names(x))) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must be named.")
 }
 
@@ -424,10 +425,10 @@ chk_used <- function (..., err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_function <- function(x, err = TRUE) {
+chk_function <- function(x, err = TRUE, x_name = NULL){
   if(is.function(x)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must be a function.")
 }
 
@@ -441,10 +442,10 @@ chk_function <- function(x, err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_list <- function(x, err = TRUE) {
+chk_list <- function(x, err = TRUE, x_name = NULL){
   if(is.list(x)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must be a list.")
 }
 
@@ -460,10 +461,10 @@ chk_list <- function(x, err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_is <- function(x, class, err = TRUE) {
+chk_is <- function(x, class, err = TRUE, x_name = NULL) {
   if(inherits(x, class)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must inherit from class '", class, "'.")
 }
 
@@ -477,10 +478,10 @@ chk_is <- function(x, class, err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_identical <- function (x, y, err = TRUE) {
+chk_identical <- function (x, y, err = TRUE, x_name = NULL) {
   if(identical(x, y)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   y <- utils::capture.output(dput(y, control = "all"))
   err("`", x_name, "` not identical to: ", y, ".")
 }
@@ -495,10 +496,11 @@ chk_identical <- function (x, y, err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_equal <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE) {
+chk_equal <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE,
+                       x_name = NULL) {
   if(isTRUE(all.equal(x, y, tolerance))) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   y <- utils::capture.output(dput(y, control = "all"))
   err("`", x_name, "` not equal to: ", y, ".")
 }
@@ -513,10 +515,11 @@ chk_equal <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE) 
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_equivalent <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE) {
+chk_equivalent <- function (x, y, tolerance = sqrt(.Machine$double.eps), 
+                            err = TRUE, x_name = NULL) {
   if(isTRUE(all.equal(x, y, tolerance, check.attributes = FALSE))) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   y <- utils::capture.output(dput(y, control = "all"))
   err("`", x_name, "` not equivalent to: ", y, ".")
 }
@@ -533,10 +536,10 @@ chk_equivalent <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = T
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_lt <- function (x, value = 0, err = TRUE) {
+chk_lt <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(all(x[!is.na(x)] < value)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   if(length(x) == 1L)
     err("`", x_name, "` must be less than ", cc(value), ", not ", cc(x), ".")
   err("Values of `", x_name, "` must be less than ", cc(value), ".")
@@ -554,10 +557,10 @@ chk_lt <- function (x, value = 0, err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_lte <- function (x, value = 0, err = TRUE) {
+chk_lte <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(all(x[!is.na(x)] <= value)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   if(length(x) == 1L)
     err("`", x_name, "` must be less than or equal to ", cc(value), ", not ", cc(x), ".")
   err("Values of `", x_name, "` must be less than or equal to ", cc(value), ".")
@@ -575,10 +578,10 @@ chk_lte <- function (x, value = 0, err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_gt <- function (x, value = 0, err = TRUE) {
+chk_gt <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(all(x[!is.na(x)] > value)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   if(length(x) == 1L)
     err("`", x_name, "` must be greater than ", cc(value), ", not ", cc(x), ".")
   err("Values of `", x_name, "` must be greater than ", cc(value), ".")
@@ -596,10 +599,10 @@ chk_gt <- function (x, value = 0, err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_gte <- function (x, value = 0, err = TRUE) {
+chk_gte <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(all(x[!is.na(x)] >= value)) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   if(length(x) == 1L)
     err("`", x_name, "` must be greater than or equal to ", cc(value), 
         ", not ", cc(x), ".")
@@ -618,10 +621,10 @@ chk_gte <- function (x, value = 0, err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_range <- function (x, range = c(0, Inf), err = TRUE) {
+chk_range <- function (x, range = c(0, Inf), err = TRUE, x_name = NULL) {
   if(all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   if(length(x) == 1L) {
     if(range[1] == range[2])
       err("`", x_name, "` must be ", cc(range[1]), ", not ", cc(x), ".")
@@ -643,11 +646,11 @@ chk_range <- function (x, range = c(0, Inf), err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_in <- function (x, values = c(0, 1, NA), err = TRUE) {
+chk_in <- function (x, values = c(0, 1, NA), err = TRUE, x_name = NULL) {
   if(all(x %in% values)) return(TRUE)
   if(!err) return(FALSE)
   values <- sort(unique(values), na.last = TRUE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   if(length(x) == 1L)
     err("`", x_name, "` must match ", cc(values, " or "), ", not ", cc(x), ".")
   err("Values of `", x_name, "` must match ", cc(values, " or "), ".")
@@ -665,10 +668,10 @@ chk_in <- function (x, values = c(0, 1, NA), err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_match <- function (x, regexp = ".+", err = TRUE) {
+chk_match <- function (x, regexp = ".+", err = TRUE, x_name = NULL) {
   if(all(grepl(regexp, x))) return(TRUE)
   if(!err) return(FALSE)
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   if(length(x) == 1)
     err("`", x_name, "` must match regular expression '", regexp, "'.")
   err("All values of `", x_name, "` must match regular expression '", regexp, "'.")
@@ -684,12 +687,12 @@ chk_match <- function (x, regexp = ".+", err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_dir <- function(x, err = TRUE) {
+chk_dir <- function(x, err = TRUE, x_name = NULL){
   if(length(x) == 1L && dir.exists(x)) return(TRUE)
   if(!err) return(FALSE)
   if(length(x) == 1L)
     err("Can't find directory '", x, "'.")
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must be length 1, not ", length(x), ".")
 }
 
@@ -703,7 +706,7 @@ chk_dir <- function(x, err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_dirs <- function(x, err = TRUE) {
+chk_dirs <- function(x, err = TRUE){
   if(all(dir.exists(x))) return(TRUE)
   if(!err) return(FALSE)
   x <- unique(x)
@@ -723,12 +726,12 @@ chk_dirs <- function(x, err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_file <- function(x, err = TRUE) {
+chk_file <- function(x, err = TRUE, x_name = NULL){
   if(length(x) == 1L & all(file.exists(x) & !dir.exists(x))) return(TRUE)
   if(!err) return(FALSE)
   if(length(x) == 1L)
     err("Can't find file '", x, "'.")
-  x_name <- deparse(substitute(x))
+  if(is.null(x_name))  x_name <- deparse(substitute(x))
   err("`", x_name, "` must be length 1, not ", length(x), ".")
 }
 
@@ -742,7 +745,7 @@ chk_file <- function(x, err = TRUE) {
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_files <- function(x, err = TRUE) {
+chk_files <- function(x, err = TRUE){
   if(all(file.exists(x) & !dir.exists(x))) return(TRUE)
   if(!err) return(FALSE)
   x <- unique(x)

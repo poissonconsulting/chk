@@ -1,6 +1,6 @@
 Package: chk
 Title: Check User-Supplied Function Arguments
-Version: 0.0.1
+Version: 0.0.1.9001
 Authors@R: c(
     person("Joe", "Thorley", , "joe@poissonconsulting.ca", c("aut", "cre"), comment = c(ORCID = "0000-0002-7683-4592")),
     person("Poisson Consulting", role = c("cph", "fnd"))
