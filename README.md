@@ -135,13 +135,13 @@ successful.
 
 ``` r
 chk_flag
-#> function(x, err = TRUE) {
+#> function(x, err = TRUE, x_name = NULL){
 #>   if(is.logical(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
 #>   if(!err) return(FALSE)
-#>   x_name <- deparse(substitute(x))
+#>   if(is.null(x_name))  x_name <- deparse(substitute(x))
 #>   err("`", x_name, "` must be a flag (TRUE or FALSE).")
 #> }
-#> <bytecode: 0x7fdcf123c878>
+#> <bytecode: 0x7f9817f28d88>
 #> <environment: namespace:chk>
 ```
 
