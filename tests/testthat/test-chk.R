@@ -8,6 +8,7 @@ test_that("chk_flag", {
   expect_false(chk_flag(c(FALSE, TRUE), err = FALSE))
   expect_false(chk_flag(1, err = FALSE))
   expect_error(chk_flag(1), "^`1` must be a flag [(]TRUE or FALSE[)][.]$")
+  expect_error(chk_flag(1, x_name = "2"), "^`2` must be a flag [(]TRUE or FALSE[)][.]$")
 })
 
 test_that("chk_lgl", {
@@ -18,6 +19,7 @@ test_that("chk_lgl", {
   expect_false(chk_flag(c(FALSE, TRUE), err = FALSE))
   expect_false(chk_lgl(1, err = FALSE))
   expect_error(chk_lgl(1), "^`1` must be a logical scalar [(]TRUE, FALSE or NA[)][.]$")
+  expect_error(chk_lgl(1, x_name = 2), "^`2` must be a logical scalar [(]TRUE, FALSE or NA[)][.]$")
 })
 
 test_that("chk_false", {
@@ -27,6 +29,7 @@ test_that("chk_false", {
   expect_false(chk_false(NA, err = FALSE))
   expect_false(chk_false(c(FALSE, FALSE), err = FALSE))
   expect_error(chk_false(TRUE), "^`TRUE` must be FALSE[.]$")
+  expect_error(chk_false(TRUE, x_name = FALSE), "^`FALSE` must be FALSE[.]$")
 })
 
 test_that("chk_true", {
@@ -36,6 +39,7 @@ test_that("chk_true", {
   expect_false(chk_true(NA, err = FALSE))
   expect_false(chk_true(c(TRUE, TRUE), err = FALSE))
   expect_error(chk_true(FALSE), "^`FALSE` must be TRUE[.]$")
+  expect_error(chk_true(FALSE, x_name = TRUE), "^`TRUE` must be TRUE[.]$")
 })
 
 test_that("chk_whole_number", {
@@ -50,6 +54,7 @@ test_that("chk_whole_number", {
   expect_warning(chk_whole_number(Inf, err = FALSE), 
                  "^NAs introduced by coercion to integer range$")
   expect_error(chk_whole_number(1.1), "^`1.1` must be a whole number [(]non-missing integer scalar or double equivalent[)][.]$")
+  expect_error(chk_whole_number(1.1, x_name = 1L), "^`1` must be a whole number [(]non-missing integer scalar or double equivalent[)][.]$")
 })
 
 test_that("chk_count", {
@@ -62,6 +67,7 @@ test_that("chk_count", {
   expect_false(chk_count(NA_integer_, err = FALSE))
   expect_false(chk_count(integer(0), err = FALSE))
   expect_error(chk_count(1.1), "^`1.1` must be a count [(]non-missing non-negative integer scalar or double equivalent[)][.]$")
+  expect_error(chk_count(1.1, x_name = 2), "^`2` must be a count [(]non-missing non-negative integer scalar or double equivalent[)][.]$")
 })
 
 test_that("chk_number", {
@@ -75,6 +81,7 @@ test_that("chk_number", {
   expect_false(chk_number(c(1, 2), err = FALSE))
   expect_false(chk_number(TRUE, err = FALSE))
   expect_error(chk_number(TRUE), "^`TRUE` must be a number [(]non-missing numeric scalar[)][.]$")
+  expect_error(chk_number(TRUE, x_name = 1L), "^`1` must be a number [(]non-missing numeric scalar[)][.]$")
 })
 
 test_that("chk_whole_numeric", {
@@ -93,6 +100,7 @@ test_that("chk_whole_numeric", {
   expect_true(chk_whole_numeric(c(1, 2)))
   expect_false(chk_whole_numeric(TRUE, err = FALSE))
   expect_error(chk_whole_numeric(TRUE), "^`TRUE` must be a whole numeric vector [(]integer vector or double equivalent[)][.]$")
+  expect_error(chk_whole_numeric(TRUE, x_name = "c(1,2)"), "^`c[(]1,2[)]` must be a whole numeric vector [(]integer vector or double equivalent[)][.]$")
 })
 
 test_that("chk_proportion", {
@@ -107,6 +115,7 @@ test_that("chk_proportion", {
   expect_false(chk_proportion(c(0.1, 0.5), err = FALSE))
   expect_false(chk_proportion(TRUE, err = FALSE))
   expect_error(chk_proportion(TRUE), "^`TRUE` must be a proportion [(]non-missing numeric scalar between 0 and 1[)][.]$")
+  expect_error(chk_proportion(TRUE, x_name = "1/2"), "^`1/2` must be a proportion [(]non-missing numeric scalar between 0 and 1[)][.]$")
 })
 
 test_that("chk_string", {
@@ -116,6 +125,7 @@ test_that("chk_string", {
   expect_true(chk_string("a"))
   expect_false(chk_string(c("a", "b"), err = FALSE))
   expect_error(chk_string(1), "^`1` must be a string [(]non-missing character scalar[)][.]$")
+  expect_error(chk_string(1, x_name = "''"), "^`''` must be a string [(]non-missing character scalar[)][.]$")
 })
 
 test_that("chk_date", {
@@ -124,6 +134,7 @@ test_that("chk_date", {
   expect_false(chk_date(as.Date("2000-01-01")[c(1,1)], err = FALSE))
   expect_true(chk_date(as.Date("2000-01-01")))
   expect_error(chk_date(1), "^`1` must be a date [(]non-missing Date scalar[)][.]$")
+  expect_error(chk_date(1, x_name = "2001-02-04"), "^`2001-02-04` must be a date [(]non-missing Date scalar[)][.]$")
 })
 
 test_that("chk_datetime", {
@@ -132,6 +143,7 @@ test_that("chk_datetime", {
   expect_false(chk_datetime(Sys.time()[c(1,1)], err = FALSE))
   expect_true(chk_datetime(Sys.time()))
   expect_error(chk_datetime(1), "^`1` must be a datetime [(]non-missing POSIXct scalar[)][.]$")
+  expect_error(chk_date(1, x_name = 1), "^`1` must be a date [(]non-missing Date scalar[)][.]$")
 })
 
 test_that("chk_length", {
@@ -145,6 +157,8 @@ test_that("chk_length", {
                "^`NULL` must be length 1, not 0[.]$")
   expect_error(chk_length(1, 3), 
                "^`1` must be length 3, not 1[.]$")
+  expect_error(chk_length(1, 3, x_name = 3), 
+               "^`3` must be length 3, not 1[.]$")
 })
 
 test_that("chk_named", {
@@ -155,18 +169,21 @@ test_that("chk_named", {
   expect_true(chk_named(c(x = 1)))
   expect_true(chk_named(c(x = 1)[-1]))
   expect_error(chk_named(1), "^`1` must be named[.]$")
+  expect_error(chk_named(1, x_name = "new born"), "^`new born` must be named[.]$")
 })
 
 test_that("chk_null", {
   expect_true(chk_null(NULL))
   expect_false(chk_null(1, err = FALSE))
   expect_error(chk_null(1), "^`1` must be NULL[.]$")
+  expect_error(chk_null(1, x_name = "NULL"), "^`NULL` must be NULL[.]$")
 })
 
 test_that("chk_not_null", {
   expect_true(chk_not_null(1))
   expect_false(chk_not_null(NULL, err = FALSE))
   expect_error(chk_not_null(NULL), "^`NULL` must not be NULL[.]$")
+  expect_error(chk_not_null(NULL, x_name = "not NULL"), "^`not NULL` must not be NULL[.]$")
 })
 
 test_that("chk_list", {
@@ -178,6 +195,7 @@ test_that("chk_list", {
   expect_true(chk_list(x))
   expect_false(chk_list(1, err = FALSE))
   expect_error(chk_list(1), "^`1` must be a list[.]$")
+  expect_error(chk_list(1, x_name = "list()"), "^`list[(][)]` must be a list[.]$")
 })
 
 test_that("chk_function", {
@@ -185,6 +203,7 @@ test_that("chk_function", {
   expect_true(chk_function(function(){}))
   expect_false(chk_function(1, err = FALSE))
   expect_error(chk_function(1), "^`1` must be a function[.]$")
+  expect_error(chk_function(1, x_name = "function()"), "^`function[(][)]` must be a function[.]$")
 })
 
 test_that("chk_is", {
@@ -199,6 +218,7 @@ test_that("chk_is", {
   expect_true(chk_is(x, "a"))
   expect_true(chk_is(x, "b"))
   expect_error(chk_is(x, "c"), "`x` must inherit from class 'c'")
+  expect_error(chk_is(x, "c", x_name = "c"), "`c` must inherit from class 'c'")
 })
 
 test_that("chk_match", {
@@ -216,6 +236,8 @@ test_that("chk_match", {
                "All values of `c[(]\"a\", \"b\"[)]` must match regular expression 'b'[.]$")
   expect_error(chk_match(c(NA, "b"), 'b'), 
                "All values of `c[(]NA, \"b\"[)]` must match regular expression 'b'[.]$")
+  expect_error(chk_match(c(NA, "b"), 'b', x_name = "b"), 
+               "All values of `b` must match regular expression 'b'[.]$")
 })
 
 test_that("chk_identical", {
@@ -239,6 +261,8 @@ test_that("chk_identical", {
                "^`1` not identical to: 1:100[.]$")
   expect_error(chk_identical(1, c(1,5,1,9)), 
                "^`1` not identical to: c[(]1, 5, 1, 9[)][.]$")
+  expect_error(chk_identical(1, 2, x_name = 2), 
+               "^`2` not identical to: 2[.]$")
 })
 
 test_that("chk_equal", {
@@ -263,6 +287,8 @@ test_that("chk_equal", {
   expect_error(chk_equal(1, 1.001, 0.0001), c("^`1` not equal to: 1[.]001[.]$"))
   expect_error(chk_equal(1, c(1,5,1,9)), 
                "^`1` not equal to: c[(]1, 5, 1, 9[)][.]$")
+  expect_error(chk_equal(1, 2, x_name = 2), 
+               "^`2` not equal to: 2[.]$")
 })
 
 test_that("chk_equivalent", {
@@ -285,6 +311,8 @@ test_that("chk_equivalent", {
   expect_error(chk_equivalent(1, 1.001, 0.0001), c("^`1` not equivalent to: 1[.]001[.]$"))
   expect_error(chk_equivalent(1, c(1,5,1,9)), 
                "^`1` not equivalent to: c[(]1, 5, 1, 9[)][.]$")
+  expect_error(chk_equivalent(1, 2, x_name = 2), 
+               "^`2` not equivalent to: 2[.]$")
 })
 
 test_that("chk_no_missing", {
@@ -293,6 +321,7 @@ test_that("chk_no_missing", {
   expect_false(chk_no_missing(NA, err = FALSE))
   expect_false(chk_no_missing(c(NA, 1), err = FALSE))
   expect_error(chk_no_missing(NA), "^`NA` must not have missing values[.]$")
+  expect_error(chk_no_missing(NA, x_name = "1"), "^`1` must not have missing values[.]$")
 })
 
 test_that("chk_unique", {
@@ -305,6 +334,7 @@ test_that("chk_unique", {
   expect_false(chk_unique(c(1,1), err = FALSE))
   expect_false(chk_unique(c(1,2,1), err = FALSE))
   expect_error(chk_unique(c(1,1)), "^`c[(]1, 1[)]` must be unique[.]$")
+  expect_error(chk_unique(c(1,1), x_name = "unicorn"), "^`unicorn` must be unique[.]$")
 })
 
 test_that("chk_unused", {
@@ -349,6 +379,8 @@ test_that("chk_in", {
   
   expect_error(chk_in(3L, values = c(1L, 1L, 7L)), 
                "^`3L` must match 1 or 7, not 3[.]$")
+  expect_error(chk_in(3L, values = c(1L, 1L, 7L), x_name = "1"), 
+               "^`1` must match 1 or 7, not 3[.]$")
 })
 
 test_that("chk_lt", {
@@ -360,6 +392,7 @@ test_that("chk_lt", {
   expect_false(chk_lt(1, err = FALSE))
   expect_error(chk_lt(1), "^`1` must be less than 0, not 1[.]$")
   expect_error(chk_lt(c(1,-1)), "^Values of `c[(]1, -1[)]` must be less than 0[.]$")
+  expect_error(chk_lt(1, x_name = -1), "^`-1` must be less than 0, not 1[.]$")
 })
 
 test_that("chk_lte", {
@@ -371,6 +404,7 @@ test_that("chk_lte", {
   expect_false(chk_lte(1, err = FALSE))
   expect_error(chk_lte(1), "^`1` must be less than or equal to 0, not 1[.]$")
   expect_error(chk_lte(c(1,-1)), "^Values of `c[(]1, -1[)]` must be less than or equal to 0[.]$")
+  expect_error(chk_lte(1, x_name = "0"), "^`0` must be less than or equal to 0, not 1[.]$")
 })
 
 test_that("chk_gt", {
@@ -382,6 +416,7 @@ test_that("chk_gt", {
   expect_false(chk_gt(-1, err = FALSE))
   expect_error(chk_gt(-1), "^`-1` must be greater than 0, not -1[.]$")
   expect_error(chk_gt(c(1,-1)), "^Values of `c[(]1, -1[)]` must be greater than 0[.]$")
+  expect_error(chk_gt(-1, x_name = "a number"), "^`a number` must be greater than 0, not -1[.]$")
 })
 
 test_that("chk_gte", {
@@ -393,6 +428,7 @@ test_that("chk_gte", {
   expect_false(chk_gte(-1, err = FALSE))
   expect_error(chk_gte(-1), "^`-1` must be greater than or equal to 0, not -1[.]$")
   expect_error(chk_gte(c(1,-1)), "^Values of `c[(]1, -1[)]` must be greater than or equal to 0[.]$")
+  expect_error(chk_gte(-1, x_name = "another number"), "^`another number` must be greater than or equal to 0, not -1[.]$")
 })
 
 test_that("chk_range", {
@@ -411,11 +447,14 @@ test_that("chk_range", {
   
   expect_error(chk_range(2, c(1,1)), "^`2` must be 1, not 2[.]$")
   expect_error(chk_range(c(2,1), c(1,1)), "^Values of `c[(]2, 1[)]` must be 1[.]$")
+  expect_error(chk_range(2, c(1,1), x_name = 1), "^`1` must be 1, not 2[.]$")
 })
 
 test_that("chk_dir", {
   expect_error(chk_dir(character(0)), 
                "^`character[(]0[)]` must be length 1, not 0[.]$")
+  expect_error(chk_dir(character(0), x_name = "this"), 
+               "^`this` must be length 1, not 0[.]$")
   expect_true(chk_dir(tempdir()))
   expect_error(chk_dir(tempfile()), "^Can't find directory '.*'[.]$")
   path <- file.path(tempdir(), "chk")
@@ -440,6 +479,8 @@ test_that("chk_dirs", {
 test_that("chk_file", {
   expect_error(chk_file(character(0)), 
               "^`character[(]0[)]` must be length 1, not 0[.]$")
+  expect_error(chk_file(character(0), x_name = "that"), 
+              "^`that` must be length 1, not 0[.]$")
   expect_false(chk_file(tempdir(), err = FALSE))
   file <- paste0(tempfile(), ".csv")
   expect_false(chk_file(file, err = FALSE))
