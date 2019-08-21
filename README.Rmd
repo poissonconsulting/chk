@@ -111,8 +111,17 @@ The functions are designed to be fast.
 
 As exemplified by `chk_flag`, the `chk_` functions immediately evaluate their 
 object in one line of code and return TRUE if the check is successful.
-```{r}
+
+``` r
 chk_flag
+#> function(x, err = TRUE) {
+#>   if(is.logical(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
+#>   if(!err) return(FALSE)
+#>   x_name <- deparse(substitute(x))
+#>   err("`", x_name, "` must be a flag (TRUE or FALSE).")
+#> }
+#> <bytecode: 0x7fdcf123c878>
+#> <environment: namespace:chk>
 ```
 
 #### Minimal Checking
@@ -161,4 +170,4 @@ Please report any [issues](https://github.com/poissonconsulting/chk/issues).
 [Pull requests](https://github.com/poissonconsulting/chk/pulls) are always welcome.
 
 Please note that this project is released with a [Contributor Code of Conduct](https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md).
-By contributing, you agree to abide by its terms
+By contributing, you agree to abide by its terms.
