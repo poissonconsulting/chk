@@ -6,7 +6,7 @@ Authors@R: c(
     person("Poisson Consulting", role = c("cph", "fnd"))
     )
 Description: For developers to check user-supplied function arguments.
-        It is designed to be simple, fast and customisable.
+        It is designed to be simple, fast and customizable.
         Error messages follow the tidyverse style guide.
 License: CC0
 Depends: R (>= 3.5)

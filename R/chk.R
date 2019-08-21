@@ -127,7 +127,7 @@ chk_lgl <- function(x, err = TRUE) {
 
 #' @describeIn chk_true Check Number
 #' 
-#' Checks if non-mising numeric scalar using:
+#' Checks if non-missing numeric scalar using:
 #' 
 #' \code{is.numeric(x) && length(x) == 1L && !anyNA(x)}
 #' 
@@ -144,7 +144,7 @@ chk_number <- function(x, err = TRUE) {
 
 #' @describeIn chk_true Check Proportion
 #' 
-#' Checks if non-mising numeric scalar between 0 and 1 using:
+#' Checks if non-missing numeric scalar between 0 and 1 using:
 #' 
 #' \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1}
 #' 
@@ -163,7 +163,7 @@ chk_proportion <- function(x, err = TRUE) {
 
 #' @describeIn chk_true Check Whole Number
 #'  
-#' Checks if non-mising integer scalar or double equivalent using:
+#' Checks if non-missing integer scalar or double equivalent using:
 #' 
 #' \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && 
 #'   (is.integer(x) || isTRUE(all.equal(x, as.integer(x))))}
@@ -612,7 +612,7 @@ chk_gte <- function (x, value = 0, err = TRUE) {
 #' 
 #' \code{all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])}
 #' 
-#' Range should be a non-mising sorted vector of length 2.
+#' Range should be a non-missing sorted vector of length 2.
 #' 
 #' @export
 #

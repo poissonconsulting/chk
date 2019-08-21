@@ -25,7 +25,7 @@ status](https://www.r-pkg.org/badges/version/chk)](https://cran.r-project.org/pa
 `chk` is an R package for developers to check user-supplied function
 arguments.
 
-It is designed to be simple, customisable and fast.
+It is designed to be simple, customizable and fast.
 
 ## Installation
 
@@ -87,9 +87,9 @@ informative error.
 Error messages follow the [tidyverse style
 guide](https://style.tidyverse.org/error-messages.html).
 
-### Customisable
+### Customizable
 
-The functions are designed to be customisable.
+The functions are designed to be customizable.
 
 #### Custom Error Messages
 
@@ -111,15 +111,15 @@ if(!chk_flag(1, err = FALSE)) stop("x MUST be a flag (try as.logical())")
 #### Copy and Paste
 
 `chk` is released under the
-[CC0](https://creativecommons.org/publicdomain/zero/1.0/) licence. This
+[CC0](https://creativecommons.org/publicdomain/zero/1.0/) license. This
 allows developers to copy and paste functions into their package which
-is useful if they want to minimise their dependencies.
+is useful if they want to minimize their dependencies.
 
 Copied functions should not be exported (to avoid namespace conflicts)
 and the following creditation preserved.
 
 ``` r
-#  Licence: CC
+#  License: CC
 #  Repository: https://github.com/poissonconsulting/chk
 ```
 

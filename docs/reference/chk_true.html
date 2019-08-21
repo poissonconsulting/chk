@@ -277,13 +277,13 @@ message if the check fails.</p></td>
 <p>Checks if logical scalar using:</p>
 <p><code>is.logical(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></p></li>
 <li><p><code>chk_number</code>: Check Number</p>
-<p>Checks if non-mising numeric scalar using:</p>
+<p>Checks if non-missing numeric scalar using:</p>
 <p><code>is.numeric(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></p></li>
 <li><p><code>chk_proportion</code>: Check Proportion</p>
-<p>Checks if non-mising numeric scalar between 0 and 1 using:</p>
+<p>Checks if non-missing numeric scalar between 0 and 1 using:</p>
 <p><code>is.numeric(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x) &amp;&amp; x &gt;= 0 &amp;&amp; x &lt;= 1</code></p></li>
 <li><p><code>chk_whole_number</code>: Check Whole Number</p> 
-<p>Checks if non-mising integer scalar or double equivalent using:</p>
+<p>Checks if non-missing integer scalar or double equivalent using:</p>
 <p><code>is.numeric(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x) &amp;&amp; 
   (is.integer(x) || isTRUE(all.equal(x, as.integer(x))))</code></p></li>
 <li><p><code>chk_count</code>: Check Count</p> 
@@ -365,7 +365,7 @@ message if the check fails.</p></td>
 <li><p><code>chk_range</code>: Check Range</p>
 <p>Checks if all non-missing values fall within range using:</p>
 <p><code>all(x[!is.na(x)] &gt;= range[1] &amp; x[!is.na(x)] &lt;= range[2])</code></p>
-<p>Range should be a non-mising sorted vector of length 2.</p></li>
+<p>Range should be a non-missing sorted vector of length 2.</p></li>
 <li><p><code>chk_in</code>: Check In</p>
 <p>Checks if all values in values using equivalent of:</p>
 <p><code>all(<a href='https://rdrr.io/r/base/match.html'>match</a>(x, values, nomatch = 0) &gt; 0)</code></p></li>

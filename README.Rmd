@@ -28,7 +28,7 @@ knitr::opts_chunk$set(
 
 `chk` is an R package for developers to check user-supplied function arguments.
 
-It is designed to be simple, customisable and fast.
+It is designed to be simple, customizable and fast.
 
 ## Installation
 
@@ -72,9 +72,9 @@ By default, each check returns TRUE if successful or throws an informative error
 
 Error messages follow the [tidyverse style guide](https://style.tidyverse.org/error-messages.html).
 
-### Customisable
+### Customizable
 
-The functions are designed to be customisable.
+The functions are designed to be customizable.
 
 #### Custom Error Messages
 
@@ -83,7 +83,6 @@ If `err = FALSE` a check returns FALSE (instead of throwing an error) on check f
 ```{r}
 chk_flag(1, err = FALSE)
 ```
-
 This allows developers to provide their own error messages.
 
 ```{r, error = TRUE}
@@ -92,14 +91,14 @@ if(!chk_flag(1, err = FALSE)) stop("x MUST be a flag (try as.logical())")
 
 #### Copy and Paste
 
-`chk` is released under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/) licence.
+`chk` is released under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/) license.
 This allows developers to copy and paste functions into their package
-which is useful if they want to minimise their dependencies.
+which is useful if they want to minimize their dependencies.
 
 Copied functions should not be exported (to avoid namespace conflicts) and the 
 following creditation preserved.
 ```r
-#  Licence: CC
+#  License: CC
 #  Repository: https://github.com/poissonconsulting/chk
 ```
 
