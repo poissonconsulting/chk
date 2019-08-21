@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9008</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
       </span>
     </div>
 
@@ -92,7 +92,7 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#chk" class="anchor"></a>chk</h1></div>
 <!-- badges: start -->
-
+<p><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a> <a href="https://travis-ci.com/poissonconsulting/chk"><img src="https://travis-ci.com/poissonconsulting/chk.svg?branch=master" alt="Travis build status"></a> <a href="https://ci.appveyor.com/project/poissonconsulting/chk"><img src="https://ci.appveyor.com/api/projects/status/github/poissonconsulting/chk?branch=master&amp;svg=true" alt="AppVeyor build status"></a> <a href="https://codecov.io/gh/poissonconsulting/chk?branch=master"><img src="https://codecov.io/gh/poissonconsulting/chk/branch/master/graph/badge.svg" alt="Codecov test coverage"></a> <a href="https://creativecommons.org/publicdomain/zero/1.0/"><img src="https://img.shields.io/badge/License-CC0-blue.svg" alt="License: CC0"></a> <a href="https://CRAN.R-project.org/package=chk"><img src="https://tinyverse.netlify.com/badge/chk" alt="Tinyverse status"></a> <a href="https://cran.r-project.org/package=chk"><img src="https://www.r-pkg.org/badges/version/chk" alt="CRAN status"></a> <img src="http://cranlogs.r-pkg.org/badges/chk" alt="CRAN downloads"><!-- badges: end --></p>
 <p><code>chk</code> is an R package for developers to check user-supplied function arguments.</p>
 <p>It is designed to be simple, customisable and fast.</p>
 <div id="installation" class="section level2">
@@ -126,16 +126,18 @@
 <span id="cb3-13"><a href="#cb3-13"></a><span class="kw"><a href="reference/chk_true.html">chk_range</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(data), <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">3</span>,<span class="dv">8</span>))</span>
 <span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; Error: `nrow(data)` must be between 3 and 8, not 2.</span></span>
 <span id="cb3-15"><a href="#cb3-15"></a><span class="kw"><a href="reference/chk_true.html">chk_match</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(data), <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">3</span>,<span class="dv">8</span>))</span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="co">#&gt; Error in chk_match(nrow(data), c(3, 8)): could not find function "chk_match"</span></span>
-<span id="cb3-17"><a href="#cb3-17"></a></span>
-<span id="cb3-18"><a href="#cb3-18"></a><span class="kw"><a href="reference/chk_true.html">chk_identical</a></span>(data<span class="op">$</span>x, <span class="dv">2</span><span class="op">:</span><span class="dv">1</span>)</span>
-<span id="cb3-19"><a href="#cb3-19"></a><span class="co">#&gt; Error: `data$x` not identical to: 2:1.</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a></span>
-<span id="cb3-21"><a href="#cb3-21"></a>z &lt;-<span class="st"> "b"</span></span>
-<span id="cb3-22"><a href="#cb3-22"></a><span class="kw"><a href="reference/chkor.html">chkor</a></span>(<span class="kw"><a href="reference/chk_true.html">chk_flag</a></span>(z), <span class="kw"><a href="reference/chk_true.html">chk_number</a></span>(z))</span>
-<span id="cb3-23"><a href="#cb3-23"></a><span class="co">#&gt; Error: At least one of the following conditions must be met:</span></span>
-<span id="cb3-24"><a href="#cb3-24"></a><span class="co">#&gt; * `z` must be a flag (TRUE or FALSE).</span></span>
-<span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt; * `z` must be a number (non-missing numeric scalar).</span></span></code></pre></div>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="co">#&gt; Warning in grepl(regexp, x): argument 'pattern' has length &gt; 1 and only the</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="co">#&gt; first element will be used</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="co">#&gt; Error: `nrow(data)` must match regular expression '38'.</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a></span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="kw"><a href="reference/chk_true.html">chk_identical</a></span>(data<span class="op">$</span>x, <span class="dv">2</span><span class="op">:</span><span class="dv">1</span>)</span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="co">#&gt; Error: `data$x` not identical to: 2:1.</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a></span>
+<span id="cb3-23"><a href="#cb3-23"></a>z &lt;-<span class="st"> "b"</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="kw"><a href="reference/chkor.html">chkor</a></span>(<span class="kw"><a href="reference/chk_true.html">chk_flag</a></span>(z), <span class="kw"><a href="reference/chk_true.html">chk_number</a></span>(z))</span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt; Error: At least one of the following conditions must be met:</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a><span class="co">#&gt; * `z` must be a flag (TRUE or FALSE).</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="co">#&gt; * `z` must be a number (non-missing numeric scalar).</span></span></code></pre></div>
 <p>By default, each check returns TRUE if successful or throws an informative error.</p>
 <p>Error messages follow the <a href="https://style.tidyverse.org/error-messages.html">tidyverse style guide</a>.</p>
 </div>
@@ -177,7 +179,7 @@
 <span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt;   x_name &lt;- deparse(substitute(x))</span></span>
 <span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt;   err("`", x_name, "` must be a flag (TRUE or FALSE).")</span></span>
 <span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt; }</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt; &lt;bytecode: 0x7ff3e668cba0&gt;</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt; &lt;bytecode: 0x7fdcf123c878&gt;</span></span>
 <span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt; &lt;environment: namespace:chk&gt;</span></span></code></pre></div>
 </div>
 <div id="minimal-checking" class="section level4">
@@ -228,7 +230,7 @@
 <a href="#contribution" class="anchor"></a>Contribution</h2>
 <p>Please report any <a href="https://github.com/poissonconsulting/chk/issues">issues</a>.</p>
 <p><a href="https://github.com/poissonconsulting/chk/pulls">Pull requests</a> are always welcome.</p>
-<p>Please note that this project is released with a <a href="https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>. By contributing, you agree to abide by its terms</p>
+<p>Please note that this project is released with a <a href="https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>. By contributing, you agree to abide by its terms.</p>
 </div>
 </div>
   </div>
@@ -263,17 +265,7 @@
 </ul>
 </div>
 
-      <div class="dev-status">
-<h2>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://travis-ci.com/poissonconsulting/chk"><img src="https://travis-ci.com/poissonconsulting/chk.svg?branch=master" alt="Travis build status"></a></li>
-<li><a href="https://ci.appveyor.com/project/poissonconsulting/chk"><img src="https://ci.appveyor.com/api/projects/status/github/poissonconsulting/chk?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
-<li><a href="https://codecov.io/gh/poissonconsulting/chk?branch=master"><img src="https://codecov.io/gh/poissonconsulting/chk/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://creativecommons.org/publicdomain/zero/1.0/"><img src="https://img.shields.io/badge/License-CC0-blue.svg" alt="License: CC0"></a></li>
-</ul>
-</div>
-</div>
+      </div>
 
 </div>
 
