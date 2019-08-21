@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Travis build
 status](https://travis-ci.com/poissonconsulting/chk.svg?branch=master)](https://travis-ci.com/poissonconsulting/chk)
 [![AppVeyor build
@@ -15,6 +15,11 @@ status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/chk
 coverage](https://codecov.io/gh/poissonconsulting/chk/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/chk?branch=master)
 [![License:
 CC0](https://img.shields.io/badge/License-CC0-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+[![Tinyverse
+status](https://tinyverse.netlify.com/badge/chk)](https://CRAN.R-project.org/package=chk)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/chk)](https://cran.r-project.org/package=chk)
+![CRAN downloads](http://cranlogs.r-pkg.org/badges/chk)
 <!-- badges: end -->
 
 `chk` is an R package for developers to check user-supplied function
@@ -62,7 +67,9 @@ chk_is(data, "data.frame")
 chk_range(nrow(data), c(3,8))
 #> Error: `nrow(data)` must be between 3 and 8, not 2.
 chk_match(nrow(data), c(3,8))
-#> Error in chk_match(nrow(data), c(3, 8)): could not find function "chk_match"
+#> Warning in grepl(regexp, x): argument 'pattern' has length > 1 and only the
+#> first element will be used
+#> Error: `nrow(data)` must match regular expression '38'.
 
 chk_identical(data$x, 2:1)
 #> Error: `data$x` not identical to: 2:1.
@@ -134,7 +141,7 @@ chk_flag
 #>   x_name <- deparse(substitute(x))
 #>   err("`", x_name, "` must be a flag (TRUE or FALSE).")
 #> }
-#> <bytecode: 0x7fb38c074670>
+#> <bytecode: 0x7fdcf123c878>
 #> <environment: namespace:chk>
 ```
 
