@@ -727,6 +727,10 @@ chk_file <- function(x, err = TRUE){
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_all <- function(x, chk_fun, ..., err = TRUE, x_name = NULL) {
+  if(is.null(x)) {
+    if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+    return(chk_fun(x, ..., err = err, x_name = x_name))
+  }
   args <- list(...)
   args$X <- x
   args$FUN <- chk_fun
