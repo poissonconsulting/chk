@@ -22,6 +22,7 @@
 #' @param value A non-missing scalar of a value.
 #' @param range A vector of length 2 of the lower and upper permitted values.
 #' @param regexp A string of a regular expression.
+#' @param chk_fun A chk function.
 #' @param ... Additional arguments.
 #'
 #' @return TRUE if passes check. Otherwise if throws an informative error unless
@@ -483,7 +484,7 @@ chk_identical <- function (x, y, err = TRUE, x_name = NULL) {
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
   y <- utils::capture.output(dput(y, control = "all"))
-  err(x_name, " not identical to: ", y, ".")
+  err(x_name, " must be identical to: ", y, ".")
 }
 
 #' @describeIn chk_true Check Equal
@@ -502,7 +503,7 @@ chk_equal <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE,
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
   y <- utils::capture.output(dput(y, control = "all"))
-  err(x_name, " not equal to: ", y, ".")
+  err(x_name, " must be equal to: ", y, ".")
 }
 
 #' @describeIn chk_true Check Equivalent
@@ -521,7 +522,7 @@ chk_equivalent <- function (x, y, tolerance = sqrt(.Machine$double.eps),
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
   y <- utils::capture.output(dput(y, control = "all"))
-  err(x_name, " not equivalent to: ", y, ".")
+  err(x_name, " must be equivalent to: ", y, ".")
 }
 
 #' @describeIn chk_true Check Less Than
@@ -542,7 +543,7 @@ chk_lt <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
     err(x_name, " must be less than ", cc(value), ", not ", cc(x), ".")
-  err("Values of ", x_name, " must be less than ", cc(value), ".")
+  err(x_name, " must be less than ", cc(value), ".")
 }
 
 #' @describeIn chk_true Check Less Than or Equal To
@@ -563,7 +564,7 @@ chk_lte <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
     err(x_name, " must be less than or equal to ", cc(value), ", not ", cc(x), ".")
-  err("Values of ", x_name, " must be less than or equal to ", cc(value), ".")
+  err(x_name, " must be less than or equal to ", cc(value), ".")
 }
 
 #' @describeIn chk_true Check Greater Than
@@ -584,7 +585,7 @@ chk_gt <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
     err(x_name, " must be greater than ", cc(value), ", not ", cc(x), ".")
-  err("Values of ", x_name, " must be greater than ", cc(value), ".")
+  err(x_name, " must be greater than ", cc(value), ".")
 }
 
 #' @describeIn chk_true Check Greater Than or Equal To
@@ -606,7 +607,7 @@ chk_gte <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(length(x) == 1L)
     err(x_name, " must be greater than or equal to ", cc(value), 
         ", not ", cc(x), ".")
-  err("Values of ", x_name, " must be greater than or equal to ", cc(value), ".")
+  err(x_name, " must be greater than or equal to ", cc(value), ".")
 }
 
 #' @describeIn chk_true Check Range
@@ -632,8 +633,8 @@ chk_range <- function (x, range = c(0, Inf), err = TRUE, x_name = NULL) {
         ", not ", cc(x), ".")
   }
   if(range[1] == range[2])
-    err("Values of ", x_name, " must be ", cc(range[1]), ".")
-  err("Values of ", x_name, " must be between ", cc(range, " and "), ".")
+    err(x_name, " must be ", cc(range[1]), ".")
+  err(x_name, " must be between ", cc(range, " and "), ".")
 }
 
 #' @describeIn chk_true Check In
@@ -653,7 +654,7 @@ chk_in <- function (x, values = c(0, 1, NA), err = TRUE, x_name = NULL) {
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
     err(x_name, " must match ", cc(values, " or "), ", not ", cc(x), ".")
-  err("Values of ", x_name, " must match ", cc(values, " or "), ".")
+  err(x_name, " must match ", cc(values, " or "), ".")
 }
 
 #' @describeIn chk_true Check Matches
@@ -672,28 +673,7 @@ chk_match <- function (x, regexp = ".+", err = TRUE, x_name = NULL) {
   if(all(grepl(regexp, x))) return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
-  if(length(x) == 1)
-    err(x_name, " must match regular expression '", regexp, "'.")
-  err("All values of ", x_name, " must match regular expression '", regexp, "'.")
-}
-
-#' @describeIn chk_true Check Directory Exists
-#' 
-#' Checks if directory exist using:
-#' 
-#' \code{length(x) == 1L && \link{dir.exists}(x))}
-#' 
-#' @export
-#
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_dir <- function(x, err = TRUE, x_name = NULL){
-  if(length(x) == 1L && dir.exists(x)) return(TRUE)
-  if(!err) return(FALSE)
-  if(length(x) == 1L)
-    err("Can't find directory '", x, "'.")
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
-  err(x_name, " must be length 1, not ", length(x), ".")
+  err(x_name, " must match regular expression '", regexp, "'.")
 }
 
 #' @describeIn chk_true Check Directories Exist
@@ -706,7 +686,7 @@ chk_dir <- function(x, err = TRUE, x_name = NULL){
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_dirs <- function(x, err = TRUE){
+chk_dir <- function(x, err = TRUE){
   if(all(dir.exists(x))) return(TRUE)
   if(!err) return(FALSE)
   x <- unique(x)
@@ -714,25 +694,6 @@ chk_dirs <- function(x, err = TRUE){
   if(length(x) == 1L)
     err("Can't find directory '", x, "'.")
   err("Can't find the following directories: ", cc(x, " or "), ".")
-}
-
-#' @describeIn chk_true Check File Exists
-#' 
-#' Checks if file exists using:
-#' 
-#' \code{length(x) == 1L & \link{file.exists}(x) && !dir.exists(x)}
-#' 
-#' @export
-#
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_file <- function(x, err = TRUE, x_name = NULL){
-  if(length(x) == 1L & all(file.exists(x) & !dir.exists(x))) return(TRUE)
-  if(!err) return(FALSE)
-  if(length(x) == 1L)
-    err("Can't find file '", x, "'.")
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
-  err(x_name, " must be length 1, not ", length(x), ".")
 }
 
 #' @describeIn chk_true Check Files Exist
@@ -745,7 +706,7 @@ chk_file <- function(x, err = TRUE, x_name = NULL){
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_files <- function(x, err = TRUE){
+chk_file <- function(x, err = TRUE){
   if(all(file.exists(x) & !dir.exists(x))) return(TRUE)
   if(!err) return(FALSE)
   x <- unique(x)
@@ -754,7 +715,6 @@ chk_files <- function(x, err = TRUE){
     err("Can't find file '", x, "'.")
   err("Can't find the following files: ", cc(x, " or "), ".")
 }
-
 
 #' @describeIn chk_true Check All
 #' 
@@ -776,7 +736,7 @@ chk_all <- function(x, chk_fun, ..., err = TRUE, x_name = NULL) {
   if(all(do.call("vapply", args))) return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
-  x_name <- p0("all elements of ", x_name)
+  x_name <- p0("All elements of ", x_name)
   args$err <- TRUE
   args$x_name <- x_name
   do.call("vapply", args)

@@ -231,13 +231,13 @@ test_that("chk_match", {
                "`NA_character_` must match regular expression '.+'")
   expect_true(chk_match(c("a", "b")))
   expect_error(chk_match(c("a", "b"), "b"), 
-               "All values of `c[(]\"a\", \"b\"[)]` must match regular expression 'b'[.]$")
+               "`c[(]\"a\", \"b\"[)]` must match regular expression 'b'[.]$")
   expect_error(chk_match(c("a", "b"), 'b'), 
-               "All values of `c[(]\"a\", \"b\"[)]` must match regular expression 'b'[.]$")
+               "`c[(]\"a\", \"b\"[)]` must match regular expression 'b'[.]$")
   expect_error(chk_match(c(NA, "b"), 'b'), 
-               "All values of `c[(]NA, \"b\"[)]` must match regular expression 'b'[.]$")
+               "`c[(]NA, \"b\"[)]` must match regular expression 'b'[.]$")
   expect_error(chk_match(c(NA, "b"), 'b', x_name = "b"), 
-               "All values of b must match regular expression 'b'[.]$")
+               "b must match regular expression 'b'[.]$")
 })
 
 test_that("chk_identical", {
@@ -249,20 +249,20 @@ test_that("chk_identical", {
   expect_true(chk_identical(c(1L), 1L))
   expect_false(chk_identical(c(x = 1L), 1L, err = FALSE))
   expect_error(chk_identical(c(x = 1L), 1L), 
-               "^`c[(]x = 1L[)]` not identical to: 1L[.]$")
+               "^`c[(]x = 1L[)]` must be identical to: 1L[.]$")
   expect_false(chk_identical(1L, c(x = 1L), err = FALSE))
   expect_error(chk_identical(1L, c(x = 1L)), 
-               "^`1L` not identical to: c[(]x = 1L[)][.]$")
+               "^`1L` must be identical to: c[(]x = 1L[)][.]$")
   
-  expect_error(chk_identical(1, 1L), "^`1` not identical to: 1L[.]$")
+  expect_error(chk_identical(1, 1L), "^`1` must be identical to: 1L[.]$")
   expect_error(chk_identical(1, 1:10), 
-               "^`1` not identical to: 1:10[.]$")
+               "^`1` must be identical to: 1:10[.]$")
   expect_error(chk_identical(1, 1:100), 
-               "^`1` not identical to: 1:100[.]$")
+               "^`1` must be identical to: 1:100[.]$")
   expect_error(chk_identical(1, c(1,5,1,9)), 
-               "^`1` not identical to: c[(]1, 5, 1, 9[)][.]$")
+               "^`1` must be identical to: c[(]1, 5, 1, 9[)][.]$")
   expect_error(chk_identical(1, 2, x_name = 2), 
-               "^2 not identical to: 2[.]$")
+               "^2 must be identical to: 2[.]$")
 })
 
 test_that("chk_equal", {
@@ -274,21 +274,21 @@ test_that("chk_equal", {
   expect_true(chk_equal(c(1L), 1L))
   expect_false(chk_equal(c(x = 1L), 1L, err = FALSE))
   expect_error(chk_equal(c(x = 1L), 1L), 
-               "^`c[(]x = 1L[)]` not equal to: 1L[.]$")
+               "^`c[(]x = 1L[)]` must be equal to: 1L[.]$")
   expect_false(chk_equal(1L, c(x = 1L), err = FALSE))
   expect_error(chk_equal(1L, c(x = 1L)), 
-               "^`1L` not equal to: c[(]x = 1L[)][.]$")
+               "^`1L` must be equal to: c[(]x = 1L[)][.]$")
   
   expect_true(chk_equal(1, 1.00000001))
   expect_true(chk_equal(1, 1.001, 0.01))
   expect_true(chk_equal(1, 1.001, 0.001))
   
   expect_false(chk_equal(1, 1.001, 0.0001, err = FALSE))
-  expect_error(chk_equal(1, 1.001, 0.0001), c("^`1` not equal to: 1[.]001[.]$"))
+  expect_error(chk_equal(1, 1.001, 0.0001), c("^`1` must be equal to: 1[.]001[.]$"))
   expect_error(chk_equal(1, c(1,5,1,9)), 
-               "^`1` not equal to: c[(]1, 5, 1, 9[)][.]$")
+               "^`1` must be equal to: c[(]1, 5, 1, 9[)][.]$")
   expect_error(chk_equal(1, 2, x_name = 2), 
-               "^2 not equal to: 2[.]$")
+               "^2 must be equal to: 2[.]$")
 })
 
 test_that("chk_equivalent", {
@@ -308,11 +308,11 @@ test_that("chk_equivalent", {
   expect_true(chk_equivalent(1, 1.001, 0.001))
   
   expect_false(chk_equivalent(1, 1.001, 0.0001, err = FALSE))
-  expect_error(chk_equivalent(1, 1.001, 0.0001), c("^`1` not equivalent to: 1[.]001[.]$"))
+  expect_error(chk_equivalent(1, 1.001, 0.0001), c("^`1` must be equivalent to: 1[.]001[.]$"))
   expect_error(chk_equivalent(1, c(1,5,1,9)), 
-               "^`1` not equivalent to: c[(]1, 5, 1, 9[)][.]$")
+               "^`1` must be equivalent to: c[(]1, 5, 1, 9[)][.]$")
   expect_error(chk_equivalent(1, 2, x_name = 2), 
-               "^2 not equivalent to: 2[.]$")
+               "^2 must be equivalent to: 2[.]$")
 })
 
 test_that("chk_no_missing", {
@@ -353,14 +353,14 @@ test_that("chk_in", {
   expect_true(chk_in(integer(0)))
   expect_error(chk_in(NA, c(0, Inf)), "^`NA` must match 0 or Inf, not NA[.]$")
   expect_false(chk_in(1:3, err = FALSE))
-  expect_error(chk_in(1:3), "^Values of `1:3` must match 0, 1 or NA[.]$")
+  expect_error(chk_in(1:3), "`1:3` must match 0, 1 or NA[.]$")
   expect_true(chk_in(numeric(0), 1L))
   
   expect_false(chk_in(-1, err = FALSE))
   expect_error(chk_in(-1), "^`-1` must match 0, 1 or NA, not -1[.]$")
   
   expect_false(chk_in(1L, 0L, err = FALSE))
-  expect_error(chk_in(c(1L, 1L), 0L), c("^Values of `c[(]1L, 1L[)]` must match 0[.]$"))
+  expect_error(chk_in(c(1L, 1L), 0L), c("^`c[(]1L, 1L[)]` must match 0[.]$"))
   expect_error(chk_in(1, ""), "^`1` must match '', not 1[.]$")
   
   expect_false(chk_in(1, NA, err = FALSE)) 
@@ -369,13 +369,13 @@ test_that("chk_in", {
   
   expect_false(chk_in(c(NA, 1), 1, err = FALSE)) 
   expect_error(chk_in(c(NA, 1), 1), 
-               "^Values of `c[(]NA, 1[)]` must match 1[.]$")
+               "^`c[(]NA, 1[)]` must match 1[.]$")
   
   expect_true(chk_in(NA, NA))
   
   expect_false(chk_in(c(NA, 1), 1:2, err = FALSE)) 
   expect_error(chk_in(c(NA, 1), 1:2), 
-               "^Values of `c[(]NA, 1[)]` must match 1 or 2[.]$")
+               "^`c[(]NA, 1[)]` must match 1 or 2[.]$")
   
   expect_error(chk_in(3L, values = c(1L, 1L, 7L)), 
                "^`3L` must match 1 or 7, not 3[.]$")
@@ -391,7 +391,7 @@ test_that("chk_lt", {
   expect_false(chk_lt(0, err = FALSE))
   expect_false(chk_lt(1, err = FALSE))
   expect_error(chk_lt(1), "^`1` must be less than 0, not 1[.]$")
-  expect_error(chk_lt(c(1,-1)), "^Values of `c[(]1, -1[)]` must be less than 0[.]$")
+  expect_error(chk_lt(c(1,-1)), "^`c[(]1, -1[)]` must be less than 0[.]$")
   expect_error(chk_lt(1, x_name = -1), "^-1 must be less than 0, not 1[.]$")
 })
 
@@ -403,7 +403,7 @@ test_that("chk_lte", {
   expect_true(chk_lte(0))
   expect_false(chk_lte(1, err = FALSE))
   expect_error(chk_lte(1), "^`1` must be less than or equal to 0, not 1[.]$")
-  expect_error(chk_lte(c(1,-1)), "^Values of `c[(]1, -1[)]` must be less than or equal to 0[.]$")
+  expect_error(chk_lte(c(1,-1)), "^`c[(]1, -1[)]` must be less than or equal to 0[.]$")
   expect_error(chk_lte(1, x_name = "0"), "^0 must be less than or equal to 0, not 1[.]$")
 })
 
@@ -415,7 +415,7 @@ test_that("chk_gt", {
   expect_false(chk_gt(0, err = FALSE))
   expect_false(chk_gt(-1, err = FALSE))
   expect_error(chk_gt(-1), "^`-1` must be greater than 0, not -1[.]$")
-  expect_error(chk_gt(c(1,-1)), "^Values of `c[(]1, -1[)]` must be greater than 0[.]$")
+  expect_error(chk_gt(c(1,-1)), "^`c[(]1, -1[)]` must be greater than 0[.]$")
   expect_error(chk_gt(-1, x_name = "a number"), "^a number must be greater than 0, not -1[.]$")
 })
 
@@ -427,7 +427,7 @@ test_that("chk_gte", {
   expect_true(chk_gte(0))
   expect_false(chk_gte(-1, err = FALSE))
   expect_error(chk_gte(-1), "^`-1` must be greater than or equal to 0, not -1[.]$")
-  expect_error(chk_gte(c(1,-1)), "^Values of `c[(]1, -1[)]` must be greater than or equal to 0[.]$")
+  expect_error(chk_gte(c(1,-1)), "^`c[(]1, -1[)]` must be greater than or equal to 0[.]$")
   expect_error(chk_gte(-1, x_name = "another number"), "^another number must be greater than or equal to 0, not -1[.]$")
 })
 
@@ -441,74 +441,40 @@ test_that("chk_range", {
   
   expect_false(chk_range(-1, err = FALSE))
   expect_error(chk_range(-1), "^`-1` must be between 0 and Inf, not -1[.]$")
-  expect_error(chk_range(c(-1, NA)), "^Values of `c[(]-1, NA[)]` must be between 0 and Inf[.]$")
+  expect_error(chk_range(c(-1, NA)), "^`c[(]-1, NA[)]` must be between 0 and Inf[.]$")
   expect_true(chk_range(c(-1, -1), c(-2, -1)))
   expect_true(chk_range(c(NA, 1), 1:2)) 
   
   expect_error(chk_range(2, c(1,1)), "^`2` must be 1, not 2[.]$")
-  expect_error(chk_range(c(2,1), c(1,1)), "^Values of `c[(]2, 1[)]` must be 1[.]$")
+  expect_error(chk_range(c(2,1), c(1,1)), "^`c[(]2, 1[)]` must be 1[.]$")
   expect_error(chk_range(2, c(1,1), x_name = 1), "^1 must be 1, not 2[.]$")
 })
 
 test_that("chk_dir", {
-  expect_error(chk_dir(character(0)), 
-               "^`character[(]0[)]` must be length 1, not 0[.]$")
-  expect_error(chk_dir(character(0), x_name = "this"), 
-               "^this must be length 1, not 0[.]$")
+  expect_true(chk_dir(character(0)))
   expect_true(chk_dir(tempdir()))
   expect_error(chk_dir(tempfile()), "^Can't find directory '.*'[.]$")
   path <- file.path(tempdir(), "chk")
   unlink(path)
   expect_false(chk_dir(path, err = FALSE))
   expect_error(chk_dir(path), "^Can't find directory '.*chk'[.]$")
-  expect_error(chk_dir(c(path, file.path(path, "other"))), 
-               "^`c[(]path, file.path[(]path, \"other\"[)][)]` must be length 1, not 2[.]$")
-})
-
-test_that("chk_dirs", {
-  expect_true(chk_dirs(character(0)))
-  expect_true(chk_dirs(tempdir()))
-  expect_error(chk_dirs(tempfile()), "^Can't find directory '.*'[.]$")
-  path <- file.path(tempdir(), "chk")
-  unlink(path)
-  expect_false(chk_dirs(path, err = FALSE))
-  expect_error(chk_dirs(path), "^Can't find directory '.*chk'[.]$")
-  expect_error(chk_dirs(c(path, file.path(path, "other"))), "^Can't find the following directories: '.*chk' or '.*other'[.]$")
+  expect_error(chk_dir(c(path, file.path(path, "other"))), "^Can't find the following directories: '.*chk' or '.*other'[.]$")
 })
 
 test_that("chk_file", {
-  expect_error(chk_file(character(0)), 
-              "^`character[(]0[)]` must be length 1, not 0[.]$")
-  expect_error(chk_file(character(0), x_name = "that"), 
-              "^that must be length 1, not 0[.]$")
+  expect_true(chk_file(character(0)))
   expect_false(chk_file(tempdir(), err = FALSE))
   file <- paste0(tempfile(), ".csv")
   expect_false(chk_file(file, err = FALSE))
   expect_error(chk_file(file), "^Can't find file '.*[.]csv'[.]$")
   file1 <- paste0(tempfile(), "1.csv")
   file2 <- paste0(tempfile(), "2.csv")
-  expect_error(chk_file(c(file1, file2), 
-                        "^`c[(]file1, file2[)]` must be length 1, not 2[.]$"))
+  expect_error(chk_file(c(file1, file2)), 
+                        "^Can't find the following files: '.*[.]csv' or '.*[.]csv'[.]$")
   teardown(unlink(file))
   write.csv(data.frame(x = 1), file)
   expect_true(chk_file(file))
   expect_false(chk_file(dirname(file), err = FALSE))
-})
-
-test_that("chk_files", {
-  expect_true(chk_files(character(0)))
-  expect_false(chk_files(tempdir(), err = FALSE))
-  file <- paste0(tempfile(), ".csv")
-  expect_false(chk_files(file, err = FALSE))
-  expect_error(chk_files(file), "^Can't find file '.*[.]csv'[.]$")
-  file1 <- paste0(tempfile(), "1.csv")
-  file2 <- paste0(tempfile(), "2.csv")
-  expect_error(chk_files(c(file1, file2)), 
-                        "^Can't find the following files: '.*[.]csv' or '.*[.]csv'[.]$")
-  teardown(unlink(file))
-  write.csv(data.frame(x = 1), file)
-  expect_true(chk_files(file))
-  expect_false(chk_files(dirname(file), err = FALSE))
 })
 
 test_that("chk_all", {
@@ -520,10 +486,10 @@ test_that("chk_all", {
   expect_true(chk_all(list(TRUE, TRUE), chk_true))
   expect_false(chk_all(FALSE, chk_true, err = FALSE))
   expect_error(chk_all(FALSE, chk_true), 
-               "^all elements of `FALSE` must be TRUE[.]$")
+               "^All elements of `FALSE` must be TRUE[.]$")
   expect_error(chk_all(FALSE, chk_true, x_name = TRUE), 
-               "^all elements of TRUE must be TRUE[.]$")
+               "^All elements of TRUE must be TRUE[.]$")
   expect_true(chk_all(1.1, chk_gt, 1))
   expect_error(chk_all(1.1, chk_gt, 2), 
-              "^all elements of `1.1` must be greater than 2, not 1.1[.]$")
+              "^All elements of `1.1` must be greater than 2, not 1.1[.]$")
 })
