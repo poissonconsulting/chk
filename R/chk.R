@@ -754,3 +754,30 @@ chk_files <- function(x, err = TRUE){
     err("Can't find file '", x, "'.")
   err("Can't find the following files: ", cc(x, " or "), ".")
 }
+
+
+#' @describeIn chk_true Check All
+#' 
+#' Checks all elements using:
+#' 
+#' \code{all(vapply(x, chk_fun, TRUE, ...))}
+#' 
+#' @export
+#
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_all <- function(x, chk_fun, ..., err = TRUE, x_name = NULL) {
+  args <- list(...)
+  args$X <- x
+  args$FUN <- chk_fun
+  args$FUN.VALUE <- TRUE
+  args$err <- FALSE
+  
+  if(all(do.call("vapply", args))) return(TRUE)
+  if(!err) return(FALSE)
+  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  x_name <- p0("all elements of ", x_name)
+  args$err <- TRUE
+  args$x_name <- x_name
+  do.call("vapply", args)
+}

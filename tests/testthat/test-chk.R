@@ -510,3 +510,20 @@ test_that("chk_files", {
   expect_true(chk_files(file))
   expect_false(chk_files(dirname(file), err = FALSE))
 })
+
+test_that("chk_all", {
+  expect_true(chk_all(character(0), chk_true))
+  expect_true(chk_all(TRUE, chk_true))
+  expect_true(chk_all(FALSE, chk_false))
+  expect_true(chk_all(list(TRUE), chk_true))
+  expect_true(chk_all(c(TRUE, TRUE), chk_true))
+  expect_true(chk_all(list(TRUE, TRUE), chk_true))
+  expect_false(chk_all(FALSE, chk_true, err = FALSE))
+  expect_error(chk_all(FALSE, chk_true), 
+               "^all elements of `FALSE` must be TRUE[.]$")
+  expect_error(chk_all(FALSE, chk_true, x_name = TRUE), 
+               "^all elements of TRUE must be TRUE[.]$")
+  expect_true(chk_all(1.1, chk_gt, 1))
+  expect_error(chk_all(1.1, chk_gt, 2), 
+              "^all elements of `1.1` must be greater than 2, not 1.1[.]$")
+})

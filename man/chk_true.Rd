@@ -39,6 +39,7 @@
 \alias{chk_dirs}
 \alias{chk_file}
 \alias{chk_files}
+\alias{chk_all}
 \title{Check Object}
 \usage{
 chk_true(x, err = TRUE, x_name = NULL)
@@ -116,6 +117,8 @@ chk_dirs(x, err = TRUE)
 chk_file(x, err = TRUE, x_name = NULL)
 
 chk_files(x, err = TRUE)
+
+chk_all(x, chk_fun, ..., err = TRUE, x_name = NULL)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -392,6 +395,12 @@ Checks if file exists using:
 Checks if files exist using:
 
 \code{all(\link{file.exists}(x) && !dir.exists(x))}
+
+\item \code{chk_all}: Check All
+
+Checks all elements using:
+
+\code{all(vapply(x, chk_fun, TRUE, ...))}
 }}
 
 \examples{
