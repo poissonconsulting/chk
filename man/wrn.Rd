@@ -15,7 +15,5 @@ wrn(...)
 A wrapper on \code{\link[base]{warning}(..., call. = FALSE)}.
 }
 \examples{
-\dontrun{
 wrn("this is a warning")
-}
 }

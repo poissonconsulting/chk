@@ -15,7 +15,7 @@ err(...)
 A wrapper on \code{\link[base]{stop}(..., call. = FALSE)}.
 }
 \examples{
-\dontrun{
+\donttest{
 err("this is an error")
 }
 }

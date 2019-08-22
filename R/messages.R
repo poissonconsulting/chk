@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' err("this is an error")
 #' }
 #
@@ -22,9 +22,7 @@ err <- function (...) stop(..., call. = FALSE)
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' wrn("this is a warning")
-#' }
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
@@ -38,9 +36,7 @@ wrn <- function (...) warning(..., call. = FALSE)
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' msg("this is a message")
-#' }
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk

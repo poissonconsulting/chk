@@ -15,7 +15,5 @@ msg(...)
 A wrapper on \code{\link[base]{message}(...)}.
 }
 \examples{
-\dontrun{
 msg("this is a message")
-}
 }
