@@ -115,6 +115,7 @@ microbenchmark(
   chk_range(one),
   chk_in(one, one),
   chk_match(string),
+  chk_all(true, chk_true),
   chkor(),
   chkor(chk_number(one)),
   chkor(chk_number(one), chk_proportion(one))
