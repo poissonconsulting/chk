@@ -481,6 +481,8 @@ test_that("chk_all", {
   expect_true(chk_all(NULL, chk_null))
   expect_error(chk_all(NULL, chk_flag), 
                "^`NULL` must be a flag [(]TRUE or FALSE[)][.]$")
+  expect_error(chk_all(NULL, chk_flag, x_name = "NULL"), 
+               "^NULL must be a flag [(]TRUE or FALSE[)][.]$")
   expect_true(chk_all(character(0), chk_true))
   expect_true(chk_all(TRUE, chk_true))
   expect_true(chk_all(FALSE, chk_false))
