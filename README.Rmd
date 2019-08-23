@@ -111,16 +111,8 @@ The functions are designed to be fast.
 As exemplified by `chk_flag`, the `chk_` functions immediately evaluate their 
 object in one line of code and return TRUE if the check is successful.
 
-``` r
+```{r}
 chk_flag
-#> function(x, err = TRUE, x_name = NULL){
-#>   if(is.logical(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
-#>   if(!err) return(FALSE)
-#>   if(is.null(x_name))  x_name <- deparse(substitute(x))
-#>   err("`", x_name, "` must be a flag (TRUE or FALSE).")
-#> }
-#> <bytecode: 0x7f9817f28d88>
-#> <environment: namespace:chk>
 ```
 
 #### Minimal Checking

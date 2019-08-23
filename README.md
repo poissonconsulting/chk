@@ -72,7 +72,7 @@ chk_match(nrow(data), c(3,8))
 #> Error: `nrow(data)` must match regular expression '38'.
 
 chk_identical(data$x, 2:1)
-#> Error: `data$x` not identical to: 2:1.
+#> Error: `data$x` must be identical to: 2:1.
 
 z <- "b"
 chkor(chk_flag(z), chk_number(z))
@@ -138,10 +138,10 @@ chk_flag
 #> function(x, err = TRUE, x_name = NULL){
 #>   if(is.logical(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
 #>   if(!err) return(FALSE)
-#>   if(is.null(x_name))  x_name <- deparse(substitute(x))
-#>   err("`", x_name, "` must be a flag (TRUE or FALSE).")
+#>   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+#>   err(x_name, " must be a flag (TRUE or FALSE).")
 #> }
-#> <bytecode: 0x7f9817f28d88>
+#> <bytecode: 0x7fe20c377640>
 #> <environment: namespace:chk>
 ```
 
