@@ -16,6 +16,8 @@
 #' @param x_name A string of the name of object x or NULL.
 #' @param length A count of the length.
 #' @param class A string specifying the class.
+#' @param incomparables A vector of values that cannot be compared.
+#' FALSE means that all values can be compared.
 #' @param y An object to check against.
 #' @param tolerance A non-negative numeric scalar.
 #' @param values A vector of the permitted values.
@@ -315,19 +317,20 @@ chk_no_missing <- function(x, err = TRUE, x_name = NULL){
 #' 
 #' Checks if unique using:
 #' 
-#' \code{!\link{anyDuplicated}(x)}
+#' \code{!\link{anyDuplicated}(x, incomparables = incomparables)}
 #' 
 #' @export
 #' 
 #' @examples 
 #' 
 #' # chk_unique
-#' chk_unique(NA)
-#' chk_unique(c(NA, NA), err = FALSE)
+#' chk_unique(NA, 2)
+#' chk_unique(c(NA, NA, 2), err = FALSE)
+#' chk_unique(c(NA, NA, 2), incomparables = NA)
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_unique <- function(x, err = TRUE, x_name = NULL){
-  if(!anyDuplicated(x)) return(TRUE)
+chk_unique <- function(x, incomparables = FALSE, err = TRUE, x_name = NULL){
+  if(!anyDuplicated(x, incomparables = incomparables)) return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
   err(x_name, " must be unique.")

@@ -70,7 +70,7 @@ chk_whole_numeric(x, err = TRUE, x_name = NULL)
 
 chk_no_missing(x, err = TRUE, x_name = NULL)
 
-chk_unique(x, err = TRUE, x_name = NULL)
+chk_unique(x, incomparables = FALSE, err = TRUE, x_name = NULL)
 
 chk_null(x, err = TRUE, x_name = NULL)
 
@@ -129,6 +129,9 @@ message if the check fails.}
 \item{x_name}{A string of the name of object x or NULL.}
 
 \item{length}{A count of the length.}
+
+\item{incomparables}{A vector of values that cannot be compared.
+FALSE means that all values can be compared.}
 
 \item{...}{Additional arguments.}
 
@@ -250,7 +253,7 @@ Checks if no missing values using:
 
 Checks if unique using:
 
-\code{!\link{anyDuplicated}(x)}
+\code{!\link{anyDuplicated}(x, incomparables = incomparables)}
 
 \item \code{chk_null}: Check NULL
 
@@ -439,6 +442,7 @@ chk_lgl(c(TRUE, TRUE), err = FALSE)
 
 
 # chk_unique
-chk_unique(NA)
-chk_unique(c(NA, NA), err = FALSE)
+chk_unique(NA, 2)
+chk_unique(c(NA, NA, 2), err = FALSE)
+chk_unique(c(NA, NA, 2), incomparables = NA)
 }

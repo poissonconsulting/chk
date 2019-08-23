@@ -331,6 +331,8 @@ test_that("chk_unique", {
   expect_true(chk_unique(c(1,2)))
   expect_true(chk_unique(c(1,NA)))
   expect_false(chk_unique(c(NA,NA), err = FALSE))
+  expect_true(chk_unique(c(NA,NA), incomparables = NA))
+  expect_true(chk_unique(c(NA,NA,1), incomparables = NA))
   expect_false(chk_unique(c(1,1), err = FALSE))
   expect_false(chk_unique(c(1,2,1), err = FALSE))
   expect_error(chk_unique(c(1,1)), "^`c[(]1, 1[)]` must be unique[.]$")

@@ -1,3 +1,4 @@
+- Added `incomparables = FALSE` argument to `chk_unique()`.
 - Added `chk_all()` function.
 - Added `x_name = NULL` argument to relevant `chk_` functions.
 - Deprecated `chk_files()` and `chk_dirs()` for `chk_file()` and `chk_dir()` 
