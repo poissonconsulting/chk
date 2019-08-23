@@ -593,7 +593,7 @@ chk_lt <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
     err(x_name, " must be less than ", cc(value), ", not ", cc(x), ".")
-  err(x_name, " must be less than ", cc(value), ".")
+  err(x_name, " must have values less than ", cc(value), ".")
 }
 
 #' @describeIn chk_true Check Less Than or Equal To
@@ -614,7 +614,7 @@ chk_lte <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
     err(x_name, " must be less than or equal to ", cc(value), ", not ", cc(x), ".")
-  err(x_name, " must be less than or equal to ", cc(value), ".")
+  err(x_name, " must have values less than or equal to ", cc(value), ".")
 }
 
 #' @describeIn chk_true Check Greater Than
@@ -635,7 +635,7 @@ chk_gt <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
     err(x_name, " must be greater than ", cc(value), ", not ", cc(x), ".")
-  err(x_name, " must be greater than ", cc(value), ".")
+  err(x_name, " must have values greater than ", cc(value), ".")
 }
 
 #' @describeIn chk_true Check Greater Than or Equal To
@@ -657,7 +657,7 @@ chk_gte <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(length(x) == 1L)
     err(x_name, " must be greater than or equal to ", cc(value), 
         ", not ", cc(x), ".")
-  err(x_name, " must be greater than or equal to ", cc(value), ".")
+  err(x_name, " must have values greater than or equal to ", cc(value), ".")
 }
 
 #' @describeIn chk_true Check Range
@@ -683,8 +683,8 @@ chk_range <- function (x, range = c(0, Inf), err = TRUE, x_name = NULL) {
         ", not ", cc(x), ".")
   }
   if(range[1] == range[2])
-    err(x_name, " must be ", cc(range[1]), ".")
-  err(x_name, " must be between ", cc(range, " and "), ".")
+    err(x_name, " must have values of ", cc(range[1]), ".")
+  err(x_name, " must have values between ", cc(range, " and "), ".")
 }
 
 #' @describeIn chk_true Check In
@@ -704,7 +704,7 @@ chk_in <- function (x, values = c(0, 1, NA), err = TRUE, x_name = NULL) {
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
     err(x_name, " must match ", cc(values, " or "), ", not ", cc(x), ".")
-  err(x_name, " must match ", cc(values, " or "), ".")
+  err(x_name, " must have values matching ", cc(values, " or "), ".")
 }
 
 #' @describeIn chk_true Check Matches
@@ -723,7 +723,9 @@ chk_match <- function (x, regexp = ".+", err = TRUE, x_name = NULL) {
   if(all(grepl(regexp, x))) return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
-  err(x_name, " must match regular expression '", regexp, "'.")
+  if(length(x) == 1L)
+    err(x_name, " must match regular expression '", regexp, "'.")
+    err(x_name, " must have values matching regular expression '", regexp, "'.")
 }
 
 #' @describeIn chk_true Check Directories Exist
