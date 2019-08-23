@@ -28,6 +28,8 @@
 \alias{chk_identical}
 \alias{chk_equal}
 \alias{chk_equivalent}
+\alias{chk_all_identical}
+\alias{chk_all}
 \alias{chk_lt}
 \alias{chk_lte}
 \alias{chk_gt}
@@ -37,7 +39,6 @@
 \alias{chk_match}
 \alias{chk_dir}
 \alias{chk_file}
-\alias{chk_all}
 \alias{chk_dirs}
 \alias{chk_files}
 \title{Check Object}
@@ -96,6 +97,10 @@ chk_equal(x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE,
 chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE,
   x_name = NULL)
 
+chk_all_identical(x, err = TRUE, x_name = NULL)
+
+chk_all(x, chk_fun, ..., err = TRUE, x_name = NULL)
+
 chk_lt(x, value = 0, err = TRUE, x_name = NULL)
 
 chk_lte(x, value = 0, err = TRUE, x_name = NULL)
@@ -113,8 +118,6 @@ chk_match(x, regexp = ".+", err = TRUE, x_name = NULL)
 chk_dir(x, err = TRUE)
 
 chk_file(x, err = TRUE)
-
-chk_all(x, chk_fun, ..., err = TRUE, x_name = NULL)
 
 chk_dirs(x, err = TRUE)
 
@@ -141,6 +144,8 @@ FALSE means that all values can be compared.}
 
 \item{tolerance}{A non-negative numeric scalar.}
 
+\item{chk_fun}{A chk function.}
+
 \item{value}{A non-missing scalar of a value.}
 
 \item{range}{A vector of length 2 of the lower and upper permitted values.}
@@ -148,8 +153,6 @@ FALSE means that all values can be compared.}
 \item{values}{A vector of the permitted values.}
 
 \item{regexp}{A string of a regular expression.}
-
-\item{chk_fun}{A chk function.}
 }
 \value{
 TRUE if passes check. Otherwise if throws an informative error unless
@@ -323,6 +326,18 @@ Checks if is equivalent (equal ignoring attributes) to y using:
 
 \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}
 
+\item \code{chk_all_identical}: Check All Identical
+
+Checks all elements in x identical using:
+
+\code{all(vapply(x, identical, TRUE, y = x[[1]]))}
+
+\item \code{chk_all}: Check All
+
+Checks all elements using:
+
+\code{all(vapply(x, chk_fun, TRUE, ...))}
+
 \item \code{chk_lt}: Check Less Than
 
 Checks if all non-missing values are less than value using:
@@ -388,12 +403,6 @@ Checks if directories exist using:
 Checks if files exist using:
 
 \code{all(\link{file.exists}(x) && !dir.exists(x))}
-
-\item \code{chk_all}: Check All
-
-Checks all elements using:
-
-\code{all(vapply(x, chk_fun, TRUE, ...))}
 
 \item \code{chk_dirs}: Check Directories Exist
 

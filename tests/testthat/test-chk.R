@@ -500,3 +500,13 @@ test_that("chk_all", {
   expect_error(chk_all(1.1, chk_gt, 2), 
               "^All elements of `1.1` must be greater than 2, not 1.1[.]$")
 })
+
+test_that("chk_all_identical", {
+  expect_true(chk_all_identical(NULL))
+  expect_true(chk_all_identical(character(0)))
+  expect_true(chk_all_identical(1))
+  expect_true(chk_all_identical(c(TRUE, TRUE)))
+  expect_true(chk_all_identical(c(NA, NA)))
+  expect_false(chk_all_identical(c(1, 2), err = FALSE))
+  expect_error(chk_all_identical(c(1, 2)), "^`c[(]1, 2[)]` must have identical elements[.]$")
+})

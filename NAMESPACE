@@ -2,6 +2,7 @@
 
 export(cc)
 export(chk_all)
+export(chk_all_identical)
 export(chk_count)
 export(chk_date)
 export(chk_datetime)
