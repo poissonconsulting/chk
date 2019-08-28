@@ -21,7 +21,7 @@ Check OR
 \examples{
 chkor()
 chkor(chk_flag(TRUE))
-chkor(chk_flag(1), err = FALSE)
-chkor(chk_flag(1), chk_flag(2), err = FALSE)
+try(chkor(chk_flag(1)))
+try(chkor(chk_flag(1), chk_flag(2)))
 chkor(chk_flag(1), chk_flag(TRUE))
 }

@@ -36,11 +36,11 @@
 #' @examples
 #' 
 #' # chk_true
-#' chk_true(1, err = FALSE)
-#' chk_true(NA, err = FALSE)
-#' chk_true(FALSE, err = FALSE)
+#' try(chk_true(1))
+#' try(chk_true(NA))
+#' try(chk_true(FALSE))
 #' chk_true(TRUE)
-#' chk_true(c(TRUE, TRUE), err = FALSE)
+#' try(chk_true(c(TRUE, TRUE)))
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
@@ -62,11 +62,11 @@ chk_true <- function(x, err = TRUE, x_name = NULL){
 #' @examples
 #' 
 #' # chk_false
-#' chk_false(0, err = FALSE)
-#' chk_false(NA, err = FALSE)
-#' chk_false(TRUE, err = FALSE)
+#' try(chk_false(0))
+#' try(chk_false(NA))
+#' try(chk_false(TRUE))
 #' chk_false(FALSE)
-#' chk_false(c(FALSE, FALSE), err = FALSE)
+#' try(chk_false(c(FALSE, FALSE)))
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
@@ -88,11 +88,11 @@ chk_false <- function(x, err = TRUE, x_name = NULL){
 #' @examples 
 #' 
 #' # chk_flag
-#' chk_flag(1, err = FALSE)
-#' chk_flag(NA, err = FALSE)
+#' try(chk_flag(1))
+#' try(chk_flag(NA))
 #' chk_flag(TRUE)
 #' chk_flag(FALSE)
-#' chk_flag(c(TRUE, TRUE), err = FALSE)
+#' try(chk_flag(c(TRUE, TRUE)))
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
@@ -114,11 +114,11 @@ chk_flag <- function(x, err = TRUE, x_name = NULL){
 #' @examples 
 #' 
 #' # chk_lgl
-#' chk_lgl(1, err = FALSE)
+#' try(chk_lgl(1))
 #' chk_lgl(NA)
 #' chk_lgl(TRUE)
 #' chk_lgl(FALSE)
-#' chk_lgl(c(TRUE, TRUE), err = FALSE)
+#' try(chk_lgl(c(TRUE, TRUE)))
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
@@ -137,6 +137,15 @@ chk_lgl <- function(x, err = TRUE, x_name = NULL){
 #' 
 #' @export
 #' 
+#' @examples 
+#' 
+#' # chk_number
+#' try(chk_number(TRUE))
+#' chk_number(1.1)
+#' chk_number(1L)
+#' try(chk_number(NA_real_))
+#' try(chk_number(c(1.1, 1.1)))
+#' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_number <- function(x, err = TRUE, x_name = NULL){
@@ -154,6 +163,15 @@ chk_number <- function(x, err = TRUE, x_name = NULL){
 #' 
 #' @export
 #' 
+#' @examples 
+#' 
+#' # chk_proportion
+#' try(chk_proportion(1.1))
+#' chk_proportion(0.5)
+#' chk_proportion(1L)
+#' try(chk_proportion(NA_real_))
+#' try(chk_proportion(c(0.5, 0.5)))
+#'  
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_proportion <- function(x, err = TRUE, x_name = NULL){
@@ -174,6 +192,15 @@ chk_proportion <- function(x, err = TRUE, x_name = NULL){
 #'   
 #' @export
 #' 
+#' @examples 
+#' 
+#' # chk_whole_number
+#' try(chk_whole_number(1.1))
+#' chk_whole_number(2)
+#' chk_whole_number(2L)
+#' try(chk_whole_number(NA_integer_))
+#' try(chk_whole_number(c(2L, 2L)))
+#'   
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_whole_number <- function(x, err = TRUE, x_name = NULL){
@@ -195,6 +222,15 @@ chk_whole_number <- function(x, err = TRUE, x_name = NULL){
 #'   
 #' @export
 #' 
+#' @examples 
+#' 
+#' # chk_count
+#' try(chk_count(-1))
+#' chk_count(0)
+#' chk_count(1L)
+#' try(chk_count(NA_integer_))
+#' try(chk_count(c(2L, 2L)))
+#' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_count <- function(x, err = TRUE, x_name = NULL){
@@ -215,6 +251,15 @@ chk_count <- function(x, err = TRUE, x_name = NULL){
 #' 
 #' @export
 #' 
+#' @examples 
+#' 
+#' # chk_string
+#' try(chk_string(1))
+#' chk_string("1")
+#' chk_string("")
+#' try(chk_string(NA_character_))
+#' try(chk_string(c("1", "1")))
+#'  
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_string <- function(x, err = TRUE, x_name = NULL){
@@ -232,6 +277,16 @@ chk_string <- function(x, err = TRUE, x_name = NULL){
 #' 
 #' @export
 #' 
+#' @examples 
+#' 
+#' # chk_date
+#' try(chk_date(1))
+#' try(chk_date("2001-01-02"))
+#' chk_date(as.Date("2001-01-02"))
+#' chk_date(Sys.Date())
+#' try(chk_date(Sys.time()))
+#' try(chk_date(c(Sys.Date(), Sys.Date())))
+#'   
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_date <- function(x, err = TRUE, x_name = NULL){
@@ -249,6 +304,16 @@ chk_date <- function(x, err = TRUE, x_name = NULL){
 #' 
 #' @export
 #' 
+#' @examples 
+#' 
+#' # chk_datetime
+#' try(chk_datetime(1))
+#' try(chk_datetime("2001-01-02"))
+#' chk_datetime(as.POSIXct("2001-01-02"))
+#' try(chk_datetime(Sys.Date()))
+#' chk_datetime(Sys.time())
+#' try(chk_datetime(c(Sys.time(), Sys.time())))
+#'    
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_datetime <- function(x, err = TRUE, x_name = NULL){
@@ -268,6 +333,17 @@ chk_datetime <- function(x, err = TRUE, x_name = NULL){
 #' 
 #' @export
 #' 
+#' @examples 
+#' 
+#' # chk_length
+#' try(chk_length(numeric(0)))
+#' try(chk_length(1:2))
+#' chk_length(1)
+#' chk_length(NA_character_)
+#' chk_length(Sys.Date())
+#' chk_length(Sys.time())
+#' chk_length(1:2, length = 2)
+#'   
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_length <- function(x, length = 1L, err = TRUE, x_name = NULL) {
@@ -285,6 +361,16 @@ chk_length <- function(x, length = 1L, err = TRUE, x_name = NULL) {
 #' 
 #' @export
 #' 
+#' @examples 
+#' 
+#' # chk_whole_numeric
+#' try(chk_whole_numeric(TRUE))
+#' try(chk_whole_numeric(1.5))
+#' chk_whole_numeric(1)
+#' chk_whole_numeric(NA_real_)
+#' chk_whole_numeric(1:2)
+#' chk_whole_numeric(double(0))
+#'    
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_whole_numeric <- function(x, err = TRUE, x_name = NULL){
@@ -303,7 +389,16 @@ chk_whole_numeric <- function(x, err = TRUE, x_name = NULL){
 #' \code{!\link{anyNA}(x)}
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_no_missing
+#' try(chk_no_missing(NA))
+#' try(chk_no_missing(c(1, NA)))
+#' chk_no_missing(character(0))
+#' chk_no_missing(1)
+#' chk_no_missing(1:10)
+#'   
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_no_missing <- function(x, err = TRUE, x_name = NULL){
@@ -324,9 +419,12 @@ chk_no_missing <- function(x, err = TRUE, x_name = NULL){
 #' @examples 
 #' 
 #' # chk_unique
-#' chk_unique(NA, 2)
-#' chk_unique(c(NA, NA, 2), err = FALSE)
+#' chk_unique(NULL)
+#' chk_unique(numeric(0))
+#' chk_unique(c(NA, 2))
+#' try(chk_unique(c(NA, NA, 2)))
 #' chk_unique(c(NA, NA, 2), incomparables = NA)
+#' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_unique <- function(x, incomparables = FALSE, err = TRUE, x_name = NULL){
@@ -343,7 +441,13 @@ chk_unique <- function(x, incomparables = FALSE, err = TRUE, x_name = NULL){
 #' \code{\link{is.null}(x)}
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_null
+#' try(chk_null(1))
+#' chk_null(NULL)
+#' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_null <- function(x, err = TRUE, x_name = NULL){
@@ -360,7 +464,13 @@ chk_null <- function(x, err = TRUE, x_name = NULL){
 #' \code{!\link{is.null}(x)}
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_not_null
+#' try(chk_not_null(NULL))
+#' chk_not_null(1)
+#' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_not_null <- function(x, err = TRUE, x_name = NULL){
@@ -378,6 +488,16 @@ chk_not_null <- function(x, err = TRUE, x_name = NULL){
 #' 
 #' @export
 #' 
+#' @examples 
+#' 
+#' # chk_named
+#' try(chk_named(1))
+#' try(chk_named(list(1)))
+#' chk_named(c(x = 1))
+#' chk_named(list(x = 1))
+#' chk_named(c(x = 1)[-1])
+#' chk_named(list(x = 1)[-1])
+#'  
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_named <- function(x, err = TRUE, x_name = NULL){
@@ -394,7 +514,14 @@ chk_named <- function(x, err = TRUE, x_name = NULL){
 #' \code{!length(\link{list}(...))}
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_unused
+#' fun <- function(x, ...) { chk_unused(...); x }
+#' fun(1)
+#' try(fun(1,2))
+#'  
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_unused <- function (..., err = TRUE) {
@@ -410,7 +537,14 @@ chk_unused <- function (..., err = TRUE) {
 #' \code{length(\link{list}(...))}
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_used
+#' fun <- function(x, ...) { chk_used(...); x }
+#' try(fun(1))
+#' fun(1,2)
+#' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_used <- function (..., err = TRUE) {
@@ -426,7 +560,15 @@ chk_used <- function (..., err = TRUE) {
 #' \code{\link{is.function}(x)}
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_function
+#' try(chk_function(1))
+#' try(chk_function(list(1)))
+#' chk_function(mean)
+#' chk_function(function(x) x)
+#'  
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_function <- function(x, err = TRUE, x_name = NULL){
@@ -443,7 +585,16 @@ chk_function <- function(x, err = TRUE, x_name = NULL){
 #' \code{\link{is.list}(x)}
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_list
+#' try(chk_list(1))
+#' try(chk_list(NULL))
+#' chk_list(list())
+#' chk_list(list(x = 1))
+#' chk_list(mtcars)
+#'  
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_list <- function(x, err = TRUE, x_name = NULL){
@@ -462,7 +613,16 @@ chk_list <- function(x, err = TRUE, x_name = NULL){
 #' Class should be a string.
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_is
+#' try(chk_is(1, "character"))
+#' try(chk_is(NULL, "numeric"))
+#' chk_is(numeric(0), "numeric")
+#' chk_is(1, "numeric")
+#' chk_is(NA_real_, "numeric")
+#'  
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_is <- function(x, class, err = TRUE, x_name = NULL) {
@@ -479,7 +639,15 @@ chk_is <- function(x, class, err = TRUE, x_name = NULL) {
 #' \code{\link{identical}(x, y)}
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_identical
+#' try(chk_identical(1, 1L))
+#' chk_identical(1, 1)
+#' try(chk_identical(1, c(1,1)))
+#' chk_identical(c(1,1), c(1,1))
+#'  
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_identical <- function (x, y, err = TRUE, x_name = NULL) {
@@ -497,7 +665,16 @@ chk_identical <- function (x, y, err = TRUE, x_name = NULL) {
 #' \code{isTRUE(\link{all.equal}(x, y, tolerance))}
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_equal
+#' try(chk_equal(1, 1.0000001))
+#' chk_equal(1, 1.00000001)
+#' chk_equal(1, 1L)
+#' try(chk_equal(c(x = 1), c(y = 1L)))
+#' chk_equal(c(x = 1), c(x = 1L))
+#'  
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_equal <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE,
@@ -516,7 +693,16 @@ chk_equal <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE,
 #' \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_equivalent
+#' try(chk_equivalent(1, 1.0000001))
+#' chk_equivalent(1, 1.00000001)
+#' chk_equivalent(1, 1L)
+#' chk_equivalent(c(x = 1), c(y = 1L))
+#' chk_equivalent(c(x = 1), c(x = 1L))
+#'  
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_equivalent <- function (x, y, tolerance = sqrt(.Machine$double.eps), 
@@ -534,7 +720,16 @@ chk_equivalent <- function (x, y, tolerance = sqrt(.Machine$double.eps),
 #' \code{all(vapply(x, identical, TRUE, y = x[[1]]))}
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_all_identical
+#' try(chk_all_identical(1, 1.0000001))
+#' chk_all_identical(1, 1.00000001)
+#' chk_all_identical(1, 1L)
+#' try(chk_all_identical(c(1,2)))
+#' try(chk_all_identical(c(1,2.0000001)))
+#'  
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_all_identical <- function(x, err = TRUE, x_name = NULL) {
@@ -552,7 +747,15 @@ chk_all_identical <- function(x, err = TRUE, x_name = NULL) {
 #' \code{all(vapply(x, chk_fun, TRUE, ...))}
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_all
+#' try(chk_all(1, chk_lgl))
+#' chk_all(TRUE, chk_lgl)
+#' chk_all(c(TRUE, NA), chk_lgl)
+#' chk_all(numeric(0), chk_lgl)
+#'  
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_all <- function(x, chk_fun, ..., err = TRUE, x_name = NULL) {
@@ -584,7 +787,18 @@ chk_all <- function(x, chk_fun, ..., err = TRUE, x_name = NULL) {
 #' \code{value} should be a non-missing scalar.
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_lt
+#' chk_lt(numeric(0))
+#' try(chk_lt(0))
+#' chk_lt(-0.1)
+#' chk_lt(c(-0.1, -0.2, NA))
+#' try(chk_lt(c(-0.1, 0.2)))
+#' chk_lt(c(-0.1, 0.2), value = 1)
+#' chk_lt("a", value = "b")
+#'  
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_lt <- function (x, value = 0, err = TRUE, x_name = NULL) {
@@ -605,7 +819,16 @@ chk_lt <- function (x, value = 0, err = TRUE, x_name = NULL) {
 #' \code{value} should be a non-missing scalar.
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_lte
+#' chk_lte(numeric(0))
+#' chk_lte(0)
+#' try(chk_lte(0.1))
+#' chk_lte(c(-0.1, -0.2, NA))
+#' try(chk_lte(c(-0.1, -0.2, NA), value = -1))
+#'  
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_lte <- function (x, value = 0, err = TRUE, x_name = NULL) {
@@ -626,7 +849,18 @@ chk_lte <- function (x, value = 0, err = TRUE, x_name = NULL) {
 #' \code{value} should be a non-missing scalar.
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_gt
+#' chk_gt(numeric(0))
+#' try(chk_gt(0))
+#' chk_gt(0.1)
+#' chk_gt(c(0.1, 0.2, NA))
+#' try(chk_gt(c(0.1, -0.2)))
+#' chk_gt(c(-0.1, 0.2), value = -1)
+#' chk_gt("b", value = "a")
+#'  
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_gt <- function (x, value = 0, err = TRUE, x_name = NULL) {
@@ -647,7 +881,16 @@ chk_gt <- function (x, value = 0, err = TRUE, x_name = NULL) {
 #' \code{value} should be a non-missing scalar.
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_gte
+#' chk_gte(numeric(0))
+#' chk_gte(0)
+#' try(chk_gte(-0.1))
+#' chk_gte(c(0.1, 0.2, NA))
+#' try(chk_gte(c(0.1, 0.2, NA), value = 1))
+#'  
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_gte <- function (x, value = 0, err = TRUE, x_name = NULL) {
@@ -669,7 +912,16 @@ chk_gte <- function (x, value = 0, err = TRUE, x_name = NULL) {
 #' Range should be a non-missing sorted vector of length 2.
 #' 
 #' @export
-#
+#' 
+#' @examples 
+#' 
+#' # chk_range
+#' chk_range(numeric(0))
+#' chk_range(0)
+#' try(chk_range(-0.1))
+#' chk_range(c(0.1, 0.2, NA))
+#' chk_range(c(0.1, 0.2, NA), range = c(0,1))
+#' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 chk_range <- function (x, range = c(0, Inf), err = TRUE, x_name = NULL) {
@@ -694,6 +946,13 @@ chk_range <- function (x, range = c(0, Inf), err = TRUE, x_name = NULL) {
 #' \code{all(\link{match}(x, values, nomatch = 0) > 0)}
 #' 
 #' @export
+#' 
+#' @examples 
+#' 
+#' # chk_in
+#' chk_in(numeric(0), 1:10)
+#' chk_in(1, 1:10)
+#' try(chk_in(11, 1:10))
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
@@ -716,6 +975,15 @@ chk_in <- function (x, values = c(0, 1, NA), err = TRUE, x_name = NULL) {
 #' \code{regexp} should be a non-missing character scalar.
 #' 
 #' @export
+#' 
+#' @examples 
+#' 
+#' # chk_match
+#' try(chk_match(""))
+#' chk_match("1")
+#' try(chk_match("1", regexp = "2"))
+#' try(chk_match(NA_character_, regexp = ".*"))
+#' chk_match(c("a"), regexp = ".*")
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
@@ -735,6 +1003,11 @@ chk_match <- function (x, regexp = ".+", err = TRUE, x_name = NULL) {
 #' \code{all(\link{dir.exists}(x))}
 #' 
 #' @export
+#' 
+#' @examples 
+#' 
+#' # chk_dir
+#' try(chk_dir(tempfile()))
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
@@ -755,6 +1028,11 @@ chk_dir <- function(x, err = TRUE){
 #' \code{all(\link{file.exists}(x) && !dir.exists(x))}
 #' 
 #' @export
+#' 
+#' @examples 
+#' 
+#' # chk_file
+#' try(chk_file(tempfile()))
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk

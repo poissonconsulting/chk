@@ -404,13 +404,13 @@ Checks if files exist using:
 
 \code{all(\link{file.exists}(x) && !dir.exists(x))}
 
-\item \code{chk_dirs}: Check Directories Exist
+\item \code{chk_dirs}: Check Directories Exist (DEPRECATED)
 
 Checks if directories exist using:
 
 \code{all(\link{dir.exists}(x))}
 
-\item \code{chk_files}: Check Files Exist
+\item \code{chk_files}: Check Files Exist (DEPRECATED)
 
 Checks if files exist using:
 
@@ -420,38 +420,280 @@ Checks if files exist using:
 \examples{
 
 # chk_true
-chk_true(1, err = FALSE)
-chk_true(NA, err = FALSE)
-chk_true(FALSE, err = FALSE)
+try(chk_true(1))
+try(chk_true(NA))
+try(chk_true(FALSE))
 chk_true(TRUE)
-chk_true(c(TRUE, TRUE), err = FALSE)
+try(chk_true(c(TRUE, TRUE)))
 
 # chk_false
-chk_false(0, err = FALSE)
-chk_false(NA, err = FALSE)
-chk_false(TRUE, err = FALSE)
+try(chk_false(0))
+try(chk_false(NA))
+try(chk_false(TRUE))
 chk_false(FALSE)
-chk_false(c(FALSE, FALSE), err = FALSE)
+try(chk_false(c(FALSE, FALSE)))
 
 
 # chk_flag
-chk_flag(1, err = FALSE)
-chk_flag(NA, err = FALSE)
+try(chk_flag(1))
+try(chk_flag(NA))
 chk_flag(TRUE)
 chk_flag(FALSE)
-chk_flag(c(TRUE, TRUE), err = FALSE)
+try(chk_flag(c(TRUE, TRUE)))
 
 
 # chk_lgl
-chk_lgl(1, err = FALSE)
+try(chk_lgl(1))
 chk_lgl(NA)
 chk_lgl(TRUE)
 chk_lgl(FALSE)
-chk_lgl(c(TRUE, TRUE), err = FALSE)
+try(chk_lgl(c(TRUE, TRUE)))
 
+
+# chk_number
+try(chk_number(TRUE))
+chk_number(1.1)
+chk_number(1L)
+try(chk_number(NA_real_))
+try(chk_number(c(1.1, 1.1)))
+
+
+# chk_proportion
+try(chk_proportion(1.1))
+chk_proportion(0.5)
+chk_proportion(1L)
+try(chk_proportion(NA_real_))
+try(chk_proportion(c(0.5, 0.5)))
+ 
+
+# chk_whole_number
+try(chk_whole_number(1.1))
+chk_whole_number(2)
+chk_whole_number(2L)
+try(chk_whole_number(NA_integer_))
+try(chk_whole_number(c(2L, 2L)))
+  
+
+# chk_count
+try(chk_count(-1))
+chk_count(0)
+chk_count(1L)
+try(chk_count(NA_integer_))
+try(chk_count(c(2L, 2L)))
+
+
+# chk_string
+try(chk_string(1))
+chk_string("1")
+chk_string("")
+try(chk_string(NA_character_))
+try(chk_string(c("1", "1")))
+ 
+
+# chk_date
+try(chk_date(1))
+try(chk_date("2001-01-02"))
+chk_date(as.Date("2001-01-02"))
+chk_date(Sys.Date())
+try(chk_date(Sys.time()))
+try(chk_date(c(Sys.Date(), Sys.Date())))
+  
+
+# chk_datetime
+try(chk_datetime(1))
+try(chk_datetime("2001-01-02"))
+chk_datetime(as.POSIXct("2001-01-02"))
+try(chk_datetime(Sys.Date()))
+chk_datetime(Sys.time())
+try(chk_datetime(c(Sys.time(), Sys.time())))
+   
+
+# chk_length
+try(chk_length(numeric(0)))
+try(chk_length(1:2))
+chk_length(1)
+chk_length(NA_character_)
+chk_length(Sys.Date())
+chk_length(Sys.time())
+chk_length(1:2, length = 2)
+  
+
+# chk_whole_numeric
+try(chk_whole_numeric(TRUE))
+try(chk_whole_numeric(1.5))
+chk_whole_numeric(1)
+chk_whole_numeric(NA_real_)
+chk_whole_numeric(1:2)
+chk_whole_numeric(double(0))
+   
+
+# chk_no_missing
+try(chk_no_missing(NA))
+try(chk_no_missing(c(1, NA)))
+chk_no_missing(character(0))
+chk_no_missing(1)
+chk_no_missing(1:10)
+  
 
 # chk_unique
-chk_unique(NA, 2)
-chk_unique(c(NA, NA, 2), err = FALSE)
+chk_unique(NULL)
+chk_unique(numeric(0))
+chk_unique(c(NA, 2))
+try(chk_unique(c(NA, NA, 2)))
 chk_unique(c(NA, NA, 2), incomparables = NA)
+
+
+# chk_null
+try(chk_null(1))
+chk_null(NULL)
+
+
+# chk_not_null
+try(chk_not_null(NULL))
+chk_not_null(1)
+
+
+# chk_named
+try(chk_named(1))
+try(chk_named(list(1)))
+chk_named(c(x = 1))
+chk_named(list(x = 1))
+chk_named(c(x = 1)[-1])
+chk_named(list(x = 1)[-1])
+ 
+
+# chk_unused
+fun <- function(x, ...) { chk_unused(...); x }
+fun(1)
+try(fun(1,2))
+ 
+
+# chk_used
+fun <- function(x, ...) { chk_used(...); x }
+try(fun(1))
+fun(1,2)
+
+
+# chk_function
+try(chk_function(1))
+try(chk_function(list(1)))
+chk_function(mean)
+chk_function(function(x) x)
+ 
+
+# chk_list
+try(chk_list(1))
+try(chk_list(NULL))
+chk_list(list())
+chk_list(list(x = 1))
+chk_list(mtcars)
+ 
+
+# chk_is
+try(chk_is(1, "character"))
+try(chk_is(NULL, "numeric"))
+chk_is(numeric(0), "numeric")
+chk_is(1, "numeric")
+chk_is(NA_real_, "numeric")
+ 
+
+# chk_identical
+try(chk_identical(1, 1L))
+chk_identical(1, 1)
+try(chk_identical(1, c(1,1)))
+chk_identical(c(1,1), c(1,1))
+ 
+
+# chk_equal
+try(chk_equal(1, 1.0000001))
+chk_equal(1, 1.00000001)
+chk_equal(1, 1L)
+try(chk_equal(c(x = 1), c(y = 1L)))
+chk_equal(c(x = 1), c(x = 1L))
+ 
+
+# chk_equivalent
+try(chk_equivalent(1, 1.0000001))
+chk_equivalent(1, 1.00000001)
+chk_equivalent(1, 1L)
+chk_equivalent(c(x = 1), c(y = 1L))
+chk_equivalent(c(x = 1), c(x = 1L))
+ 
+
+# chk_all_identical
+try(chk_all_identical(1, 1.0000001))
+chk_all_identical(1, 1.00000001)
+chk_all_identical(1, 1L)
+try(chk_all_identical(c(1,2)))
+try(chk_all_identical(c(1,2.0000001)))
+ 
+
+# chk_all
+try(chk_all(1, chk_lgl))
+chk_all(TRUE, chk_lgl)
+chk_all(c(TRUE, NA), chk_lgl)
+chk_all(numeric(0), chk_lgl)
+ 
+
+# chk_lt
+chk_lt(numeric(0))
+try(chk_lt(0))
+chk_lt(-0.1)
+chk_lt(c(-0.1, -0.2, NA))
+try(chk_lt(c(-0.1, 0.2)))
+chk_lt(c(-0.1, 0.2), value = 1)
+chk_lt("a", value = "b")
+ 
+
+# chk_lte
+chk_lte(numeric(0))
+chk_lte(0)
+try(chk_lte(0.1))
+chk_lte(c(-0.1, -0.2, NA))
+try(chk_lte(c(-0.1, -0.2, NA), value = -1))
+ 
+
+# chk_gt
+chk_gt(numeric(0))
+try(chk_gt(0))
+chk_gt(0.1)
+chk_gt(c(0.1, 0.2, NA))
+try(chk_gt(c(0.1, -0.2)))
+chk_gt(c(-0.1, 0.2), value = -1)
+chk_gt("b", value = "a")
+ 
+
+# chk_gte
+chk_gte(numeric(0))
+chk_gte(0)
+try(chk_gte(-0.1))
+chk_gte(c(0.1, 0.2, NA))
+try(chk_gte(c(0.1, 0.2, NA), value = 1))
+ 
+
+# chk_range
+chk_range(numeric(0))
+chk_range(0)
+try(chk_range(-0.1))
+chk_range(c(0.1, 0.2, NA))
+chk_range(c(0.1, 0.2, NA), range = c(0,1))
+
+
+# chk_in
+chk_in(numeric(0), 1:10)
+chk_in(1, 1:10)
+try(chk_in(11, 1:10))
+
+# chk_match
+try(chk_match(""))
+chk_match("1")
+try(chk_match("1", regexp = "2"))
+try(chk_match(NA_character_, regexp = ".*"))
+chk_match(c("a"), regexp = ".*")
+
+# chk_dir
+try(chk_dir(tempfile()))
+
+# chk_file
+try(chk_file(tempfile()))
 }

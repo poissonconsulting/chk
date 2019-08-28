@@ -1,4 +1,4 @@
-#' @describeIn chk_true Check Directories Exist
+#' @describeIn chk_true Check Directories Exist (DEPRECATED)
 #' 
 #' Checks if directories exist using:
 #' 
@@ -13,7 +13,7 @@ chk_dirs <- function(x, err = TRUE){
   chk_dir(x, err = err)
 }
 
-#' @describeIn chk_true Check Files Exist
+#' @describeIn chk_true Check Files Exist (DEPRECATED)
 #' 
 #' Checks if files exist using:
 #' 

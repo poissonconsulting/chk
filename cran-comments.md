@@ -17,4 +17,4 @@ release 3.6.1
 
 * This is a resubmission of a new release.
 
-I have unwrapped all examples from \dontrun except err() which is wrapped by \donttest because it throws an error (this behaviour is tested using testthat).
+I have unwrapped all examples from \dontrun.

@@ -15,7 +15,5 @@ err(...)
 A wrapper on \code{\link[base]{stop}(..., call. = FALSE)}.
 }
 \examples{
-\donttest{
-err("this is an error")
-}
+try(err("this is an error"))
 }

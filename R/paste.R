@@ -9,8 +9,8 @@
 #'
 #' @examples
 #' p("a", "b")
-#' p0("a", "b")
-#
+#' p(c("a", "b"), collapse = " ")
+#' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
 p <- function (..., sep = " ", collapse = NULL) 
@@ -18,6 +18,10 @@ p <- function (..., sep = " ", collapse = NULL)
 
 #' @describeIn p A wrapper on \code{\link[base]{paste0}()}
 #' @export
+#' 
+#' @examples 
+#' p0("a", "b")
+#' p0(c("a", "b"), collapse = "")
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk

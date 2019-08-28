@@ -6,9 +6,7 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
-#' err("this is an error")
-#' }
+#' try(err("this is an error"))
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
