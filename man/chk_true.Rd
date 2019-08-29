@@ -109,3 +109,6 @@ chk_lgl(FALSE)
 try(chk_lgl(c(TRUE, TRUE)))
 
 }
+\seealso{
+\code{\link{chk_number}()}
+}

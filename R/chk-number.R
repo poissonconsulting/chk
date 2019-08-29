@@ -13,7 +13,7 @@
 #' @inheritParams chk_true
 #' @return TRUE if passes check. Otherwise if throws an informative error unless
 #' \code{err = FALSE} in which case it returns FALSE.
-#' 
+#' @seealso \code{\link{chk_true}()} and \code{\link{chk_range}()}
 #' @export
 #' 
 #' @examples 
