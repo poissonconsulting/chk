@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Message — msg • chk</title>
+<title>Check NULL or not NULL — chk_null • chk</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="Message — msg" />
+<meta property="og:title" content="Check NULL or not NULL — chk_null" />
 
-<meta property="og:description" content="A wrapper on message(...)." />
+<meta property="og:description" content="Checks if NULL or not NULL." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -118,39 +118,79 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Message</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/messages.R'><code>R/messages.R</code></a></small>
-    <div class="hidden name"><code>msg.Rd</code></div>
+    <h1>Check NULL or not NULL</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-null.R'><code>R/chk-null.R</code></a></small>
+    <div class="hidden name"><code>chk_null.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A wrapper on <code><a href='https://rdrr.io/r/base/message.html'>message</a>(...)</code>.</p>
+    <p>Checks if NULL or not NULL.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>msg</span>(<span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>chk_null</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+
+<span class='fu'>chk_not_null</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>...</th>
-      <td><p>zero or more objects which can be coerced to character
-    (and which are pasted together with no separator) or (for
-    <code>message</code> only) a single condition object.</p></td>
+      <th>x</th>
+      <td><p>The object to check.</p></td>
+    </tr>
+    <tr>
+      <th>err</th>
+      <td><p>A flag specifying whether to generate an error
+message if the check fails.</p></td>
+    </tr>
+    <tr>
+      <th>x_name</th>
+      <td><p>A string of the name of object x or NULL.</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>TRUE if passes check. Otherwise if throws an informative error unless
+<code>err = FALSE</code> in which case it returns FALSE.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p><code>chk_null()</code>: Check NULL</p>
+<p>Checks if NULL using:</p>
+<p><code><a href='https://rdrr.io/r/base/NULL.html'>is.null</a>(x)</code></p>
+    
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+
+    <ul>
+<li><p><code>chk_not_null</code>: Check Not NULL</p>
+<p>Checks if not NULL using:</p>
+<p><code>!<a href='https://rdrr.io/r/base/NULL.html'>is.null</a>(x)</code></p></li>
+</ul>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>msg</span>(<span class='st'>"this is a message"</span>)</div><div class='output co'>#&gt; <span class='message'>this is a message</span></div></pre>
+    <pre class="examples"><div class='input'>
+<span class='co'># chk_null</span>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_null</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be NULL.</div><div class='input'><span class='fu'>chk_null</span>(<span class='kw'>NULL</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
+
+<span class='co'># chk_not_null</span>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_not_null</span>(<span class='kw'>NULL</span>))</div><div class='output co'>#&gt; Error : `NULL` must not be NULL.</div><div class='input'><span class='fu'>chk_not_null</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#functions">Functions</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

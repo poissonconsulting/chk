@@ -66,10 +66,8 @@ chk_is(data, "data.frame")
 #> [1] TRUE
 chk_range(nrow(data), c(3,8))
 #> Error: `nrow(data)` must be between 3 and 8, not 2.
-chk_match(nrow(data), c(3,8))
-#> Warning in grepl(regexp, x): argument 'pattern' has length > 1 and only the
-#> first element will be used
-#> Error: `nrow(data)` must match regular expression '38'.
+chk_in(nrow(data), c(3,8))
+#> Error: `nrow(data)` must match 3 or 8, not 2.
 
 chk_identical(data$x, 2:1)
 #> Error: `data$x` must be identical to: 2:1.
@@ -141,7 +139,7 @@ chk_flag
 #>   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
 #>   err(x_name, " must be a flag (TRUE or FALSE).")
 #> }
-#> <bytecode: 0x7fe20c377640>
+#> <bytecode: 0x7ff0f95bd778>
 #> <environment: namespace:chk>
 ```
 

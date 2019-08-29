@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check Object — chk_true • chk</title>
+<title>Check TRUE or FALSE — chk_true • chk</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="Check Object — chk_true" />
+<meta property="og:title" content="Check TRUE or FALSE — chk_true" />
 
-<meta property="og:description" content="Efficiently checks object." />
+<meta property="og:description" content="Checks if object is TRUE or FALSE." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -66,7 +66,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9006</span>
       </span>
     </div>
 
@@ -118,88 +118,26 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check Object</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk.R'><code>R/chk.R</code></a></small>
+    <h1>Check TRUE or FALSE</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-true.R'><code>R/chk-true.R</code></a>, <a href='https://github.com/poissonconsulting/chk/blob/master/R/deprecated.R'><code>R/deprecated.R</code></a></small>
     <div class="hidden name"><code>chk_true.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Efficiently checks object.</p>
+    <p>Checks if object is TRUE or FALSE.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>chk_true</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+    <pre class="usage"><span class='fu'>chk_true</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>chk_false</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>chk_false</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>chk_flag</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>chk_flag</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>chk_lgl</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_number</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_proportion</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_whole_number</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_count</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_string</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_date</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_datetime</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_length</span>(<span class='no'>x</span>, <span class='kw'>length</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_whole_numeric</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_no_missing</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_unique</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_null</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_not_null</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_named</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_unused</span>(<span class='no'>...</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_used</span>(<span class='no'>...</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_function</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_list</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_is</span>(<span class='no'>x</span>, <span class='no'>class</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_identical</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_equal</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>tolerance</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>(<span class='no'>.Machine</span>$<span class='no'>double.eps</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_equivalent</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>tolerance</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>(<span class='no'>.Machine</span>$<span class='no'>double.eps</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_lt</span>(<span class='no'>x</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_lte</span>(<span class='no'>x</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_gt</span>(<span class='no'>x</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_gte</span>(<span class='no'>x</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_range</span>(<span class='no'>x</span>, <span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>Inf</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_in</span>(<span class='no'>x</span>, <span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>NA</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_match</span>(<span class='no'>x</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>".+"</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_dir</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>chk_lgl</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='fu'>chk_dirs</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>chk_file</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>chk_files</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
@@ -216,40 +154,8 @@
 message if the check fails.</p></td>
     </tr>
     <tr>
-      <th>length</th>
-      <td><p>A count of the length.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Additional arguments.</p></td>
-    </tr>
-    <tr>
-      <th>class</th>
-      <td><p>A string specifying the class.</p></td>
-    </tr>
-    <tr>
-      <th>y</th>
-      <td><p>An object to check against.</p></td>
-    </tr>
-    <tr>
-      <th>tolerance</th>
-      <td><p>A non-negative numeric scalar.</p></td>
-    </tr>
-    <tr>
-      <th>value</th>
-      <td><p>A non-missing scalar of a value.</p></td>
-    </tr>
-    <tr>
-      <th>range</th>
-      <td><p>A vector of length 2 of the lower and upper permitted values.</p></td>
-    </tr>
-    <tr>
-      <th>values</th>
-      <td><p>A vector of the permitted values.</p></td>
-    </tr>
-    <tr>
-      <th>regexp</th>
-      <td><p>A string of a regular expression.</p></td>
+      <th>x_name</th>
+      <td><p>A string of the name of object x or NULL.</p></td>
     </tr>
     </table>
     
@@ -276,133 +182,32 @@ message if the check fails.</p></td>
 <li><p><code>chk_lgl</code>: Check Lgl</p>
 <p>Checks if logical scalar using:</p>
 <p><code>is.logical(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></p></li>
-<li><p><code>chk_number</code>: Check Number</p>
-<p>Checks if non-missing numeric scalar using:</p>
-<p><code>is.numeric(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></p></li>
-<li><p><code>chk_proportion</code>: Check Proportion</p>
-<p>Checks if non-missing numeric scalar between 0 and 1 using:</p>
-<p><code>is.numeric(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x) &amp;&amp; x &gt;= 0 &amp;&amp; x &lt;= 1</code></p></li>
-<li><p><code>chk_whole_number</code>: Check Whole Number</p> 
-<p>Checks if non-missing integer scalar or double equivalent using:</p>
-<p><code>is.numeric(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x) &amp;&amp; 
-  (is.integer(x) || isTRUE(all.equal(x, as.integer(x))))</code></p></li>
-<li><p><code>chk_count</code>: Check Count</p> 
-<p>Checks if non-missing non-negative integer scalar or double equivalent using:</p>
-<p><code>is.numeric(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x) &amp;&amp; x &gt;= 0 &amp;&amp; 
-  isTRUE(all.equal(x, as.integer(x)))</code></p></li>
-<li><p><code>chk_string</code>: Check String</p>
-<p>Checks if non-missing character scalar using:</p>
-<p><code>is.character(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></p></li>
-<li><p><code>chk_date</code>: Check String</p>
-<p>Checks if non-missing Date scalar using:</p>
-<p><code>inherits(x, "Date") &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></p></li>
-<li><p><code>chk_datetime</code>: Check DateTime</p>
-<p>Checks if non-missing POSIXct scalar using:</p>
-<p><code>inherits(x, "POSIXct") &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></p></li>
-<li><p><code>chk_length</code>: Check Length</p>
-<p>Checks if is length length using:</p>
-<p><code>length(x) == length</code></p>
-<p><code>length</code> should be a count.</p></li>
-<li><p><code>chk_whole_numeric</code>: Check Whole Numeric</p> 
-<p>Checks if integer vector or double equivalent using the equivalent of:</p>
-<p><code>is.integer(x) || (is.double(x) &amp;&amp; isTRUE(all.equal(x, as.integer(x))))</code></p></li>
-<li><p><code>chk_no_missing</code>: Check No Missing Values</p>
-<p>Checks if no missing values using:</p>
-<p><code>!<a href='https://rdrr.io/r/base/NA.html'>anyNA</a>(x)</code></p></li>
-<li><p><code>chk_unique</code>: Check Unique</p>
-<p>Checks if unique using:</p>
-<p><code>!<a href='https://rdrr.io/r/base/duplicated.html'>anyDuplicated</a>(x)</code></p></li>
-<li><p><code>chk_null</code>: Check NULL</p>
-<p>Checks if NULL using:</p>
-<p><code><a href='https://rdrr.io/r/base/NULL.html'>is.null</a>(x)</code></p></li>
-<li><p><code>chk_not_null</code>: Check Not NULL</p>
-<p>Checks if not NULL using:</p>
-<p><code>!<a href='https://rdrr.io/r/base/NULL.html'>is.null</a>(x)</code></p></li>
-<li><p><code>chk_named</code>: Check Named</p>
-<p>Checks if is named using:</p>
-<p><code>!is.null(<a href='https://rdrr.io/r/base/names.html'>names</a>(x))</code></p></li>
-<li><p><code>chk_unused</code>: Check ... Unused</p>
-<p>Checks if is ... unused using:</p>
-<p><code>!length(<a href='https://rdrr.io/r/base/list.html'>list</a>(...))</code></p></li>
-<li><p><code>chk_used</code>: Check ... Used</p>
-<p>Checks if is ... used using:</p>
-<p><code>length(<a href='https://rdrr.io/r/base/list.html'>list</a>(...))</code></p></li>
-<li><p><code>chk_function</code>: Check Function</p>
-<p>Checks if is a function using:</p>
-<p><code><a href='https://rdrr.io/r/base/is.function.html'>is.function</a>(x)</code></p></li>
-<li><p><code>chk_list</code>: Check List</p>
-<p>Checks if is a list using:</p>
-<p><code><a href='https://rdrr.io/r/base/list.html'>is.list</a>(x)</code></p></li>
-<li><p><code>chk_is</code>: Check Is</p>
-<p>Checks if inherits from class using:</p>
-<p><code><a href='https://rdrr.io/r/base/class.html'>inherits</a>(x, class)</code></p>
-<p>Class should be a string.</p></li>
-<li><p><code>chk_identical</code>: Check Identical</p>
-<p>Checks if is identical to y using:</p>
-<p><code><a href='https://rdrr.io/r/base/identical.html'>identical</a>(x, y)</code></p></li>
-<li><p><code>chk_equal</code>: Check Equal</p>
-<p>Checks if is equal (identical within tolerance) to y using:</p>
-<p><code>isTRUE(<a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a>(x, y, tolerance))</code></p></li>
-<li><p><code>chk_equivalent</code>: Check Equivalent</p>
-<p>Checks if is equivalent (equal ignoring attributes) to y using:</p>
-<p><code><a href='https://rdrr.io/r/base/Logic.html'>isTRUE</a>(<a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a>(x, y, tolerance, check.attributes = FALSE))</code></p></li>
-<li><p><code>chk_lt</code>: Check Less Than</p>
-<p>Checks if all non-missing values are less than value using:</p>
-<p><code>all(x[!is.na(x)] &lt; value))</code></p>
-<p><code>value</code> should be a non-missing scalar.</p></li>
-<li><p><code>chk_lte</code>: Check Less Than or Equal To</p>
-<p>Checks if all non-missing values are less than or equal to y using:</p>
-<p><code>all(x[!is.na(x)] &lt;= value))</code></p>
-<p><code>value</code> should be a non-missing scalar.</p></li>
-<li><p><code>chk_gt</code>: Check Greater Than</p>
-<p>Checks if all non-missing values are greater than value using:</p>
-<p><code>all(x[!is.na(x)] &gt; value))</code></p>
-<p><code>value</code> should be a non-missing scalar.</p></li>
-<li><p><code>chk_gte</code>: Check Greater Than or Equal To</p>
-<p>Checks if all non-missing values are greater than or equal to y using:</p>
-<p><code>all(x[!is.na(x)] &gt;= value))</code></p>
-<p><code>value</code> should be a non-missing scalar.</p></li>
-<li><p><code>chk_range</code>: Check Range</p>
-<p>Checks if all non-missing values fall within range using:</p>
-<p><code>all(x[!is.na(x)] &gt;= range[1] &amp; x[!is.na(x)] &lt;= range[2])</code></p>
-<p>Range should be a non-missing sorted vector of length 2.</p></li>
-<li><p><code>chk_in</code>: Check In</p>
-<p>Checks if all values in values using equivalent of:</p>
-<p><code>all(<a href='https://rdrr.io/r/base/match.html'>match</a>(x, values, nomatch = 0) &gt; 0)</code></p></li>
-<li><p><code>chk_match</code>: Check Matches</p>
-<p>Checks if all values match regular expression using:</p>
-<p><code>all(<a href='https://rdrr.io/r/base/grep.html'>grepl</a>(regexp, x))</code></p>
-<p><code>regexp</code> should be a non-missing character scalar.</p></li>
-<li><p><code>chk_dir</code>: Check Directory Exists</p>
-<p>Checks if directory exist using:</p>
-<p><code>length(x) == 1L &amp;&amp; <a href='https://rdrr.io/r/base/files2.html'>dir.exists</a>(x))</code></p></li>
-<li><p><code>chk_dirs</code>: Check Directories Exist</p>
+<li><p><code>chk_dirs</code>: Check Directories Exist (DEPRECATED)</p>
 <p>Checks if directories exist using:</p>
 <p><code>all(<a href='https://rdrr.io/r/base/files2.html'>dir.exists</a>(x))</code></p></li>
-<li><p><code>chk_file</code>: Check File Exists</p>
-<p>Checks if file exists using:</p>
-<p><code>length(x) == 1L &amp; <a href='https://rdrr.io/r/base/files.html'>file.exists</a>(x) &amp;&amp; !dir.exists(x)</code></p></li>
-<li><p><code>chk_files</code>: Check Files Exist</p>
+<li><p><code>chk_files</code>: Check Files Exist (DEPRECATED)</p>
 <p>Checks if files exist using:</p>
 <p><code>all(<a href='https://rdrr.io/r/base/files.html'>file.exists</a>(x) &amp;&amp; !dir.exists(x))</code></p></li>
 </ul>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='chk_number.html'>chk_number</a>()</code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'># chk_true</span>
-<span class='fu'>chk_true</span>(<span class='fl'>1</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>chk_true</span>(<span class='fl'>NA</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>chk_true</span>(<span class='fl'>FALSE</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>chk_true</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_true</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_true</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be TRUE.</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_true</span>(<span class='fl'>NA</span>))</div><div class='output co'>#&gt; Error : `NA` must be TRUE.</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_true</span>(<span class='fl'>FALSE</span>))</div><div class='output co'>#&gt; Error : `FALSE` must be TRUE.</div><div class='input'><span class='fu'>chk_true</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_true</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>)))</div><div class='output co'>#&gt; Error : `c(TRUE, TRUE)` must be TRUE.</div><div class='input'>
 <span class='co'># chk_false</span>
-<span class='fu'>chk_false</span>(<span class='fl'>0</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>chk_false</span>(<span class='fl'>NA</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>chk_false</span>(<span class='fl'>TRUE</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>chk_false</span>(<span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_false</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>FALSE</span>, <span class='fl'>FALSE</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_false</span>(<span class='fl'>0</span>))</div><div class='output co'>#&gt; Error : `0` must be FALSE.</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_false</span>(<span class='fl'>NA</span>))</div><div class='output co'>#&gt; Error : `NA` must be FALSE.</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_false</span>(<span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; Error : `TRUE` must be FALSE.</div><div class='input'><span class='fu'>chk_false</span>(<span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_false</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>FALSE</span>, <span class='fl'>FALSE</span>)))</div><div class='output co'>#&gt; Error : `c(FALSE, FALSE)` must be FALSE.</div><div class='input'>
 
 <span class='co'># chk_flag</span>
-<span class='fu'>chk_flag</span>(<span class='fl'>1</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>chk_flag</span>(<span class='fl'>NA</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>chk_flag</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_flag</span>(<span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_flag</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_flag</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be a flag (TRUE or FALSE).</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_flag</span>(<span class='fl'>NA</span>))</div><div class='output co'>#&gt; Error : `NA` must be a flag (TRUE or FALSE).</div><div class='input'><span class='fu'>chk_flag</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_flag</span>(<span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_flag</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>)))</div><div class='output co'>#&gt; Error : `c(TRUE, TRUE)` must be a flag (TRUE or FALSE).</div><div class='input'>
 
 <span class='co'># chk_lgl</span>
-<span class='fu'>chk_lgl</span>(<span class='fl'>1</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>chk_lgl</span>(<span class='fl'>NA</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_lgl</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_lgl</span>(<span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_lgl</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
-
-<span class='co'># chk_unique</span>
-<span class='fu'>chk_unique</span>(<span class='fl'>NA</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_unique</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>NA</span>, <span class='fl'>NA</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_lgl</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be a logical scalar (TRUE, FALSE or NA).</div><div class='input'><span class='fu'>chk_lgl</span>(<span class='fl'>NA</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_lgl</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_lgl</span>(<span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_lgl</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>)))</div><div class='output co'>#&gt; Error : `c(TRUE, TRUE)` must be a logical scalar (TRUE, FALSE or NA).</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -414,6 +219,8 @@ message if the check fails.</p></td>
       <li><a href="#details">Details</a></li>
 
       <li><a href="#functions">Functions</a></li>
+
+      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

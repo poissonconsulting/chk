@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Message — msg • chk</title>
+<title>Check ... Unused or Used — chk_unused • chk</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="Message — msg" />
+<meta property="og:title" content="Check ... Unused or Used — chk_unused" />
 
-<meta property="og:description" content="A wrapper on message(...)." />
+<meta property="og:description" content="Checks if ... is unused or used." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -118,39 +118,77 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Message</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/messages.R'><code>R/messages.R</code></a></small>
-    <div class="hidden name"><code>msg.Rd</code></div>
+    <h1>Check ... Unused or Used</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-unused.R'><code>R/chk-unused.R</code></a></small>
+    <div class="hidden name"><code>chk_unused.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A wrapper on <code><a href='https://rdrr.io/r/base/message.html'>message</a>(...)</code>.</p>
+    <p>Checks if ... is unused or used.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>msg</span>(<span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>chk_unused</span>(<span class='no'>...</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='fu'>chk_used</span>(<span class='no'>...</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>zero or more objects which can be coerced to character
-    (and which are pasted together with no separator) or (for
-    <code>message</code> only) a single condition object.</p></td>
+      <td><p>Additional arguments.</p></td>
+    </tr>
+    <tr>
+      <th>err</th>
+      <td><p>A flag specifying whether to generate an error
+message if the check fails.</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>TRUE if passes check. Otherwise if throws an informative error unless
+<code>err = FALSE</code> in which case it returns FALSE.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p><code>chk_unused()</code>: Check Unused</p>
+<p>Checks if is ... unused using:</p>
+<p><code>!length(<a href='https://rdrr.io/r/base/list.html'>list</a>(...))</code></p>
+    
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+
+    <ul>
+<li><p><code>chk_used</code>: Check ... Used</p>
+<p>Checks if is ... used using:</p>
+<p><code>length(<a href='https://rdrr.io/r/base/list.html'>list</a>(...))</code></p></li>
+</ul>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>msg</span>(<span class='st'>"this is a message"</span>)</div><div class='output co'>#&gt; <span class='message'>this is a message</span></div></pre>
+    <pre class="examples"><div class='input'>
+<span class='co'># chk_unused</span>
+<span class='no'>fun</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>, <span class='no'>...</span>) { <span class='fu'>chk_unused</span>(<span class='no'>...</span>); <span class='no'>x</span> }
+<span class='fu'>fun</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] 1</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>fun</span>(<span class='fl'>1</span>,<span class='fl'>2</span>))</div><div class='output co'>#&gt; Error : `...` must be unused.</div><div class='input'>
+
+<span class='co'># chk_used</span>
+<span class='no'>fun</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>, <span class='no'>...</span>) { <span class='fu'>chk_used</span>(<span class='no'>...</span>); <span class='no'>x</span> }
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>fun</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `...` must be used.</div><div class='input'><span class='fu'>fun</span>(<span class='fl'>1</span>,<span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] 1</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#functions">Functions</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
