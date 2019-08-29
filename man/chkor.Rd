@@ -7,7 +7,7 @@
 chkor(..., err = TRUE)
 }
 \arguments{
-\item{...}{Multiple \code{\link{chk}} functions.}
+\item{...}{Multiple \code{chk_} functions.}
 
 \item{err}{A flag specifying whether to generate an error
 message if the check fails.}

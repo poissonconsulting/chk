@@ -14,7 +14,7 @@ try_msg <- function (x) {
 
 #' Check OR
 #'
-#' @param ... Multiple \code{\link{chk}} functions.
+#' @param ... Multiple \code{chk_} functions.
 #' @inheritParams chk_true
 #'
 #' @return A flag or an error if the check fails and err == TRUE.
