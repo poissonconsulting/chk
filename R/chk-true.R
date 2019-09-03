@@ -34,7 +34,7 @@
 chk_true <- function(x, err = TRUE, x_name = NULL){
   if(isTRUE(x)) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   err(x_name, " must be TRUE.")
 }
 
@@ -60,7 +60,7 @@ chk_true <- function(x, err = TRUE, x_name = NULL){
 chk_false <- function(x, err = TRUE, x_name = NULL){
   if(isFALSE(x)) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   err(x_name, " must be FALSE.")
 }
 
@@ -86,7 +86,7 @@ chk_false <- function(x, err = TRUE, x_name = NULL){
 chk_flag <- function(x, err = TRUE, x_name = NULL){
   if(is.logical(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   err(x_name, " must be a flag (TRUE or FALSE).")
 }
 
@@ -112,6 +112,6 @@ chk_flag <- function(x, err = TRUE, x_name = NULL){
 chk_lgl <- function(x, err = TRUE, x_name = NULL){
   if(is.logical(x) && length(x) == 1L) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   err(x_name, " must be a logical scalar (TRUE, FALSE or NA).")
 }

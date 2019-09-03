@@ -27,7 +27,7 @@
 chk_null <- function(x, err = TRUE, x_name = NULL){
   if(is.null(x)) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   err(x_name, " must be NULL.")
 }
 
@@ -50,6 +50,6 @@ chk_null <- function(x, err = TRUE, x_name = NULL){
 chk_not_null <- function(x, err = TRUE, x_name = NULL){
   if(!is.null(x)) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   err(x_name, " must not be NULL.")
 }

@@ -47,6 +47,6 @@ chk_length <- function(x, length = 1L, err = TRUE, x_name = NULL) {
   .Deprecated("chk_range(length(x))")
   if(length(x) == length) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   err(x_name, " must be length ", length, ", not ", length(x), ".")
 }

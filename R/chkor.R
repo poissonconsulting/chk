@@ -44,7 +44,7 @@ chkor <- function (..., err = TRUE) {
   msg <- unlist(lapply(msg, try_msg))
   msg <- unique(msg)
   if(length(msg) == 1) err(msg) 
-  msg <- p0("\n* ", msg)
+  msg <- paste0("\n* ", msg)
   msg <- c("At least one of the following conditions must be met:", msg)
   err(msg)
 }

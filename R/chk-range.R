@@ -34,7 +34,7 @@
 chk_range <- function (x, range = c(0, Inf), err = TRUE, x_name = NULL) {
   if(all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L) {
     if(range[1] == range[2])
       err(x_name, " must be ", cc(range[1]), ", not ", cc(x), ".")
@@ -72,7 +72,7 @@ chk_range <- function (x, range = c(0, Inf), err = TRUE, x_name = NULL) {
 chk_lt <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(all(x[!is.na(x)] < value)) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
     err(x_name, " must be less than ", cc(value), ", not ", cc(x), ".")
   err(x_name, " must have values less than ", cc(value), ".")
@@ -102,7 +102,7 @@ chk_lt <- function (x, value = 0, err = TRUE, x_name = NULL) {
 chk_lte <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(all(x[!is.na(x)] <= value)) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
     err(x_name, " must be less than or equal to ", cc(value), ", not ", cc(x), ".")
   err(x_name, " must have values less than or equal to ", cc(value), ".")
@@ -134,7 +134,7 @@ chk_lte <- function (x, value = 0, err = TRUE, x_name = NULL) {
 chk_gt <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(all(x[!is.na(x)] > value)) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
     err(x_name, " must be greater than ", cc(value), ", not ", cc(x), ".")
   err(x_name, " must have values greater than ", cc(value), ".")
@@ -164,7 +164,7 @@ chk_gt <- function (x, value = 0, err = TRUE, x_name = NULL) {
 chk_gte <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(all(x[!is.na(x)] >= value)) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
     err(x_name, " must be greater than or equal to ", cc(value), 
         ", not ", cc(x), ".")

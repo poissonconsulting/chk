@@ -30,7 +30,7 @@
 #  Repository: https://github.com/poissonconsulting/chk
 chk_all <- function(x, chk_fun, ..., err = TRUE, x_name = NULL) {
   if(is.null(x)) {
-    if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+    if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
     return(chk_fun(x, ..., err = err, x_name = x_name))
   }
   args <- list(...)
@@ -41,8 +41,8 @@ chk_all <- function(x, chk_fun, ..., err = TRUE, x_name = NULL) {
   
   if(all(do.call("vapply", args))) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
-  x_name <- p0("All elements of ", x_name)
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
+  x_name <- paste0("All elements of ", x_name)
   args$err <- TRUE
   args$x_name <- x_name
   do.call("vapply", args)
@@ -71,6 +71,6 @@ chk_all_identical <- function(x, err = TRUE, x_name = NULL) {
   if(length(x) < 2L || all(vapply(x, identical, TRUE, y = x[[1]]))) return(TRUE)
   if(!err) return(FALSE)
 
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   err(x_name, " must have identical elements.")
 }

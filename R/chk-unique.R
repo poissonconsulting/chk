@@ -32,7 +32,7 @@
 chk_unique <- function(x, incomparables = FALSE, err = TRUE, x_name = NULL){
   if(!anyDuplicated(x, incomparables = incomparables)) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   err(x_name, " must be unique.")
 }
 
@@ -58,7 +58,7 @@ chk_unique <- function(x, incomparables = FALSE, err = TRUE, x_name = NULL){
 chk_no_missing <- function(x, err = TRUE, x_name = NULL){
   if(!anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   err(x_name, " must not have missing values.")
 }
 
@@ -85,7 +85,7 @@ chk_no_missing <- function(x, err = TRUE, x_name = NULL){
 chk_named <- function(x, err = TRUE, x_name = NULL){
   if(!is.null(names(x))) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   err(x_name, " must be named.")
 }
 
@@ -110,7 +110,7 @@ chk_in <- function (x, values = c(0, 1, NA), err = TRUE, x_name = NULL) {
   if(all(x %in% values)) return(TRUE)
   if(!err) return(FALSE)
   values <- sort(unique(values), na.last = TRUE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
     err(x_name, " must match ", cc(values, " or "), ", not ", cc(x), ".")
   err(x_name, " must have values matching ", cc(values, " or "), ".")
@@ -140,7 +140,7 @@ chk_in <- function (x, values = c(0, 1, NA), err = TRUE, x_name = NULL) {
 chk_match <- function (x, regexp = ".+", err = TRUE, x_name = NULL) {
   if(all(grepl(regexp, x))) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
     err(x_name, " must match regular expression '", regexp, "'.")
     err(x_name, " must have values matching regular expression '", regexp, "'.")

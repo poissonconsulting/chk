@@ -33,7 +33,7 @@
 chk_is <- function(x, class, err = TRUE, x_name = NULL) {
   if(inherits(x, class)) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   err(x_name, " must inherit from class '", class, "'.")
 }
 
@@ -61,7 +61,7 @@ chk_whole_numeric <- function(x, err = TRUE, x_name = NULL){
   if(is.integer(x) || (is.double(x) && isTRUE(all.equal(x, as.integer(x)))))
     return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   err(x_name, 
       " must be a whole numeric vector (integer vector or double equivalent).")
 }
@@ -88,7 +88,7 @@ chk_whole_numeric <- function(x, err = TRUE, x_name = NULL){
 chk_list <- function(x, err = TRUE, x_name = NULL){
   if(is.list(x)) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   err(x_name, " must be a list.")
 }
 
@@ -113,6 +113,6 @@ chk_list <- function(x, err = TRUE, x_name = NULL){
 chk_function <- function(x, err = TRUE, x_name = NULL){
   if(is.function(x)) return(TRUE)
   if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   err(x_name, " must be a function.")
 }
