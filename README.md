@@ -136,10 +136,10 @@ chk_flag
 #> function(x, err = TRUE, x_name = NULL){
 #>   if(is.logical(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
 #>   if(!err) return(FALSE)
-#>   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
-#>   err(x_name, " must be a flag (TRUE or FALSE).")
+#>   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
+#>   stop(x_name, " must be a flag (TRUE or FALSE).", call. = FALSE)
 #> }
-#> <bytecode: 0x7ff0f95bd778>
+#> <bytecode: 0x7f9148f62aa8>
 #> <environment: namespace:chk>
 ```
 
@@ -199,4 +199,4 @@ always welcome.
 
 Please note that this project is released with a [Contributor Code of
 Conduct](https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md).
-By contributing, you agree to abide by its terms.
+By contributing, you agree to abide by its terms

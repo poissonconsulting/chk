@@ -93,7 +93,6 @@ microbenchmark(
   chk_string(string),
   chk_date(date),
   chk_datetime(datetime),
-  chk_length(one),
   chk_whole_numeric(oneL),
   chk_whole_numeric(one),
   chk_no_missing(one),
