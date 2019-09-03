@@ -63,10 +63,10 @@ cc <- function(x, conj = ", ",
   x <- paste0(brac[1], x, brac[length(brac)])
   n <- length(x)
   if(n == 1L) return(x)
-  if(n == 2L) return(p(x, collapse = conj))
+  if(n == 2L) return(paste(x, collapse = conj))
   if(n > 10) {
     x <- c(x[1:8], "...", x[n])
     n <- 10
   }
-  p(c(paste0(x[1:(n-1)], collapse = ", "), x[n]), collapse = conj)
+  paste(c(paste0(x[1:(n-1)], collapse = ", "), x[n]), collapse = conj)
 }
