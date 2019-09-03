@@ -34,7 +34,7 @@ chk_is <- function(x, class, err = TRUE, x_name = NULL) {
   if(inherits(x, class)) return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  err(x_name, " must inherit from class '", class, "'.")
+  stop(x_name, " must inherit from class '", class, "'.", call. = FALSE)
 }
 
 #' @describeIn chk_is Check Whole Numeric
@@ -62,8 +62,9 @@ chk_whole_numeric <- function(x, err = TRUE, x_name = NULL){
     return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  err(x_name, 
-      " must be a whole numeric vector (integer vector or double equivalent).")
+  stop(x_name, 
+      " must be a whole numeric vector (integer vector or double equivalent).",
+      call. = FALSE)
 }
 
 #' @describeIn chk_is Check List
@@ -89,7 +90,7 @@ chk_list <- function(x, err = TRUE, x_name = NULL){
   if(is.list(x)) return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  err(x_name, " must be a list.")
+  stop(x_name, " must be a list.", call. = FALSE)
 }
 
 #' @describeIn chk_is Check Function
@@ -114,5 +115,5 @@ chk_function <- function(x, err = TRUE, x_name = NULL){
   if(is.function(x)) return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  err(x_name, " must be a function.")
+  stop(x_name, " must be a function.", call. = FALSE)
 }

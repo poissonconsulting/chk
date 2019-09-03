@@ -72,5 +72,5 @@ chk_all_identical <- function(x, err = TRUE, x_name = NULL) {
   if(!err) return(FALSE)
 
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  err(x_name, " must have identical elements.")
+  stop(x_name, " must have identical elements.", call. = FALSE)
 }

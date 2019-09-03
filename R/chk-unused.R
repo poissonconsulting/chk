@@ -29,7 +29,7 @@
 chk_unused <- function (..., err = TRUE) {
   if(!length(list(...))) return(TRUE)
   if(!err) return(FALSE)
-  err("`...` must be unused.")
+  stop("`...` must be unused.", call. = FALSE)
 }
 
 #' @describeIn chk_unused Check ... Used
@@ -52,5 +52,5 @@ chk_unused <- function (..., err = TRUE) {
 chk_used <- function (..., err = TRUE) {
   if(length(list(...))) return(TRUE)
   if(!err) return(FALSE)
-  err("`...` must be used.")
+  stop("`...` must be used.", call. = FALSE)
 }

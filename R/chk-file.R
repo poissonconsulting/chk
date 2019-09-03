@@ -30,8 +30,8 @@ chk_file <- function(x, err = TRUE){
   x <- unique(x)
   x <- x[!file.exists(x) | dir.exists(x)]
   if(length(x) == 1L)
-    err("Can't find file '", x, "'.")
-  err("Can't find the following files: ", cc(x, " or "), ".")
+    stop("Can't find file '", x, "'.", call. = FALSE)
+  stop("Can't find the following files: ", cc(x, " or "), ".", call. = FALSE)
 }
 
 #' @describeIn chk_file Check Directories Exist
@@ -55,6 +55,6 @@ chk_dir <- function(x, err = TRUE){
   x <- unique(x)
   x <- x[!dir.exists(x)]
   if(length(x) == 1L)
-    err("Can't find directory '", x, "'.")
-  err("Can't find the following directories: ", cc(x, " or "), ".")
+    stop("Can't find directory '", x, "'.", call. = FALSE)
+  stop("Can't find the following directories: ", cc(x, " or "), ".", call. = FALSE)
 }

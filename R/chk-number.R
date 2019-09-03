@@ -31,7 +31,7 @@ chk_number <- function(x, err = TRUE, x_name = NULL){
   if(is.numeric(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  err(x_name, " must be a number (non-missing numeric scalar).")
+  stop(x_name, " must be a number (non-missing numeric scalar).", call. = FALSE)
 }
 
 #' @describeIn chk_number Check Proportion
@@ -58,8 +58,9 @@ chk_proportion <- function(x, err = TRUE, x_name = NULL){
     return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  err(x_name, 
-      " must be a proportion (non-missing numeric scalar between 0 and 1).")
+  stop(x_name, 
+       " must be a proportion (non-missing numeric scalar between 0 and 1).", 
+       call. = FALSE)
 }
 
 #' @describeIn chk_number Check Whole Number
@@ -88,8 +89,9 @@ chk_whole_number <- function(x, err = TRUE, x_name = NULL){
     return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  err(x_name, 
-      " must be a whole number (non-missing integer scalar or double equivalent).")
+  stop(x_name, 
+       " must be a whole number (non-missing integer scalar or double equivalent).",
+       call. = FALSE)
 }
 
 #' @describeIn chk_number Check Count
@@ -118,8 +120,9 @@ chk_count <- function(x, err = TRUE, x_name = NULL){
     return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  err(x_name, 
-      " must be a count (non-missing non-negative integer scalar or double equivalent).")
+  stop(x_name, 
+       " must be a count (non-missing non-negative integer scalar or double equivalent).", 
+       call. = FALSE)
 }
 
 #' @describeIn chk_number Check String
@@ -145,7 +148,7 @@ chk_string <- function(x, err = TRUE, x_name = NULL){
   if(is.character(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  err(x_name, " must be a string (non-missing character scalar).")
+  stop(x_name, " must be a string (non-missing character scalar).", call. = FALSE)
 }
 
 #' @describeIn chk_number Check String
@@ -172,7 +175,7 @@ chk_date <- function(x, err = TRUE, x_name = NULL){
   if(inherits(x, "Date") && length(x) == 1L && !anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  err(x_name, " must be a date (non-missing Date scalar).")
+  stop(x_name, " must be a date (non-missing Date scalar).", call. = FALSE)
 }
 
 #' @describeIn chk_number Check DateTime
@@ -199,5 +202,5 @@ chk_datetime <- function(x, err = TRUE, x_name = NULL){
   if(inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)) return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  err(x_name, " must be a datetime (non-missing POSIXct scalar).")
+  stop(x_name, " must be a datetime (non-missing POSIXct scalar).", call. = FALSE)
 }
