@@ -28,3 +28,25 @@ chk_files <- function(x, err = TRUE){
   chk_file(x, err = err)
 }
 
+#' @describeIn chk_unique Check Length
+#'
+#' 
+#' Checks if is length length using:
+#' 
+#' \code{length(x) == length}
+#' 
+#' \code{length} should be a count.
+#'  
+#' @param length A count of the length.
+#' 
+#' @export
+#'
+#  Licence: CC
+#  Repository: https://github.com/poissonconsulting/chk
+chk_length <- function(x, length = 1L, err = TRUE, x_name = NULL) {
+  .Deprecated("chk_range(length(x))")
+  if(length(x) == length) return(TRUE)
+  if(!err) return(FALSE)
+  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  err(x_name, " must be length ", length, ", not ", length(x), ".")
+}

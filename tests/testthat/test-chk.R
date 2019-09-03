@@ -146,21 +146,6 @@ test_that("chk_datetime", {
   expect_error(chk_date(1, x_name = 1), "^1 must be a date [(]non-missing Date scalar[)][.]$")
 })
 
-test_that("chk_length", {
-  expect_false(chk_length(NULL, err = FALSE))
-  expect_false(chk_length(integer(0), err = FALSE))
-  expect_true(chk_length(1))
-  expect_true(chk_length(NA))
-  expect_false(chk_length(list(), err = FALSE))
-  expect_true(chk_length(list(x = 1)))
-  expect_error(chk_length(NULL), 
-               "^`NULL` must be length 1, not 0[.]$")
-  expect_error(chk_length(1, 3), 
-               "^`1` must be length 3, not 1[.]$")
-  expect_error(chk_length(1, 3, x_name = 3), 
-               "^3 must be length 3, not 1[.]$")
-})
-
 test_that("chk_named", {
   expect_false(chk_named(list(), err = FALSE))
   expect_false(chk_named(list(1), err = FALSE))

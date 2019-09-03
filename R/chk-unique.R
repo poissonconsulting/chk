@@ -1,49 +1,42 @@
-#' Miscellaneous Checks
+#' Check Unique
 #' 
-#' Miscellaneous checks.
+#' Unique checks.
 #'
 #' @details  
 #' 
-#' \code{chk_length()}: Check Length
+#' \code{chk_unique()}: Check Unique
 #' 
-#' Checks if is length length using:
+#' Checks if unique using:
 #' 
-#' \code{length(x) == length}
-#' 
-#' \code{length} should be a count.
-#'  
+#' \code{!\link{anyDuplicated}(x, incomparables = incomparables)}
 #' @inheritParams chk_true
-#' @param length A count of the length.
 #' @param incomparables A vector of values that cannot be compared.
 #' FALSE means that all values can be compared.
 #' @param values A vector of the permitted values.
 #' @param regexp A string of a regular expression.
 #' @return TRUE if passes check. Otherwise if throws an informative error unless
 #' \code{err = FALSE} in which case it returns FALSE.
-#' 
 #' @export
 #' 
 #' @examples 
 #' 
-#' # chk_length
-#' try(chk_length(numeric(0)))
-#' try(chk_length(1:2))
-#' chk_length(1)
-#' chk_length(NA_character_)
-#' chk_length(Sys.Date())
-#' chk_length(Sys.time())
-#' chk_length(1:2, length = 2)
-#'   
+#' # chk_unique
+#' chk_unique(NULL)
+#' chk_unique(numeric(0))
+#' chk_unique(c(NA, 2))
+#' try(chk_unique(c(NA, NA, 2)))
+#' chk_unique(c(NA, NA, 2), incomparables = NA)
+#' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_length <- function(x, length = 1L, err = TRUE, x_name = NULL) {
-  if(length(x) == length) return(TRUE)
+chk_unique <- function(x, incomparables = FALSE, err = TRUE, x_name = NULL){
+  if(!anyDuplicated(x, incomparables = incomparables)) return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
-  err(x_name, " must be length ", length, ", not ", length(x), ".")
+  err(x_name, " must be unique.")
 }
 
-#' @describeIn chk_length Check No Missing Values
+#' @describeIn chk_unique Check No Missing Values
 #' 
 #' Checks if no missing values using:
 #' 
@@ -69,33 +62,7 @@ chk_no_missing <- function(x, err = TRUE, x_name = NULL){
   err(x_name, " must not have missing values.")
 }
 
-#' @describeIn chk_length Check Unique
-#' 
-#' Checks if unique using:
-#' 
-#' \code{!\link{anyDuplicated}(x, incomparables = incomparables)}
-#' 
-#' @export
-#' 
-#' @examples 
-#' 
-#' # chk_unique
-#' chk_unique(NULL)
-#' chk_unique(numeric(0))
-#' chk_unique(c(NA, 2))
-#' try(chk_unique(c(NA, NA, 2)))
-#' chk_unique(c(NA, NA, 2), incomparables = NA)
-#' 
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_unique <- function(x, incomparables = FALSE, err = TRUE, x_name = NULL){
-  if(!anyDuplicated(x, incomparables = incomparables)) return(TRUE)
-  if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
-  err(x_name, " must be unique.")
-}
-
-#' @describeIn chk_length Check Named
+#' @describeIn chk_unique Check Named
 #' 
 #' Checks if is named using:
 #' 
@@ -122,7 +89,7 @@ chk_named <- function(x, err = TRUE, x_name = NULL){
   err(x_name, " must be named.")
 }
 
-#' @describeIn chk_length Check In
+#' @describeIn chk_unique Check In
 #' 
 #' Checks if all values in values using equivalent of:
 #' 
@@ -149,7 +116,7 @@ chk_in <- function (x, values = c(0, 1, NA), err = TRUE, x_name = NULL) {
   err(x_name, " must have values matching ", cc(values, " or "), ".")
 }
 
-#' @describeIn chk_length Check Matches
+#' @describeIn chk_unique Check Matches
 #' 
 #' Checks if all values match regular expression using:
 #'
