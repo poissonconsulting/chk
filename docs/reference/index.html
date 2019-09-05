@@ -8,11 +8,13 @@
 
 <title>Function reference • chk</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -32,7 +34,9 @@
 
 
 
+
 <meta property="og:title" content="Function reference" />
+
 
 
 
@@ -63,7 +67,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9006</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9007</span>
       </span>
     </div>
 
@@ -94,7 +98,6 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/poissonconsulting/chk">
@@ -148,13 +151,19 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="chk_date.html">chk_date()</a></code> <code><a href="chk_date.html">chk_datetime()</a></code> </p>
+        </td>
+        <td><p>Check Date</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="chk_equal.html">chk_equal()</a></code> <code><a href="chk_equal.html">chk_identical()</a></code> <code><a href="chk_equal.html">chk_equivalent()</a></code> </p>
         </td>
         <td><p>Check Equal, Identical or Equivalent</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="chk_file.html">chk_file()</a></code> <code><a href="chk_file.html">chk_dir()</a></code> </p>
+          <p><code><a href="chk_file.html">chk_file()</a></code> <code><a href="chk_file.html">chk_dir()</a></code> <code><a href="chk_file.html">chk_dirs()</a></code> <code><a href="chk_file.html">chk_files()</a></code> </p>
         </td>
         <td><p>Check Files or Directories Exist</p></td>
       </tr><tr>
@@ -166,19 +175,13 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="chk_length.html">chk_length()</a></code> <code><a href="chk_length.html">chk_no_missing()</a></code> <code><a href="chk_length.html">chk_unique()</a></code> <code><a href="chk_length.html">chk_named()</a></code> <code><a href="chk_length.html">chk_in()</a></code> <code><a href="chk_length.html">chk_match()</a></code> </p>
-        </td>
-        <td><p>Miscellaneous Checks</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="chk_null.html">chk_null()</a></code> <code><a href="chk_null.html">chk_not_null()</a></code> </p>
         </td>
         <td><p>Check NULL or not NULL</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="chk_number.html">chk_number()</a></code> <code><a href="chk_number.html">chk_proportion()</a></code> <code><a href="chk_number.html">chk_whole_number()</a></code> <code><a href="chk_number.html">chk_count()</a></code> <code><a href="chk_number.html">chk_string()</a></code> <code><a href="chk_number.html">chk_date()</a></code> <code><a href="chk_number.html">chk_datetime()</a></code> </p>
+          <p><code><a href="chk_number.html">chk_number()</a></code> <code><a href="chk_number.html">chk_whole_number()</a></code> <code><a href="chk_number.html">chk_count()</a></code> <code><a href="chk_number.html">chk_proportion()</a></code> </p>
         </td>
         <td><p>Check Scalar</p></td>
       </tr><tr>
@@ -196,9 +199,21 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="chk_true.html">chk_true()</a></code> <code><a href="chk_true.html">chk_false()</a></code> <code><a href="chk_true.html">chk_flag()</a></code> <code><a href="chk_true.html">chk_lgl()</a></code> <code><a href="chk_true.html">chk_dirs()</a></code> <code><a href="chk_true.html">chk_files()</a></code> </p>
+          <p><code><a href="chk_string.html">chk_string()</a></code> <code><a href="chk_string.html">chk_match()</a></code> </p>
+        </td>
+        <td><p>Check String</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="chk_true.html">chk_true()</a></code> <code><a href="chk_true.html">chk_false()</a></code> <code><a href="chk_true.html">chk_flag()</a></code> <code><a href="chk_true.html">chk_lgl()</a></code> </p>
         </td>
         <td><p>Check TRUE or FALSE</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="chk_unique.html">chk_unique()</a></code> <code><a href="chk_unique.html">chk_no_missing()</a></code> <code><a href="chk_unique.html">chk_named()</a></code> <code><a href="chk_unique.html">chk_in()</a></code> <code><a href="chk_unique.html">chk_length()</a></code> </p>
+        </td>
+        <td><p>Check Unique</p></td>
       </tr><tr>
         
         <td>

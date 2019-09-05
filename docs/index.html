@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9006</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9007</span>
       </span>
     </div>
 
@@ -117,7 +117,7 @@
 <span id="cb3-4"><a href="#cb3-4"></a></span>
 <span id="cb3-5"><a href="#cb3-5"></a><span class="kw"><a href="reference/chk_true.html">chk_flag</a></span>(y)</span>
 <span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt; Error: `y` must be a flag (TRUE or FALSE).</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="kw"><a href="reference/chk_number.html">chk_string</a></span>(y)</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="kw"><a href="reference/chk_string.html">chk_string</a></span>(y)</span>
 <span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt; [1] TRUE</span></span>
 <span id="cb3-9"><a href="#cb3-9"></a></span>
 <span id="cb3-10"><a href="#cb3-10"></a>data &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)</span>
@@ -125,7 +125,7 @@
 <span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt; [1] TRUE</span></span>
 <span id="cb3-13"><a href="#cb3-13"></a><span class="kw"><a href="reference/chk_range.html">chk_range</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(data), <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">3</span>,<span class="dv">8</span>))</span>
 <span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; Error: `nrow(data)` must be between 3 and 8, not 2.</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="kw"><a href="reference/chk_length.html">chk_in</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(data), <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">3</span>,<span class="dv">8</span>))</span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="kw"><a href="reference/chk_unique.html">chk_in</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(data), <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">3</span>,<span class="dv">8</span>))</span>
 <span id="cb3-16"><a href="#cb3-16"></a><span class="co">#&gt; Error: `nrow(data)` must match 3 or 8, not 2.</span></span>
 <span id="cb3-17"><a href="#cb3-17"></a></span>
 <span id="cb3-18"><a href="#cb3-18"></a><span class="kw"><a href="reference/chk_equal.html">chk_identical</a></span>(data<span class="op">$</span>x, <span class="dv">2</span><span class="op">:</span><span class="dv">1</span>)</span>
@@ -156,9 +156,9 @@
 <div id="copy-and-paste" class="section level4">
 <h4 class="hasAnchor">
 <a href="#copy-and-paste" class="anchor"></a>Copy and Paste</h4>
-<p><code>chk</code> is released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> license. This allows developers to copy and paste functions into their package which is useful if they want to minimize their dependencies.</p>
-<p>Copied functions should not be exported (to avoid namespace conflicts) and the following creditation preserved.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#  License: CC</span></span>
+<p><code>chk</code> is released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> license. This allows developers to copy and paste functions into their package which is useful if they want to minimize their dependencies. Most of the <code>chk_</code> functions are standalone, ie, written in base R.</p>
+<p>Copied functions should not be exported (to avoid namespace conflicts) and the CC0 creditation preserved.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#  License: CC0</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="co">#  Repository: https://github.com/poissonconsulting/chk</span></span></code></pre></div>
 </div>
 </div>
@@ -174,10 +174,10 @@
 <span id="cb7-2"><a href="#cb7-2"></a><span class="co">#&gt; function(x, err = TRUE, x_name = NULL){</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt;   if(is.logical(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)) return(TRUE)</span></span>
 <span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt;   if(!err) return(FALSE)</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt;   if(is.null(x_name))  x_name &lt;- p0("`", deparse(substitute(x)), "`")</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt;   err(x_name, " must be a flag (TRUE or FALSE).")</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt;   if(is.null(x_name))  x_name &lt;- paste0("`", deparse(substitute(x)), "`")</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt;   stop(x_name, " must be a flag (TRUE or FALSE).", call. = FALSE)</span></span>
 <span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt; }</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt; &lt;bytecode: 0x7fd1c6669f88&gt;</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt; &lt;bytecode: 0x7f9148f62aa8&gt;</span></span>
 <span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt; &lt;environment: namespace:chk&gt;</span></span></code></pre></div>
 </div>
 <div id="minimal-checking" class="section level4">
@@ -228,7 +228,7 @@
 <a href="#contribution" class="anchor"></a>Contribution</h2>
 <p>Please report any <a href="https://github.com/poissonconsulting/chk/issues">issues</a>.</p>
 <p><a href="https://github.com/poissonconsulting/chk/pulls">Pull requests</a> are always welcome.</p>
-<p>Please note that this project is released with a <a href="https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>. By contributing, you agree to abide by its terms.</p>
+<p>Please note that this project is released with a <a href="https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>. By contributing, you agree to abide by its terms</p>
 </div>
 </div>
   </div>
@@ -262,6 +262,7 @@
 <li>Poisson Consulting <br><small class="roles"> Copyright holder, funder </small>  </li>
 </ul>
 </div>
+
 
       </div>
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check NULL or not NULL — chk_null • chk</title>
+<title>Check Date — chk_date • chk</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Check NULL or not NULL — chk_null" />
-<meta property="og:description" content="Checks if NULL or not NULL." />
+<meta property="og:title" content="Check Date — chk_date" />
+<meta property="og:description" content="Checks if date or datetime." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -120,18 +120,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check NULL or not NULL</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-null.R'><code>R/chk-null.R</code></a></small>
-    <div class="hidden name"><code>chk_null.Rd</code></div>
+    <h1>Check Date</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-date.R'><code>R/chk-date.R</code></a></small>
+    <div class="hidden name"><code>chk_date.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Checks if NULL or not NULL.</p>
+    <p>Checks if date or datetime.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>chk_null</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>chk_date</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>chk_not_null</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+<span class='fu'>chk_datetime</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -157,24 +157,27 @@ message if the check fails.</p></td>
 <code>err = FALSE</code> in which case it returns FALSE.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>chk_null()</code>: Check NULL</p>
-<p>Checks if NULL using:</p>
-<p><code><a href='https://rdrr.io/r/base/NULL.html'>is.null</a>(x)</code></p>
+    <p><code>chk_date()</code>: Check Date</p>
+<p>Checks if non-missing Date scalar using:</p>
+<p><code>inherits(x, "Date") &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></p>
     <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
 
     <ul>
-<li><p><code>chk_not_null</code>: Check Not NULL</p>
-<p>Checks if not NULL using:</p>
-<p><code>!<a href='https://rdrr.io/r/base/NULL.html'>is.null</a>(x)</code></p></li>
+<li><p><code>chk_datetime</code>: Check DateTime</p>
+<p>Checks if non-missing POSIXct scalar using:</p>
+<p><code>inherits(x, "POSIXct") &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></p></li>
 </ul>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='chk_true.html'>chk_true</a>()</code> and <code><a href='chk_number.html'>chk_number</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='co'># chk_null</span>
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_null</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be NULL.</div><div class='input'><span class='fu'>chk_null</span>(<span class='kw'>NULL</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
+<span class='co'># chk_date</span>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_date</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be a date (non-missing Date scalar).</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_date</span>(<span class='st'>"2001-01-02"</span>))</div><div class='output co'>#&gt; Error : `"2001-01-02"` must be a date (non-missing Date scalar).</div><div class='input'><span class='fu'>chk_date</span>(<span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span>(<span class='st'>"2001-01-02"</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_date</span>(<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>())</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_date</span>(<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span>()))</div><div class='output co'>#&gt; Error : `Sys.time()` must be a date (non-missing Date scalar).</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_date</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>(), <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>())))</div><div class='output co'>#&gt; Error : `c(Sys.Date(), Sys.Date())` must be a date (non-missing Date scalar).</div><div class='input'>
 
-<span class='co'># chk_not_null</span>
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_not_null</span>(<span class='kw'>NULL</span>))</div><div class='output co'>#&gt; Error : `NULL` must not be NULL.</div><div class='input'><span class='fu'>chk_not_null</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
+<span class='co'># chk_datetime</span>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_datetime</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be a datetime (non-missing POSIXct scalar).</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_datetime</span>(<span class='st'>"2001-01-02"</span>))</div><div class='output co'>#&gt; Error : `"2001-01-02"` must be a datetime (non-missing POSIXct scalar).</div><div class='input'><span class='fu'>chk_datetime</span>(<span class='fu'><a href='https://rdrr.io/r/base/as.POSIXlt.html'>as.POSIXct</a></span>(<span class='st'>"2001-01-02"</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_datetime</span>(<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>()))</div><div class='output co'>#&gt; Error : `Sys.Date()` must be a datetime (non-missing POSIXct scalar).</div><div class='input'><span class='fu'>chk_datetime</span>(<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span>())</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_datetime</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span>(), <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span>())))</div><div class='output co'>#&gt; Error : `c(Sys.time(), Sys.time())` must be a datetime (non-missing POSIXct scalar).</div><div class='input'>   
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -184,6 +187,7 @@ message if the check fails.</p></td>
       <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
       <li><a href="#functions">Functions</a></li>
+      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

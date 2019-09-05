@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Turn checking on and off — chk_on • chk</title>
+<title>Check String — chk_string • chk</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Turn checking on and off — chk_on" />
-<meta property="og:description" content="Turns checking on and off." />
+<meta property="og:title" content="Check String — chk_string" />
+<meta property="og:description" content="Check if string." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -120,43 +120,73 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Turn checking on and off</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/on-chk.R'><code>R/on-chk.R</code></a></small>
-    <div class="hidden name"><code>chk_on.Rd</code></div>
+    <h1>Check String</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-string.R'><code>R/chk-string.R</code></a></small>
+    <div class="hidden name"><code>chk_string.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Turns checking on and off.</p>
+    <p>Check if string.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>chk_on</span>()
+    <pre class="usage"><span class='fu'>chk_string</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>chk_off</span>()
+<span class='fu'>chk_match</span>(<span class='no'>x</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>".+"</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
-<span class='fu'>is_chk_on</span>()</pre>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>The object to check.</p></td>
+    </tr>
+    <tr>
+      <th>err</th>
+      <td><p>A flag specifying whether to generate an error
+message if the check fails.</p></td>
+    </tr>
+    <tr>
+      <th>x_name</th>
+      <td><p>A string of the name of object x or NULL.</p></td>
+    </tr>
+    <tr>
+      <th>regexp</th>
+      <td><p>A string of a regular expression.</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>TRUE if passes check. Otherwise if throws an informative error unless
+<code>err = FALSE</code> in which case it returns FALSE.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p><code>chk_-string()</code>: Check String</p>
+<p>Checks if non-missing character scalar using:</p>
+<p><code>is.character(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></p>
     <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
 
     <ul>
-<li><p><code>chk_off</code>: Turns checking off</p></li>
-<li><p><code>is_chk_on</code>: Tests checking on</p></li>
+<li><p><code>chk_match</code>: Check Matches</p>
+<p>Checks if all values match regular expression using:</p>
+<p><code>all(<a href='https://rdrr.io/r/base/grep.html'>grepl</a>(regexp, x))</code></p>
+<p><code>regexp</code> should be a non-missing character scalar.</p></li>
 </ul>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='fu'>is_chk_on</span>())</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='kw'>if</span>(<span class='fu'>is_chk_on</span>()) {
-  <span class='fu'>chk_off</span>()
-  <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='fu'>is_chk_on</span>())
-  <span class='fu'>chk_on</span>()
-} <span class='kw'>else</span> {
-  <span class='fu'>chk_on</span>()
-  <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='fu'>is_chk_on</span>())
-  <span class='fu'>chk_off</span>()
-}</div><div class='output co'>#&gt; [1] FALSE</div></pre>
+    <pre class="examples"><div class='input'>
+<span class='co'># chk_string</span>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_string</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be a string (non-missing character scalar).</div><div class='input'><span class='fu'>chk_string</span>(<span class='st'>"1"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_string</span>(<span class='st'>""</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_string</span>(<span class='fl'>NA_character_</span>))</div><div class='output co'>#&gt; Error : `NA_character_` must be a string (non-missing character scalar).</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_string</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"1"</span>, <span class='st'>"1"</span>)))</div><div class='output co'>#&gt; Error : `c("1", "1")` must be a string (non-missing character scalar).</div><div class='input'>
+
+<span class='co'># chk_match</span>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_match</span>(<span class='st'>""</span>))</div><div class='output co'>#&gt; Error : `""` must match regular expression '.+'.</div><div class='input'><span class='fu'>chk_match</span>(<span class='st'>"1"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_match</span>(<span class='st'>"1"</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"2"</span>))</div><div class='output co'>#&gt; Error : `"1"` must match regular expression '2'.</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_match</span>(<span class='fl'>NA_character_</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>".*"</span>))</div><div class='output co'>#&gt; Error : `NA_character_` must match regular expression '.*'.</div><div class='input'><span class='fu'>chk_match</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"a"</span>), <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>".*"</span>)</div><div class='output co'>#&gt; [1] TRUE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
       <li><a href="#functions">Functions</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
