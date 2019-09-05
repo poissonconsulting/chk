@@ -17,3 +17,6 @@ A wrapper on \code{\link[base]{message}(...)}.
 \examples{
 msg("this is a message")
 }
+\seealso{
+\code{\link{err}()} and \code{\link{wrn}()}
+}

@@ -13,7 +13,6 @@
 #' @param incomparables A vector of values that cannot be compared.
 #' FALSE means that all values can be compared.
 #' @param values A vector of the permitted values.
-#' @param regexp A string of a regular expression.
 #' @return TRUE if passes check. Otherwise if throws an informative error unless
 #' \code{err = FALSE} in which case it returns FALSE.
 #' @export
@@ -116,35 +115,4 @@ chk_in <- function (x, values = c(0, 1, NA), err = TRUE, x_name = NULL) {
          call. = FALSE)
   stop(x_name, " must have values matching ", cc(values, " or "), ".", 
        call. = FALSE)
-}
-
-#' @describeIn chk_unique Check Matches
-#' 
-#' Checks if all values match regular expression using:
-#'
-#' \code{all(\link{grepl}(regexp, x))}
-#' 
-#' \code{regexp} should be a non-missing character scalar.
-#' 
-#' @export
-#' 
-#' @examples 
-#' 
-#' # chk_match
-#' try(chk_match(""))
-#' chk_match("1")
-#' try(chk_match("1", regexp = "2"))
-#' try(chk_match(NA_character_, regexp = ".*"))
-#' chk_match(c("a"), regexp = ".*")
-#
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_match <- function (x, regexp = ".+", err = TRUE, x_name = NULL) {
-  if(all(grepl(regexp, x))) return(TRUE)
-  if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  if(length(x) == 1L)
-    stop(x_name, " must match regular expression '", regexp, "'.", call. = FALSE)
-    stop(x_name, " must have values matching regular expression '", regexp, "'.",
-         call. = FALSE)
 }

@@ -3,6 +3,7 @@
 #' A wrapper on \code{\link[base]{stop}(..., call. = FALSE)}.
 #' 
 #' @inheritParams base::stop
+#' @seealso \code{\link{wrn}()} and \code{\link{msg}()}
 #' @export
 #'
 #' @examples
@@ -17,6 +18,7 @@ err <- function (...) stop(..., call. = FALSE)
 #' A wrapper on \code{\link[base]{message}(...)}.
 #' 
 #' @inheritParams base::message
+#' @seealso \code{\link{err}()} and \code{\link{wrn}()}
 #' @export
 #'
 #' @examples
@@ -31,6 +33,7 @@ msg <- function (...) message(...)
 #' A wrapper on \code{\link[base]{warning}(..., call. = FALSE)}.
 #' 
 #' @inheritParams base::warning
+#' @seealso \code{\link{err}()} and \code{\link{msg}()}
 #' @export
 #'
 #' @examples
@@ -69,4 +72,3 @@ p <- function (..., sep = " ", collapse = NULL)
 #  Repository: https://github.com/poissonconsulting/chk
 p0 <- function (..., collapse = NULL) 
   paste0(..., collapse = collapse)
-

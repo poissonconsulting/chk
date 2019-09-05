@@ -17,3 +17,6 @@ A wrapper on \code{\link[base]{warning}(..., call. = FALSE)}.
 \examples{
 wrn("this is a warning")
 }
+\seealso{
+\code{\link{err}()} and \code{\link{msg}()}
+}

@@ -5,7 +5,6 @@
 \alias{chk_no_missing}
 \alias{chk_named}
 \alias{chk_in}
-\alias{chk_match}
 \alias{chk_length}
 \title{Check Unique}
 \usage{
@@ -16,8 +15,6 @@ chk_no_missing(x, err = TRUE, x_name = NULL)
 chk_named(x, err = TRUE, x_name = NULL)
 
 chk_in(x, values = c(0, 1, NA), err = TRUE, x_name = NULL)
-
-chk_match(x, regexp = ".+", err = TRUE, x_name = NULL)
 
 chk_length(x, length = 1L, err = TRUE, x_name = NULL)
 }
@@ -33,8 +30,6 @@ message if the check fails.}
 \item{x_name}{A string of the name of object x or NULL.}
 
 \item{values}{A vector of the permitted values.}
-
-\item{regexp}{A string of a regular expression.}
 
 \item{length}{A count of the length.}
 }
@@ -71,14 +66,6 @@ Checks if is named using:
 Checks if all values in values using equivalent of:
 
 \code{all(\link{match}(x, values, nomatch = 0) > 0)}
-
-\item \code{chk_match}: Check Matches
-
-Checks if all values match regular expression using:
-
-\code{all(\link{grepl}(regexp, x))}
-
-\code{regexp} should be a non-missing character scalar.
 
 \item \code{chk_length}: Check Length
 
@@ -121,11 +108,4 @@ chk_named(list(x = 1)[-1])
 chk_in(numeric(0), 1:10)
 chk_in(1, 1:10)
 try(chk_in(11, 1:10))
-
-# chk_match
-try(chk_match(""))
-chk_match("1")
-try(chk_match("1", regexp = "2"))
-try(chk_match(NA_character_, regexp = ".*"))
-chk_match(c("a"), regexp = ".*")
 }

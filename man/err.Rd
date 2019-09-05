@@ -17,3 +17,6 @@ A wrapper on \code{\link[base]{stop}(..., call. = FALSE)}.
 \examples{
 try(err("this is an error"))
 }
+\seealso{
+\code{\link{wrn}()} and \code{\link{msg}()}
+}

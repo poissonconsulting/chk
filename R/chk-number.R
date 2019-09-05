@@ -34,35 +34,6 @@ chk_number <- function(x, err = TRUE, x_name = NULL){
   stop(x_name, " must be a number (non-missing numeric scalar).", call. = FALSE)
 }
 
-#' @describeIn chk_number Check Proportion
-#' 
-#' Checks if non-missing numeric scalar between 0 and 1 using:
-#' 
-#' \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1}
-#' 
-#' @export
-#' 
-#' @examples 
-#' 
-#' # chk_proportion
-#' try(chk_proportion(1.1))
-#' chk_proportion(0.5)
-#' chk_proportion(1L)
-#' try(chk_proportion(NA_real_))
-#' try(chk_proportion(c(0.5, 0.5)))
-#'  
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_proportion <- function(x, err = TRUE, x_name = NULL){
-  if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1) 
-    return(TRUE)
-  if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  stop(x_name, 
-       " must be a proportion (non-missing numeric scalar between 0 and 1).", 
-       call. = FALSE)
-}
-
 #' @describeIn chk_number Check Whole Number
 #'  
 #' Checks if non-missing integer scalar or double equivalent using:
@@ -125,82 +96,32 @@ chk_count <- function(x, err = TRUE, x_name = NULL){
        call. = FALSE)
 }
 
-#' @describeIn chk_number Check String
+
+#' @describeIn chk_number Check Proportion
 #' 
-#' Checks if non-missing character scalar using:
+#' Checks if non-missing numeric scalar between 0 and 1 using:
 #' 
-#' \code{is.character(x) && length(x) == 1L && !anyNA(x)}
+#' \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1}
 #' 
 #' @export
 #' 
 #' @examples 
 #' 
-#' # chk_string
-#' try(chk_string(1))
-#' chk_string("1")
-#' chk_string("")
-#' try(chk_string(NA_character_))
-#' try(chk_string(c("1", "1")))
+#' # chk_proportion
+#' try(chk_proportion(1.1))
+#' chk_proportion(0.5)
+#' chk_proportion(1L)
+#' try(chk_proportion(NA_real_))
+#' try(chk_proportion(c(0.5, 0.5)))
 #'  
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_string <- function(x, err = TRUE, x_name = NULL){
-  if(is.character(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
+chk_proportion <- function(x, err = TRUE, x_name = NULL){
+  if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1) 
+    return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  stop(x_name, " must be a string (non-missing character scalar).", call. = FALSE)
-}
-
-#' @describeIn chk_number Check String
-#' 
-#' Checks if non-missing Date scalar using:
-#' 
-#' \code{inherits(x, "Date") && length(x) == 1L && !anyNA(x)}
-#' 
-#' @export
-#' 
-#' @examples 
-#' 
-#' # chk_date
-#' try(chk_date(1))
-#' try(chk_date("2001-01-02"))
-#' chk_date(as.Date("2001-01-02"))
-#' chk_date(Sys.Date())
-#' try(chk_date(Sys.time()))
-#' try(chk_date(c(Sys.Date(), Sys.Date())))
-#'   
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_date <- function(x, err = TRUE, x_name = NULL){
-  if(inherits(x, "Date") && length(x) == 1L && !anyNA(x)) return(TRUE)
-  if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  stop(x_name, " must be a date (non-missing Date scalar).", call. = FALSE)
-}
-
-#' @describeIn chk_number Check DateTime
-#' 
-#' Checks if non-missing POSIXct scalar using:
-#' 
-#' \code{inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)}
-#' 
-#' @export
-#' 
-#' @examples 
-#' 
-#' # chk_datetime
-#' try(chk_datetime(1))
-#' try(chk_datetime("2001-01-02"))
-#' chk_datetime(as.POSIXct("2001-01-02"))
-#' try(chk_datetime(Sys.Date()))
-#' chk_datetime(Sys.time())
-#' try(chk_datetime(c(Sys.time(), Sys.time())))
-#'    
-#  Licence: CC
-#  Repository: https://github.com/poissonconsulting/chk
-chk_datetime <- function(x, err = TRUE, x_name = NULL){
-  if(inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)) return(TRUE)
-  if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  stop(x_name, " must be a datetime (non-missing POSIXct scalar).", call. = FALSE)
+  stop(x_name, 
+       " must be a proportion (non-missing numeric scalar between 0 and 1).", 
+       call. = FALSE)
 }

@@ -2,27 +2,18 @@
 % Please edit documentation in R/chk-number.R
 \name{chk_number}
 \alias{chk_number}
-\alias{chk_proportion}
 \alias{chk_whole_number}
 \alias{chk_count}
-\alias{chk_string}
-\alias{chk_date}
-\alias{chk_datetime}
+\alias{chk_proportion}
 \title{Check Scalar}
 \usage{
 chk_number(x, err = TRUE, x_name = NULL)
-
-chk_proportion(x, err = TRUE, x_name = NULL)
 
 chk_whole_number(x, err = TRUE, x_name = NULL)
 
 chk_count(x, err = TRUE, x_name = NULL)
 
-chk_string(x, err = TRUE, x_name = NULL)
-
-chk_date(x, err = TRUE, x_name = NULL)
-
-chk_datetime(x, err = TRUE, x_name = NULL)
+chk_proportion(x, err = TRUE, x_name = NULL)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -48,12 +39,6 @@ Checks if non-missing numeric scalar using:
 }
 \section{Functions}{
 \itemize{
-\item \code{chk_proportion}: Check Proportion
-
-Checks if non-missing numeric scalar between 0 and 1 using:
-
-\code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1}
-
 \item \code{chk_whole_number}: Check Whole Number
  
 Checks if non-missing integer scalar or double equivalent using:
@@ -68,23 +53,11 @@ Checks if non-missing non-negative integer scalar or double equivalent using:
 \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && 
   isTRUE(all.equal(x, as.integer(x)))}
 
-\item \code{chk_string}: Check String
+\item \code{chk_proportion}: Check Proportion
 
-Checks if non-missing character scalar using:
+Checks if non-missing numeric scalar between 0 and 1 using:
 
-\code{is.character(x) && length(x) == 1L && !anyNA(x)}
-
-\item \code{chk_date}: Check String
-
-Checks if non-missing Date scalar using:
-
-\code{inherits(x, "Date") && length(x) == 1L && !anyNA(x)}
-
-\item \code{chk_datetime}: Check DateTime
-
-Checks if non-missing POSIXct scalar using:
-
-\code{inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)}
+\code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1}
 }}
 
 \examples{
@@ -96,14 +69,6 @@ chk_number(1L)
 try(chk_number(NA_real_))
 try(chk_number(c(1.1, 1.1)))
 
-
-# chk_proportion
-try(chk_proportion(1.1))
-chk_proportion(0.5)
-chk_proportion(1L)
-try(chk_proportion(NA_real_))
-try(chk_proportion(c(0.5, 0.5)))
- 
 
 # chk_whole_number
 try(chk_whole_number(1.1))
@@ -121,31 +86,13 @@ try(chk_count(NA_integer_))
 try(chk_count(c(2L, 2L)))
 
 
-# chk_string
-try(chk_string(1))
-chk_string("1")
-chk_string("")
-try(chk_string(NA_character_))
-try(chk_string(c("1", "1")))
+# chk_proportion
+try(chk_proportion(1.1))
+chk_proportion(0.5)
+chk_proportion(1L)
+try(chk_proportion(NA_real_))
+try(chk_proportion(c(0.5, 0.5)))
  
-
-# chk_date
-try(chk_date(1))
-try(chk_date("2001-01-02"))
-chk_date(as.Date("2001-01-02"))
-chk_date(Sys.Date())
-try(chk_date(Sys.time()))
-try(chk_date(c(Sys.Date(), Sys.Date())))
-  
-
-# chk_datetime
-try(chk_datetime(1))
-try(chk_datetime("2001-01-02"))
-chk_datetime(as.POSIXct("2001-01-02"))
-try(chk_datetime(Sys.Date()))
-chk_datetime(Sys.time())
-try(chk_datetime(c(Sys.time(), Sys.time())))
-   
 }
 \seealso{
 \code{\link{chk_true}()} and \code{\link{chk_range}()}
