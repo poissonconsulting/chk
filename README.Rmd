@@ -94,11 +94,11 @@ if(!chk_flag(1, err = FALSE)) stop("x MUST be a flag (try as.logical())")
 `chk` is released under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/) license.
 This allows developers to copy and paste functions into their package
 which is useful if they want to minimize their dependencies.
+Most of the `chk_` functions are standalone, ie, written in base R.
 
-Copied functions should not be exported (to avoid namespace conflicts) and the 
-following creditation preserved.
+Copied functions should not be exported (to avoid namespace conflicts) and the CC0 creditation preserved.
 ```r
-#  License: CC
+#  License: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 ```
 
