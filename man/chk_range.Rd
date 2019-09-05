@@ -8,7 +8,7 @@
 \alias{chk_gte}
 \title{Check Range}
 \usage{
-chk_range(x, range = c(0, Inf), err = TRUE, x_name = NULL)
+chk_range(x, range = c(0, 1), err = TRUE, x_name = NULL)
 
 chk_lt(x, value = 0, err = TRUE, x_name = NULL)
 

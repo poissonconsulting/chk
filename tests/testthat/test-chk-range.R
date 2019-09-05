@@ -5,12 +5,12 @@ test_that("chk_range", {
   expect_true(chk_range(numeric(0), c(1,1)))
   expect_true(chk_range(NA_real_))
   expect_true(chk_range(1))
-  expect_true(chk_range(1:3))
+  expect_true(chk_range(1:3/3))
   expect_true(chk_range(numeric(0), 1L))
   
   expect_false(chk_range(-1, err = FALSE))
-  expect_error(chk_range(-1), "^`-1` must be between 0 and Inf, not -1[.]$")
-  expect_error(chk_range(c(-1, NA)), "^`c[(]-1, NA[)]` must have values between 0 and Inf[.]$")
+  expect_error(chk_range(-1), "^`-1` must be between 0 and 1, not -1[.]$")
+  expect_error(chk_range(c(-1, NA)), "^`c[(]-1, NA[)]` must have values between 0 and 1[.]$")
   expect_true(chk_range(c(-1, -1), c(-2, -1)))
   expect_true(chk_range(c(NA, 1), 1:2)) 
   

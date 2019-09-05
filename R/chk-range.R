@@ -31,7 +31,7 @@
 #' 
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_range <- function (x, range = c(0, Inf), err = TRUE, x_name = NULL) {
+chk_range <- function (x, range = c(0, 1), err = TRUE, x_name = NULL) {
   if(all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])) return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
