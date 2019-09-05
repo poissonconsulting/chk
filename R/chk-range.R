@@ -29,7 +29,7 @@
 #' chk_range(c(0.1, 0.2, NA))
 #' chk_range(c(0.1, 0.2, NA), range = c(0,1))
 #' 
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_range <- function (x, range = c(0, 1), err = TRUE, x_name = NULL) {
   if(all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])) return(TRUE)
@@ -67,7 +67,7 @@ chk_range <- function (x, range = c(0, 1), err = TRUE, x_name = NULL) {
 #' chk_lt(c(-0.1, 0.2), value = 1)
 #' chk_lt("a", value = "b")
 #'  
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_lt <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(all(x[!is.na(x)] < value)) return(TRUE)
@@ -97,7 +97,7 @@ chk_lt <- function (x, value = 0, err = TRUE, x_name = NULL) {
 #' chk_lte(c(-0.1, -0.2, NA))
 #' try(chk_lte(c(-0.1, -0.2, NA), value = -1))
 #'  
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_lte <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(all(x[!is.na(x)] <= value)) return(TRUE)
@@ -131,7 +131,7 @@ chk_lte <- function (x, value = 0, err = TRUE, x_name = NULL) {
 #' chk_gt(c(-0.1, 0.2), value = -1)
 #' chk_gt("b", value = "a")
 #'  
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_gt <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(all(x[!is.na(x)] > value)) return(TRUE)
@@ -162,7 +162,7 @@ chk_gt <- function (x, value = 0, err = TRUE, x_name = NULL) {
 #' chk_gte(c(0.1, 0.2, NA))
 #' try(chk_gte(c(0.1, 0.2, NA), value = 1))
 #'  
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_gte <- function (x, value = 0, err = TRUE, x_name = NULL) {
   if(all(x[!is.na(x)] >= value)) return(TRUE)

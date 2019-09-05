@@ -28,7 +28,7 @@
 #' chk_is(1, "numeric")
 #' chk_is(NA_real_, "numeric")
 #'  
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_is <- function(x, class, err = TRUE, x_name = NULL) {
   if(inherits(x, class)) return(TRUE)
@@ -55,7 +55,7 @@ chk_is <- function(x, class, err = TRUE, x_name = NULL) {
 #' chk_whole_numeric(1:2)
 #' chk_whole_numeric(double(0))
 #'    
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_whole_numeric <- function(x, err = TRUE, x_name = NULL){
   if(is.integer(x) || (is.double(x) && isTRUE(all.equal(x, as.integer(x)))))
@@ -84,7 +84,7 @@ chk_whole_numeric <- function(x, err = TRUE, x_name = NULL){
 #' chk_list(list(x = 1))
 #' chk_list(mtcars)
 #'  
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_list <- function(x, err = TRUE, x_name = NULL){
   if(is.list(x)) return(TRUE)
@@ -109,7 +109,7 @@ chk_list <- function(x, err = TRUE, x_name = NULL){
 #' chk_function(mean)
 #' chk_function(function(x) x)
 #'  
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_function <- function(x, err = TRUE, x_name = NULL){
   if(is.function(x)) return(TRUE)

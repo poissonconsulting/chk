@@ -22,7 +22,7 @@
 #' try(chk_null(1))
 #' chk_null(NULL)
 #' 
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_null <- function(x, err = TRUE, x_name = NULL){
   if(is.null(x)) return(TRUE)
@@ -45,7 +45,7 @@ chk_null <- function(x, err = TRUE, x_name = NULL){
 #' try(chk_not_null(NULL))
 #' chk_not_null(1)
 #' 
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_not_null <- function(x, err = TRUE, x_name = NULL){
   if(!is.null(x)) return(TRUE)

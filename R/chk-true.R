@@ -29,7 +29,7 @@
 #' chk_true(TRUE)
 #' try(chk_true(c(TRUE, TRUE)))
 #
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_true <- function(x, err = TRUE, x_name = NULL){
   if(isTRUE(x)) return(TRUE)
@@ -55,7 +55,7 @@ chk_true <- function(x, err = TRUE, x_name = NULL){
 #' chk_false(FALSE)
 #' try(chk_false(c(FALSE, FALSE)))
 #' 
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_false <- function(x, err = TRUE, x_name = NULL){
   if(isFALSE(x)) return(TRUE)
@@ -81,7 +81,7 @@ chk_false <- function(x, err = TRUE, x_name = NULL){
 #' chk_flag(FALSE)
 #' try(chk_flag(c(TRUE, TRUE)))
 #' 
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_flag <- function(x, err = TRUE, x_name = NULL){
   if(is.logical(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
@@ -107,7 +107,7 @@ chk_flag <- function(x, err = TRUE, x_name = NULL){
 #' chk_lgl(FALSE)
 #' try(chk_lgl(c(TRUE, TRUE)))
 #' 
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_lgl <- function(x, err = TRUE, x_name = NULL){
   if(is.logical(x) && length(x) == 1L) return(TRUE)

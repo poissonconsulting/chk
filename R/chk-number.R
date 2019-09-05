@@ -25,7 +25,7 @@
 #' try(chk_number(NA_real_))
 #' try(chk_number(c(1.1, 1.1)))
 #' 
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_number <- function(x, err = TRUE, x_name = NULL){
   if(is.numeric(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
@@ -52,7 +52,7 @@ chk_number <- function(x, err = TRUE, x_name = NULL){
 #' try(chk_whole_number(NA_integer_))
 #' try(chk_whole_number(c(2L, 2L)))
 #'   
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_whole_number <- function(x, err = TRUE, x_name = NULL){
   if(is.numeric(x) && length(x) == 1L && !anyNA(x) && 

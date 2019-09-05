@@ -26,7 +26,7 @@
 #' try(chk_string(NA_character_))
 #' try(chk_string(c("1", "1")))
 #'  
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_string <- function(x, err = TRUE, x_name = NULL){
   if(is.character(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
@@ -54,7 +54,7 @@ chk_string <- function(x, err = TRUE, x_name = NULL){
 #' try(chk_match(NA_character_, regexp = ".*"))
 #' chk_match(c("a"), regexp = ".*")
 #
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_match <- function (x, regexp = ".+", err = TRUE, x_name = NULL) {
   if(all(grepl(regexp, x))) return(TRUE)

@@ -22,7 +22,7 @@
 #' # chk_file
 #' try(chk_file(tempfile()))
 #
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_file <- function(x, err = TRUE){
   if(all(file.exists(x) & !dir.exists(x))) return(TRUE)
@@ -47,7 +47,7 @@ chk_file <- function(x, err = TRUE){
 #' # chk_dir
 #' try(chk_dir(tempfile()))
 #
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_dir <- function(x, err = TRUE){
   if(all(dir.exists(x))) return(TRUE)

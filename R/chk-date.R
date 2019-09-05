@@ -26,7 +26,7 @@
 #' try(chk_date(Sys.time()))
 #' try(chk_date(c(Sys.Date(), Sys.Date())))
 #'   
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_date <- function(x, err = TRUE, x_name = NULL){
   if(inherits(x, "Date") && length(x) == 1L && !anyNA(x)) return(TRUE)
@@ -53,7 +53,7 @@ chk_date <- function(x, err = TRUE, x_name = NULL){
 #' chk_datetime(Sys.time())
 #' try(chk_datetime(c(Sys.time(), Sys.time())))
 #'    
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_datetime <- function(x, err = TRUE, x_name = NULL){
   if(inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)) return(TRUE)

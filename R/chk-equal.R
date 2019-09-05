@@ -27,7 +27,7 @@
 #' try(chk_equal(c(x = 1), c(y = 1L)))
 #' chk_equal(c(x = 1), c(x = 1L))
 #'  
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_equal <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE,
                        x_name = NULL) {
@@ -54,7 +54,7 @@ chk_equal <- function (x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE,
 #' try(chk_identical(1, c(1,1)))
 #' chk_identical(c(1,1), c(1,1))
 #'  
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_identical <- function (x, y, err = TRUE, x_name = NULL) {
   if(identical(x, y)) return(TRUE)
@@ -81,7 +81,7 @@ chk_identical <- function (x, y, err = TRUE, x_name = NULL) {
 #' chk_equivalent(c(x = 1), c(y = 1L))
 #' chk_equivalent(c(x = 1), c(x = 1L))
 #'  
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_equivalent <- function (x, y, tolerance = sqrt(.Machine$double.eps), 
                             err = TRUE, x_name = NULL) {

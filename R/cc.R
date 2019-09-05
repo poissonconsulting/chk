@@ -20,7 +20,7 @@
 #' cc(1:11)
 #' cc(as.character(1:2))
 #
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 cc <- function(x, conj = ", ", 
                brac = if(is.character(x) || is.factor(x)) "'" else "") {

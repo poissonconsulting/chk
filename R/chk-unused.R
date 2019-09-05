@@ -24,7 +24,7 @@
 #' fun(1)
 #' try(fun(1,2))
 #'  
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_unused <- function (..., err = TRUE) {
   if(!length(list(...))) return(TRUE)
@@ -47,7 +47,7 @@ chk_unused <- function (..., err = TRUE) {
 #' try(fun(1))
 #' fun(1,2)
 #' 
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_used <- function (..., err = TRUE) {
   if(length(list(...))) return(TRUE)

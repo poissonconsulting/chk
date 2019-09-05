@@ -1,10 +1,10 @@
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 try_chk <- function (expr) {
   try(eval(expr, envir = parent.frame(3)), silent = TRUE)
 }
 
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 try_msg <- function (x) {
     x <- as.character(x)
@@ -27,7 +27,7 @@ try_msg <- function (x) {
 #' try(chkor(chk_flag(1), chk_flag(2)))
 #' chkor(chk_flag(1), chk_flag(TRUE))
 #
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chkor <- function (..., err = TRUE) {
   args <- substitute(list(...))[-1]

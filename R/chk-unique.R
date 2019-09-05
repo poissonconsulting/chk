@@ -26,7 +26,7 @@
 #' try(chk_unique(c(NA, NA, 2)))
 #' chk_unique(c(NA, NA, 2), incomparables = NA)
 #' 
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_unique <- function(x, incomparables = FALSE, err = TRUE, x_name = NULL){
   if(!anyDuplicated(x, incomparables = incomparables)) return(TRUE)
@@ -52,7 +52,7 @@ chk_unique <- function(x, incomparables = FALSE, err = TRUE, x_name = NULL){
 #' chk_no_missing(1)
 #' chk_no_missing(1:10)
 #'   
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_no_missing <- function(x, err = TRUE, x_name = NULL){
   if(!anyNA(x)) return(TRUE)
@@ -79,7 +79,7 @@ chk_no_missing <- function(x, err = TRUE, x_name = NULL){
 #' chk_named(c(x = 1)[-1])
 #' chk_named(list(x = 1)[-1])
 #'  
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_named <- function(x, err = TRUE, x_name = NULL){
   if(!is.null(names(x))) return(TRUE)
@@ -103,7 +103,7 @@ chk_named <- function(x, err = TRUE, x_name = NULL){
 #' chk_in(1, 1:10)
 #' try(chk_in(11, 1:10))
 #
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_in <- function (x, values = c(0, 1, NA), err = TRUE, x_name = NULL) {
   if(all(x %in% values)) return(TRUE)

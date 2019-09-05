@@ -6,7 +6,7 @@
 #' 
 #' @export
 #
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_dirs <- function(x, err = TRUE){
   .Deprecated("chk_dir")
@@ -21,7 +21,7 @@ chk_dirs <- function(x, err = TRUE){
 #' 
 #' @export
 #
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_files <- function(x, err = TRUE){
   .Deprecated("chk_file")
@@ -41,7 +41,7 @@ chk_files <- function(x, err = TRUE){
 #' 
 #' @export
 #'
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_length <- function(x, length = 1L, err = TRUE, x_name = NULL) {
   .Deprecated("chk_range(length(x))")
@@ -61,7 +61,7 @@ chk_length <- function(x, length = 1L, err = TRUE, x_name = NULL) {
 #'   
 #' @export
 #' 
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_count <- function(x, err = TRUE, x_name = NULL){
   .Deprecated("chk_whole_number(x); chk_gte(x)")
@@ -84,7 +84,7 @@ chk_count <- function(x, err = TRUE, x_name = NULL){
 #' \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1}
 #' 
 #' @export
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_proportion <- function(x, err = TRUE, x_name = NULL){
   .Deprecated("chk_number(x); chk_range(x)")

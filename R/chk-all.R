@@ -26,7 +26,7 @@
 #' chk_all(c(TRUE, NA), chk_lgl)
 #' chk_all(numeric(0), chk_lgl)
 #'  
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_all <- function(x, chk_fun, ..., err = TRUE, x_name = NULL) {
   if(is.null(x)) {
@@ -65,7 +65,7 @@ chk_all <- function(x, chk_fun, ..., err = TRUE, x_name = NULL) {
 #' try(chk_all_identical(c(1,2)))
 #' try(chk_all_identical(c(1,2.0000001)))
 #'  
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_all_identical <- function(x, err = TRUE, x_name = NULL) {
   if(length(x) < 2L || all(vapply(x, identical, TRUE, y = x[[1]]))) return(TRUE)

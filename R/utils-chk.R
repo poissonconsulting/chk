@@ -9,7 +9,7 @@
 #' @examples
 #' try(err("this is an error"))
 #
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 err <- function (...) stop(..., call. = FALSE)
 
@@ -24,7 +24,7 @@ err <- function (...) stop(..., call. = FALSE)
 #' @examples
 #' msg("this is a message")
 #
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 msg <- function (...) message(...)
 
@@ -39,7 +39,7 @@ msg <- function (...) message(...)
 #' @examples
 #' wrn("this is a warning")
 #
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 wrn <- function (...) warning(..., call. = FALSE)
 
@@ -56,7 +56,7 @@ wrn <- function (...) warning(..., call. = FALSE)
 #' p("a", "b")
 #' p(c("a", "b"), collapse = " ")
 #' 
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 p <- function (..., sep = " ", collapse = NULL) 
   paste(..., sep = sep, collapse = collapse)
@@ -68,7 +68,7 @@ p <- function (..., sep = " ", collapse = NULL)
 #' p0("a", "b")
 #' p0(c("a", "b"), collapse = "")
 #
-#  Licence: CC
+#  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 p0 <- function (..., collapse = NULL) 
   paste0(..., collapse = collapse)
