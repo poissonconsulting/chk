@@ -1,12 +1,4 @@
-context("paste")
-
-test_that("p", {
-  expect_identical(p(), paste())
-})
-
-test_that("p0", {
-  expect_identical(p0(), paste0())
-})
+context("cc")
 
 test_that("cc with atomic vectors", {
   expect_identical(cc(logical(0)), character(0))

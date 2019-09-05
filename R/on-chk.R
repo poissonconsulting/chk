@@ -17,9 +17,7 @@
 #
 #  Licence: CC
 #  Repository: https://github.com/poissonconsulting/chk
-chk_on <- function() {
-  options(chk.on = TRUE)
-}
+chk_on <- function() options(chk.on = TRUE)
 
 #' @describeIn chk_on Turns checking off
 #' @export
