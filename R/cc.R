@@ -8,6 +8,7 @@
 #'
 #' @param x The object to concatenate.
 #' @param conj A string of the conjunction to separate the last value by.
+#' @param sep A string of the separator.
 #' @param brac A string to brac the values by.
 #'
 #' @return A string.
@@ -22,12 +23,14 @@
 #
 #  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
-cc <- function(x, conj = ", ", 
+cc <- function(x, conj = ", ", sep = ", ",
                brac = if(is.character(x) || is.factor(x)) "'" else "") {
   if(!(is.character(conj) && length(conj) == 1)) 
-    stop("`conj` must be a character scalar.")
+    stop("`conj` must be a character scalar.", call. = FALSE)
+  if(!(is.character(sep) && length(sep) == 1)) 
+    stop("`sep` must be a character scalar.", call. = FALSE)
   if(!(is.character(brac) && length(brac) %in% 1:2))
-    stop("`brac` must be a character vector of length 1 or 2.")
+    stop("`brac` must be a character vector of length 1 or 2.", call. = FALSE)
 
   if(!length(x)) return(character(0))
   x <- paste0(brac[1], x, brac[length(brac)])
@@ -38,5 +41,5 @@ cc <- function(x, conj = ", ",
     x <- c(x[1:8], "...", x[n])
     n <- 10
   }
-  paste(c(paste0(x[1:(n-1)], collapse = ", "), x[n]), collapse = conj)
+  paste(c(paste0(x[1:(n-1)], collapse = sep), x[n]), collapse = conj)
 }

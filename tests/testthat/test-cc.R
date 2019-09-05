@@ -25,6 +25,8 @@ test_that("cc errors", {
                "^`brac` must be a character vector of length 1 or 2[.]$")
   expect_error(cc(1, brac = as.character(1:3)), 
                "^`brac` must be a character vector of length 1 or 2[.]$")
+  expect_error(cc(1, sep = as.character(1:3)), 
+               "^`sep` must be a character scalar[.]$")
 })
 
 test_that("cc with character", {
@@ -50,4 +52,8 @@ test_that("cc with random objects", {
   expect_match(cc(list(x = 1)), "^1$")
   expect_match(cc(matrix(1)), "^1$")
   expect_match(cc(matrix(1:9, 3), " or "), "^1, 2, 3, 4, 5, 6, 7, 8 or 9$")
+})
+
+test_that("cc with sep", {
+  expect_identical(cc(1:3, sep = "|"), "1|2, 3")
 })

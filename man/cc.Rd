@@ -4,13 +4,15 @@
 \alias{cc}
 \title{Concatenate with Commas}
 \usage{
-cc(x, conj = ", ", brac = if (is.character(x) || is.factor(x)) "'" else
-  "")
+cc(x, conj = ", ", sep = ", ", brac = if (is.character(x) ||
+  is.factor(x)) "'" else "")
 }
 \arguments{
 \item{x}{The object to concatenate.}
 
 \item{conj}{A string of the conjunction to separate the last value by.}
+
+\item{sep}{A string of the separator.}
 
 \item{brac}{A string to brac the values by.}
 }
