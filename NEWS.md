@@ -1,3 +1,4 @@
+- Added `ellipsis = 10L` argument to `cc()`.
 - Added `sep = ", "` arg to `cc()`.
 - Changed to `range = c(0,1)` for `chk_range()`.
 - Deprecated `chk_length()`, `chk_proportion()` and `chk_count()`.

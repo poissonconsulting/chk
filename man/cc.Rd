@@ -5,7 +5,7 @@
 \title{Concatenate with Commas}
 \usage{
 cc(x, conj = ", ", sep = ", ", brac = if (is.character(x) ||
-  is.factor(x)) "'" else "")
+  is.factor(x)) "'" else "", ellipsis = 10L)
 }
 \arguments{
 \item{x}{The object to concatenate.}
@@ -15,6 +15,9 @@ cc(x, conj = ", ", sep = ", ", brac = if (is.character(x) ||
 \item{sep}{A string of the separator.}
 
 \item{brac}{A string to brac the values by.}
+
+\item{ellipsis}{A numeric scalar of the maximum number of values to display
+before using an ellipsis.}
 }
 \value{
 A string.
@@ -24,8 +27,8 @@ Concatenates object values into a string with each value separated by a comma
 and the last value separated by a conjunction.
 }
 \details{
-If x has more than 10 values an ellipsis is used to ensure only 10 values 
-are displayed (including the ellipsis)
+By default, if x has more than 10 values an ellipsis is used 
+to ensure only 10 values are displayed (including the ellipsis).
 }
 \examples{
 cc(1:2)

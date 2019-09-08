@@ -3,13 +3,15 @@
 #' Concatenates object values into a string with each value separated by a comma
 #' and the last value separated by a conjunction. 
 #' 
-#' If x has more than 10 values an ellipsis is used to ensure only 10 values 
-#' are displayed (including the ellipsis)
+#' By default, if x has more than 10 values an ellipsis is used 
+#' to ensure only 10 values are displayed (including the ellipsis).
 #'
 #' @param x The object to concatenate.
 #' @param conj A string of the conjunction to separate the last value by.
 #' @param sep A string of the separator.
 #' @param brac A string to brac the values by.
+#' @param ellipsis A numeric scalar of the maximum number of values to display
+#' before using an ellipsis.
 #'
 #' @return A string.
 #' @export
@@ -24,22 +26,23 @@
 #  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 cc <- function(x, conj = ", ", sep = ", ",
-               brac = if(is.character(x) || is.factor(x)) "'" else "") {
-  if(!(is.character(conj) && length(conj) == 1)) 
-    stop("`conj` must be a character scalar.", call. = FALSE)
-  if(!(is.character(sep) && length(sep) == 1)) 
-    stop("`sep` must be a character scalar.", call. = FALSE)
-  if(!(is.character(brac) && length(brac) %in% 1:2))
-    stop("`brac` must be a character vector of length 1 or 2.", call. = FALSE)
-
+               brac = if(is.character(x) || is.factor(x)) "'" else "",
+               ellipsis = 10L) {
+  if(is_chk_on()) {
+    chk_string(conj)
+    chk_string(sep)
+    chk_is(brac, "character"); chk_range(length(brac), 1:2)
+    chk_whole_number(ellipsis); chk_gte(ellipsis, 3)
+  }
+  
   if(!length(x)) return(character(0))
-  x <- paste0(brac[1], x, brac[length(brac)])
+  x <- p0(brac[1], x, brac[length(brac)])
   n <- length(x)
   if(n == 1L) return(x)
-  if(n == 2L) return(paste(x, collapse = conj))
-  if(n > 10) {
-    x <- c(x[1:8], "...", x[n])
-    n <- 10
+  if(n == 2L) return(p(x, collapse = conj))
+  if(n > ellipsis) {
+    x <- c(x[1:(ellipsis - 2)], "...", x[n])
+    n <- ellipsis
   }
-  paste(c(paste0(x[1:(n-1)], collapse = sep), x[n]), collapse = conj)
+  p(c(p0(x[1:(n-1)], collapse = sep), x[n]), collapse = conj)
 }
