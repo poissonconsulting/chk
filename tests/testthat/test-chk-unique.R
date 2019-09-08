@@ -15,6 +15,27 @@ test_that("chk_unique", {
   expect_error(chk_unique(c(1,1), x_name = "unicorn"), "^unicorn must be unique[.]$")
 })
 
+test_that("chk_unique data frame", {
+  data <- data.frame(x = 1:2)
+  expect_true(chk_unique(data))
+  expect_true(chk_unique(data, incomparables = NA))
+  data <- data.frame(x = c(1,1))
+  expect_false(chk_unique(data, err = FALSE))
+  expect_false(chk_unique(data, incomparables = NA, err = FALSE))
+  data <- data.frame(y = c(NA, NA))
+  expect_error(chk_unique(data), "^`data` must be unique[.]$")
+  expect_true(chk_unique(data, incomparables = NA))
+  data <- data.frame(x = 1:2, y = c(NA, NA))
+  expect_true(chk_unique(data))
+  expect_true(chk_unique(data, incomparables = NA))
+  data <- data.frame(x = c(1,1), y = c(2, 2))
+  expect_error(chk_unique(data), "^`data` must be unique[.]$")
+  expect_true(chk_unique(data, incomparables = 2))
+  data <- data.frame(x = c(1,1), y = c(NA, NA))
+  expect_error(chk_unique(data), "^`data` must be unique[.]$")
+  expect_true(chk_unique(data, incomparables = NA))
+})
+
 test_that("chk_no_missing", {
   expect_true(chk_no_missing(1))
   expect_true(chk_no_missing(integer(0)))

@@ -74,6 +74,7 @@ datetime <- as.POSIXct(1, origin = as.Date("1970-01-01"))
 null <- NULL
 named <- c("1" = 1)
 fun <- function() NULL
+data <- data.frame(one = one)
 ```
 
 ```{r}
@@ -93,6 +94,8 @@ microbenchmark(
   chk_whole_numeric(one),
   chk_no_missing(one),
   chk_unique(one),
+  chk_unique(data),
+  chk_unique(data, incomparables = NA),
   chk_null(null),
   chk_not_null(one),
   chk_named(named),

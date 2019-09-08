@@ -28,7 +28,7 @@
 #  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_unique <- function(x, incomparables = FALSE, err = TRUE, x_name = NULL){
-  if(!anyDuplicated(x, incomparables = incomparables)) return(TRUE)
+  if(!.anyDuplicated(x, incomparables = incomparables)) return(TRUE)
   if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   stop(x_name, " must be unique.", call. = FALSE)
