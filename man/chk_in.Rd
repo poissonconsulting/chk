@@ -2,9 +2,12 @@
 % Please edit documentation in R/chk-in.R
 \name{chk_in}
 \alias{chk_in}
+\alias{chk_has}
 \title{Check In and Has}
 \usage{
 chk_in(x, values = c(0, 1, NA), err = TRUE, x_name = NULL)
+
+chk_has(x, values, err = TRUE, x_name = NULL)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -30,6 +33,15 @@ Checks if all values in values using equivalent of:
 
 \code{all(\link{match}(x, values, nomatch = 0) > 0)}
 }
+\section{Functions}{
+\itemize{
+\item \code{chk_has}: Check Has Values
+
+Checks if has values using:
+
+\code{all(\link{match}(values, x, nomatch = 0) > 0)}
+}}
+
 \examples{
 
 # chk_in

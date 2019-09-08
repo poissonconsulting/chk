@@ -36,3 +36,25 @@ chk_in <- function (x, values = c(0, 1, NA), err = TRUE, x_name = NULL) {
   stop(x_name, " must have values matching ", cc(values, " or "), ".", 
        call. = FALSE)
 }
+
+#' @describeIn chk_in Check Has Values
+#' 
+#' Checks if has values using:
+#' 
+#' \code{all(\link{match}(values, x, nomatch = 0) > 0)}
+#' 
+#' @export
+#' 
+#  Licence: CC0
+#  Repository: https://github.com/poissonconsulting/chk
+chk_has <- function(x, values, err = TRUE, x_name = NULL) {
+  if(all(values %in% x)) return(TRUE)
+  if(!err) return(FALSE)
+  values <- sort(unique(values), na.last = TRUE)
+  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
+  if(length(values) == 1L)
+    stop(x_name, " must have a value matching ", cc(values), ".", call. = FALSE)
+  stop(x_name, " must have values matching ", cc(values, " and "), ".", 
+       call. = FALSE)
+
+}
