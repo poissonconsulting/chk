@@ -4,7 +4,6 @@
 \alias{chk_unique}
 \alias{chk_no_missing}
 \alias{chk_named}
-\alias{chk_in}
 \alias{chk_length}
 \title{Check Unique}
 \usage{
@@ -13,8 +12,6 @@ chk_unique(x, incomparables = FALSE, err = TRUE, x_name = NULL)
 chk_no_missing(x, err = TRUE, x_name = NULL)
 
 chk_named(x, err = TRUE, x_name = NULL)
-
-chk_in(x, values = c(0, 1, NA), err = TRUE, x_name = NULL)
 
 chk_length(x, length = 1L, err = TRUE, x_name = NULL)
 }
@@ -28,8 +25,6 @@ FALSE means that all values can be compared.}
 message if the check fails.}
 
 \item{x_name}{A string of the name of object x or NULL.}
-
-\item{values}{A vector of the permitted values.}
 
 \item{length}{A count of the length.}
 }
@@ -60,12 +55,6 @@ Checks if no missing values using:
 Checks if is named using:
 
 \code{!is.null(\link{names}(x))}
-
-\item \code{chk_in}: Check In
-
-Checks if all values in values using equivalent of:
-
-\code{all(\link{match}(x, values, nomatch = 0) > 0)}
 
 \item \code{chk_length}: Check Length
 
@@ -103,9 +92,4 @@ chk_named(list(x = 1))
 chk_named(c(x = 1)[-1])
 chk_named(list(x = 1)[-1])
  
-
-# chk_in
-chk_in(numeric(0), 1:10)
-chk_in(1, 1:10)
-try(chk_in(11, 1:10))
 }

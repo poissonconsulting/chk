@@ -34,37 +34,3 @@ test_that("chk_named", {
   expect_error(chk_named(1), "^`1` must be named[.]$")
   expect_error(chk_named(1, x_name = "new born"), "^new born must be named[.]$")
 })
-
-test_that("chk_in", {
-  expect_true(chk_in(integer(0)))
-  expect_error(chk_in(NA, c(0, Inf)), "^`NA` must match 0 or Inf, not NA[.]$")
-  expect_false(chk_in(1:3, err = FALSE))
-  expect_error(chk_in(1:3), "`1:3` must have values matching 0, 1 or NA[.]$")
-  expect_true(chk_in(numeric(0), 1L))
-  
-  expect_false(chk_in(-1, err = FALSE))
-  expect_error(chk_in(-1), "^`-1` must match 0, 1 or NA, not -1[.]$")
-  
-  expect_false(chk_in(1L, 0L, err = FALSE))
-  expect_error(chk_in(c(1L, 1L), 0L), c("^`c[(]1L, 1L[)]` must have values matching 0[.]$"))
-  expect_error(chk_in(1, ""), "^`1` must match '', not 1[.]$")
-  
-  expect_false(chk_in(1, NA, err = FALSE)) 
-  expect_error(chk_in(1, NA), 
-               "^`1` must match NA, not 1[.]$")
-  
-  expect_false(chk_in(c(NA, 1), 1, err = FALSE)) 
-  expect_error(chk_in(c(NA, 1), 1), 
-               "^`c[(]NA, 1[)]` must have values matching 1[.]$")
-  
-  expect_true(chk_in(NA, NA))
-  
-  expect_false(chk_in(c(NA, 1), 1:2, err = FALSE)) 
-  expect_error(chk_in(c(NA, 1), 1:2), 
-               "^`c[(]NA, 1[)]` must have values matching 1 or 2[.]$")
-  
-  expect_error(chk_in(3L, values = c(1L, 1L, 7L)), 
-               "^`3L` must match 1 or 7, not 3[.]$")
-  expect_error(chk_in(3L, values = c(1L, 1L, 7L), x_name = "1"), 
-               "^1 must match 1 or 7, not 3[.]$")
-})
