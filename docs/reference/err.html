@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Stop — err • chk</title>
+<title>Stop, Warning and Message — err • chk</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,10 @@
 
 
 
-<meta property="og:title" content="Stop — err" />
-<meta property="og:description" content="A wrapper on stop(..., call. = FALSE)." />
+<meta property="og:title" content="Stop, Warning and Message — err" />
+<meta property="og:description" content="Wrappers on 
+stop(), warning() and
+ message()." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -69,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9007</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9010</span>
       </span>
     </div>
 
@@ -120,16 +122,22 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Stop</h1>
+    <h1>Stop, Warning and Message</h1>
     <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/utils-chk.R'><code>R/utils-chk.R</code></a></small>
     <div class="hidden name"><code>err.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A wrapper on <code><a href='https://rdrr.io/r/base/stop.html'>stop</a>(..., call. = FALSE)</code>.</p>
+    <p>Wrappers on 
+<code><a href='https://rdrr.io/r/base/stop.html'>stop</a>()</code>, <code><a href='https://rdrr.io/r/base/warning.html'>warning</a>()</code> and
+ <code><a href='https://rdrr.io/r/base/message.html'>message</a>()</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>err</span>(<span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>err</span>(<span class='no'>...</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>call.</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='fu'>wrn</span>(<span class='no'>...</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>call.</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='fu'>msg</span>(<span class='no'>...</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -140,20 +148,52 @@
     (and which are pasted together with no separator) or a single
     condition object.</p></td>
     </tr>
+    <tr>
+      <th>n</th>
+      <td><p>The value of n for converting <code>sprintf</code>-like types.</p></td>
+    </tr>
+    <tr>
+      <th>call.</th>
+      <td><p>logical, indicating if the call should become part of the
+    error message.</p></td>
+    </tr>
     </table>
 
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
 
-    <div class='dont-index'><p><code><a href='wrn.html'>wrn</a>()</code> and <code><a href='msg.html'>msg</a>()</code></p></div>
+    
+<ul>
+<li><p><code>wrn</code>: Warning</p></li>
+<li><p><code>msg</code>: Message</p></li>
+</ul>
+    <h2 class="hasAnchor" id="sprintf-like-types"><a class="anchor" href="#sprintf-like-types"></a><code>sprintf</code>-like types</h2>
+
+    
+
+<p>The following <code>sprintf</code>-like types can be used in the custom messages:</p>
+<dl class='dl-horizontal'>
+  <dt><code>n</code></dt><dd><p>The value of n.</p></dd>
+  <dt><code>s</code></dt><dd><p>'' if n == 1 otherwise 's'</p></dd>
+  <dt><code>r</code></dt><dd><p>'is' if n == 1 otherwise 'are'</p></dd>
+
+</dl>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>err</span>(<span class='st'>"this is an error"</span>))</div><div class='output co'>#&gt; Error : this is an error</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>err</span>(<span class='st'>"this is an error"</span>))</div><div class='output co'>#&gt; Error : this is an error</div><div class='input'>
+<span class='co'># wrn</span>
+
+<span class='fu'>wrn</span>(<span class='st'>"this is a warning"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: this is a warning</span></div><div class='input'><span class='fu'>wrn</span>(<span class='st'>"there %r %n problem value%s"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: there %r %n problem value%s</span></div><div class='input'><span class='fu'>wrn</span>(<span class='st'>"there %r %n problem value%s"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: there is 1 problem value</span></div><div class='input'><span class='fu'>wrn</span>(<span class='st'>"there %r %n problem value%s"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: there are 2 problem values</span></div><div class='input'>
+<span class='co'># msg</span>
+
+<span class='fu'>msg</span>(<span class='st'>"this is a message"</span>)</div><div class='output co'>#&gt; <span class='message'>this is a message</span></div><div class='input'><span class='fu'>msg</span>(<span class='st'>"there %r %n problem value%s"</span>)</div><div class='output co'>#&gt; <span class='message'>there %r %n problem value%s</span></div><div class='input'><span class='fu'>msg</span>(<span class='st'>"there %r %n problem value%s"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; <span class='message'>there is 1 problem value</span></div><div class='input'><span class='fu'>msg</span>(<span class='st'>"there %r %n problem value%s"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='message'>there are 2 problem values</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#see-also">See also</a></li>
+      <li><a href="#functions">Functions</a></li>
+      <li><a href="#sprintf-like-types"><code>sprintf</code>-like types</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
@@ -167,7 +207,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9100.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
 </div>
 
       </footer>
