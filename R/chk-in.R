@@ -1,6 +1,6 @@
-#' Check In and Has
+#' Check In and Includes
 #' 
-#' Check in and has.
+#' Check in and includes
 #'
 #' @details  
 #' 
@@ -37,9 +37,9 @@ chk_in <- function (x, values, err = TRUE, x_name = NULL) {
        call. = FALSE)
 }
 
-#' @describeIn chk_in Check Has Values
+#' @describeIn chk_in Check Includes Values
 #' 
-#' Checks if has values using:
+#' Checks if includes all values using:
 #' 
 #' \code{all(\link{match}(values, x, nomatch = 0) > 0)}
 #' 
@@ -47,14 +47,13 @@ chk_in <- function (x, values, err = TRUE, x_name = NULL) {
 #' 
 #  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
-chk_has <- function(x, values, err = TRUE, x_name = NULL) {
+chk_includes <- function(x, values, err = TRUE, x_name = NULL) {
   if(all(values %in% x)) return(TRUE)
   if(!err) return(FALSE)
   values <- sort(unique(values), na.last = TRUE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  if(length(values) == 1L)
-    stop(x_name, " must have a value matching ", cc(values), ".", call. = FALSE)
-  stop(x_name, " must have values matching ", cc(values, " and "), ".", 
+  values <- values[!values %in% x]
+  stop(x_name, " must include ", cc(values, " and "), ".", 
        call. = FALSE)
 
 }

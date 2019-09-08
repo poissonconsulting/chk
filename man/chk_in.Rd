@@ -2,12 +2,12 @@
 % Please edit documentation in R/chk-in.R
 \name{chk_in}
 \alias{chk_in}
-\alias{chk_has}
-\title{Check In and Has}
+\alias{chk_includes}
+\title{Check In and Includes}
 \usage{
 chk_in(x, values, err = TRUE, x_name = NULL)
 
-chk_has(x, values, err = TRUE, x_name = NULL)
+chk_includes(x, values, err = TRUE, x_name = NULL)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -24,7 +24,7 @@ TRUE if passes check. Otherwise if throws an informative error unless
 \code{err = FALSE} in which case it returns FALSE.
 }
 \description{
-Check in and has.
+Check in and includes
 }
 \details{
 \code{chk_in()}: Check In
@@ -35,9 +35,9 @@ Checks if all values in values using equivalent of:
 }
 \section{Functions}{
 \itemize{
-\item \code{chk_has}: Check Has Values
+\item \code{chk_includes}: Check Includes Values
 
-Checks if has values using:
+Checks if includes all values using:
 
 \code{all(\link{match}(values, x, nomatch = 0) > 0)}
 }}
