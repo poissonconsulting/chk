@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check In and Has — chk_in • chk</title>
+<title>Check In and Includes — chk_in • chk</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Check In and Has — chk_in" />
-<meta property="og:description" content="Check in and has." />
+<meta property="og:title" content="Check In and Includes — chk_in" />
+<meta property="og:description" content="Check in and includes" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -120,18 +120,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check In and Has</h1>
+    <h1>Check In and Includes</h1>
     <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-in.R'><code>R/chk-in.R</code></a></small>
     <div class="hidden name"><code>chk_in.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Check in and has.</p>
+    <p>Check in and includes</p>
     </div>
 
     <pre class="usage"><span class='fu'>chk_in</span>(<span class='no'>x</span>, <span class='no'>values</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>chk_has</span>(<span class='no'>x</span>, <span class='no'>values</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+<span class='fu'>chk_includes</span>(<span class='no'>x</span>, <span class='no'>values</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -168,8 +168,8 @@ message if the check fails.</p></td>
 
     
 <ul>
-<li><p><code>chk_has</code>: Check Has Values</p>
-<p>Checks if has values using:</p>
+<li><p><code>chk_includes</code>: Check Includes Values</p>
+<p>Checks if includes all values using:</p>
 <p><code>all(<a href='https://rdrr.io/r/base/match.html'>match</a>(values, x, nomatch = 0) &gt; 0)</code></p></li>
 </ul>
 

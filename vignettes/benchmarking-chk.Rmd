@@ -109,7 +109,7 @@ microbenchmark(
   chk_gte(one, one),
   chk_range(one),
   chk_in(one, one),
-  chk_includes(one, one),
+  chk_has(one, one),
   chk_match(string),
   chk_all(true, chk_true),
   chkor(),

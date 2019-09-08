@@ -34,12 +34,12 @@ test_that("chk_in", {
                "^1 must match 1 or 7, not 3[.]$")
 })
 
-test_that("chk_includes", {
-  expect_true(chk_includes(1, 1))
-  expect_true(chk_includes(1:2, 1))
-  expect_false(chk_includes(1, 1:2, err = FALSE))
-  expect_error(chk_includes(1, 1:2), "^`1` must include 2[.]$")
-  expect_error(chk_includes(1, 1:3), "^`1` must include 2 and 3[.]$")
-  expect_true(chk_includes(1:3, 1:2))
-  expect_error(chk_includes(2, 1), "^`2` must include 1[.]$")
+test_that("chk_has", {
+  expect_true(chk_has(1, 1))
+  expect_true(chk_has(1:2, 1))
+  expect_false(chk_has(1, 1:2, err = FALSE))
+  expect_error(chk_has(1, 1:2), "^`1` must include 2[.]$")
+  expect_error(chk_has(1, 1:3), "^`1` must include 2 and 3[.]$")
+  expect_true(chk_has(1:3, 1:2))
+  expect_error(chk_has(2, 1), "^`2` must include 1[.]$")
 })

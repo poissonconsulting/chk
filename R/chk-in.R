@@ -1,6 +1,6 @@
-#' Check In and Includes
+#' Check In and Has
 #' 
-#' Check in and includes
+#' Checks if in and has values.
 #'
 #' @details  
 #' 
@@ -37,7 +37,7 @@ chk_in <- function (x, values, err = TRUE, x_name = NULL) {
        call. = FALSE)
 }
 
-#' @describeIn chk_in Check Includes Values
+#' @describeIn chk_in Check Has
 #' 
 #' Checks if includes all values using:
 #' 
@@ -47,7 +47,7 @@ chk_in <- function (x, values, err = TRUE, x_name = NULL) {
 #' 
 #  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
-chk_includes <- function(x, values, err = TRUE, x_name = NULL) {
+chk_has <- function(x, values, err = TRUE, x_name = NULL) {
   if(all(values %in% x)) return(TRUE)
   if(!err) return(FALSE)
   values <- sort(unique(values), na.last = TRUE)
