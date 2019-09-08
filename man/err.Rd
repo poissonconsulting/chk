@@ -26,6 +26,8 @@ msg(..., n = NULL)
 Wrappers on 
 \code{\link[base]{stop}()}, \code{\link[base]{warning}()} and
  \code{\link[base]{message}()}.
+ 
+ \code{err}: Error
 }
 \section{Functions}{
 \itemize{

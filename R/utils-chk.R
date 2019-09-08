@@ -14,6 +14,8 @@ edit_string <- function(..., n) {
 #' \code{\link[base]{stop}()}, \code{\link[base]{warning}()} and
 #'  \code{\link[base]{message}()}.
 #'  
+#'  \code{err}: Error
+#'  
 #' @section \code{sprintf}-like types:
 #' The following \code{sprintf}-like types can be used in the custom messages:
 #' 
