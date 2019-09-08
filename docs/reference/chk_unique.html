@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9010</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9011</span>
       </span>
     </div>
 
@@ -135,8 +135,6 @@
 
 <span class='fu'>chk_named</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>chk_in</span>(<span class='no'>x</span>, <span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>NA</span>), <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
-
 <span class='fu'>chk_length</span>(<span class='no'>x</span>, <span class='kw'>length</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -159,10 +157,6 @@ message if the check fails.</p></td>
     <tr>
       <th>x_name</th>
       <td><p>A string of the name of object x or NULL.</p></td>
-    </tr>
-    <tr>
-      <th>values</th>
-      <td><p>A vector of the permitted values.</p></td>
     </tr>
     <tr>
       <th>length</th>
@@ -189,9 +183,6 @@ message if the check fails.</p></td>
 <li><p><code>chk_named</code>: Check Named</p>
 <p>Checks if is named using:</p>
 <p><code>!is.null(<a href='https://rdrr.io/r/base/names.html'>names</a>(x))</code></p></li>
-<li><p><code>chk_in</code>: Check In</p>
-<p>Checks if all values in values using equivalent of:</p>
-<p><code>all(<a href='https://rdrr.io/r/base/match.html'>match</a>(x, values, nomatch = 0) &gt; 0)</code></p></li>
 <li><p><code>chk_length</code>: Check Length</p>
 
 <p>Checks if is length length using:</p>
@@ -208,10 +199,8 @@ message if the check fails.</p></td>
 <span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_no_missing</span>(<span class='fl'>NA</span>))</div><div class='output co'>#&gt; Error : `NA` must not have missing values.</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_no_missing</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>NA</span>)))</div><div class='output co'>#&gt; Error : `c(1, NA)` must not have missing values.</div><div class='input'><span class='fu'>chk_no_missing</span>(<span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>(<span class='fl'>0</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_no_missing</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_no_missing</span>(<span class='fl'>1</span>:<span class='fl'>10</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
 
 <span class='co'># chk_named</span>
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_named</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be named.</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_named</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>1</span>)))</div><div class='output co'>#&gt; Error : `list(1)` must be named.</div><div class='input'><span class='fu'>chk_named</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_named</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_named</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>)[-<span class='fl'>1</span>])</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_named</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>)[-<span class='fl'>1</span>])</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
-
-<span class='co'># chk_in</span>
-<span class='fu'>chk_in</span>(<span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span>(<span class='fl'>0</span>), <span class='fl'>1</span>:<span class='fl'>10</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_in</span>(<span class='fl'>1</span>, <span class='fl'>1</span>:<span class='fl'>10</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_in</span>(<span class='fl'>11</span>, <span class='fl'>1</span>:<span class='fl'>10</span>))</div><div class='output co'>#&gt; Error : `11` must match 1, 2, 3, 4, 5, 6, 7, 8, 9 or 10, not 11.</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_named</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be named.</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_named</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>1</span>)))</div><div class='output co'>#&gt; Error : `list(1)` must be named.</div><div class='input'><span class='fu'>chk_named</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_named</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_named</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>)[-<span class='fl'>1</span>])</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_named</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>)[-<span class='fl'>1</span>])</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'> 
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check All or All Identical — chk_all • chk</title>
+<title>Check In and Has — chk_in • chk</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Check All or All Identical — chk_all" />
-<meta property="og:description" content="Checks all elements." />
+<meta property="og:title" content="Check In and Has — chk_in" />
+<meta property="og:description" content="Check in and has." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -120,18 +120,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check All or All Identical</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-all.R'><code>R/chk-all.R</code></a></small>
-    <div class="hidden name"><code>chk_all.Rd</code></div>
+    <h1>Check In and Has</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-in.R'><code>R/chk-in.R</code></a></small>
+    <div class="hidden name"><code>chk_in.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Checks all elements.</p>
+    <p>Check in and has.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>chk_all</span>(<span class='no'>x</span>, <span class='no'>chk_fun</span>, <span class='no'>...</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>chk_in</span>(<span class='no'>x</span>, <span class='no'>values</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>chk_all_identical</span>(<span class='no'>x</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+<span class='fu'>chk_has</span>(<span class='no'>x</span>, <span class='no'>values</span>, <span class='kw'>err</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -141,12 +141,8 @@
       <td><p>The object to check.</p></td>
     </tr>
     <tr>
-      <th>chk_fun</th>
-      <td><p>A chk function.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Additional arguments.</p></td>
+      <th>values</th>
+      <td><p>A vector of the permitted values.</p></td>
     </tr>
     <tr>
       <th>err</th>
@@ -165,26 +161,22 @@ message if the check fails.</p></td>
 <code>err = FALSE</code> in which case it returns FALSE.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>chk_all()</code>: Check All</p>
-<p>Checks all elements using:</p>
-<p><code><a href='https://rdrr.io/r/base/all.html'>all(vapply(x, chk_fun, TRUE, ...))</a></code></p>
+    <p><code>chk_in()</code>: Check In</p>
+<p>Checks if all values in values using equivalent of:</p>
+<p><code>all(<a href='https://rdrr.io/r/base/match.html'>match</a>(x, values, nomatch = 0) &gt; 0)</code></p>
     <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
 
     
 <ul>
-<li><p><code>chk_all_identical</code>: Check All Identical</p>
-<p>Checks all elements in x identical using:</p>
-<p><code><a href='https://rdrr.io/r/base/all.html'>all(vapply(x, identical, TRUE, y = x[[1]]))</a></code></p></li>
+<li><p><code>chk_has</code>: Check Has Values</p>
+<p>Checks if has values using:</p>
+<p><code>all(<a href='https://rdrr.io/r/base/match.html'>match</a>(values, x, nomatch = 0) &gt; 0)</code></p></li>
 </ul>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='co'># chk_all</span>
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_all</span>(<span class='fl'>1</span>, <span class='no'>chk_lgl</span>))</div><div class='output co'>#&gt; Error : All elements of `1` must be a logical scalar (TRUE, FALSE or NA).</div><div class='input'><span class='fu'>chk_all</span>(<span class='fl'>TRUE</span>, <span class='no'>chk_lgl</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_all</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>NA</span>), <span class='no'>chk_lgl</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_all</span>(<span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span>(<span class='fl'>0</span>), <span class='no'>chk_lgl</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
-
-<span class='co'># chk_all_identical</span>
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_all_identical</span>(<span class='fl'>1</span>, <span class='fl'>1.0000001</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_all_identical</span>(<span class='fl'>1</span>, <span class='fl'>1.00000001</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_all_identical</span>(<span class='fl'>1</span>, <span class='fl'>1L</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_all_identical</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>)))</div><div class='output co'>#&gt; Error : `c(1, 2)` must have identical elements.</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_all_identical</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2.0000001</span>)))</div><div class='output co'>#&gt; Error : `c(1, 2.0000001)` must have identical elements.</div><div class='input'> 
-</div></pre>
+<span class='co'># chk_in</span>
+<span class='fu'>chk_in</span>(<span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span>(<span class='fl'>0</span>), <span class='fl'>1</span>:<span class='fl'>10</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>chk_in</span>(<span class='fl'>1</span>, <span class='fl'>1</span>:<span class='fl'>10</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_in</span>(<span class='fl'>11</span>, <span class='fl'>1</span>:<span class='fl'>10</span>))</div><div class='output co'>#&gt; Error : `11` must match 1, 2, 3, 4, 5, 6, 7, 8, 9 or 10, not 11.</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
