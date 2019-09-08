@@ -1,9 +1,30 @@
-#' Stop
+edit_string <- function(..., n) {
+  string <- p0(..., collapse = "")
+  if(!is.null(n)) {
+    string <- gsub("%s", if(n == 1) "" else "s", string, fixed = TRUE)
+    string <- gsub("%r", if(n == 1) "is" else "are", string, fixed = TRUE)
+    string <- gsub("%n", n, string, fixed = TRUE)  
+  }
+  string
+}
+
+#' Stop, Warning and Message
 #'
-#' A wrapper on \code{\link[base]{stop}(..., call. = FALSE)}.
+#' Wrappers on 
+#' \code{\link[base]{stop}()}, \code{\link[base]{warning}()} and
+#'  \code{\link[base]{message}()}.
+#'  
+#' @section \code{sprintf}-like types:
+#' The following \code{sprintf}-like types can be used in the custom messages:
+#' 
+#' \describe{
+#'   \item{\code{n}}{The value of n.}
+#'   \item{\code{s}}{'' if n == 1 otherwise 's'}
+#'   \item{\code{r}}{'is' if n == 1 otherwise 'are'}
+#' }
 #' 
 #' @inheritParams base::stop
-#' @seealso \code{\link{wrn}()} and \code{\link{msg}()}
+#' @param n The value of n for converting \code{sprintf}-like types.
 #' @export
 #'
 #' @examples
@@ -11,37 +32,47 @@
 #
 #  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
-err <- function (...) stop(..., call. = FALSE)
+err <- function (..., n = NULL, call. = FALSE) {
+  stop(edit_string(..., n = n), call. = call.)
+}
 
-#' Message
-#'
-#' A wrapper on \code{\link[base]{message}(...)}.
+#' @describeIn err Warning
 #' 
-#' @inheritParams base::message
-#' @seealso \code{\link{err}()} and \code{\link{wrn}()}
 #' @export
 #'
 #' @examples
-#' msg("this is a message")
-#
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
-msg <- function (...) message(...)
-
-#' Warning
-#'
-#' A wrapper on \code{\link[base]{warning}(..., call. = FALSE)}.
 #' 
-#' @inheritParams base::warning
-#' @seealso \code{\link{err}()} and \code{\link{msg}()}
-#' @export
-#'
-#' @examples
+#' # wrn
+#' 
 #' wrn("this is a warning")
+#' wrn("there %r %n problem value%s")
+#' wrn("there %r %n problem value%s", n = 1)
+#' wrn("there %r %n problem value%s", n = 2)
 #
 #  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
-wrn <- function (...) warning(..., call. = FALSE)
+wrn <- function (..., n = NULL, call. = FALSE) {
+  warning(edit_string(..., n = n), call. = call.)
+}
+
+#' @describeIn err Message
+#' 
+#' @export
+#'
+#' @examples
+#' 
+#' # msg
+#' 
+#' msg("this is a message")
+#' msg("there %r %n problem value%s")
+#' msg("there %r %n problem value%s", n = 1)
+#' msg("there %r %n problem value%s", n = 2)
+#
+#  Licence: CC0
+#  Repository: https://github.com/poissonconsulting/chk
+msg <- function (..., n = NULL) {
+  message(edit_string(..., n = n))
+}
 
 #' Concatenate Strings
 #'

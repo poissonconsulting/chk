@@ -2,21 +2,63 @@
 % Please edit documentation in R/utils-chk.R
 \name{err}
 \alias{err}
-\title{Stop}
+\alias{wrn}
+\alias{msg}
+\title{Stop, Warning and Message}
 \usage{
-err(...)
+err(..., n = NULL, call. = FALSE)
+
+wrn(..., n = NULL, call. = FALSE)
+
+msg(..., n = NULL)
 }
 \arguments{
 \item{...}{zero or more objects which can be coerced to character
     (and which are pasted together with no separator) or a single
     condition object.}
+
+\item{n}{The value of n for converting \code{sprintf}-like types.}
+
+\item{call.}{logical, indicating if the call should become part of the
+    error message.}
 }
 \description{
-A wrapper on \code{\link[base]{stop}(..., call. = FALSE)}.
+Wrappers on 
+\code{\link[base]{stop}()}, \code{\link[base]{warning}()} and
+ \code{\link[base]{message}()}.
 }
+\section{Functions}{
+\itemize{
+\item \code{wrn}: Warning
+
+\item \code{msg}: Message
+}}
+
+\section{\code{sprintf}-like types}{
+
+The following \code{sprintf}-like types can be used in the custom messages:
+
+\describe{
+  \item{\code{n}}{The value of n.}
+  \item{\code{s}}{'' if n == 1 otherwise 's'}
+  \item{\code{r}}{'is' if n == 1 otherwise 'are'}
+}
+}
+
 \examples{
 try(err("this is an error"))
-}
-\seealso{
-\code{\link{wrn}()} and \code{\link{msg}()}
+
+# wrn
+
+wrn("this is a warning")
+wrn("there \%r \%n problem value\%s")
+wrn("there \%r \%n problem value\%s", n = 1)
+wrn("there \%r \%n problem value\%s", n = 2)
+
+# msg
+
+msg("this is a message")
+msg("there \%r \%n problem value\%s")
+msg("there \%r \%n problem value\%s", n = 1)
+msg("there \%r \%n problem value\%s", n = 2)
 }

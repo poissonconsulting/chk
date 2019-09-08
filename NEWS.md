@@ -1,3 +1,4 @@
+- Added `n = NULL` and `call. = FALSE` args to error message generating funcions.
 - Added `ellipsis = 10L` argument to `cc()`.
 - Added `sep = ", "` arg to `cc()`.
 - Changed to `range = c(0,1)` for `chk_range()`.
