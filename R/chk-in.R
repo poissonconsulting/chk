@@ -25,7 +25,7 @@
 #
 #  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
-chk_in <- function (x, values = c(0, 1, NA), err = TRUE, x_name = NULL) {
+chk_in <- function (x, values, err = TRUE, x_name = NULL) {
   if(all(x %in% values)) return(TRUE)
   if(!err) return(FALSE)
   values <- sort(unique(values), na.last = TRUE)

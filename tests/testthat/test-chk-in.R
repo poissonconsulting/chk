@@ -1,14 +1,14 @@
 context("chk-in")
 
 test_that("chk_in", {
-  expect_true(chk_in(integer(0)))
+  expect_true(chk_in(integer(0), 1))
   expect_error(chk_in(NA, c(0, Inf)), "^`NA` must match 0 or Inf, not NA[.]$")
-  expect_false(chk_in(1:3, err = FALSE))
-  expect_error(chk_in(1:3), "`1:3` must have values matching 0, 1 or NA[.]$")
+  expect_false(chk_in(1:3, 1:2, err = FALSE))
+  expect_error(chk_in(1:3, c(0, 1, NA)), "`1:3` must have values matching 0, 1 or NA[.]$")
   expect_true(chk_in(numeric(0), 1L))
   
-  expect_false(chk_in(-1, err = FALSE))
-  expect_error(chk_in(-1), "^`-1` must match 0, 1 or NA, not -1[.]$")
+  expect_false(chk_in(-1, c(0, 1, NA), err = FALSE))
+  expect_error(chk_in(-1, c(0, 1, NA)), "^`-1` must match 0, 1 or NA, not -1[.]$")
   
   expect_false(chk_in(1L, 0L, err = FALSE))
   expect_error(chk_in(c(1L, 1L), 0L), c("^`c[(]1L, 1L[)]` must have values matching 0[.]$"))

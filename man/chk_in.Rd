@@ -5,7 +5,7 @@
 \alias{chk_has}
 \title{Check In and Has}
 \usage{
-chk_in(x, values = c(0, 1, NA), err = TRUE, x_name = NULL)
+chk_in(x, values, err = TRUE, x_name = NULL)
 
 chk_has(x, values, err = TRUE, x_name = NULL)
 }
