@@ -1,6 +1,0 @@
-pandoc: 2.7.3
-pkgdown: 1.4.0
-pkgdown_sha: ~
-articles:
-  benchmarking-chk: benchmarking-chk.html
-
