@@ -2,54 +2,76 @@
 % Please edit documentation in R/chk-range.R
 \name{chk_range}
 \alias{chk_range}
+\alias{vld_range}
 \alias{chk_lt}
+\alias{vld_lt}
 \alias{chk_lte}
+\alias{vld_lte}
 \alias{chk_gt}
+\alias{vld_gt}
 \alias{chk_gte}
-\title{Check Range}
+\alias{vld_gte}
+\title{Check/Validate Range}
 \usage{
-chk_range(x, range = c(0, 1), err = TRUE, x_name = NULL)
+chk_range(x, range = c(0, 1), x_name = NULL)
 
-chk_lt(x, value = 0, err = TRUE, x_name = NULL)
+vld_range(x, range = c(0, 1))
 
-chk_lte(x, value = 0, err = TRUE, x_name = NULL)
+chk_lt(x, value = 0, x_name = NULL)
 
-chk_gt(x, value = 0, err = TRUE, x_name = NULL)
+vld_lt(x, value = 0)
 
-chk_gte(x, value = 0, err = TRUE, x_name = NULL)
+chk_lte(x, value = 0, x_name = NULL)
+
+vld_lte(x, value = 0)
+
+chk_gt(x, value = 0, x_name = NULL)
+
+vld_gt(x, value = 0)
+
+chk_gte(x, value = 0, x_name = NULL)
+
+vld_gte(x, value = 0)
 }
 \arguments{
 \item{x}{The object to check.}
 
 \item{range}{A vector of length 2 of the lower and upper permitted values.}
 
-\item{err}{Deprecated.}
-
 \item{x_name}{A string of the name of object x or NULL.}
 
 \item{value}{A non-missing scalar of a value.}
 }
 \value{
-TRUE if passes check. Otherwise if throws an informative error unless
-\code{err = FALSE} in which case it returns FALSE.
+The \code{chk_} functions throw an informative error if the test fails.
+The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks range of non-missing values.
+Checks/validates range of non-missing values.
 }
-\details{
-\code{chk_range()}: Check Range
+\section{Functions}{
+\itemize{
+\item \code{chk_range}: Check Range
 
-Checks if all non-missing values fall within range using:
+Checks if all non-missing values fall within range using
+\code{vld_range()}.
+
+\item \code{vld_range}: Validate Range
+
+Validates all non-missing values fall within range using:
 
 \code{all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])}
 
 Range should be a non-missing sorted vector of length 2.
-}
-\section{Functions}{
-\itemize{
+
 \item \code{chk_lt}: Check Less Than
 
-Checks if all non-missing values are less than value using:
+Checks if all non-missing values are less than value using
+\code{vld_lt()}.
+
+\item \code{vld_lt}: Validate Less Than
+
+Validates all non-missing values are less than value using
 
 \code{all(x[!is.na(x)] < value))}
 
@@ -57,7 +79,12 @@ Checks if all non-missing values are less than value using:
 
 \item \code{chk_lte}: Check Less Than or Equal To
 
-Checks if all non-missing values are less than or equal to y using:
+Checks if all non-missing values are less than or equal to y using
+\code{vld_lte()}.
+
+\item \code{vld_lte}: Validate Less Than or Equal To
+
+Validates all non-missing values are less than or equal to y using
 
 \code{all(x[!is.na(x)] <= value))}
 
@@ -65,7 +92,12 @@ Checks if all non-missing values are less than or equal to y using:
 
 \item \code{chk_gt}: Check Greater Than
 
-Checks if all non-missing values are greater than value using:
+Checks if all non-missing values are greater than value using
+\code{vld_gt()}.
+
+\item \code{vld_gt}: Validate Greater Than
+
+Validates all non-missing values are greater than value using
 
 \code{all(x[!is.na(x)] > value))}
 
@@ -73,7 +105,12 @@ Checks if all non-missing values are greater than value using:
 
 \item \code{chk_gte}: Check Greater Than or Equal To
 
-Checks if all non-missing values are greater than or equal to y using:
+Checks if all non-missing values are greater than or equal to y using 
+\code{vld_gte()}.
+
+\item \code{vld_gte}: Validate Greater Than or Equal To
+
+Validates all non-missing values are greater than or equal to y using:
 
 \code{all(x[!is.na(x)] >= value))}
 
@@ -83,46 +120,62 @@ Checks if all non-missing values are greater than or equal to y using:
 \examples{
 
 # chk_range
-chk_range(numeric(0))
 chk_range(0)
 try(chk_range(-0.1))
-chk_range(c(0.1, 0.2, NA))
-chk_range(c(0.1, 0.2, NA), range = c(0,1))
 
+# vld_range
+vld_range(numeric(0))
+vld_range(0)
+vld_range(-0.1)
+vld_range(c(0.1, 0.2, NA))
+vld_range(c(0.1, 0.2, NA), range = c(0,1))
 
 # chk_lt
-chk_lt(numeric(0))
-try(chk_lt(0))
 chk_lt(-0.1)
-chk_lt(c(-0.1, -0.2, NA))
 try(chk_lt(c(-0.1, 0.2)))
-chk_lt(c(-0.1, 0.2), value = 1)
-chk_lt("a", value = "b")
- 
+
+# vld_lt
+vld_lt(numeric(0))
+vld_lt(0)
+vld_lt(-0.1)
+vld_lt(c(-0.1, -0.2, NA))
+vld_lt(c(-0.1, 0.2))
+vld_lt(c(-0.1, 0.2), value = 1)
+vld_lt("a", value = "b")
 
 # chk_lte
-chk_lte(numeric(0))
 chk_lte(0)
 try(chk_lte(0.1))
-chk_lte(c(-0.1, -0.2, NA))
-try(chk_lte(c(-0.1, -0.2, NA), value = -1))
- 
+
+# vld_lte
+vld_lte(numeric(0))
+vld_lte(0)
+vld_lte(0.1)
+vld_lte(c(-0.1, -0.2, NA))
+vld_lte(c(-0.1, -0.2, NA), value = -1)
 
 # chk_gt
-chk_gt(numeric(0))
-try(chk_gt(0))
 chk_gt(0.1)
-chk_gt(c(0.1, 0.2, NA))
 try(chk_gt(c(0.1, -0.2)))
-chk_gt(c(-0.1, 0.2), value = -1)
-chk_gt("b", value = "a")
  
 
+# vld_gt
+vld_gt(numeric(0))
+vld_gt(0)
+vld_gt(0.1)
+vld_gt(c(0.1, 0.2, NA))
+vld_gt(c(0.1, -0.2))
+vld_gt(c(-0.1, 0.2), value = -1)
+vld_gt("b", value = "a")
+
 # chk_gte
-chk_gte(numeric(0))
 chk_gte(0)
 try(chk_gte(-0.1))
-chk_gte(c(0.1, 0.2, NA))
-try(chk_gte(c(0.1, 0.2, NA), value = 1))
- 
+
+# vld_gte
+vld_gte(numeric(0))
+vld_gte(0)
+vld_gte(-0.1)
+vld_gte(c(0.1, 0.2, NA))
+vld_gte(c(0.1, 0.2, NA), value = 1)
 }
