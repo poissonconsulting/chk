@@ -24,11 +24,15 @@
 #' 
 #  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
-chk_null <- function(x, err = TRUE, x_name = NULL){
-  if(is.null(x)) return(TRUE)
-  if(!err) return(FALSE)
-  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
+chk_null <- function(x, x_name = NULL){
+  if (vld_null(x)) return()
+  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
   stop(x_name, " must be NULL.", call. = FALSE)
+}
+
+#' @export
+vld_null <- function(x){
+  is.null(x)
 }
 
 #' @describeIn chk_null Check Not NULL
@@ -47,9 +51,13 @@ chk_null <- function(x, err = TRUE, x_name = NULL){
 #' 
 #  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
-chk_not_null <- function(x, err = TRUE, x_name = NULL){
-  if(!is.null(x)) return(TRUE)
-  if(!err) return(FALSE)
+chk_not_null <- function(x, x_name = NULL){
+  if (vld_not_null(x)) return()
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   stop(x_name, " must not be NULL.", call. = FALSE)
+}
+
+#' @export
+vld_not_null <- function(x){
+  !is.null(x)
 }
