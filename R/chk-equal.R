@@ -36,7 +36,7 @@ chk_equal <- function (x, y, tolerance = sqrt(.Machine$double.eps),
 #' 
 #' Validates is equal (identical within tolerance) to y using
 #'
-#' \code{isTRUE(\link{all.equal}(x, y, tolerance))}
+#' \code{isTRUE(\link{all.equal}(x, y, tolerance))}.
 #' 
 #' @export
 #' 
@@ -113,7 +113,7 @@ chk_equivalent <- function (x, y, tolerance = sqrt(.Machine$double.eps),
 #' 
 #' Validates is equivalent (equal ignoring attributes) to y using
 #'
-#' \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}
+#' \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}.
 #' 
 #' @export
 #' 

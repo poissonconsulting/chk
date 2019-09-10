@@ -1,4 +1,4 @@
-#' Check In and Has
+#' Check/Validate In and Has
 #' 
 #' Checks/validates if in and has values.
 #'

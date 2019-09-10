@@ -29,23 +29,25 @@ Checks/validates if ... is unused or used.
 \itemize{
 \item \code{chk_unused}: Check ... Unused
 
-Checks if is ... unused using \code{vld_unused()}.
+Checks if is ... unused using 
+\code{vld_unused()}.
 
 \item \code{vld_unused}: Validate ... Unused
 
 Checks if is ... unused using
 
-\code{length(\link{list}(...)) == 0L}
+\code{length(\link{list}(...)) == 0L}.
 
 \item \code{chk_used}: Check ... Used
 
-Checks if is ... used using \code{vld_unused()}.
+Checks if is ... used using 
+\code{vld_unused()}.
 
 \item \code{vld_used}: Validate ... Used
 
 Validates if ... used using
 
-\code{length(\link{list}(...)) != 0L}
+\code{length(\link{list}(...)) != 0L}.
 }}
 
 \examples{

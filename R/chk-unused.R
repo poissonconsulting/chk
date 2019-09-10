@@ -11,7 +11,8 @@ NULL
 
 #' @describeIn chk_unused Check ... Unused
 #' 
-#' Checks if is ... unused using \code{vld_unused()}.
+#' Checks if is ... unused using 
+#' \code{vld_unused()}.
 #' 
 #' @export
 #' 
@@ -30,7 +31,7 @@ chk_unused <- function (...) {
 #' 
 #' Checks if is ... unused using
 #' 
-#' \code{length(\link{list}(...)) == 0L}
+#' \code{length(\link{list}(...)) == 0L}.
 #' 
 #' @export
 #' 
@@ -44,7 +45,8 @@ vld_unused <- function (...) length(list(...)) == 0L
 
 #' @describeIn chk_unused Check ... Used
 #' 
-#' Checks if is ... used using \code{vld_unused()}.
+#' Checks if is ... used using 
+#' \code{vld_unused()}.
 #' 
 #' @export
 #' 
@@ -63,7 +65,7 @@ chk_used <- function (...) {
 #' 
 #' Validates if ... used using
 #' 
-#' \code{length(\link{list}(...)) != 0L}
+#' \code{length(\link{list}(...)) != 0L}.
 #' 
 #' @export
 #' 

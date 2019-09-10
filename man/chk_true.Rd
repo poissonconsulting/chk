@@ -44,35 +44,47 @@ or a lgl (TRUE, FALSE, or NA).
 \itemize{
 \item \code{chk_true}: Check TRUE
 
-Checks if TRUE using \code{vld_true(x)}.
+Checks if TRUE using 
+\code{vld_true(x)}.
 
 \item \code{vld_true}: Validate TRUE
 
-Validates if TRUE using \code{\link{isTRUE}(x)}.
+Validates if TRUE using 
+
+\code{\link{isTRUE}(x)}.
 
 \item \code{chk_false}: Check FALSE
 
-Checks if FALSE using \code{vld_false(x)}.
+Checks if FALSE using 
+\code{vld_false(x)}.
 
 \item \code{vld_false}: Validate FALSE
 
-Validates if FALSE using \code{\link{isFALSE}(x)}.
+Validates if FALSE using 
+
+\code{\link{isFALSE}(x)}.
 
 \item \code{chk_flag}: Validate Flag
 
-Checks if non-missing logical scalar using \code{vld_flag()}.
+Checks if non-missing logical scalar using 
+\code{vld_flag()}.
 
 \item \code{vld_flag}: Validate Flag
 
-Validates if flag using \code{is.logical(x) && length(x) == 1L && !anyNA(x)}.
+Validates if flag using 
+
+\code{is.logical(x) && length(x) == 1L && !anyNA(x)}.
 
 \item \code{chk_lgl}: Check Logical Scalar
 
-Checks if logical scalar using \code{vld_lgl(x)}.
+Checks if logical scalar using 
+\code{vld_lgl(x)}.
 
 \item \code{vld_lgl}: Validate Logical Scalar
 
-Validates if logical scalar using \code{is.logical(x) && length(x) == 1L}.
+Validates if logical scalar using 
+
+\code{is.logical(x) && length(x) == 1L}.
 }}
 
 \examples{

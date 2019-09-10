@@ -5,7 +5,7 @@
 \alias{vld_in}
 \alias{chk_has}
 \alias{vld_has}
-\title{Check In and Has}
+\title{Check/Validate In and Has}
 \usage{
 chk_in(x, values, x_name = NULL)
 

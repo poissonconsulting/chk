@@ -39,7 +39,7 @@ chk_range <- function (x, range = c(0, 1), x_name = NULL) {
 
 #' @describeIn chk_range Validate Range
 #' 
-#' Validates all non-missing values fall within range using:
+#' Validates all non-missing values fall within range using
 #' 
 #' \code{all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])}
 #' 
@@ -172,7 +172,7 @@ chk_gt <- function (x, value = 0, x_name = NULL) {
 #' 
 #' Validates all non-missing values are greater than value using
 #' 
-#' \code{all(x[!is.na(x)] > value))}
+#' \code{all(x[!is.na(x)] > value))}.
 #' 
 #' \code{value} should be a non-missing scalar.
 #' 
@@ -216,7 +216,7 @@ chk_gte <- function (x, value = 0, x_name = NULL) {
 #' 
 #' Validates all non-missing values are greater than or equal to y using:
 #' 
-#' \code{all(x[!is.na(x)] >= value))}
+#' \code{all(x[!is.na(x)] >= value))}.
 #' 
 #' \code{value} should be a non-missing scalar.
 #' 

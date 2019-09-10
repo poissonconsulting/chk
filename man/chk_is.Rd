@@ -9,7 +9,7 @@
 \alias{vld_list}
 \alias{chk_function}
 \alias{vld_function}
-\title{Check Is}
+\title{Check/Validate Is}
 \usage{
 chk_is(x, class, x_name = NULL)
 
@@ -67,11 +67,12 @@ Validates integer vector or double equivalent using
 
 \item \code{chk_list}: Check List
 
-Checks if is a list using \code{vld_list()}.
+Checks if is a list using 
+\code{vld_list()}.
 
 \item \code{vld_list}: Validate List
 
-Validates is a list using:
+Validates is a list using
 
 \code{\link{is.list}(x)}
 

@@ -12,7 +12,8 @@ NULL
 
 #' @describeIn chk_true Check TRUE
 #' 
-#' Checks if TRUE using \code{vld_true(x)}.
+#' Checks if TRUE using 
+#' \code{vld_true(x)}.
 #' 
 #' @export
 #'
@@ -29,7 +30,9 @@ chk_true <- function(x, x_name = NULL){
 
 #' @describeIn chk_true Validate TRUE
 #' 
-#' Validates if TRUE using \code{\link{isTRUE}(x)}.
+#' Validates if TRUE using 
+#' 
+#' \code{\link{isTRUE}(x)}.
 #' 
 #' @export
 #' 
@@ -45,7 +48,8 @@ vld_true <- function(x) isTRUE(x)
 
 #' @describeIn chk_true Check FALSE
 #' 
-#' Checks if FALSE using \code{vld_false(x)}.
+#' Checks if FALSE using 
+#' \code{vld_false(x)}.
 #' 
 #' @export
 #' 
@@ -62,7 +66,9 @@ chk_false <- function(x, x_name = NULL){
 
 #' @describeIn chk_true Validate FALSE
 #' 
-#' Validates if FALSE using \code{\link{isFALSE}(x)}.
+#' Validates if FALSE using 
+#' 
+#' \code{\link{isFALSE}(x)}.
 #' 
 #' @export
 #' 
@@ -78,7 +84,8 @@ vld_false <- function(x) isFALSE(x)
 
 #' @describeIn chk_true Validate Flag
 #' 
-#' Checks if non-missing logical scalar using \code{vld_flag()}.
+#' Checks if non-missing logical scalar using 
+#' \code{vld_flag()}.
 #' 
 #' @export
 #' 
@@ -95,7 +102,9 @@ chk_flag <- function(x, x_name = NULL){
 
 #' @describeIn chk_true Validate Flag
 #' 
-#' Validates if flag using \code{is.logical(x) && length(x) == 1L && !anyNA(x)}.
+#' Validates if flag using 
+#' 
+#' \code{is.logical(x) && length(x) == 1L && !anyNA(x)}.
 #' 
 #' @export
 #' 
@@ -111,7 +120,8 @@ vld_flag <- function(x) is.logical(x) && length(x) == 1L && !anyNA(x)
 
 #' @describeIn chk_true Check Logical Scalar
 #' 
-#' Checks if logical scalar using \code{vld_lgl(x)}.
+#' Checks if logical scalar using 
+#' \code{vld_lgl(x)}.
 #' 
 #' @export
 #' 
@@ -128,7 +138,9 @@ chk_lgl <- function(x, x_name = NULL){
 
 #' @describeIn chk_true Validate Logical Scalar
 #' 
-#' Validates if logical scalar using \code{is.logical(x) && length(x) == 1L}.
+#' Validates if logical scalar using 
+#' 
+#' \code{is.logical(x) && length(x) == 1L}.
 #' 
 #' @export
 #' 

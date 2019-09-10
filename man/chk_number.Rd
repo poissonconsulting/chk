@@ -37,7 +37,8 @@ Checks/validates if a number or whole number.
 \itemize{
 \item \code{chk_number}: Check Number
  
-Checks if non-missing numeric scalar using \code{vld_number()}.
+Checks if non-missing numeric scalar using 
+\code{vld_number()}.
 
 \item \code{vld_number}: Validate Number
  
@@ -47,7 +48,9 @@ Validates non-missing numeric scalar using
 
 \item \code{chk_whole_number}: Check Whole Number
  
-Checks if non-missing integer scalar or double equivalent using \code{vld_whole_number()}.
+Checks if non-missing integer scalar or double equivalent using 
+
+\code{vld_whole_number()}.
 
 \item \code{vld_whole_number}: Validate Whole Number
  

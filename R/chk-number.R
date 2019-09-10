@@ -11,7 +11,8 @@ NULL
 
 #' @describeIn chk_number Check Number
 #'  
-#' Checks if non-missing numeric scalar using \code{vld_number()}.
+#' Checks if non-missing numeric scalar using 
+#' \code{vld_number()}.
 #'  
 #' @export
 #' 
@@ -48,7 +49,9 @@ vld_number <- function(x) {
 
 #' @describeIn chk_number Check Whole Number
 #'  
-#' Checks if non-missing integer scalar or double equivalent using \code{vld_whole_number()}.
+#' Checks if non-missing integer scalar or double equivalent using 
+#' 
+#' \code{vld_whole_number()}.
 #'   
 #' @export
 #' 

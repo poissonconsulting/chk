@@ -58,7 +58,7 @@ Checks if all non-missing values fall within range using
 
 \item \code{vld_range}: Validate Range
 
-Validates all non-missing values fall within range using:
+Validates all non-missing values fall within range using
 
 \code{all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])}
 
@@ -99,7 +99,7 @@ Checks if all non-missing values are greater than value using
 
 Validates all non-missing values are greater than value using
 
-\code{all(x[!is.na(x)] > value))}
+\code{all(x[!is.na(x)] > value))}.
 
 \code{value} should be a non-missing scalar.
 
@@ -112,7 +112,7 @@ Checks if all non-missing values are greater than or equal to y using
 
 Validates all non-missing values are greater than or equal to y using:
 
-\code{all(x[!is.na(x)] >= value))}
+\code{all(x[!is.na(x)] >= value))}.
 
 \code{value} should be a non-missing scalar.
 }}

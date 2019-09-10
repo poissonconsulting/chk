@@ -48,7 +48,7 @@ Checks if is equal (identical within tolerance) to y using \code{vld_equal()}.
 
 Validates is equal (identical within tolerance) to y using
 
-\code{isTRUE(\link{all.equal}(x, y, tolerance))}
+\code{isTRUE(\link{all.equal}(x, y, tolerance))}.
 
 \item \code{chk_identical}: Check Identical
 
@@ -69,7 +69,7 @@ Checks if is equivalent (equal ignoring attributes) to y using
 
 Validates is equivalent (equal ignoring attributes) to y using
 
-\code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}
+\code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}.
 }}
 
 \examples{

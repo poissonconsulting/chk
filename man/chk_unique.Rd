@@ -2,16 +2,25 @@
 % Please edit documentation in R/chk-unique.R, R/deprecated.R
 \name{chk_unique}
 \alias{chk_unique}
+\alias{vld_unique}
 \alias{chk_no_missing}
+\alias{vld_no_missing}
 \alias{chk_named}
+\alias{vld_named}
 \alias{chk_length}
-\title{Check Unique}
+\title{Check/Validate Unique}
 \usage{
-chk_unique(x, incomparables = FALSE, err = TRUE, x_name = NULL)
+chk_unique(x, incomparables = FALSE, x_name = NULL)
 
-chk_no_missing(x, err = TRUE, x_name = NULL)
+vld_unique(x, incomparables = FALSE)
 
-chk_named(x, err = TRUE, x_name = NULL)
+chk_no_missing(x, x_name = NULL)
+
+vld_no_missing(x)
+
+chk_named(x, x_name = NULL)
+
+vld_named(x)
 
 chk_length(x, length = 1L, x_name = NULL)
 }
@@ -21,39 +30,51 @@ chk_length(x, length = 1L, x_name = NULL)
 \item{incomparables}{A vector of values that cannot be compared.
 FALSE means that all values can be compared.}
 
-\item{err}{Deprecated.}
-
 \item{x_name}{A string of the name of object x or NULL.}
 
 \item{length}{A count of the length.}
 }
 \value{
-TRUE if passes check. Otherwise if throws an informative error unless
-\code{err = FALSE} in which case it returns FALSE.
+The \code{chk_} functions throw an informative error if the test fails.
+The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Unique checks.
-}
-\details{
-\code{chk_unique()}: Check Unique
-
-Checks if unique using:
-
-\code{!\link{anyDuplicated}(x, incomparables = incomparables)}
+Unique checks/validations.
 }
 \section{Functions}{
 \itemize{
+\item \code{chk_unique}: Check Unique
+
+Checks if unique using
+\code{vld_unique()}.
+
+\item \code{vld_unique}: Validate Unique
+
+Validates if unique using
+
+\code{!\link{anyDuplicated}(x, incomparables = incomparables)}.
+
 \item \code{chk_no_missing}: Check No Missing Values
 
-Checks if no missing values using:
+Checks if no missing values using
+\code{vld_no_missing()}.
 
-\code{!\link{anyNA}(x)}
+\item \code{vld_no_missing}: Validate No Missing Values
+
+Validates no missing values using
+
+\code{!\link{anyNA}(x)}.
 
 \item \code{chk_named}: Check Named
 
-Checks if is named using:
+Checks if is named using
+\code{vld_named()}.
 
-\code{!is.null(\link{names}(x))}
+\item \code{vld_named}: Validate Named
+
+Checks if is named using
+
+\code{!is.null(\link{names}(x))}.
 
 \item \code{chk_length}: Check Length
 
@@ -68,27 +89,37 @@ Checks if is length length using:
 \examples{
 
 # chk_unique
-chk_unique(NULL)
-chk_unique(numeric(0))
 chk_unique(c(NA, 2))
 try(chk_unique(c(NA, NA, 2)))
 chk_unique(c(NA, NA, 2), incomparables = NA)
 
+# vld_unique
+vld_unique(NULL)
+vld_unique(numeric(0))
+vld_unique(c(NA, 2))
+vld_unique(c(NA, NA, 2))
+vld_unique(c(NA, NA, 2), incomparables = NA)
 
 # chk_no_missing
-try(chk_no_missing(NA))
-try(chk_no_missing(c(1, NA)))
-chk_no_missing(character(0))
 chk_no_missing(1)
-chk_no_missing(1:10)
-  
+try(chk_no_missing(c(1, NA)))
+
+# vld_no_missing
+vld_no_missing(character(0))
+vld_no_missing(1)
+vld_no_missing(1:10)
+vld_no_missing(NA)
+vld_no_missing(c(1, NA))
 
 # chk_named
-try(chk_named(1))
-try(chk_named(list(1)))
 chk_named(c(x = 1))
-chk_named(list(x = 1))
-chk_named(c(x = 1)[-1])
-chk_named(list(x = 1)[-1])
- 
+try(chk_named(list(1)))
+
+# vld_named
+vld_named(c(x = 1))
+vld_named(list(x = 1))
+vld_named(c(x = 1)[-1])
+vld_named(list(x = 1)[-1])
+vld_named(1)
+vld_named(list(1))
 }

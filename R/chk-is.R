@@ -1,4 +1,4 @@
-#' Check Is
+#' Check/Validate Is
 #' 
 #' Checks if is a particular type of object.
 #'
@@ -88,7 +88,8 @@ vld_whole_numeric <- function(x) {
 
 #' @describeIn chk_is Check List
 #' 
-#' Checks if is a list using \code{vld_list()}.
+#' Checks if is a list using 
+#' \code{vld_list()}.
 #' 
 #' @export
 #' 
@@ -105,7 +106,7 @@ chk_list <- function(x, x_name = NULL){
 
 #' @describeIn chk_is Validate List
 #' 
-#' Validates is a list using:
+#' Validates is a list using
 #' 
 #' \code{\link{is.list}(x)}
 #' 

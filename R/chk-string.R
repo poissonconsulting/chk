@@ -11,7 +11,8 @@ NULL
 
 #' @describeIn chk_string Check String
 #' 
-#' Checks if non-missing character scalar using \code{vld_string()}.
+#' Checks if non-missing character scalar using 
+#' \code{vld_string()}.
 #' 
 #' @export
 #' 
@@ -30,7 +31,7 @@ chk_string <- function(x, x_name = NULL){
 #' 
 #' Validates non-missing character scalar using
 #' 
-#' \code{is.character(x) && length(x) == 1L && !anyNA(x)}
+#' \code{is.character(x) && length(x) == 1L && !anyNA(x)}.
 #' 
 #' @export
 #' 
@@ -48,7 +49,8 @@ vld_string <- function(x, x_name = NULL) {
 
 #' @describeIn chk_string Check Matches
 #' 
-#' Checks if all values match regular expression using \code{vld_match()}.
+#' Checks if all values match regular expression using 
+#' \code{vld_match()}.
 #' 
 #' @export
 #' 
@@ -70,7 +72,7 @@ chk_match <- function (x, regexp = ".+", x_name = NULL) {
 #' 
 #' Validates all values match regular expression using
 #'
-#' \code{all(\link{grepl}(regexp, x))}
+#' \code{all(\link{grepl}(regexp, x))}.
 #' 
 #' \code{regexp} should be a non-missing character scalar.
 #' 

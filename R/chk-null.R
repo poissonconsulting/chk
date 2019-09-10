@@ -10,7 +10,8 @@ NULL
 
 #' @describeIn chk_null Validate NULL
 #' 
-#' Checks if NULL using \code{vld_null()}.
+#' Checks if NULL using 
+#' \code{vld_null()}.
 #'  
 #' @export
 #' 
@@ -27,7 +28,9 @@ chk_null <- function(x, x_name = NULL){
 
 #' @describeIn chk_null Validate NULL
 #' 
-#' Validates if NULL using \code{\link{is.null}(x)}.
+#' Validates if NULL using 
+#' 
+#' \code{\link{is.null}(x)}.
 #' 
 #' @export
 #' 
@@ -40,7 +43,8 @@ vld_null <- function(x) is.null(x)
 
 #' @describeIn chk_null Check Not NULL
 #' 
-#' Checks if not NULL using \code{vld_not_null()}.
+#' Checks if not NULL using 
+#' \code{vld_not_null()}.
 #' 
 #' @export
 #' 
@@ -57,7 +61,9 @@ chk_not_null <- function(x, x_name = NULL){
 
 #' @describeIn chk_null Validate Not NULL
 #' 
-#' Validates if not NULL using \code{!\link{is.null}(x)}.
+#' Validates if not NULL using 
+#' 
+#' \code{!\link{is.null}(x)}.
 #' 
 #' @export
 #' 
