@@ -2,45 +2,52 @@
 % Please edit documentation in R/chk-file.R, R/deprecated.R
 \name{chk_file}
 \alias{chk_file}
+\alias{vld_file}
 \alias{chk_dir}
+\alias{vld_dir}
 \alias{chk_dirs}
 \alias{chk_files}
-\title{Check Files or Directories Exist}
+\title{Check/Validate Files or Directories Exist}
 \usage{
-chk_file(x, err = TRUE)
+chk_file(x)
 
-chk_dir(x, err = TRUE)
+vld_file(x)
 
-chk_dirs(x, err = TRUE)
+chk_dir(x)
 
-chk_files(x, err = TRUE)
+vld_dir(x)
+
+chk_dirs(x)
+
+chk_files(x)
 }
 \arguments{
 \item{x}{The object to check.}
-
-\item{err}{Deprecated.}
 }
 \value{
-TRUE if passes check. Otherwise if throws an informative error unless
-\code{err = FALSE} in which case it returns FALSE.
+The \code{chk_} functions throw an informative error if the test fails.
+The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks if files or directorys exist.
-}
-\details{
-\code{chk_file()}: Check Files Exist
-
-Checks if files exist using:
-
-\code{all(\link{file.exists}(x) && !dir.exists(x))}
+Checks/validates if files or directorys exist.
 }
 \section{Functions}{
 \itemize{
+\item \code{chk_file}: Check File
+
+Checks if files exist using \code{vld_file()}.
+
+\item \code{vld_file}: Validate File
+
+Checks if files exist using \code{all(\link{file.exists}(x) && !dir.exists(x))}.
+
 \item \code{chk_dir}: Check Directories Exist
 
-Checks if directories exist using:
+Checks if directories exist using \code{vld_dir()}.
 
-\code{all(\link{dir.exists}(x))}
+\item \code{vld_dir}: Validate Directories Exist
+
+Checks if directories exist using \code{all(\link{dir.exists}(x))}.
 
 \item \code{chk_dirs}: Check Directories Exist (DEPRECATED)
 
@@ -60,6 +67,12 @@ Checks if files exist using:
 # chk_file
 try(chk_file(tempfile()))
 
+# vld_file
+vld_file(tempfile())
+
 # chk_dir
 try(chk_dir(tempfile()))
+
+# vld_dir
+vld_dir(tempfile())
 }

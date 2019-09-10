@@ -11,9 +11,9 @@ chk_number(x, err = TRUE, x_name = NULL)
 
 chk_whole_number(x, err = TRUE, x_name = NULL)
 
-chk_count(x, err = TRUE, x_name = NULL)
+chk_count(x, x_name = NULL)
 
-chk_proportion(x, err = TRUE, x_name = NULL)
+chk_proportion(x, x_name = NULL)
 }
 \arguments{
 \item{x}{The object to check.}

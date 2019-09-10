@@ -5,12 +5,9 @@
 #' \code{all(\link{dir.exists}(x))}
 #' 
 #' @export
-#
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
-chk_dirs <- function(x, err = TRUE){
+chk_dirs <- function(x){
   .Deprecated("chk_dir")
-  chk_dir(x, err = err)
+  chk_dir(x)
 }
 
 #' @describeIn chk_file Check Files Exist (DEPRECATED)
@@ -20,12 +17,9 @@ chk_dirs <- function(x, err = TRUE){
 #' \code{all(\link{file.exists}(x) && !dir.exists(x))}
 #' 
 #' @export
-#
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
-chk_files <- function(x, err = TRUE){
+chk_files <- function(x){
   .Deprecated("chk_file")
-  chk_file(x, err = err)
+  chk_file(x)
 }
 
 #' @describeIn chk_unique Check Length
@@ -40,13 +34,9 @@ chk_files <- function(x, err = TRUE){
 #' @param length A count of the length.
 #' 
 #' @export
-#'
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
-chk_length <- function(x, length = 1L, err = TRUE, x_name = NULL) {
+chk_length <- function(x, length = 1L, x_name = NULL) {
   .Deprecated("chk_range(length(x))")
   if(length(x) == length) return(TRUE)
-  if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   stop(x_name, " must be length ", length, ", not ", length(x), ".", call. = FALSE)
 }
@@ -60,16 +50,12 @@ chk_length <- function(x, length = 1L, err = TRUE, x_name = NULL) {
 #'   isTRUE(all.equal(x, as.integer(x)))}
 #'   
 #' @export
-#' 
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
-chk_count <- function(x, err = TRUE, x_name = NULL){
+chk_count <- function(x, x_name = NULL){
   .Deprecated("chk_whole_number(x); chk_gte(x)")
 
   if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && 
      (is.integer(x) || isTRUE(all.equal(x, as.integer(x)))))
     return(TRUE)
-  if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   stop(x_name, 
        " must be a count (non-missing non-negative integer scalar or double equivalent).", 
@@ -84,13 +70,10 @@ chk_count <- function(x, err = TRUE, x_name = NULL){
 #' \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1}
 #' 
 #' @export
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
-chk_proportion <- function(x, err = TRUE, x_name = NULL){
+chk_proportion <- function(x, x_name = NULL){
   .Deprecated("chk_number(x); chk_range(x)")
   if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1) 
     return(TRUE)
-  if(!err) return(FALSE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   stop(x_name, 
        " must be a proportion (non-missing numeric scalar between 0 and 1).", 

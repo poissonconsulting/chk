@@ -13,7 +13,7 @@ chk_no_missing(x, err = TRUE, x_name = NULL)
 
 chk_named(x, err = TRUE, x_name = NULL)
 
-chk_length(x, length = 1L, err = TRUE, x_name = NULL)
+chk_length(x, length = 1L, x_name = NULL)
 }
 \arguments{
 \item{x}{The object to check.}
