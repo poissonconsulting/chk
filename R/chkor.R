@@ -5,6 +5,7 @@ try_chk <- function (expr) {
 try_msg <- function (x) {
     x <- as.character(x)
     x <- sub("^Error.*[:] ", "", x, perl = TRUE)
+    x <- sub("\nBacktrace:\n\033.*$", "", x)
     sub("\n$", "", x, perl = TRUE)
 }
 

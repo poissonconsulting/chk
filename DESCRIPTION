@@ -11,7 +11,9 @@ Description: For developers to check user-supplied function arguments.
         Error messages follow the tidyverse style guide.
 License: MIT + file LICENSE
 Depends: R (>= 3.5)
-Imports: utils
+Imports: 
+    utils,
+    rlang
 Suggests: 
     covr,
     testthat,

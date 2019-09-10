@@ -24,7 +24,7 @@ NULL
 #' try(fun(1,2))
 chk_unused <- function (...) {
   if(!length(list(...))) return(invisible())
-  stop("`...` must be unused.", call. = FALSE)
+  abort("`...` must be unused.")
 }
 
 #' @describeIn chk_unused Validate ... Unused
@@ -58,7 +58,7 @@ vld_unused <- function (...) length(list(...)) == 0L
 #' fun(1,2)
 chk_used <- function (...) {
   if(vld_used(...)) return(invisible())
-  stop("`...` must be used.", call. = FALSE)
+  abort("`...` must be used.")
 }
 
 #' @describeIn chk_unused Validate ... Used
