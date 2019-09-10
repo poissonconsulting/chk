@@ -1,20 +1,17 @@
-#' Check ... Unused or Used
+#' Check/Validate ... Unused or Used
 #' 
-#' Checks if ... is unused or used.
+#' Checks/validates if ... is unused or used.
 #'
-#' @details  
-#' 
-#' \code{chk_unused()}: Check Unused
-#' 
-#' Checks if is ... unused using:
-#' 
-#' \code{!length(\link{list}(...))}
-#'  
 #' @inheritParams chk_true
-#' @param err Deprecated.
 #' @param ... Additional arguments.
-#' @return TRUE if passes check. Otherwise if throws an informative error unless
-#' \code{err = FALSE} in which case it returns FALSE.
+#' @return The \code{chk_} functions throw an informative error if the test fails.
+#' The \code{vld_} functions return a flag indicating whether the test was met.
+#' @name chk_unused
+NULL
+
+#' @describeIn chk_unused Check ... Unused
+#' 
+#' Checks if is ... unused using \code{vld_unused()}.
 #' 
 #' @export
 #' 
@@ -24,20 +21,30 @@
 #' fun <- function(x, ...) { chk_unused(...); x }
 #' fun(1)
 #' try(fun(1,2))
-#'  
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
-chk_unused <- function (..., err = TRUE) {
-  if(!length(list(...))) return(TRUE)
-  if(!err) return(FALSE)
+chk_unused <- function (...) {
+  if(!length(list(...))) return(invisible())
   stop("`...` must be unused.", call. = FALSE)
 }
 
+#' @describeIn chk_unused Validate ... Unused
+#' 
+#' Checks if is ... unused using
+#' 
+#' \code{length(\link{list}(...)) == 0L}
+#' 
+#' @export
+#' 
+#' @examples 
+#' 
+#' # vld_unused
+#' fun <- function(x, ...) { vld_unused(...)}
+#' fun(1)
+#' try(fun(1,2))
+vld_unused <- function (...) length(list(...)) == 0L
+
 #' @describeIn chk_unused Check ... Used
 #' 
-#' Checks if is ... used using:
-#' 
-#' \code{length(\link{list}(...))}
+#' Checks if is ... used using \code{vld_unused()}.
 #' 
 #' @export
 #' 
@@ -47,11 +54,23 @@ chk_unused <- function (..., err = TRUE) {
 #' fun <- function(x, ...) { chk_used(...); x }
 #' try(fun(1))
 #' fun(1,2)
-#' 
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
-chk_used <- function (..., err = TRUE) {
-  if(length(list(...))) return(TRUE)
-  if(!err) return(FALSE)
+chk_used <- function (...) {
+  if(vld_used(...)) return(invisible())
   stop("`...` must be used.", call. = FALSE)
 }
+
+#' @describeIn chk_unused Validate ... Used
+#' 
+#' Validates if ... used using
+#' 
+#' \code{length(\link{list}(...)) != 0L}
+#' 
+#' @export
+#' 
+#' @examples 
+#' 
+#' # vld_used
+#' fun <- function(x, ...) { vld_used(...) }
+#' fun(1)
+#' fun(1,2)
+vld_used <- function (...) length(list(...)) != 0L

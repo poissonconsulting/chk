@@ -2,39 +2,50 @@
 % Please edit documentation in R/chk-unused.R
 \name{chk_unused}
 \alias{chk_unused}
+\alias{vld_unused}
 \alias{chk_used}
-\title{Check ... Unused or Used}
+\alias{vld_used}
+\title{Check/Validate ... Unused or Used}
 \usage{
-chk_unused(..., err = TRUE)
+chk_unused(...)
 
-chk_used(..., err = TRUE)
+vld_unused(...)
+
+chk_used(...)
+
+vld_used(...)
 }
 \arguments{
 \item{...}{Additional arguments.}
-
-\item{err}{Deprecated.}
 }
 \value{
-TRUE if passes check. Otherwise if throws an informative error unless
-\code{err = FALSE} in which case it returns FALSE.
+The \code{chk_} functions throw an informative error if the test fails.
+The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks if ... is unused or used.
-}
-\details{
-\code{chk_unused()}: Check Unused
-
-Checks if is ... unused using:
-
-\code{!length(\link{list}(...))}
+Checks/validates if ... is unused or used.
 }
 \section{Functions}{
 \itemize{
+\item \code{chk_unused}: Check ... Unused
+
+Checks if is ... unused using \code{vld_unused()}.
+
+\item \code{vld_unused}: Validate ... Unused
+
+Checks if is ... unused using
+
+\code{length(\link{list}(...)) == 0L}
+
 \item \code{chk_used}: Check ... Used
 
-Checks if is ... used using:
+Checks if is ... used using \code{vld_unused()}.
 
-\code{length(\link{list}(...))}
+\item \code{vld_used}: Validate ... Used
+
+Validates if ... used using
+
+\code{length(\link{list}(...)) != 0L}
 }}
 
 \examples{
@@ -43,11 +54,19 @@ Checks if is ... used using:
 fun <- function(x, ...) { chk_unused(...); x }
 fun(1)
 try(fun(1,2))
- 
+
+# vld_unused
+fun <- function(x, ...) { vld_unused(...)}
+fun(1)
+try(fun(1,2))
 
 # chk_used
 fun <- function(x, ...) { chk_used(...); x }
 try(fun(1))
 fun(1,2)
 
+# vld_used
+fun <- function(x, ...) { vld_used(...) }
+fun(1)
+fun(1,2)
 }
