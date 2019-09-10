@@ -1,7 +1,7 @@
 context("chk-all")
 
 test_that("chk_all", {
-  expect_true(chk_all(NULL, chk_null))
+#  expect_true(chk_all(NULL, vld_null))
   expect_error(chk_all(NULL, chk_flag), 
                "^`NULL` must be a flag [(]TRUE or FALSE[)][.]$")
   expect_error(chk_all(NULL, chk_flag, x_name = "NULL"), 

@@ -1,19 +1,17 @@
-#' Check NULL or not NULL
+#' Check/Validate NULL or not NULL
 #' 
-#' Checks if NULL or not NULL.
-#'
-#' @details  
+#' Checks/validates if NULL or not NULL.
 #' 
-#' \code{chk_null()}: Check NULL
-#' 
-#' Checks if NULL using:
-#' 
-#' \code{\link{is.null}(x)}
-#'  
 #' @inheritParams chk_true
-#' @return TRUE if passes check. Otherwise if throws an informative error unless
-#' \code{err = FALSE} in which case it returns FALSE.
+#' @return The \code{chk_} functions throw an informative error if the test fails.
+#' The \code{vld_} functions return a flag indicating whether the test was met.
+#' @name chk_null
+NULL
+
+#' @describeIn chk_null Validate NULL
 #' 
+#' Checks if NULL using \code{vld_null()}.
+#'  
 #' @export
 #' 
 #' @examples 
@@ -25,21 +23,30 @@
 #  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_null <- function(x, x_name = NULL){
-  if (vld_null(x)) return()
+  if (vld_null(x)) return(invisible())
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
   stop(x_name, " must be NULL.", call. = FALSE)
 }
 
+#' @describeIn chk_null Validate NULL
+#' 
+#' Validates if NULL using \code{\link{is.null}(x)}.
+#' 
 #' @export
-vld_null <- function(x){
-  is.null(x)
-}
+#' 
+#' @examples 
+#' 
+#' # vld_null
+#' vld_null(NULL)
+#' vld_null(1)
+#' 
+#  Licence: CC0
+#  Repository: https://github.com/poissonconsulting/chk
+vld_null <- function(x) is.null(x)
 
 #' @describeIn chk_null Check Not NULL
 #' 
-#' Checks if not NULL using:
-#' 
-#' \code{!\link{is.null}(x)}
+#' Checks if not NULL using \code{vld_not_null()}.
 #' 
 #' @export
 #' 
@@ -52,12 +59,23 @@ vld_null <- function(x){
 #  Licence: CC0
 #  Repository: https://github.com/poissonconsulting/chk
 chk_not_null <- function(x, x_name = NULL){
-  if (vld_not_null(x)) return()
+  if (vld_not_null(x)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   stop(x_name, " must not be NULL.", call. = FALSE)
 }
 
+#' @describeIn chk_null Validate Not NULL
+#' 
+#' Validates if not NULL using \code{!\link{is.null}(x)}.
+#' 
 #' @export
-vld_not_null <- function(x){
-  !is.null(x)
-}
+#' 
+#' @examples 
+#' 
+#' # vld_not_null
+#' vld_not_null(1)
+#' vld_not_null(NULL)
+#' 
+#  Licence: CC0
+#  Repository: https://github.com/poissonconsulting/chk
+vld_not_null <- function(x) !is.null(x)

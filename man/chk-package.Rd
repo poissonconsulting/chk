@@ -23,6 +23,7 @@ Useful links:
 
 Other contributors:
 \itemize{
+  \item Kirill Müller (0000-0002-1416-3412) [contributor]
   \item Poisson Consulting [copyright holder, funder]
 }
 

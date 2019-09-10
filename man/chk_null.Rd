@@ -2,12 +2,18 @@
 % Please edit documentation in R/chk-null.R
 \name{chk_null}
 \alias{chk_null}
+\alias{vld_null}
 \alias{chk_not_null}
-\title{Check NULL or not NULL}
+\alias{vld_not_null}
+\title{Check/Validate NULL or not NULL}
 \usage{
 chk_null(x, x_name = NULL)
 
+vld_null(x)
+
 chk_not_null(x, x_name = NULL)
+
+vld_not_null(x)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -15,26 +21,29 @@ chk_not_null(x, x_name = NULL)
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-TRUE if passes check. Otherwise if throws an informative error unless
-\code{err = FALSE} in which case it returns FALSE.
+The \code{chk_} functions throw an informative error if the test fails.
+The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks if NULL or not NULL.
-}
-\details{
-\code{chk_null()}: Check NULL
-
-Checks if NULL using:
-
-\code{\link{is.null}(x)}
+Checks/validates if NULL or not NULL.
 }
 \section{Functions}{
 \itemize{
+\item \code{chk_null}: Validate NULL
+
+Checks if NULL using \code{vld_null()}.
+
+\item \code{vld_null}: Validate NULL
+
+Validates if NULL using \code{\link{is.null}(x)}.
+
 \item \code{chk_not_null}: Check Not NULL
 
-Checks if not NULL using:
+Checks if not NULL using \code{vld_not_null()}.
 
-\code{!\link{is.null}(x)}
+\item \code{vld_not_null}: Validate Not NULL
+
+Validates if not NULL using \code{!\link{is.null}(x)}.
 }}
 
 \examples{
@@ -44,8 +53,18 @@ try(chk_null(1))
 chk_null(NULL)
 
 
+# vld_null
+vld_null(NULL)
+vld_null(1)
+
+
 # chk_not_null
 try(chk_not_null(NULL))
 chk_not_null(1)
+
+
+# vld_not_null
+vld_not_null(1)
+vld_not_null(NULL)
 
 }
