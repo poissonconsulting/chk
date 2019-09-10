@@ -1,64 +1,77 @@
-#' Check Date
+#' Check/Validate Date or DateTime
 #' 
-#' Checks if date or datetime.
-#'
-#' @details  
+#' Checks/validates if Date or POSIXct.
 #' 
-#' \code{chk_date()}: Check Date
-#' 
-#' Checks if non-missing Date scalar using:
-#' 
-#' \code{inherits(x, "Date") && length(x) == 1L && !anyNA(x)}
-#'  
 #' @inheritParams chk_true
-#' @param err Deprecated.
-#' @return TRUE if passes check. Otherwise if throws an informative error unless
-#' \code{err = FALSE} in which case it returns FALSE.
-#' @seealso \code{\link{chk_true}()} and \code{\link{chk_number}()}
+#' @return The \code{chk_} functions throw an informative error if the test fails.
+#' The \code{vld_} functions return a flag indicating whether the test was met.
+#' @name chk_date
+NULL
+
+#' @describeIn chk_date Check Date
+#' 
+#' Checks if non-missing Date scalar using \code{vld_date()}.
+#'  
 #' @export
 #' 
 #' @examples 
 #' 
 #' # chk_date
-#' try(chk_date(1))
-#' try(chk_date("2001-01-02"))
-#' chk_date(as.Date("2001-01-02"))
 #' chk_date(Sys.Date())
-#' try(chk_date(Sys.time()))
-#' try(chk_date(c(Sys.Date(), Sys.Date())))
-#'   
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
-chk_date <- function(x, err = TRUE, x_name = NULL){
-  if(inherits(x, "Date") && length(x) == 1L && !anyNA(x)) return(TRUE)
-  if(!err) return(FALSE)
+#' try(chk_date(1))
+chk_date <- function(x, x_name = NULL){
+  if(vld_date(x)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   stop(x_name, " must be a date (non-missing Date scalar).", call. = FALSE)
 }
 
+#' @describeIn chk_date Validate Date
+#' 
+#' Validates non-missing Date scalar using 
+#' \code{inherits(x, "Date") && length(x) == 1L && !anyNA(x)}
+#'  
+#' @export
+#' 
+#' @examples 
+#' 
+#' # vld_date
+#' vld_date(Sys.Date())
+#' vld_date(Sys.time())
+#' vld_date(1)
+vld_date <- function(x) inherits(x, "Date") && length(x) == 1L && !anyNA(x)
+
 #' @describeIn chk_date Check DateTime
 #' 
-#' Checks if non-missing POSIXct scalar using:
-#' 
-#' \code{inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)}
+#' Checks if non-missing POSIXct scalar using \code{vld_datetime()}.
 #' 
 #' @export
 #' 
 #' @examples 
 #' 
 #' # chk_datetime
-#' try(chk_datetime(1))
-#' try(chk_datetime("2001-01-02"))
 #' chk_datetime(as.POSIXct("2001-01-02"))
-#' try(chk_datetime(Sys.Date()))
-#' chk_datetime(Sys.time())
-#' try(chk_datetime(c(Sys.time(), Sys.time())))
-#'    
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
-chk_datetime <- function(x, err = TRUE, x_name = NULL){
-  if(inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)) return(TRUE)
-  if(!err) return(FALSE)
+#' try(chk_datetime(1))
+chk_datetime <- function(x, x_name = NULL){
+  if(vld_datetime(x)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   stop(x_name, " must be a datetime (non-missing POSIXct scalar).", call. = FALSE)
+}
+
+#' @describeIn chk_date Validates DateTime
+#' 
+#' Validates non-missing POSIXct scalar using
+#' \code{inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)}
+#' 
+#' @export
+#' 
+#' @examples 
+#' 
+#' # vld_datetime
+#' vld_datetime(as.POSIXct("2001-01-02"))
+#' vld_datetime(Sys.time())
+#' vld_datetime(1)
+#' vld_datetime("2001-01-02")
+#' vld_datetime(c(Sys.time(), Sys.time()))
+vld_datetime <- function(x, x_name = NULL){
+  inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)
 }

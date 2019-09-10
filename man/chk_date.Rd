@@ -2,63 +2,71 @@
 % Please edit documentation in R/chk-date.R
 \name{chk_date}
 \alias{chk_date}
+\alias{vld_date}
 \alias{chk_datetime}
-\title{Check Date}
+\alias{vld_datetime}
+\title{Check/Validate Date or DateTime}
 \usage{
-chk_date(x, err = TRUE, x_name = NULL)
+chk_date(x, x_name = NULL)
 
-chk_datetime(x, err = TRUE, x_name = NULL)
+vld_date(x)
+
+chk_datetime(x, x_name = NULL)
+
+vld_datetime(x, x_name = NULL)
 }
 \arguments{
 \item{x}{The object to check.}
 
-\item{err}{Deprecated.}
-
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-TRUE if passes check. Otherwise if throws an informative error unless
-\code{err = FALSE} in which case it returns FALSE.
+The \code{chk_} functions throw an informative error if the test fails.
+The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks if date or datetime.
-}
-\details{
-\code{chk_date()}: Check Date
-
-Checks if non-missing Date scalar using:
-
-\code{inherits(x, "Date") && length(x) == 1L && !anyNA(x)}
+Checks/validates if Date or POSIXct.
 }
 \section{Functions}{
 \itemize{
+\item \code{chk_date}: Check Date
+
+Checks if non-missing Date scalar using \code{vld_date()}.
+
+\item \code{vld_date}: Validate Date
+
+Validates non-missing Date scalar using 
+\code{inherits(x, "Date") && length(x) == 1L && !anyNA(x)}
+
 \item \code{chk_datetime}: Check DateTime
 
-Checks if non-missing POSIXct scalar using:
+Checks if non-missing POSIXct scalar using \code{vld_datetime()}.
 
+\item \code{vld_datetime}: Validates DateTime
+
+Validates non-missing POSIXct scalar using
 \code{inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)}
 }}
 
 \examples{
 
 # chk_date
-try(chk_date(1))
-try(chk_date("2001-01-02"))
-chk_date(as.Date("2001-01-02"))
 chk_date(Sys.Date())
-try(chk_date(Sys.time()))
-try(chk_date(c(Sys.Date(), Sys.Date())))
-  
+try(chk_date(1))
+
+# vld_date
+vld_date(Sys.Date())
+vld_date(Sys.time())
+vld_date(1)
 
 # chk_datetime
-try(chk_datetime(1))
-try(chk_datetime("2001-01-02"))
 chk_datetime(as.POSIXct("2001-01-02"))
-try(chk_datetime(Sys.Date()))
-chk_datetime(Sys.time())
-try(chk_datetime(c(Sys.time(), Sys.time())))
-   
-}
-\seealso{
-\code{\link{chk_true}()} and \code{\link{chk_number}()}
+try(chk_datetime(1))
+
+# vld_datetime
+vld_datetime(as.POSIXct("2001-01-02"))
+vld_datetime(Sys.time())
+vld_datetime(1)
+vld_datetime("2001-01-02")
+vld_datetime(c(Sys.time(), Sys.time()))
 }

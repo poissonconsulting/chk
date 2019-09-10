@@ -5,7 +5,7 @@
 \alias{vld_all}
 \alias{chk_all_identical}
 \alias{vld_all_identical}
-\title{Check All or All Identical}
+\title{Check/Validate All or All Identical}
 \usage{
 chk_all(x, chk_fun, ..., x_name = NULL)
 
@@ -31,7 +31,7 @@ The \code{chk_} functions throw an informative error if the test fails.
 The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Check All or All Identical
+Checks/validates all elements or all elements identical.
 }
 \section{Functions}{
 \itemize{

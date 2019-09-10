@@ -1,5 +1,6 @@
-#' Check All or All Identical
+#' Check/Validate All or All Identical
 #' 
+#' Checks/validates all elements or all elements identical.
 #' 
 #' @inheritParams chk_true
 #' @inheritParams chk_unused
