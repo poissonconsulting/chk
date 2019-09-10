@@ -2,17 +2,25 @@
 % Please edit documentation in R/chk-equal.R
 \name{chk_equal}
 \alias{chk_equal}
+\alias{vld_equal}
 \alias{chk_identical}
+\alias{vld_identical}
 \alias{chk_equivalent}
-\title{Check Equal, Identical or Equivalent}
+\alias{vld_equivalent}
+\title{Check/Validate Equal, Identical or Equivalent}
 \usage{
-chk_equal(x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE,
+chk_equal(x, y, tolerance = sqrt(.Machine$double.eps), x_name = NULL)
+
+vld_equal(x, y, tolerance = sqrt(.Machine$double.eps))
+
+chk_identical(x, y, x_name = NULL)
+
+vld_identical(x, y)
+
+chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps),
   x_name = NULL)
 
-chk_identical(x, y, err = TRUE, x_name = NULL)
-
-chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE,
-  x_name = NULL)
+vld_equivalent(x, y, tolerance = sqrt(.Machine$double.eps))
 }
 \arguments{
 \item{x}{The object to check.}
@@ -21,35 +29,45 @@ chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps), err = TRUE,
 
 \item{tolerance}{A non-negative numeric scalar.}
 
-\item{err}{Deprecated.}
-
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-TRUE if passes check. Otherwise if throws an informative error unless
-\code{err = FALSE} in which case it returns FALSE.
+The \code{chk_} functions throw an informative error if the test fails.
+The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks if two objects are equal, identical or equivalent.
-}
-\details{
-\code{chk_equal()}: Check Equal
-
-Checks if is equal (identical within tolerance) to y using:
-
-\code{isTRUE(\link{all.equal}(x, y, tolerance))}
+Checks/validates if two objects are equal, identical or equivalent.
 }
 \section{Functions}{
 \itemize{
+\item \code{chk_equal}: Check Equal
+
+Checks if is equal (identical within tolerance) to y using \code{vld_equal()}.
+
+\item \code{vld_equal}: Validate Equal
+
+Validates is equal (identical within tolerance) to y using
+
+\code{isTRUE(\link{all.equal}(x, y, tolerance))}
+
 \item \code{chk_identical}: Check Identical
 
-Checks if is identical to y using:
+Checks if is identical to y using \code{vld_identical()}.
 
-\code{\link{identical}(x, y)}
+\item \code{vld_identical}: Validate Identical
+
+Validates is identical to y using
+
+\code{\link{identical}(x, y)}.
 
 \item \code{chk_equivalent}: Check Equivalent
 
-Checks if is equivalent (equal ignoring attributes) to y using:
+Checks if is equivalent (equal ignoring attributes) to y using 
+\code{vld_equivalent()}.
+
+\item \code{vld_equivalent}: Validate Equivalent
+
+Validates is equivalent (equal ignoring attributes) to y using
 
 \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}
 }}
@@ -57,25 +75,39 @@ Checks if is equivalent (equal ignoring attributes) to y using:
 \examples{
 
 # chk_equal
-try(chk_equal(1, 1.0000001))
 chk_equal(1, 1.00000001)
+try(chk_equal(1, 1.0000001))
 chk_equal(1, 1L)
-try(chk_equal(c(x = 1), c(y = 1L)))
 chk_equal(c(x = 1), c(x = 1L))
- 
+try(chk_equal(c(x = 1), c(y = 1L)))
+
+# vld_equal
+vld_equal(1, 1.00000001)
+vld_equal(1, 1.0000001)
+vld_equal(1, 1L)
+vld_equal(c(x = 1), c(x = 1L))
+vld_equal(c(x = 1), c(y = 1L))
 
 # chk_identical
-try(chk_identical(1, 1L))
 chk_identical(1, 1)
-try(chk_identical(1, c(1,1)))
+try(chk_identical(1, 1L))
 chk_identical(c(1,1), c(1,1))
- 
+try(chk_identical(1, c(1,1)))
+
+# vld_identical
+vld_identical(1, 1L)
+vld_identical(1, 1)
+vld_identical(1, c(1,1))
+vld_identical(c(1,1), c(1,1))
 
 # chk_equivalent
-try(chk_equivalent(1, 1.0000001))
 chk_equivalent(1, 1.00000001)
-chk_equivalent(1, 1L)
-chk_equivalent(c(x = 1), c(y = 1L))
-chk_equivalent(c(x = 1), c(x = 1L))
- 
+try(chk_equivalent(1, 1.0000001))
+
+# vld_equivalent
+vld_equivalent(1, 1.00000001)
+vld_equivalent(1, 1L)
+vld_equivalent(c(x = 1), c(y = 1L))
+vld_equivalent(c(x = 1), c(x = 1L))
+vld_equivalent(1, 1.0000001)
 }
