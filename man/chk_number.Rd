@@ -2,14 +2,20 @@
 % Please edit documentation in R/chk-number.R, R/deprecated.R
 \name{chk_number}
 \alias{chk_number}
+\alias{vld_number}
 \alias{chk_whole_number}
+\alias{vld_whole_number}
 \alias{chk_count}
 \alias{chk_proportion}
-\title{Check Scalar}
+\title{Check/Validate Number or Whole Number}
 \usage{
-chk_number(x, err = TRUE, x_name = NULL)
+chk_number(x, x_name = NULL)
 
-chk_whole_number(x, err = TRUE, x_name = NULL)
+vld_number(x)
+
+chk_whole_number(x, x_name = NULL)
+
+vld_whole_number(x)
 
 chk_count(x, x_name = NULL)
 
@@ -18,29 +24,34 @@ chk_proportion(x, x_name = NULL)
 \arguments{
 \item{x}{The object to check.}
 
-\item{err}{Deprecated.}
-
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-TRUE if passes check. Otherwise if throws an informative error unless
-\code{err = FALSE} in which case it returns FALSE.
+The \code{chk_} functions throw an informative error if the test fails.
+The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks if a non-missing scalar of a specific type.
-}
-\details{
-\code{chk_number()}: Check Number
-
-Checks if non-missing numeric scalar using:
-
-\code{is.numeric(x) && length(x) == 1L && !anyNA(x)}
+Checks/validates if a number or whole number.
 }
 \section{Functions}{
 \itemize{
+\item \code{chk_number}: Check Number
+ 
+Checks if non-missing numeric scalar using \code{vld_number()}.
+
+\item \code{vld_number}: Validate Number
+ 
+Validates non-missing numeric scalar using
+
+\code{is.numeric(x) && length(x) == 1L && !anyNA(x)}
+
 \item \code{chk_whole_number}: Check Whole Number
  
-Checks if non-missing integer scalar or double equivalent using:
+Checks if non-missing integer scalar or double equivalent using \code{vld_whole_number()}.
+
+\item \code{vld_whole_number}: Validate Whole Number
+ 
+Validates non-missing integer scalar or double equivalent using:
 
 \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && 
   (is.integer(x) || isTRUE(all.equal(x, as.integer(x))))}
@@ -62,20 +73,26 @@ Checks if non-missing numeric scalar between 0 and 1 using:
 \examples{
 
 # chk_number
-try(chk_number(TRUE))
 chk_number(1.1)
-chk_number(1L)
-try(chk_number(NA_real_))
-try(chk_number(c(1.1, 1.1)))
+try(chk_number(TRUE))
 
+# vld_number
+vld_number(1.1)
+vld_number(1L)
+vld_number(TRUE)
+vld_number(NA_real_)
+vld_number(c(1.1, 1.1))
 
 # chk_whole_number
-try(chk_whole_number(1.1))
 chk_whole_number(2)
-chk_whole_number(2L)
-try(chk_whole_number(NA_integer_))
-try(chk_whole_number(c(2L, 2L)))
-  
+try(chk_whole_number(1.1))
+
+# vld_whole_number
+vld_whole_number(2)
+vld_whole_number(2L)
+vld_whole_number(NA_integer_)
+vld_whole_number(1.1)
+vld_whole_number(c(2L, 2L))
 }
 \seealso{
 \code{\link{chk_true}()} and \code{\link{chk_range}()}

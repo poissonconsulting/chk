@@ -1,30 +1,32 @@
 context("chk-number")
 
+test_that("vld_number", {
+  expect_false(vld_number(numeric(0)))
+  expect_false(vld_number(NA_integer_))
+  expect_true(vld_number(1))
+  expect_true(vld_number(1L))
+  expect_true(vld_number(1.1))
+  expect_true(vld_number(-1.1))
+  expect_true(vld_number(Inf))
+  expect_false(vld_number(c(1, 2)))
+  expect_false(vld_number(TRUE))
+})
+
 test_that("chk_number", {
-  expect_false(chk_number(numeric(0), err = FALSE))
-  expect_false(chk_number(NA_integer_, err = FALSE))
-  expect_true(chk_number(1))
-  expect_true(chk_number(1L))
-  expect_true(chk_number(1.1))
-  expect_true(chk_number(-1.1))
-  expect_true(chk_number(Inf))
-  expect_false(chk_number(c(1, 2), err = FALSE))
-  expect_false(chk_number(TRUE, err = FALSE))
+  expect_null(chk_number(1))
+  expect_invisible(chk_number(1))
   expect_error(chk_number(TRUE), "^`TRUE` must be a number [(]non-missing numeric scalar[)][.]$")
   expect_error(chk_number(TRUE, x_name = 1L), "^1 must be a number [(]non-missing numeric scalar[)][.]$")
 })
 
+test_that("vld_whole_number", {
+  expect_error(chk_whole_number(1.1), "^`1.1` must be a whole number [(]non-missing integer scalar or double equivalent[)][.]$")
+  expect_error(chk_whole_number(1.1, x_name = 1L), "^1 must be a whole number [(]non-missing integer scalar or double equivalent[)][.]$")
+})
+
 test_that("chk_whole_number", {
-  expect_false(chk_whole_number(integer(0), err = FALSE))
-  expect_false(chk_whole_number(NA_integer_, err = FALSE))
-  expect_true(chk_whole_number(1L))
-  expect_true(chk_whole_number(1))
-  expect_true(chk_whole_number(-100))
-  expect_false(chk_whole_number(1:2, err = FALSE))
-  expect_true(chk_whole_number(1.0000000000000000000001))
-  expect_false(chk_whole_number(1.1, err = FALSE))
-  expect_warning(chk_whole_number(Inf, err = FALSE), 
-                 "^NAs introduced by coercion to integer range$")
+  expect_null(chk_whole_number(1))
+  expect_invisible(chk_whole_number(1))
   expect_error(chk_whole_number(1.1), "^`1.1` must be a whole number [(]non-missing integer scalar or double equivalent[)][.]$")
   expect_error(chk_whole_number(1.1, x_name = 1L), "^1 must be a whole number [(]non-missing integer scalar or double equivalent[)][.]$")
 })
