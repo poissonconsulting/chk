@@ -32,7 +32,7 @@ edit_string <- function(..., n) {
 #' @examples
 #' try(err("this is an error"))
 err <- function (..., n = NULL, call. = FALSE) {
-  stop(edit_string(..., n = n), call. = call.)
+  abort(edit_string(..., n = n), call. = call.)
 }
 
 #' @describeIn err Warning

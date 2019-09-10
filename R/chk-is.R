@@ -23,7 +23,7 @@ NULL
 chk_is <- function(x, class, x_name = NULL) {
   if(vld_is(x, class)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  stop(x_name, " must inherit from class '", class, "'.", call. = FALSE)
+  abort(p0(x_name, " must inherit from class '", class, "'."))
 }
 
 #' @describeIn chk_is Validate Is
@@ -60,9 +60,8 @@ vld_is <- function(x, class) inherits(x, class)
 chk_whole_numeric <- function(x, x_name = NULL){
   if(vld_whole_numeric(x)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  stop(x_name, 
-      " must be a whole numeric vector (integer vector or double equivalent).",
-      call. = FALSE)
+  abort(p0(x_name, 
+      " must be a whole numeric vector (integer vector or double equivalent)."))
 }
 
 #' @describeIn chk_is Validate Whole Numeric
@@ -101,7 +100,7 @@ vld_whole_numeric <- function(x) {
 chk_list <- function(x, x_name = NULL){
   if(vld_list(x)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  stop(x_name, " must be a list.", call. = FALSE)
+  abort(p0(x_name, " must be a list."))
 }
 
 #' @describeIn chk_is Validate List
@@ -136,7 +135,7 @@ vld_list <- function(x) is.list(x)
 chk_function <- function(x, x_name = NULL){
   if(vld_function(x)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  stop(x_name, " must be a function.", call. = FALSE)
+  abort(p0(x_name, " must be a function."))
 }
 
 #' @describeIn chk_is Validate Function

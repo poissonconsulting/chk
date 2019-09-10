@@ -25,10 +25,8 @@ chk_in <- function (x, values, x_name = NULL) {
   values <- sort(unique(values), na.last = TRUE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
-    stop(x_name, " must match ", cc(values, " or "), ", not ", cc(x), ".", 
-         call. = FALSE)
-  stop(x_name, " must have values matching ", cc(values, " or "), ".", 
-       call. = FALSE)
+    abort(p0(x_name, " must match ", cc(values, " or "), ", not ", cc(x), "."))
+  abort(p0(x_name, " must have values matching ", cc(values, " or "), "."))
 }
 
 #' @describeIn chk_in Validate In
@@ -63,8 +61,7 @@ chk_has <- function(x, values, x_name = NULL) {
   values <- sort(unique(values), na.last = TRUE)
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   values <- values[!values %in% x]
-  stop(x_name, " must include ", cc(values, " and "), ".", 
-       call. = FALSE)
+  abort(p0(x_name, " must include ", cc(values, " and "), "."))
 }
 
 #' @describeIn chk_in Validates Has

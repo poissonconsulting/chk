@@ -29,7 +29,7 @@ chk_equal <- function (x, y, tolerance = sqrt(.Machine$double.eps),
   if(vld_equal(x, y, tolerance = tolerance)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   y <- utils::capture.output(dput(y, control = "all"))
-  stop(x_name, " must be equal to: ", y, ".", call. = FALSE)
+  abort(p0(x_name, " must be equal to: ", y, "."))
 }
 
 #' @describeIn chk_equal Validate Equal
@@ -69,7 +69,7 @@ chk_identical <- function (x, y, x_name = NULL) {
   if(identical(x, y)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   y <- utils::capture.output(dput(y, control = "all"))
-  stop(x_name, " must be identical to: ", y, ".", call. = FALSE)
+  abort(p0(x_name, " must be identical to: ", y, "."))
 }
 
 #' @describeIn chk_equal Validate Identical
@@ -106,7 +106,7 @@ chk_equivalent <- function (x, y, tolerance = sqrt(.Machine$double.eps),
   if(vld_equivalent(x, y, tolerance = tolerance)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   y <- utils::capture.output(dput(y, control = "all"))
-  stop(x_name, " must be equivalent to: ", y, ".", call. = FALSE)
+  abort(p0(x_name, " must be equivalent to: ", y, "."))
 }
 
 #' @describeIn chk_equal Validate Equivalent

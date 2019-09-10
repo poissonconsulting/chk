@@ -5,7 +5,8 @@ try_chk <- function (expr) {
 try_msg <- function (x) {
     x <- as.character(x)
     x <- sub("^Error.*[:] ", "", x, perl = TRUE)
-    x <- sub("\nBacktrace:\n\033.*$", "", x)
+    x <- sub("\n\033.*$", "", x)
+    x <- sub("\nBacktrace.*$", "", x)
     sub("\n$", "", x, perl = TRUE)
 }
 
@@ -36,8 +37,8 @@ chkor <- function (...) {
   }
   msg <- unlist(lapply(msg, try_msg))
   msg <- unique(msg)
-  if(length(msg) == 1) stop(msg, call. = FALSE) 
-  msg <- paste0("\n* ", msg)
-  msg <- c("At least one of the following conditions must be met:", msg)
-  stop(msg, call. = FALSE)
+  if(length(msg) == 1) abort(msg) 
+  msg <- p0(msg, collapse = "\n* ")
+  msg <- p0("At least one of the following conditions must be met:\n* ", msg)
+  abort(msg)
 }
