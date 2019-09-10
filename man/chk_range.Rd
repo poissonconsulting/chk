@@ -157,7 +157,6 @@ vld_lte(c(-0.1, -0.2, NA), value = -1)
 # chk_gt
 chk_gt(0.1)
 try(chk_gt(c(0.1, -0.2)))
- 
 
 # vld_gt
 vld_gt(numeric(0))

@@ -31,9 +31,6 @@ edit_string <- function(..., n) {
 #'
 #' @examples
 #' try(err("this is an error"))
-#
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
 err <- function (..., n = NULL, call. = FALSE) {
   stop(edit_string(..., n = n), call. = call.)
 }
@@ -50,9 +47,6 @@ err <- function (..., n = NULL, call. = FALSE) {
 #' wrn("there %r %n problem value%s")
 #' wrn("there %r %n problem value%s", n = 1)
 #' wrn("there %r %n problem value%s", n = 2)
-#
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
 wrn <- function (..., n = NULL, call. = FALSE) {
   warning(edit_string(..., n = n), call. = call.)
 }
@@ -69,9 +63,6 @@ wrn <- function (..., n = NULL, call. = FALSE) {
 #' msg("there %r %n problem value%s")
 #' msg("there %r %n problem value%s", n = 1)
 #' msg("there %r %n problem value%s", n = 2)
-#
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
 msg <- function (..., n = NULL) {
   message(edit_string(..., n = n))
 }
@@ -88,9 +79,6 @@ msg <- function (..., n = NULL) {
 #' @examples
 #' p("a", "b")
 #' p(c("a", "b"), collapse = " ")
-#' 
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
 p <- function (..., sep = " ", collapse = NULL) 
   paste(..., sep = sep, collapse = collapse)
 
@@ -100,8 +88,5 @@ p <- function (..., sep = " ", collapse = NULL)
 #' @examples 
 #' p0("a", "b")
 #' p0(c("a", "b"), collapse = "")
-#
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
 p0 <- function (..., collapse = NULL) 
   paste0(..., collapse = collapse)

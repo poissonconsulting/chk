@@ -9,7 +9,7 @@ Authors@R: c(
 Description: For developers to check user-supplied function arguments.
         It is designed to be simple, fast and customizable.
         Error messages follow the tidyverse style guide.
-License: CC0
+License: MIT + file LICENSE
 Depends: R (>= 3.5)
 Imports: utils
 Suggests: 

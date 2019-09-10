@@ -1,3 +1,4 @@
+- Replaced `err = FALSE` variant with `vld_` variant.
 - Extended `chk_unique()` to handle `incomparables != FALSE` with data frames.
 - Added `chk_has()` function.
 - Added `n = NULL` and `call. = FALSE` args to error message generating funcions.

@@ -22,9 +22,6 @@
 #' cc(3:1, brac = "'")
 #' cc(1:11)
 #' cc(as.character(1:2))
-#
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
 cc <- function(x, conj = ", ", sep = ", ",
                brac = if(is.character(x) || is.factor(x)) "'" else "",
                ellipsis = 10L) {

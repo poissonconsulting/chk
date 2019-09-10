@@ -32,7 +32,6 @@ A wrapper on \code{\link[base]{paste}()}.
 \examples{
 p("a", "b")
 p(c("a", "b"), collapse = " ")
-
 p0("a", "b")
 p0(c("a", "b"), collapse = "")
 }

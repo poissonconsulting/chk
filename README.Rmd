@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 [![Travis build status](https://travis-ci.com/poissonconsulting/chk.svg?branch=master)](https://travis-ci.com/poissonconsulting/chk)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/chk?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/chk)
 [![Codecov test coverage](https://codecov.io/gh/poissonconsulting/chk/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/chk?branch=master)
-[![License: CC0](https://img.shields.io/badge/License-CC0-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Tinyverse status](https://tinyverse.netlify.com/badge/chk)](https://CRAN.R-project.org/package=chk)
 [![CRAN status](https://www.r-pkg.org/badges/version/chk)](https://cran.r-project.org/package=chk)
 ![CRAN downloads](http://cranlogs.r-pkg.org/badges/chk)
@@ -41,6 +41,13 @@ To install the latest development version from [GitHub](https://github.com/poiss
 ```r
 # install.packages("remotes")
 remotes::install_github("poissonconsulting/chk")
+```
+
+To install the latest developmental release from the Poisson drat [repository](https://github.com/poissonconsulting/drat)
+```r
+# install.packages("drat")
+drat::addRepo("poissonconsulting")
+install.packages("chk")
 ```
 
 ## Demonstration
@@ -68,38 +75,22 @@ z <- "b"
 chkor(chk_flag(z), chk_number(z))
 ```
 
-By default, each check returns TRUE if successful or throws an informative error.
-
 Error messages follow the [tidyverse style guide](https://style.tidyverse.org/error-messages.html).
 
 ### Customizable
 
-The functions are designed to be customizable.
-
 #### Custom Error Messages
 
-If `err = FALSE` a check returns FALSE (instead of throwing an error) on check failure.
+The `vld_` variant of each `chk_` function returns FALSE (instead of throwing an error) on check failure.
 
 ```{r}
-chk_flag(1, err = FALSE)
+vld_flag(TRUE)
+vld_flag(1)
 ```
 This allows developers to provide their own error messages.
 
 ```{r, error = TRUE}
-if(!chk_flag(1, err = FALSE)) stop("x MUST be a flag (try as.logical())")
-```
-
-#### Copy and Paste
-
-`chk` is released under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/) license.
-This allows developers to copy and paste functions into their package
-which is useful if they want to minimize their dependencies.
-Most of the `chk_` functions are standalone, ie, written in base R.
-
-Copied functions should not be exported (to avoid namespace conflicts) and the CC0 creditation preserved.
-```r
-#  License: CC0
-#  Repository: https://github.com/poissonconsulting/chk
+if(!vld_flag(1)) stop("x MUST be a flag (try as.logical())")
 ```
 
 ### Fast
@@ -109,24 +100,23 @@ The functions are designed to be fast.
 #### Check First
 
 As exemplified by `chk_flag`, the `chk_` functions immediately evaluate their 
-object in one line of code and return TRUE if the check is successful.
+object.
 
 ``` r
 chk_flag
-#> function(x, err = TRUE, x_name = NULL){
-#>   if(is.logical(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
-#>   if(!err) return(FALSE)
+#> function(x, x_name = NULL){
+#>   if(vld_flag(x)) return(invisible())
 #>   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
 #>   stop(x_name, " must be a flag (TRUE or FALSE).", call. = FALSE)
 #> }
-#> <bytecode: 0x7f9148f62aa8>
+#> <bytecode: 0x7fd93e469568>
 #> <environment: namespace:chk>
 ```
 
 #### Minimal Checking
 
-As they are not expected to be directly exposed to users the `chk_` functions 
-don't check any of their arguments (other than the object of interest of course!).
+As they are not expected to be directly exposed to users the `chk_` and `vld_` 
+functions don't check any of their arguments (other than the object of interest of course!).
 
 #### Turn Off Checking
 
@@ -169,4 +159,4 @@ Please report any [issues](https://github.com/poissonconsulting/chk/issues).
 [Pull requests](https://github.com/poissonconsulting/chk/pulls) are always welcome.
 
 Please note that this project is released with a [Contributor Code of Conduct](https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md).
-By contributing, you agree to abide by its terms
+By contributing, you agree to abide by its terms.

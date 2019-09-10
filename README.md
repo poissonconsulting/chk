@@ -14,7 +14,7 @@ status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/chk
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/chk/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/chk?branch=master)
 [![License:
-CC0](https://img.shields.io/badge/License-CC0-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Tinyverse
 status](https://tinyverse.netlify.com/badge/chk)](https://CRAN.R-project.org/package=chk)
 [![CRAN
@@ -44,6 +44,15 @@ To install the latest development version from
 remotes::install_github("poissonconsulting/chk")
 ```
 
+To install the latest developmental release from the Poisson drat
+[repository](https://github.com/poissonconsulting/drat)
+
+``` r
+# install.packages("drat")
+drat::addRepo("poissonconsulting")
+install.packages("chk")
+```
+
 ## Demonstration
 
 ### Simple
@@ -59,11 +68,9 @@ y <- "a"
 chk_flag(y)
 #> Error: `y` must be a flag (TRUE or FALSE).
 chk_string(y)
-#> [1] TRUE
 
 data <- data.frame(x = 1:2)
 chk_is(data, "data.frame")
-#> [1] TRUE
 chk_range(nrow(data), c(3,8))
 #> Error: `nrow(data)` must be between 3 and 8, not 2.
 chk_in(nrow(data), c(3,8))
@@ -79,47 +86,28 @@ chkor(chk_flag(z), chk_number(z))
 #> * `z` must be a number (non-missing numeric scalar).
 ```
 
-By default, each check returns TRUE if successful or throws an
-informative error.
-
 Error messages follow the [tidyverse style
 guide](https://style.tidyverse.org/error-messages.html).
 
 ### Customizable
 
-The functions are designed to be customizable.
-
 #### Custom Error Messages
 
-If `err = FALSE` a check returns FALSE (instead of throwing an error) on
-check failure.
+The `vld_` variant of each `chk_` function returns FALSE (instead of
+throwing an error) on check failure.
 
 ``` r
-chk_flag(1, err = FALSE)
+vld_flag(TRUE)
+#> [1] TRUE
+vld_flag(1)
 #> [1] FALSE
 ```
 
 This allows developers to provide their own error messages.
 
 ``` r
-if(!chk_flag(1, err = FALSE)) stop("x MUST be a flag (try as.logical())")
+if(!vld_flag(1)) stop("x MUST be a flag (try as.logical())")
 #> Error in eval(expr, envir, enclos): x MUST be a flag (try as.logical())
-```
-
-#### Copy and Paste
-
-`chk` is released under the
-[CC0](https://creativecommons.org/publicdomain/zero/1.0/) license. This
-allows developers to copy and paste functions into their package which
-is useful if they want to minimize their dependencies. Most of the
-`chk_` functions are standalone, ie, written in base R.
-
-Copied functions should not be exported (to avoid namespace conflicts)
-and the CC0 creditation preserved.
-
-``` r
-#  License: CC0
-#  Repository: https://github.com/poissonconsulting/chk
 ```
 
 ### Fast
@@ -129,26 +117,24 @@ The functions are designed to be fast.
 #### Check First
 
 As exemplified by `chk_flag`, the `chk_` functions immediately evaluate
-their object in one line of code and return TRUE if the check is
-successful.
+their object.
 
 ``` r
 chk_flag
-#> function(x, err = TRUE, x_name = NULL){
-#>   if(is.logical(x) && length(x) == 1L && !anyNA(x)) return(TRUE)
-#>   if(!err) return(FALSE)
+#> function(x, x_name = NULL){
+#>   if(vld_flag(x)) return(invisible())
 #>   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
 #>   stop(x_name, " must be a flag (TRUE or FALSE).", call. = FALSE)
 #> }
-#> <bytecode: 0x7f9148f62aa8>
+#> <bytecode: 0x7fd93e469568>
 #> <environment: namespace:chk>
 ```
 
 #### Minimal Checking
 
-As they are not expected to be directly exposed to users the `chk_`
-functions don’t check any of their arguments (other than the object of
-interest of course\!).
+As they are not expected to be directly exposed to users the `chk_` and
+`vld_` functions don’t check any of their arguments (other than the
+object of interest of course\!).
 
 #### Turn Off Checking
 
@@ -200,4 +186,4 @@ always welcome.
 
 Please note that this project is released with a [Contributor Code of
 Conduct](https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md).
-By contributing, you agree to abide by its terms
+By contributing, you agree to abide by its terms.

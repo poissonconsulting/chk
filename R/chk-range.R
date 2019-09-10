@@ -156,9 +156,6 @@ vld_lte <- function (x, value = 0) all(x[!is.na(x)] <= value)
 #' # chk_gt
 #' chk_gt(0.1)
 #' try(chk_gt(c(0.1, -0.2)))
-#'  
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
 chk_gt <- function (x, value = 0, x_name = NULL) {
   if(vld_gt(x, value)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
