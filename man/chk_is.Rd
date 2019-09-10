@@ -2,61 +2,86 @@
 % Please edit documentation in R/chk-is.R
 \name{chk_is}
 \alias{chk_is}
+\alias{vld_is}
 \alias{chk_whole_numeric}
+\alias{vld_whole_numeric}
 \alias{chk_list}
+\alias{vld_list}
 \alias{chk_function}
+\alias{vld_function}
 \title{Check Is}
 \usage{
-chk_is(x, class, err = TRUE, x_name = NULL)
+chk_is(x, class, x_name = NULL)
 
-chk_whole_numeric(x, err = TRUE, x_name = NULL)
+vld_is(x, class)
 
-chk_list(x, err = TRUE, x_name = NULL)
+chk_whole_numeric(x, x_name = NULL)
 
-chk_function(x, err = TRUE, x_name = NULL)
+vld_whole_numeric(x)
+
+chk_list(x, x_name = NULL)
+
+vld_list(x)
+
+chk_function(x, x_name = NULL)
+
+vld_function(x)
 }
 \arguments{
 \item{x}{The object to check.}
 
 \item{class}{A string specifying the class.}
 
-\item{err}{Deprecated.}
-
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-TRUE if passes check. Otherwise if throws an informative error unless
-\code{err = FALSE} in which case it returns FALSE.
+The \code{chk_} functions throw an informative error if the test fails.
+The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
 Checks if is a particular type of object.
 }
-\details{
-\code{chk_is()}: Check Is
+\section{Functions}{
+\itemize{
+\item \code{chk_is}: Check Is
+ 
+Checks if inherits from class using \code{vld_is()}.
 
-Checks if inherits from class using:
+\item \code{vld_is}: Validate Is
+ 
+Validates inherits from class using
 
 \code{\link{inherits}(x, class)}
 
 Class should be a string.
-}
-\section{Functions}{
-\itemize{
+
 \item \code{chk_whole_numeric}: Check Whole Numeric
  
-Checks if integer vector or double equivalent using the equivalent of:
+Checks if integer vector or double equivalent using \code{vld_whole_numeric()}.
+
+\item \code{vld_whole_numeric}: Validate Whole Numeric
+ 
+Validates integer vector or double equivalent using
 
 \code{is.integer(x) || (is.double(x) && isTRUE(all.equal(x, as.integer(x))))}
 
 \item \code{chk_list}: Check List
 
-Checks if is a list using:
+Checks if is a list using \code{vld_list()}.
+
+\item \code{vld_list}: Validate List
+
+Validates is a list using:
 
 \code{\link{is.list}(x)}
 
 \item \code{chk_function}: Check Function
 
-Checks if is a function using:
+Checks if is a function using \code{vld_function()}.
+
+\item \code{vld_function}: Validate Function
+
+Validates is a function using:
 
 \code{\link{is.function}(x)}
 }}
@@ -64,34 +89,46 @@ Checks if is a function using:
 \examples{
 
 # chk_is
-try(chk_is(1, "character"))
-try(chk_is(NULL, "numeric"))
-chk_is(numeric(0), "numeric")
 chk_is(1, "numeric")
-chk_is(NA_real_, "numeric")
- 
+try(chk_is(1, "character"))
+
+# vld_is
+vld_is(numeric(0), "numeric")
+vld_is(1, "numeric")
+vld_is(NA_real_, "numeric")
+vld_is(1, "character")
+vld_is(NULL, "numeric")
 
 # chk_whole_numeric
-try(chk_whole_numeric(TRUE))
-try(chk_whole_numeric(1.5))
 chk_whole_numeric(1)
-chk_whole_numeric(NA_real_)
-chk_whole_numeric(1:2)
-chk_whole_numeric(double(0))
-   
+try(chk_whole_numeric(1.1))
+
+# vld_whole_numeric
+vld_whole_numeric(1)
+vld_whole_numeric(NA_real_)
+vld_whole_numeric(1:2)
+vld_whole_numeric(double(0))
+vld_whole_numeric(TRUE)
+vld_whole_numeric(1.5)
 
 # chk_list
-try(chk_list(1))
-try(chk_list(NULL))
 chk_list(list())
-chk_list(list(x = 1))
-chk_list(mtcars)
- 
+try(chk_list(1))
+
+# vld_list
+vld_list(list())
+vld_list(list(x = 1))
+vld_list(mtcars)
+vld_list(1)
+vld_list(NULL)
 
 # chk_function
-try(chk_function(1))
-try(chk_function(list(1)))
 chk_function(mean)
-chk_function(function(x) x)
- 
+try(chk_function(1))
+
+# vld_function
+vld_function(mean)
+vld_function(function(x) x)
+vld_function(1)
+vld_function(list(1))
 }
