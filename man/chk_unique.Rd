@@ -21,8 +21,7 @@ chk_length(x, length = 1L, err = TRUE, x_name = NULL)
 \item{incomparables}{A vector of values that cannot be compared.
 FALSE means that all values can be compared.}
 
-\item{err}{A flag specifying whether to generate an error
-message if the check fails.}
+\item{err}{Deprecated.}
 
 \item{x_name}{A string of the name of object x or NULL.}
 

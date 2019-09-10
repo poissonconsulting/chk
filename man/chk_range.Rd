@@ -23,8 +23,7 @@ chk_gte(x, value = 0, err = TRUE, x_name = NULL)
 
 \item{range}{A vector of length 2 of the lower and upper permitted values.}
 
-\item{err}{A flag specifying whether to generate an error
-message if the check fails.}
+\item{err}{Deprecated.}
 
 \item{x_name}{A string of the name of object x or NULL.}
 

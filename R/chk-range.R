@@ -13,6 +13,7 @@
 #' Range should be a non-missing sorted vector of length 2.
 #'  
 #' @inheritParams chk_true
+#' @param err Deprecated.
 #' @param value A non-missing scalar of a value.
 #' @param range A vector of length 2 of the lower and upper permitted values.
 #' @return TRUE if passes check. Otherwise if throws an informative error unless

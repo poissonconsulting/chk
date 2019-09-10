@@ -11,6 +11,7 @@
 #' \code{is.character(x) && length(x) == 1L && !anyNA(x)}
 #' 
 #' @inheritParams chk_true
+#' @param err Deprecated.
 #' @param regexp A string of a regular expression.
 #' @return TRUE if passes check. Otherwise if throws an informative error unless
 #' \code{err = FALSE} in which case it returns FALSE.

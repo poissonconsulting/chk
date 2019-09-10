@@ -2,95 +2,122 @@
 % Please edit documentation in R/chk-true.R
 \name{chk_true}
 \alias{chk_true}
+\alias{vld_true}
 \alias{chk_false}
+\alias{vld_false}
 \alias{chk_flag}
+\alias{vld_flag}
 \alias{chk_lgl}
-\title{Check TRUE or FALSE}
+\alias{vld_lgl}
+\title{Check/Validate TRUE, FALSE, Flag or Logical Scalar}
 \usage{
-chk_true(x, err = TRUE, x_name = NULL)
+chk_true(x, x_name = NULL)
 
-chk_false(x, err = TRUE, x_name = NULL)
+vld_true(x)
 
-chk_flag(x, err = TRUE, x_name = NULL)
+chk_false(x, x_name = NULL)
 
-chk_lgl(x, err = TRUE, x_name = NULL)
+vld_false(x)
+
+chk_flag(x, x_name = NULL)
+
+vld_flag(x)
+
+chk_lgl(x, x_name = NULL)
+
+vld_lgl(x)
 }
 \arguments{
 \item{x}{The object to check.}
 
-\item{err}{A flag specifying whether to generate an error
-message if the check fails.}
-
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-TRUE if passes check. Otherwise if throws an informative error unless
-\code{err = FALSE} in which case it returns FALSE.
+The \code{chk_} functions throw an informative error if the test fails.
+The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks if object is TRUE or FALSE.
-}
-\details{
-\code{chk_true()}: Check TRUE
-
-Checks if TRUE using:
-
-\code{\link{isTRUE}(x)}
+Checks/validates if TRUE, FALSE, a flag (TRUE or FALSE) 
+or a lgl (TRUE, FALSE, or NA).
 }
 \section{Functions}{
 \itemize{
+\item \code{chk_true}: Check TRUE
+
+Checks if TRUE using \code{vld_true(x)}.
+
+\item \code{vld_true}: Validate TRUE
+
+Validates if TRUE using \code{\link{isTRUE}(x)}.
+
 \item \code{chk_false}: Check FALSE
 
-Checks if FALSE using:
+Checks if FALSE using \code{vld_false(x)}.
 
-\code{\link{isFALSE}(x)}
+\item \code{vld_false}: Validate FALSE
 
-\item \code{chk_flag}: Check Flag
+Validates if FALSE using \code{\link{isFALSE}(x)}.
 
-Checks if non-missing logical scalar using:
+\item \code{chk_flag}: Validate Flag
 
-\code{is.logical(x) && length(x) == 1L && !anyNA(x)}
+Checks if non-missing logical scalar using \code{vld_flag()}.
 
-\item \code{chk_lgl}: Check Lgl
+\item \code{vld_flag}: Validate Flag
 
-Checks if logical scalar using:
+Validates if flag using \code{is.logical(x) && length(x) == 1L && !anyNA(x)}.
 
-\code{is.logical(x) && length(x) == 1L && !anyNA(x)}
+\item \code{chk_lgl}: Check Logical Scalar
+
+Checks if logical scalar using \code{vld_lgl(x)}.
+
+\item \code{vld_lgl}: Validate Logical Scalar
+
+Validates if logical scalar using \code{is.logical(x) && length(x) == 1L}.
 }}
 
 \examples{
 
 # chk_true
-try(chk_true(1))
-try(chk_true(NA))
-try(chk_true(FALSE))
 chk_true(TRUE)
-try(chk_true(c(TRUE, TRUE)))
+try(chk_true(1))
+
+# vld_true
+vld_true(TRUE)
+vld_true(FALSE)
+vld_true(NA)
+vld_false(0)
+vld_true(c(TRUE, TRUE))
 
 # chk_false
-try(chk_false(0))
-try(chk_false(NA))
-try(chk_false(TRUE))
 chk_false(FALSE)
-try(chk_false(c(FALSE, FALSE)))
+try(chk_false(0))
 
+# vld_false
+vld_false(TRUE)
+vld_false(FALSE)
+vld_false(NA)
+vld_false(0)
+vld_false(c(FALSE, FALSE))
 
-# chk_flag
-try(chk_flag(1))
-try(chk_flag(NA))
+# vld_flag
 chk_flag(TRUE)
-chk_flag(FALSE)
-try(chk_flag(c(TRUE, TRUE)))
+try(vld_flag(1))
 
+# vld_flag
+vld_flag(TRUE)
+vld_flag(FALSE)
+vld_flag(NA)
+vld_flag(1)
+vld_flag(c(TRUE, TRUE))
 
 # chk_lgl
-try(chk_lgl(1))
 chk_lgl(NA)
-chk_lgl(TRUE)
-chk_lgl(FALSE)
-try(chk_lgl(c(TRUE, TRUE)))
+try(chk_lgl(1))
 
-}
-\seealso{
-\code{\link{chk_number}()}
+# vld_lgl
+vld_lgl(TRUE)
+vld_lgl(FALSE)
+vld_lgl(NA)
+vld_lgl(1)
+vld_lgl(c(TRUE, TRUE))
 }

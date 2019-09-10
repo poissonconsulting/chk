@@ -11,6 +11,7 @@
 #' \code{isTRUE(\link{all.equal}(x, y, tolerance))}
 #'  
 #' @inheritParams chk_true
+#' @param err Deprecated.
 #' @param y An object to check against.
 #' @param tolerance A non-negative numeric scalar.
 #' @return TRUE if passes check. Otherwise if throws an informative error unless

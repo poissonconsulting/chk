@@ -2,62 +2,76 @@
 % Please edit documentation in R/chk-all.R
 \name{chk_all}
 \alias{chk_all}
+\alias{vld_all}
 \alias{chk_all_identical}
+\alias{vld_all_identical}
 \title{Check All or All Identical}
 \usage{
-chk_all(x, chk_fun, ..., err = TRUE, x_name = NULL)
+chk_all(x, chk_fun, ..., x_name = NULL)
 
-chk_all_identical(x, err = TRUE, x_name = NULL)
+vld_all(x, vld_fun, ...)
+
+chk_all_identical(x, x_name = NULL)
+
+vld_all_identical(x)
 }
 \arguments{
 \item{x}{The object to check.}
 
-\item{chk_fun}{A chk function.}
+\item{chk_fun}{A chk_ function.}
 
 \item{...}{Additional arguments.}
 
-\item{err}{A flag specifying whether to generate an error
-message if the check fails.}
-
 \item{x_name}{A string of the name of object x or NULL.}
+
+\item{vld_fun}{A vld_ function.}
 }
 \value{
-TRUE if passes check. Otherwise if throws an informative error unless
-\code{err = FALSE} in which case it returns FALSE.
+The \code{chk_} functions throw an informative error if the test fails.
+The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks all elements.
-}
-\details{
-\code{chk_all()}: Check All
-
-Checks all elements using:
-
-\code{all(vapply(x, chk_fun, TRUE, ...))}
+Check All or All Identical
 }
 \section{Functions}{
 \itemize{
+\item \code{chk_all}: Check All
+
+Checks all elements using \code{all(vapply(x, chk_fun, TRUE, ...))}.
+
+\item \code{vld_all}: Validate All
+
+Validates all elements using \code{all(vapply(x, vld_fun, TRUE, ...))}.
+
 \item \code{chk_all_identical}: Check All Identical
 
-Checks all elements in x identical using:
+Checks all elements in x identical using \code{vld_all_identical()}.
 
-\code{all(vapply(x, identical, TRUE, y = x[[1]]))}
+\item \code{vld_all_identical}: Validates All Identical
+
+Validates all elements in x identical using \code{all(vapply(x, identical, TRUE, y = x[[1]]))}.
 }}
 
 \examples{
 
 # chk_all
-try(chk_all(1, chk_lgl))
 chk_all(TRUE, chk_lgl)
-chk_all(c(TRUE, NA), chk_lgl)
-chk_all(numeric(0), chk_lgl)
- 
+try(chk_all(1, chk_lgl))
+
+# vld_all
+vld_all(TRUE, vld_lgl)
+vld_all(c(TRUE, NA), vld_lgl)
+vld_all(numeric(0), vld_lgl)
+vld_all(1, vld_lgl)
 
 # chk_all_identical
-try(chk_all_identical(1, 1.0000001))
 chk_all_identical(1, 1.00000001)
-chk_all_identical(1, 1L)
-try(chk_all_identical(c(1,2)))
-try(chk_all_identical(c(1,2.0000001)))
- 
+try(chk_all_identical(1, 1.0000001))
+
+# vld_all_identical
+vld_all_identical(c(1, 1.00000001))
+vld_all_identical(c(1, 1.0000001))
+vld_all_identical(c(1, 1L))
+vld_all_identical(c(1,2))
+vld_all_identical(c(1,2.0000001))
 }

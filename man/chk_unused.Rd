@@ -12,8 +12,7 @@ chk_used(..., err = TRUE)
 \arguments{
 \item{...}{Additional arguments.}
 
-\item{err}{A flag specifying whether to generate an error
-message if the check fails.}
+\item{err}{Deprecated.}
 }
 \value{
 TRUE if passes check. Otherwise if throws an informative error unless

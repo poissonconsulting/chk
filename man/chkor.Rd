@@ -4,16 +4,13 @@
 \alias{chkor}
 \title{Check OR}
 \usage{
-chkor(..., err = TRUE)
+chkor(...)
 }
 \arguments{
 \item{...}{Multiple \code{chk_} functions.}
-
-\item{err}{A flag specifying whether to generate an error
-message if the check fails.}
 }
 \value{
-A flag or an error if the check fails and err == TRUE.
+An informative error if the test fails.
 }
 \description{
 Check OR

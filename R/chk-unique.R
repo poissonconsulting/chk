@@ -10,6 +10,7 @@
 #' 
 #' \code{!\link{anyDuplicated}(x, incomparables = incomparables)}
 #' @inheritParams chk_true
+#' @param err Deprecated.
 #' @param incomparables A vector of values that cannot be compared.
 #' FALSE means that all values can be compared.
 #' @return TRUE if passes check. Otherwise if throws an informative error unless

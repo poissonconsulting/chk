@@ -18,8 +18,7 @@ chk_files(x, err = TRUE)
 \arguments{
 \item{x}{The object to check.}
 
-\item{err}{A flag specifying whether to generate an error
-message if the check fails.}
+\item{err}{Deprecated.}
 }
 \value{
 TRUE if passes check. Otherwise if throws an informative error unless

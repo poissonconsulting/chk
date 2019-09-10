@@ -1,11 +1,7 @@
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
 try_chk <- function (expr) {
   try(eval(expr, envir = parent.frame(3)), silent = TRUE)
 }
 
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
 try_msg <- function (x) {
     x <- as.character(x)
     x <- sub("^Error.*[:] ", "", x, perl = TRUE)
@@ -17,7 +13,7 @@ try_msg <- function (x) {
 #' @param ... Multiple \code{chk_} functions.
 #' @inheritParams chk_true
 #'
-#' @return A flag or an error if the check fails and err == TRUE.
+#' @return An informative error if the test fails.
 #' @export
 #'
 #' @examples
@@ -26,21 +22,17 @@ try_msg <- function (x) {
 #' try(chkor(chk_flag(1)))
 #' try(chkor(chk_flag(1), chk_flag(2)))
 #' chkor(chk_flag(1), chk_flag(TRUE))
-#
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
-chkor <- function (..., err = TRUE) {
+chkor <- function (...) {
   args <- substitute(list(...))[-1]
   n <- length(args)
-  if (n == 0L) return(TRUE)
+  if (n == 0L) return(invisible())
 
   msg <- as.list(rep(NA, n))
   for(i in 1:n) {
     try <- try_chk(args[[i]])
-    if(isTRUE(try)) return(TRUE)
+    if(is.null(try)) return(invisible())
     msg[i] <- try
   }
-  if(!err) return(FALSE)
   msg <- unlist(lapply(msg, try_msg))
   msg <- unique(msg)
   if(length(msg) == 1) stop(msg, call. = FALSE) 

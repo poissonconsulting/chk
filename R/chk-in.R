@@ -11,6 +11,7 @@
 #' \code{all(\link{match}(x, values, nomatch = 0) > 0)}
 #' 
 #' @inheritParams chk_true
+#' @param err Deprecated.
 #' @param values A vector of the permitted values.
 #' @return TRUE if passes check. Otherwise if throws an informative error unless
 #' \code{err = FALSE} in which case it returns FALSE.

@@ -11,6 +11,7 @@
 #' \code{!length(\link{list}(...))}
 #'  
 #' @inheritParams chk_true
+#' @param err Deprecated.
 #' @param ... Additional arguments.
 #' @return TRUE if passes check. Otherwise if throws an informative error unless
 #' \code{err = FALSE} in which case it returns FALSE.

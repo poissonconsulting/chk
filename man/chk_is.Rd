@@ -20,8 +20,7 @@ chk_function(x, err = TRUE, x_name = NULL)
 
 \item{class}{A string specifying the class.}
 
-\item{err}{A flag specifying whether to generate an error
-message if the check fails.}
+\item{err}{Deprecated.}
 
 \item{x_name}{A string of the name of object x or NULL.}
 }

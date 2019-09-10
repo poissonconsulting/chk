@@ -52,19 +52,15 @@ Validates if not NULL using \code{!\link{is.null}(x)}.
 try(chk_null(1))
 chk_null(NULL)
 
-
 # vld_null
 vld_null(NULL)
 vld_null(1)
-
 
 # chk_not_null
 try(chk_not_null(NULL))
 chk_not_null(1)
 
-
 # vld_not_null
 vld_not_null(1)
 vld_not_null(NULL)
-
 }

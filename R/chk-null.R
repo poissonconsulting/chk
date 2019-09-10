@@ -19,9 +19,6 @@ NULL
 #' # chk_null
 #' try(chk_null(1))
 #' chk_null(NULL)
-#' 
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
 chk_null <- function(x, x_name = NULL){
   if (vld_null(x)) return(invisible())
   if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
@@ -39,9 +36,6 @@ chk_null <- function(x, x_name = NULL){
 #' # vld_null
 #' vld_null(NULL)
 #' vld_null(1)
-#' 
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
 vld_null <- function(x) is.null(x)
 
 #' @describeIn chk_null Check Not NULL
@@ -55,9 +49,6 @@ vld_null <- function(x) is.null(x)
 #' # chk_not_null
 #' try(chk_not_null(NULL))
 #' chk_not_null(1)
-#' 
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
 chk_not_null <- function(x, x_name = NULL){
   if (vld_not_null(x)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
@@ -75,7 +66,4 @@ chk_not_null <- function(x, x_name = NULL){
 #' # vld_not_null
 #' vld_not_null(1)
 #' vld_not_null(NULL)
-#' 
-#  Licence: CC0
-#  Repository: https://github.com/poissonconsulting/chk
 vld_not_null <- function(x) !is.null(x)

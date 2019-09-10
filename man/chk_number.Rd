@@ -18,8 +18,7 @@ chk_proportion(x, err = TRUE, x_name = NULL)
 \arguments{
 \item{x}{The object to check.}
 
-\item{err}{A flag specifying whether to generate an error
-message if the check fails.}
+\item{err}{Deprecated.}
 
 \item{x_name}{A string of the name of object x or NULL.}
 }

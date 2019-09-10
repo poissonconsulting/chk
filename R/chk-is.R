@@ -13,6 +13,7 @@
 #' Class should be a string.
 #'  
 #' @inheritParams chk_true
+#' @param err Deprecated.
 #' @param class A string specifying the class.
 #' @return TRUE if passes check. Otherwise if throws an informative error unless
 #' \code{err = FALSE} in which case it returns FALSE.
