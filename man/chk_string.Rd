@@ -2,41 +2,52 @@
 % Please edit documentation in R/chk-string.R
 \name{chk_string}
 \alias{chk_string}
+\alias{vld_string}
 \alias{chk_match}
-\title{Check String}
+\alias{vld_match}
+\title{Check/Validate String or Matches}
 \usage{
-chk_string(x, err = TRUE, x_name = NULL)
+chk_string(x, x_name = NULL)
 
-chk_match(x, regexp = ".+", err = TRUE, x_name = NULL)
+vld_string(x, x_name = NULL)
+
+chk_match(x, regexp = ".+", x_name = NULL)
+
+vld_match(x, regexp = ".+")
 }
 \arguments{
 \item{x}{The object to check.}
-
-\item{err}{Deprecated.}
 
 \item{x_name}{A string of the name of object x or NULL.}
 
 \item{regexp}{A string of a regular expression.}
 }
 \value{
-TRUE if passes check. Otherwise if throws an informative error unless
-\code{err = FALSE} in which case it returns FALSE.
+The \code{chk_} functions throw an informative error if the test fails.
+The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Check if string.
-}
-\details{
-\code{chk_-string()}: Check String
-
-Checks if non-missing character scalar using:
-
-\code{is.character(x) && length(x) == 1L && !anyNA(x)}
+Checks/validates if string or matches a regular expression.
 }
 \section{Functions}{
 \itemize{
+\item \code{chk_string}: Check String
+
+Checks if non-missing character scalar using \code{vld_string()}.
+
+\item \code{vld_string}: Validate String
+
+Validates non-missing character scalar using
+
+\code{is.character(x) && length(x) == 1L && !anyNA(x)}
+
 \item \code{chk_match}: Check Matches
 
-Checks if all values match regular expression using:
+Checks if all values match regular expression using \code{vld_match()}.
+
+\item \code{vld_match}: Validate Matches
+
+Validates all values match regular expression using
 
 \code{all(\link{grepl}(regexp, x))}
 
@@ -46,17 +57,24 @@ Checks if all values match regular expression using:
 \examples{
 
 # chk_string
-try(chk_string(1))
 chk_string("1")
-chk_string("")
-try(chk_string(NA_character_))
-try(chk_string(c("1", "1")))
- 
+try(chk_string(1))
+
+# vld_string
+vld_string("1")
+vld_string("")
+vld_string(1)
+vld_string(NA_character_)
+vld_string(c("1", "1"))
 
 # chk_match
-try(chk_match(""))
 chk_match("1")
 try(chk_match("1", regexp = "2"))
-try(chk_match(NA_character_, regexp = ".*"))
-chk_match(c("a"), regexp = ".*")
+
+# vld_match
+vld_match("1")
+vld_match("a", regexp = "a")
+vld_match("")
+vld_match("1", regexp = "2")
+vld_match(NA_character_, regexp = ".*")
 }
