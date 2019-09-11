@@ -11,10 +11,8 @@ edit_string <- function(..., n) {
 #' Stop, Warning and Message
 #'
 #' Wrappers on 
-#' \code{\link[base]{stop}()}, \code{\link[base]{warning}()} and
-#'  \code{\link[base]{message}()}.
-#'  
-#'  \code{err}: Error
+#' \code{\link[rlang]{abort}()}, \code{\link[rlang]{warn}()} and
+#'  \code{\link[rlang]{inform}()}.
 #'  
 #' @section \code{sprintf}-like types:
 #' The following \code{sprintf}-like types can be used in the custom messages:
@@ -26,13 +24,21 @@ edit_string <- function(..., n) {
 #' }
 #' 
 #' @inheritParams base::stop
+#' @inheritParams rlang::abort
 #' @param n The value of n for converting \code{sprintf}-like types.
+#' @name err
+NULL
+
+#' @describeIn err Error
+#' 
 #' @export
 #'
 #' @examples
+#' 
+#' # err
 #' try(err("this is an error"))
-err <- function (..., n = NULL, call. = FALSE) {
-  abort(edit_string(..., n = n), call. = call.)
+err <- function (..., n = NULL, .subclass = NULL) {
+  abort(edit_string(..., n = n), .subclass = .subclass)
 }
 
 #' @describeIn err Warning
@@ -42,13 +48,12 @@ err <- function (..., n = NULL, call. = FALSE) {
 #' @examples
 #' 
 #' # wrn
-#' 
 #' wrn("this is a warning")
 #' wrn("there %r %n problem value%s")
 #' wrn("there %r %n problem value%s", n = 1)
 #' wrn("there %r %n problem value%s", n = 2)
-wrn <- function (..., n = NULL, call. = FALSE) {
-  warning(edit_string(..., n = n), call. = call.)
+wrn <- function (..., n = NULL, .subclass = NULL) {
+  warn(edit_string(..., n = n), .subclass = .subclass)
 }
 
 #' @describeIn err Message
@@ -58,13 +63,12 @@ wrn <- function (..., n = NULL, call. = FALSE) {
 #' @examples
 #' 
 #' # msg
-#' 
 #' msg("this is a message")
 #' msg("there %r %n problem value%s")
 #' msg("there %r %n problem value%s", n = 1)
 #' msg("there %r %n problem value%s", n = 2)
-msg <- function (..., n = NULL) {
-  message(edit_string(..., n = n))
+msg <- function (..., n = NULL, .subclass = NULL) {
+  inform(edit_string(..., n = n), .subclass = .subclass)
 }
 
 #' Concatenate Strings

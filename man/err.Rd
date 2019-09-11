@@ -6,11 +6,11 @@
 \alias{msg}
 \title{Stop, Warning and Message}
 \usage{
-err(..., n = NULL, call. = FALSE)
+err(..., n = NULL, .subclass = NULL)
 
-wrn(..., n = NULL, call. = FALSE)
+wrn(..., n = NULL, .subclass = NULL)
 
-msg(..., n = NULL)
+msg(..., n = NULL, .subclass = NULL)
 }
 \arguments{
 \item{...}{zero or more objects which can be coerced to character
@@ -19,18 +19,18 @@ msg(..., n = NULL)
 
 \item{n}{The value of n for converting \code{sprintf}-like types.}
 
-\item{call.}{logical, indicating if the call should become part of the
-    error message.}
+\item{.subclass}{Subclass of the condition. This allows your users
+to selectively handle the conditions signalled by your functions.}
 }
 \description{
 Wrappers on 
-\code{\link[base]{stop}()}, \code{\link[base]{warning}()} and
- \code{\link[base]{message}()}.
- 
- \code{err}: Error
+\code{\link[rlang]{abort}()}, \code{\link[rlang]{warn}()} and
+ \code{\link[rlang]{inform}()}.
 }
 \section{Functions}{
 \itemize{
+\item \code{err}: Error
+
 \item \code{wrn}: Warning
 
 \item \code{msg}: Message
@@ -48,17 +48,17 @@ The following \code{sprintf}-like types can be used in the custom messages:
 }
 
 \examples{
+
+# err
 try(err("this is an error"))
 
 # wrn
-
 wrn("this is a warning")
 wrn("there \%r \%n problem value\%s")
 wrn("there \%r \%n problem value\%s", n = 1)
 wrn("there \%r \%n problem value\%s", n = 2)
 
 # msg
-
 msg("this is a message")
 msg("there \%r \%n problem value\%s")
 msg("there \%r \%n problem value\%s", n = 1)

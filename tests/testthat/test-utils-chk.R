@@ -3,7 +3,7 @@ context("utils-chk")
 test_that("err",{
   expect_error(err(), "^$")
   expect_error(err("this", "is"), "^thisis$")
-  expect_error(err("this", call. = TRUE), "^this$")
+  expect_error(err("this"), "^this$")
   expect_error(err("there %r %n problem value%s"),
                 "there %r %n problem value%s")
   expect_error(err("there %r %n problem value%s", n = 1),
@@ -34,7 +34,7 @@ test_that("msg",{
 test_that("wrn",{
   expect_warning(wrn(), "^$")
   expect_warning(wrn("this", "is"), "^thisis$")
-  expect_warning(wrn("this", call. = TRUE), "^this$")
+  expect_warning(wrn("this"), "^this$")
   expect_warning(wrn("there %r %n problem value%s"),
                 "there %r %n problem value%s")
   expect_warning(wrn("there %r %n problem value%s", n = 1),
