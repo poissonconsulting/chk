@@ -1,6 +1,6 @@
 #' Deparse Tick
 #' 
-#' \code{deparse_tick} is a wrapper on \code{\link{deparse}} that
+#' \code{deparse_backtick} is a wrapper on \code{\link{deparse}} that
 #' also back ticks the return string.
 #' 
 #' It is exported to allow users to construct their own `chk_` functions.
@@ -12,6 +12,6 @@
 #' @export
 #'
 #' @examples
-#' deparse_tick(2)
-#' deparse_tick(2^2)
-deparse_tick <- function(x) tick(deparse(x))
+#' deparse_backtick(2)
+#' deparse_backtick(2^2)
+deparse_backtick <- function(x) backtick(deparse(x))

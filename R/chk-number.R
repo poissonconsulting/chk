@@ -30,7 +30,7 @@ NULL
 #' try(chk_number(TRUE))
 chk_number <- function(x, x_name = NULL){
   if(vld_number(x)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   .abort(x_name, " must be a number (non-missing numeric scalar).")
 }
 
@@ -69,7 +69,7 @@ vld_number <- function(x) {
 #' try(chk_whole_number(1.1))
 chk_whole_number <- function(x, x_name = NULL){
   if(vld_whole_number(x)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   .abort(x_name, 
        " must be a whole number (non-missing integer scalar or double equivalent).")
 }

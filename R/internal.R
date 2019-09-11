@@ -14,7 +14,7 @@
   anyDuplicated(x)
 }
 
-tick <- function(x) p0("`", x, "`")
+backtick <- function(x) p0("`", x, "`")
 
 isFALSE <- function(x) identical(unname(x), FALSE)
 isTRUE <- function(x) identical(unname(x), TRUE)

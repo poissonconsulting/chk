@@ -29,10 +29,10 @@ NULL
 #' chk_all(c(TRUE, NA), chk_lgl)
 chk_all <- function(x, chk_fun, ..., x_name = NULL) {
   if(is.null(x)) {
-    if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+    if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
     return(chk_fun(x, ..., x_name = x_name))
   }
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   x_name <- paste0("All elements of ", x_name)
 
   args <- list(...)
@@ -84,7 +84,7 @@ vld_all <- function(x, vld_fun, ...) {
 #' try(chk_all_identical(c(1, 1.1)))
 chk_all_identical <- function(x, x_name = NULL) {
   if(vld_all_identical(x)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   .abort(x_name, " must have identical elements.")
 }
 
@@ -120,7 +120,7 @@ vld_all_identical <- function(x) {
 #' try(chk_all_equal(list(c(x = 1), c(y = 1))))
 chk_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL) {
   if(vld_all_equal(x, tolerance = tolerance)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   .abort(x_name, " must have equal elements.")
 }
 
@@ -156,7 +156,7 @@ vld_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps)) {
 #' chk_all_equivalent(list(c(x = 1), c(y = 1)))
 chk_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL) {
   if(vld_all_equivalent(x, tolerance = tolerance)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   .abort(x_name, " must have equivalent elements.")
 }
 

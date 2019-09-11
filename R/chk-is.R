@@ -22,7 +22,7 @@ NULL
 #' try(chk_is(1, "character"))
 chk_is <- function(x, class, x_name = NULL) {
   if(vld_is(x, class)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   .abort(x_name, " must inherit from class '", class, "'.")
 }
 
@@ -62,7 +62,7 @@ vld_is <- function(x, class) inherits(x, class)
 #' try(chk_whole_numeric(1.1))
 chk_whole_numeric <- function(x, x_name = NULL){
   if(vld_whole_numeric(x)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   .abort(x_name, 
       " must be a whole numeric vector (integer vector or double equivalent).")
 }
@@ -102,7 +102,7 @@ vld_whole_numeric <- function(x) {
 #' try(chk_list(1))
 chk_list <- function(x, x_name = NULL){
   if(vld_list(x)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   .abort(x_name, " must be a list.")
 }
 
@@ -137,7 +137,7 @@ vld_list <- function(x) is.list(x)
 #' try(chk_function(1))
 chk_function <- function(x, x_name = NULL){
   if(vld_function(x)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   .abort(x_name, " must be a function.")
 }
 

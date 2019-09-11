@@ -45,7 +45,7 @@ chk_files <- function(x){
 chk_length <- function(x, length = 1L, x_name = NULL) {
   .Deprecated("chk_range(length(x))")
   if(length(x) == length) return(TRUE)
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   .abort(x_name, " must be length ", length, ", not ", length(x), ".")
 }
 
@@ -64,7 +64,7 @@ chk_count <- function(x, x_name = NULL){
   if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && 
      (is.integer(x) || isTRUE(all.equal(x, as.integer(x)))))
     return(TRUE)
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   .abort(x_name, 
        " must be a count (non-missing non-negative integer scalar or double equivalent).")
 }
@@ -81,7 +81,7 @@ chk_proportion <- function(x, x_name = NULL){
   .Deprecated("chk_number(x); chk_range(x)")
   if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1) 
     return(TRUE)
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   .abort(x_name, 
        " must be a proportion (non-missing numeric scalar between 0 and 1).")
 }
@@ -93,7 +93,7 @@ chk_proportion <- function(x, x_name = NULL){
 #' @export
 chk_in <- function (x, values, x_name = NULL) {
   .Deprecated("chk_subset")
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   chk_subset(x, values, x_name = x_name)
 }
 
@@ -104,6 +104,6 @@ chk_in <- function (x, values, x_name = NULL) {
 #' @export
 chk_has <- function(x, values, x_name = NULL) {
   .Deprecated("chk_superset")
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   chk_superset(x, values, x_name = x_name)
 }

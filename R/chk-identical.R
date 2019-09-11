@@ -29,7 +29,7 @@ NULL
 #' try(chk_identical(1, c(1,1)))
 chk_identical <- function (x, y, x_name = NULL) {
   if(identical(x, y)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   y <- utils::capture.output(dput(y, control = "all"))
   .abort(x_name, " must be identical to: ", y, ".")
 }
@@ -65,7 +65,7 @@ vld_identical <- function (x, y) identical(x, y)
 chk_equal <- function (x, y, tolerance = sqrt(.Machine$double.eps),
                        x_name = NULL) {
   if(vld_equal(x, y, tolerance = tolerance)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   y <- utils::capture.output(dput(y, control = "all"))
   .abort(x_name, " must be equal to: ", y, ".")
 }
@@ -100,7 +100,7 @@ vld_equal <- function (x, y, tolerance = sqrt(.Machine$double.eps)) {
 chk_equivalent <- function (x, y, tolerance = sqrt(.Machine$double.eps), 
                             x_name = NULL) {
   if(vld_equivalent(x, y, tolerance = tolerance)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   y <- utils::capture.output(dput(y, control = "all"))
   .abort(x_name, " must be equivalent to: ", y, ".")
 }

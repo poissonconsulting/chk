@@ -23,7 +23,7 @@ NULL
 chk_subset <- function (x, values, x_name = NULL) {
   if(vld_subset(x, values)) return(invisible())
   values <- sort(unique(values), na.last = TRUE)
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   if(length(x) == 1L)
     .abort(x_name, " must match ", cc(values, " or "), ", not ", cc(x), ".")
   .abort(x_name, " must have values matching ", cc(values, " or "), ".")
@@ -59,7 +59,7 @@ vld_subset <- function (x, values) all(x %in% values)
 chk_superset <- function(x, values, x_name = NULL) {
   if(vld_superset(x, values)) return(invisible())
   values <- sort(unique(values), na.last = TRUE)
-  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
+  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
   values <- values[!values %in% x]
   .abort(x_name, " must include ", cc(values, " and "), ".")
 }
