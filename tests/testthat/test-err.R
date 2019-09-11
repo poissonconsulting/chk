@@ -46,11 +46,3 @@ test_that("wrn",{
   expect_warning(wrn("there %r %n problem value%s", n = 0),
                  "there are 0 problem values")
 })
-
-test_that("p", {
-  expect_identical(p(), paste())
-})
-
-test_that("p0", {
-  expect_identical(p0(), paste0())
-})
