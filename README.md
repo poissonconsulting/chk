@@ -116,19 +116,9 @@ The functions are designed to be fast.
 
 #### Check First
 
-As exemplified by `chk_flag`, the `chk_` functions immediately evaluate
-their object.
-
-``` r
-chk_flag
-#> function(x, x_name = NULL){
-#>   if(vld_flag(x)) return(invisible())
-#>   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-#>   abort(p0(x_name, " must be a flag (TRUE or FALSE)."))
-#> }
-#> <bytecode: 0x7fd2b4064a70>
-#> <environment: namespace:chk>
-```
+Almost all `chk_` functions immediately call their `vld_` variant to
+evaluate the object and return an invisible NULL if it passes the check.
+Otherwise they spend time constructing an informative error message.
 
 #### Minimal Checking
 

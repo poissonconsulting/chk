@@ -25,7 +25,7 @@ NULL
 #' chk_unique(c(NA, NA, 2), incomparables = NA)
 chk_unique <- function(x, incomparables = FALSE, x_name = NULL){
   if(vld_unique(x, incomparables = incomparables)) return(invisible())
-  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
+  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
   .abort(x_name, " must be unique.")
 }
 
@@ -63,7 +63,7 @@ vld_unique <- function(x, incomparables = FALSE) {
 #' try(chk_no_missing(c(1, NA)))
 chk_no_missing <- function(x, x_name = NULL){
   if(vld_no_missing(x)) return(invisible())
-  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
+  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
   .abort(x_name, " must not have missing values.")
 }
 

@@ -24,7 +24,7 @@ NULL
 #' try(chk_true(1))
 chk_true <- function(x, x_name = NULL){
   if(vld_true(x)) return(invisible())
-  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
+  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
   .abort(x_name, " must be TRUE.")
 }
 
@@ -60,7 +60,7 @@ vld_true <- function(x) isTRUE(x)
 #' try(chk_false(0))
 chk_false <- function(x, x_name = NULL){
   if(vld_false(x)) return(invisible())
-  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
+  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
   .abort(x_name, " must be FALSE.")
 }
 
@@ -96,7 +96,7 @@ vld_false <- function(x) isFALSE(x)
 #' try(vld_flag(1))
 chk_flag <- function(x, x_name = NULL){
   if(vld_flag(x)) return(invisible())
-  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
+  if(is.null(x_name))  x_name <- deparse_tick(substitute(x))
   .abort(x_name, " must be a flag (TRUE or FALSE).")
 }
 
