@@ -1,18 +1,24 @@
-#' Check/Validate Number or Whole Number
+#' Check Number or Whole Number
 #' 
-#' Checks/validates if a number or whole number.
-#'
 #' @inheritParams chk_true
-#' @return The \code{chk_} functions throw an informative error if the test fails.
-#' The \code{vld_} functions return a flag indicating whether the test was met.
+#' @return \code{NULL}, invisibly. Called for the side effect of throwing an error
+#'   if the condition is not met.
 #' @seealso \code{\link{chk_true}()} and \code{\link{chk_range}()}
 #' @name chk_number
 NULL
 
-#' @describeIn chk_number Check Number
-#'  
-#' Checks if non-missing numeric scalar using 
-#' \code{vld_number()}.
+#' Check Number
+#' 
+#' @description 
+#' 
+#' \code{chk_number()}
+#' checks if non-missing numeric scalar using 
+#' 
+#' \code{is.numeric(x) && length(x) == 1L && !anyNA(x)}.
+#' 
+#' \strong{Good}: \code{1}, \code{2L}, \code{log(10)}, \code{-Inf}.
+#' 
+#' \strong{Bad}: \code{"a"}, \code{1:3}, \code{NA_real_}.
 #'  
 #' @export
 #' 
@@ -27,33 +33,30 @@ chk_number <- function(x, x_name = NULL){
   .abort(x_name, " must be a number (non-missing numeric scalar).")
 }
 
-#' @describeIn chk_number Validate Number
-#'  
-#' Validates non-missing numeric scalar using
-#' 
-#' \code{is.numeric(x) && length(x) == 1L && !anyNA(x)}
-#'  
 #' @export
+#' @rdname vld
 #' 
 #' @examples 
-#' 
-#' # vld_number
 #' vld_number(1.1)
-#' vld_number(1L)
-#' vld_number(TRUE)
-#' vld_number(NA_real_)
-#' vld_number(c(1.1, 1.1))
 vld_number <- function(x) {
   is.numeric(x) && length(x) == 1L && !anyNA(x)
 }
 
-#' @describeIn chk_number Check Whole Number
+#' Check Whole Number
 #'  
-#' Checks if non-missing integer scalar or double equivalent using 
+#' @description
 #' 
-#' \code{vld_whole_number()}.
+#' \code{chk_whole_number()}
+#'  checks if non-missing integer scalar or double equivalent using
+#' 
+#' \code{chk_number(x)} and \code{is.integer(x) || isTRUE(all.equal(x, trunc(x)))}.
 #'   
+#' \strong{Good}: \code{1}, \code{2L}, \code{1e10}, \code{-Inf}.
+#' 
+#' \strong{Bad}: \code{"a"}, \code{1:3}, \code{NA_integer_}, \code{log(10)}.
+#' 
 #' @export
+#' @rdname chk_number
 #' 
 #' @examples 
 #' 
@@ -67,24 +70,14 @@ chk_whole_number <- function(x, x_name = NULL){
        " must be a whole number (non-missing integer scalar or double equivalent).")
 }
 
-#' @describeIn chk_number Validate Whole Number
-#'  
-#' Validates non-missing integer scalar or double equivalent using:
+#' @export
+#' @rdname vld
 #' 
-#' \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && 
-#'   (is.integer(x) || isTRUE(all.equal(x, as.integer(x))))}
-#'   
 #' @export
 #' 
 #' @examples 
-#' 
-#' # vld_whole_number
 #' vld_whole_number(2)
-#' vld_whole_number(2L)
-#' vld_whole_number(NA_integer_)
-#' vld_whole_number(1.1)
-#' vld_whole_number(c(2L, 2L))
 vld_whole_number <- function(x) {
-  is.numeric(x) && length(x) == 1L && !anyNA(x) && 
-    (is.integer(x) || isTRUE(all.equal(x, as.integer(x))))
+  vld_number(x) && 
+    (is.integer(x) || isTRUE(all.equal(x, trunc(x))))
 }

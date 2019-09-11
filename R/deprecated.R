@@ -1,3 +1,11 @@
+#' Deprecated functions
+#' 
+#' Deprecated \code{chk_()} functions.
+#' 
+#' @keywords internal
+#' @name chk_deprecated
+NULL
+
 #' @describeIn chk_file Check Directories Exist (DEPRECATED)
 #' 
 #' Checks if directories exist using:
@@ -42,7 +50,7 @@ chk_length <- function(x, length = 1L, x_name = NULL) {
 }
 
 
-#' @describeIn chk_number Check Count
+#' @describeIn chk_deprecated Check Count
 #'  
 #' Checks if non-missing non-negative integer scalar or double equivalent using:
 #' 
@@ -62,7 +70,7 @@ chk_count <- function(x, x_name = NULL){
 }
 
 
-#' @describeIn chk_number Check Proportion
+#' @describeIn chk_deprecated Check Proportion
 #' 
 #' Checks if non-missing numeric scalar between 0 and 1 using:
 #' 
