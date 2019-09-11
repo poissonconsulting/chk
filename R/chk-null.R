@@ -23,7 +23,7 @@ NULL
 chk_null <- function(x, x_name = NULL){
   if (vld_null(x)) return(invisible())
   if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
-  .abort(x_name, " must be NULL.")
+  abort_chk(x_name, " must be NULL.")
 }
 
 #' @describeIn chk_null Validate NULL
@@ -56,7 +56,7 @@ vld_null <- function(x) is.null(x)
 chk_not_null <- function(x, x_name = NULL){
   if (vld_not_null(x)) return(invisible())
   if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
-  .abort(x_name, " must not be NULL.")
+  abort_chk(x_name, " must not be NULL.")
 }
 
 #' @describeIn chk_null Validate Not NULL

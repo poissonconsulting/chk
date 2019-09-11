@@ -46,7 +46,7 @@ chk_length <- function(x, length = 1L, x_name = NULL) {
   .Deprecated("chk_range(length(x))")
   if(length(x) == length) return(TRUE)
   if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
-  .abort(x_name, " must be length ", length, ", not ", length(x), ".")
+  abort_chk(x_name, " must be length ", length, ", not ", length(x), ".")
 }
 
 
@@ -65,7 +65,7 @@ chk_count <- function(x, x_name = NULL){
      (is.integer(x) || isTRUE(all.equal(x, as.integer(x)))))
     return(TRUE)
   if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
-  .abort(x_name, 
+  abort_chk(x_name, 
        " must be a count (non-missing non-negative integer scalar or double equivalent).")
 }
 
@@ -82,7 +82,7 @@ chk_proportion <- function(x, x_name = NULL){
   if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1) 
     return(TRUE)
   if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
-  .abort(x_name, 
+  abort_chk(x_name, 
        " must be a proportion (non-missing numeric scalar between 0 and 1).")
 }
 

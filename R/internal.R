@@ -1,5 +1,3 @@
-.abort <- function(...) abort(p0(...))
-
 # necessary hack because for data frames
 # argument 'incomparables != FALSE' is not used (yet)
 .anyDuplicated <- function(x, incomparables = FALSE) {

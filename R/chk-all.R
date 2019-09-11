@@ -85,7 +85,7 @@ vld_all <- function(x, vld_fun, ...) {
 chk_all_identical <- function(x, x_name = NULL) {
   if(vld_all_identical(x)) return(invisible())
   if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
-  .abort(x_name, " must have identical elements.")
+  abort_chk(x_name, " must have identical elements.")
 }
 
 #' @export
@@ -121,7 +121,7 @@ vld_all_identical <- function(x) {
 chk_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL) {
   if(vld_all_equal(x, tolerance = tolerance)) return(invisible())
   if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
-  .abort(x_name, " must have equal elements.")
+  abort_chk(x_name, " must have equal elements.")
 }
 
 #' @export
@@ -157,7 +157,7 @@ vld_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps)) {
 chk_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL) {
   if(vld_all_equivalent(x, tolerance = tolerance)) return(invisible())
   if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
-  .abort(x_name, " must have equivalent elements.")
+  abort_chk(x_name, " must have equivalent elements.")
 }
 
 #' @export
