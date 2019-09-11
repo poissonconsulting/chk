@@ -85,3 +85,25 @@ chk_proportion <- function(x, x_name = NULL){
   .abort(x_name, 
        " must be a proportion (non-missing numeric scalar between 0 and 1).")
 }
+
+#' @describeIn chk_deprecated Check In
+#' 
+#' Checks if all values in values using \code{chk_subset()}.
+#' 
+#' @export
+chk_in <- function (x, values, x_name = NULL) {
+  .Deprecated("chk_subset")
+  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
+  chk_subset(x, values, x_name = x_name)
+}
+
+#' @describeIn chk_deprecated Check Has
+#' 
+#' Checks if includes all values using \code{chk_superset()}.
+#' 
+#' @export
+chk_has <- function(x, values, x_name = NULL) {
+  .Deprecated("chk_superset")
+  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
+  chk_superset(x, values, x_name = x_name)
+}

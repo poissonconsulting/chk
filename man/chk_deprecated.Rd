@@ -4,11 +4,17 @@
 \alias{chk_deprecated}
 \alias{chk_count}
 \alias{chk_proportion}
+\alias{chk_in}
+\alias{chk_has}
 \title{Deprecated functions}
 \usage{
 chk_count(x, x_name = NULL)
 
 chk_proportion(x, x_name = NULL)
+
+chk_in(x, values, x_name = NULL)
+
+chk_has(x, values, x_name = NULL)
 }
 \description{
 Deprecated \code{chk_()} functions.
@@ -27,6 +33,14 @@ Checks if non-missing non-negative integer scalar or double equivalent using:
 Checks if non-missing numeric scalar between 0 and 1 using:
 
 \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1}
+
+\item \code{chk_in}: Check In
+
+Checks if all values in values using \code{chk_subset()}.
+
+\item \code{chk_has}: Check Has
+
+Checks if includes all values using \code{chk_superset()}.
 }}
 
 \keyword{internal}
