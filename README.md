@@ -73,7 +73,7 @@ data <- data.frame(x = 1:2)
 chk_is(data, "data.frame")
 chk_range(nrow(data), c(3,8))
 #> `nrow(data)` must be between 3 and 8, not 2.
-chk_in(nrow(data), c(3,8))
+chk_subset(nrow(data), c(3,8))
 #> `nrow(data)` must match 3 or 8, not 2.
 
 chk_identical(data$x, 2:1)

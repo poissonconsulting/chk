@@ -50,6 +50,9 @@ vld_is <- function(x, class) inherits(x, class)
 #'  
 #' Checks if integer vector or double equivalent using \code{vld_whole_numeric()}.
 #' 
+#' The \code{\link{chk_whole_number}()} function checks if 
+#' non-missing integer scalar or double equivalent.
+#' 
 #' @export
 #' 
 #' @examples 

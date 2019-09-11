@@ -3,7 +3,8 @@
 #' @inheritParams chk_true
 #' @return \code{NULL}, invisibly. Called for the side effect of throwing an error
 #'   if the condition is not met.
-#' @seealso \code{\link{chk_true}()} and \code{\link{chk_range}()}
+#' @seealso \code{\link{chk_true}()}, \code{\link{chk_range}()}
+#' and \code{\link{chk_whole_numeric}()}
 #' @name chk_number
 NULL
 
@@ -54,6 +55,9 @@ vld_number <- function(x) {
 #' \strong{Good}: \code{1}, \code{2L}, \code{1e10}, \code{-Inf}.
 #' 
 #' \strong{Bad}: \code{"a"}, \code{1:3}, \code{NA_integer_}, \code{log(10)}.
+#' 
+#' The \code{\link{chk_whole_numeric}()} function checks if 
+#' integer vector of any length or double equivalent.
 #' 
 #' @export
 #' @rdname chk_number

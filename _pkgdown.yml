@@ -12,7 +12,7 @@ reference:
   - '`chk_date`'
   - '`chk_is`'
   - '`chk_identical`'
-  - '`chk_in`'
+  - '`chk_subset`'
 - title: Complex checkers
   desc: Checking vectors or combining checks
   contents:
