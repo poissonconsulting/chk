@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Tinyverse status](https://tinyverse.netlify.com/badge/chk)](https://CRAN.R-project.org/package=chk)
 [![CRAN status](https://www.r-pkg.org/badges/version/chk)](https://cran.r-project.org/package=chk)
-![CRAN downloads](http://cranlogs.r-pkg.org/badges/chk)
+![CRAN downloads](https://cranlogs.r-pkg.org/badges/chk)
 <!-- badges: end -->
 
 `chk` is an R package for developers to check user-supplied function arguments.
