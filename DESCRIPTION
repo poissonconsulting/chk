@@ -10,7 +10,7 @@ Description: For developers to check user-supplied function arguments.
         It is designed to be simple, fast and customizable.
         Error messages follow the tidyverse style guide.
 License: MIT + file LICENSE
-Depends: R (>= 3.5)
+Depends: R (>= 3.1)
 Imports: 
     utils,
     rlang
