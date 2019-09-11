@@ -13,3 +13,5 @@
   
   anyDuplicated(x)
 }
+
+tick <- function(x) p0("`", x, "`")

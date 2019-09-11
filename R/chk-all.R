@@ -24,10 +24,10 @@ NULL
 #' try(chk_all(1, chk_lgl))
 chk_all <- function(x, chk_fun, ..., x_name = NULL) {
   if(is.null(x)) {
-    if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
+    if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
     return(chk_fun(x, ..., x_name = x_name))
   }
-  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
   x_name <- paste0("All elements of ", x_name)
 
   args <- list(...)
@@ -76,7 +76,7 @@ vld_all <- function(x, vld_fun, ...) {
 #' try(chk_all_identical(1, 1.0000001))
 chk_all_identical <- function(x, x_name = NULL) {
   if(vld_all_identical(x)) return(invisible())
-  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
   .abort(x_name, " must have identical elements.")
 }
 

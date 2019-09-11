@@ -22,7 +22,7 @@ NULL
 #' chk_null(NULL)
 chk_null <- function(x, x_name = NULL){
   if (vld_null(x)) return(invisible())
-  if(is.null(x_name))  x_name <- p0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
   .abort(x_name, " must be NULL.")
 }
 
@@ -55,7 +55,7 @@ vld_null <- function(x) is.null(x)
 #' chk_not_null(1)
 chk_not_null <- function(x, x_name = NULL){
   if (vld_not_null(x)) return(invisible())
-  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
   .abort(x_name, " must not be NULL.")
 }
 

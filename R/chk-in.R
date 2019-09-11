@@ -23,7 +23,7 @@ NULL
 chk_in <- function (x, values, x_name = NULL) {
   if(vld_in(x, values)) return(invisible())
   values <- sort(unique(values), na.last = TRUE)
-  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
   if(length(x) == 1L)
     .abort(x_name, " must match ", cc(values, " or "), ", not ", cc(x), ".")
   .abort(x_name, " must have values matching ", cc(values, " or "), ".")
@@ -59,7 +59,7 @@ vld_in <- function (x, values) all(x %in% values)
 chk_has <- function(x, values, x_name = NULL) {
   if(vld_has(x, values)) return(invisible())
   values <- sort(unique(values), na.last = TRUE)
-  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
   values <- values[!values %in% x]
   .abort(x_name, " must include ", cc(values, " and "), ".")
 }

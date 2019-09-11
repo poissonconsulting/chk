@@ -25,7 +25,7 @@ NULL
 chk_range <- function (x, range = c(0, 1), x_name = NULL) {
   if(vld_range(x, range)) return(invisible())
 
-  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
   if(length(x) == 1L) {
     if(range[1] == range[2])
       .abort(x_name, " must be ", cc(range[1]), ", not ", cc(x), ".")
@@ -74,7 +74,7 @@ vld_range <- function (x, range = c(0, 1)) {
 #' try(chk_lt(c(-0.1, 0.2)))
 chk_lt <- function (x, value = 0, x_name = NULL) {
   if(vld_lt(x, value)) return(invisible())
-  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
   if(length(x) == 1L)
     .abort(x_name, " must be less than ", cc(value), ", not ", cc(x), ".")
   .abort(x_name, " must have values less than ", cc(value), ".")
@@ -116,7 +116,7 @@ vld_lt <- function (x, value = 0) all(x[!is.na(x)] < value)
 #' try(chk_lte(0.1))
 chk_lte <- function (x, value = 0, x_name = NULL) {
   if(vld_lte(x, value)) return(invisible())
-  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
   if(length(x) == 1L)
     .abort(x_name, " must be less than or equal to ", cc(value), ", not ", cc(x), 
          ".")
@@ -157,7 +157,7 @@ vld_lte <- function (x, value = 0) all(x[!is.na(x)] <= value)
 #' try(chk_gt(c(0.1, -0.2)))
 chk_gt <- function (x, value = 0, x_name = NULL) {
   if(vld_gt(x, value)) return(invisible())
-  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
   if(length(x) == 1L)
     .abort(x_name, " must be greater than ", cc(value), ", not ", cc(x), ".")
   .abort(x_name, " must have values greater than ", cc(value), ".")
@@ -199,7 +199,7 @@ vld_gt <- function (x, value = 0) all(x[!is.na(x)] > value)
 #' try(chk_gte(-0.1))
 chk_gte <- function (x, value = 0, x_name = NULL) {
   if(vld_gte(x, value)) return(invisible())
-  if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
+  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
   if(length(x) == 1L)
     .abort(x_name, " must be greater than or equal to ", cc(value), 
         ", not ", cc(x), ".")
