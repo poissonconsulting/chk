@@ -44,3 +44,43 @@ test_that("chk_all_identical", {
   expect_invisible(chk_all_identical(NULL))
   expect_error(chk_all_identical(c(1, 2)), "^`c[(]1, 2[)]` must have identical elements[.]$")
 })
+
+test_that("vld_all_equal", {
+  expect_true(vld_all_equal(NULL))
+  expect_true(vld_all_equal(character(0)))
+  expect_true(vld_all_equal(1))
+  expect_true(vld_all_equal(c(TRUE, TRUE)))
+  expect_true(vld_all_equal(c(NA, NA)))
+  expect_false(vld_all_equal(c(1, 2)))
+  expect_false(vld_all_equal(c(1, 1.0000001), tolerance = 1.490116e-08))
+  expect_true(vld_all_equal(c(1, 1.00000001), tolerance = 1.490116e-08))
+  expect_true(vld_all_equal(list(c(x = 1), c(x = 1))))
+  expect_false(vld_all_equal(list(c(x = 1), c(y = 1))))
+})
+
+test_that("chk_all_equal", {
+  expect_null(chk_all_equal(NULL))
+  expect_invisible(chk_all_equal(NULL))
+  expect_error(chk_all_equal(c(1, 2)), "^`c[(]1, 2[)]` must have equal elements[.]$")
+})
+
+test_that("vld_all_equivalent", {
+  expect_true(vld_all_equivalent(NULL))
+  expect_true(vld_all_equivalent(character(0)))
+  expect_true(vld_all_equivalent(1))
+  expect_true(vld_all_equivalent(c(TRUE, TRUE)))
+  expect_true(vld_all_equivalent(c(NA, NA)))
+  expect_false(vld_all_equivalent(c(1, 2)))
+  expect_false(vld_all_equivalent(c(1, 1.0000001), tolerance = 1.490116e-08))
+  expect_true(vld_all_equivalent(c(1, 1.00000001), tolerance = 1.490116e-08))
+  expect_true(vld_all_equivalent(list(c(x = 1), c(x = 1))))
+  expect_true(vld_all_equivalent(list(c(x = 1), c(y = 1))))
+})
+
+test_that("chk_all_equivalent", {
+  expect_null(chk_all_equivalent(NULL))
+  expect_invisible(chk_all_equivalent(NULL))
+  expect_error(chk_all_equivalent(c(1, 2)), "^`c[(]1, 2[)]` must have equivalent elements[.]$")
+})
+
+

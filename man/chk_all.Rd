@@ -2,18 +2,19 @@
 % Please edit documentation in R/chk-all.R
 \name{chk_all}
 \alias{chk_all}
-\alias{vld_all}
 \alias{chk_all_identical}
-\alias{vld_all_identical}
-\title{Check/Validate All or All Identical}
+\alias{chk_all_equal}
+\alias{chk_all_equivalent}
+\title{Check All or Check All Identical, Equal or Equivalent}
 \usage{
 chk_all(x, chk_fun, ..., x_name = NULL)
 
-vld_all(x, vld_fun, ...)
-
 chk_all_identical(x, x_name = NULL)
 
-vld_all_identical(x)
+chk_all_equal(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL)
+
+chk_all_equivalent(x, tolerance = sqrt(.Machine$double.eps),
+  x_name = NULL)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -24,54 +25,71 @@ vld_all_identical(x)
 
 \item{x_name}{A string of the name of object x or NULL.}
 
-\item{vld_fun}{A vld_ function.}
+\item{tolerance}{A non-negative numeric scalar.}
 }
 \value{
-The \code{chk_} functions throw an informative error if the test fails.
-The \code{vld_} functions return a flag indicating whether the test was met.
+\code{NULL}, invisibly. Called for the side effect of throwing an error
+  if the condition is not met.
 }
 \description{
-Checks/validates all elements or all elements identical.
+\code{chk_all()}
+checks all elements using 
+
+\code{all(vapply(x, chk_fun, TRUE, ...))}.
+
+\code{chk_all_identical()}
+checks all elements in x identical using 
+
+\code{all(vapply(x, chk_identical, TRUE, y = x[[1]]))}.
+
+\strong{Good}: \code{c(1, 1.00000001)}, \code{list(1, 1)}.
+
+\strong{Bad}: \code{c(1, 1.0000001)}, \code{list(1, NA)}.
+
+\code{chk_all_equal()}
+checks all elements in x equal using 
+
+\code{all(vapply(x, chk_equal, TRUE, y = x[[1]]), tolerance = tolerance)}.
+
+\code{chk_all_equivalent()}
+checks all elements in x equivalent using 
+
+\code{all(vapply(x, chk_equivalent, TRUE, y = x[[1]]), tolerance = tolerance)}.
 }
 \section{Functions}{
 \itemize{
 \item \code{chk_all}: Check All
 
-Checks all elements using \code{all(vapply(x, chk_fun, TRUE, ...))}.
-
-\item \code{vld_all}: Validate All
-
-Validates all elements using \code{all(vapply(x, vld_fun, TRUE, ...))}.
-
 \item \code{chk_all_identical}: Check All Identical
 
-Checks all elements in x identical using \code{vld_all_identical()}.
+\item \code{chk_all_equal}: Check All Equal
 
-\item \code{vld_all_identical}: Validates All Identical
-
-Validates all elements in x identical using \code{all(vapply(x, identical, TRUE, y = x[[1]]))}.
+\item \code{chk_all_equivalent}: Check All Equivalent
 }}
 
 \examples{
 
 # chk_all
 chk_all(TRUE, chk_lgl)
-try(chk_all(1, chk_lgl))
-
-# vld_all
-vld_all(TRUE, vld_lgl)
-vld_all(c(TRUE, NA), vld_lgl)
-vld_all(numeric(0), vld_lgl)
-vld_all(1, vld_lgl)
+# FIXME try(chk_all(1, chk_lgl)) 
+chk_all(c(TRUE, NA), chk_lgl)
 
 # chk_all_identical
-chk_all_identical(1, 1.00000001)
-try(chk_all_identical(1, 1.0000001))
+chk_all_identical(c(1, 1))
+try(chk_all_identical(c(1, 1.1)))
 
-# vld_all_identical
-vld_all_identical(c(1, 1.00000001))
-vld_all_identical(c(1, 1.0000001))
-vld_all_identical(c(1, 1L))
-vld_all_identical(c(1,2))
-vld_all_identical(c(1,2.0000001))
+# chk_all_equal
+chk_all_equal(c(1, 1.00000001))
+try(chk_all_equal(c(1, 1.0000001)))
+chk_all_equal(list(c(x = 1), c(x = 1)))
+try(chk_all_equal(list(c(x = 1), c(y = 1))))
+
+# chk_all_equivalent
+chk_all_equivalent(c(1, 1.00000001))
+try(chk_all_equivalent(c(1, 1.0000001)))
+chk_all_equivalent(list(c(x = 1), c(x = 1)))
+chk_all_equivalent(list(c(x = 1), c(y = 1)))
+}
+\seealso{
+\code{\link{chk_identical}()}.
 }

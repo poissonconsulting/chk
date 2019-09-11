@@ -11,7 +11,7 @@ reference:
   - '`chk_string`'
   - '`chk_date`'
   - '`chk_is`'
-  - '`chk_equal`'
+  - '`chk_identical`'
   - '`chk_in`'
 - title: Complex checkers
   desc: Checking vectors or combining checks
