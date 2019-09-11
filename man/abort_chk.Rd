@@ -10,7 +10,7 @@ abort_chk(...)
 \item{...}{A substituted object to deparse.}
 }
 \value{
-Throws an error.
+Throws an error of class \code{chk_error}.
 }
 \description{
 A wrapper on \code{\link[rlang]{abort}(paste0(...))} that throws an error.

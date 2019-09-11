@@ -5,14 +5,14 @@
 #' It is exported to allow users to construct their own `chk_` functions.
 #'
 #' @param ... A substituted object to deparse.
-#' @return Throws an error.
+#' @return Throws an error of class \code{chk_error}.
 #' @seealso \code{\link[rlang]{abort}}
 #' @export
 #'
 #' @examples
 #' try(abort_chk())
 #' try(abort_chk("x must be NULL."))
-abort_chk <- function(...) abort(p0(...))
+abort_chk <- function(...) abort(p0(...), .subclass = "chk_error")
 
 #' Deparse Tick
 #' 

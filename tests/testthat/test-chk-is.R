@@ -14,13 +14,13 @@ test_that("vld_is", {
 test_that("chk_is", {
   expect_null(chk_is(1L, "integer"))
   expect_invisible(chk_is(1L, "integer"))
-  expect_error(chk_is(1, "integer"), "^`1` must inherit from class 'integer'[.]$")
-  expect_error(chk_is(matrix(1), "numeric"), 
+  expect_chk_error(chk_is(1, "integer"), "^`1` must inherit from class 'integer'[.]$")
+  expect_chk_error(chk_is(matrix(1), "numeric"), 
                "`matrix[(]1[)]` must inherit from class 'numeric'[.]$")
   x <- list()
   class(x) <- c("a", "b")
-  expect_error(chk_is(x, "c"), "`x` must inherit from class 'c'")
-  expect_error(chk_is(x, "c", x_name = "c"), "c must inherit from class 'c'")
+  expect_chk_error(chk_is(x, "c"), "`x` must inherit from class 'c'")
+  expect_chk_error(chk_is(x, "c", x_name = "c"), "c must inherit from class 'c'")
 })
 
 test_that("vld_whole_numeric", {
@@ -43,8 +43,8 @@ test_that("vld_whole_numeric", {
 test_that("chk_whole_numeric", {
   expect_null(chk_whole_numeric(1L))
   expect_invisible(chk_whole_numeric(1L))
-  expect_error(chk_whole_numeric(TRUE), "^`TRUE` must be a whole numeric vector [(]integer vector or double equivalent[)][.]$")
-  expect_error(chk_whole_numeric(TRUE, x_name = "c(1,2)"), "^c[(]1,2[)] must be a whole numeric vector [(]integer vector or double equivalent[)][.]$")
+  expect_chk_error(chk_whole_numeric(TRUE), "^`TRUE` must be a whole numeric vector [(]integer vector or double equivalent[)][.]$")
+  expect_chk_error(chk_whole_numeric(TRUE, x_name = "c(1,2)"), "^c[(]1,2[)] must be a whole numeric vector [(]integer vector or double equivalent[)][.]$")
 })
 
 test_that("vld_list", {
@@ -60,8 +60,8 @@ test_that("vld_list", {
 test_that("chk_list", {
   expect_null(chk_list(list()))
   expect_invisible(chk_list(list()))
-  expect_error(chk_list(1), "^`1` must be a list[.]$")
-  expect_error(chk_list(1, x_name = "list()"), "^list[(][)] must be a list[.]$")
+  expect_chk_error(chk_list(1), "^`1` must be a list[.]$")
+  expect_chk_error(chk_list(1, x_name = "list()"), "^list[(][)] must be a list[.]$")
 })
 
 test_that("vld_function", {
@@ -73,6 +73,6 @@ test_that("vld_function", {
 test_that("chk_function", {
   expect_null(chk_function(c))
   expect_invisible(chk_function(c))
-  expect_error(chk_function(1), "^`1` must be a function[.]$")
-  expect_error(chk_function(1, x_name = "function()"), "^function[(][)] must be a function[.]$")
+  expect_chk_error(chk_function(1), "^`1` must be a function[.]$")
+  expect_chk_error(chk_function(1, x_name = "function()"), "^function[(][)] must be a function[.]$")
 })

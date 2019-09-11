@@ -40,6 +40,5 @@ chkor <- function (...) {
     msg <- p0(msg, collapse = "\n* ")
     msg <- p0("At least one of the following conditions must be met:\n* ", msg)
   }
-  # FIXME: Add .subclass argument
-  abort(msg)
+  abort_chk(msg)
 }

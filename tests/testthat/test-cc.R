@@ -16,19 +16,19 @@ test_that("cc with atomic vectors", {
 })
 
 test_that("cc errors", {
-  expect_error(cc(1, conj = 1), 
+  expect_chk_error(cc(1, conj = 1), 
                "^`conj` must be a string [(]non-missing character scalar[)][.]$")
-  expect_error(cc(1, conj = character(0)), 
+  expect_chk_error(cc(1, conj = character(0)), 
                "^`conj` must be a string [(]non-missing character scalar[)][.]$")
-  expect_error(cc(1, conj = as.character(1:2)), 
+  expect_chk_error(cc(1, conj = as.character(1:2)), 
                "^`conj` must be a string [(]non-missing character scalar[)][.]$")
-  expect_error(cc(1, brac = 1), 
+  expect_chk_error(cc(1, brac = 1), 
                "^`brac` must inherit from class 'character'[.]$")
-  expect_error(cc(1, brac = character(0)), 
+  expect_chk_error(cc(1, brac = character(0)), 
                "^`length[(]brac[)]` must be between 1 and 2, not 0[.]$")
-  expect_error(cc(1, brac = as.character(1:3)), 
+  expect_chk_error(cc(1, brac = as.character(1:3)), 
                "^`length[(]brac[)]` must be between 1 and 2, not 3[.]$")
-  expect_error(cc(1, sep = as.character(1:3)), 
+  expect_chk_error(cc(1, sep = as.character(1:3)), 
                "^`sep` must be a string [(]non-missing character scalar[)][.]$")
 })
 
@@ -64,8 +64,8 @@ test_that("cc with sep", {
 test_that("cc with ellipsis", {
   expect_identical(cc(1:10), c("1, 2, 3, 4, 5, 6, 7, 8, 9, 10"))
   expect_identical(cc(1:10, ellipsis = 3), c("1, ..., 10"))
-  expect_error(cc(1:10, ellipsis = 2), 
+  expect_chk_error(cc(1:10, ellipsis = 2), 
                "`ellipsis` must be greater than or equal to 3, not 2[.]")
-  expect_error(cc(1:10, ellipsis = 2.5), 
+  expect_chk_error(cc(1:10, ellipsis = 2.5), 
                "`ellipsis` must be a whole number [(]non-missing integer scalar or double equivalent[)][.]")
 })

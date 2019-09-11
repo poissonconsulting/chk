@@ -18,9 +18,9 @@ test_that("chk_file", {
 
   file1 <- paste0(tempfile(), "1.csv")
   file2 <- paste0(tempfile(), "2.csv")
-  expect_error(chk_file(c(file1)), 
+  expect_chk_error(chk_file(c(file1)), 
                         "^Can't find file '.*[.]csv'[.]$")
-  expect_error(chk_file(c(file1, file2)), 
+  expect_chk_error(chk_file(c(file1, file2)), 
                         "^Can't find the following files: '.*[.]csv' or '.*[.]csv'[.]$")
 })
 
@@ -33,9 +33,9 @@ test_that("vld_dir", {
 test_that("chk_dir", {
   expect_null(chk_dir(tempdir()))
   expect_invisible(chk_dir(tempdir()))
-  expect_error(chk_dir(tempfile()), "^Can't find directory '.*'[.]$")
+  expect_chk_error(chk_dir(tempfile()), "^Can't find directory '.*'[.]$")
   path <- file.path(tempdir(), "chk")
   unlink(path)
-  expect_error(chk_dir(path), "^Can't find directory '.*chk'[.]$")
-  expect_error(chk_dir(c(path, file.path(path, "other"))), "^Can't find the following directories: '.*chk' or '.*other'[.]$")
+  expect_chk_error(chk_dir(path), "^Can't find directory '.*chk'[.]$")
+  expect_chk_error(chk_dir(c(path, file.path(path, "other"))), "^Can't find the following directories: '.*chk' or '.*other'[.]$")
 })
