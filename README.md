@@ -87,28 +87,51 @@ chkor(chk_flag(z), chk_number(z))
 ```
 
 Error messages follow the [tidyverse style
-guide](https://style.tidyverse.org/error-messages.html).
+guide](https://style.tidyverse.org/error-messages.html) while the errors
+themselves are [rlang](https://rlang.r-lib.org/reference/abort.html)
+errors of subclass `chk_error`.
 
 ### Customizable
 
 #### Custom Error Messages
 
-The `vld_` variant of each `chk_` function returns FALSE (instead of
-throwing an error) on check failure.
+The actual checks are performed by the `vld_` variant of each `chk_`
+function which returns a flag (TRUE or FALSE) indicating whether the
+test was passed.
 
 ``` r
+chk_flag(TRUE)
 vld_flag(TRUE)
 #> [1] TRUE
+try(chk_flag(TRUE))
 vld_flag(1)
 #> [1] FALSE
 ```
 
-This allows developers to provide their own error messages.
+This gives developers the freedom to provide their own error messages.
 
 ``` r
-if(!vld_flag(1)) rlang::abort("x MUST be a flag (try as.logical())")
+if(!vld_flag(1)) abort_chk("x MUST be a flag (try as.logical())")
 #> x MUST be a flag (try as.logical())
 ```
+
+#### Custom Functions
+
+The structure of most `chk_` is as exemplified by `chk_flag`.
+
+``` r
+chk_flag
+#> function(x, x_name = NULL){
+#>   if(vld_flag(x)) return(invisible())
+#>   if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
+#>   abort_chk(x_name, " must be a flag (TRUE or FALSE).")
+#> }
+#> <bytecode: 0x7fe802835670>
+#> <environment: namespace:chk>
+```
+
+The `deparse_backtick()` and `abort_chk()` functions are exported to
+make it easy for programmers to develop their own `chk_` functions.
 
 ### Fast
 
@@ -116,14 +139,14 @@ The functions are designed to be fast.
 
 #### Check First
 
-Almost all `chk_` functions immediately call their `vld_` variant to
-evaluate the object and return an invisible NULL if it passes the check.
-Otherwise they spend time constructing an informative error message.
+`chk_` functions immediately call their `vld_` variant and if the test
+is passed return (an invisible NULL). Otherwise they spend time
+constructing an informative error message.
 
 #### Minimal Checking
 
-As they are not expected to be directly exposed to users the `chk_` and
-`vld_` functions don’t check any of their arguments (other than the
+As the `chk_` and `vld_` functions are not expected to be directly
+exposed to users they don’t check any of their arguments (other than the
 object of interest of course\!).
 
 #### Turn Off Checking
