@@ -1,1 +1,36 @@
 destination: docs
+
+reference:
+- title: Scalar checkers
+  desc: Checking scalars
+  contents:
+  - '`chk_null`'
+  - '`chk_true`'
+  - '`chk_number`'
+  - '`chk_range`'
+  - '`chk_string`'
+  - '`chk_date`'
+  - '`chk_is`'
+  - '`chk_equal`'
+  - '`chk_in`'
+- title: Complex checkers
+  desc: Checking vectors or combining checks
+  contents:
+  - '`chk_unique`'
+  - '`chk_all`'
+  - '`chkor`'
+  - '`chk_unused`'
+  - '`chk_file`'
+- title: Control
+  desc: Disabling the package's functionality
+  contents:
+  - '`chk_on`'
+- title: Templated errors
+  desc: Creating error messages from a template
+  contents:
+  - '`err`'
+- title: String manipulation
+  desc: Helper functions for handling strings
+  contents:
+  - '`p`'
+  - '`cc`'
