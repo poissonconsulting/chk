@@ -9,8 +9,8 @@ test_that("chk_null", {
   expect_null(chk_null(NULL))
   expect_invisible(chk_null(NULL))
 
-  expect_error(chk_null(1), "^`1` must be NULL[.]$")
-  expect_error(chk_null(1, x_name = "NULL"), "^NULL must be NULL[.]$")
+  expect_chk_error(chk_null(1), "^`1` must be NULL[.]$", "chk_error_null")
+  expect_chk_error(chk_null(1, x_name = "NULL"), "^NULL must be NULL[.]$", "chk_error_null")
 })
 
 test_that("vld_not_null", {
