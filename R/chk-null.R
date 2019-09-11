@@ -21,9 +21,7 @@ NULL
 #' try(chk_null(1))
 #' chk_null(NULL)
 chk_null <- function(x, x_name = NULL){
-  if (vld_null(x)) return(invisible())
-  if(is.null(x_name))  x_name <- tick(deparse(substitute(x)))
-  .abort(x_name, " must be NULL.")
+  chk_(vld_null(x), " must be NULL.")
 }
 
 #' @describeIn chk_null Validate NULL
