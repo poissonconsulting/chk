@@ -1,3 +1,4 @@
+- Switched from `stop()`, `warning()` and `message()` to `abort()`, `warn()` and `inform()`.
 - Replaced `err = FALSE` variant with `vld_` variant.
 - Extended `chk_unique()` to handle `incomparables != FALSE` with data frames.
 - Added `chk_has()` function.
