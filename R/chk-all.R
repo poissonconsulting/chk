@@ -77,7 +77,7 @@ vld_all <- function(x, vld_fun, ...) {
 chk_all_identical <- function(x, x_name = NULL) {
   if(vld_all_identical(x)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  abort(p0(x_name, " must have identical elements."))
+  .abort(x_name, " must have identical elements.")
 }
 
 #' @describeIn chk_all Validates All Identical

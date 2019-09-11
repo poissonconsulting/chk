@@ -24,7 +24,7 @@ NULL
 chk_number <- function(x, x_name = NULL){
   if(vld_number(x)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  abort(p0(x_name, " must be a number (non-missing numeric scalar)."))
+  .abort(x_name, " must be a number (non-missing numeric scalar).")
 }
 
 #' @describeIn chk_number Validate Number
@@ -63,8 +63,8 @@ vld_number <- function(x) {
 chk_whole_number <- function(x, x_name = NULL){
   if(vld_whole_number(x)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-  abort(p0(x_name, 
-       " must be a whole number (non-missing integer scalar or double equivalent)."))
+  .abort(x_name, 
+       " must be a whole number (non-missing integer scalar or double equivalent).")
 }
 
 #' @describeIn chk_number Validate Whole Number

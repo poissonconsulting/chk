@@ -90,7 +90,7 @@ vld_flag(1)
 This allows developers to provide their own error messages.
 
 ```{r, error = TRUE}
-if(!vld_flag(1)) stop("x MUST be a flag (try as.logical())")
+if(!vld_flag(1)) rlang::abort("x MUST be a flag (try as.logical())")
 ```
 
 ### Fast
@@ -107,9 +107,9 @@ chk_flag
 #> function(x, x_name = NULL){
 #>   if(vld_flag(x)) return(invisible())
 #>   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-#>   stop(x_name, " must be a flag (TRUE or FALSE).", call. = FALSE)
+#>   abort(p0(x_name, " must be a flag (TRUE or FALSE)."))
 #> }
-#> <bytecode: 0x7fd93e469568>
+#> <bytecode: 0x7fd2b4064a70>
 #> <environment: namespace:chk>
 ```
 

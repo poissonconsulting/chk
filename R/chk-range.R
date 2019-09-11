@@ -28,13 +28,13 @@ chk_range <- function (x, range = c(0, 1), x_name = NULL) {
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L) {
     if(range[1] == range[2])
-      abort(p0(x_name, " must be ", cc(range[1]), ", not ", cc(x), "."))
-    abort(p0(x_name, " must be between ", cc(range, " and "), 
-        ", not ", cc(x), "."))
+      .abort(x_name, " must be ", cc(range[1]), ", not ", cc(x), ".")
+    .abort(x_name, " must be between ", cc(range, " and "), 
+        ", not ", cc(x), ".")
   }
   if(range[1] == range[2])
-    abort(p0(x_name, " must have values of ", cc(range[1]), "."))
-  abort(p0(x_name, " must have values between ", cc(range, " and "), "."))
+    .abort(x_name, " must have values of ", cc(range[1]), ".")
+  .abort(x_name, " must have values between ", cc(range, " and "), ".")
 }
 
 #' @describeIn chk_range Validate Range
@@ -76,8 +76,8 @@ chk_lt <- function (x, value = 0, x_name = NULL) {
   if(vld_lt(x, value)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
-    abort(p0(x_name, " must be less than ", cc(value), ", not ", cc(x), "."))
-  abort(p0(x_name, " must have values less than ", cc(value), "."))
+    .abort(x_name, " must be less than ", cc(value), ", not ", cc(x), ".")
+  .abort(x_name, " must have values less than ", cc(value), ".")
 }
 
 #' @describeIn chk_range Validate Less Than
@@ -118,9 +118,9 @@ chk_lte <- function (x, value = 0, x_name = NULL) {
   if(vld_lte(x, value)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
-    abort(p0(x_name, " must be less than or equal to ", cc(value), ", not ", cc(x), 
-         "."))
-  abort(p0(x_name, " must have values less than or equal to ", cc(value), "."))
+    .abort(x_name, " must be less than or equal to ", cc(value), ", not ", cc(x), 
+         ".")
+  .abort(x_name, " must have values less than or equal to ", cc(value), ".")
 }
 
 #' @describeIn chk_range Validate Less Than or Equal To
@@ -159,8 +159,8 @@ chk_gt <- function (x, value = 0, x_name = NULL) {
   if(vld_gt(x, value)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
-    abort(p0(x_name, " must be greater than ", cc(value), ", not ", cc(x), "."))
-  abort(p0(x_name, " must have values greater than ", cc(value), "."))
+    .abort(x_name, " must be greater than ", cc(value), ", not ", cc(x), ".")
+  .abort(x_name, " must have values greater than ", cc(value), ".")
 }
 
 #' @describeIn chk_range Validate Greater Than
@@ -201,9 +201,9 @@ chk_gte <- function (x, value = 0, x_name = NULL) {
   if(vld_gte(x, value)) return(invisible())
   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
   if(length(x) == 1L)
-    abort(p0(x_name, " must be greater than or equal to ", cc(value), 
-        ", not ", cc(x), "."))
-  abort(p0(x_name, " must have values greater than or equal to ", cc(value), "."))
+    .abort(x_name, " must be greater than or equal to ", cc(value), 
+        ", not ", cc(x), ".")
+  .abort(x_name, " must have values greater than or equal to ", cc(value), ".")
 }
 
 #' @describeIn chk_range Validate Greater Than or Equal To

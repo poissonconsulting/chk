@@ -66,22 +66,22 @@ library(chk)
 y <- "a"
 
 chk_flag(y)
-#> Error: `y` must be a flag (TRUE or FALSE).
+#> `y` must be a flag (TRUE or FALSE).
 chk_string(y)
 
 data <- data.frame(x = 1:2)
 chk_is(data, "data.frame")
 chk_range(nrow(data), c(3,8))
-#> Error: `nrow(data)` must be between 3 and 8, not 2.
+#> `nrow(data)` must be between 3 and 8, not 2.
 chk_in(nrow(data), c(3,8))
-#> Error: `nrow(data)` must match 3 or 8, not 2.
+#> `nrow(data)` must match 3 or 8, not 2.
 
 chk_identical(data$x, 2:1)
-#> Error: `data$x` must be identical to: 2:1.
+#> `data$x` must be identical to: 2:1.
 
 z <- "b"
 chkor(chk_flag(z), chk_number(z))
-#> Error: At least one of the following conditions must be met:
+#> At least one of the following conditions must be met:
 #> * `z` must be a flag (TRUE or FALSE).
 #> * `z` must be a number (non-missing numeric scalar).
 ```
@@ -106,8 +106,8 @@ vld_flag(1)
 This allows developers to provide their own error messages.
 
 ``` r
-if(!vld_flag(1)) stop("x MUST be a flag (try as.logical())")
-#> Error in eval(expr, envir, enclos): x MUST be a flag (try as.logical())
+if(!vld_flag(1)) rlang::abort("x MUST be a flag (try as.logical())")
+#> x MUST be a flag (try as.logical())
 ```
 
 ### Fast
@@ -124,9 +124,9 @@ chk_flag
 #> function(x, x_name = NULL){
 #>   if(vld_flag(x)) return(invisible())
 #>   if(is.null(x_name))  x_name <- paste0("`", deparse(substitute(x)), "`")
-#>   stop(x_name, " must be a flag (TRUE or FALSE).", call. = FALSE)
+#>   abort(p0(x_name, " must be a flag (TRUE or FALSE)."))
 #> }
-#> <bytecode: 0x7fd93e469568>
+#> <bytecode: 0x7fd2b4064a70>
 #> <environment: namespace:chk>
 ```
 
