@@ -1,2 +1,2 @@
-#' @importFrom rlang abort inform warn
+#' @importFrom rlang abort inform warn enexpr as_label
 NULL
