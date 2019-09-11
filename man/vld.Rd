@@ -10,9 +10,14 @@ vld_number(x)
 
 vld_whole_number(x)
 }
+\arguments{
+\item{x}{The object to check.}
+}
+\value{
+A flag indicating whether the object passed the test.
+}
 \description{
-Each \code{chk_()} function has a corresponding \code{vld_()} function
-that returns `TRUE` or `FALSE` instead of throwing an error.
+Each \code{chk_()} function has a corresponding \code{vld_()} function.
 }
 \examples{
 vld_number(1.1)

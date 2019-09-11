@@ -1,6 +1,8 @@
 #' Validators
+#'
+#' Each \code{chk_()} function has a corresponding \code{vld_()} function.
 #' 
-#' Each \code{chk_()} function has a corresponding \code{vld_()} function
-#' that returns `TRUE` or `FALSE` instead of throwing an error.
+#' @param x The object to check. 
+#' @return A flag indicating whether the object passed the test.
 #' @name vld
 NULL
