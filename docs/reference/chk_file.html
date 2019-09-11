@@ -177,7 +177,7 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'># chk_file</span>
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_file</span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()))</div><div class='output co'>#&gt; Error : Can't find file '/tmp/RtmpY4wIhq/file41ee7bfe441e'.
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_file</span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()))</div><div class='output co'>#&gt; Error : Can't find file '/tmp/RtmpkPzRgT/file548e589ae74b'.
 #&gt; Backtrace:
 #&gt; <span style='color: #555555;'>     </span><span>█
 #&gt; </span><span style='color: #555555;'>  1. </span><span>├─base::tryCatch(...)
@@ -223,7 +223,7 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
 <span class='co'># vld_file</span>
 <span class='fu'>vld_file</span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>())</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
 <span class='co'># chk_dir</span>
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_dir</span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()))</div><div class='output co'>#&gt; Error : Can't find directory '/tmp/RtmpY4wIhq/file41ee4f16a3e5'.
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_dir</span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()))</div><div class='output co'>#&gt; Error : Can't find directory '/tmp/RtmpkPzRgT/file548e435300cd'.
 #&gt; Backtrace:
 #&gt; </span><span style='color: #555555;'>     </span><span>█
 #&gt; </span><span style='color: #555555;'>  1. </span><span>├─base::tryCatch(...)
