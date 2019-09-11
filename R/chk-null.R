@@ -21,7 +21,7 @@ NULL
 #' try(chk_null(1))
 #' chk_null(NULL)
 chk_null <- function(x, x_name = NULL){
-  chk_(vld_null(x), "null", {{ x }}, x_name, " must be NULL.")
+  chk_(vld_null(x), {{ x }}, x_name, " must be NULL.")
 }
 
 #' @describeIn chk_null Validate NULL
