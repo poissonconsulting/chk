@@ -201,3 +201,35 @@ chk_vector <- function(x, x_name = NULL) {
 #' # vld_vector
 #' vld_vector(1)
 vld_vector <- function(x) is.vector(x)
+
+#' @describeIn chk_is Check Scalar
+#'
+#' Checks if is a vector using \code{is.vector() && length(x) == 1L}.
+#'
+#' @export
+#'
+#' @examples
+#'
+#' # chk_scalar
+#' chk_scalar(1)
+#' chk_scalar(list(1))
+#' try(chk_scalar(1:2))
+chk_scalar <- function(x, x_name = NULL) {
+  if (vld_scalar(x)) {
+    return(invisible())
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  abort_chk(x_name, " must be a scalar (vector of length 1).")
+}
+
+#' @describeIn chk_is Validate Scalar
+#'
+#' Validates is a vector using \code{is.vector() && length(x) == 1L}.
+#'
+#' @export
+#'
+#' @examples
+#'
+#' # vld_scalar
+#' vld_scalar(1)
+vld_scalar <- function(x) vld_vector(x) && length(x) == 1L

@@ -11,6 +11,8 @@
 \alias{vld_function}
 \alias{chk_vector}
 \alias{vld_vector}
+\alias{chk_scalar}
+\alias{vld_scalar}
 \title{Check/Validate Is}
 \usage{
 chk_is(x, class, x_name = NULL)
@@ -32,6 +34,10 @@ vld_function(x)
 chk_vector(x, x_name = NULL)
 
 vld_vector(x)
+
+chk_scalar(x, x_name = NULL)
+
+vld_scalar(x)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -104,6 +110,14 @@ Checks if is a vector using \code{is.vector()}.
 Validates is a vector using:
 
 \code{\link{is.vector}(x)}
+
+\item \code{chk_scalar}: Check Scalar
+
+Checks if is a vector using \code{is.vector() && length(x) == 1L}.
+
+\item \code{vld_scalar}: Validate Scalar
+
+Validates is a vector using \code{is.vector() && length(x) == 1L}.
 }}
 
 \examples{
@@ -159,4 +173,12 @@ try(chk_vector(matrix(1)))
 
 # vld_vector
 vld_vector(1)
+
+# chk_scalar
+chk_scalar(1)
+chk_scalar(list(1))
+try(chk_scalar(1:2))
+
+# vld_scalar
+vld_scalar(1)
 }

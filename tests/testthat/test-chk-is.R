@@ -83,6 +83,8 @@ test_that("chk_function", {
 
 test_that("vld_vector", {
   expect_true(vld_vector(1))
+  expect_true(vld_scalar(NA))
+  expect_true(vld_vector(1:2))
   expect_true(vld_vector(integer(0)))
   expect_true(vld_vector(list()))
   expect_true(vld_vector(list(x = 1)))
@@ -93,4 +95,20 @@ test_that("chk_vector", {
   expect_null(chk_vector(1))
   expect_invisible(chk_vector(1))
   expect_chk_error(chk_vector(matrix(1)), "^`matrix[(]1[)]` must be a vector[.]$")
+})
+
+test_that("vld_scalar", {
+  expect_true(vld_scalar(1))
+  expect_true(vld_scalar(NA))
+  expect_false(vld_scalar(integer(0)))
+  expect_false(vld_scalar(1:2))
+  expect_false(vld_scalar(list()))
+  expect_true(vld_scalar(list(x = 1)))
+  expect_false(vld_scalar(matrix(1)))
+})
+
+test_that("chk_scalar", {
+  expect_null(chk_scalar(1))
+  expect_invisible(chk_scalar(1))
+  expect_chk_error(chk_scalar(1:2), "^`1:2` must be a scalar [(]vector of length 1[)][.]$")
 })
