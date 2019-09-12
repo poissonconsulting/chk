@@ -124,7 +124,7 @@ chk_in <- function(x, values, x_name = NULL) {
 #'
 #' @export
 chk_has <- function(x, values, x_name = NULL) {
-  deprecate_soft("0.0.1.9010", what = "chk_in()", 
+  deprecate_soft("0.0.1.9010", what = "chk_has()", 
                  with = "chk_superset()")
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
   chk_superset(x, values, x_name = x_name)
