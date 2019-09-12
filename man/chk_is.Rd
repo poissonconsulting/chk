@@ -9,6 +9,8 @@
 \alias{vld_list}
 \alias{chk_function}
 \alias{vld_function}
+\alias{chk_vector}
+\alias{vld_vector}
 \title{Check/Validate Is}
 \usage{
 chk_is(x, class, x_name = NULL)
@@ -26,6 +28,10 @@ vld_list(x)
 chk_function(x, x_name = NULL)
 
 vld_function(x)
+
+chk_vector(x, x_name = NULL)
+
+vld_vector(x)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -88,6 +94,16 @@ Checks if is a function using \code{vld_function()}.
 Validates is a function using:
 
 \code{\link{is.function}(x)}
+
+\item \code{chk_vector}: Check Vector
+
+Checks if is a vector using \code{is.vector()}.
+
+\item \code{vld_vector}: Validate Vector
+
+Validates is a vector using:
+
+\code{\link{is.vector}(x)}
 }}
 
 \examples{
@@ -135,4 +151,12 @@ vld_function(mean)
 vld_function(function(x) x)
 vld_function(1)
 vld_function(list(1))
+
+# chk_vector
+chk_vector(1)
+chk_vector(list())
+try(chk_vector(matrix(1)))
+
+# vld_vector
+vld_vector(1)
 }

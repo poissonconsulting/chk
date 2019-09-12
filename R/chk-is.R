@@ -167,3 +167,37 @@ chk_function <- function(x, x_name = NULL) {
 #' vld_function(1)
 #' vld_function(list(1))
 vld_function <- function(x) is.function(x)
+
+#' @describeIn chk_is Check Vector
+#'
+#' Checks if is a vector using \code{is.vector()}.
+#'
+#' @export
+#'
+#' @examples
+#'
+#' # chk_vector
+#' chk_vector(1)
+#' chk_vector(list())
+#' try(chk_vector(matrix(1)))
+chk_vector <- function(x, x_name = NULL) {
+  if (vld_vector(x)) {
+    return(invisible())
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  abort_chk(x_name, " must be a vector.")
+}
+
+#' @describeIn chk_is Validate Vector
+#'
+#' Validates is a vector using:
+#'
+#' \code{\link{is.vector}(x)}
+#'
+#' @export
+#'
+#' @examples
+#'
+#' # vld_vector
+#' vld_vector(1)
+vld_vector <- function(x) is.vector(x)
