@@ -25,6 +25,47 @@ test_that("chk_is", {
   expect_chk_error(chk_is(x, "c", x_name = "c"), "c must inherit from class 'c'")
 })
 
+test_that("vld_s3_class", {
+  expect_true(vld_s3_class(1, "numeric"))
+  expect_false(vld_s3_class(1L, "numeric"))
+  expect_true(vld_s3_class(1L, "integer"))
+
+  x <- list()
+  class(x) <- c("a", "b")
+  expect_true(vld_s3_class(x, "a"))
+  expect_true(vld_s3_class(x, "b"))
+  expect_false(vld_s3_class(getClass("MethodDefinition"), "classRepresentation"))
+})
+
+test_that("chk_s3_class", {
+  expect_null(chk_s3_class(1L, "integer"))
+  expect_invisible(chk_s3_class(1L, "integer"))
+  expect_chk_error(chk_s3_class(1, "integer"), "^`1` must inherit from S3 class 'integer'[.]$")
+  expect_chk_error(
+    chk_s3_class(matrix(1), "numeric"),
+    "`matrix[(]1[)]` must inherit from S3 class 'numeric'[.]$"
+  )
+  x <- list()
+  class(x) <- c("a", "b")
+  expect_chk_error(chk_s3_class(x, "c"), "`x` must inherit from S3 class 'c'")
+  expect_chk_error(chk_s3_class(x, "c", x_name = "c"), "c must inherit from S3 class 'c'")
+})
+
+test_that("vld_s4_class", {
+  expect_false(vld_s4_class(1, "numeric"))
+  expect_true(vld_s4_class(getClass("MethodDefinition"), "classRepresentation"))
+})
+
+test_that("chk_s3_class", {
+  expect_null(chk_s4_class(getClass("MethodDefinition"), "classRepresentation"))
+  expect_invisible(chk_s4_class(getClass("MethodDefinition"), "classRepresentation"))
+  expect_chk_error(chk_s4_class(1, "integer"), "^`1` must inherit from S4 class 'integer'[.]$")
+  expect_chk_error(
+    chk_s4_class(matrix(1), "numeric"),
+    "`matrix[(]1[)]` must inherit from S4 class 'numeric'[.]$"
+  )
+})
+
 test_that("vld_whole_numeric", {
   expect_true(vld_whole_numeric(numeric(0)))
   expect_true(vld_whole_numeric(integer(0)))

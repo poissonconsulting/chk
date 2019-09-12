@@ -3,6 +3,10 @@
 \name{chk_is}
 \alias{chk_is}
 \alias{vld_is}
+\alias{chk_s3_class}
+\alias{vld_s3_class}
+\alias{chk_s4_class}
+\alias{vld_s4_class}
 \alias{chk_whole_numeric}
 \alias{vld_whole_numeric}
 \alias{chk_list}
@@ -18,6 +22,14 @@
 chk_is(x, class, x_name = NULL)
 
 vld_is(x, class)
+
+chk_s3_class(x, class, x_name = NULL)
+
+vld_s3_class(x, class)
+
+chk_s4_class(x, class, x_name = NULL)
+
+vld_s4_class(x, class)
 
 chk_whole_numeric(x, x_name = NULL)
 
@@ -64,6 +76,38 @@ Checks if inherits from class using \code{vld_is()}.
 Validates inherits from class using
 
 \code{\link{inherits}(x, class)}
+
+Class should be a string.
+
+\item \code{chk_s3_class}: Check Inherits from S3 Class
+
+Checks inherits from S3 class using
+
+\code{!isS4(x) && \link{inherits}(x, class)}
+
+Class should be a string.
+
+\item \code{vld_s3_class}: Validate Inherits from S3 Class
+
+Validates inherits from S3 class
+
+\code{!isS4(x) && \link{inherits}(x, class)}
+
+Class should be a string.
+
+\item \code{chk_s4_class}: Check Inherits from S4 Class
+
+Checks inherits from S4 class using
+
+\code{isS4(x) && \link{inherits}(x, class)}
+
+Class should be a string.
+
+\item \code{vld_s4_class}: Validate Inherits from S4 Class
+
+Validates inherits from S4 class
+
+\code{isS4(x) && \link{inherits}(x, class)}
 
 Class should be a string.
 
@@ -132,6 +176,22 @@ vld_is(1, "numeric")
 vld_is(NA_real_, "numeric")
 vld_is(1, "character")
 vld_is(NULL, "numeric")
+
+# chk_s3_class
+chk_s3_class(1, "numeric")
+try(chk_s3_class(getClass("MethodDefinition"), "classRepresentation"))
+
+# vld_s3_class
+vld_s3_class(numeric(0), "numeric")
+vld_s3_class(getClass("MethodDefinition"), "classRepresentation")
+
+# chk_s4_class
+try(chk_s4_class(1, "numeric"))
+chk_s4_class(getClass("MethodDefinition"), "classRepresentation")
+
+# vld_s4_class
+vld_s4_class(numeric(0), "numeric")
+vld_s4_class(getClass("MethodDefinition"), "classRepresentation")
 
 # chk_whole_numeric
 chk_whole_numeric(1)

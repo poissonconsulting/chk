@@ -1,3 +1,4 @@
+- Added `chk_S3_class()` and `chk_s4_class()`.
 - Switched from `stop()`, `warning()` and `message()` to `abort()`, `warn()` and `inform()`.
 - Replaced `err = FALSE` variant with `vld_` variant.
 - Extended `chk_unique()` to handle `incomparables != FALSE` with data frames.
