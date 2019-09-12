@@ -14,7 +14,7 @@ NULL
 #'
 #' @export
 chk_dirs <- function(x) {
-  .Deprecated("chk_dir")
+  deprecate_soft("0.0.1.9010", what = "chk_dirs()", with = "chk_dir()")
   chk_dir(x)
 }
 
@@ -26,7 +26,7 @@ chk_dirs <- function(x) {
 #'
 #' @export
 chk_files <- function(x) {
-  .Deprecated("chk_file")
+  deprecate_soft("0.0.1.9010", what = "chk_files()", with = "chk_file()")
   chk_file(x)
 }
 
@@ -100,7 +100,8 @@ chk_proportion <- function(x, x_name = NULL) {
 #'
 #' @export
 chk_in <- function(x, values, x_name = NULL) {
-  .Deprecated("chk_subset")
+  deprecate_soft("0.0.1.9010", what = "chk_in()", 
+                 with = "chk_subset()")
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
   chk_subset(x, values, x_name = x_name)
 }
@@ -111,7 +112,8 @@ chk_in <- function(x, values, x_name = NULL) {
 #'
 #' @export
 chk_has <- function(x, values, x_name = NULL) {
-  .Deprecated("chk_superset")
+  deprecate_soft("0.0.1.9010", what = "chk_in()", 
+                 with = "chk_superset()")
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
   chk_superset(x, values, x_name = x_name)
 }
