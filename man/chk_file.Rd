@@ -49,13 +49,17 @@ Checks if directories exist using \code{vld_dir()}.
 
 Checks if directories exist using \code{all(\link{dir.exists}(x))}.
 
-\item \code{chk_dirs}: Check Directories Exist (DEPRECATED)
+\item \code{chk_dirs}: Check Directories Exist
+
+\lifecycle{soft-deprecated}
 
 Checks if directories exist using:
 
 \code{all(\link{dir.exists}(x))}
 
-\item \code{chk_files}: Check Files Exist (DEPRECATED)
+\item \code{chk_files}: Check Files Exist
+
+\lifecycle{soft-deprecated}
 
 Checks if files exist using:
 

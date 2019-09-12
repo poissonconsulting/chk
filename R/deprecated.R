@@ -6,7 +6,9 @@
 #' @name chk_deprecated
 NULL
 
-#' @describeIn chk_file Check Directories Exist (DEPRECATED)
+#' @describeIn chk_file Check Directories Exist
+#' 
+#' \lifecycle{soft-deprecated}
 #'
 #' Checks if directories exist using:
 #'
@@ -18,7 +20,9 @@ chk_dirs <- function(x) {
   chk_dir(x)
 }
 
-#' @describeIn chk_file Check Files Exist (DEPRECATED)
+#' @describeIn chk_file Check Files Exist
+#' 
+#' \lifecycle{soft-deprecated}
 #'
 #' Checks if files exist using:
 #'
@@ -32,7 +36,8 @@ chk_files <- function(x) {
 
 #' @describeIn chk_unique Check Length
 #'
-#'
+#' \lifecycle{deprecated}
+#' 
 #' Checks if is length length using:
 #'
 #' \code{length(x) == length}
@@ -54,6 +59,8 @@ chk_length <- function(x, length = 1L, x_name = NULL) {
 
 #' @describeIn chk_deprecated Check Count
 #'
+#' \lifecycle{deprecated}
+#' 
 #' Checks if non-missing non-negative integer scalar or double equivalent using:
 #'
 #' \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 &&
@@ -74,9 +81,10 @@ chk_count <- function(x, x_name = NULL) {
   )
 }
 
-
 #' @describeIn chk_deprecated Check Proportion
 #'
+#' \lifecycle{deprecated}
+#' 
 #' Checks if non-missing numeric scalar between 0 and 1 using:
 #'
 #' \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1}
@@ -95,6 +103,8 @@ chk_proportion <- function(x, x_name = NULL) {
 }
 
 #' @describeIn chk_deprecated Check In
+#' 
+#' \lifecycle{soft-deprecated}
 #'
 #' Checks if all values in values using \code{chk_subset()}.
 #'
@@ -107,6 +117,8 @@ chk_in <- function(x, values, x_name = NULL) {
 }
 
 #' @describeIn chk_deprecated Check Has
+#' 
+#' \lifecycle{soft-deprecated}
 #'
 #' Checks if includes all values using \code{chk_superset()}.
 #'

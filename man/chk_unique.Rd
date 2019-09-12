@@ -78,6 +78,7 @@ Checks if is named using
 
 \item \code{chk_length}: Check Length
 
+\lifecycle{deprecated}
 
 Checks if is length length using:
 

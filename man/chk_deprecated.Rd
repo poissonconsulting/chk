@@ -29,6 +29,8 @@ Deprecated \code{chk_()} functions.
 \itemize{
 \item \code{chk_count}: Check Count
 
+\lifecycle{deprecated}
+
 Checks if non-missing non-negative integer scalar or double equivalent using:
 
 \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 &&
@@ -36,15 +38,21 @@ Checks if non-missing non-negative integer scalar or double equivalent using:
 
 \item \code{chk_proportion}: Check Proportion
 
+\lifecycle{deprecated}
+
 Checks if non-missing numeric scalar between 0 and 1 using:
 
 \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1}
 
 \item \code{chk_in}: Check In
 
+\lifecycle{soft-deprecated}
+
 Checks if all values in values using \code{chk_subset()}.
 
 \item \code{chk_has}: Check Has
+
+\lifecycle{soft-deprecated}
 
 Checks if includes all values using \code{chk_superset()}.
 
