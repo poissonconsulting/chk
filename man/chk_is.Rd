@@ -66,7 +66,7 @@ non-missing integer scalar or double equivalent.
 
 Validates integer vector or double equivalent using
 
-\code{is.integer(x) || (is.double(x) && isTRUE(all.equal(x, as.integer(x))))}
+\code{is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))}
 
 \item \code{chk_list}: Check List
 

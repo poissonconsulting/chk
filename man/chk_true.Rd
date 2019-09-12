@@ -51,7 +51,7 @@ Checks if TRUE using
 
 Validates if TRUE using
 
-\code{\link{isTRUE}(x)}.
+\code{identical(unname(x), TRUE)}.
 
 \item \code{chk_false}: Check FALSE
 
@@ -62,7 +62,7 @@ Checks if FALSE using
 
 Validates if FALSE using
 
-\code{\link{isFALSE}(x)}.
+\code{identical(unname(x), FALSE)}.
 
 \item \code{chk_flag}: Validate Flag
 

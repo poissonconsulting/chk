@@ -31,7 +31,7 @@ checks if non-missing numeric scalar using
 \code{chk_whole_number()}
  checks if non-missing integer scalar or double equivalent using
 
-\code{chk_number(x)} and \code{is.integer(x) || isTRUE(all.equal(x, trunc(x)))}.
+\code{vld_number(x)} and \code{is.integer(x) || vld_true(all.equal(x, trunc(x)))}.
 
 \strong{Good}: \code{1}, \code{2L}, \code{1e10}, \code{-Inf}.
 

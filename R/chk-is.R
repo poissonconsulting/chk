@@ -77,7 +77,7 @@ chk_whole_numeric <- function(x, x_name = NULL) {
 #'
 #' Validates integer vector or double equivalent using
 #'
-#' \code{is.integer(x) || (is.double(x) && isTRUE(all.equal(x, as.integer(x))))}
+#' \code{is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))}
 #'
 #' @export
 #'
@@ -91,7 +91,7 @@ chk_whole_numeric <- function(x, x_name = NULL) {
 #' vld_whole_numeric(TRUE)
 #' vld_whole_numeric(1.5)
 vld_whole_numeric <- function(x) {
-  is.integer(x) || (is.double(x) && isTRUE(all.equal(x, as.integer(x))))
+  is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))
 }
 
 #' @describeIn chk_is Check List

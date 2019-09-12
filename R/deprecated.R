@@ -57,14 +57,14 @@ chk_length <- function(x, length = 1L, x_name = NULL) {
 #' Checks if non-missing non-negative integer scalar or double equivalent using:
 #'
 #' \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 &&
-#'   isTRUE(all.equal(x, as.integer(x)))}
+#'   vld_true(all.equal(x, as.integer(x)))}
 #'
 #' @export
 chk_count <- function(x, x_name = NULL) {
   .Deprecated("chk_whole_number(x); chk_gte(x)")
 
   if (is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 &&
-    (is.integer(x) || isTRUE(all.equal(x, as.integer(x))))) {
+    (is.integer(x) || vld_true(all.equal(x, as.integer(x))))) {
     return(TRUE)
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))

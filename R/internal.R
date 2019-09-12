@@ -1,7 +1,7 @@
 # necessary hack because for data frames
 # argument 'incomparables != FALSE' is not used (yet)
 .anyDuplicated <- function(x, incomparables = FALSE) {
-  if (isFALSE(incomparables) || is.null(incomparables) || !length(incomparables)) {
+  if (vld_false(incomparables) || is.null(incomparables) || !length(incomparables)) {
     return(anyDuplicated(x))
   }
   if (!is.data.frame(x)) {
@@ -16,6 +16,3 @@
 }
 
 backtick <- function(x) p0("`", x, "`")
-
-isFALSE <- function(x) identical(unname(x), FALSE)
-isTRUE <- function(x) identical(unname(x), TRUE)

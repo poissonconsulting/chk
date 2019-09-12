@@ -52,7 +52,7 @@ vld_identical <- function(x, y) identical(x, y)
 #' \code{chk_equal()}
 #' checks if is equal (identical within tolerance) to y using
 #'
-#' \code{isTRUE(all.equal(x, y, tolerance))}.
+#' \code{vld_true(all.equal(x, y, tolerance))}.
 #'
 #' @export
 #'
@@ -82,7 +82,7 @@ chk_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps),
 #' @examples
 #' vld_equal(1, 1.00000001)
 vld_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps)) {
-  isTRUE(all.equal(x, y, tolerance))
+  vld_true(all.equal(x, y, tolerance))
 }
 
 #' @describeIn chk_identical Check Equivalent
@@ -90,7 +90,7 @@ vld_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps)) {
 #' \code{chk_equivalent()}
 #' checks if is equivalent (equal ignoring attributes) to y using
 #'
-#' \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}.
+#' \code{\link{vld_true}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}.
 #'
 #' @export
 #'
@@ -119,5 +119,5 @@ chk_equivalent <- function(x, y, tolerance = sqrt(.Machine$double.eps),
 #' @examples
 #' vld_equivalent(c(x = 1), c(y = 1L))
 vld_equivalent <- function(x, y, tolerance = sqrt(.Machine$double.eps)) {
-  isTRUE(all.equal(x, y, tolerance, check.attributes = FALSE))
+  vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))
 }

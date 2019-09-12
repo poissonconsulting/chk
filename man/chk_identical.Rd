@@ -35,7 +35,7 @@ checks if is identical to y using
 \code{chk_equal()}
 checks if is equal (identical within tolerance) to y using
 
-\code{isTRUE(all.equal(x, y, tolerance))}.
+\code{vld_true(all.equal(x, y, tolerance))}.
 }
 \section{Functions}{
 \itemize{
@@ -48,7 +48,7 @@ checks if is equal (identical within tolerance) to y using
 \code{chk_equivalent()}
 checks if is equivalent (equal ignoring attributes) to y using
 
-\code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}.
+\code{\link{vld_true}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}.
 }}
 
 \examples{

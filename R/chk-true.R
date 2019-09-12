@@ -34,7 +34,7 @@ chk_true <- function(x, x_name = NULL) {
 #'
 #' Validates if TRUE using
 #'
-#' \code{\link{isTRUE}(x)}.
+#' \code{identical(unname(x), TRUE)}.
 #'
 #' @export
 #'
@@ -46,7 +46,7 @@ chk_true <- function(x, x_name = NULL) {
 #' vld_true(NA)
 #' vld_false(0)
 #' vld_true(c(TRUE, TRUE))
-vld_true <- function(x) isTRUE(x)
+vld_true <- function(x) identical(unname(x), TRUE)
 
 #' @describeIn chk_true Check FALSE
 #'
@@ -72,7 +72,7 @@ chk_false <- function(x, x_name = NULL) {
 #'
 #' Validates if FALSE using
 #'
-#' \code{\link{isFALSE}(x)}.
+#' \code{identical(unname(x), FALSE)}.
 #'
 #' @export
 #'
@@ -84,7 +84,7 @@ chk_false <- function(x, x_name = NULL) {
 #' vld_false(NA)
 #' vld_false(0)
 #' vld_false(c(FALSE, FALSE))
-vld_false <- function(x) isFALSE(x)
+vld_false <- function(x) identical(unname(x), FALSE)
 
 #' @describeIn chk_true Validate Flag
 #'

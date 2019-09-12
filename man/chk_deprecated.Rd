@@ -26,7 +26,7 @@ Deprecated \code{chk_()} functions.
 Checks if non-missing non-negative integer scalar or double equivalent using:
 
 \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 &&
-  isTRUE(all.equal(x, as.integer(x)))}
+  vld_true(all.equal(x, as.integer(x)))}
 
 \item \code{chk_proportion}: Check Proportion
 
