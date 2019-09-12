@@ -1,8 +1,8 @@
 #' Validators
 #'
 #' Each \code{chk_()} function has a corresponding \code{vld_()} function.
-#' 
-#' @param x The object to check. 
+#'
+#' @param x The object to check.
 #' @param y An object to check against.
 #' @param vld_fun A vld_ function.
 #' @param tolerance A non-negative numeric scalar.

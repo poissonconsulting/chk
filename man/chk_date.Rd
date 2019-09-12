@@ -35,7 +35,7 @@ Checks if non-missing Date scalar using \code{vld_date()}.
 
 \item \code{vld_date}: Validate Date
 
-Validates non-missing Date scalar using 
+Validates non-missing Date scalar using
 \code{inherits(x, "Date") && length(x) == 1L && !anyNA(x)}
 
 \item \code{chk_datetime}: Check DateTime

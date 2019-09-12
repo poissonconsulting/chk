@@ -29,7 +29,7 @@ Checks/validates if ... is unused or used.
 \itemize{
 \item \code{chk_unused}: Check ... Unused
 
-Checks if is ... unused using 
+Checks if is ... unused using
 \code{vld_unused()}.
 
 \item \code{vld_unused}: Validate ... Unused
@@ -40,7 +40,7 @@ Checks if is ... unused using
 
 \item \code{chk_used}: Check ... Used
 
-Checks if is ... used using 
+Checks if is ... used using
 \code{vld_unused()}.
 
 \item \code{vld_used}: Validate ... Used
@@ -53,22 +53,32 @@ Validates if ... used using
 \examples{
 
 # chk_unused
-fun <- function(x, ...) { chk_unused(...); x }
+fun <- function(x, ...) {
+  chk_unused(...)
+  x
+}
 fun(1)
-try(fun(1,2))
+try(fun(1, 2))
 
 # vld_unused
-fun <- function(x, ...) { vld_unused(...)}
+fun <- function(x, ...) {
+  vld_unused(...)
+}
 fun(1)
-try(fun(1,2))
+try(fun(1, 2))
 
 # chk_used
-fun <- function(x, ...) { chk_used(...); x }
+fun <- function(x, ...) {
+  chk_used(...)
+  x
+}
 try(fun(1))
-fun(1,2)
+fun(1, 2)
 
 # vld_used
-fun <- function(x, ...) { vld_used(...) }
+fun <- function(x, ...) {
+  vld_used(...)
+}
 fun(1)
-fun(1,2)
+fun(1, 2)
 }

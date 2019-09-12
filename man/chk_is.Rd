@@ -44,11 +44,11 @@ Checks if is a particular type of object.
 \section{Functions}{
 \itemize{
 \item \code{chk_is}: Check Is
- 
+
 Checks if inherits from class using \code{vld_is()}.
 
 \item \code{vld_is}: Validate Is
- 
+
 Validates inherits from class using
 
 \code{\link{inherits}(x, class)}
@@ -56,21 +56,21 @@ Validates inherits from class using
 Class should be a string.
 
 \item \code{chk_whole_numeric}: Check Whole Numeric
- 
+
 Checks if integer vector or double equivalent using \code{vld_whole_numeric()}.
 
-The \code{\link{chk_whole_number}()} function checks if 
+The \code{\link{chk_whole_number}()} function checks if
 non-missing integer scalar or double equivalent.
 
 \item \code{vld_whole_numeric}: Validate Whole Numeric
- 
+
 Validates integer vector or double equivalent using
 
 \code{is.integer(x) || (is.double(x) && isTRUE(all.equal(x, as.integer(x))))}
 
 \item \code{chk_list}: Check List
 
-Checks if is a list using 
+Checks if is a list using
 \code{vld_list()}.
 
 \item \code{vld_list}: Validate List

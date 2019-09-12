@@ -33,12 +33,12 @@ chk_all_equivalent(x, tolerance = sqrt(.Machine$double.eps),
 }
 \description{
 \code{chk_all()}
-checks all elements using 
+checks all elements using
 
 \code{all(vapply(x, chk_fun, TRUE, ...))}.
 
 \code{chk_all_identical()}
-checks all elements in x identical using 
+checks all elements in x identical using
 
 \code{all(vapply(x, chk_identical, TRUE, y = x[[1]]))}.
 
@@ -47,12 +47,12 @@ checks all elements in x identical using
 \strong{Bad}: \code{c(1, 1.0000001)}, \code{list(1, NA)}.
 
 \code{chk_all_equal()}
-checks all elements in x equal using 
+checks all elements in x equal using
 
 \code{all(vapply(x, chk_equal, TRUE, y = x[[1]]), tolerance = tolerance)}.
 
 \code{chk_all_equivalent()}
-checks all elements in x equivalent using 
+checks all elements in x equivalent using
 
 \code{all(vapply(x, chk_equivalent, TRUE, y = x[[1]]), tolerance = tolerance)}.
 }
@@ -71,7 +71,7 @@ checks all elements in x equivalent using
 
 # chk_all
 chk_all(TRUE, chk_lgl)
-# FIXME try(chk_all(1, chk_lgl)) 
+# FIXME try(chk_all(1, chk_lgl))
 chk_all(c(TRUE, NA), chk_lgl)
 
 # chk_all_identical

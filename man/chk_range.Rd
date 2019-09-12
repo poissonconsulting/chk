@@ -105,7 +105,7 @@ Validates all non-missing values are greater than value using
 
 \item \code{chk_gte}: Check Greater Than or Equal To
 
-Checks if all non-missing values are greater than or equal to y using 
+Checks if all non-missing values are greater than or equal to y using
 \code{vld_gte()}.
 
 \item \code{vld_gte}: Validate Greater Than or Equal To
@@ -128,7 +128,7 @@ vld_range(numeric(0))
 vld_range(0)
 vld_range(-0.1)
 vld_range(c(0.1, 0.2, NA))
-vld_range(c(0.1, 0.2, NA), range = c(0,1))
+vld_range(c(0.1, 0.2, NA), range = c(0, 1))
 
 # chk_lt
 chk_lt(-0.1)

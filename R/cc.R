@@ -1,9 +1,9 @@
 #' Concatenate with Commas
-#' 
+#'
 #' Concatenates object values into a string with each value separated by a comma
-#' and the last value separated by a conjunction. 
-#' 
-#' By default, if x has more than 10 values an ellipsis is used 
+#' and the last value separated by a conjunction.
+#'
+#' By default, if x has more than 10 values an ellipsis is used
 #' to ensure only 10 values are displayed (including the ellipsis).
 #'
 #' @param x The object to concatenate.
@@ -23,23 +23,31 @@
 #' cc(1:11)
 #' cc(as.character(1:2))
 cc <- function(x, conj = ", ", sep = ", ",
-               brac = if(is.character(x) || is.factor(x)) "'" else "",
+               brac = if (is.character(x) || is.factor(x)) "'" else "",
                ellipsis = 10L) {
-  if(is_chk_on()) {
+  if (is_chk_on()) {
     chk_string(conj)
     chk_string(sep)
-    chk_is(brac, "character"); chk_range(length(brac), 1:2)
-    chk_whole_number(ellipsis); chk_gte(ellipsis, 3)
+    chk_is(brac, "character")
+    chk_range(length(brac), 1:2)
+    chk_whole_number(ellipsis)
+    chk_gte(ellipsis, 3)
   }
-  
-  if(!length(x)) return(character(0))
+
+  if (!length(x)) {
+    return(character(0))
+  }
   x <- p0(brac[1], x, brac[length(brac)])
   n <- length(x)
-  if(n == 1L) return(x)
-  if(n == 2L) return(p(x, collapse = conj))
-  if(n > ellipsis) {
+  if (n == 1L) {
+    return(x)
+  }
+  if (n == 2L) {
+    return(p(x, collapse = conj))
+  }
+  if (n > ellipsis) {
     x <- c(x[1:(ellipsis - 2)], "...", x[n])
     n <- ellipsis
   }
-  p(c(p0(x[1:(n-1)], collapse = sep), x[n]), collapse = conj)
+  p(c(p0(x[1:(n - 1)], collapse = sep), x[n]), collapse = conj)
 }

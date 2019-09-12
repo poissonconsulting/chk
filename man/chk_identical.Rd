@@ -28,12 +28,12 @@ chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps),
 }
 \description{
 \code{chk_identical()}
-checks if is identical to y using 
+checks if is identical to y using
 
 \code{identical(x, y)}.
 
 \code{chk_equal()}
-checks if is equal (identical within tolerance) to y using 
+checks if is equal (identical within tolerance) to y using
 
 \code{isTRUE(all.equal(x, y, tolerance))}.
 }
@@ -46,7 +46,7 @@ checks if is equal (identical within tolerance) to y using
 \item \code{chk_equivalent}: Check Equivalent
 
 \code{chk_equivalent()}
-checks if is equivalent (equal ignoring attributes) to y using 
+checks if is equivalent (equal ignoring attributes) to y using
 
 \code{\link{isTRUE}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}.
 }}
@@ -56,8 +56,8 @@ checks if is equivalent (equal ignoring attributes) to y using
 # chk_identical
 chk_identical(1, 1)
 try(chk_identical(1, 1L))
-chk_identical(c(1,1), c(1,1))
-try(chk_identical(1, c(1,1)))
+chk_identical(c(1, 1), c(1, 1))
+try(chk_identical(1, c(1, 1)))
 
 # chk_equal
 chk_equal(1, 1.00000001)

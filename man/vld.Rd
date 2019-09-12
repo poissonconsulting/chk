@@ -56,7 +56,7 @@ vld_all_equal(c(1, 1L))
 vld_all_equivalent(c(x = 1, y = 1))
 vld_identical(1, 1)
 vld_equal(1, 1.00000001)
-vld_equivalent(c(x = 1), c(y = 1L)) 
+vld_equivalent(c(x = 1), c(y = 1L))
 vld_number(1.1)
 vld_whole_number(2)
 }

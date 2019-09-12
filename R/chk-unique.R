@@ -1,5 +1,5 @@
 #' Check/Validate Unique
-#' 
+#'
 #' Unique checks/validations.
 #'
 #' @inheritParams chk_true
@@ -11,34 +11,36 @@
 NULL
 
 #' @describeIn chk_unique Check Unique
-#' 
+#'
 #' Checks if unique using
 #' \code{vld_unique()}.
-#' 
+#'
 #' @export
-#' 
-#' @examples 
-#' 
+#'
+#' @examples
+#'
 #' # chk_unique
 #' chk_unique(c(NA, 2))
 #' try(chk_unique(c(NA, NA, 2)))
 #' chk_unique(c(NA, NA, 2), incomparables = NA)
-chk_unique <- function(x, incomparables = FALSE, x_name = NULL){
-  if(vld_unique(x, incomparables = incomparables)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
+chk_unique <- function(x, incomparables = FALSE, x_name = NULL) {
+  if (vld_unique(x, incomparables = incomparables)) {
+    return(invisible())
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
   abort_chk(x_name, " must be unique.")
 }
 
 #' @describeIn chk_unique Validate Unique
-#' 
+#'
 #' Validates if unique using
-#' 
+#'
 #' \code{!\link{anyDuplicated}(x, incomparables = incomparables)}.
-#' 
+#'
 #' @export
-#' 
-#' @examples 
-#' 
+#'
+#' @examples
+#'
 #' # vld_unique
 #' vld_unique(NULL)
 #' vld_unique(numeric(0))
@@ -50,33 +52,35 @@ vld_unique <- function(x, incomparables = FALSE) {
 }
 
 #' @describeIn chk_unique Check No Missing Values
-#' 
+#'
 #' Checks if no missing values using
 #' \code{vld_no_missing()}.
-#' 
+#'
 #' @export
-#' 
-#' @examples 
-#' 
+#'
+#' @examples
+#'
 #' # chk_no_missing
 #' chk_no_missing(1)
 #' try(chk_no_missing(c(1, NA)))
-chk_no_missing <- function(x, x_name = NULL){
-  if(vld_no_missing(x)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
+chk_no_missing <- function(x, x_name = NULL) {
+  if (vld_no_missing(x)) {
+    return(invisible())
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
   abort_chk(x_name, " must not have missing values.")
 }
 
 #' @describeIn chk_unique Validate No Missing Values
-#' 
+#'
 #' Validates no missing values using
-#' 
+#'
 #' \code{!\link{anyNA}(x)}.
-#' 
+#'
 #' @export
-#' 
-#' @examples 
-#' 
+#'
+#' @examples
+#'
 #' # vld_no_missing
 #' vld_no_missing(character(0))
 #' vld_no_missing(1)
@@ -86,33 +90,35 @@ chk_no_missing <- function(x, x_name = NULL){
 vld_no_missing <- function(x) !anyNA(x)
 
 #' @describeIn chk_unique Check Named
-#' 
+#'
 #' Checks if is named using
 #' \code{vld_named()}.
-#' 
+#'
 #' @export
-#' 
-#' @examples 
-#' 
+#'
+#' @examples
+#'
 #' # chk_named
 #' chk_named(c(x = 1))
 #' try(chk_named(list(1)))
-chk_named <- function(x, x_name = NULL){
-  if(vld_named(x)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_backtick((substitute(x)))
+chk_named <- function(x, x_name = NULL) {
+  if (vld_named(x)) {
+    return(invisible())
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick((substitute(x)))
   abort_chk(x_name, " must be named.")
 }
 
 #' @describeIn chk_unique Validate Named
-#' 
+#'
 #' Checks if is named using
-#' 
+#'
 #' \code{!is.null(\link{names}(x))}.
-#' 
+#'
 #' @export
-#' 
-#' @examples 
-#' 
+#'
+#' @examples
+#'
 #' # vld_named
 #' vld_named(c(x = 1))
 #' vld_named(list(x = 1))

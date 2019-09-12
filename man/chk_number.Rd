@@ -20,7 +20,7 @@ chk_whole_number(x, x_name = NULL)
 }
 \description{
 \code{chk_number()}
-checks if non-missing numeric scalar using 
+checks if non-missing numeric scalar using
 
 \code{is.numeric(x) && length(x) == 1L && !anyNA(x)}.
 
@@ -32,12 +32,12 @@ checks if non-missing numeric scalar using
  checks if non-missing integer scalar or double equivalent using
 
 \code{chk_number(x)} and \code{is.integer(x) || isTRUE(all.equal(x, trunc(x)))}.
-  
+
 \strong{Good}: \code{1}, \code{2L}, \code{1e10}, \code{-Inf}.
 
 \strong{Bad}: \code{"a"}, \code{1:3}, \code{NA_integer_}, \code{log(10)}.
 
-The \code{\link{chk_whole_numeric}()} function checks if 
+The \code{\link{chk_whole_numeric}()} function checks if
 integer vector of any length or double equivalent.
 }
 \examples{

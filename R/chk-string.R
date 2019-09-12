@@ -1,5 +1,5 @@
 #' Check/Validate String or Matches
-#' 
+#'
 #' Checks/validates if string or matches a regular expression.
 #'
 #' @inheritParams chk_true
@@ -10,33 +10,35 @@
 NULL
 
 #' @describeIn chk_string Check String
-#' 
-#' Checks if non-missing character scalar using 
+#'
+#' Checks if non-missing character scalar using
 #' \code{vld_string()}.
-#' 
+#'
 #' @export
-#' 
-#' @examples 
-#' 
+#'
+#' @examples
+#'
 #' # chk_string
 #' chk_string("1")
 #' try(chk_string(1))
-chk_string <- function(x, x_name = NULL){
-  if(is.character(x) && length(x) == 1L && !anyNA(x)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
+chk_string <- function(x, x_name = NULL) {
+  if (is.character(x) && length(x) == 1L && !anyNA(x)) {
+    return(invisible())
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
   abort_chk(x_name, " must be a string (non-missing character scalar).")
 }
 
 #' @describeIn chk_string Validate String
-#' 
+#'
 #' Validates non-missing character scalar using
-#' 
+#'
 #' \code{is.character(x) && length(x) == 1L && !anyNA(x)}.
-#' 
+#'
 #' @export
-#' 
-#' @examples 
-#' 
+#'
+#' @examples
+#'
 #' # vld_string
 #' vld_string("1")
 #' vld_string("")
@@ -48,41 +50,44 @@ vld_string <- function(x, x_name = NULL) {
 }
 
 #' @describeIn chk_string Check Matches
-#' 
-#' Checks if all values match regular expression using 
+#'
+#' Checks if all values match regular expression using
 #' \code{vld_match()}.
-#' 
+#'
 #' @export
-#' 
-#' @examples 
-#' 
+#'
+#' @examples
+#'
 #' # chk_match
 #' chk_match("1")
 #' try(chk_match("1", regexp = "2"))
-chk_match <- function (x, regexp = ".+", x_name = NULL) {
-  if(vld_match(x, regexp)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
-  if(length(x) == 1L)
+chk_match <- function(x, regexp = ".+", x_name = NULL) {
+  if (vld_match(x, regexp)) {
+    return(invisible())
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (length(x) == 1L) {
     abort_chk(x_name, " must match regular expression '", regexp, "'.")
-    abort_chk(x_name, " must have values matching regular expression '", regexp, "'.")
+  }
+  abort_chk(x_name, " must have values matching regular expression '", regexp, "'.")
 }
 
 #' @describeIn chk_string Validate Matches
-#' 
+#'
 #' Validates all values match regular expression using
 #'
 #' \code{all(\link{grepl}(regexp, x))}.
-#' 
+#'
 #' \code{regexp} should be a non-missing character scalar.
-#' 
+#'
 #' @export
-#' 
-#' @examples 
-#' 
+#'
+#' @examples
+#'
 #' # vld_match
 #' vld_match("1")
 #' vld_match("a", regexp = "a")
 #' vld_match("")
 #' vld_match("1", regexp = "2")
 #' vld_match(NA_character_, regexp = ".*")
-vld_match <- function (x, regexp = ".+") all(grepl(regexp, x))
+vld_match <- function(x, regexp = ".+") all(grepl(regexp, x))

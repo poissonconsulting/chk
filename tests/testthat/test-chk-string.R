@@ -27,14 +27,24 @@ test_that("chk_match", {
   expect_null(chk_match("1"))
   expect_invisible(chk_match("1"))
   expect_chk_error(chk_match(""), "^`\"\"` must match regular expression '.+'[.]$")
-  expect_chk_error(chk_match(NA_character_), 
-               "`NA_character_` must match regular expression '.+'")
-  expect_chk_error(chk_match(c("a", "b"), "b"), 
-               "`c[(]\"a\", \"b\"[)]` must have values matching regular expression 'b'[.]$")
-  expect_chk_error(chk_match(c("a", "b"), 'b'), 
-               "`c[(]\"a\", \"b\"[)]` must have values matching regular expression 'b'[.]$")
-  expect_chk_error(chk_match(c(NA, "b"), 'b'), 
-               "`c[(]NA, \"b\"[)]` must have values matching regular expression 'b'[.]$")
-  expect_chk_error(chk_match(c(NA, "b"), 'b', x_name = "b"), 
-               "b must have values matching regular expression 'b'[.]$")
+  expect_chk_error(
+    chk_match(NA_character_),
+    "`NA_character_` must match regular expression '.+'"
+  )
+  expect_chk_error(
+    chk_match(c("a", "b"), "b"),
+    "`c[(]\"a\", \"b\"[)]` must have values matching regular expression 'b'[.]$"
+  )
+  expect_chk_error(
+    chk_match(c("a", "b"), "b"),
+    "`c[(]\"a\", \"b\"[)]` must have values matching regular expression 'b'[.]$"
+  )
+  expect_chk_error(
+    chk_match(c(NA, "b"), "b"),
+    "`c[(]NA, \"b\"[)]` must have values matching regular expression 'b'[.]$"
+  )
+  expect_chk_error(
+    chk_match(c(NA, "b"), "b", x_name = "b"),
+    "b must have values matching regular expression 'b'[.]$"
+  )
 })

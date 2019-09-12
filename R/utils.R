@@ -1,7 +1,7 @@
 #' Abort Check
-#' 
+#'
 #' A wrapper on \code{\link[rlang]{abort}(paste0(...))} that throws an error.
-#' 
+#'
 #' It is exported to allow users to construct their own `chk_` functions.
 #'
 #' @param ... A substituted object to deparse.
@@ -15,10 +15,10 @@
 abort_chk <- function(...) abort(p0(...), .subclass = "chk_error")
 
 #' Deparse Tick
-#' 
+#'
 #' \code{deparse_backtick} is a wrapper on \code{\link{deparse}} that
 #' also back ticks the return string.
-#' 
+#'
 #' It is exported to allow users to construct their own `chk_` functions.
 #'
 #' @param x A substituted object to deparse.

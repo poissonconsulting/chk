@@ -33,7 +33,7 @@ Checks/validates if string or matches a regular expression.
 \itemize{
 \item \code{chk_string}: Check String
 
-Checks if non-missing character scalar using 
+Checks if non-missing character scalar using
 \code{vld_string()}.
 
 \item \code{vld_string}: Validate String
@@ -44,7 +44,7 @@ Validates non-missing character scalar using
 
 \item \code{chk_match}: Check Matches
 
-Checks if all values match regular expression using 
+Checks if all values match regular expression using
 \code{vld_match()}.
 
 \item \code{vld_match}: Validate Matches

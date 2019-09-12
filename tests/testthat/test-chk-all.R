@@ -18,16 +18,26 @@ test_that("chk_all", {
   expect_null(chk_all(c(TRUE, TRUE), chk_true))
   expect_null(chk_all(1.1, chk_gt, 1))
 
-  expect_chk_error(chk_all(NULL, chk_flag), 
-               "^`NULL` must be a flag [(]TRUE or FALSE[)][.]$")
-  expect_chk_error(chk_all(NULL, chk_flag, x_name = "NULL"), 
-               "^NULL must be a flag [(]TRUE or FALSE[)][.]$")
-  expect_chk_error(chk_all(FALSE, chk_true), 
-               "^All elements of `FALSE` must be TRUE[.]$")
-  expect_chk_error(chk_all(FALSE, chk_true, x_name = TRUE), 
-               "^All elements of TRUE must be TRUE[.]$")
-  expect_chk_error(chk_all(1.1, chk_gt, 2), 
-              "^All elements of `1.1` must be greater than 2, not 1.1[.]$")
+  expect_chk_error(
+    chk_all(NULL, chk_flag),
+    "^`NULL` must be a flag [(]TRUE or FALSE[)][.]$"
+  )
+  expect_chk_error(
+    chk_all(NULL, chk_flag, x_name = "NULL"),
+    "^NULL must be a flag [(]TRUE or FALSE[)][.]$"
+  )
+  expect_chk_error(
+    chk_all(FALSE, chk_true),
+    "^All elements of `FALSE` must be TRUE[.]$"
+  )
+  expect_chk_error(
+    chk_all(FALSE, chk_true, x_name = TRUE),
+    "^All elements of TRUE must be TRUE[.]$"
+  )
+  expect_chk_error(
+    chk_all(1.1, chk_gt, 2),
+    "^All elements of `1.1` must be greater than 2, not 1.1[.]$"
+  )
 })
 
 test_that("vld_all_identical", {
@@ -82,5 +92,3 @@ test_that("chk_all_equivalent", {
   expect_invisible(chk_all_equivalent(NULL))
   expect_chk_error(chk_all_equivalent(c(1, 2)), "^`c[(]1, 2[)]` must have equivalent elements[.]$")
 })
-
-

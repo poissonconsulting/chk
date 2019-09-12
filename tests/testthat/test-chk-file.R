@@ -5,7 +5,7 @@ test_that("vld_file", {
   expect_false(vld_file(tempdir()))
   file <- paste0(tempfile(), ".csv")
   expect_false(vld_file(file))
-  
+
   teardown(unlink(file))
   write.csv(data.frame(x = 1), file)
   expect_true(vld_file(file))
@@ -18,10 +18,14 @@ test_that("chk_file", {
 
   file1 <- paste0(tempfile(), "1.csv")
   file2 <- paste0(tempfile(), "2.csv")
-  expect_chk_error(chk_file(c(file1)), 
-                        "^Can't find file '.*[.]csv'[.]$")
-  expect_chk_error(chk_file(c(file1, file2)), 
-                        "^Can't find the following files: '.*[.]csv' or '.*[.]csv'[.]$")
+  expect_chk_error(
+    chk_file(c(file1)),
+    "^Can't find file '.*[.]csv'[.]$"
+  )
+  expect_chk_error(
+    chk_file(c(file1, file2)),
+    "^Can't find the following files: '.*[.]csv' or '.*[.]csv'[.]$"
+  )
 })
 
 test_that("vld_dir", {

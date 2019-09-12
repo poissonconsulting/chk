@@ -1,7 +1,7 @@
 #' Check/Validate NULL or not NULL
-#' 
+#'
 #' Checks/validates if NULL or not NULL.
-#' 
+#'
 #' @inheritParams chk_true
 #' @return The \code{chk_} functions throw an informative error if the test fails.
 #' The \code{vld_} functions return a flag indicating whether the test was met.
@@ -9,66 +9,70 @@
 NULL
 
 #' @describeIn chk_null Validate NULL
-#' 
-#' Checks if NULL using 
+#'
+#' Checks if NULL using
 #' \code{vld_null()}.
-#'  
+#'
 #' @export
-#' 
-#' @examples 
-#' 
+#'
+#' @examples
+#'
 #' # chk_null
 #' try(chk_null(1))
 #' chk_null(NULL)
-chk_null <- function(x, x_name = NULL){
-  if (vld_null(x)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
+chk_null <- function(x, x_name = NULL) {
+  if (vld_null(x)) {
+    return(invisible())
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
   abort_chk(x_name, " must be NULL.")
 }
 
 #' @describeIn chk_null Validate NULL
-#' 
-#' Validates if NULL using 
-#' 
+#'
+#' Validates if NULL using
+#'
 #' \code{\link{is.null}(x)}.
-#' 
+#'
 #' @export
-#' 
-#' @examples 
-#' 
+#'
+#' @examples
+#'
 #' # vld_null
 #' vld_null(NULL)
 #' vld_null(1)
 vld_null <- function(x) is.null(x)
 
 #' @describeIn chk_null Check Not NULL
-#' 
-#' Checks if not NULL using 
+#'
+#' Checks if not NULL using
 #' \code{vld_not_null()}.
-#' 
+#'
 #' @export
-#' 
-#' @examples 
-#' 
+#'
+#' @examples
+#'
 #' # chk_not_null
 #' try(chk_not_null(NULL))
 #' chk_not_null(1)
-chk_not_null <- function(x, x_name = NULL){
-  if (vld_not_null(x)) return(invisible())
-  if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
+chk_not_null <- function(x, x_name = NULL) {
+  if (vld_not_null(x)) {
+    return(invisible())
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
   abort_chk(x_name, " must not be NULL.")
 }
 
 #' @describeIn chk_null Validate Not NULL
-#' 
-#' Validates if not NULL using 
-#' 
+#'
+#' Validates if not NULL using
+#'
 #' \code{!\link{is.null}(x)}.
-#' 
+#'
 #' @export
-#' 
-#' @examples 
-#' 
+#'
+#' @examples
+#'
 #' # vld_not_null
 #' vld_not_null(1)
 #' vld_not_null(NULL)

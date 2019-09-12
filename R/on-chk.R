@@ -5,7 +5,7 @@
 #'
 #' @examples
 #' print(is_chk_on())
-#' if(is_chk_on()) {
+#' if (is_chk_on()) {
 #'   chk_off()
 #'   print(is_chk_on())
 #'   chk_on()

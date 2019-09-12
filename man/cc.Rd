@@ -27,7 +27,7 @@ Concatenates object values into a string with each value separated by a comma
 and the last value separated by a conjunction.
 }
 \details{
-By default, if x has more than 10 values an ellipsis is used 
+By default, if x has more than 10 values an ellipsis is used
 to ensure only 10 values are displayed (including the ellipsis).
 }
 \examples{

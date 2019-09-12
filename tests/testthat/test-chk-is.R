@@ -15,8 +15,10 @@ test_that("chk_is", {
   expect_null(chk_is(1L, "integer"))
   expect_invisible(chk_is(1L, "integer"))
   expect_chk_error(chk_is(1, "integer"), "^`1` must inherit from class 'integer'[.]$")
-  expect_chk_error(chk_is(matrix(1), "numeric"), 
-               "`matrix[(]1[)]` must inherit from class 'numeric'[.]$")
+  expect_chk_error(
+    chk_is(matrix(1), "numeric"),
+    "`matrix[(]1[)]` must inherit from class 'numeric'[.]$"
+  )
   x <- list()
   class(x) <- c("a", "b")
   expect_chk_error(chk_is(x, "c"), "`x` must inherit from class 'c'")
@@ -27,8 +29,10 @@ test_that("vld_whole_numeric", {
   expect_true(vld_whole_numeric(numeric(0)))
   expect_true(vld_whole_numeric(integer(0)))
   expect_false(vld_whole_numeric(logical(0)))
-  expect_warning(vld_whole_numeric(Inf), 
-                 "^NAs introduced by coercion to integer range$")
+  expect_warning(
+    vld_whole_numeric(Inf),
+    "^NAs introduced by coercion to integer range$"
+  )
   expect_true(vld_whole_numeric(NA_integer_))
   expect_true(vld_whole_numeric(NA_real_))
   expect_false(vld_whole_numeric(NA))
@@ -66,7 +70,7 @@ test_that("chk_list", {
 
 test_that("vld_function", {
   expect_true(vld_function(c))
-  expect_true(vld_function(function(){}))
+  expect_true(vld_function(function() {}))
   expect_false(vld_function(1))
 })
 

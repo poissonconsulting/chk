@@ -23,7 +23,7 @@ msg(..., n = NULL, .subclass = NULL)
 to selectively handle the conditions signalled by your functions.}
 }
 \description{
-Wrappers on 
+Wrappers on
 \code{\link[rlang]{abort}()}, \code{\link[rlang]{warn}()} and
  \code{\link[rlang]{inform}()}.
 }
