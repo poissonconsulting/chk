@@ -104,11 +104,14 @@ test_that("vld_scalar", {
   expect_false(vld_scalar(1:2))
   expect_false(vld_scalar(list()))
   expect_true(vld_scalar(list(x = 1)))
-  expect_false(vld_scalar(matrix(1)))
+  expect_true(vld_scalar(matrix(1)))
+  expect_false(vld_scalar(matrix(1:2)))
+  expect_true(vld_scalar(data.frame(x = 1:10)))
+  expect_false(vld_scalar(data.frame(x = 1, y = 2)))
 })
 
 test_that("chk_scalar", {
   expect_null(chk_scalar(1))
   expect_invisible(chk_scalar(1))
-  expect_chk_error(chk_scalar(1:2), "^`1:2` must be a scalar [(]vector of length 1[)][.]$")
+  expect_chk_error(chk_scalar(1:2), "^`1:2` must be a scalar [(]length 1[)][.]$")
 })

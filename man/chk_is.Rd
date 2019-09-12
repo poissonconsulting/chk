@@ -113,11 +113,11 @@ Validates is a vector using:
 
 \item \code{chk_scalar}: Check Scalar
 
-Checks if is a vector using \code{is.vector() && length(x) == 1L}.
+Checks if is a vector using \code{length(x) == 1L}.
 
 \item \code{vld_scalar}: Validate Scalar
 
-Validates is a vector using \code{is.vector() && length(x) == 1L}.
+Validates is \code{length(x) == 1L}.
 }}
 
 \examples{
