@@ -1,29 +1,41 @@
 Package: chk
 Title: Check User-Supplied Function Arguments
-Version: 0.0.1.9017
-Authors@R: c(
-    person("Joe", "Thorley", , "joe@poissonconsulting.ca", c("aut", "cre"), comment = c(ORCID = "0000-0002-7683-4592")),
-    person("Kirill", "M\u00fcller", role = "ctb", comment = c(ORCID = "0000-0002-1416-3412")),
-    person("Poisson Consulting", role = c("cph", "fnd"))
-    )
-Description: For developers to check user-supplied function arguments.
-        It is designed to be simple, fast and customizable.
-        Error messages follow the tidyverse style guide.
+Version: 0.0.1.9018
+Authors@R: 
+    c(person(given = "Joe",
+             family = "Thorley",
+             role = c("aut", "cre"),
+             email = "joe@poissonconsulting.ca",
+             comment = c(ORCID = "0000-0002-7683-4592")),
+      person(given = "Kirill",
+             family = "Müller",
+             role = "ctb",
+             comment = c(ORCID = "0000-0002-1416-3412")),
+      person(given = "Poisson Consulting",
+             role = c("cph", "fnd")))
+Description: For developers to check user-supplied function
+    arguments.  It is designed to be simple, fast and customizable.  Error
+    messages follow the tidyverse style guide.
 License: MIT + file LICENSE
-Depends: R (>= 3.1)
+URL: https://github.com/poissonconsulting/chk
+BugReports: https://github.com/poissonconsulting/chk/issues
+Depends: 
+    R (>= 3.1)
 Imports: 
     utils,
-    rlang
+    rlang,
+    lifecycle
 Suggests: 
     covr,
     testthat,
     knitr,
     rmarkdown,
     microbenchmark
-URL: https://github.com/poissonconsulting/chk
-BugReports: https://github.com/poissonconsulting/chk/issues
+VignetteBuilder: 
+    knitr
+RdMacros: 
+    lifecycle
 Encoding: UTF-8
+Language: en-US
 LazyData: true
 RoxygenNote: 6.1.1
-Language: en-US
-VignetteBuilder: knitr

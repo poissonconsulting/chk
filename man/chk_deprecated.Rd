@@ -6,6 +6,8 @@
 \alias{chk_proportion}
 \alias{chk_in}
 \alias{chk_has}
+\alias{chk_is}
+\alias{vld_is}
 \title{Deprecated functions}
 \usage{
 chk_count(x, x_name = NULL)
@@ -15,6 +17,10 @@ chk_proportion(x, x_name = NULL)
 chk_in(x, values, x_name = NULL)
 
 chk_has(x, values, x_name = NULL)
+
+chk_is(x, class, x_name = NULL)
+
+vld_is(x, class)
 }
 \description{
 Deprecated \code{chk_()} functions.
@@ -41,6 +47,35 @@ Checks if all values in values using \code{chk_subset()}.
 \item \code{chk_has}: Check Has
 
 Checks if includes all values using \code{chk_superset()}.
+
+\item \code{chk_is}: Check Is
+
+\lifecycle{soft-deprecated}
+
+Checks if inherits from class using \code{vld_is()}.
+
+\item \code{vld_is}: Validate Is
+
+\lifecycle{soft-deprecated}
+
+Validates inherits from class using
+
+\code{\link{inherits}(x, class)}
+
+Class should be a string.
 }}
 
+\examples{
+
+# chk_is
+chk_is(1, "numeric")
+try(chk_is(1, "character"))
+
+# vld_is
+vld_is(numeric(0), "numeric")
+vld_is(1, "numeric")
+vld_is(NA_real_, "numeric")
+vld_is(1, "character")
+vld_is(NULL, "numeric")
+}
 \keyword{internal}

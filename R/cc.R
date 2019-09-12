@@ -28,7 +28,7 @@ cc <- function(x, conj = ", ", sep = ", ",
   if (is_chk_on()) {
     chk_string(conj)
     chk_string(sep)
-    chk_is(brac, "character")
+    chk_s3_class(brac, "character")
     chk_range(length(brac), 1:2)
     chk_whole_number(ellipsis)
     chk_gte(ellipsis, 3)

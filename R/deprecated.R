@@ -115,3 +115,53 @@ chk_has <- function(x, values, x_name = NULL) {
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
   chk_superset(x, values, x_name = x_name)
 }
+
+
+#' @describeIn chk_deprecated Check Is
+#'
+#' \lifecycle{soft-deprecated}
+#' 
+#' Checks if inherits from class using \code{vld_is()}.
+#'
+#' @export
+#'
+#' @examples
+#'
+#' # chk_is
+#' chk_is(1, "numeric")
+#' try(chk_is(1, "character"))
+chk_is <- function(x, class, x_name = NULL) {
+  deprecate_soft("0.0.1.9018", what = "chk_is()", with = "chk_class_s3()",
+                 id = "chk_is")
+  if (vld_is(x, class)) {
+    return(invisible())
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  abort_chk(x_name, " must inherit from class '", class, "'.")
+}
+
+#' @describeIn chk_deprecated Validate Is
+#'
+#' \lifecycle{soft-deprecated}
+#' 
+#' Validates inherits from class using
+#'
+#' \code{\link{inherits}(x, class)}
+#'
+#' Class should be a string.
+#'
+#' @export
+#'
+#' @examples
+#'
+#' # vld_is
+#' vld_is(numeric(0), "numeric")
+#' vld_is(1, "numeric")
+#' vld_is(NA_real_, "numeric")
+#' vld_is(1, "character")
+#' vld_is(NULL, "numeric")
+vld_is <- function(x, class) {
+  deprecate_soft("0.0.1.9018", what = "vld_is()", with = "vld_class_s3()", 
+                 id = "chk_is")
+  inherits(x, class)
+}

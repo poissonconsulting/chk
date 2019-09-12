@@ -1,4 +1,4 @@
-#' Check/Validate Is
+#' Check Type
 #'
 #' Checks if is a particular type of object.
 #'
@@ -6,49 +6,10 @@
 #' @param class A string specifying the class.
 #' @return The \code{chk_} functions throw an informative error if the test fails.
 #' The \code{vld_} functions return a flag indicating whether the test was met.
-#' @name chk_is
+#' @name chk_type
 NULL
 
-#' @describeIn chk_is Check Is
-#'
-#' Checks if inherits from class using \code{vld_is()}.
-#'
-#' @export
-#'
-#' @examples
-#'
-#' # chk_is
-#' chk_is(1, "numeric")
-#' try(chk_is(1, "character"))
-chk_is <- function(x, class, x_name = NULL) {
-  if (vld_is(x, class)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must inherit from class '", class, "'.")
-}
-
-#' @describeIn chk_is Validate Is
-#'
-#' Validates inherits from class using
-#'
-#' \code{\link{inherits}(x, class)}
-#'
-#' Class should be a string.
-#'
-#' @export
-#'
-#' @examples
-#'
-#' # vld_is
-#' vld_is(numeric(0), "numeric")
-#' vld_is(1, "numeric")
-#' vld_is(NA_real_, "numeric")
-#' vld_is(1, "character")
-#' vld_is(NULL, "numeric")
-vld_is <- function(x, class) inherits(x, class)
-
-#' @describeIn chk_is Check Inherits from S3 Class
+#' @describeIn chk_type Check Inherits from S3 Class
 #'
 #' Checks inherits from S3 class using
 #'
@@ -71,7 +32,7 @@ chk_s3_class <- function(x, class, x_name = NULL) {
   abort_chk(x_name, " must inherit from S3 class '", class, "'.")
 }
 
-#' @describeIn chk_is Validate Inherits from S3 Class
+#' @describeIn chk_type Validate Inherits from S3 Class
 #'
 #' Validates inherits from S3 class
 #'
@@ -88,7 +49,7 @@ chk_s3_class <- function(x, class, x_name = NULL) {
 #' vld_s3_class(getClass("MethodDefinition"), "classRepresentation")
 vld_s3_class <- function(x, class) !isS4(x) && inherits(x, class)
 
-#' @describeIn chk_is Check Inherits from S4 Class
+#' @describeIn chk_type Check Inherits from S4 Class
 #'
 #' Checks inherits from S4 class using
 #'
@@ -111,7 +72,7 @@ chk_s4_class <- function(x, class, x_name = NULL) {
   abort_chk(x_name, " must inherit from S4 class '", class, "'.")
 }
 
-#' @describeIn chk_is Validate Inherits from S4 Class
+#' @describeIn chk_type Validate Inherits from S4 Class
 #'
 #' Validates inherits from S4 class
 #'
@@ -128,7 +89,7 @@ chk_s4_class <- function(x, class, x_name = NULL) {
 #' vld_s4_class(getClass("MethodDefinition"), "classRepresentation")
 vld_s4_class <- function(x, class) isS4(x) && inherits(x, class)
 
-#' @describeIn chk_is Check Whole Numeric
+#' @describeIn chk_type Check Whole Numeric
 #'
 #' Checks if integer vector or double equivalent using \code{vld_whole_numeric()}.
 #'
@@ -153,7 +114,7 @@ chk_whole_numeric <- function(x, x_name = NULL) {
   )
 }
 
-#' @describeIn chk_is Validate Whole Numeric
+#' @describeIn chk_type Validate Whole Numeric
 #'
 #' Validates integer vector or double equivalent using
 #'
@@ -174,7 +135,7 @@ vld_whole_numeric <- function(x) {
   is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))
 }
 
-#' @describeIn chk_is Check List
+#' @describeIn chk_type Check List
 #'
 #' Checks if is a list using
 #' \code{vld_list()}.
@@ -194,7 +155,7 @@ chk_list <- function(x, x_name = NULL) {
   abort_chk(x_name, " must be a list.")
 }
 
-#' @describeIn chk_is Validate List
+#' @describeIn chk_type Validate List
 #'
 #' Validates is a list using
 #'
@@ -212,7 +173,7 @@ chk_list <- function(x, x_name = NULL) {
 #' vld_list(NULL)
 vld_list <- function(x) is.list(x)
 
-#' @describeIn chk_is Check Function
+#' @describeIn chk_type Check Function
 #'
 #' Checks if is a function using \code{vld_function()}.
 #'
@@ -231,7 +192,7 @@ chk_function <- function(x, x_name = NULL) {
   abort_chk(x_name, " must be a function.")
 }
 
-#' @describeIn chk_is Validate Function
+#' @describeIn chk_type Validate Function
 #'
 #' Validates is a function using:
 #'
@@ -248,7 +209,7 @@ chk_function <- function(x, x_name = NULL) {
 #' vld_function(list(1))
 vld_function <- function(x) is.function(x)
 
-#' @describeIn chk_is Check Vector
+#' @describeIn chk_type Check Vector
 #'
 #' Checks if is a vector using \code{is.vector()}.
 #'
@@ -268,7 +229,7 @@ chk_vector <- function(x, x_name = NULL) {
   abort_chk(x_name, " must be a vector.")
 }
 
-#' @describeIn chk_is Validate Vector
+#' @describeIn chk_type Validate Vector
 #'
 #' Validates is a vector using:
 #'
@@ -282,7 +243,7 @@ chk_vector <- function(x, x_name = NULL) {
 #' vld_vector(1)
 vld_vector <- function(x) is.vector(x)
 
-#' @describeIn chk_is Check Scalar
+#' @describeIn chk_type Check Scalar
 #'
 #' Checks if is a vector using \code{length(x) == 1L}.
 #'
@@ -302,7 +263,7 @@ chk_scalar <- function(x, x_name = NULL) {
   abort_chk(x_name, " must be a scalar (length 1).")
 }
 
-#' @describeIn chk_is Validate Scalar
+#' @describeIn chk_type Validate Scalar
 #'
 #' Validates is \code{length(x) == 1L}.
 #'

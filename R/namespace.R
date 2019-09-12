@@ -1,2 +1,2 @@
-#' @import rlang
+#' @import rlang lifecycle
 NULL
