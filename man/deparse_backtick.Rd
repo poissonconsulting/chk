@@ -17,7 +17,7 @@ A string of the back ticked substituted object.
 also back ticks the return string.
 }
 \details{
-It is exported to allow users to construct their own `chk_` functions.
+It is exported to allow users to easily construct their own `chk_` functions.
 }
 \examples{
 deparse_backtick(2)

@@ -4,24 +4,27 @@
 \alias{abort_chk}
 \title{Abort Check}
 \usage{
-abort_chk(...)
+abort_chk(..., n = NULL)
 }
 \arguments{
-\item{...}{A substituted object to deparse.}
+\item{...}{Multiple objects that are converted to a string using 
+\code{paste0(..., collapse = '')}.}
+
+\item{n}{The value of n for converting \code{sprintf}-like types.}
 }
 \value{
-Throws an error of class \code{chk_error}.
+Throws an error of class \code{'chk_error'}.
 }
 \description{
-A wrapper on \code{\link[rlang]{abort}(paste0(...))} that throws an error.
+A wrapper on \code{\link{err}} that sets the subclass to be 'chk_error'.
 }
 \details{
-It is exported to allow users to construct their own `chk_` functions.
+It is exported to allow users to easily construct their own `chk_` functions.
 }
 \examples{
 try(abort_chk())
 try(abort_chk("x must be NULL."))
 }
 \seealso{
-\code{\link[rlang]{abort}}
+\code{{err}}
 }

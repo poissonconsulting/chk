@@ -4,7 +4,7 @@
 \alias{err}
 \alias{wrn}
 \alias{msg}
-\title{Stop, Warning and Message}
+\title{Stop, Warning and Message Messages}
 \usage{
 err(..., n = NULL, .subclass = NULL)
 
@@ -23,9 +23,12 @@ msg(..., n = NULL, .subclass = NULL)
 to selectively handle the conditions signalled by your functions.}
 }
 \description{
-Wrappers on
+The functions call \code{\link{message_chk}()} to process
+the message and then 
 \code{\link[rlang]{abort}()}, \code{\link[rlang]{warn}()} and
- \code{\link[rlang]{inform}()}.
+ \code{\link[rlang]{inform}()}, respectively.
+ 
+ The user can set the subclass.
 }
 \section{Functions}{
 \itemize{
@@ -36,31 +39,14 @@ Wrappers on
 \item \code{msg}: Message
 }}
 
-\section{\code{sprintf}-like types}{
-
-The following \code{sprintf}-like types can be used in the custom messages:
-
-\describe{
-  \item{\code{n}}{The value of n.}
-  \item{\code{s}}{'' if n == 1 otherwise 's'}
-  \item{\code{r}}{'is' if n == 1 otherwise 'are'}
-}
-}
-
 \examples{
 
 # err
-try(err("this is an error"))
+try(err("there \%r \%n problem value\%s", n = 2))
 
 # wrn
-wrn("this is a warning")
-wrn("there \%r \%n problem value\%s")
-wrn("there \%r \%n problem value\%s", n = 1)
 wrn("there \%r \%n problem value\%s", n = 2)
 
 # msg
-msg("this is a message")
-msg("there \%r \%n problem value\%s")
-msg("there \%r \%n problem value\%s", n = 1)
 msg("there \%r \%n problem value\%s", n = 2)
 }
