@@ -38,7 +38,7 @@ message_chk <- function(..., n = NULL) {
     string <- gsub("%y", if (n == 1) "y" else "ie", string, fixed = TRUE)
     string <- gsub("%n", n, string, fixed = TRUE)
   }
-  if (!grepl("[.]$", string)) string <- p0(string, ".")
+  if (!grepl("([.]|[?]|[!])$", string)) string <- p0(string, ".")
   string <- p0(toupper(substr(string, 1, 1)), substr(string, 2, nchar(string)))
   string
 }

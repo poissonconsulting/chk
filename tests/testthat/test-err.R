@@ -9,6 +9,13 @@ test_that("message_chk", {
   expect_match(message_chk(" a", " b"), "^ a b[.]$")
   expect_match(message_chk(" A", "b"), "^ Ab[.]$")
   expect_match(message_chk("Ab", "b"), "^Abb[.]$")
+  expect_match(message_chk("Ab.", "b."), "^Ab[.]b[.]$")
+  
+  expect_match(message_chk("a"), "^A[.]$")
+  expect_match(message_chk("a."), "^A[.]$")
+  expect_match(message_chk("a!"), "^A!$")
+  expect_match(message_chk("a?"), "^A[?]$")
+  
   expect_match(
     message_chk("there %r %n problem director%y%s", n = 1),
     "There is 1 problem directory[.]$"
