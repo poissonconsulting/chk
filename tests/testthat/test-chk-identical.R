@@ -15,8 +15,8 @@ test_that("chk_identical", {
   expect_null(chk_identical(1, 1))
   expect_invisible(chk_identical(1, 1))
   expect_chk_error(
-    chk_identical(1L, c(x = 1L)),
-    "^`1L` must be identical to: c[(]x = 1L[)][.]$"
+    chk_identical(1L, 2),
+    "^`1L` must be identical to: 2[.]$"
   )
 
   expect_chk_error(chk_identical(1, 1L), "^`1` must be identical to: 1L[.]$")
@@ -63,8 +63,8 @@ test_that("chk_equal", {
     "^`c[(]x = 1L[)]` must be equal to: 1L[.]$"
   )
   expect_chk_error(
-    chk_equal(1L, c(x = 1L)),
-    "^`1L` must be equal to: c[(]x = 1L[)][.]$"
+    chk_equal(1L, 2),
+    "^`1L` must be equal to: 2[.]$"
   )
   expect_chk_error(
     chk_equal(1, c(1, 5, 1, 9)),
