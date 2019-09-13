@@ -1,15 +1,15 @@
 #' Tidyverse Style Message
-#' 
+#'
 #' Constructs a tidyverse style message by
-#' 
+#'
 #' \itemize{
 #'   \item Capitalizing the first character if possible.
 #'   \item Adding a trailing . if missing.
 #'   \item Replacing the recognized \code{sprintf}-like types.
 #' }
-#' 
+#'
 #' @section \code{sprintf}-like types:
-#' 
+#'
 #' The following recognized \code{sprintf}-like types can be used in a message:
 #'
 #' \describe{
@@ -18,7 +18,7 @@
 #'   \item{\code{r}}{'is' if n == 1 otherwise 'are'}
 #' }
 #'
-#' @param ... Multiple objects that are converted to a string using 
+#' @param ... Multiple objects that are converted to a string using
 #' \code{paste0(..., collapse = '')}.
 #' @param n The value of n for converting \code{sprintf}-like types.
 #'
@@ -36,7 +36,7 @@ message_chk <- function(..., n = NULL) {
     string <- gsub("%r", if (n == 1) "is" else "are", string, fixed = TRUE)
     string <- gsub("%n", n, string, fixed = TRUE)
   }
-  if(!grepl("[.]$", string)) string <- p0(string, ".")
+  if (!grepl("[.]$", string)) string <- p0(string, ".")
   string <- p0(toupper(substr(string, 1, 1)), substr(string, 2, nchar(string)))
   string
 }
@@ -44,10 +44,10 @@ message_chk <- function(..., n = NULL) {
 #' Stop, Warning and Message Messages
 #'
 #' The functions call \code{\link{message_chk}()} to process
-#' the message and then 
+#' the message and then
 #' \code{\link[rlang]{abort}()}, \code{\link[rlang]{warn}()} and
 #'  \code{\link[rlang]{inform}()}, respectively.
-#'  
+#'
 #'  The user can set the subclass.
 #'
 #' @inheritParams base::stop
