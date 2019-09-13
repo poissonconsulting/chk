@@ -23,5 +23,5 @@ test_that("chk_not_null", {
   expect_invisible(chk_not_null(1))
 
   expect_chk_error(chk_not_null(NULL), "^`NULL` must not be NULL[.]$")
-  expect_chk_error(chk_not_null(NULL, x_name = "not NULL"), "^not NULL must not be NULL[.]$")
+  expect_chk_error(chk_not_null(NULL, x_name = "not NULL"), "^Not NULL must not be NULL[.]$")
 })

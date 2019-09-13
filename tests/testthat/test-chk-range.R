@@ -72,7 +72,7 @@ test_that("chk_gt", {
   expect_invisible(chk_gt(1))
   expect_chk_error(chk_gt(-1), "^`-1` must be greater than 0, not -1[.]$")
   expect_chk_error(chk_gt(c(1, -1)), "^`c[(]1, -1[)]` must have values greater than 0[.]$")
-  expect_chk_error(chk_gt(-1, x_name = "a number"), "^a number must be greater than 0, not -1[.]$")
+  expect_chk_error(chk_gt(-1, x_name = "`a number`"), "^`a number` must be greater than 0, not -1[.]$")
 })
 
 test_that("vld_gte", {
@@ -89,5 +89,5 @@ test_that("chk_gte", {
   expect_invisible(chk_gte(1))
   expect_chk_error(chk_gte(-1), "^`-1` must be greater than or equal to 0, not -1[.]$")
   expect_chk_error(chk_gte(c(1, -1)), "^`c[(]1, -1[)]` must have values greater than or equal to 0[.]$")
-  expect_chk_error(chk_gte(-1, x_name = "another number"), "^another number must be greater than or equal to 0, not -1[.]$")
+  expect_chk_error(chk_gte(-1, x_name = "another number"), "^Another number must be greater than or equal to 0, not -1[.]$")
 })

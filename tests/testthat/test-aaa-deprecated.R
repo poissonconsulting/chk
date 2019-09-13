@@ -22,5 +22,5 @@ test_that("chk_is", {
   x <- list()
   class(x) <- c("a", "b")
   expect_chk_error(chk_is(x, "c"), "`x` must inherit from class 'c'")
-  expect_chk_error(chk_is(x, "c", x_name = "c"), "c must inherit from class 'c'")
+  expect_chk_error(chk_is(x, "c", x_name = "c"), "C must inherit from class 'c'")
 })

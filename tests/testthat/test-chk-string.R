@@ -45,6 +45,6 @@ test_that("chk_match", {
   )
   expect_chk_error(
     chk_match(c(NA, "b"), "b", x_name = "b"),
-    "b must have values matching regular expression 'b'[.]$"
+    "B must have values matching regular expression 'b'[.]$"
   )
 })

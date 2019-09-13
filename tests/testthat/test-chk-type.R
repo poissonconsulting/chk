@@ -23,7 +23,7 @@ test_that("chk_s3_class", {
   x <- list()
   class(x) <- c("a", "b")
   expect_chk_error(chk_s3_class(x, "c"), "`x` must inherit from S3 class 'c'")
-  expect_chk_error(chk_s3_class(x, "c", x_name = "c"), "c must inherit from S3 class 'c'")
+  expect_chk_error(chk_s3_class(x, "c", x_name = "c"), "C must inherit from S3 class 'c'")
 })
 
 test_that("vld_s4_class", {
@@ -64,7 +64,7 @@ test_that("chk_whole_numeric", {
   expect_null(chk_whole_numeric(1L))
   expect_invisible(chk_whole_numeric(1L))
   expect_chk_error(chk_whole_numeric(TRUE), "^`TRUE` must be a whole numeric vector [(]integer vector or double equivalent[)][.]$")
-  expect_chk_error(chk_whole_numeric(TRUE, x_name = "c(1,2)"), "^c[(]1,2[)] must be a whole numeric vector [(]integer vector or double equivalent[)][.]$")
+  expect_chk_error(chk_whole_numeric(TRUE, x_name = "`c(1,2)`"), "^`c[(]1,2[)]` must be a whole numeric vector [(]integer vector or double equivalent[)][.]$")
 })
 
 test_that("vld_list", {
@@ -81,7 +81,7 @@ test_that("chk_list", {
   expect_null(chk_list(list()))
   expect_invisible(chk_list(list()))
   expect_chk_error(chk_list(1), "^`1` must be a list[.]$")
-  expect_chk_error(chk_list(1, x_name = "list()"), "^list[(][)] must be a list[.]$")
+  expect_chk_error(chk_list(1, x_name = "`list()`"), "^`list[(][)]` must be a list[.]$")
 })
 
 test_that("vld_function", {
@@ -94,7 +94,7 @@ test_that("chk_function", {
   expect_null(chk_function(c))
   expect_invisible(chk_function(c))
   expect_chk_error(chk_function(1), "^`1` must be a function[.]$")
-  expect_chk_error(chk_function(1, x_name = "function()"), "^function[(][)] must be a function[.]$")
+  expect_chk_error(chk_function(1, x_name = "Function()"), "^Function[(][)] must be a function[.]$")
 })
 
 test_that("vld_vector", {

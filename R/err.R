@@ -31,16 +31,13 @@
 #' message_chk("There %r %n", " problem%s.", n = 3)
 message_chk <- function(..., n = NULL) {
   string <- p0(..., collapse = "")
-  if(!vld_string(string)) {
-    abort("`...` must p0(..., collapse = '') to a string.",
-                                .subclass = "chk_error")
-  }
   if (!is.null(n)) {
     string <- gsub("%s", if (n == 1) "" else "s", string, fixed = TRUE)
     string <- gsub("%r", if (n == 1) "is" else "are", string, fixed = TRUE)
     string <- gsub("%n", n, string, fixed = TRUE)
   }
-  
+  if(!grepl("[.]$", string)) string <- p0(string, ".")
+  string <- p0(toupper(substr(string, 1, 1)), substr(string, 2, nchar(string)))
   string
 }
 
