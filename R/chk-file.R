@@ -25,7 +25,7 @@ chk_file <- function(x) {
   x <- unique(x)
   x <- x[!file.exists(x) | dir.exists(x)]
   if (length(x) == 1L) {
-    abort_chk("Can't find file '", x, "'.")
+    abort_chk("Can't find file '", x, "'")
   }
   abort_chk("Can't find the following files: ", cc(x, " or "))
 }
@@ -59,7 +59,7 @@ chk_dir <- function(x) {
   x <- unique(x)
   x <- x[!dir.exists(x)]
   if (length(x) == 1L) {
-    abort_chk("Can't find directory '", x, "'.")
+    abort_chk("Can't find directory '", x, "'")
   }
   abort_chk("Can't find the following directories: ", cc(x, " or "))
 }

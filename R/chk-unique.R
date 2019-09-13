@@ -28,7 +28,7 @@ chk_unique <- function(x, incomparables = FALSE, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must be unique.")
+  abort_chk(x_name, " must be unique")
 }
 
 #' @describeIn chk_unique Validate Unique
@@ -68,7 +68,7 @@ chk_no_missing <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must not have missing values.")
+  abort_chk(x_name, " must not have missing values")
 }
 
 #' @describeIn chk_unique Validate No Missing Values
@@ -106,7 +106,7 @@ chk_named <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick((substitute(x)))
-  abort_chk(x_name, " must be named.")
+  abort_chk(x_name, " must be named")
 }
 
 #' @describeIn chk_unique Validate Named

@@ -29,7 +29,7 @@ chk_s3_class <- function(x, class, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must inherit from S3 class '", class, "'.")
+  abort_chk(x_name, " must inherit from S3 class '", class, "'")
 }
 
 #' @describeIn chk_type Validate Inherits from S3 Class
@@ -69,7 +69,7 @@ chk_s4_class <- function(x, class, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must inherit from S4 class '", class, "'.")
+  abort_chk(x_name, " must inherit from S4 class '", class, "'")
 }
 
 #' @describeIn chk_type Validate Inherits from S4 Class
@@ -110,7 +110,7 @@ chk_whole_numeric <- function(x, x_name = NULL) {
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
   abort_chk(
     x_name,
-    " must be a whole numeric vector (integer vector or double equivalent)."
+    " must be a whole numeric vector (integer vector or double equivalent)"
   )
 }
 
@@ -152,7 +152,7 @@ chk_list <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must be a list.")
+  abort_chk(x_name, " must be a list")
 }
 
 #' @describeIn chk_type Validate List
@@ -189,7 +189,7 @@ chk_function <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must be a function.")
+  abort_chk(x_name, " must be a function")
 }
 
 #' @describeIn chk_type Validate Function
@@ -226,7 +226,7 @@ chk_vector <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must be a vector.")
+  abort_chk(x_name, " must be a vector")
 }
 
 #' @describeIn chk_type Validate Vector
@@ -260,7 +260,7 @@ chk_scalar <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must be a scalar (length 1).")
+  abort_chk(x_name, " must be a scalar (length 1)")
 }
 
 #' @describeIn chk_type Validate Scalar

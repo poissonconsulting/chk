@@ -77,7 +77,7 @@ chk_count <- function(x, x_name = NULL) {
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
   abort_chk(
     x_name,
-    " must be a count (non-missing non-negative integer scalar or double equivalent)."
+    " must be a count (non-missing non-negative integer scalar or double equivalent)"
   )
 }
 
@@ -151,7 +151,7 @@ chk_is <- function(x, class, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must inherit from class '", class, "'.")
+  abort_chk(x_name, " must inherit from class '", class, "'")
 }
 
 #' @describeIn chk_deprecated Validate Is

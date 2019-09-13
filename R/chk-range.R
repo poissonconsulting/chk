@@ -131,7 +131,7 @@ chk_lte <- function(x, value = 0, x_name = NULL) {
   if (length(x) == 1L) {
     abort_chk(
       x_name, " must be less than or equal to ", cc(value), ", not ", cc(x),
-      "."
+      ""
     )
   }
   abort_chk(x_name, " must have values less than or equal to ", cc(value))

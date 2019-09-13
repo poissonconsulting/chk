@@ -89,7 +89,7 @@ chk_all_identical <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must have identical elements.")
+  abort_chk(x_name, " must have identical elements")
 }
 
 #' @export
@@ -127,7 +127,7 @@ chk_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NUL
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must have equal elements.")
+  abort_chk(x_name, " must have equal elements")
 }
 
 #' @export
@@ -165,7 +165,7 @@ chk_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps), x_name 
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must have equivalent elements.")
+  abort_chk(x_name, " must have equivalent elements")
 }
 
 #' @export

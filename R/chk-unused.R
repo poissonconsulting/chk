@@ -29,7 +29,7 @@ chk_unused <- function(...) {
   if (!length(list(...))) {
     return(invisible())
   }
-  abort_chk("`...` must be unused.")
+  abort_chk("`...` must be unused")
 }
 
 #' @describeIn chk_unused Validate ... Unused
@@ -70,7 +70,7 @@ chk_used <- function(...) {
   if (vld_used(...)) {
     return(invisible())
   }
-  abort_chk("`...` must be used.")
+  abort_chk("`...` must be used")
 }
 
 #' @describeIn chk_unused Validate ... Used

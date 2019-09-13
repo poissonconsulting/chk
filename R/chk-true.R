@@ -27,7 +27,7 @@ chk_true <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must be TRUE.")
+  abort_chk(x_name, " must be TRUE")
 }
 
 #' @describeIn chk_true Validate TRUE
@@ -65,7 +65,7 @@ chk_false <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must be FALSE.")
+  abort_chk(x_name, " must be FALSE")
 }
 
 #' @describeIn chk_true Validate FALSE
@@ -103,7 +103,7 @@ chk_flag <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must be a flag (TRUE or FALSE).")
+  abort_chk(x_name, " must be a flag (TRUE or FALSE)")
 }
 
 #' @describeIn chk_true Validate Flag
@@ -141,7 +141,7 @@ chk_lgl <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick((substitute(x)))
-  abort_chk(x_name, " must be a logical scalar (TRUE, FALSE or NA).")
+  abort_chk(x_name, " must be a logical scalar (TRUE, FALSE or NA)")
 }
 
 #' @describeIn chk_true Validate Logical Scalar

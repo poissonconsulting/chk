@@ -24,7 +24,7 @@ chk_date <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must be a date (non-missing Date scalar).")
+  abort_chk(x_name, " must be a date (non-missing Date scalar)")
 }
 
 #' @describeIn chk_date Validate Date
@@ -58,7 +58,7 @@ chk_datetime <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must be a datetime (non-missing POSIXct scalar).")
+  abort_chk(x_name, " must be a datetime (non-missing POSIXct scalar)")
 }
 
 #' @describeIn chk_date Validates DateTime
