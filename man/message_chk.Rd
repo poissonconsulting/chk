@@ -7,7 +7,7 @@
 message_chk(..., n = NULL)
 }
 \arguments{
-\item{...}{Multiple objects that are converted to a string using 
+\item{...}{Multiple objects that are converted to a string using
 \code{paste0(..., collapse = '')}.}
 
 \item{n}{The value of n for converting \code{sprintf}-like types.}
@@ -34,11 +34,12 @@ The following recognized \code{sprintf}-like types can be used in a message:
   \item{\code{n}}{The value of n.}
   \item{\code{s}}{'' if n == 1 otherwise 's'}
   \item{\code{r}}{'is' if n == 1 otherwise 'are'}
+  \item{\code{y}}{'y' if n == 1 otherwise 'ie'}
 }
 }
 
 \examples{
-message_chk("there \%r \%n", " problem\%s")
-message_chk("there \%r \%n", " problem\%s", n = 1)
-message_chk("There \%r \%n", " problem\%s.", n = 3)
+message_chk("there \%r \%n", " problem director\%y\%s")
+message_chk("there \%r \%n", " problem director\%y\%s", n = 1)
+message_chk("There \%r \%n", " problem director\%y\%s.", n = 3)
 }

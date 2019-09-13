@@ -7,7 +7,7 @@
 abort_chk(..., n = NULL)
 }
 \arguments{
-\item{...}{Multiple objects that are converted to a string using 
+\item{...}{Multiple objects that are converted to a string using
 \code{paste0(..., collapse = '')}.}
 
 \item{n}{The value of n for converting \code{sprintf}-like types.}

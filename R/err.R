@@ -16,6 +16,7 @@
 #'   \item{\code{n}}{The value of n.}
 #'   \item{\code{s}}{'' if n == 1 otherwise 's'}
 #'   \item{\code{r}}{'is' if n == 1 otherwise 'are'}
+#'   \item{\code{y}}{'y' if n == 1 otherwise 'ie'}
 #' }
 #'
 #' @param ... Multiple objects that are converted to a string using
@@ -26,14 +27,15 @@
 #' @export
 #'
 #' @examples
-#' message_chk("there %r %n", " problem%s")
-#' message_chk("there %r %n", " problem%s", n = 1)
-#' message_chk("There %r %n", " problem%s.", n = 3)
+#' message_chk("there %r %n", " problem director%y%s")
+#' message_chk("there %r %n", " problem director%y%s", n = 1)
+#' message_chk("There %r %n", " problem director%y%s.", n = 3)
 message_chk <- function(..., n = NULL) {
   string <- p0(..., collapse = "")
   if (!is.null(n)) {
-    string <- gsub("%s", if (n == 1) "" else "s", string, fixed = TRUE)
     string <- gsub("%r", if (n == 1) "is" else "are", string, fixed = TRUE)
+    string <- gsub("%s", if (n == 1) "" else "s", string, fixed = TRUE)
+    string <- gsub("%y", if (n == 1) "y" else "ie", string, fixed = TRUE)
     string <- gsub("%n", n, string, fixed = TRUE)
   }
   if (!grepl("[.]$", string)) string <- p0(string, ".")

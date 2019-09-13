@@ -10,20 +10,20 @@ test_that("message_chk", {
   expect_match(message_chk(" A", "b"), "^ Ab[.]$")
   expect_match(message_chk("Ab", "b"), "^Abb[.]$")
   expect_match(
-    message_chk("there %r %n problem value%s", n = 1),
-    "There is 1 problem value[.]$"
+    message_chk("there %r %n problem director%y%s", n = 1),
+    "There is 1 problem directory[.]$"
   )
   expect_match(
-    message_chk("there %r %n problem value%s", n = 2),
-    "There are 2 problem values[.]$"
+    message_chk("there %r %n problem director%y%s", n = 2),
+    "There are 2 problem directories[.]$"
   )
   expect_match(
-    message_chk("there %r %n problem value%s", n = 1.5),
-    "There are 1.5 problem values[.]$"
+    message_chk("there %r %n problem director%y%s", n = 1.5),
+    "There are 1.5 problem directories[.]$"
   )
   expect_match(
-    message_chk("there %r %n problem value%s", n = 0),
-    "There are 0 problem values[.]$"
+    message_chk("there %r %n problem director%y%s", n = 0),
+    "There are 0 problem directories[.]$"
   )
 })
 
