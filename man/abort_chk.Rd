@@ -22,8 +22,10 @@ A wrapper on \code{\link{err}} that sets the subclass to be 'chk_error'.
 It is exported to allow users to easily construct their own `chk_` functions.
 }
 \examples{
-try(abort_chk())
-try(abort_chk("x must be NULL."))
+try(abort_chk("x must be NULL"))
+try(abort_chk("`x` must be NULL"))
+try(abort_chk("there \%r \%n problem value\%s", n = 1))
+try(abort_chk("there \%r \%n problem value\%s", n = 1.5))
 }
 \seealso{
 \code{{err}}

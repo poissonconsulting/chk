@@ -33,7 +33,7 @@ chk_identical <- function(x, y, x_name = NULL) {
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
   y <- utils::capture.output(dput(y, control = "all"))
-  abort_chk(x_name, " must be identical to: ", y, ".")
+  abort_chk(x_name, " must be identical to: ", y)
 }
 
 #' @export
@@ -71,7 +71,7 @@ chk_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps),
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
   y <- utils::capture.output(dput(y, control = "all"))
-  abort_chk(x_name, " must be equal to: ", y, ".")
+  abort_chk(x_name, " must be equal to: ", y)
 }
 
 #' @export
@@ -108,7 +108,7 @@ chk_equivalent <- function(x, y, tolerance = sqrt(.Machine$double.eps),
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
   y <- utils::capture.output(dput(y, control = "all"))
-  abort_chk(x_name, " must be equivalent to: ", y, ".")
+  abort_chk(x_name, " must be equivalent to: ", y)
 }
 
 #' @export

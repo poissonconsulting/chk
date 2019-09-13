@@ -26,7 +26,7 @@ chk_string <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
-  abort_chk(x_name, " must be a string (non-missing character scalar).")
+  abort_chk(x_name, " must be a string (non-missing character scalar)")
 }
 
 #' @describeIn chk_string Validate String
@@ -67,9 +67,9 @@ chk_match <- function(x, regexp = ".+", x_name = NULL) {
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
   if (length(x) == 1L) {
-    abort_chk(x_name, " must match regular expression '", regexp, "'.")
+    abort_chk(x_name, " must match regular expression '", regexp, "'")
   }
-  abort_chk(x_name, " must have values matching regular expression '", regexp, "'.")
+  abort_chk(x_name, " must have values matching regular expression '", regexp, "'")
 }
 
 #' @describeIn chk_string Validate Matches
