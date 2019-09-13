@@ -1,6 +1,6 @@
 Package: chk
 Title: Check User-Supplied Function Arguments
-Version: 0.0.1.9021
+Version: 0.0.1.9022
 Authors@R: 
     c(person(given = "Joe",
              family = "Thorley",
@@ -20,7 +20,7 @@ License: MIT + file LICENSE
 URL: https://github.com/poissonconsulting/chk
 BugReports: https://github.com/poissonconsulting/chk/issues
 Depends: 
-    R (>= 3.1)
+    R (>= 3.3)
 Imports: 
     utils,
     rlang,
