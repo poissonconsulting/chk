@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Stop, Warning and Message — err • chk</title>
+<title>Stop, Warning and Message Messages — err • chk</title>
 
 
 <!-- jquery -->
@@ -35,10 +35,11 @@
 
 
 
-<meta property="og:title" content="Stop, Warning and Message — err" />
-<meta property="og:description" content="Wrappers on 
+<meta property="og:title" content="Stop, Warning and Message Messages — err" />
+<meta property="og:description" content="The functions call message_chk() to process
+the message and then
 abort(), warn() and
- inform()." />
+ inform(), respectively." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -71,7 +72,7 @@ abort(), warn() and
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9014</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9020</span>
       </span>
     </div>
 
@@ -122,15 +123,16 @@ abort(), warn() and
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Stop, Warning and Message</h1>
+    <h1>Stop, Warning and Message Messages</h1>
     <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/err.R'><code>R/err.R</code></a></small>
     <div class="hidden name"><code>err.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Wrappers on 
+    <p>The functions call <code><a href='message_chk.html'>message_chk</a>()</code> to process
+the message and then
 <code><a href='https://rlang.r-lib.org/reference/abort.html'>abort</a>()</code>, <code><a href='https://rlang.r-lib.org/reference/abort.html'>warn</a>()</code> and
- <code><a href='https://rlang.r-lib.org/reference/abort.html'>inform</a>()</code>.</p>
+ <code><a href='https://rlang.r-lib.org/reference/abort.html'>inform</a>()</code>, respectively.</p>
     </div>
 
     <pre class="usage"><span class='fu'>err</span>(<span class='no'>...</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>.subclass</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
@@ -159,6 +161,9 @@ to selectively handle the conditions signalled by your functions.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The user can set the subclass.</p>
     <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
 
     
@@ -167,23 +172,11 @@ to selectively handle the conditions signalled by your functions.</p></td>
 <li><p><code>wrn</code>: Warning</p></li>
 <li><p><code>msg</code>: Message</p></li>
 </ul>
-    <h2 class="hasAnchor" id="sprintf-like-types"><a class="anchor" href="#sprintf-like-types"></a><code>sprintf</code>-like types</h2>
-
-    
-
-<p>The following <code>sprintf</code>-like types can be used in the custom messages:</p>
-<dl class='dl-horizontal'>
-  <dt><code>n</code></dt><dd><p>The value of n.</p></dd>
-  <dt><code>s</code></dt><dd><p>'' if n == 1 otherwise 's'</p></dd>
-  <dt><code>r</code></dt><dd><p>'is' if n == 1 otherwise 'are'</p></dd>
-
-</dl>
-
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'># err</span>
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>err</span>(<span class='st'>"this is an error"</span>))</div><div class='output co'>#&gt; Error : this is an error
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>err</span>(<span class='st'>"there %r %n problem value%s"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Error : There are 2 problem values.
 #&gt; Backtrace:
 #&gt; <span style='color: #555555;'>     </span><span>█
 #&gt; </span><span style='color: #555555;'>  1. </span><span>├─base::tryCatch(...)
@@ -219,23 +212,23 @@ to selectively handle the conditions signalled by your functions.</p></td>
 #&gt; </span><span style='color: #555555;'> 31. </span><span>                      ├─base::withVisible(eval(expr, envir, enclos))
 #&gt; </span><span style='color: #555555;'> 32. </span><span>                      └─base::eval(expr, envir, enclos)
 #&gt; </span><span style='color: #555555;'> 33. </span><span>                        └─base::eval(expr, envir, enclos)
-#&gt; </span><span style='color: #555555;'> 34. </span><span>                          ├─base::try(err("this is an error"))
+#&gt; </span><span style='color: #555555;'> 34. </span><span>                          ├─base::try(err("there %r %n problem value%s", n = 2))
 #&gt; </span><span style='color: #555555;'> 35. </span><span>                          │ └─base::tryCatch(...)
 #&gt; </span><span style='color: #555555;'> 36. </span><span>                          │   └─base:::tryCatchList(expr, classes, parentenv, handlers)
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
-#&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::err("this is an error")</div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::err("there %r %n problem value%s", n = 2)</div><div class='input'>
 <span class='co'># wrn</span>
-<span class='fu'>wrn</span>(<span class='st'>"this is a warning"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: this is a warning</span></div><div class='input'><span class='fu'>wrn</span>(<span class='st'>"there %r %n problem value%s"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: there %r %n problem value%s</span></div><div class='input'><span class='fu'>wrn</span>(<span class='st'>"there %r %n problem value%s"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: there is 1 problem value</span></div><div class='input'><span class='fu'>wrn</span>(<span class='st'>"there %r %n problem value%s"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: there are 2 problem values</span></div><div class='input'>
+<span class='fu'>wrn</span>(<span class='st'>"there %r %n problem value%s"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: There are 2 problem values.</span></div><div class='input'>
 <span class='co'># msg</span>
-<span class='fu'>msg</span>(<span class='st'>"this is a message"</span>)</div><div class='output co'>#&gt; <span class='message'>this is a message</span></div><div class='input'><span class='fu'>msg</span>(<span class='st'>"there %r %n problem value%s"</span>)</div><div class='output co'>#&gt; <span class='message'>there %r %n problem value%s</span></div><div class='input'><span class='fu'>msg</span>(<span class='st'>"there %r %n problem value%s"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; <span class='message'>there is 1 problem value</span></div><div class='input'><span class='fu'>msg</span>(<span class='st'>"there %r %n problem value%s"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='message'>there are 2 problem values</span></div></span></pre>
+<span class='fu'>msg</span>(<span class='st'>"there %r %n problem value%s"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='message'>There are 2 problem values.</span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#details">Details</a></li>
       <li><a href="#functions">Functions</a></li>
-      <li><a href="#sprintf-like-types"><code>sprintf</code>-like types</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

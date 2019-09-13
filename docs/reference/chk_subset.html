@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9014</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9020</span>
       </span>
     </div>
 
@@ -220,7 +220,8 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chk_subset(11, 1:10)
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk:::.abort(...) </span><span style='color: #555555;'>/home/kirill/git/R/chk/R/chk-subset.R:27:2</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(...)
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'>
 <span class='co'># vld_subset</span>
 <span class='fu'>vld_subset</span>(<span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span>(<span class='fl'>0</span>), <span class='fl'>1</span>:<span class='fl'>10</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_subset</span>(<span class='fl'>1</span>, <span class='fl'>1</span>:<span class='fl'>10</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_subset</span>(<span class='fl'>11</span>, <span class='fl'>1</span>:<span class='fl'>10</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
 <span class='co'># chk_superset</span>
@@ -267,7 +268,8 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chk_superset(1:3, 4)
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk:::.abort(x_name, " must include ", cc(values, " and "), ".") </span><span style='color: #555555;'>/home/kirill/git/R/chk/R/chk-subset.R:64:2</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(x_name, " must include ", cc(values, " and "))
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'>
 <span class='co'># vld_superset</span>
 <span class='fu'>vld_superset</span>(<span class='fl'>1</span>:<span class='fl'>3</span>, <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_superset</span>(<span class='fl'>1</span>:<span class='fl'>3</span>, <span class='fl'>4</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_superset</span>(<span class='fu'><a href='https://rdrr.io/r/base/integer.html'>integer</a></span>(<span class='fl'>0</span>), <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>integer</a></span>(<span class='fl'>0</span>))</div><div class='output co'>#&gt; [1] TRUE</div></span></pre>
   </div>

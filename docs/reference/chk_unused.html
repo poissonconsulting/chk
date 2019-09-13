@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9014</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9020</span>
       </span>
     </div>
 
@@ -155,13 +155,13 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
     
 <ul>
 <li><p><code>chk_unused</code>: Check ... Unused</p>
-<p>Checks if is ... unused using 
+<p>Checks if is ... unused using
 <code>vld_unused()</code>.</p></li>
 <li><p><code>vld_unused</code>: Validate ... Unused</p>
 <p>Checks if is ... unused using</p>
 <p><code>length(<a href='https://rdrr.io/r/base/list.html'>list</a>(...)) == 0L</code>.</p></li>
 <li><p><code>chk_used</code>: Check ... Used</p>
-<p>Checks if is ... used using 
+<p>Checks if is ... used using
 <code>vld_unused()</code>.</p></li>
 <li><p><code>vld_used</code>: Validate ... Used</p>
 <p>Validates if ... used using</p>
@@ -171,8 +171,11 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'># chk_unused</span>
-<span class='no'>fun</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>, <span class='no'>...</span>) { <span class='fu'>chk_unused</span>(<span class='no'>...</span>); <span class='no'>x</span> }
-<span class='fu'>fun</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] 1</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>fun</span>(<span class='fl'>1</span>,<span class='fl'>2</span>))</div><div class='output co'>#&gt; Error : `...` must be unused.
+<span class='no'>fun</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>, <span class='no'>...</span>) {
+  <span class='fu'>chk_unused</span>(<span class='no'>...</span>)
+  <span class='no'>x</span>
+}
+<span class='fu'>fun</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] 1</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>fun</span>(<span class='fl'>1</span>, <span class='fl'>2</span>))</div><div class='output co'>#&gt; Error : `...` must be unused.
 #&gt; Backtrace:
 #&gt; <span style='color: #555555;'>     </span><span>█
 #&gt; </span><span style='color: #555555;'>  1. </span><span>├─base::tryCatch(...)
@@ -214,12 +217,19 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─fun(1, 2)
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::chk_unused(...)</div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::chk_unused(...)
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::abort_chk("`...` must be unused")
+#&gt; </span><span style='color: #555555;'> 42. </span><span>                                └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'>
 <span class='co'># vld_unused</span>
-<span class='no'>fun</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>, <span class='no'>...</span>) { <span class='fu'>vld_unused</span>(<span class='no'>...</span>)}
-<span class='fu'>fun</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>fun</span>(<span class='fl'>1</span>,<span class='fl'>2</span>))</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+<span class='no'>fun</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>, <span class='no'>...</span>) {
+  <span class='fu'>vld_unused</span>(<span class='no'>...</span>)
+}
+<span class='fu'>fun</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>fun</span>(<span class='fl'>1</span>, <span class='fl'>2</span>))</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
 <span class='co'># chk_used</span>
-<span class='no'>fun</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>, <span class='no'>...</span>) { <span class='fu'>chk_used</span>(<span class='no'>...</span>); <span class='no'>x</span> }
+<span class='no'>fun</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>, <span class='no'>...</span>) {
+  <span class='fu'>chk_used</span>(<span class='no'>...</span>)
+  <span class='no'>x</span>
+}
 <span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>fun</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `...` must be used.
 #&gt; Backtrace:
 #&gt; </span><span style='color: #555555;'>     </span><span>█
@@ -262,10 +272,14 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─fun(1)
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::chk_used(...)</div><div class='input'><span class='fu'>fun</span>(<span class='fl'>1</span>,<span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] 1</div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::chk_used(...)
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::abort_chk("`...` must be used")
+#&gt; </span><span style='color: #555555;'> 42. </span><span>                                └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'><span class='fu'>fun</span>(<span class='fl'>1</span>, <span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] 1</div><div class='input'>
 <span class='co'># vld_used</span>
-<span class='no'>fun</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>, <span class='no'>...</span>) { <span class='fu'>vld_used</span>(<span class='no'>...</span>) }
-<span class='fu'>fun</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>fun</span>(<span class='fl'>1</span>,<span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] TRUE</div></span></pre>
+<span class='no'>fun</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>, <span class='no'>...</span>) {
+  <span class='fu'>vld_used</span>(<span class='no'>...</span>)
+}
+<span class='fu'>fun</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>fun</span>(<span class='fl'>1</span>, <span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] TRUE</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

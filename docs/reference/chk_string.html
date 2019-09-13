@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9014</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9020</span>
       </span>
     </div>
 
@@ -163,13 +163,13 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
     
 <ul>
 <li><p><code>chk_string</code>: Check String</p>
-<p>Checks if non-missing character scalar using 
+<p>Checks if non-missing character scalar using
 <code>vld_string()</code>.</p></li>
 <li><p><code>vld_string</code>: Validate String</p>
 <p>Validates non-missing character scalar using</p>
 <p><code>is.character(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code>.</p></li>
 <li><p><code>chk_match</code>: Check Matches</p>
-<p>Checks if all values match regular expression using 
+<p>Checks if all values match regular expression using
 <code>vld_match()</code>.</p></li>
 <li><p><code>vld_match</code>: Validate Matches</p>
 <p>Validates all values match regular expression using</p>
@@ -223,7 +223,8 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chk_string(1)
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk:::.abort(x_name, " must be a string (non-missing character scalar).") </span><span style='color: #555555;'>/home/kirill/git/R/chk/R/chk-string.R:27:2</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(x_name, " must be a string (non-missing character scalar)")
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'>
 <span class='co'># vld_string</span>
 <span class='fu'>vld_string</span>(<span class='st'>"1"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_string</span>(<span class='st'>""</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_string</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_string</span>(<span class='fl'>NA_character_</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_string</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"1"</span>, <span class='st'>"1"</span>))</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
 <span class='co'># chk_match</span>
@@ -270,7 +271,8 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chk_match("1", regexp = "2")
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk:::.abort(...) </span><span style='color: #555555;'>/home/kirill/git/R/chk/R/chk-string.R:65:2</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(...)
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'>
 <span class='co'># vld_match</span>
 <span class='fu'>vld_match</span>(<span class='st'>"1"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_match</span>(<span class='st'>"a"</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"a"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_match</span>(<span class='st'>""</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_match</span>(<span class='st'>"1"</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"2"</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_match</span>(<span class='fl'>NA_character_</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>".*"</span>)</div><div class='output co'>#&gt; [1] FALSE</div></span></pre>
   </div>

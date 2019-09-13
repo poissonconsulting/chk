@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Page not found (404) • chk</title>
+<title>Tidyverse Style Message — message_chk • chk</title>
 
 
 <!-- jquery -->
@@ -29,13 +29,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script>
+<link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script>
 
 
 
 
-<meta property="og:title" content="Page not found (404)" />
+<meta property="og:title" content="Tidyverse Style Message — message_chk" />
+<meta property="og:description" content="Constructs a tidyverse style message by" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -54,7 +56,7 @@
   </head>
 
   <body>
-    <div class="container template-title-body">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -66,7 +68,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">chk</a>
+        <a class="navbar-link" href="../index.html">chk</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9020</span>
       </span>
     </div>
@@ -74,13 +76,13 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">
+  <a href="../index.html">
     <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="reference/index.html">Reference</a>
+  <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -90,12 +92,12 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="articles/benchmarking-chk.html">Benchmarking chk</a>
+      <a href="../articles/benchmarking-chk.html">Benchmarking chk</a>
     </li>
   </ul>
 </li>
 <li>
-  <a href="news/index.html">Changelog</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -116,17 +118,75 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Page not found (404)</h1>
+    <h1>Tidyverse Style Message</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/err.R'><code>R/err.R</code></a></small>
+    <div class="hidden name"><code>message_chk.Rd</code></div>
     </div>
 
-Content not found. Please use links in the navbar.
+    <div class="ref-description">
+    <p>Constructs a tidyverse style message by</p>
+    </div>
+
+    <pre class="usage"><span class='fu'>message_chk</span>(<span class='no'>...</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>Multiple objects that are converted to a string using
+<code><a href='https://rdrr.io/r/base/paste.html'>paste0(..., collapse = '')</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td><p>The value of n for converting <code>sprintf</code>-like types.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A string of the tidyverse style message.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    
+<ul>
+<li><p>Capitalizing the first character if possible.</p></li>
+<li><p>Adding a trailing . if missing.</p></li>
+<li><p>Replacing the recognized <code>sprintf</code>-like types.</p></li>
+</ul>
+
+    <h2 class="hasAnchor" id="sprintf-like-types"><a class="anchor" href="#sprintf-like-types"></a><code>sprintf</code>-like types</h2>
+
+    
+
+
+<p>The following recognized <code>sprintf</code>-like types can be used in a message:</p>
+<dl class='dl-horizontal'>
+  <dt><code>n</code></dt><dd><p>The value of n.</p></dd>
+  <dt><code>s</code></dt><dd><p>'' if n == 1 otherwise 's'</p></dd>
+  <dt><code>r</code></dt><dd><p>'is' if n == 1 otherwise 'are'</p></dd>
+  <dt><code>y</code></dt><dd><p>'y' if n == 1 otherwise 'ie'</p></dd>
+
+</dl>
+
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>message_chk</span>(<span class='st'>"there %r %n"</span>, <span class='st'>" problem director%y%s"</span>)</div><div class='output co'>#&gt; [1] "There %r %n problem director%y%s."</div><div class='input'><span class='fu'>message_chk</span>(<span class='st'>"there %r %n"</span>, <span class='st'>" problem director%y%s"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "There is 1 problem directory."</div><div class='input'><span class='fu'>message_chk</span>(<span class='st'>"There %r %n"</span>, <span class='st'>" problem director%y%s."</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='output co'>#&gt; [1] "There are 3 problem directories."</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#sprintf-like-types"><code>sprintf</code>-like types</a></li>
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
-
 </div>
-
 
 
       <footer>

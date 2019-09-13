@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9014</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9020</span>
       </span>
     </div>
 
@@ -159,13 +159,13 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
     
 <ul>
 <li><p><code>chk_null</code>: Validate NULL</p>
-<p>Checks if NULL using 
+<p>Checks if NULL using
 <code>vld_null()</code>.</p></li>
 <li><p><code>vld_null</code>: Validate NULL</p>
 <p>Validates if NULL using</p>
 <p><code><a href='https://rdrr.io/r/base/NULL.html'>is.null</a>(x)</code>.</p></li>
 <li><p><code>chk_not_null</code>: Check Not NULL</p>
-<p>Checks if not NULL using 
+<p>Checks if not NULL using
 <code>vld_not_null()</code>.</p></li>
 <li><p><code>vld_not_null</code>: Validate Not NULL</p>
 <p>Validates if not NULL using</p>
@@ -217,7 +217,8 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chk_null(1)
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk:::chk_(vld_null(x), " must be NULL.") </span><span style='color: #555555;'>/home/kirill/git/R/chk/R/chk-null.R:24:2</span><span></div><div class='input'><span class='fu'>chk_null</span>(<span class='kw'>NULL</span>)
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(x_name, " must be NULL")
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'><span class='fu'>chk_null</span>(<span class='kw'>NULL</span>)
 
 <span class='co'># vld_null</span>
 <span class='fu'>vld_null</span>(<span class='kw'>NULL</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_null</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
@@ -264,7 +265,8 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chk_not_null(NULL)
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk:::.abort(x_name, " must not be NULL.") </span><span style='color: #555555;'>/home/kirill/git/R/chk/R/chk-null.R:57:2</span><span></div><div class='input'><span class='fu'>chk_not_null</span>(<span class='fl'>1</span>)
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(x_name, " must not be NULL")
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'><span class='fu'>chk_not_null</span>(<span class='fl'>1</span>)
 
 <span class='co'># vld_not_null</span>
 <span class='fu'>vld_not_null</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_not_null</span>(<span class='kw'>NULL</span>)</div><div class='output co'>#&gt; [1] FALSE</div></span></pre>

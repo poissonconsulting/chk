@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9014</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9020</span>
       </span>
     </div>
 
@@ -135,31 +135,100 @@
 
 <span class='fu'>chk_in</span>(<span class='no'>x</span>, <span class='no'>values</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>chk_has</span>(<span class='no'>x</span>, <span class='no'>values</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+<span class='fu'>chk_has</span>(<span class='no'>x</span>, <span class='no'>values</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+
+<span class='fu'>chk_is</span>(<span class='no'>x</span>, <span class='no'>class</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+
+<span class='fu'>vld_is</span>(<span class='no'>x</span>, <span class='no'>class</span>)</pre>
 
 
     <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
 
     
 <ul>
-<li><p><code>chk_count</code>: Check Count</p> 
+<li><p><code>chk_count</code>: Check Count</p>
+<p><img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /></p>
 <p>Checks if non-missing non-negative integer scalar or double equivalent using:</p>
-<p><code>is.numeric(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x) &amp;&amp; x &gt;= 0 &amp;&amp; 
-  isTRUE(all.equal(x, as.integer(x)))</code></p></li>
+<p><code>is.numeric(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x) &amp;&amp; x &gt;= 0 &amp;&amp;
+  vld_true(all.equal(x, as.integer(x)))</code></p></li>
 <li><p><code>chk_proportion</code>: Check Proportion</p>
+<p><img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /></p>
 <p>Checks if non-missing numeric scalar between 0 and 1 using:</p>
 <p><code>is.numeric(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x) &amp;&amp; x &gt;= 0 &amp;&amp; x &lt;= 1</code></p></li>
 <li><p><code>chk_in</code>: Check In</p>
+<p><img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p>
 <p>Checks if all values in values using <code><a href='chk_subset.html'>chk_subset()</a></code>.</p></li>
 <li><p><code>chk_has</code>: Check Has</p>
+<p><img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p>
 <p>Checks if includes all values using <code><a href='chk_subset.html'>chk_superset()</a></code>.</p></li>
+<li><p><code>chk_is</code>: Check Is</p>
+<p><img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p>
+<p>Checks if inherits from class using <code>vld_is()</code>.</p></li>
+<li><p><code>vld_is</code>: Validate Is</p>
+<p><img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p>
+<p>Validates inherits from class using</p>
+<p><code><a href='https://rdrr.io/r/base/class.html'>inherits</a>(x, class)</code></p>
+<p>Class should be a string.</p></li>
 </ul>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='co'># chk_is</span>
+<span class='fu'>chk_is</span>(<span class='fl'>1</span>, <span class='st'>"numeric"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `chk_is()` is deprecated as of lifecycle 0.0.1.9018.</span>
+#&gt; <span class='warning'>Please use `chk_class_s3()` instead.</span>
+#&gt; <span class='warning'><span style='color: #555555;'>This warning is displayed once per session.</span><span></span>
+#&gt; <span class='warning'></span><span style='color: #555555;'>Call `lifecycle::last_warnings()` to see where this warning was generated.</span><span></span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_is</span>(<span class='fl'>1</span>, <span class='st'>"character"</span>))</div><div class='output co'>#&gt; Error : `1` must inherit from class 'character'.
+#&gt; Backtrace:
+#&gt; </span><span style='color: #555555;'>     </span><span>█
+#&gt; </span><span style='color: #555555;'>  1. </span><span>├─base::tryCatch(...)
+#&gt; </span><span style='color: #555555;'>  2. </span><span>│ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+#&gt; </span><span style='color: #555555;'>  3. </span><span>│   ├─base:::tryCatchOne(...)
+#&gt; </span><span style='color: #555555;'>  4. </span><span>│   │ └─base:::doTryCatch(return(expr), name, parentenv, handler)
+#&gt; </span><span style='color: #555555;'>  5. </span><span>│   └─base:::tryCatchList(expr, names[-nh], parentenv, handlers[-nh])
+#&gt; </span><span style='color: #555555;'>  6. </span><span>│     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+#&gt; </span><span style='color: #555555;'>  7. </span><span>│       └─base:::doTryCatch(return(expr), name, parentenv, handler)
+#&gt; </span><span style='color: #555555;'>  8. </span><span>├─base::withCallingHandlers(...)
+#&gt; </span><span style='color: #555555;'>  9. </span><span>├─base::saveRDS(...)
+#&gt; </span><span style='color: #555555;'> 10. </span><span>├─base::do.call(...)
+#&gt; </span><span style='color: #555555;'> 11. </span><span>├─(function (what, args, quote = FALSE, envir = parent.frame()) ...
+#&gt; </span><span style='color: #555555;'> 12. </span><span>└─(function (..., crayon_enabled, crayon_colors, pkgdown_internet) ...
+#&gt; </span><span style='color: #555555;'> 13. </span><span>  └─pkgdown::build_site(...)
+#&gt; </span><span style='color: #555555;'> 14. </span><span>    └─pkgdown:::build_site_local(...)
+#&gt; </span><span style='color: #555555;'> 15. </span><span>      └─pkgdown::build_reference(...)
+#&gt; </span><span style='color: #555555;'> 16. </span><span>        └─purrr::map(...)
+#&gt; </span><span style='color: #555555;'> 17. </span><span>          └─pkgdown:::.f(.x[[i]], ...)
+#&gt; </span><span style='color: #555555;'> 18. </span><span>            └─pkgdown:::data_reference_topic(...)
+#&gt; </span><span style='color: #555555;'> 19. </span><span>              └─pkgdown:::run_examples(...)
+#&gt; </span><span style='color: #555555;'> 20. </span><span>                └─pkgdown:::highlight_examples(code, topic, env = env)
+#&gt; </span><span style='color: #555555;'> 21. </span><span>                  └─evaluate::evaluate(x, child_env(env), new_device = TRUE)
+#&gt; </span><span style='color: #555555;'> 22. </span><span>                    └─evaluate:::evaluate_call(...)
+#&gt; </span><span style='color: #555555;'> 23. </span><span>                      ├─evaluate:::timing_fn(...)
+#&gt; </span><span style='color: #555555;'> 24. </span><span>                      ├─evaluate:::handle(...)
+#&gt; </span><span style='color: #555555;'> 25. </span><span>                      │ └─base::try(f, silent = TRUE)
+#&gt; </span><span style='color: #555555;'> 26. </span><span>                      │   └─base::tryCatch(...)
+#&gt; </span><span style='color: #555555;'> 27. </span><span>                      │     └─base:::tryCatchList(expr, classes, parentenv, handlers)
+#&gt; </span><span style='color: #555555;'> 28. </span><span>                      │       └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+#&gt; </span><span style='color: #555555;'> 29. </span><span>                      │         └─base:::doTryCatch(return(expr), name, parentenv, handler)
+#&gt; </span><span style='color: #555555;'> 30. </span><span>                      ├─base::withCallingHandlers(...)
+#&gt; </span><span style='color: #555555;'> 31. </span><span>                      ├─base::withVisible(eval(expr, envir, enclos))
+#&gt; </span><span style='color: #555555;'> 32. </span><span>                      └─base::eval(expr, envir, enclos)
+#&gt; </span><span style='color: #555555;'> 33. </span><span>                        └─base::eval(expr, envir, enclos)
+#&gt; </span><span style='color: #555555;'> 34. </span><span>                          ├─base::try(chk_is(1, "character"))
+#&gt; </span><span style='color: #555555;'> 35. </span><span>                          │ └─base::tryCatch(...)
+#&gt; </span><span style='color: #555555;'> 36. </span><span>                          │   └─base:::tryCatchList(expr, classes, parentenv, handlers)
+#&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+#&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
+#&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chk_is(1, "character")
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(x_name, " must inherit from class '", class, "'")
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'>
+<span class='co'># vld_is</span>
+<span class='fu'>vld_is</span>(<span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span>(<span class='fl'>0</span>), <span class='st'>"numeric"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_is</span>(<span class='fl'>1</span>, <span class='st'>"numeric"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_is</span>(<span class='fl'>NA_real_</span>, <span class='st'>"numeric"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_is</span>(<span class='fl'>1</span>, <span class='st'>"character"</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_is</span>(<span class='kw'>NULL</span>, <span class='st'>"numeric"</span>)</div><div class='output co'>#&gt; [1] FALSE</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#functions">Functions</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>

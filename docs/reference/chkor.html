@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9014</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9020</span>
       </span>
     </div>
 
@@ -188,7 +188,9 @@
 #&gt; </span><span style='color: #555555;'> 36. </span><span>                          │   └─base:::tryCatchList(expr, classes, parentenv, handlers)
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
-#&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chkor(chk_flag(1))</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chkor</span>(<span class='fu'><a href='chk_true.html'>chk_flag</a></span>(<span class='fl'>1</span>), <span class='fu'><a href='chk_true.html'>chk_flag</a></span>(<span class='fl'>2</span>)))</div><div class='output co'>#&gt; Error : At least one of the following conditions must be met:
+#&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chkor(chk_flag(1))
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(msg)
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chkor</span>(<span class='fu'><a href='chk_true.html'>chk_flag</a></span>(<span class='fl'>1</span>), <span class='fu'><a href='chk_true.html'>chk_flag</a></span>(<span class='fl'>2</span>)))</div><div class='output co'>#&gt; Error : At least one of the following conditions must be met:
 #&gt; * `1` must be a flag (TRUE or FALSE).
 #&gt; * `2` must be a flag (TRUE or FALSE).
 #&gt; Backtrace:
@@ -231,7 +233,9 @@
 #&gt; </span><span style='color: #555555;'> 36. </span><span>                          │   └─base:::tryCatchList(expr, classes, parentenv, handlers)
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
-#&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chkor(chk_flag(1), chk_flag(2))</div><div class='input'><span class='fu'>chkor</span>(<span class='fu'><a href='chk_true.html'>chk_flag</a></span>(<span class='fl'>1</span>), <span class='fu'><a href='chk_true.html'>chk_flag</a></span>(<span class='fl'>TRUE</span>))</div></span></pre>
+#&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chkor(chk_flag(1), chk_flag(2))
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(msg)
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'><span class='fu'>chkor</span>(<span class='fu'><a href='chk_true.html'>chk_flag</a></span>(<span class='fl'>1</span>), <span class='fu'><a href='chk_true.html'>chk_flag</a></span>(<span class='fl'>TRUE</span>))</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

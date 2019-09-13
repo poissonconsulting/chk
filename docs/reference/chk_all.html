@@ -82,7 +82,7 @@ all(vapply(x, chk_equivalent, TRUE, y = x[[1]]), tolerance = tolerance)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9014</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9020</span>
       </span>
     </div>
 
@@ -210,7 +210,7 @@ checks all elements in x equivalent using</p>
     <pre class="examples"><div class='input'>
 <span class='co'># chk_all</span>
 <span class='fu'>chk_all</span>(<span class='fl'>TRUE</span>, <span class='no'>chk_lgl</span>)
-<span class='co'># FIXME try(chk_all(1, chk_lgl)) </span>
+<span class='co'># FIXME try(chk_all(1, chk_lgl))</span>
 <span class='fu'>chk_all</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>NA</span>), <span class='no'>chk_lgl</span>)
 
 <span class='co'># chk_all_identical</span>
@@ -257,7 +257,8 @@ checks all elements in x equivalent using</p>
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chk_all_identical(c(1, 1.1))
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk:::.abort(x_name, " must have identical elements.") </span><span style='color: #555555;'>/home/kirill/git/R/chk/R/chk-all.R:88:2</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(x_name, " must have identical elements")
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'>
 <span class='co'># chk_all_equal</span>
 <span class='fu'>chk_all_equal</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1.00000001</span>))
 <span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_all_equal</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1.0000001</span>)))</div><div class='output co'>#&gt; Error : `c(1, 1.0000001)` must have equal elements.
@@ -302,7 +303,8 @@ checks all elements in x equivalent using</p>
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chk_all_equal(c(1, 1.0000001))
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk:::.abort(x_name, " must have equal elements.") </span><span style='color: #555555;'>/home/kirill/git/R/chk/R/chk-all.R:124:2</span><span></div><div class='input'><span class='fu'>chk_all_equal</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>)))
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(x_name, " must have equal elements")
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'><span class='fu'>chk_all_equal</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>)))
 <span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_all_equal</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>1</span>))))</div><div class='output co'>#&gt; Error : `list(c(x = 1), c(y = 1))` must have equal elements.
 #&gt; Backtrace:
 #&gt; </span><span style='color: #555555;'>     </span><span>█
@@ -345,7 +347,8 @@ checks all elements in x equivalent using</p>
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chk_all_equal(list(c(x = 1), c(y = 1)))
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk:::.abort(x_name, " must have equal elements.") </span><span style='color: #555555;'>/home/kirill/git/R/chk/R/chk-all.R:124:2</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(x_name, " must have equal elements")
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'>
 <span class='co'># chk_all_equivalent</span>
 <span class='fu'>chk_all_equivalent</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1.00000001</span>))
 <span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_all_equivalent</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1.0000001</span>)))</div><div class='output co'>#&gt; Error : `c(1, 1.0000001)` must have equivalent elements.
@@ -390,7 +393,8 @@ checks all elements in x equivalent using</p>
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chk_all_equivalent(c(1, 1.0000001))
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk:::.abort(x_name, " must have equivalent elements.") </span><span style='color: #555555;'>/home/kirill/git/R/chk/R/chk-all.R:160:2</span><span></div><div class='input'><span class='fu'>chk_all_equivalent</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>)))
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(x_name, " must have equivalent elements")
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'><span class='fu'>chk_all_equivalent</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>)))
 <span class='fu'>chk_all_equivalent</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>1</span>)))</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

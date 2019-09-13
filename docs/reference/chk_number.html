@@ -43,10 +43,10 @@ Good: 1, 2L, log(10), -Inf.
 Bad: &quot;a&quot;, 1:3, NA_real_.
 chk_whole_number()
  checks if non-missing integer scalar or double equivalent using
-chk_number(x) and is.integer(x) || isTRUE(all.equal(x, trunc(x))).  
+vld_number(x) and is.integer(x) || vld_true(all.equal(x, trunc(x))).
 Good: 1, 2L, 1e10, -Inf.
 Bad: &quot;a&quot;, 1:3, NA_integer_, log(10).
-The chk_whole_numeric() function checks if 
+The chk_whole_numeric() function checks if
 integer vector of any length or double equivalent." />
 <meta name="twitter:card" content="summary" />
 
@@ -80,7 +80,7 @@ integer vector of any length or double equivalent." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9014</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9020</span>
       </span>
     </div>
 
@@ -144,10 +144,10 @@ checks if non-missing numeric scalar using</p>
 <p><strong>Bad</strong>: <code>"a"</code>, <code>1:3</code>, <code>NA_real_</code>.</p>
 <p><code>chk_whole_number()</code>
  checks if non-missing integer scalar or double equivalent using</p>
-<p><code>chk_number(x)</code> and <code>is.integer(x) || isTRUE(all.equal(x, trunc(x)))</code>.</p>  
+<p><code><a href='vld.html'>vld_number(x)</a></code> and <code>is.integer(x) || vld_true(all.equal(x, trunc(x)))</code>.</p>
 <p><strong>Good</strong>: <code>1</code>, <code>2L</code>, <code>1e10</code>, <code>-Inf</code>.</p>
 <p><strong>Bad</strong>: <code>"a"</code>, <code>1:3</code>, <code>NA_integer_</code>, <code><a href='https://rdrr.io/r/base/Log.html'>log(10)</a></code>.</p>
-<p>The <code><a href='chk_is.html'>chk_whole_numeric</a>()</code> function checks if 
+<p>The <code><a href='chk_type.html'>chk_whole_numeric</a>()</code> function checks if
 integer vector of any length or double equivalent.</p>
     </div>
 
@@ -175,7 +175,7 @@ integer vector of any length or double equivalent.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='chk_true.html'>chk_true</a>()</code>, <code><a href='chk_range.html'>chk_range</a>()</code>
-and <code><a href='chk_is.html'>chk_whole_numeric</a>()</code></p></div>
+and <code><a href='chk_type.html'>chk_whole_numeric</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
@@ -223,7 +223,8 @@ and <code><a href='chk_is.html'>chk_whole_numeric</a>()</code></p></div>
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chk_number(TRUE)
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk:::.abort(x_name, " must be a number (non-missing numeric scalar).") </span><span style='color: #555555;'>/home/kirill/git/R/chk/R/chk-number.R:34:2</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(x_name, " must be a number (non-missing numeric scalar)")
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'>
 <span class='co'># chk_whole_number</span>
 <span class='fu'>chk_whole_number</span>(<span class='fl'>2</span>)
 <span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_whole_number</span>(<span class='fl'>1.1</span>))</div><div class='output co'>#&gt; Error : `1.1` must be a whole number (non-missing integer scalar or double equivalent).
@@ -268,7 +269,8 @@ and <code><a href='chk_is.html'>chk_whole_numeric</a>()</code></p></div>
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chk_whole_number(1.1)
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk:::.abort(x_name, " must be a whole number (non-missing integer scalar or double equivalent).") </span><span style='color: #555555;'>/home/kirill/git/R/chk/R/chk-number.R:73:2</span><span></div></span></pre>
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(x_name, " must be a whole number (non-missing integer scalar or double equivalent)")
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -36,7 +36,7 @@
 
 
 <meta property="og:title" content="Check/Validate TRUE, FALSE, Flag or Logical Scalar — chk_true" />
-<meta property="og:description" content="Checks/validates if TRUE, FALSE, a flag (TRUE or FALSE) 
+<meta property="og:description" content="Checks/validates if TRUE, FALSE, a flag (TRUE or FALSE)
 or a lgl (TRUE, FALSE, or NA)." />
 <meta name="twitter:card" content="summary" />
 
@@ -70,7 +70,7 @@ or a lgl (TRUE, FALSE, or NA)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9014</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9020</span>
       </span>
     </div>
 
@@ -127,7 +127,7 @@ or a lgl (TRUE, FALSE, or NA)." />
     </div>
 
     <div class="ref-description">
-    <p>Checks/validates if TRUE, FALSE, a flag (TRUE or FALSE) 
+    <p>Checks/validates if TRUE, FALSE, a flag (TRUE or FALSE)
 or a lgl (TRUE, FALSE, or NA).</p>
     </div>
 
@@ -169,25 +169,25 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
     
 <ul>
 <li><p><code>chk_true</code>: Check TRUE</p>
-<p>Checks if TRUE using 
+<p>Checks if TRUE using
 <code>vld_true(x)</code>.</p></li>
 <li><p><code>vld_true</code>: Validate TRUE</p>
 <p>Validates if TRUE using</p>
-<p><code><a href='https://rdrr.io/r/base/Logic.html'>isTRUE</a>(x)</code>.</p></li>
+<p><code><a href='https://rdrr.io/r/base/identical.html'>identical(unname(x), TRUE)</a></code>.</p></li>
 <li><p><code>chk_false</code>: Check FALSE</p>
-<p>Checks if FALSE using 
+<p>Checks if FALSE using
 <code>vld_false(x)</code>.</p></li>
 <li><p><code>vld_false</code>: Validate FALSE</p>
 <p>Validates if FALSE using</p>
-<p><code><a href='https://rdrr.io/r/base/Logic.html'>isFALSE</a>(x)</code>.</p></li>
+<p><code><a href='https://rdrr.io/r/base/identical.html'>identical(unname(x), FALSE)</a></code>.</p></li>
 <li><p><code>chk_flag</code>: Validate Flag</p>
-<p>Checks if non-missing logical scalar using 
+<p>Checks if non-missing logical scalar using
 <code>vld_flag()</code>.</p></li>
 <li><p><code>vld_flag</code>: Validate Flag</p>
 <p>Validates if flag using</p>
 <p><code>is.logical(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code>.</p></li>
 <li><p><code>chk_lgl</code>: Check Logical Scalar</p>
-<p>Checks if logical scalar using 
+<p>Checks if logical scalar using
 <code>vld_lgl(x)</code>.</p></li>
 <li><p><code>vld_lgl</code>: Validate Logical Scalar</p>
 <p>Validates if logical scalar using</p>
@@ -240,7 +240,8 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chk_true(1)
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk:::.abort(x_name, " must be TRUE.") </span><span style='color: #555555;'>/home/kirill/git/R/chk/R/chk-true.R:28:2</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(x_name, " must be TRUE")
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'>
 <span class='co'># vld_true</span>
 <span class='fu'>vld_true</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_true</span>(<span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_true</span>(<span class='fl'>NA</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_false</span>(<span class='fl'>0</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_true</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
 <span class='co'># chk_false</span>
@@ -287,7 +288,8 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chk_false(0)
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk:::.abort(x_name, " must be FALSE.") </span><span style='color: #555555;'>/home/kirill/git/R/chk/R/chk-true.R:64:2</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(x_name, " must be FALSE")
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'>
 <span class='co'># vld_false</span>
 <span class='fu'>vld_false</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_false</span>(<span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_false</span>(<span class='fl'>NA</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_false</span>(<span class='fl'>0</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_false</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>FALSE</span>, <span class='fl'>FALSE</span>))</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
 <span class='co'># vld_flag</span>
@@ -339,7 +341,8 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chk_lgl(1)
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk:::.abort(x_name, " must be a logical scalar (TRUE, FALSE or NA).") </span><span style='color: #555555;'>/home/kirill/git/R/chk/R/chk-true.R:136:2</span><span></div><div class='input'>
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(x_name, " must be a logical scalar (TRUE, FALSE or NA)")
+#&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'>
 <span class='co'># vld_lgl</span>
 <span class='fu'>vld_lgl</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_lgl</span>(<span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_lgl</span>(<span class='fl'>NA</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_lgl</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_lgl</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; [1] FALSE</div></span></pre>
   </div>
