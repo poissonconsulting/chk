@@ -25,10 +25,11 @@ chk_file <- function(x) {
   x <- unique(x)
   x <- x[!file.exists(x) | dir.exists(x)]
   if (length(x) == 1L) {
-    abort_chk("can't find the following file: ", cc(x, " or "))  
+    abort_chk("can't find the following file: ", cc(x, " or "))
   }
   abort_chk("can't find the following %n file%s: ", cc(x, " or "),
-            n = length(x))
+    n = length(x)
+  )
 }
 
 #' @describeIn chk_file Validate File
@@ -63,7 +64,8 @@ chk_dir <- function(x) {
     abort_chk("can't find the following directory: ", cc(x, " or "))
   }
   abort_chk("can't find the following %n director%y%s: ", cc(x, " or "),
-            n = length(x))
+    n = length(x)
+  )
 }
 
 #' @describeIn chk_file Validate Directories Exist
