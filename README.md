@@ -15,11 +15,9 @@ status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/chk
 coverage](https://codecov.io/gh/poissonconsulting/chk/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/chk?branch=master)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Tinyverse
-status](https://tinyverse.netlify.com/badge/chk)](https://CRAN.R-project.org/package=chk)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/chk)](https://cran.r-project.org/package=chk)
-![CRAN downloads](https://cranlogs.r-pkg.org/badges/chk)
+<!-- [![Tinyverse status](https://tinyverse.netlify.com/badge/chk)](https://CRAN.R-project.org/package=chk) -->
+<!-- [![CRAN status](https://www.r-pkg.org/badges/version/chk)](https://cran.r-project.org/package=chk) -->
+<!-- ![CRAN downloads](https://cranlogs.r-pkg.org/badges/chk) -->
 <!-- badges: end -->
 
 `chk` is an R package for developers to check user-supplied function
@@ -28,13 +26,6 @@ arguments.
 It is designed to be simple, customizable and fast.
 
 ## Installation
-
-To install the latest release version from
-[CRAN](https://cran.r-project.org)
-
-``` r
-install.packages("chk")
-```
 
 To install the latest development version from
 [GitHub](https://github.com/poissonconsulting/chk)
@@ -70,7 +61,7 @@ chk_flag(y)
 chk_string(y)
 
 data <- data.frame(x = 1:2)
-chk_is(data, "data.frame")
+chk_s3_class(data, "data.frame")
 chk_range(nrow(data), c(3,8))
 #> `nrow(data)` must be between 3 and 8, not 2.
 chk_subset(nrow(data), c(3,8))
@@ -93,7 +84,7 @@ errors of subclass `chk_error`.
 
 ### Customizable
 
-#### Custom Error Messages
+#### Custom Errors
 
 The actual checks are performed by the `vld_` variant of each `chk_`
 function which returns a flag (TRUE or FALSE) indicating whether the
@@ -108,11 +99,11 @@ vld_flag(1)
 #> [1] FALSE
 ```
 
-This gives developers the freedom to provide their own error messages.
+This gives developers the freedom to generate their own errors.
 
 ``` r
 if(!vld_flag(1)) abort_chk("x MUST be a flag (try as.logical())")
-#> x MUST be a flag (try as.logical())
+#> X MUST be a flag (try as.logical()).
 ```
 
 #### Custom Functions
@@ -124,7 +115,7 @@ chk_flag
 #> function(x, x_name = NULL){
 #>   if(vld_flag(x)) return(invisible())
 #>   if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
-#>   abort_chk(x_name, " must be a flag (TRUE or FALSE).")
+#>   abort_chk(x_name, " must be a flag (TRUE or FALSE)")
 #> }
 #> <bytecode: 0x7fe802835670>
 #> <environment: namespace:chk>
@@ -132,6 +123,33 @@ chk_flag
 
 The `deparse_backtick()` and `abort_chk()` functions are exported to
 make it easy for programmers to develop their own `chk_` functions.
+
+#### Custom Error Messages
+
+Error messages generated using `abort_chk()` are automatically compiled
+using the `message_chk()` function which consistent with the tidyverse
+message style capitalizes the first character and adds a missing period.
+
+``` r
+message_chk("tidyverse message style")
+#> [1] "Tidyverse message style."
+message_chk("`back` ticked names are not capitalized")
+#> [1] "`back` ticked names are not capitalized."
+message_chk("Existing capital Letters and. period are ignored.")
+#> [1] "Existing capital Letters and. period are ignored."
+```
+
+`message_chk()` also provides some `sprintf`-like sensitivity to the
+value of `n`.
+
+``` r
+message_chk("there %r %n problem director%y%s")
+#> [1] "There %r %n problem director%y%s."
+message_chk("there %r %n problem director%y%s", n = 1)
+#> [1] "There is 1 problem directory."
+message_chk("there %r %n problem director%y%s", n = 1.5)
+#> [1] "There are 1.5 problem directories."
+```
 
 ### Fast
 

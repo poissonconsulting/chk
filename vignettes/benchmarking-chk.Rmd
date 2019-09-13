@@ -102,7 +102,7 @@ microbenchmark(
   chk_unused(),
   chk_used(one),
   chk_function(fun),
-  chk_is(one, "numeric"),
+  chk_s3_class(one, "numeric"),
   chk_identical(one, one),
   chk_equal(one, one),
   chk_equivalent(one, one),
