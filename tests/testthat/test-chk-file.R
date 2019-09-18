@@ -13,9 +13,11 @@ test_that("vld_file", {
 })
 
 test_that("chk_file", {
-  expect_chk_error(chk_file(character(0)), 
-               "^`character[(]0[)]` must be a string [(]non-missing character scalar[)][.]$")
-  
+  expect_chk_error(
+    chk_file(character(0)),
+    "^`character[(]0[)]` must be a string [(]non-missing character scalar[)][.]$"
+  )
+
   expect_chk_error(chk_file(tempdir()), "`tempdir[(][)]` must specify a file [(]'.*' is a directory[)][.]$")
 
   file1 <- paste0(tempfile(), "1.csv")
@@ -27,15 +29,17 @@ test_that("chk_file", {
   teardown(unlink(file1))
   expect_null(chk_file(file1))
   expect_invisible(chk_file(file1))
-  
+
   expect_null(chk_all(character(0), chk_file))
   expect_invisible(chk_all(character(0), chk_file))
   expect_null(chk_all(file1, chk_file))
   expect_invisible(chk_all(file1, chk_file))
   expect_null(chk_all(c(file1, file1), chk_file))
   expect_invisible(chk_all(c(file1, file1), chk_file))
-  expect_chk_error(chk_all(c(file1, p0(file1, "b")), chk_file, x_name = "`vec`"),
-                   "^All elements of `vec` must specify an existing file [(]'.*[.]csvb' can't be found[)][.]$")
+  expect_chk_error(
+    chk_all(c(file1, p0(file1, "b")), chk_file, x_name = "`vec`"),
+    "^All elements of `vec` must specify an existing file [(]'.*[.]csvb' can't be found[)][.]$"
+  )
 })
 
 test_that("vld_dir", {
@@ -47,20 +51,26 @@ test_that("vld_dir", {
 test_that("chk_dir", {
   expect_null(chk_dir(tempdir()))
   expect_invisible(chk_dir(tempdir()))
-  expect_chk_error(chk_dir(tempfile()), 
-                   "^`tempfile[(][)]` must specify an existing directory [(]'.*' can't be found[)][.]$")
-  
+  expect_chk_error(
+    chk_dir(tempfile()),
+    "^`tempfile[(][)]` must specify an existing directory [(]'.*' can't be found[)][.]$"
+  )
+
   file1 <- paste0(tempfile(), "1.csv")
   write.csv(data.frame(x = 1), file1)
   teardown(unlink(file1))
-  expect_chk_error(chk_dir(file1), 
-                   "^`file1` must specify a directory [(]'.*[.]csv' is a file[)][.]$")
-  
+  expect_chk_error(
+    chk_dir(file1),
+    "^`file1` must specify a directory [(]'.*[.]csv' is a file[)][.]$"
+  )
+
   path <- file.path(tempdir(), "chk")
   unlink(path)
   expect_chk_error(chk_dir(path), "^`path` must specify an existing directory [(]'.*' can't be found[)][.]$")
   expect_chk_error(chk_dir(1), "^`1` must be a string [(]non-missing character scalar[)][.]$")
-    expect_invisible(chk_all(c(tempdir(), tempdir()), chk_dir))
-  expect_chk_error(chk_all(c(tempdir(), p0(tempdir(), "b")), chk_dir, x_name = "`vec`"),
-                   "^All elements of `vec` must specify an existing directory [(]'.*b' can't be found[)][.]$")
+  expect_invisible(chk_all(c(tempdir(), tempdir()), chk_dir))
+  expect_chk_error(
+    chk_all(c(tempdir(), p0(tempdir(), "b")), chk_dir, x_name = "`vec`"),
+    "^All elements of `vec` must specify an existing directory [(]'.*b' can't be found[)][.]$"
+  )
 })

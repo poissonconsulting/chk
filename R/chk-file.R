@@ -1,7 +1,7 @@
 #' Check/Validate File or Directory Exist
 #'
 #' Checks/validates if file or directory exists.
-#' 
+#'
 #' If checking/validating multiple files use \code{chk_all(x, chk_file)}.
 #'
 #' @inheritParams chk_true
@@ -26,9 +26,10 @@ chk_file <- function(x, x_name = NULL) {
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
   chk_string(x, x_name = x_name)
-  if(dir.exists(x))
-    abort_chk(x_name, " must specify a file ('", x,"' is a directory)")
-  abort_chk(x_name, " must specify an existing file ('", x,"' can't be found)")
+  if (dir.exists(x)) {
+    abort_chk(x_name, " must specify a file ('", x, "' is a directory)")
+  }
+  abort_chk(x_name, " must specify an existing file ('", x, "' can't be found)")
 }
 
 #' @describeIn chk_file Validate File
@@ -59,9 +60,10 @@ chk_dir <- function(x, x_name = NULL) {
   }
   if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
   chk_string(x, x_name = x_name)
-  if(file.exists(x))
-    abort_chk(x_name, " must specify a directory ('", x,"' is a file)")
-  abort_chk(x_name, " must specify an existing directory ('", x,"' can't be found)")
+  if (file.exists(x)) {
+    abort_chk(x_name, " must specify a directory ('", x, "' is a file)")
+  }
+  abort_chk(x_name, " must specify an existing directory ('", x, "' can't be found)")
 }
 
 #' @describeIn chk_file Validate Directories Exist
