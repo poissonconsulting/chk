@@ -1,6 +1,6 @@
 Package: chk
 Title: Check User-Supplied Function Arguments
-Version: 0.0.1.9022
+Version: 0.0.1.9023
 Authors@R: 
     c(person(given = "Joe",
              family = "Thorley",

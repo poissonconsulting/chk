@@ -7,13 +7,13 @@
 \alias{vld_dir}
 \alias{chk_dirs}
 \alias{chk_files}
-\title{Check/Validate Files or Directories Exist}
+\title{Check/Validate File or Directory Exist}
 \usage{
-chk_file(x)
+chk_file(x, x_name = NULL)
 
 vld_file(x)
 
-chk_dir(x)
+chk_dir(x, x_name = NULL)
 
 vld_dir(x)
 
@@ -23,19 +23,24 @@ chk_files(x)
 }
 \arguments{
 \item{x}{The object to check.}
+
+\item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
 The \code{chk_} functions throw an informative error if the test fails.
 The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks/validates if files or directorys exist.
+Checks/validates if file or directory exists.
+}
+\details{
+If checking/validating multiple files use \code{chk_all(x, chk_file)}.
 }
 \section{Functions}{
 \itemize{
 \item \code{chk_file}: Check File
 
-Checks if files exist using \code{vld_file()}.
+Checks if files exist using \code{vld_file(x)}.
 
 \item \code{vld_file}: Validate File
 
@@ -47,7 +52,7 @@ Checks if directories exist using \code{vld_dir()}.
 
 \item \code{vld_dir}: Validate Directories Exist
 
-Checks if directories exist using \code{all(\link{dir.exists}(x))}.
+Checks if directories exist using \code{vld_string(x) && all(\link{dir.exists}(x))}.
 
 \item \code{chk_dirs}: Check Directories Exist
 

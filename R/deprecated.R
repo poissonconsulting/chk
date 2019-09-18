@@ -16,8 +16,8 @@ NULL
 #'
 #' @export
 chk_dirs <- function(x) {
-  deprecate_soft("0.0.1.9010", what = "chk_dirs()", with = "chk_dir()")
-  chk_dir(x)
+  deprecate_soft("0.0.1.9010", what = "chk_dirs(x)", with = "chk_all(x, chk_dir)")
+  chk_all(x, chk_dir)
 }
 
 #' @describeIn chk_file Check Files Exist
@@ -30,8 +30,8 @@ chk_dirs <- function(x) {
 #'
 #' @export
 chk_files <- function(x) {
-  deprecate_soft("0.0.1.9010", what = "chk_files()", with = "chk_file()")
-  chk_file(x)
+  deprecate_soft("0.0.1.9010", what = "chk_files(x)", with = "chk_all(x, chk_file)")
+  chk_all(x, chk_file)
 }
 
 #' @describeIn chk_unique Check Length
