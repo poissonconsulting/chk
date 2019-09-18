@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check/Validate Files or Directories Exist — chk_file • chk</title>
+<title>Check/Validate File or Directory Exist — chk_file • chk</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Check/Validate Files or Directories Exist — chk_file" />
-<meta property="og:description" content="Checks/validates if files or directorys exist." />
+<meta property="og:title" content="Check/Validate File or Directory Exist — chk_file" />
+<meta property="og:description" content="Checks/validates if file or directory exists." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9020</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9023</span>
       </span>
     </div>
 
@@ -120,20 +120,20 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check/Validate Files or Directories Exist</h1>
+    <h1>Check/Validate File or Directory Exist</h1>
     <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-file.R'><code>R/chk-file.R</code></a>, <a href='https://github.com/poissonconsulting/chk/blob/master/R/deprecated.R'><code>R/deprecated.R</code></a></small>
     <div class="hidden name"><code>chk_file.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Checks/validates if files or directorys exist.</p>
+    <p>Checks/validates if file or directory exists.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>chk_file</span>(<span class='no'>x</span>)
+    <pre class="usage"><span class='fu'>chk_file</span>(<span class='no'>x</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='fu'>vld_file</span>(<span class='no'>x</span>)
 
-<span class='fu'>chk_dir</span>(<span class='no'>x</span>)
+<span class='fu'>chk_dir</span>(<span class='no'>x</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='fu'>vld_dir</span>(<span class='no'>x</span>)
 
@@ -148,24 +148,31 @@
       <th>x</th>
       <td><p>The object to check.</p></td>
     </tr>
+    <tr>
+      <th>x_name</th>
+      <td><p>A string of the name of object x or NULL.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The <code>chk_</code> functions throw an informative error if the test fails.
 The <code>vld_</code> functions return a flag indicating whether the test was met.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>If checking/validating multiple files use <code><a href='chk_all.html'>chk_all(x, chk_file)</a></code>.</p>
     <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
 
     
 <ul>
 <li><p><code>chk_file</code>: Check File</p>
-<p>Checks if files exist using <code>vld_file()</code>.</p></li>
+<p>Checks if files exist using <code>vld_file(x)</code>.</p></li>
 <li><p><code>vld_file</code>: Validate File</p>
 <p>Checks if files exist using <code>all(<a href='https://rdrr.io/r/base/files.html'>file.exists</a>(x) &amp;&amp; !dir.exists(x))</code>.</p></li>
 <li><p><code>chk_dir</code>: Check Directories Exist</p>
 <p>Checks if directories exist using <code>vld_dir()</code>.</p></li>
 <li><p><code>vld_dir</code>: Validate Directories Exist</p>
-<p>Checks if directories exist using <code>all(<a href='https://rdrr.io/r/base/files2.html'>dir.exists</a>(x))</code>.</p></li>
+<p>Checks if directories exist using <code>vld_string(x) &amp;&amp; all(<a href='https://rdrr.io/r/base/files2.html'>dir.exists</a>(x))</code>.</p></li>
 <li><p><code>chk_dirs</code>: Check Directories Exist</p>
 <p><img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p>
 <p>Checks if directories exist using:</p>
@@ -179,7 +186,7 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'># chk_file</span>
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_file</span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()))</div><div class='output co'>#&gt; Error : Can't find the following file: '/var/folders/48/q6ltldjs251000_wvjrdy_vm0000gn/T//Rtmp8HmIzR/filea41940a2cd74'.
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_file</span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()))</div><div class='output co'>#&gt; Error : `tempfile()` must specify an existing file ('/var/folders/48/q6ltldjs251000_wvjrdy_vm0000gn/T//RtmpJnyDnW/file21603c60461a' can't be found).
 #&gt; Backtrace:
 #&gt; <span style='color: #555555;'>     </span><span>█
 #&gt; </span><span style='color: #555555;'>  1. </span><span>├─base::tryCatch(...)
@@ -221,12 +228,12 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
 #&gt; </span><span style='color: #555555;'> 37. </span><span>                          │     └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
 #&gt; </span><span style='color: #555555;'> 38. </span><span>                          │       └─base:::doTryCatch(return(expr), name, parentenv, handler)
 #&gt; </span><span style='color: #555555;'> 39. </span><span>                          └─chk::chk_file(tempfile())
-#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk("can't find the following file: ", cc(x, " or "))
+#&gt; </span><span style='color: #555555;'> 40. </span><span>                            └─chk::abort_chk(...)
 #&gt; </span><span style='color: #555555;'> 41. </span><span>                              └─chk::err(..., n = n, .subclass = "chk_error")</div><div class='input'>
 <span class='co'># vld_file</span>
 <span class='fu'>vld_file</span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>())</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
 <span class='co'># chk_dir</span>
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_dir</span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()))</div><div class='output co'>#&gt; Error : Can't find the following directory: '/var/folders/48/q6ltldjs251000_wvjrdy_vm0000gn/T//Rtmp8HmIzR/filea419434839d5'.
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_dir</span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()))</div><div class='output co'>#&gt; Error : `tempfile()` must specify an existing directory ('/var/folders/48/q6ltldjs251000_wvjrdy_vm0000gn/T//RtmpJnyDnW/file21606830f7ff' can't be found).
 #&gt; Backtrace:
 #&gt; </span><span style='color: #555555;'>     </span><span>█
 #&gt; </span><span style='color: #555555;'>  1. </span><span>├─base::tryCatch(...)
@@ -278,6 +285,7 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
       <li><a href="#functions">Functions</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
@@ -292,7 +300,7 @@ The <code>vld_</code> functions return a flag indicating whether the test was me
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
 
       </footer>

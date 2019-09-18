@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9020</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9023</span>
       </span>
     </div>
 
@@ -127,11 +127,11 @@
 <span id="cb3-5"><a href="#cb3-5"></a>)</span>
 <span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt; Unit: microseconds</span></span>
 <span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt;                                       expr   min     lq      mean median</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt;              wrapper_on_fun_checking(TRUE) 1.982 2.1020  25.58736 2.2045</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt;  wrapper_on_fun_conditional_checking(TRUE) 4.304 4.4745 205.76900 4.6305</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt;      uq       max neval</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt;  2.3185  2297.441   100</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt;  4.7465 20069.954   100</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt;              wrapper_on_fun_checking(TRUE) 1.810 2.1350  35.55139  3.474</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt;  wrapper_on_fun_conditional_checking(TRUE) 4.048 4.4665 233.22363  5.890</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt;     uq       max neval</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt;  4.541  3147.172   100</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt;  9.405 22510.936   100</span></span>
 <span id="cb3-13"><a href="#cb3-13"></a></span>
 <span id="cb3-14"><a href="#cb3-14"></a><span class="kw"><a href="../reference/chk_on.html">chk_off</a></span>()</span>
 <span id="cb3-15"><a href="#cb3-15"></a><span class="kw"><a href="https://rdrr.io/pkg/microbenchmark/man/microbenchmark.html">microbenchmark</a></span>(</span>
@@ -140,11 +140,11 @@
 <span id="cb3-18"><a href="#cb3-18"></a>)</span>
 <span id="cb3-19"><a href="#cb3-19"></a><span class="co">#&gt; Unit: microseconds</span></span>
 <span id="cb3-20"><a href="#cb3-20"></a><span class="co">#&gt;                                       expr   min     lq    mean median</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a><span class="co">#&gt;              wrapper_on_fun_checking(TRUE) 1.586 1.6555 2.05999 1.7055</span></span>
-<span id="cb3-22"><a href="#cb3-22"></a><span class="co">#&gt;  wrapper_on_fun_conditional_checking(TRUE) 1.817 1.8960 2.43257 1.9800</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="co">#&gt;              wrapper_on_fun_checking(TRUE) 1.691 1.7605 2.55567 1.8180</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="co">#&gt;  wrapper_on_fun_conditional_checking(TRUE) 1.818 1.8825 2.28675 2.0215</span></span>
 <span id="cb3-23"><a href="#cb3-23"></a><span class="co">#&gt;      uq    max neval</span></span>
-<span id="cb3-24"><a href="#cb3-24"></a><span class="co">#&gt;  1.7475 14.537   100</span></span>
-<span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt;  2.0640 12.893   100</span></span></code></pre></div>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="co">#&gt;  1.9095 13.618   100</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt;  2.1085 22.320   100</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>true &lt;-<span class="st"> </span><span class="ot">TRUE</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>false &lt;-<span class="st"> </span><span class="ot">FALSE</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a>one &lt;-<span class="st"> </span><span class="dv">1</span></span>
@@ -199,85 +199,85 @@
 <span id="cb5-41"><a href="#cb5-41"></a>)</span>
 <span id="cb5-42"><a href="#cb5-42"></a><span class="co">#&gt; Unit: nanoseconds</span></span>
 <span id="cb5-43"><a href="#cb5-43"></a><span class="co">#&gt;                                         expr    min       lq      mean</span></span>
-<span id="cb5-44"><a href="#cb5-44"></a><span class="co">#&gt;                               chk_true(true)   1460   1941.5   2704.68</span></span>
-<span id="cb5-45"><a href="#cb5-45"></a><span class="co">#&gt;                             chk_false(false)   1480   2108.0   3407.10</span></span>
-<span id="cb5-46"><a href="#cb5-46"></a><span class="co">#&gt;                               chk_flag(true)    939   1395.0   1842.81</span></span>
-<span id="cb5-47"><a href="#cb5-47"></a><span class="co">#&gt;                                chk_lgl(true)    698   1135.0   1895.20</span></span>
-<span id="cb5-48"><a href="#cb5-48"></a><span class="co">#&gt;                             chk_number(oneL)    812   1232.5   2211.40</span></span>
-<span id="cb5-49"><a href="#cb5-49"></a><span class="co">#&gt;                              chk_number(one)    806   1231.0   1659.11</span></span>
-<span id="cb5-50"><a href="#cb5-50"></a><span class="co">#&gt;                       chk_whole_number(oneL)   1213   1857.5   3372.98</span></span>
-<span id="cb5-51"><a href="#cb5-51"></a><span class="co">#&gt;                        chk_whole_number(one)  15243  23401.0  27427.00</span></span>
-<span id="cb5-52"><a href="#cb5-52"></a><span class="co">#&gt;                           chk_string(string)    557    896.5   1685.02</span></span>
-<span id="cb5-53"><a href="#cb5-53"></a><span class="co">#&gt;                               chk_date(date)   4401   7505.0   9407.09</span></span>
-<span id="cb5-54"><a href="#cb5-54"></a><span class="co">#&gt;                       chk_datetime(datetime)   5463   8660.5  10966.53</span></span>
-<span id="cb5-55"><a href="#cb5-55"></a><span class="co">#&gt;                      chk_whole_numeric(oneL)    593    961.0   1614.24</span></span>
-<span id="cb5-56"><a href="#cb5-56"></a><span class="co">#&gt;                       chk_whole_numeric(one)  15200  23222.5  27696.66</span></span>
-<span id="cb5-57"><a href="#cb5-57"></a><span class="co">#&gt;                          chk_no_missing(one)    639   1088.5   1827.66</span></span>
-<span id="cb5-58"><a href="#cb5-58"></a><span class="co">#&gt;                              chk_unique(one)   5743   8024.0  10397.31</span></span>
-<span id="cb5-59"><a href="#cb5-59"></a><span class="co">#&gt;                             chk_unique(data)  15270  22205.0  27814.13</span></span>
-<span id="cb5-60"><a href="#cb5-60"></a><span class="co">#&gt;         chk_unique(data, incomparables = NA) 238156 269844.5 325074.26</span></span>
-<span id="cb5-61"><a href="#cb5-61"></a><span class="co">#&gt;                               chk_null(null)    532    995.5   1741.45</span></span>
-<span id="cb5-62"><a href="#cb5-62"></a><span class="co">#&gt;                            chk_not_null(one)    620    969.5   1839.36</span></span>
-<span id="cb5-63"><a href="#cb5-63"></a><span class="co">#&gt;                             chk_named(named)    711   1156.5   1942.43</span></span>
-<span id="cb5-64"><a href="#cb5-64"></a><span class="co">#&gt;                                 chk_unused()    399    896.5   1202.83</span></span>
-<span id="cb5-65"><a href="#cb5-65"></a><span class="co">#&gt;                                chk_used(one)    580   1317.0   2143.32</span></span>
-<span id="cb5-66"><a href="#cb5-66"></a><span class="co">#&gt;                            chk_function(fun)    598   1061.5   1831.02</span></span>
-<span id="cb5-67"><a href="#cb5-67"></a><span class="co">#&gt;                 chk_s3_class(one, "numeric")   1085   2053.0   3119.09</span></span>
-<span id="cb5-68"><a href="#cb5-68"></a><span class="co">#&gt;                      chk_identical(one, one)    670   1026.5   2091.97</span></span>
-<span id="cb5-69"><a href="#cb5-69"></a><span class="co">#&gt;                          chk_equal(one, one)  17802  24760.5  36117.85</span></span>
-<span id="cb5-70"><a href="#cb5-70"></a><span class="co">#&gt;                     chk_equivalent(one, one)  12009  18231.5  23259.67</span></span>
-<span id="cb5-71"><a href="#cb5-71"></a><span class="co">#&gt;                               chk_lt(one, 2)   1297   2020.0   3540.55</span></span>
-<span id="cb5-72"><a href="#cb5-72"></a><span class="co">#&gt;                            chk_lte(one, one)   1326   2185.5   3668.67</span></span>
-<span id="cb5-73"><a href="#cb5-73"></a><span class="co">#&gt;                               chk_gt(one, 0)   1217   1954.5   3446.12</span></span>
-<span id="cb5-74"><a href="#cb5-74"></a><span class="co">#&gt;                            chk_gte(one, one)   1366   2056.5   3656.76</span></span>
-<span id="cb5-75"><a href="#cb5-75"></a><span class="co">#&gt;                               chk_range(one)   2051   3603.5   5850.12</span></span>
-<span id="cb5-76"><a href="#cb5-76"></a><span class="co">#&gt;                         chk_subset(one, one)   1750   2676.0   4484.05</span></span>
-<span id="cb5-77"><a href="#cb5-77"></a><span class="co">#&gt;                       chk_superset(one, one)   1801   2529.0   4210.96</span></span>
-<span id="cb5-78"><a href="#cb5-78"></a><span class="co">#&gt;                            chk_match(string)   4866   9588.5  12829.79</span></span>
-<span id="cb5-79"><a href="#cb5-79"></a><span class="co">#&gt;                      chk_all(true, chk_true)  23911  32795.0  39462.32</span></span>
-<span id="cb5-80"><a href="#cb5-80"></a><span class="co">#&gt;                                      chkor()  46669  59064.0  75961.62</span></span>
-<span id="cb5-81"><a href="#cb5-81"></a><span class="co">#&gt;                       chkor(chk_number(one)) 104126 122194.5 169945.19</span></span>
-<span id="cb5-82"><a href="#cb5-82"></a><span class="co">#&gt;  chkor(chk_number(one), chk_proportion(one)) 107825 124688.5 151434.61</span></span>
+<span id="cb5-44"><a href="#cb5-44"></a><span class="co">#&gt;                               chk_true(true)   1375   2073.5   3574.00</span></span>
+<span id="cb5-45"><a href="#cb5-45"></a><span class="co">#&gt;                             chk_false(false)   1544   2231.5   3774.04</span></span>
+<span id="cb5-46"><a href="#cb5-46"></a><span class="co">#&gt;                               chk_flag(true)    728   1408.0   2094.81</span></span>
+<span id="cb5-47"><a href="#cb5-47"></a><span class="co">#&gt;                                chk_lgl(true)    695   1165.5   2170.58</span></span>
+<span id="cb5-48"><a href="#cb5-48"></a><span class="co">#&gt;                             chk_number(oneL)    849   1286.5   2559.75</span></span>
+<span id="cb5-49"><a href="#cb5-49"></a><span class="co">#&gt;                              chk_number(one)    825   1262.0   1918.34</span></span>
+<span id="cb5-50"><a href="#cb5-50"></a><span class="co">#&gt;                       chk_whole_number(oneL)   1237   2085.5   3676.97</span></span>
+<span id="cb5-51"><a href="#cb5-51"></a><span class="co">#&gt;                        chk_whole_number(one)  17797  26164.0  33759.94</span></span>
+<span id="cb5-52"><a href="#cb5-52"></a><span class="co">#&gt;                           chk_string(string)    511    986.5   1922.86</span></span>
+<span id="cb5-53"><a href="#cb5-53"></a><span class="co">#&gt;                               chk_date(date)   4673   8207.0  12096.31</span></span>
+<span id="cb5-54"><a href="#cb5-54"></a><span class="co">#&gt;                       chk_datetime(datetime)   5389  10391.5  13537.16</span></span>
+<span id="cb5-55"><a href="#cb5-55"></a><span class="co">#&gt;                      chk_whole_numeric(oneL)    637    990.5   1331.52</span></span>
+<span id="cb5-56"><a href="#cb5-56"></a><span class="co">#&gt;                       chk_whole_numeric(one)  16128  24128.0  37241.39</span></span>
+<span id="cb5-57"><a href="#cb5-57"></a><span class="co">#&gt;                          chk_no_missing(one)    660   1180.0   2276.78</span></span>
+<span id="cb5-58"><a href="#cb5-58"></a><span class="co">#&gt;                              chk_unique(one)   6044   8652.0  11001.35</span></span>
+<span id="cb5-59"><a href="#cb5-59"></a><span class="co">#&gt;                             chk_unique(data)  14790  25402.0  32402.01</span></span>
+<span id="cb5-60"><a href="#cb5-60"></a><span class="co">#&gt;         chk_unique(data, incomparables = NA) 261544 330280.5 390081.05</span></span>
+<span id="cb5-61"><a href="#cb5-61"></a><span class="co">#&gt;                               chk_null(null)    567    992.5   2379.23</span></span>
+<span id="cb5-62"><a href="#cb5-62"></a><span class="co">#&gt;                            chk_not_null(one)    617   1124.0   2266.56</span></span>
+<span id="cb5-63"><a href="#cb5-63"></a><span class="co">#&gt;                             chk_named(named)    659   1178.0   2473.17</span></span>
+<span id="cb5-64"><a href="#cb5-64"></a><span class="co">#&gt;                                 chk_unused()    396   1020.5   1361.94</span></span>
+<span id="cb5-65"><a href="#cb5-65"></a><span class="co">#&gt;                                chk_used(one)    618   1402.5   3652.48</span></span>
+<span id="cb5-66"><a href="#cb5-66"></a><span class="co">#&gt;                            chk_function(fun)    801   1158.0   2076.76</span></span>
+<span id="cb5-67"><a href="#cb5-67"></a><span class="co">#&gt;                 chk_s3_class(one, "numeric")   1269   2294.0   4858.07</span></span>
+<span id="cb5-68"><a href="#cb5-68"></a><span class="co">#&gt;                      chk_identical(one, one)    641   1062.0   2418.26</span></span>
+<span id="cb5-69"><a href="#cb5-69"></a><span class="co">#&gt;                          chk_equal(one, one)  16483  23877.5  35961.87</span></span>
+<span id="cb5-70"><a href="#cb5-70"></a><span class="co">#&gt;                     chk_equivalent(one, one)  13065  20906.5  28446.51</span></span>
+<span id="cb5-71"><a href="#cb5-71"></a><span class="co">#&gt;                               chk_lt(one, 2)   1272   2306.0   4283.05</span></span>
+<span id="cb5-72"><a href="#cb5-72"></a><span class="co">#&gt;                            chk_lte(one, one)   1286   2361.0   4146.43</span></span>
+<span id="cb5-73"><a href="#cb5-73"></a><span class="co">#&gt;                               chk_gt(one, 0)   1350   2184.5   4302.99</span></span>
+<span id="cb5-74"><a href="#cb5-74"></a><span class="co">#&gt;                            chk_gte(one, one)   1258   2294.0   4211.08</span></span>
+<span id="cb5-75"><a href="#cb5-75"></a><span class="co">#&gt;                               chk_range(one)   2224   4281.0   7018.89</span></span>
+<span id="cb5-76"><a href="#cb5-76"></a><span class="co">#&gt;                         chk_subset(one, one)   1714   2895.5   4955.57</span></span>
+<span id="cb5-77"><a href="#cb5-77"></a><span class="co">#&gt;                       chk_superset(one, one)   1882   2696.0   4958.26</span></span>
+<span id="cb5-78"><a href="#cb5-78"></a><span class="co">#&gt;                            chk_match(string)   5509  10842.5  15073.78</span></span>
+<span id="cb5-79"><a href="#cb5-79"></a><span class="co">#&gt;                      chk_all(true, chk_true)  22695  35078.0  46340.48</span></span>
+<span id="cb5-80"><a href="#cb5-80"></a><span class="co">#&gt;                                      chkor()  51025  69837.0  92703.15</span></span>
+<span id="cb5-81"><a href="#cb5-81"></a><span class="co">#&gt;                       chkor(chk_number(one)) 112691 142921.0 168521.84</span></span>
+<span id="cb5-82"><a href="#cb5-82"></a><span class="co">#&gt;  chkor(chk_number(one), chk_proportion(one)) 110275 142125.5 206492.68</span></span>
 <span id="cb5-83"><a href="#cb5-83"></a><span class="co">#&gt;    median       uq     max neval</span></span>
-<span id="cb5-84"><a href="#cb5-84"></a><span class="co">#&gt;    2213.0   2628.5    9988   100</span></span>
-<span id="cb5-85"><a href="#cb5-85"></a><span class="co">#&gt;    2420.5   2842.5   45883   100</span></span>
-<span id="cb5-86"><a href="#cb5-86"></a><span class="co">#&gt;    1527.5   1825.5    6720   100</span></span>
-<span id="cb5-87"><a href="#cb5-87"></a><span class="co">#&gt;    1252.5   1510.5   43565   100</span></span>
-<span id="cb5-88"><a href="#cb5-88"></a><span class="co">#&gt;    1405.5   1588.5   51707   100</span></span>
-<span id="cb5-89"><a href="#cb5-89"></a><span class="co">#&gt;    1387.5   1562.0    6858   100</span></span>
-<span id="cb5-90"><a href="#cb5-90"></a><span class="co">#&gt;    2080.0   2374.5   52075   100</span></span>
-<span id="cb5-91"><a href="#cb5-91"></a><span class="co">#&gt;   26249.5  31050.0   44244   100</span></span>
-<span id="cb5-92"><a href="#cb5-92"></a><span class="co">#&gt;    1031.5   1290.0   35212   100</span></span>
-<span id="cb5-93"><a href="#cb5-93"></a><span class="co">#&gt;    8316.0   9550.0   59962   100</span></span>
-<span id="cb5-94"><a href="#cb5-94"></a><span class="co">#&gt;    9952.0  12049.5   65754   100</span></span>
-<span id="cb5-95"><a href="#cb5-95"></a><span class="co">#&gt;    1079.5   1256.0    6663   100</span></span>
-<span id="cb5-96"><a href="#cb5-96"></a><span class="co">#&gt;   26440.5  31174.0   76992   100</span></span>
-<span id="cb5-97"><a href="#cb5-97"></a><span class="co">#&gt;    1269.0   1532.5   36525   100</span></span>
-<span id="cb5-98"><a href="#cb5-98"></a><span class="co">#&gt;    9300.0  13191.0   20509   100</span></span>
-<span id="cb5-99"><a href="#cb5-99"></a><span class="co">#&gt;   25264.0  30784.5  165135   100</span></span>
-<span id="cb5-100"><a href="#cb5-100"></a><span class="co">#&gt;  342650.5 359270.5  462969   100</span></span>
-<span id="cb5-101"><a href="#cb5-101"></a><span class="co">#&gt;    1092.5   1268.0   41854   100</span></span>
-<span id="cb5-102"><a href="#cb5-102"></a><span class="co">#&gt;    1075.0   1397.5   36799   100</span></span>
-<span id="cb5-103"><a href="#cb5-103"></a><span class="co">#&gt;    1273.5   1563.0   42517   100</span></span>
-<span id="cb5-104"><a href="#cb5-104"></a><span class="co">#&gt;     991.0   1155.0    6993   100</span></span>
-<span id="cb5-105"><a href="#cb5-105"></a><span class="co">#&gt;    1481.5   1800.0   43963   100</span></span>
-<span id="cb5-106"><a href="#cb5-106"></a><span class="co">#&gt;    1162.0   1377.5   38107   100</span></span>
-<span id="cb5-107"><a href="#cb5-107"></a><span class="co">#&gt;    2243.0   2735.0   48281   100</span></span>
-<span id="cb5-108"><a href="#cb5-108"></a><span class="co">#&gt;    1157.5   1435.5   42040   100</span></span>
-<span id="cb5-109"><a href="#cb5-109"></a><span class="co">#&gt;   29557.5  36001.0  617755   100</span></span>
-<span id="cb5-110"><a href="#cb5-110"></a><span class="co">#&gt;   21443.0  26187.0   80387   100</span></span>
-<span id="cb5-111"><a href="#cb5-111"></a><span class="co">#&gt;    2425.0   2932.0   66571   100</span></span>
-<span id="cb5-112"><a href="#cb5-112"></a><span class="co">#&gt;    2640.5   3271.0   59649   100</span></span>
-<span id="cb5-113"><a href="#cb5-113"></a><span class="co">#&gt;    2440.0   2982.0   62899   100</span></span>
-<span id="cb5-114"><a href="#cb5-114"></a><span class="co">#&gt;    2510.5   2981.0   61371   100</span></span>
-<span id="cb5-115"><a href="#cb5-115"></a><span class="co">#&gt;    4151.0   5430.0   97080   100</span></span>
-<span id="cb5-116"><a href="#cb5-116"></a><span class="co">#&gt;    2929.0   3599.0   68738   100</span></span>
-<span id="cb5-117"><a href="#cb5-117"></a><span class="co">#&gt;    2939.5   3617.0   60738   100</span></span>
-<span id="cb5-118"><a href="#cb5-118"></a><span class="co">#&gt;   11554.5  15039.0   70336   100</span></span>
-<span id="cb5-119"><a href="#cb5-119"></a><span class="co">#&gt;   38838.5  42782.0  163927   100</span></span>
-<span id="cb5-120"><a href="#cb5-120"></a><span class="co">#&gt;   66594.5  77395.5  777401   100</span></span>
-<span id="cb5-121"><a href="#cb5-121"></a><span class="co">#&gt;  152594.0 164436.5 2579216   100</span></span>
-<span id="cb5-122"><a href="#cb5-122"></a><span class="co">#&gt;  155118.0 164890.0  534339   100</span></span></code></pre></div>
+<span id="cb5-84"><a href="#cb5-84"></a><span class="co">#&gt;    2372.0   3141.0   48356   100</span></span>
+<span id="cb5-85"><a href="#cb5-85"></a><span class="co">#&gt;    2777.5   3418.5   43298   100</span></span>
+<span id="cb5-86"><a href="#cb5-86"></a><span class="co">#&gt;    1844.5   2384.5    7442   100</span></span>
+<span id="cb5-87"><a href="#cb5-87"></a><span class="co">#&gt;    1410.5   1784.5   47115   100</span></span>
+<span id="cb5-88"><a href="#cb5-88"></a><span class="co">#&gt;    1541.0   1886.5   28723   100</span></span>
+<span id="cb5-89"><a href="#cb5-89"></a><span class="co">#&gt;    1509.5   1799.5   17931   100</span></span>
+<span id="cb5-90"><a href="#cb5-90"></a><span class="co">#&gt;    2434.0   2880.5   55786   100</span></span>
+<span id="cb5-91"><a href="#cb5-91"></a><span class="co">#&gt;   30864.0  37960.0   95122   100</span></span>
+<span id="cb5-92"><a href="#cb5-92"></a><span class="co">#&gt;    1285.0   1669.0   39017   100</span></span>
+<span id="cb5-93"><a href="#cb5-93"></a><span class="co">#&gt;   10093.5  12700.5   64507   100</span></span>
+<span id="cb5-94"><a href="#cb5-94"></a><span class="co">#&gt;   12544.0  15117.0   76082   100</span></span>
+<span id="cb5-95"><a href="#cb5-95"></a><span class="co">#&gt;    1101.5   1369.0    6610   100</span></span>
+<span id="cb5-96"><a href="#cb5-96"></a><span class="co">#&gt;   28779.5  37333.5  547141   100</span></span>
+<span id="cb5-97"><a href="#cb5-97"></a><span class="co">#&gt;    1460.0   1803.0   46185   100</span></span>
+<span id="cb5-98"><a href="#cb5-98"></a><span class="co">#&gt;    9695.0  13298.0   22947   100</span></span>
+<span id="cb5-99"><a href="#cb5-99"></a><span class="co">#&gt;   29635.5  35110.0  132139   100</span></span>
+<span id="cb5-100"><a href="#cb5-100"></a><span class="co">#&gt;  367666.0 435224.5  709435   100</span></span>
+<span id="cb5-101"><a href="#cb5-101"></a><span class="co">#&gt;    1262.5   1651.0   35981   100</span></span>
+<span id="cb5-102"><a href="#cb5-102"></a><span class="co">#&gt;    1339.5   1769.0   53348   100</span></span>
+<span id="cb5-103"><a href="#cb5-103"></a><span class="co">#&gt;    1507.5   1943.5   40386   100</span></span>
+<span id="cb5-104"><a href="#cb5-104"></a><span class="co">#&gt;    1223.5   1479.0    7214   100</span></span>
+<span id="cb5-105"><a href="#cb5-105"></a><span class="co">#&gt;    1674.5   2066.5  136814   100</span></span>
+<span id="cb5-106"><a href="#cb5-106"></a><span class="co">#&gt;    1389.0   1736.0   39108   100</span></span>
+<span id="cb5-107"><a href="#cb5-107"></a><span class="co">#&gt;    2688.5   3399.5   44638   100</span></span>
+<span id="cb5-108"><a href="#cb5-108"></a><span class="co">#&gt;    1262.0   1599.5   79555   100</span></span>
+<span id="cb5-109"><a href="#cb5-109"></a><span class="co">#&gt;   31431.5  38141.0   98764   100</span></span>
+<span id="cb5-110"><a href="#cb5-110"></a><span class="co">#&gt;   24820.0  31577.0   85626   100</span></span>
+<span id="cb5-111"><a href="#cb5-111"></a><span class="co">#&gt;    2940.0   4010.0   75098   100</span></span>
+<span id="cb5-112"><a href="#cb5-112"></a><span class="co">#&gt;    2766.0   3593.0   64223   100</span></span>
+<span id="cb5-113"><a href="#cb5-113"></a><span class="co">#&gt;    2818.5   3609.5   77565   100</span></span>
+<span id="cb5-114"><a href="#cb5-114"></a><span class="co">#&gt;    2838.0   3765.5   70693   100</span></span>
+<span id="cb5-115"><a href="#cb5-115"></a><span class="co">#&gt;    5224.5   6695.5   96889   100</span></span>
+<span id="cb5-116"><a href="#cb5-116"></a><span class="co">#&gt;    3351.5   3941.5   79988   100</span></span>
+<span id="cb5-117"><a href="#cb5-117"></a><span class="co">#&gt;    3253.0   4083.0   70751   100</span></span>
+<span id="cb5-118"><a href="#cb5-118"></a><span class="co">#&gt;   13286.5  17716.0   68346   100</span></span>
+<span id="cb5-119"><a href="#cb5-119"></a><span class="co">#&gt;   41990.5  49569.5  142617   100</span></span>
+<span id="cb5-120"><a href="#cb5-120"></a><span class="co">#&gt;   78416.0  94050.5  810778   100</span></span>
+<span id="cb5-121"><a href="#cb5-121"></a><span class="co">#&gt;  162171.5 182242.0  352843   100</span></span>
+<span id="cb5-122"><a href="#cb5-122"></a><span class="co">#&gt;  162614.0 187200.5 3356470   100</span></span></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -293,7 +293,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
 
       </footer>
