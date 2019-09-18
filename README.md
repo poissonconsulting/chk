@@ -135,8 +135,8 @@ message_chk("tidyverse message style")
 #> [1] "Tidyverse message style."
 message_chk("`back` ticked names are not capitalized")
 #> [1] "`back` ticked names are not capitalized."
-message_chk("Existing capital Letters and. period are ignored.")
-#> [1] "Existing capital Letters and. period are ignored."
+message_chk("Existing capital Letters and mid-sentence periods . are ignored.")
+#> [1] "Existing capital Letters and mid-sentence periods . are ignored."
 ```
 
 `message_chk()` also provides some `sprintf`-like sensitivity to the

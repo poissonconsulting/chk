@@ -115,7 +115,7 @@ Error messages generated using `abort_chk()` are automatically compiled using th
 ```{r}
 message_chk("tidyverse message style")
 message_chk("`back` ticked names are not capitalized")
-message_chk("Existing capital Letters and. period are ignored.")
+message_chk("Existing capital Letters and mid-sentence periods . are ignored.")
 ```
 
 `message_chk()` also provides some `sprintf`-like sensitivity to the value of `n`.
