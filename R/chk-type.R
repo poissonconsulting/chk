@@ -28,7 +28,7 @@ chk_s3_class <- function(x, class, x_name = NULL) {
   if (vld_s3_class(x, class)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must inherit from S3 class '", class, "'")
 }
 
@@ -68,7 +68,7 @@ chk_s4_class <- function(x, class, x_name = NULL) {
   if (vld_s4_class(x, class)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must inherit from S4 class '", class, "'")
 }
 
@@ -107,7 +107,7 @@ chk_whole_numeric <- function(x, x_name = NULL) {
   if (vld_whole_numeric(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(
     x_name,
     " must be a whole numeric vector (integer vector or double equivalent)"
@@ -151,7 +151,7 @@ chk_list <- function(x, x_name = NULL) {
   if (vld_list(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be a list")
 }
 
@@ -188,7 +188,7 @@ chk_function <- function(x, x_name = NULL) {
   if (vld_function(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be a function")
 }
 
@@ -225,7 +225,7 @@ chk_vector <- function(x, x_name = NULL) {
   if (vld_vector(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be a vector")
 }
 
@@ -259,7 +259,7 @@ chk_scalar <- function(x, x_name = NULL) {
   if (vld_scalar(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be a scalar (length 1)")
 }
 

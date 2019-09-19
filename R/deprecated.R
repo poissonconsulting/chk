@@ -20,6 +20,16 @@ chk_dirs <- function(x) {
   chk_all(x, chk_dir)
 }
 
+#' @describeIn deparse_backtick_chk Deparse Back Tick
+#' 
+#' \lifecycle{soft-deprecated}
+#'
+#' @export
+deparse_backtick <- function(x) {
+  deprecate_soft("0.0.1.9024", what = "deparse_backtick()", with = "deparse_backtick_chk()")
+  deparse_backtick_chk(x)
+}
+
 #' @describeIn chk_file Check Files Exist
 #'
 #' \lifecycle{soft-deprecated}
@@ -52,7 +62,7 @@ chk_length <- function(x, length = 1L, x_name = NULL) {
   if (length(x) == length) {
     return(TRUE)
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be length ", length, ", not ", length(x))
 }
 
@@ -74,7 +84,7 @@ chk_count <- function(x, x_name = NULL) {
     (is.integer(x) || vld_true(all.equal(x, as.integer(x))))) {
     return(TRUE)
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(
     x_name,
     " must be a count (non-missing non-negative integer scalar or double equivalent)"
@@ -95,7 +105,7 @@ chk_proportion <- function(x, x_name = NULL) {
   if (is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1) {
     return(TRUE)
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(
     x_name,
     " must be a proportion (non-missing numeric scalar between 0 and 1)"
@@ -114,7 +124,7 @@ chk_in <- function(x, values, x_name = NULL) {
     what = "chk_in()",
     with = "chk_subset()"
   )
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_subset(x, values, x_name = x_name)
 }
 
@@ -130,7 +140,7 @@ chk_has <- function(x, values, x_name = NULL) {
     what = "chk_has()",
     with = "chk_superset()"
   )
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_superset(x, values, x_name = x_name)
 }
 
@@ -156,7 +166,7 @@ chk_is <- function(x, class, x_name = NULL) {
   if (vld_is(x, class)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must inherit from class '", class, "'")
 }
 

@@ -25,7 +25,7 @@ chk_string <- function(x, x_name = NULL) {
   if (is.character(x) && length(x) == 1L && !anyNA(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be a string (non-missing character scalar)")
 }
 
@@ -65,7 +65,7 @@ chk_match <- function(x, regexp = ".+", x_name = NULL) {
   if (vld_match(x, regexp)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   if (length(x) == 1L) {
     abort_chk(x_name, " must match regular expression '", regexp, "'")
   }

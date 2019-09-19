@@ -27,7 +27,7 @@ chk_range <- function(x, range = c(0, 1), x_name = NULL) {
     return(invisible())
   }
 
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   if (length(x) == 1L) {
     if (range[1] == range[2]) {
       abort_chk(x_name, " must be ", cc(range[1]), ", not ", cc(x))
@@ -82,7 +82,7 @@ chk_lt <- function(x, value = 0, x_name = NULL) {
   if (vld_lt(x, value)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   if (length(x) == 1L) {
     abort_chk(x_name, " must be less than ", cc(value), ", not ", cc(x))
   }
@@ -127,7 +127,7 @@ chk_lte <- function(x, value = 0, x_name = NULL) {
   if (vld_lte(x, value)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   if (length(x) == 1L) {
     abort_chk(
       x_name, " must be less than or equal to ", cc(value), ", not ", cc(x),
@@ -173,7 +173,7 @@ chk_gt <- function(x, value = 0, x_name = NULL) {
   if (vld_gt(x, value)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   if (length(x) == 1L) {
     abort_chk(x_name, " must be greater than ", cc(value), ", not ", cc(x))
   }
@@ -218,7 +218,7 @@ chk_gte <- function(x, value = 0, x_name = NULL) {
   if (vld_gte(x, value)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   if (length(x) == 1L) {
     abort_chk(
       x_name, " must be greater than or equal to ", cc(value),

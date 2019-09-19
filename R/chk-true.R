@@ -26,7 +26,7 @@ chk_true <- function(x, x_name = NULL) {
   if (vld_true(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be TRUE")
 }
 
@@ -64,7 +64,7 @@ chk_false <- function(x, x_name = NULL) {
   if (vld_false(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be FALSE")
 }
 
@@ -102,7 +102,7 @@ chk_flag <- function(x, x_name = NULL) {
   if (vld_flag(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be a flag (TRUE or FALSE)")
 }
 
@@ -140,7 +140,7 @@ chk_lgl <- function(x, x_name = NULL) {
   if (vld_lgl(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick((substitute(x)))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
   abort_chk(x_name, " must be a logical scalar (TRUE, FALSE or NA)")
 }
 

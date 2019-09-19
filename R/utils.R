@@ -16,10 +16,10 @@
 #' try(abort_chk("there %r %n problem value%s", n = 1.5))
 abort_chk <- function(..., n = NULL) err(..., n = n, .subclass = "chk_error")
 
-#' Deparse Tick
+#' Deparse Back Tick
 #'
-#' \code{deparse_backtick} is a wrapper on \code{\link{deparse}} that
-#' also back ticks the return string.
+#' \code{deparse_backtick_chk} is a wrapper on \code{\link{deparse}} 
+#' and \code{backtick_chk}.
 #'
 #' It is exported to allow users to easily construct their own `chk_` functions.
 #'
@@ -30,6 +30,12 @@ abort_chk <- function(..., n = NULL) err(..., n = n, .subclass = "chk_error")
 #' @export
 #'
 #' @examples
-#' deparse_backtick(2)
-#' deparse_backtick(2^2)
-deparse_backtick <- function(x) backtick(deparse(x))
+#' 
+#' # deparse_backtick_chk
+#' deparse_backtick_chk(2)
+#' deparse_backtick_chk(2^2)
+deparse_backtick_chk <- function(x) backtick_chk(deparse(x))
+
+#' @describeIn deparse_backtick_chk Back Tick
+#' @export
+backtick_chk <- function(x) p0("`", x, "`")

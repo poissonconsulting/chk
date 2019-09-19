@@ -25,7 +25,7 @@ chk_subset <- function(x, values, x_name = NULL) {
     return(invisible())
   }
   values <- sort(unique(values), na.last = TRUE)
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   if (length(x) == 1L) {
     abort_chk(x_name, " must match ", cc(values, " or "), ", not ", cc(x))
   }
@@ -64,7 +64,7 @@ chk_superset <- function(x, values, x_name = NULL) {
     return(invisible())
   }
   values <- sort(unique(values), na.last = TRUE)
-  if (is.null(x_name)) x_name <- deparse_backtick(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   values <- values[!values %in% x]
   abort_chk(x_name, " must include ", cc(values, " and "))
 }
