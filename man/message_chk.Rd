@@ -2,28 +2,31 @@
 % Please edit documentation in R/err.R
 \name{message_chk}
 \alias{message_chk}
-\title{Tidyverse Style Message}
+\title{Construct Tidyverse Style Message}
 \usage{
-message_chk(..., n = NULL)
+message_chk(..., n = NULL, tidy = TRUE)
 }
 \arguments{
 \item{...}{Multiple objects that are converted to a string using
 \code{paste0(..., collapse = '')}.}
 
 \item{n}{The value of n for converting \code{sprintf}-like types.}
+
+\item{tidy}{A flag specifying whether capitalize the first character and add a missing period.}
 }
 \value{
-A string of the tidyverse style message.
+A string of the message.
 }
 \description{
-Constructs a tidyverse style message by
+If \code{tidy = TRUE} constructs a tidyverse style message by
 }
 \details{
 \itemize{
   \item Capitalizing the first character if possible.
   \item Adding a trailing . if missing.
-  \item Replacing the recognized \code{sprintf}-like types.
 }
+
+Also if \code{n != NULL} replaces the recognized \code{sprintf}-like types.
 }
 \section{\code{sprintf}-like types}{
 

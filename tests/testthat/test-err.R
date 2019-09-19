@@ -32,6 +32,10 @@ test_that("message_chk", {
     message_chk("there %r %n problem director%y%s", n = 0),
     "There are 0 problem directories[.]$"
   )
+  expect_match(
+    message_chk("there %r %n problem director%y%s", n = 0, tidy = FALSE),
+    "there are 0 problem directories$"
+  )
 })
 
 test_that("err", {
@@ -44,6 +48,10 @@ test_that("err", {
   expect_error(
     err("there %r %n problem value%s", n = 2),
     "There are 2 problem values[.]$"
+  )
+  expect_error(
+    err("there %r %n problem value%s", n = 0, tidy = FALSE),
+    "there are 0 problem values$"
   )
 })
 
@@ -58,6 +66,10 @@ test_that("msg", {
     msg("there %r %n problem value%s", n = 2),
     "^There are 2 problem values[.]"
   )
+  expect_message(
+    msg("there %r %n problem value%s", n = 0, tidy = FALSE),
+    "there are 0 problem values"
+  )
 })
 
 test_that("wrn", {
@@ -70,5 +82,9 @@ test_that("wrn", {
   expect_warning(
     wrn("there %r %n problem value%s", n = 2),
     "^There are 2 problem values[.]$"
+  )
+  expect_warning(
+    wrn("there %r %n problem value%s", n = 0, tidy = FALSE),
+    "there are 0 problem values$"
   )
 })

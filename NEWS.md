@@ -1,3 +1,4 @@
+- Added `tidy = TRUE` argument to errors, warnings and messages.
 - Deprecate `deparse_backtick()` for `deparse_backtick_chk()`.
 - Exported `backtick_chk()` and `unbacktick_chk()`.
 - Added `%y` to sprintf-like types. 

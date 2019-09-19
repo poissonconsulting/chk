@@ -6,11 +6,11 @@
 \alias{msg}
 \title{Stop, Warning and Message Messages}
 \usage{
-err(..., n = NULL, .subclass = NULL)
+err(..., n = NULL, tidy = TRUE, .subclass = NULL)
 
-wrn(..., n = NULL, .subclass = NULL)
+wrn(..., n = NULL, tidy = TRUE, .subclass = NULL)
 
-msg(..., n = NULL, .subclass = NULL)
+msg(..., n = NULL, tidy = TRUE, .subclass = NULL)
 }
 \arguments{
 \item{...}{zero or more objects which can be coerced to character
@@ -18,6 +18,8 @@ msg(..., n = NULL, .subclass = NULL)
     condition object.}
 
 \item{n}{The value of n for converting \code{sprintf}-like types.}
+
+\item{tidy}{A flag specifying whether capitalize the first character and add a missing period.}
 
 \item{.subclass}{Subclass of the condition. This allows your users
 to selectively handle the conditions signalled by your functions.}

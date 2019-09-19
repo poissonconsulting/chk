@@ -14,7 +14,9 @@
 #' try(abort_chk("`x` must be NULL"))
 #' try(abort_chk("there %r %n problem value%s", n = 1))
 #' try(abort_chk("there %r %n problem value%s", n = 1.5))
-abort_chk <- function(..., n = NULL) err(..., n = n, .subclass = "chk_error")
+abort_chk <- function(..., n = NULL, tidy = TRUE) {
+  err(..., n = n, tidy = TRUE, .subclass = "chk_error")
+}
 
 #' Deparse Back Tick
 #'

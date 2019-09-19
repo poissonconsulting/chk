@@ -1,12 +1,13 @@
-#' Tidyverse Style Message
+#' Construct Tidyverse Style Message
 #'
-#' Constructs a tidyverse style message by
+#' If \code{tidy = TRUE} constructs a tidyverse style message by
 #'
 #' \itemize{
 #'   \item Capitalizing the first character if possible.
 #'   \item Adding a trailing . if missing.
-#'   \item Replacing the recognized \code{sprintf}-like types.
 #' }
+#' 
+#' Also if \code{n != NULL} replaces the recognized \code{sprintf}-like types.
 #'
 #' @section \code{sprintf}-like types:
 #'
@@ -22,15 +23,16 @@
 #' @param ... Multiple objects that are converted to a string using
 #' \code{paste0(..., collapse = '')}.
 #' @param n The value of n for converting \code{sprintf}-like types.
+#' @param tidy A flag specifying whether capitalize the first character and add a missing period.
 #'
-#' @return A string of the tidyverse style message.
+#' @return A string of the message.
 #' @export
 #'
 #' @examples
 #' message_chk("there %r %n", " problem director%y%s")
 #' message_chk("there %r %n", " problem director%y%s", n = 1)
 #' message_chk("There %r %n", " problem director%y%s.", n = 3)
-message_chk <- function(..., n = NULL) {
+message_chk <- function(..., n = NULL, tidy = TRUE) {
   string <- p0(..., collapse = "")
   if (!is.null(n)) {
     string <- gsub("%r", if (n == 1) "is" else "are", string, fixed = TRUE)
@@ -38,8 +40,10 @@ message_chk <- function(..., n = NULL) {
     string <- gsub("%y", if (n == 1) "y" else "ie", string, fixed = TRUE)
     string <- gsub("%n", n, string, fixed = TRUE)
   }
-  if (!grepl("([.]|[?]|[!])$", string)) string <- p0(string, ".")
-  string <- p0(toupper(substr(string, 1, 1)), substr(string, 2, nchar(string)))
+  if(vld_true(tidy)) {
+    if (!grepl("([.]|[?]|[!])$", string)) string <- p0(string, ".")
+    string <- p0(toupper(substr(string, 1, 1)), substr(string, 2, nchar(string)))
+  }
   string
 }
 
@@ -66,8 +70,8 @@ NULL
 #'
 #' # err
 #' try(err("there %r %n problem value%s", n = 2))
-err <- function(..., n = NULL, .subclass = NULL) {
-  abort(message_chk(..., n = n), .subclass = .subclass)
+err <- function(..., n = NULL, tidy = TRUE, .subclass = NULL) {
+  abort(message_chk(..., n = n, tidy = tidy), .subclass = .subclass)
 }
 
 #' @describeIn err Warning
@@ -78,8 +82,8 @@ err <- function(..., n = NULL, .subclass = NULL) {
 #'
 #' # wrn
 #' wrn("there %r %n problem value%s", n = 2)
-wrn <- function(..., n = NULL, .subclass = NULL) {
-  warn(message_chk(..., n = n), .subclass = .subclass)
+wrn <- function(..., n = NULL, tidy = TRUE, .subclass = NULL) {
+  warn(message_chk(..., n = n, tidy = tidy), .subclass = .subclass)
 }
 
 #' @describeIn err Message
@@ -90,6 +94,6 @@ wrn <- function(..., n = NULL, .subclass = NULL) {
 #'
 #' # msg
 #' msg("there %r %n problem value%s", n = 2)
-msg <- function(..., n = NULL, .subclass = NULL) {
-  inform(message_chk(..., n = n), .subclass = .subclass)
+msg <- function(..., n = NULL, tidy = TRUE, .subclass = NULL) {
+  inform(message_chk(..., n = n, tidy = tidy), .subclass = .subclass)
 }

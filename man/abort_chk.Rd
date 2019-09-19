@@ -4,13 +4,15 @@
 \alias{abort_chk}
 \title{Abort Check}
 \usage{
-abort_chk(..., n = NULL)
+abort_chk(..., n = NULL, tidy = TRUE)
 }
 \arguments{
 \item{...}{Multiple objects that are converted to a string using
 \code{paste0(..., collapse = '')}.}
 
 \item{n}{The value of n for converting \code{sprintf}-like types.}
+
+\item{tidy}{A flag specifying whether capitalize the first character and add a missing period.}
 }
 \value{
 Throws an error of class \code{'chk_error'}.
