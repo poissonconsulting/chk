@@ -4,6 +4,7 @@
 \alias{deparse_backtick}
 \alias{deparse_backtick_chk}
 \alias{backtick_chk}
+\alias{unbacktick_chk}
 \title{Deparse Back Tick}
 \usage{
 deparse_backtick(x)
@@ -11,6 +12,8 @@ deparse_backtick(x)
 deparse_backtick_chk(x)
 
 backtick_chk(x)
+
+unbacktick_chk(x)
 }
 \arguments{
 \item{x}{A substituted object to deparse.}
@@ -32,6 +35,8 @@ It is exported to allow users to easily construct their own `chk_` functions.
 \lifecycle{soft-deprecated}
 
 \item \code{backtick_chk}: Back Tick
+
+\item \code{unbacktick_chk}: Unback Tick
 }}
 
 \examples{

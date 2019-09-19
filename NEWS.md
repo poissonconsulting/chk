@@ -1,5 +1,5 @@
 - Deprecate `deparse_backtick()` for `deparse_backtick_chk()`.
-- Exported `backtick_chk()`.
+- Exported `backtick_chk()` and `unbacktick_chk()`.
 - Added `%y` to sprintf-like types. 
 - Err capitalizes first character and adds missing period (tidyverse style).
 - Added `chk_S3_class()` and `chk_s4_class()`.

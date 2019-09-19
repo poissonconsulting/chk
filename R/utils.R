@@ -39,3 +39,7 @@ deparse_backtick_chk <- function(x) backtick_chk(deparse(x))
 #' @describeIn deparse_backtick_chk Back Tick
 #' @export
 backtick_chk <- function(x) p0("`", x, "`")
+
+#' @describeIn deparse_backtick_chk Unback Tick
+#' @export
+unbacktick_chk <- function(x) gsub("`", "", x)
