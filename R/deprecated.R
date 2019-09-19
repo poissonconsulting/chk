@@ -150,7 +150,7 @@ chk_has <- function(x, values, x_name = NULL) {
 #' try(chk_is(1, "character"))
 chk_is <- function(x, class, x_name = NULL) {
   deprecate_soft("0.0.1.9018",
-    what = "chk_is()", with = "chk_class_s3()",
+    what = "chk_is()", with = "chk_s3_class()",
     id = "chk_is"
   )
   if (vld_is(x, class)) {
