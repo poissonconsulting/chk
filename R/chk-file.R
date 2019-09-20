@@ -5,6 +5,7 @@
 #' If checking/validating multiple files use \code{chk_all(x, chk_file)}.
 #'
 #' @inheritParams chk_true
+#' @param ext A character vector of the permitted file extensions (without the .).
 #' @return The \code{chk_} functions throw an informative error if the test fails.
 #' The \code{vld_} functions return a flag indicating whether the test was met.
 #' @name chk_file
@@ -81,6 +82,9 @@ vld_dir <- function(x) vld_string(x) && dir.exists(x)
 #' @describeIn chk_file Check File Extension
 #'
 #' Checks extension exist using \code{vld_ext(x)}.
+#' 
+#' The user may want to use \code{\link{toupper}()} or \code{\link{tolower}()}
+#' to ensure the case matches.
 #'
 #' @export
 #'
@@ -94,13 +98,13 @@ chk_ext <- function(x, ext, x_name = NULL) {
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_string(x, x_name = x_name)
-  abort_chk(x_name, " must have extension '", ext, "' (not '", 
+  abort_chk(x_name, " must have extension ", cc(ext, " or "), " (not '", 
             tools::file_ext(x),"')")
 }
 
 #' @describeIn chk_file Validate File Extension
 #'
-#' Checks extension using \code{vld_string(x) && tools::file_ext(x) == ext}.
+#' Checks extension using \code{vld_string(x) && vld_subset(tools::file_ext(x), ext)}.
 #'
 #' @export
 #'
@@ -109,4 +113,4 @@ chk_ext <- function(x, ext, x_name = NULL) {
 #' # vld_ext
 #' vld_ext("oeu.pdf", "pdf")
 #' vld_ext(toupper("oeu.pdf"), "PDF")
-vld_ext <- function(x, ext) vld_string(x) && tools::file_ext(x) == ext
+vld_ext <- function(x, ext) vld_string(x) && vld_subset(tools::file_ext(x), ext)

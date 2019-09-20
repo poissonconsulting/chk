@@ -80,6 +80,7 @@ test_that("vld_ext", {
   expect_false(vld_ext("file.pdf", "PDF"))
   expect_false(vld_ext(c("file.pdf", "file.pdf"), "pdf"))
   expect_true(vld_ext("file.pdf", "pdf"))
+  expect_true(vld_ext("file.png", c("pdf", "png")))
 })
 
 test_that("chk_ext", {
@@ -90,6 +91,10 @@ test_that("chk_ext", {
   expect_chk_error(
     chk_ext("file.pdf", "png"),
     "^`\"file.pdf\"` must have extension 'png' [(]not 'pdf'[)][.]$"
+  )
+  expect_chk_error(
+    chk_ext("file.pdf", c("png", "PDF")),
+    "^`\"file.pdf\"` must have extension 'png' or 'PDF' [(]not 'pdf'[)][.]$"
   )
   expect_null(chk_ext("file.pdf", "pdf"))
   expect_invisible(chk_ext("file.pdf", "pdf"))

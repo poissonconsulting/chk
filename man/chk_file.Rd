@@ -31,6 +31,8 @@ chk_files(x)
 \item{x}{The object to check.}
 
 \item{x_name}{A string of the name of object x or NULL.}
+
+\item{ext}{A character vector of the permitted file extensions (without the .).}
 }
 \value{
 The \code{chk_} functions throw an informative error if the test fails.
@@ -64,9 +66,12 @@ Checks if directories exist using \code{vld_string(x) && all(\link{dir.exists}(x
 
 Checks extension exist using \code{vld_ext(x)}.
 
+The user may want to use \code{\link{toupper}()} or \code{\link{tolower}()}
+to ensure the case matches.
+
 \item \code{vld_ext}: Validate File Extension
 
-Checks extension using \code{vld_string(x) && tools::file_ext(x) == ext}.
+Checks extension using \code{vld_string(x) && vld_subset(tools::file_ext(x), ext)}.
 
 \item \code{chk_dirs}: Check Directories Exist
 

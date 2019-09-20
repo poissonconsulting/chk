@@ -23,6 +23,7 @@ Depends:
     R (>= 3.3)
 Imports: 
     utils,
+    tools,
     rlang,
     lifecycle
 Suggests: 
