@@ -77,3 +77,36 @@ chk_dir <- function(x, x_name = NULL) {
 #' # vld_dir
 #' vld_dir(tempfile())
 vld_dir <- function(x) vld_string(x) && dir.exists(x)
+
+#' @describeIn chk_file Check File Extension
+#'
+#' Checks extension exist using \code{vld_ext(x)}.
+#'
+#' @export
+#'
+#' @examples
+#'
+#' # chk_ext
+#' try(chk_ext("file1.pdf", "png"))
+chk_ext <- function(x, ext, x_name = NULL) {
+  if (vld_ext(x, ext)) {
+    return(invisible())
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  chk_string(x, x_name = x_name)
+  abort_chk(x_name, " must have extension '", ext, "' (not '", 
+            tools::file_ext(x),"')")
+}
+
+#' @describeIn chk_file Validate File Extension
+#'
+#' Checks extension using \code{vld_string(x) && tools::file_ext(x) == ext}.
+#'
+#' @export
+#'
+#' @examples
+#'
+#' # vld_ext
+#' vld_ext("oeu.pdf", "pdf")
+#' vld_ext(toupper("oeu.pdf"), "PDF")
+vld_ext <- function(x, ext) vld_string(x) && tools::file_ext(x) == ext

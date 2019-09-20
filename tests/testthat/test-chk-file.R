@@ -74,3 +74,24 @@ test_that("chk_dir", {
     "^All elements of `vec` must specify an existing directory [(]'.*b' can't be found[)][.]$"
   )
 })
+
+test_that("vld_ext", {
+  expect_false(vld_ext(character(0)))
+  expect_false(vld_ext("file.pdf", "PDF"))
+  expect_false(vld_ext(c("file.pdf", "file.pdf"), "pdf"))
+  expect_true(vld_ext("file.pdf", "pdf"))
+})
+
+test_that("chk_ext", {
+  expect_chk_error(
+    chk_ext(character(0)),
+    "^`character[(]0[)]` must be a string [(]non-missing character scalar[)][.]$"
+  )
+  expect_chk_error(
+    chk_ext("file.pdf", "png"),
+    "^`\"file.pdf\"` must have extension 'png' [(]not 'pdf'[)][.]$"
+  )
+  expect_null(chk_ext("file.pdf", "pdf"))
+  expect_invisible(chk_ext("file.pdf", "pdf"))
+})
+  
