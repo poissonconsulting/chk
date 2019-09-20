@@ -34,9 +34,9 @@ chk_list(x, x_name = NULL)
 
 vld_list(x)
 
-chk_function(x, x_name = NULL)
+chk_function(x, formals = NULL, x_name = NULL)
 
-vld_function(x)
+vld_function(x, formals = NULL)
 
 chk_vector(x, x_name = NULL)
 
@@ -52,6 +52,8 @@ vld_scalar(x)
 \item{class}{A string specifying the class.}
 
 \item{x_name}{A string of the name of object x or NULL.}
+
+\item{formals}{A count of the number of formal arguments.}
 }
 \value{
 The \code{chk_} functions throw an informative error if the test fails.
@@ -126,7 +128,7 @@ Checks if is a function using \code{vld_function()}.
 
 Validates is a function using:
 
-\code{\link{is.function}(x)}
+\code{\link{is.function}(x) && (is.null(formals) || length(formals(x)) == formals)}
 
 \item \code{chk_vector}: Check Vector
 

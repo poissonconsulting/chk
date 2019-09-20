@@ -1,3 +1,4 @@
+- Added `formals` argument to `chk_function()` argument.
 - Added `chk_ext()` and `vld_ext()` functions.
 - Added `tidy = TRUE` argument to errors, warnings and messages.
 - Deprecate `deparse_backtick()` for `deparse_backtick_chk()`.
