@@ -5,10 +5,6 @@
 \alias{vld_true}
 \alias{chk_false}
 \alias{vld_false}
-\alias{chk_flag}
-\alias{vld_flag}
-\alias{chk_lgl}
-\alias{vld_lgl}
 \title{Check/Validate TRUE, FALSE, Flag or Logical Scalar}
 \usage{
 chk_true(x, x_name = NULL)
@@ -18,14 +14,6 @@ vld_true(x)
 chk_false(x, x_name = NULL)
 
 vld_false(x)
-
-chk_flag(x, x_name = NULL)
-
-vld_flag(x)
-
-chk_lgl(x, x_name = NULL)
-
-vld_lgl(x)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -63,28 +51,6 @@ Checks if FALSE using
 Validates if FALSE using
 
 \code{identical(unname(x), FALSE)}.
-
-\item \code{chk_flag}: Validate Flag
-
-Checks if non-missing logical scalar using
-\code{vld_flag()}.
-
-\item \code{vld_flag}: Validate Flag
-
-Validates if flag using
-
-\code{is.logical(x) && length(x) == 1L && !anyNA(x)}.
-
-\item \code{chk_lgl}: Check Logical Scalar
-
-Checks if logical scalar using
-\code{vld_lgl(x)}.
-
-\item \code{vld_lgl}: Validate Logical Scalar
-
-Validates if logical scalar using
-
-\code{is.logical(x) && length(x) == 1L}.
 }}
 
 \examples{
@@ -110,26 +76,4 @@ vld_false(FALSE)
 vld_false(NA)
 vld_false(0)
 vld_false(c(FALSE, FALSE))
-
-# vld_flag
-chk_flag(TRUE)
-try(vld_flag(1))
-
-# vld_flag
-vld_flag(TRUE)
-vld_flag(FALSE)
-vld_flag(NA)
-vld_flag(1)
-vld_flag(c(TRUE, TRUE))
-
-# chk_lgl
-chk_lgl(NA)
-try(chk_lgl(1))
-
-# vld_lgl
-vld_lgl(TRUE)
-vld_lgl(FALSE)
-vld_lgl(NA)
-vld_lgl(1)
-vld_lgl(c(TRUE, TRUE))
 }
