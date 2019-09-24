@@ -45,40 +45,6 @@ chk_file <- function(x, x_name = NULL) {
 #' vld_file(tempfile())
 vld_file <- function(x) vld_string(x) && file.exists(x) && !dir.exists(x)
 
-#' @describeIn chk_file Check Directories Exist
-#'
-#' Checks if directories exist using \code{vld_dir()}.
-#'
-#' @export
-#'
-#' @examples
-#'
-#' # chk_dir
-#' try(chk_dir(tempfile()))
-chk_dir <- function(x, x_name = NULL) {
-  if (vld_dir(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  chk_string(x, x_name = x_name)
-  if (file.exists(x)) {
-    abort_chk(x_name, " must specify a directory ('", x, "' is a file)")
-  }
-  abort_chk(x_name, " must specify an existing directory ('", x, "' can't be found)")
-}
-
-#' @describeIn chk_file Validate Directories Exist
-#'
-#' Checks if directories exist using \code{vld_string(x) && all(\link{dir.exists}(x))}.
-#'
-#' @export
-#'
-#' @examples
-#'
-#' # vld_dir
-#' vld_dir(tempfile())
-vld_dir <- function(x) vld_string(x) && dir.exists(x)
-
 #' @describeIn chk_file Check File Extension
 #'
 #' Checks extension exist using \code{vld_ext(x)}.

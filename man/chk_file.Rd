@@ -3,8 +3,6 @@
 \name{chk_file}
 \alias{chk_file}
 \alias{vld_file}
-\alias{chk_dir}
-\alias{vld_dir}
 \alias{chk_ext}
 \alias{vld_ext}
 \alias{chk_dirs}
@@ -14,10 +12,6 @@
 chk_file(x, x_name = NULL)
 
 vld_file(x)
-
-chk_dir(x, x_name = NULL)
-
-vld_dir(x)
 
 chk_ext(x, ext, x_name = NULL)
 
@@ -54,14 +48,6 @@ Checks if files exist using \code{vld_file(x)}.
 
 Checks if files exist using \code{all(\link{file.exists}(x) && !dir.exists(x))}.
 
-\item \code{chk_dir}: Check Directories Exist
-
-Checks if directories exist using \code{vld_dir()}.
-
-\item \code{vld_dir}: Validate Directories Exist
-
-Checks if directories exist using \code{vld_string(x) && all(\link{dir.exists}(x))}.
-
 \item \code{chk_ext}: Check File Extension
 
 Checks extension exist using \code{vld_ext(x)}.
@@ -97,12 +83,6 @@ try(chk_file(tempfile()))
 
 # vld_file
 vld_file(tempfile())
-
-# chk_dir
-try(chk_dir(tempfile()))
-
-# vld_dir
-vld_dir(tempfile())
 
 # chk_ext
 try(chk_ext("file1.pdf", "png"))

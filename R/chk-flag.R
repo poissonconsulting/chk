@@ -7,7 +7,8 @@
 #'
 #' @param x The object to check.
 #' @param x_name A string of the name of object x or NULL.
-#' @return The \code{chk_} function throws an informative error if the test fails.
+#' @return 
+#' The \code{chk_} function throws an informative error if the test fails.
 #' 
 #' The \code{vld_} function returns a flag indicating whether the test was met.
 #'
