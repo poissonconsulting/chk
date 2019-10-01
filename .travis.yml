@@ -45,11 +45,10 @@ jobs:
   - r: release
     env:
     - RUN_CODECOV=true
+    - BUILD_PKGDOWN=true
   - r: 3.5
   - r: 3.4
   - r: 3.3
-    env:
-    - BUILD_PKGDOWN=true
 
 #services
 services:
