@@ -22,16 +22,17 @@ BugReports: https://github.com/poissonconsulting/chk/issues
 Depends: 
     R (>= 3.3)
 Imports: 
-    utils,
-    tools,
+    lifecycle,
+    methods,
     rlang,
-    lifecycle
+    tools,
+    utils
 Suggests: 
     covr,
-    testthat,
     knitr,
+    microbenchmark,
     rmarkdown,
-    microbenchmark
+    testthat
 VignetteBuilder: 
     knitr
 RdMacros: 
@@ -39,5 +40,5 @@ RdMacros:
 Encoding: UTF-8
 Language: en-US
 LazyData: true
-RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
