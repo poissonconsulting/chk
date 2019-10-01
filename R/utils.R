@@ -6,7 +6,7 @@
 #'
 #' @inheritParams message_chk
 #' @return Throws an error of class \code{'chk_error'}.
-#' @seealso \code{{err}}
+#' @seealso [err()]
 #' @export
 #'
 #' @examples

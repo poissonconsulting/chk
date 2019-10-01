@@ -30,5 +30,5 @@ try(abort_chk("there \%r \%n problem value\%s", n = 1))
 try(abort_chk("there \%r \%n problem value\%s", n = 1.5))
 }
 \seealso{
-\code{{err}}
+[err()]
 }
