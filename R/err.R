@@ -6,7 +6,7 @@
 #'   \item Capitalizing the first character if possible.
 #'   \item Adding a trailing . if missing.
 #' }
-#' 
+#'
 #' Also if `n != NULL` replaces the recognized `sprintf`-like types.
 #'
 #' @section `sprintf`-like types:

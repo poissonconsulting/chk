@@ -1,15 +1,15 @@
 #' Check Flag
 #'
 #' @description
-#' Checks if non-missing logical scalar using 
-#' 
+#' Checks if non-missing logical scalar using
+#'
 #' `is.logical(x) && length(x) == 1L && !anyNA(x)`.
 #'
 #' @param x The object to check.
 #' @param x_name A string of the name of object x or NULL.
-#' @return 
+#' @return
 #' The `chk_` function throws an informative error if the test fails.
-#' 
+#'
 #' The `vld_` function returns a flag indicating whether the test was met.
 #'
 #' @export
@@ -30,9 +30,9 @@ chk_flag <- function(x, x_name = NULL) {
 #' @describeIn chk_flag Validate Flag
 #'
 #' @export
-#' 
+#'
 #' @examples
-#' 
+#'
 #' # vld_flag
 #' vld_flag(TRUE)
 #' vld_flag(FALSE)

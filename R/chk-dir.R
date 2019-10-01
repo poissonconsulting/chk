@@ -1,17 +1,17 @@
 #' Check Directory Exists
 #'
 #' @description
-#' 
-#' Checks if directory exists using 
-#' 
+#'
+#' Checks if directory exists using
+#'
 #' `vld_string(x) && all(dir.exists(x))`.
 #' @seealso [vld_string()]
 #' @seealso [dir.exists()]
 #'
 #' @inheritParams chk_flag
-#' @return 
+#' @return
 #' The `chk_` function throws an informative error if the test fails.
-#' 
+#'
 #' The `vld_` function returns a flag indicating whether the test was met.
 #'
 #' @seealso [chk_file()]

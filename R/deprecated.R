@@ -155,7 +155,7 @@ chk_has <- function(x, values, x_name = NULL) {
 #' \lifecycle{soft-deprecated}
 #'
 #' Checks if inherits from class using `vld_is()`.
-#' 
+#'
 #' Replace by [chk_s3_class()] or [chk_s4_class()].
 #'
 #' @export

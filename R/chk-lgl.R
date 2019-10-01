@@ -2,13 +2,13 @@
 #'
 #' @description
 #' Checks if logical scalar using
-#' 
+#'
 #' `is.logical(x) && length(x) == 1L`.
 #'
 #' @inheritParams chk_flag
-#' @return 
+#' @return
 #' The `chk_` function throws an informative error if the test fails.
-#' 
+#'
 #' The `vld_` function returns a flag indicating whether the test was met.
 #'
 #' @seealso [chk_flag()]

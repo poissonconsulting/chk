@@ -99,4 +99,3 @@ test_that("chk_ext", {
   expect_null(chk_ext("file.pdf", "pdf"))
   expect_invisible(chk_ext("file.pdf", "pdf"))
 })
-  
