@@ -37,7 +37,7 @@ checks if non-missing integer scalar or double equivalent using
 
 \strong{Bad}: \code{"a"}, \code{1:3}, \code{NA_integer_}, \code{log(10)}.
 
-The \code{\link{chk_whole_numeric}()} function checks if
+The \code{\link[=chk_whole_numeric]{chk_whole_numeric()}} function checks if
 integer vector of any length or double equivalent.
 }
 \examples{
@@ -51,6 +51,6 @@ chk_whole_number(2)
 try(chk_whole_number(1.1))
 }
 \seealso{
-\code{\link{chk_true}()}, \code{\link{chk_range}()}
-and \code{\link{chk_whole_numeric}()}
+\code{\link[=chk_true]{chk_true()}}, \code{\link[=chk_range]{chk_range()}}
+and \code{\link[=chk_whole_numeric]{chk_whole_numeric()}}
 }

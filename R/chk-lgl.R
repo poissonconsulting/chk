@@ -11,7 +11,7 @@
 #' 
 #' The `vld_` function returns a flag indicating whether the test was met.
 #'
-#' @seealso \code{\link{chk_flag}()}
+#' @seealso [chk_flag()]
 #' @export
 #'
 #' @examples

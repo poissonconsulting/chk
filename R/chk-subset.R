@@ -36,7 +36,7 @@ chk_subset <- function(x, values, x_name = NULL) {
 #'
 #' Validates all values in `values` using equivalent of
 #'
-#' \code{all(match(x, values, nomatch = 0) > 0)}
+#' `all(match(x, values, nomatch = 0) > 0)`
 #'
 #' @seealso [all()]
 #' @seealso [match()]
@@ -76,7 +76,7 @@ chk_superset <- function(x, values, x_name = NULL) {
 #'
 #' Validates includes all values using
 #'
-#' \code{all(match(values, x, nomatch = 0) > 0)}
+#' `all(match(values, x, nomatch = 0) > 0)`
 #'
 #' @export
 #'

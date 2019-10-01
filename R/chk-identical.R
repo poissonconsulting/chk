@@ -5,7 +5,7 @@
 #' @param tolerance A non-negative numeric scalar.
 #' @return `NULL`, invisibly. Called for the side effect of throwing an error
 #'   if the condition is not met.
-#' @seealso \code{\link{chk_all_identical}()}
+#' @seealso [chk_all_identical()]
 #' @name chk_identical
 NULL
 
@@ -90,7 +90,7 @@ vld_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps)) {
 #' `chk_equivalent()`
 #' checks if is equivalent (equal ignoring attributes) to y using
 #'
-#' \code{vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))}.
+#' `vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))`.
 #'
 #' @seealso [vld_true()]
 #' @seealso [all.equal()]

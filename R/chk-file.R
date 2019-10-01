@@ -35,7 +35,7 @@ chk_file <- function(x, x_name = NULL) {
 
 #' @describeIn chk_file Validate File
 #'
-#' Checks if files exist using \code{all(file.exists(x) && !dir.exists(x))}.
+#' Checks if files exist using `all(file.exists(x) && !dir.exists(x))`.
 #'
 #' @seealso [file.exists()]
 #' @seealso [dir.exists()]
@@ -51,7 +51,7 @@ vld_file <- function(x) vld_string(x) && file.exists(x) && !dir.exists(x)
 #'
 #' Checks extension exist using `vld_ext(x)`.
 #' 
-#' The user may want to use \code{\link{toupper}()} or \code{\link{tolower}()}
+#' The user may want to use [toupper()] or [tolower()]
 #' to ensure the case matches.
 #'
 #' @export

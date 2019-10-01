@@ -49,10 +49,10 @@ message_chk <- function(..., n = NULL, tidy = TRUE) {
 
 #' Stop, Warning and Message Messages
 #'
-#' The functions call \code{\link{message_chk}()} to process
+#' The functions call [message_chk()] to process
 #' the message and then
-#' \code{\link[rlang]{abort}()}, \code{\link[rlang]{warn}()} and
-#'  \code{\link[rlang]{inform}()}, respectively.
+#' [rlang::abort()], [rlang::warn()] and
+#'  [rlang::inform()], respectively.
 #'
 #'  The user can set the subclass.
 #'

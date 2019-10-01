@@ -76,7 +76,7 @@ chk_match <- function(x, regexp = ".+", x_name = NULL) {
 #'
 #' Validates all values match regular expression using
 #'
-#' \code{all(grepl(regexp, x))}.
+#' `all(grepl(regexp, x))`.
 #'
 #' `regexp` should be a non-missing character scalar.
 #'

@@ -13,7 +13,7 @@ NULL
 #'
 #' Checks if directories exist using:
 #'
-#' \code{all(dir.exists(x))}
+#' `all(dir.exists(x))`
 #'
 #' Replace by [chk_dir()].
 #'
@@ -29,7 +29,7 @@ chk_dirs <- function(x) {
 #'
 #' Checks if files exist using:
 #'
-#' \code{all(file.exists(x) && !dir.exists(x))}
+#' `all(file.exists(x) && !dir.exists(x))`
 #'
 #' Replace by [chk_file()].
 #'
@@ -183,7 +183,7 @@ chk_is <- function(x, class, x_name = NULL) {
 #'
 #' Validates inherits from class using
 #'
-#' \code{inherits(x, class)}
+#' `inherits(x, class)`
 #'
 #' Class should be a string.
 #'

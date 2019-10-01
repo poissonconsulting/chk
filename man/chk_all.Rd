@@ -91,5 +91,5 @@ chk_all_equivalent(list(c(x = 1), c(x = 1)))
 chk_all_equivalent(list(c(x = 1), c(y = 1)))
 }
 \seealso{
-\code{\link{chk_identical}()}.
+\code{\link[=chk_identical]{chk_identical()}}.
 }

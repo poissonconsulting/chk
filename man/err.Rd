@@ -25,10 +25,10 @@ msg(..., n = NULL, tidy = TRUE, .subclass = NULL)
 to selectively handle the conditions signalled by your functions.}
 }
 \description{
-The functions call \code{\link{message_chk}()} to process
+The functions call \code{\link[=message_chk]{message_chk()}} to process
 the message and then
-\code{\link[rlang]{abort}()}, \code{\link[rlang]{warn}()} and
-\code{\link[rlang]{inform}()}, respectively.
+\code{\link[rlang:abort]{rlang::abort()}}, \code{\link[rlang:warn]{rlang::warn()}} and
+\code{\link[rlang:inform]{rlang::inform()}}, respectively.
 }
 \details{
 The user can set the subclass.

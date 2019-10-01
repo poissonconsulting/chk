@@ -1,6 +1,6 @@
 #' Concatenate Strings
 #'
-#' A wrapper on \code{\link[base]{paste}()}.
+#' A wrapper on [base::paste()].
 #'
 #' @inheritParams base::paste
 #'
@@ -13,7 +13,7 @@
 p <- function(..., sep = " ", collapse = NULL)
   paste(..., sep = sep, collapse = collapse)
 
-#' @describeIn p A wrapper on \code{\link[base]{paste0}()}
+#' @describeIn p A wrapper on [base::paste0()]
 #' @export
 #'
 #' @examples

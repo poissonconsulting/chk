@@ -18,7 +18,7 @@ abort_chk(..., n = NULL, tidy = TRUE)
 Throws an error of class \code{'chk_error'}.
 }
 \description{
-A wrapper on \code{\link{err}} that sets the subclass to be 'chk_error'.
+A wrapper on \code{\link[=err]{err()}} that sets the subclass to be \code{'chk_error'}.
 }
 \details{
 It is exported to allow users to easily construct their own \code{chk_} functions.

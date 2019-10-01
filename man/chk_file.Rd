@@ -46,7 +46,7 @@ Checks if files exist using \code{all(file.exists(x) && !dir.exists(x))}.
 
 Checks extension exist using \code{vld_ext(x)}.
 
-The user may want to use \code{\link{toupper}()} or \code{\link{tolower}()}
+The user may want to use \code{\link[=toupper]{toupper()}} or \code{\link[=tolower]{tolower()}}
 to ensure the case matches.
 
 \item \code{vld_ext}: Validate File Extension

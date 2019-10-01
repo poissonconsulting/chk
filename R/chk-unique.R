@@ -35,7 +35,7 @@ chk_unique <- function(x, incomparables = FALSE, x_name = NULL) {
 #'
 #' Validates if unique using
 #'
-#' \code{!anyDuplicated(x, incomparables = incomparables)}.
+#' `!anyDuplicated(x, incomparables = incomparables)`.
 #'
 #' @seealso [anyDuplicated()]
 #'
@@ -77,7 +77,7 @@ chk_no_missing <- function(x, x_name = NULL) {
 #'
 #' Validates no missing values using
 #'
-#' \code{!anyNA(x)}.
+#' `!anyNA(x)`.
 #'
 #' @seealso [anyNA()]
 #'
@@ -117,7 +117,7 @@ chk_named <- function(x, x_name = NULL) {
 #'
 #' Checks if is named using
 #'
-#' \code{!is.null(names(x))}.
+#' `!is.null(names(x))`.
 #'
 #' @seealso [is.null()]
 #' @seealso [names()]

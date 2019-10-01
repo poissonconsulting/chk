@@ -96,7 +96,7 @@ Class should be a string.
 
 Checks if integer vector or double equivalent using \code{vld_whole_numeric()}.
 
-The \code{\link{chk_whole_number}()} function checks if
+The \code{\link[=chk_whole_number]{chk_whole_number()}} function checks if
 non-missing integer scalar or double equivalent.
 
 \item \code{vld_whole_numeric}: Validate Whole Numeric

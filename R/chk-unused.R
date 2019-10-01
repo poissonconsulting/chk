@@ -36,7 +36,7 @@ chk_unused <- function(...) {
 #'
 #' Validates if is ... unused using
 #'
-#' \code{length(list(...)) == 0L}.
+#' `length(list(...)) == 0L`.
 #'
 #' @seealso [length()]
 #' @seealso [list()]
@@ -81,7 +81,7 @@ chk_used <- function(...) {
 #'
 #' Validates if ... used using
 #'
-#' \code{length(list(...)) != 0L}.
+#' `length(list(...)) != 0L`.
 #'
 #' @export
 #'

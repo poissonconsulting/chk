@@ -4,7 +4,7 @@
 #' 
 #' Checks if directory exists using 
 #' 
-#' \code{vld_string(x) && all(dir.exists(x))}.
+#' `vld_string(x) && all(dir.exists(x))`.
 #' @seealso [vld_string()]
 #' @seealso [dir.exists()]
 #'
@@ -14,7 +14,7 @@
 #' 
 #' The `vld_` function returns a flag indicating whether the test was met.
 #'
-#' @seealso \code{\link{chk_file}()}
+#' @seealso [chk_file()]
 #' @export
 #'
 #' @examples

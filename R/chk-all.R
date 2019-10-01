@@ -6,7 +6,7 @@
 #' @param chk_fun A chk_ function.
 #' @return `NULL`, invisibly. Called for the side effect of throwing an error
 #'   if the condition is not met.
-#' @seealso \code{\link{chk_identical}()}.
+#' @seealso [chk_identical()].
 #' @name chk_all
 NULL
 

@@ -73,7 +73,7 @@ chk_equivalent(1, 1L)
 chk_equivalent(c(x = 1), c(y = 1))
 }
 \seealso{
-\code{\link{chk_all_identical}()}
+\code{\link[=chk_all_identical]{chk_all_identical()}}
 
 \code{\link[=vld_true]{vld_true()}}
 

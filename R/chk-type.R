@@ -36,7 +36,7 @@ chk_s3_class <- function(x, class, x_name = NULL) {
 #' Validates inherits from S3 class using
 
 #'
-#' \code{!isS4(x) && inherits(x, class)}
+#' `!isS4(x) && inherits(x, class)`
 #'
 #' Class should be a string.
 #'
@@ -80,7 +80,7 @@ chk_s4_class <- function(x, class, x_name = NULL) {
 #'
 #' Validates inherits from S4 class using
 #'
-#' \code{isS4(x) && methods::is(x, class)}
+#' `isS4(x) && methods::is(x, class)`
 #'
 #' Class should be a string.
 #'
@@ -99,7 +99,7 @@ vld_s4_class <- function(x, class) isS4(x) && methods::is(x, class)
 #'
 #' Checks if integer vector or double equivalent using `vld_whole_numeric()`.
 #'
-#' The \code{\link{chk_whole_number}()} function checks if
+#' The [chk_whole_number()] function checks if
 #' non-missing integer scalar or double equivalent.
 #'
 #' @export
@@ -165,7 +165,7 @@ chk_list <- function(x, x_name = NULL) {
 #'
 #' Validates is a list using
 #'
-#' \code{is.list(x)}
+#' `is.list(x)`
 #'
 #' @seealso [is.list()]
 #'
@@ -205,7 +205,7 @@ chk_function <- function(x, formals = NULL, x_name = NULL) {
 #'
 #' Validates is a function using:
 #'
-#' \code{is.function(x) && (is.null(formals) || length(formals(x)) == formals)}
+#' `is.function(x) && (is.null(formals) || length(formals(x)) == formals)`
 #'
 #' @seealso [is.function()]
 #' @seealso [formals()]
@@ -247,7 +247,7 @@ chk_vector <- function(x, x_name = NULL) {
 #'
 #' Validates is a vector using:
 #'
-#' \code{is.vector(x)}
+#' `is.vector(x)`
 #'
 #' @seealso [is.vector()]
 #'

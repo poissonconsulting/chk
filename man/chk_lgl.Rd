@@ -43,5 +43,5 @@ vld_lgl(1)
 vld_lgl(c(TRUE, TRUE))
 }
 \seealso{
-\code{\link{chk_flag}()}
+\code{\link[=chk_flag]{chk_flag()}}
 }

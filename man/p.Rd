@@ -22,11 +22,11 @@ p0(..., collapse = NULL)
 A character vector.
 }
 \description{
-A wrapper on \code{\link[base]{paste}()}.
+A wrapper on \code{\link[base:paste]{base::paste()}}.
 }
 \section{Functions}{
 \itemize{
-\item \code{p0}: A wrapper on \code{\link[base]{paste0}()}
+\item \code{p0}: A wrapper on \code{\link[base:paste0]{base::paste0()}}
 }}
 
 \examples{

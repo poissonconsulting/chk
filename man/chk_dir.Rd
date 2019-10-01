@@ -45,5 +45,5 @@ vld_dir(tempfile())
 
 \code{\link[=dir.exists]{dir.exists()}}
 
-\code{\link{chk_file}()}
+\code{\link[=chk_file]{chk_file()}}
 }
