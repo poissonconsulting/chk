@@ -6,7 +6,7 @@
 #'   \item Capitalizing the first character if possible.
 #'   \item Adding a trailing . if missing.
 #' }
-#' 
+#'
 #' Also if \code{n != NULL} replaces the recognized \code{sprintf}-like types.
 #'
 #' @section \code{sprintf}-like types:

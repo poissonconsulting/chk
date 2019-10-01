@@ -48,7 +48,7 @@ vld_file <- function(x) vld_string(x) && file.exists(x) && !dir.exists(x)
 #' @describeIn chk_file Check File Extension
 #'
 #' Checks extension exist using \code{vld_ext(x)}.
-#' 
+#'
 #' The user may want to use \code{\link{toupper}()} or \code{\link{tolower}()}
 #' to ensure the case matches.
 #'
@@ -64,8 +64,8 @@ chk_ext <- function(x, ext, x_name = NULL) {
   }
   if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_string(x, x_name = x_name)
-  abort_chk(x_name, " must have extension ", cc(ext, " or "), " (not '", 
-            tools::file_ext(x),"')")
+  abort_chk(x_name, " must have extension ", cc(ext, " or "), " (not '",
+    tools::file_ext(x), "')")
 }
 
 #' @describeIn chk_file Validate File Extension

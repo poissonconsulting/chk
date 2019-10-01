@@ -21,7 +21,7 @@ chk_dirs <- function(x) {
 }
 
 #' @describeIn deparse_backtick_chk Deparse Back Tick
-#' 
+#'
 #' \lifecycle{soft-deprecated}
 #'
 #' @export

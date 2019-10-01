@@ -20,7 +20,7 @@ abort_chk <- function(..., n = NULL, tidy = TRUE) {
 
 #' Deparse Back Tick
 #'
-#' \code{deparse_backtick_chk} is a wrapper on \code{\link{deparse}} 
+#' \code{deparse_backtick_chk} is a wrapper on \code{\link{deparse}}
 #' and \code{backtick_chk}.
 #'
 #' It is exported to allow users to easily construct their own `chk_` functions.
@@ -32,7 +32,7 @@ abort_chk <- function(..., n = NULL, tidy = TRUE) {
 #' @export
 #'
 #' @examples
-#' 
+#'
 #' # deparse_backtick_chk
 #' deparse_backtick_chk(2)
 #' deparse_backtick_chk(2^2)
