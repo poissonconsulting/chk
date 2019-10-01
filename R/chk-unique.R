@@ -24,10 +24,10 @@ NULL
 #' try(chk_unique(c(NA, NA, 2)))
 #' chk_unique(c(NA, NA, 2), incomparables = NA)
 chk_unique <- function(x, incomparables = FALSE, x_name = NULL) {
-  if (vld_unique(x, incomparables = incomparables)) {
+  if(vld_unique(x, incomparables = incomparables)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be unique")
 }
 
@@ -64,10 +64,10 @@ vld_unique <- function(x, incomparables = FALSE) {
 #' chk_no_missing(1)
 #' try(chk_no_missing(c(1, NA)))
 chk_no_missing <- function(x, x_name = NULL) {
-  if (vld_no_missing(x)) {
+  if(vld_no_missing(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must not have missing values")
 }
 
@@ -102,10 +102,10 @@ vld_no_missing <- function(x) !anyNA(x)
 #' chk_named(c(x = 1))
 #' try(chk_named(list(1)))
 chk_named <- function(x, x_name = NULL) {
-  if (vld_named(x)) {
+  if(vld_named(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  if(is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
   abort_chk(x_name, " must be named")
 }
 

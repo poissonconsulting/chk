@@ -23,9 +23,9 @@
 #' cc(1:11)
 #' cc(as.character(1:2))
 cc <- function(x, conj = ", ", sep = ", ",
-               brac = if (is.character(x) || is.factor(x)) "'" else "",
+               brac = if(is.character(x) || is.factor(x)) "'" else "",
                ellipsis = 10L) {
-  if (is_chk_on()) {
+  if(is_chk_on()) {
     chk_string(conj)
     chk_string(sep)
     chk_s3_class(brac, "character")
@@ -34,18 +34,18 @@ cc <- function(x, conj = ", ", sep = ", ",
     chk_gte(ellipsis, 3)
   }
 
-  if (!length(x)) {
+  if(!length(x)) {
     return(character(0))
   }
   x <- p0(brac[1], x, brac[length(brac)])
   n <- length(x)
-  if (n == 1L) {
+  if(n == 1L) {
     return(x)
   }
-  if (n == 2L) {
+  if(n == 2L) {
     return(p(x, collapse = conj))
   }
-  if (n > ellipsis) {
+  if(n > ellipsis) {
     x <- c(x[1:(ellipsis - 2)], "...", x[n])
     n <- ellipsis
   }

@@ -23,10 +23,10 @@ NULL
 #' chk_true(TRUE)
 #' try(chk_true(1))
 chk_true <- function(x, x_name = NULL) {
-  if (vld_true(x)) {
+  if(vld_true(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be TRUE")
 }
 
@@ -61,10 +61,10 @@ vld_true <- function(x) identical(unname(x), TRUE)
 #' chk_false(FALSE)
 #' try(chk_false(0))
 chk_false <- function(x, x_name = NULL) {
-  if (vld_false(x)) {
+  if(vld_false(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be FALSE")
 }
 

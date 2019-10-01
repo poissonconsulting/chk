@@ -22,12 +22,12 @@ NULL
 #' # chk_file
 #' try(chk_file(tempfile()))
 chk_file <- function(x, x_name = NULL) {
-  if (vld_file(x)) {
+  if(vld_file(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_string(x, x_name = x_name)
-  if (dir.exists(x)) {
+  if(dir.exists(x)) {
     abort_chk(x_name, " must specify a file ('", x, "' is a directory)")
   }
   abort_chk(x_name, " must specify an existing file ('", x, "' can't be found)")
@@ -59,10 +59,10 @@ vld_file <- function(x) vld_string(x) && file.exists(x) && !dir.exists(x)
 #' # chk_ext
 #' try(chk_ext("file1.pdf", "png"))
 chk_ext <- function(x, ext, x_name = NULL) {
-  if (vld_ext(x, ext)) {
+  if(vld_ext(x, ext)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_string(x, x_name = x_name)
   abort_chk(x_name, " must have extension ", cc(ext, " or "), " (not '", 
             tools::file_ext(x),"')")

@@ -21,12 +21,12 @@
 #' chk_dir(tempdir())
 #' try(chk_dir(tempfile()))
 chk_dir <- function(x, x_name = NULL) {
-  if (vld_dir(x)) {
+  if(vld_dir(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_string(x, x_name = x_name)
-  if (file.exists(x)) {
+  if(file.exists(x)) {
     abort_chk(x_name, " must specify a directory ('", x, "' is a file)")
   }
   abort_chk(x_name, " must specify an existing directory ('", x, "' can't be found)")
