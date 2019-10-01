@@ -2,6 +2,9 @@
 % Please edit documentation in R/deprecated.R
 \name{chk_deprecated}
 \alias{chk_deprecated}
+\alias{chk_dirs}
+\alias{chk_files}
+\alias{chk_length}
 \alias{chk_count}
 \alias{chk_proportion}
 \alias{chk_in}
@@ -10,6 +13,12 @@
 \alias{vld_is}
 \title{Deprecated functions}
 \usage{
+chk_dirs(x)
+
+chk_files(x)
+
+chk_length(x, length = 1L, x_name = NULL)
+
 chk_count(x, x_name = NULL)
 
 chk_proportion(x, x_name = NULL)
@@ -22,11 +31,50 @@ chk_is(x, class, x_name = NULL)
 
 vld_is(x, class)
 }
+\arguments{
+\item{x}{The object to check.}
+
+\item{length}{A count of the length.}
+
+\item{x_name}{A string of the name of object x or NULL.}
+}
 \description{
 Deprecated \code{chk_()} functions.
 }
 \section{Functions}{
 \itemize{
+\item \code{chk_dirs}: Check Directories Exist
+
+\lifecycle{soft-deprecated}
+
+Checks if directories exist using:
+
+\code{all(\link{dir.exists}(x))}
+
+Replace by [chk_dir()].
+
+\item \code{chk_files}: Check Files Exist
+
+\lifecycle{soft-deprecated}
+
+Checks if files exist using:
+
+\code{all(\link{file.exists}(x) && !dir.exists(x))}
+
+Replace by [chk_file()].
+
+\item \code{chk_length}: Check Length
+
+\lifecycle{deprecated}
+
+Checks if is length length using:
+
+\code{length(x) == length}
+
+\code{length} should be a count.
+
+Replace by `[chk_range](length(x))`.
+
 \item \code{chk_count}: Check Count
 
 \lifecycle{deprecated}
@@ -36,6 +84,8 @@ Checks if non-missing non-negative integer scalar or double equivalent using:
 \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 &&
   vld_true(all.equal(x, as.integer(x)))}
 
+Replace by [chk_whole_number()] and [chk_gte()].
+
 \item \code{chk_proportion}: Check Proportion
 
 \lifecycle{deprecated}
@@ -44,11 +94,15 @@ Checks if non-missing numeric scalar between 0 and 1 using:
 
 \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1}
 
+Replace by [chk_number()] and [chk_range()].
+
 \item \code{chk_in}: Check In
 
 \lifecycle{soft-deprecated}
 
 Checks if all values in values using \code{chk_subset()}.
+
+Replace by [chk_subset()].
 
 \item \code{chk_has}: Check Has
 
@@ -56,11 +110,15 @@ Checks if all values in values using \code{chk_subset()}.
 
 Checks if includes all values using \code{chk_superset()}.
 
+Replace by [chk_superset()].
+
 \item \code{chk_is}: Check Is
 
 \lifecycle{soft-deprecated}
 
 Checks if inherits from class using \code{vld_is()}.
+
+Replace by [chk_s3_class()] or [chk_s4_class()].
 
 \item \code{vld_is}: Validate Is
 

@@ -2,11 +2,12 @@
 #'
 #' Deprecated \code{chk_()} functions.
 #'
+#' @inheritParams chk_true
 #' @keywords internal
 #' @name chk_deprecated
 NULL
 
-#' @describeIn chk_file Check Directories Exist
+#' @describeIn chk_deprecated Check Directories Exist
 #'
 #' \lifecycle{soft-deprecated}
 #'
@@ -14,23 +15,15 @@ NULL
 #'
 #' \code{all(\link{dir.exists}(x))}
 #'
+#' Replace by [chk_dir()].
+#'
 #' @export
 chk_dirs <- function(x) {
   deprecate_soft("0.0.1.9010", what = "chk_dirs(x)", with = "chk_all(x, chk_dir)")
   chk_all(x, chk_dir)
 }
 
-#' @describeIn deparse_backtick_chk Deparse Back Tick
-#' 
-#' \lifecycle{soft-deprecated}
-#'
-#' @export
-deparse_backtick <- function(x) {
-  deprecate_soft("0.0.1.9024", what = "deparse_backtick()", with = "deparse_backtick_chk()")
-  deparse_backtick_chk(x)
-}
-
-#' @describeIn chk_file Check Files Exist
+#' @describeIn chk_deprecated Check Files Exist
 #'
 #' \lifecycle{soft-deprecated}
 #'
@@ -38,13 +31,15 @@ deparse_backtick <- function(x) {
 #'
 #' \code{all(\link{file.exists}(x) && !dir.exists(x))}
 #'
+#' Replace by [chk_file()].
+#'
 #' @export
 chk_files <- function(x) {
   deprecate_soft("0.0.1.9010", what = "chk_files(x)", with = "chk_all(x, chk_file)")
   chk_all(x, chk_file)
 }
 
-#' @describeIn chk_unique Check Length
+#' @describeIn chk_deprecated Check Length
 #'
 #' \lifecycle{deprecated}
 #'
@@ -53,6 +48,8 @@ chk_files <- function(x) {
 #' \code{length(x) == length}
 #'
 #' \code{length} should be a count.
+#'
+#' Replace by `[chk_range](length(x))`.
 #'
 #' @param length A count of the length.
 #'
@@ -75,6 +72,8 @@ chk_length <- function(x, length = 1L, x_name = NULL) {
 #'
 #' \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 &&
 #'   vld_true(all.equal(x, as.integer(x)))}
+#'
+#' Replace by [chk_whole_number()] and [chk_gte()].
 #'
 #' @export
 chk_count <- function(x, x_name = NULL) {
@@ -99,6 +98,8 @@ chk_count <- function(x, x_name = NULL) {
 #'
 #' \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1}
 #'
+#' Replace by [chk_number()] and [chk_range()].
+#'
 #' @export
 chk_proportion <- function(x, x_name = NULL) {
   .Deprecated("chk_number(x); chk_range(x)")
@@ -118,6 +119,8 @@ chk_proportion <- function(x, x_name = NULL) {
 #'
 #' Checks if all values in values using \code{chk_subset()}.
 #'
+#' Replace by [chk_subset()].
+#'
 #' @export
 chk_in <- function(x, values, x_name = NULL) {
   deprecate_soft("0.0.1.9010",
@@ -133,6 +136,8 @@ chk_in <- function(x, values, x_name = NULL) {
 #' \lifecycle{soft-deprecated}
 #'
 #' Checks if includes all values using \code{chk_superset()}.
+#'
+#' Replace by [chk_superset()].
 #'
 #' @export
 chk_has <- function(x, values, x_name = NULL) {
@@ -150,6 +155,8 @@ chk_has <- function(x, values, x_name = NULL) {
 #' \lifecycle{soft-deprecated}
 #'
 #' Checks if inherits from class using \code{vld_is()}.
+#' 
+#' Replace by [chk_s3_class()] or [chk_s4_class()].
 #'
 #' @export
 #'
@@ -196,4 +203,14 @@ vld_is <- function(x, class) {
     id = "chk_is"
   )
   inherits(x, class)
+}
+
+#' @describeIn deparse_backtick_chk Deparse Back Tick
+#'
+#' \lifecycle{soft-deprecated}
+#'
+#' @export
+deparse_backtick <- function(x) {
+  deprecate_soft("0.0.1.9024", what = "deparse_backtick()", with = "deparse_backtick_chk()")
+  deparse_backtick_chk(x)
 }
