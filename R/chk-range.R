@@ -5,15 +5,15 @@
 #' @inheritParams chk_true
 #' @param value A non-missing scalar of a value.
 #' @param range A vector of length 2 of the lower and upper permitted values.
-#' @return The \code{chk_} functions throw an informative error if the test fails.
-#' The \code{vld_} functions return a flag indicating whether the test was met.
+#' @return The `chk_` functions throw an informative error if the test fails.
+#' The `vld_` functions return a flag indicating whether the test was met.
 #' @name chk_range
 NULL
 
 #' @describeIn chk_range Check Range
 #'
 #' Checks if all non-missing values fall within range using
-#' \code{vld_range()}.
+#' `vld_range()`.
 #'
 #' @export
 #'
@@ -47,7 +47,7 @@ chk_range <- function(x, range = c(0, 1), x_name = NULL) {
 #'
 #' Validates all non-missing values fall within range using
 #'
-#' \code{all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])}
+#' `all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])`
 #'
 #' Range should be a non-missing sorted vector of length 2.
 #'
@@ -69,7 +69,7 @@ vld_range <- function(x, range = c(0, 1)) {
 #' @describeIn chk_range Check Less Than
 #'
 #' Checks if all non-missing values are less than value using
-#' \code{vld_lt()}.
+#' `vld_lt()`.
 #'
 #' @export
 #'
@@ -93,9 +93,9 @@ chk_lt <- function(x, value = 0, x_name = NULL) {
 #'
 #' Validates all non-missing values are less than value using
 #'
-#' \code{all(x[!is.na(x)] < value))}
+#' `all(x[!is.na(x)] < value))`
 #'
-#' \code{value} should be a non-missing scalar.
+#' `value` should be a non-missing scalar.
 #'
 #' @export
 #'
@@ -114,7 +114,7 @@ vld_lt <- function(x, value = 0) all(x[!is.na(x)] < value)
 #' @describeIn chk_range Check Less Than or Equal To
 #'
 #' Checks if all non-missing values are less than or equal to y using
-#' \code{vld_lte()}.
+#' `vld_lte()`.
 #'
 #' @export
 #'
@@ -141,9 +141,9 @@ chk_lte <- function(x, value = 0, x_name = NULL) {
 #'
 #' Validates all non-missing values are less than or equal to y using
 #'
-#' \code{all(x[!is.na(x)] <= value))}
+#' `all(x[!is.na(x)] <= value))`
 #'
-#' \code{value} should be a non-missing scalar.
+#' `value` should be a non-missing scalar.
 #'
 #' @export
 #'
@@ -160,7 +160,7 @@ vld_lte <- function(x, value = 0) all(x[!is.na(x)] <= value)
 #' @describeIn chk_range Check Greater Than
 #'
 #' Checks if all non-missing values are greater than value using
-#' \code{vld_gt()}.
+#' `vld_gt()`.
 #'
 #' @export
 #'
@@ -184,9 +184,9 @@ chk_gt <- function(x, value = 0, x_name = NULL) {
 #'
 #' Validates all non-missing values are greater than value using
 #'
-#' \code{all(x[!is.na(x)] > value))}.
+#' `all(x[!is.na(x)] > value))`.
 #'
-#' \code{value} should be a non-missing scalar.
+#' `value` should be a non-missing scalar.
 #'
 #' @export
 #'
@@ -205,7 +205,7 @@ vld_gt <- function(x, value = 0) all(x[!is.na(x)] > value)
 #' @describeIn chk_range Check Greater Than or Equal To
 #'
 #' Checks if all non-missing values are greater than or equal to y using
-#' \code{vld_gte()}.
+#' `vld_gte()`.
 #'
 #' @export
 #'
@@ -232,9 +232,9 @@ chk_gte <- function(x, value = 0, x_name = NULL) {
 #'
 #' Validates all non-missing values are greater than or equal to y using:
 #'
-#' \code{all(x[!is.na(x)] >= value))}.
+#' `all(x[!is.na(x)] >= value))`.
 #'
-#' \code{value} should be a non-missing scalar.
+#' `value` should be a non-missing scalar.
 #'
 #' @export
 #'

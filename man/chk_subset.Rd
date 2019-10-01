@@ -37,9 +37,9 @@ Checks if all values in values using \code{vld_subset()}.
 
 \item \code{vld_subset}: Validate In
 
-Validates all values in values using equivalent of
+Validates all values in \code{values} using equivalent of
 
-\code{all(\link{match}(x, values, nomatch = 0) > 0)}
+\code{all(match(x, values, nomatch = 0) > 0)}
 
 \item \code{chk_superset}: Check Has
 
@@ -49,7 +49,7 @@ Checks if includes all values using \code{vld_superset()}.
 
 Validates includes all values using
 
-\code{all(\link{match}(values, x, nomatch = 0) > 0)}.
+\code{all(match(values, x, nomatch = 0) > 0)}
 }}
 
 \examples{
@@ -71,4 +71,9 @@ try(chk_superset(1:3, 4))
 vld_superset(1:3, 1)
 vld_superset(1:3, 4)
 vld_superset(integer(0), integer(0))
+}
+\seealso{
+\code{\link[=all]{all()}}
+
+\code{\link[=match]{match()}}
 }

@@ -5,15 +5,15 @@
 #'
 #' @param x The object to check.
 #' @param x_name A string of the name of object x or NULL.
-#' @return The \code{chk_} functions throw an informative error if the test fails.
-#' The \code{vld_} functions return a flag indicating whether the test was met.
+#' @return The `chk_` functions throw an informative error if the test fails.
+#' The `vld_` functions return a flag indicating whether the test was met.
 #' @name chk_true
 NULL
 
 #' @describeIn chk_true Check TRUE
 #'
 #' Checks if TRUE using
-#' \code{vld_true(x)}.
+#' `vld_true(x)`.
 #'
 #' @export
 #'
@@ -34,7 +34,7 @@ chk_true <- function(x, x_name = NULL) {
 #'
 #' Validates if TRUE using
 #'
-#' \code{identical(unname(x), TRUE)}.
+#' `identical(unname(x), TRUE)`.
 #'
 #' @export
 #'
@@ -51,7 +51,7 @@ vld_true <- function(x) identical(unname(x), TRUE)
 #' @describeIn chk_true Check FALSE
 #'
 #' Checks if FALSE using
-#' \code{vld_false(x)}.
+#' `vld_false(x)`.
 #'
 #' @export
 #'
@@ -72,7 +72,7 @@ chk_false <- function(x, x_name = NULL) {
 #'
 #' Validates if FALSE using
 #'
-#' \code{identical(unname(x), FALSE)}.
+#' `identical(unname(x), FALSE)`.
 #'
 #' @export
 #'

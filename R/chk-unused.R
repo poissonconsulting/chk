@@ -4,15 +4,15 @@
 #'
 #' @inheritParams chk_true
 #' @param ... Additional arguments.
-#' @return The \code{chk_} functions throw an informative error if the test fails.
-#' The \code{vld_} functions return a flag indicating whether the test was met.
+#' @return The `chk_` functions throw an informative error if the test fails.
+#' The `vld_` functions return a flag indicating whether the test was met.
 #' @name chk_unused
 NULL
 
 #' @describeIn chk_unused Check ... Unused
 #'
 #' Checks if is ... unused using
-#' \code{vld_unused()}.
+#' `vld_unused()`.
 #'
 #' @export
 #'
@@ -34,9 +34,13 @@ chk_unused <- function(...) {
 
 #' @describeIn chk_unused Validate ... Unused
 #'
-#' Checks if is ... unused using
+#' Validates if is ... unused using
 #'
-#' \code{length(\link{list}(...)) == 0L}.
+#' `length(list(...)) == 0L`.
+#'
+#' @seealso [length()]
+#' @seealso [list()]
+#' @seealso [`...`]
 #'
 #' @export
 #'
@@ -53,7 +57,7 @@ vld_unused <- function(...) length(list(...)) == 0L
 #' @describeIn chk_unused Check ... Used
 #'
 #' Checks if is ... used using
-#' \code{vld_unused()}.
+#' `vld_unused()`.
 #'
 #' @export
 #'
@@ -77,7 +81,7 @@ chk_used <- function(...) {
 #'
 #' Validates if ... used using
 #'
-#' \code{length(\link{list}(...)) != 0L}.
+#' `length(list(...)) != 0L`.
 #'
 #' @export
 #'

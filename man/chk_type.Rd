@@ -66,33 +66,29 @@ Checks if is a particular type of object.
 \itemize{
 \item \code{chk_s3_class}: Check Inherits from S3 Class
 
-Checks inherits from S3 class using
-
-\code{!isS4(x) && \link{inherits}(x, class)}
+Checks inherits from S3 class using \code{vld_s3_class()}.
 
 Class should be a string.
 
 \item \code{vld_s3_class}: Validate Inherits from S3 Class
 
-Validates inherits from S3 class
+Validates inherits from S3 class using
 
-\code{!isS4(x) && \link{inherits}(x, class)}
+\code{!isS4(x) && inherits(x, class)}
 
 Class should be a string.
 
 \item \code{chk_s4_class}: Check Inherits from S4 Class
 
-Checks inherits from S4 class using
-
-\code{isS4(x) && \link{inherits}(x, class)}
+Checks inherits from S4 class using \code{vld_s4_class()}.
 
 Class should be a string.
 
 \item \code{vld_s4_class}: Validate Inherits from S4 Class
 
-Validates inherits from S4 class
+Validates inherits from S4 class using
 
-\code{isS4(x) && \link{inherits}(x, class)}
+\code{isS4(x) && methods::is(x, class)}
 
 Class should be a string.
 
@@ -100,7 +96,7 @@ Class should be a string.
 
 Checks if integer vector or double equivalent using \code{vld_whole_numeric()}.
 
-The \code{\link{chk_whole_number}()} function checks if
+The \code{\link[=chk_whole_number]{chk_whole_number()}} function checks if
 non-missing integer scalar or double equivalent.
 
 \item \code{vld_whole_numeric}: Validate Whole Numeric
@@ -118,7 +114,7 @@ Checks if is a list using
 
 Validates is a list using
 
-\code{\link{is.list}(x)}
+\code{is.list(x)}
 
 \item \code{chk_function}: Check Function
 
@@ -128,7 +124,7 @@ Checks if is a function using \code{vld_function()}.
 
 Validates is a function using:
 
-\code{\link{is.function}(x) && (is.null(formals) || length(formals(x)) == formals)}
+\code{is.function(x) && (is.null(formals) || length(formals(x)) == formals)}
 
 \item \code{chk_vector}: Check Vector
 
@@ -138,7 +134,7 @@ Checks if is a vector using \code{is.vector()}.
 
 Validates is a vector using:
 
-\code{\link{is.vector}(x)}
+\code{is.vector(x)}
 
 \item \code{chk_scalar}: Check Scalar
 
@@ -215,4 +211,23 @@ try(chk_scalar(1:2))
 
 # vld_scalar
 vld_scalar(1)
+}
+\seealso{
+\code{\link[=isS4]{isS4()}}
+
+\code{\link[=inherits]{inherits()}}
+
+\code{\link[=isS4]{isS4()}}
+
+\code{\link[=inherits]{inherits()}}
+
+\code{\link[methods:is]{methods::is()}}
+
+\code{\link[=is.list]{is.list()}}
+
+\code{\link[=is.function]{is.function()}}
+
+\code{\link[=formals]{formals()}}
+
+\code{\link[=is.vector]{is.vector()}}
 }

@@ -5,15 +5,15 @@
 #' @inheritParams chk_true
 #' @param incomparables A vector of values that cannot be compared.
 #' FALSE means that all values can be compared.
-#' @return The \code{chk_} functions throw an informative error if the test fails.
-#' The \code{vld_} functions return a flag indicating whether the test was met.
+#' @return The `chk_` functions throw an informative error if the test fails.
+#' The `vld_` functions return a flag indicating whether the test was met.
 #' @name chk_unique
 NULL
 
 #' @describeIn chk_unique Check Unique
 #'
 #' Checks if unique using
-#' \code{vld_unique()}.
+#' `vld_unique()`.
 #'
 #' @export
 #'
@@ -35,7 +35,9 @@ chk_unique <- function(x, incomparables = FALSE, x_name = NULL) {
 #'
 #' Validates if unique using
 #'
-#' \code{!\link{anyDuplicated}(x, incomparables = incomparables)}.
+#' `!anyDuplicated(x, incomparables = incomparables)`.
+#'
+#' @seealso [anyDuplicated()]
 #'
 #' @export
 #'
@@ -54,7 +56,7 @@ vld_unique <- function(x, incomparables = FALSE) {
 #' @describeIn chk_unique Check No Missing Values
 #'
 #' Checks if no missing values using
-#' \code{vld_no_missing()}.
+#' `vld_no_missing()`.
 #'
 #' @export
 #'
@@ -75,7 +77,9 @@ chk_no_missing <- function(x, x_name = NULL) {
 #'
 #' Validates no missing values using
 #'
-#' \code{!\link{anyNA}(x)}.
+#' `!anyNA(x)`.
+#'
+#' @seealso [anyNA()]
 #'
 #' @export
 #'
@@ -92,7 +96,7 @@ vld_no_missing <- function(x) !anyNA(x)
 #' @describeIn chk_unique Check Named
 #'
 #' Checks if is named using
-#' \code{vld_named()}.
+#' `vld_named()`.
 #'
 #' @export
 #'
@@ -113,7 +117,10 @@ chk_named <- function(x, x_name = NULL) {
 #'
 #' Checks if is named using
 #'
-#' \code{!is.null(\link{names}(x))}.
+#' `!is.null(names(x))`.
+#'
+#' @seealso [is.null()]
+#' @seealso [names()]
 #'
 #' @export
 #'

@@ -1,28 +1,28 @@
 #' Construct Tidyverse Style Message
 #'
-#' If \code{tidy = TRUE} constructs a tidyverse style message by
+#' If `tidy = TRUE` constructs a tidyverse style message by
 #'
 #' \itemize{
 #'   \item Capitalizing the first character if possible.
 #'   \item Adding a trailing . if missing.
 #' }
 #' 
-#' Also if \code{n != NULL} replaces the recognized \code{sprintf}-like types.
+#' Also if `n != NULL` replaces the recognized `sprintf`-like types.
 #'
-#' @section \code{sprintf}-like types:
+#' @section `sprintf`-like types:
 #'
-#' The following recognized \code{sprintf}-like types can be used in a message:
+#' The following recognized `sprintf`-like types can be used in a message:
 #'
 #' \describe{
-#'   \item{\code{n}}{The value of n.}
-#'   \item{\code{s}}{'' if n == 1 otherwise 's'}
-#'   \item{\code{r}}{'is' if n == 1 otherwise 'are'}
-#'   \item{\code{y}}{'y' if n == 1 otherwise 'ie'}
+#'   \item{`n`}{The value of n.}
+#'   \item{`s`}{'' if n == 1 otherwise 's'}
+#'   \item{`r`}{'is' if n == 1 otherwise 'are'}
+#'   \item{`y`}{'y' if n == 1 otherwise 'ie'}
 #' }
 #'
 #' @param ... Multiple objects that are converted to a string using
-#' \code{paste0(..., collapse = '')}.
-#' @param n The value of n for converting \code{sprintf}-like types.
+#' `paste0(..., collapse = '')`.
+#' @param n The value of n for converting `sprintf`-like types.
 #' @param tidy A flag specifying whether capitalize the first character and add a missing period.
 #'
 #' @return A string of the message.
@@ -49,10 +49,10 @@ message_chk <- function(..., n = NULL, tidy = TRUE) {
 
 #' Stop, Warning and Message Messages
 #'
-#' The functions call \code{\link{message_chk}()} to process
+#' The functions call [message_chk()] to process
 #' the message and then
-#' \code{\link[rlang]{abort}()}, \code{\link[rlang]{warn}()} and
-#'  \code{\link[rlang]{inform}()}, respectively.
+#' [rlang::abort()], [rlang::warn()] and
+#'  [rlang::inform()], respectively.
 #'
 #'  The user can set the subclass.
 #'

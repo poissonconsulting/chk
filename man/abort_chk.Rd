@@ -18,10 +18,10 @@ abort_chk(..., n = NULL, tidy = TRUE)
 Throws an error of class \code{'chk_error'}.
 }
 \description{
-A wrapper on \code{\link{err}} that sets the subclass to be 'chk_error'.
+A wrapper on \code{\link[=err]{err()}} that sets the subclass to be \code{'chk_error'}.
 }
 \details{
-It is exported to allow users to easily construct their own `chk_` functions.
+It is exported to allow users to easily construct their own \code{chk_} functions.
 }
 \examples{
 try(abort_chk("x must be NULL"))
@@ -30,5 +30,5 @@ try(abort_chk("there \%r \%n problem value\%s", n = 1))
 try(abort_chk("there \%r \%n problem value\%s", n = 1.5))
 }
 \seealso{
-[err()]
+\code{\link[=err]{err()}}
 }

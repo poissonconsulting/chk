@@ -1,6 +1,6 @@
 #' Deprecated functions
 #'
-#' Deprecated \code{chk_()} functions.
+#' Deprecated `chk_()` functions.
 #'
 #' @inheritParams chk_true
 #' @keywords internal
@@ -13,7 +13,7 @@ NULL
 #'
 #' Checks if directories exist using:
 #'
-#' \code{all(\link{dir.exists}(x))}
+#' `all(dir.exists(x))`
 #'
 #' Replace by [chk_dir()].
 #'
@@ -29,7 +29,7 @@ chk_dirs <- function(x) {
 #'
 #' Checks if files exist using:
 #'
-#' \code{all(\link{file.exists}(x) && !dir.exists(x))}
+#' `all(file.exists(x) && !dir.exists(x))`
 #'
 #' Replace by [chk_file()].
 #'
@@ -45,9 +45,9 @@ chk_files <- function(x) {
 #'
 #' Checks if is length length using:
 #'
-#' \code{length(x) == length}
+#' `length(x) == length`
 #'
-#' \code{length} should be a count.
+#' `length` should be a count.
 #'
 #' Replace by `[chk_range](length(x))`.
 #'
@@ -70,8 +70,8 @@ chk_length <- function(x, length = 1L, x_name = NULL) {
 #'
 #' Checks if non-missing non-negative integer scalar or double equivalent using:
 #'
-#' \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 &&
-#'   vld_true(all.equal(x, as.integer(x)))}
+#' `is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 &&
+#'   vld_true(all.equal(x, as.integer(x)))`
 #'
 #' Replace by [chk_whole_number()] and [chk_gte()].
 #'
@@ -96,7 +96,7 @@ chk_count <- function(x, x_name = NULL) {
 #'
 #' Checks if non-missing numeric scalar between 0 and 1 using:
 #'
-#' \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1}
+#' `is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1`
 #'
 #' Replace by [chk_number()] and [chk_range()].
 #'
@@ -117,7 +117,7 @@ chk_proportion <- function(x, x_name = NULL) {
 #'
 #' \lifecycle{soft-deprecated}
 #'
-#' Checks if all values in values using \code{chk_subset()}.
+#' Checks if all values in values using `chk_subset()`.
 #'
 #' Replace by [chk_subset()].
 #'
@@ -135,7 +135,7 @@ chk_in <- function(x, values, x_name = NULL) {
 #'
 #' \lifecycle{soft-deprecated}
 #'
-#' Checks if includes all values using \code{chk_superset()}.
+#' Checks if includes all values using `chk_superset()`.
 #'
 #' Replace by [chk_superset()].
 #'
@@ -154,7 +154,7 @@ chk_has <- function(x, values, x_name = NULL) {
 #'
 #' \lifecycle{soft-deprecated}
 #'
-#' Checks if inherits from class using \code{vld_is()}.
+#' Checks if inherits from class using `vld_is()`.
 #' 
 #' Replace by [chk_s3_class()] or [chk_s4_class()].
 #'
@@ -183,7 +183,7 @@ chk_is <- function(x, class, x_name = NULL) {
 #'
 #' Validates inherits from class using
 #'
-#' \code{\link{inherits}(x, class)}
+#' `inherits(x, class)`
 #'
 #' Class should be a string.
 #'

@@ -22,11 +22,11 @@ unbacktick_chk(x)
 A string of the back ticked substituted object.
 }
 \description{
-\code{deparse_backtick_chk} is a wrapper on \code{\link{deparse}} 
+\code{deparse_backtick_chk} is a wrapper on \code{\link[=deparse]{deparse()}}
 and \code{backtick_chk}.
 }
 \details{
-It is exported to allow users to easily construct their own `chk_` functions.
+It is exported to allow users to easily construct their own \code{chk_} functions.
 }
 \section{Functions}{
 \itemize{
@@ -46,5 +46,5 @@ deparse_backtick_chk(2)
 deparse_backtick_chk(2^2)
 }
 \seealso{
-\code{\link{deparse}}
+\code{\link[=deparse]{deparse()}}
 }

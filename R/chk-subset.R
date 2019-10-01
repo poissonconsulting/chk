@@ -4,14 +4,14 @@
 #'
 #' @inheritParams chk_true
 #' @param values A vector of the permitted values.
-#' @return The \code{chk_} functions throw an informative error if the test fails.
-#' The \code{vld_} functions return a flag indicating whether the test was met.
+#' @return The `chk_` functions throw an informative error if the test fails.
+#' The `vld_` functions return a flag indicating whether the test was met.
 #' @name chk_subset
 NULL
 
 #' @describeIn chk_subset Check In
 #'
-#' Checks if all values in values using \code{vld_subset()}.
+#' Checks if all values in values using `vld_subset()`.
 #'
 #' @export
 #'
@@ -34,9 +34,12 @@ chk_subset <- function(x, values, x_name = NULL) {
 
 #' @describeIn chk_subset Validate In
 #'
-#' Validates all values in values using equivalent of
+#' Validates all values in `values` using equivalent of
 #'
-#' \code{all(\link{match}(x, values, nomatch = 0) > 0)}
+#' `all(match(x, values, nomatch = 0) > 0)`
+#'
+#' @seealso [all()]
+#' @seealso [match()]
 #'
 #' @export
 #'
@@ -50,7 +53,7 @@ vld_subset <- function(x, values) all(x %in% values)
 
 #' @describeIn chk_subset Check Has
 #'
-#' Checks if includes all values using \code{vld_superset()}.
+#' Checks if includes all values using `vld_superset()`.
 #'
 #' @export
 #'
@@ -73,7 +76,7 @@ chk_superset <- function(x, values, x_name = NULL) {
 #'
 #' Validates includes all values using
 #'
-#' \code{all(\link{match}(values, x, nomatch = 0) > 0)}.
+#' `all(match(values, x, nomatch = 0) > 0)`
 #'
 #' @export
 #'

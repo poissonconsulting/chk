@@ -3,9 +3,9 @@
 #' @inheritParams chk_true
 #' @param y An object to check against.
 #' @param tolerance A non-negative numeric scalar.
-#' @return \code{NULL}, invisibly. Called for the side effect of throwing an error
+#' @return `NULL`, invisibly. Called for the side effect of throwing an error
 #'   if the condition is not met.
-#' @seealso \code{\link{chk_all_identical}()}
+#' @seealso [chk_all_identical()]
 #' @name chk_identical
 NULL
 
@@ -13,10 +13,10 @@ NULL
 #'
 #' @description
 #'
-#' \code{chk_identical()}
+#' `chk_identical()`
 #' checks if is identical to y using
 #'
-#' \code{identical(x, y)}.
+#' `identical(x, y)`.
 #'
 #' @export
 #'
@@ -49,10 +49,10 @@ vld_identical <- function(x, y) identical(x, y)
 #'
 #' @description
 #'
-#' \code{chk_equal()}
+#' `chk_equal()`
 #' checks if is equal (identical within tolerance) to y using
 #'
-#' \code{vld_true(all.equal(x, y, tolerance))}.
+#' `vld_true(all.equal(x, y, tolerance))`.
 #'
 #' @export
 #'
@@ -87,10 +87,13 @@ vld_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps)) {
 
 #' @describeIn chk_identical Check Equivalent
 #'
-#' \code{chk_equivalent()}
+#' `chk_equivalent()`
 #' checks if is equivalent (equal ignoring attributes) to y using
 #'
-#' \code{\link{vld_true}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}.
+#' `vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))`.
+#'
+#' @seealso [vld_true()]
+#' @seealso [all.equal()]
 #'
 #' @export
 #'

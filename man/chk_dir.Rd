@@ -20,9 +20,9 @@ The \code{chk_} function throws an informative error if the test fails.
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
-Checks if directory exists using 
+Checks if directory exists using
 
-\code{vld_string(x) && all(\link{dir.exists}(x))}.
+\code{vld_string(x) && all(dir.exists(x))}.
 }
 \section{Functions}{
 \itemize{
@@ -41,5 +41,9 @@ vld_dir(tempdir())
 vld_dir(tempfile())
 }
 \seealso{
-\code{\link{chk_file}()}
+\code{\link[=vld_string]{vld_string()}}
+
+\code{\link[=dir.exists]{dir.exists()}}
+
+\code{\link[=chk_file]{chk_file()}}
 }

@@ -4,9 +4,9 @@
 #' @inheritParams chk_unused
 #' @inheritParams chk_identical
 #' @param chk_fun A chk_ function.
-#' @return \code{NULL}, invisibly. Called for the side effect of throwing an error
+#' @return `NULL`, invisibly. Called for the side effect of throwing an error
 #'   if the condition is not met.
-#' @seealso \code{\link{chk_identical}()}.
+#' @seealso [chk_identical()].
 #' @name chk_all
 NULL
 
@@ -14,10 +14,10 @@ NULL
 #'
 #' @description
 #'
-#' \code{chk_all()}
+#' `chk_all()`
 #' checks all elements using
 #'
-#' \code{all(vapply(x, chk_fun, TRUE, ...))}.
+#' `all(vapply(x, chk_fun, TRUE, ...))`.
 #'
 #' @export
 #'
@@ -68,14 +68,14 @@ vld_all <- function(x, vld_fun, ...) {
 #'
 #' @description
 #'
-#' \code{chk_all_identical()}
+#' `chk_all_identical()`
 #' checks all elements in x identical using
 #'
-#' \code{all(vapply(x, chk_identical, TRUE, y = x[[1]]))}.
+#' `all(vapply(x, chk_identical, TRUE, y = x[[1]]))`.
 #'
-#' \strong{Good}: \code{c(1, 1.00000001)}, \code{list(1, 1)}.
+#' **Good**: `c(1, 1.00000001)`, `list(1, 1)`.
 #'
-#' \strong{Bad}: \code{c(1, 1.0000001)}, \code{list(1, NA)}.
+#' **Bad**: `c(1, 1.0000001)`, `list(1, NA)`.
 #'
 #' @export
 #'
@@ -108,10 +108,10 @@ vld_all_identical <- function(x) {
 #'
 #' @description
 #'
-#' \code{chk_all_equal()}
+#' `chk_all_equal()`
 #' checks all elements in x equal using
 #'
-#' \code{all(vapply(x, chk_equal, TRUE, y = x[[1]]), tolerance = tolerance)}.
+#' `all(vapply(x, chk_equal, TRUE, y = x[[1]]), tolerance = tolerance)`.
 #'
 #' @export
 #'
@@ -146,10 +146,10 @@ vld_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps)) {
 #'
 #' @description
 #'
-#' \code{chk_all_equivalent()}
+#' `chk_all_equivalent()`
 #' checks all elements in x equivalent using
 #'
-#' \code{all(vapply(x, chk_equivalent, TRUE, y = x[[1]]), tolerance = tolerance)}.
+#' `all(vapply(x, chk_equivalent, TRUE, y = x[[1]]), tolerance = tolerance)`.
 #'
 #' @export
 #'

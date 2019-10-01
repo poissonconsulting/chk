@@ -2,18 +2,18 @@
 #'
 #' Checks/validates if file or directory exists.
 #'
-#' If checking/validating multiple files use \code{chk_all(x, chk_file)}.
+#' If checking/validating multiple files use `chk_all(x, chk_file)`.
 #'
 #' @inheritParams chk_true
 #' @param ext A character vector of the permitted file extensions (without the .).
-#' @return The \code{chk_} functions throw an informative error if the test fails.
-#' The \code{vld_} functions return a flag indicating whether the test was met.
+#' @return The `chk_` functions throw an informative error if the test fails.
+#' The `vld_` functions return a flag indicating whether the test was met.
 #' @name chk_file
 NULL
 
 #' @describeIn chk_file Check File
 #'
-#' Checks if files exist using \code{vld_file(x)}.
+#' Checks if files exist using `vld_file(x)`.
 #'
 #' @export
 #'
@@ -35,8 +35,10 @@ chk_file <- function(x, x_name = NULL) {
 
 #' @describeIn chk_file Validate File
 #'
-#' Checks if files exist using \code{all(\link{file.exists}(x) && !dir.exists(x))}.
+#' Checks if files exist using `all(file.exists(x) && !dir.exists(x))`.
 #'
+#' @seealso [file.exists()]
+#' @seealso [dir.exists()]
 #' @export
 #'
 #' @examples
@@ -47,9 +49,9 @@ vld_file <- function(x) vld_string(x) && file.exists(x) && !dir.exists(x)
 
 #' @describeIn chk_file Check File Extension
 #'
-#' Checks extension exist using \code{vld_ext(x)}.
+#' Checks extension exist using `vld_ext(x)`.
 #' 
-#' The user may want to use \code{\link{toupper}()} or \code{\link{tolower}()}
+#' The user may want to use [toupper()] or [tolower()]
 #' to ensure the case matches.
 #'
 #' @export
@@ -70,7 +72,7 @@ chk_ext <- function(x, ext, x_name = NULL) {
 
 #' @describeIn chk_file Validate File Extension
 #'
-#' Checks extension using \code{vld_string(x) && vld_subset(tools::file_ext(x), ext)}.
+#' Checks extension using `vld_string(x) && vld_subset(tools::file_ext(x), ext)`.
 #'
 #' @export
 #'

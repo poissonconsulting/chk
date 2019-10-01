@@ -49,9 +49,9 @@ Deprecated \code{chk_()} functions.
 
 Checks if directories exist using:
 
-\code{all(\link{dir.exists}(x))}
+\code{all(dir.exists(x))}
 
-Replace by [chk_dir()].
+Replace by \code{\link[=chk_dir]{chk_dir()}}.
 
 \item \code{chk_files}: Check Files Exist
 
@@ -59,9 +59,9 @@ Replace by [chk_dir()].
 
 Checks if files exist using:
 
-\code{all(\link{file.exists}(x) && !dir.exists(x))}
+\code{all(file.exists(x) && !dir.exists(x))}
 
-Replace by [chk_file()].
+Replace by \code{\link[=chk_file]{chk_file()}}.
 
 \item \code{chk_length}: Check Length
 
@@ -73,7 +73,7 @@ Checks if is length length using:
 
 \code{length} should be a count.
 
-Replace by `[chk_range](length(x))`.
+Replace by \code{[chk_range](length(x))}.
 
 \item \code{chk_count}: Check Count
 
@@ -81,10 +81,9 @@ Replace by `[chk_range](length(x))`.
 
 Checks if non-missing non-negative integer scalar or double equivalent using:
 
-\code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 &&
-  vld_true(all.equal(x, as.integer(x)))}
+\code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && vld_true(all.equal(x, as.integer(x)))}
 
-Replace by [chk_whole_number()] and [chk_gte()].
+Replace by \code{\link[=chk_whole_number]{chk_whole_number()}} and \code{\link[=chk_gte]{chk_gte()}}.
 
 \item \code{chk_proportion}: Check Proportion
 
@@ -94,7 +93,7 @@ Checks if non-missing numeric scalar between 0 and 1 using:
 
 \code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1}
 
-Replace by [chk_number()] and [chk_range()].
+Replace by \code{\link[=chk_number]{chk_number()}} and \code{\link[=chk_range]{chk_range()}}.
 
 \item \code{chk_in}: Check In
 
@@ -102,7 +101,7 @@ Replace by [chk_number()] and [chk_range()].
 
 Checks if all values in values using \code{chk_subset()}.
 
-Replace by [chk_subset()].
+Replace by \code{\link[=chk_subset]{chk_subset()}}.
 
 \item \code{chk_has}: Check Has
 
@@ -110,7 +109,7 @@ Replace by [chk_subset()].
 
 Checks if includes all values using \code{chk_superset()}.
 
-Replace by [chk_superset()].
+Replace by \code{\link[=chk_superset]{chk_superset()}}.
 
 \item \code{chk_is}: Check Is
 
@@ -118,7 +117,7 @@ Replace by [chk_superset()].
 
 Checks if inherits from class using \code{vld_is()}.
 
-Replace by [chk_s3_class()] or [chk_s4_class()].
+Replace by \code{\link[=chk_s3_class]{chk_s3_class()}} or \code{\link[=chk_s4_class]{chk_s4_class()}}.
 
 \item \code{vld_is}: Validate Is
 
@@ -126,7 +125,7 @@ Replace by [chk_s3_class()] or [chk_s4_class()].
 
 Validates inherits from class using
 
-\code{\link{inherits}(x, class)}
+\code{inherits(x, class)}
 
 Class should be a string.
 }}

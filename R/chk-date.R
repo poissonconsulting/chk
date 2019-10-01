@@ -3,14 +3,14 @@
 #' Checks/validates if Date or POSIXct.
 #'
 #' @inheritParams chk_true
-#' @return The \code{chk_} functions throw an informative error if the test fails.
-#' The \code{vld_} functions return a flag indicating whether the test was met.
+#' @return The `chk_` functions throw an informative error if the test fails.
+#' The `vld_` functions return a flag indicating whether the test was met.
 #' @name chk_date
 NULL
 
 #' @describeIn chk_date Check Date
 #'
-#' Checks if non-missing Date scalar using \code{vld_date()}.
+#' Checks if non-missing Date scalar using `vld_date()`.
 #'
 #' @export
 #'
@@ -30,7 +30,7 @@ chk_date <- function(x, x_name = NULL) {
 #' @describeIn chk_date Validate Date
 #'
 #' Validates non-missing Date scalar using
-#' \code{inherits(x, "Date") && length(x) == 1L && !anyNA(x)}
+#' `inherits(x, "Date") && length(x) == 1L && !anyNA(x)`
 #'
 #' @export
 #'
@@ -44,7 +44,7 @@ vld_date <- function(x) inherits(x, "Date") && length(x) == 1L && !anyNA(x)
 
 #' @describeIn chk_date Check DateTime
 #'
-#' Checks if non-missing POSIXct scalar using \code{vld_datetime()}.
+#' Checks if non-missing POSIXct scalar using `vld_datetime()`.
 #'
 #' @export
 #'
@@ -64,7 +64,7 @@ chk_datetime <- function(x, x_name = NULL) {
 #' @describeIn chk_date Validates DateTime
 #'
 #' Validates non-missing POSIXct scalar using
-#' \code{inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)}
+#' `inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)`
 #'
 #' @export
 #'
