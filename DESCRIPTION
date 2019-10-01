@@ -9,7 +9,7 @@ Authors@R:
              comment = c(ORCID = "0000-0002-7683-4592")),
       person(given = "Kirill",
              family = "Müller",
-             role = "ctb",
+             role = "aut",
              comment = c(ORCID = "0000-0002-1416-3412")),
       person(given = "Poisson Consulting",
              role = c("cph", "fnd")))
