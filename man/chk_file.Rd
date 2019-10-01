@@ -40,7 +40,7 @@ Checks if files exist using \code{vld_file(x)}.
 
 \item \code{vld_file}: Validate File
 
-Checks if files exist using \code{all(\link{file.exists}(x) && !dir.exists(x))}.
+Checks if files exist using \code{all(file.exists(x) && !dir.exists(x))}.
 
 \item \code{chk_ext}: Check File Extension
 
@@ -68,4 +68,9 @@ try(chk_ext("file1.pdf", "png"))
 # vld_ext
 vld_ext("oeu.pdf", "pdf")
 vld_ext(toupper("oeu.pdf"), "PDF")
+}
+\seealso{
+\code{\link[=file.exists]{file.exists()}}
+
+\code{\link[=dir.exists]{dir.exists()}}
 }

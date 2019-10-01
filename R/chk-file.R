@@ -35,8 +35,10 @@ chk_file <- function(x, x_name = NULL) {
 
 #' @describeIn chk_file Validate File
 #'
-#' Checks if files exist using \code{all(\link{file.exists}(x) && !dir.exists(x))}.
+#' Checks if files exist using \code{all(file.exists(x) && !dir.exists(x))}.
 #'
+#' @seealso [file.exists()]
+#' @seealso [dir.exists()]
 #' @export
 #'
 #' @examples

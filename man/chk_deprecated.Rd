@@ -49,7 +49,7 @@ Deprecated \code{chk_()} functions.
 
 Checks if directories exist using:
 
-\code{all(\link{dir.exists}(x))}
+\code{all(dir.exists(x))}
 
 Replace by \code{\link[=chk_dir]{chk_dir()}}.
 
@@ -59,7 +59,7 @@ Replace by \code{\link[=chk_dir]{chk_dir()}}.
 
 Checks if files exist using:
 
-\code{all(\link{file.exists}(x) && !dir.exists(x))}
+\code{all(file.exists(x) && !dir.exists(x))}
 
 Replace by \code{\link[=chk_file]{chk_file()}}.
 
@@ -125,7 +125,7 @@ Replace by \code{\link[=chk_s3_class]{chk_s3_class()}} or \code{\link[=chk_s4_cl
 
 Validates inherits from class using
 
-\code{\link{inherits}(x, class)}
+\code{inherits(x, class)}
 
 Class should be a string.
 }}

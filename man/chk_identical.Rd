@@ -48,7 +48,7 @@ checks if is equal (identical within tolerance) to y using
 \code{chk_equivalent()}
 checks if is equivalent (equal ignoring attributes) to y using
 
-\code{\link{vld_true}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}.
+\code{vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))}.
 }}
 
 \examples{
@@ -74,4 +74,8 @@ chk_equivalent(c(x = 1), c(y = 1))
 }
 \seealso{
 \code{\link{chk_all_identical}()}
+
+\code{\link[=vld_true]{vld_true()}}
+
+\code{\link[=all.equal]{all.equal()}}
 }

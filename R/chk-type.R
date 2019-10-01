@@ -12,9 +12,7 @@ NULL
 
 #' @describeIn chk_type Check Inherits from S3 Class
 #'
-#' Checks inherits from S3 class using
-#'
-#' \code{!isS4(x) && \link{inherits}(x, class)}
+#' Checks inherits from S3 class using `vld_s3_class()`.
 #'
 #' Class should be a string.
 #'
@@ -35,11 +33,15 @@ chk_s3_class <- function(x, class, x_name = NULL) {
 
 #' @describeIn chk_type Validate Inherits from S3 Class
 #'
-#' Validates inherits from S3 class
+#' Validates inherits from S3 class using
+
 #'
-#' \code{!isS4(x) && \link{inherits}(x, class)}
+#' \code{!isS4(x) && inherits(x, class)}
 #'
 #' Class should be a string.
+#'
+#' @seealso [isS4()]
+#' @seealso [inherits()]
 #'
 #' @export
 #'
@@ -52,11 +54,12 @@ vld_s3_class <- function(x, class) !isS4(x) && inherits(x, class)
 
 #' @describeIn chk_type Check Inherits from S4 Class
 #'
-#' Checks inherits from S4 class using
-#'
-#' \code{isS4(x) && \link{inherits}(x, class)}
+#' Checks inherits from S4 class using `vld_s4_class()`.
 #'
 #' Class should be a string.
+#'
+#' @seealso [isS4()]
+#' @seealso [inherits()]
 #'
 #' @export
 #'
@@ -75,20 +78,22 @@ chk_s4_class <- function(x, class, x_name = NULL) {
 
 #' @describeIn chk_type Validate Inherits from S4 Class
 #'
-#' Validates inherits from S4 class
+#' Validates inherits from S4 class using
 #'
-#' \code{isS4(x) && \link{inherits}(x, class)}
+#' \code{isS4(x) && methods::is(x, class)}
 #'
 #' Class should be a string.
 #'
 #' @export
+#'
+#' @seealso [methods::is()]
 #'
 #' @examples
 #'
 #' # vld_s4_class
 #' vld_s4_class(numeric(0), "numeric")
 #' vld_s4_class(getClass("MethodDefinition"), "classRepresentation")
-vld_s4_class <- function(x, class) isS4(x) && inherits(x, class)
+vld_s4_class <- function(x, class) isS4(x) && methods::is(x, class)
 
 #' @describeIn chk_type Check Whole Numeric
 #'
@@ -160,7 +165,9 @@ chk_list <- function(x, x_name = NULL) {
 #'
 #' Validates is a list using
 #'
-#' \code{\link{is.list}(x)}
+#' \code{is.list(x)}
+#'
+#' @seealso [is.list()]
 #'
 #' @export
 #'
@@ -198,7 +205,10 @@ chk_function <- function(x, formals = NULL, x_name = NULL) {
 #'
 #' Validates is a function using:
 #'
-#' \code{\link{is.function}(x) && (is.null(formals) || length(formals(x)) == formals)}
+#' \code{is.function(x) && (is.null(formals) || length(formals(x)) == formals)}
+#'
+#' @seealso [is.function()]
+#' @seealso [formals()]
 #'
 #' @export
 #'
@@ -237,7 +247,9 @@ chk_vector <- function(x, x_name = NULL) {
 #'
 #' Validates is a vector using:
 #'
-#' \code{\link{is.vector}(x)}
+#' \code{is.vector(x)}
+#'
+#' @seealso [is.vector()]
 #'
 #' @export
 #'

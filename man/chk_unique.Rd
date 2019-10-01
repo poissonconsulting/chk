@@ -47,7 +47,7 @@ Checks if unique using
 
 Validates if unique using
 
-\code{!\link{anyDuplicated}(x, incomparables = incomparables)}.
+\code{!anyDuplicated(x, incomparables = incomparables)}.
 
 \item \code{chk_no_missing}: Check No Missing Values
 
@@ -58,7 +58,7 @@ Checks if no missing values using
 
 Validates no missing values using
 
-\code{!\link{anyNA}(x)}.
+\code{!anyNA(x)}.
 
 \item \code{chk_named}: Check Named
 
@@ -69,7 +69,7 @@ Checks if is named using
 
 Checks if is named using
 
-\code{!is.null(\link{names}(x))}.
+\code{!is.null(names(x))}.
 }}
 
 \examples{
@@ -108,4 +108,13 @@ vld_named(c(x = 1)[-1])
 vld_named(list(x = 1)[-1])
 vld_named(1)
 vld_named(list(1))
+}
+\seealso{
+\code{\link[=anyDuplicated]{anyDuplicated()}}
+
+\code{\link[=anyNA]{anyNA()}}
+
+\code{\link[=is.null]{is.null()}}
+
+\code{\link[=names]{names()}}
 }

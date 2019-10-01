@@ -90,7 +90,10 @@ vld_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps)) {
 #' `chk_equivalent()`
 #' checks if is equivalent (equal ignoring attributes) to y using
 #'
-#' \code{\link{vld_true}(\link{all.equal}(x, y, tolerance, check.attributes = FALSE))}.
+#' \code{vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))}.
+#'
+#' @seealso [vld_true()]
+#' @seealso [all.equal()]
 #'
 #' @export
 #'

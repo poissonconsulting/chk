@@ -4,7 +4,9 @@
 #' 
 #' Checks if directory exists using 
 #' 
-#' \code{vld_string(x) && all(\link{dir.exists}(x))}.
+#' \code{vld_string(x) && all(dir.exists(x))}.
+#' @seealso [vld_string()]
+#' @seealso [dir.exists()]
 #'
 #' @inheritParams chk_flag
 #' @return 

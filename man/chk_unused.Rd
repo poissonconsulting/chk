@@ -34,9 +34,9 @@ Checks if is ... unused using
 
 \item \code{vld_unused}: Validate ... Unused
 
-Checks if is ... unused using
+Validates if is ... unused using
 
-\code{length(\link{list}(...)) == 0L}.
+\code{length(list(...)) == 0L}.
 
 \item \code{chk_used}: Check ... Used
 
@@ -47,7 +47,7 @@ Checks if is ... used using
 
 Validates if ... used using
 
-\code{length(\link{list}(...)) != 0L}.
+\code{length(list(...)) != 0L}.
 }}
 
 \examples{
@@ -81,4 +81,11 @@ fun <- function(x, ...) {
 }
 fun(1)
 fun(1, 2)
+}
+\seealso{
+\code{\link[=length]{length()}}
+
+\code{\link[=list]{list()}}
+
+\code{\link{...}}
 }

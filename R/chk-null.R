@@ -32,7 +32,9 @@ chk_null <- function(x, x_name = NULL) {
 #'
 #' Validates if NULL using
 #'
-#' \code{\link{is.null}(x)}.
+#' \code{is.null(x)}.
+#'
+#' @seealso [is.null()]
 #'
 #' @export
 #'
@@ -67,7 +69,7 @@ chk_not_null <- function(x, x_name = NULL) {
 #'
 #' Validates if not NULL using
 #'
-#' \code{!\link{is.null}(x)}.
+#' \code{!is.null(x)}.
 #'
 #' @export
 #'

@@ -51,7 +51,7 @@ Checks if all values match regular expression using
 
 Validates all values match regular expression using
 
-\code{all(\link{grepl}(regexp, x))}.
+\code{all(grepl(regexp, x))}.
 
 \code{regexp} should be a non-missing character scalar.
 }}
@@ -79,4 +79,9 @@ vld_match("a", regexp = "a")
 vld_match("")
 vld_match("1", regexp = "2")
 vld_match(NA_character_, regexp = ".*")
+}
+\seealso{
+\code{\link[=all]{all()}}
+
+\code{\link[=grepl]{grepl()}}
 }

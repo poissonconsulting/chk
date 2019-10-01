@@ -38,7 +38,7 @@ Checks if NULL using
 
 Validates if NULL using
 
-\code{\link{is.null}(x)}.
+\code{is.null(x)}.
 
 \item \code{chk_not_null}: Check Not NULL
 
@@ -49,7 +49,7 @@ Checks if not NULL using
 
 Validates if not NULL using
 
-\code{!\link{is.null}(x)}.
+\code{!is.null(x)}.
 }}
 
 \examples{
@@ -69,4 +69,7 @@ chk_not_null(1)
 # vld_not_null
 vld_not_null(1)
 vld_not_null(NULL)
+}
+\seealso{
+\code{\link[=is.null]{is.null()}}
 }
