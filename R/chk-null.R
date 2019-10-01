@@ -21,10 +21,10 @@ NULL
 #' try(chk_null(1))
 #' chk_null(NULL)
 chk_null <- function(x, x_name = NULL) {
-  if (vld_null(x)) {
+  if(vld_null(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be NULL")
 }
 
@@ -58,10 +58,10 @@ vld_null <- function(x) is.null(x)
 #' try(chk_not_null(NULL))
 #' chk_not_null(1)
 chk_not_null <- function(x, x_name = NULL) {
-  if (vld_not_null(x)) {
+  if(vld_not_null(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must not be NULL")
 }
 
