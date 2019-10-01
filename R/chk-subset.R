@@ -4,14 +4,14 @@
 #'
 #' @inheritParams chk_true
 #' @param values A vector of the permitted values.
-#' @return The \code{chk_} functions throw an informative error if the test fails.
-#' The \code{vld_} functions return a flag indicating whether the test was met.
+#' @return The `chk_` functions throw an informative error if the test fails.
+#' The `vld_` functions return a flag indicating whether the test was met.
 #' @name chk_subset
 NULL
 
 #' @describeIn chk_subset Check In
 #'
-#' Checks if all values in values using \code{vld_subset()}.
+#' Checks if all values in values using `vld_subset()`.
 #'
 #' @export
 #'
@@ -50,7 +50,7 @@ vld_subset <- function(x, values) all(x %in% values)
 
 #' @describeIn chk_subset Check Has
 #'
-#' Checks if includes all values using \code{vld_superset()}.
+#' Checks if includes all values using `vld_superset()`.
 #'
 #' @export
 #'

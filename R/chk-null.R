@@ -3,15 +3,15 @@
 #' Checks/validates if NULL or not NULL.
 #'
 #' @inheritParams chk_true
-#' @return The \code{chk_} functions throw an informative error if the test fails.
-#' The \code{vld_} functions return a flag indicating whether the test was met.
+#' @return The `chk_` functions throw an informative error if the test fails.
+#' The `vld_` functions return a flag indicating whether the test was met.
 #' @name chk_null
 NULL
 
 #' @describeIn chk_null Validate NULL
 #'
 #' Checks if NULL using
-#' \code{vld_null()}.
+#' `vld_null()`.
 #'
 #' @export
 #'
@@ -46,7 +46,7 @@ vld_null <- function(x) is.null(x)
 #' @describeIn chk_null Check Not NULL
 #'
 #' Checks if not NULL using
-#' \code{vld_not_null()}.
+#' `vld_not_null()`.
 #'
 #' @export
 #'

@@ -5,7 +5,7 @@
 #' It is exported to allow users to easily construct their own `chk_` functions.
 #'
 #' @inheritParams message_chk
-#' @return Throws an error of class \code{'chk_error'}.
+#' @return Throws an error of class `'chk_error'`.
 #' @seealso [err()]
 #' @export
 #'
@@ -20,8 +20,8 @@ abort_chk <- function(..., n = NULL, tidy = TRUE) {
 
 #' Deparse Back Tick
 #'
-#' \code{deparse_backtick_chk} is a wrapper on \code{\link{deparse}} 
-#' and \code{backtick_chk}.
+#' `deparse_backtick_chk` is a wrapper on \code{\link{deparse}} 
+#' and `backtick_chk`.
 #'
 #' It is exported to allow users to easily construct their own `chk_` functions.
 #'

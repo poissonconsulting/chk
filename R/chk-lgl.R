@@ -3,13 +3,13 @@
 #' @description
 #' Checks if logical scalar using
 #' 
-#' \code{is.logical(x) && length(x) == 1L}.
+#' `is.logical(x) && length(x) == 1L`.
 #'
 #' @inheritParams chk_flag
 #' @return 
-#' The \code{chk_} function throws an informative error if the test fails.
+#' The `chk_` function throws an informative error if the test fails.
 #' 
-#' The \code{vld_} function returns a flag indicating whether the test was met.
+#' The `vld_` function returns a flag indicating whether the test was met.
 #'
 #' @seealso \code{\link{chk_flag}()}
 #' @export

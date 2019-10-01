@@ -3,14 +3,14 @@
 #' @description
 #' Checks if non-missing logical scalar using 
 #' 
-#' \code{is.logical(x) && length(x) == 1L && !anyNA(x)}.
+#' `is.logical(x) && length(x) == 1L && !anyNA(x)`.
 #'
 #' @param x The object to check.
 #' @param x_name A string of the name of object x or NULL.
 #' @return 
-#' The \code{chk_} function throws an informative error if the test fails.
+#' The `chk_` function throws an informative error if the test fails.
 #' 
-#' The \code{vld_} function returns a flag indicating whether the test was met.
+#' The `vld_` function returns a flag indicating whether the test was met.
 #'
 #' @export
 #'

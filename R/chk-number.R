@@ -1,7 +1,7 @@
 #' Check Number or Whole Number
 #'
 #' @inheritParams chk_true
-#' @return \code{NULL}, invisibly. Called for the side effect of throwing an error
+#' @return `NULL`, invisibly. Called for the side effect of throwing an error
 #'   if the condition is not met.
 #' @seealso \code{\link{chk_true}()}, \code{\link{chk_range}()}
 #' and \code{\link{chk_whole_numeric}()}
@@ -12,14 +12,14 @@ NULL
 #'
 #' @description
 #'
-#' \code{chk_number()}
+#' `chk_number()`
 #' checks if non-missing numeric scalar using
 #'
-#' \code{is.numeric(x) && length(x) == 1L && !anyNA(x)}.
+#' `is.numeric(x) && length(x) == 1L && !anyNA(x)`.
 #'
-#' \strong{Good}: \code{1}, \code{2L}, \code{log(10)}, \code{-Inf}.
+#' **Good**: `1`, `2L`, `log(10)`, `-Inf`.
 #'
-#' \strong{Bad}: \code{"a"}, \code{1:3}, \code{NA_real_}.
+#' **Bad**: `"a"`, `1:3`, `NA_real_`.
 #'
 #' @export
 #'
@@ -49,14 +49,14 @@ vld_number <- function(x) {
 #'
 #' @description
 #'
-#' \code{chk_whole_number()}
+#' `chk_whole_number()`
 #'  checks if non-missing integer scalar or double equivalent using
 #'
-#' \code{vld_number(x)} and \code{is.integer(x) || vld_true(all.equal(x, trunc(x)))}.
+#' `vld_number(x)` and `is.integer(x) || vld_true(all.equal(x, trunc(x)))`.
 #'
-#' \strong{Good}: \code{1}, \code{2L}, \code{1e10}, \code{-Inf}.
+#' **Good**: `1`, `2L`, `1e10`, `-Inf`.
 #'
-#' \strong{Bad}: \code{"a"}, \code{1:3}, \code{NA_integer_}, \code{log(10)}.
+#' **Bad**: `"a"`, `1:3`, `NA_integer_`, `log(10)`.
 #'
 #' The \code{\link{chk_whole_numeric}()} function checks if
 #' integer vector of any length or double equivalent.

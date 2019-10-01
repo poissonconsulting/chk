@@ -4,15 +4,15 @@
 #'
 #' @inheritParams chk_true
 #' @param regexp A string of a regular expression.
-#' @return The \code{chk_} functions throw an informative error if the test fails.
-#' The \code{vld_} functions return a flag indicating whether the test was met.
+#' @return The `chk_` functions throw an informative error if the test fails.
+#' The `vld_` functions return a flag indicating whether the test was met.
 #' @name chk_string
 NULL
 
 #' @describeIn chk_string Check String
 #'
 #' Checks if non-missing character scalar using
-#' \code{vld_string()}.
+#' `vld_string()`.
 #'
 #' @export
 #'
@@ -33,7 +33,7 @@ chk_string <- function(x, x_name = NULL) {
 #'
 #' Validates non-missing character scalar using
 #'
-#' \code{is.character(x) && length(x) == 1L && !anyNA(x)}.
+#' `is.character(x) && length(x) == 1L && !anyNA(x)`.
 #'
 #' @export
 #'
@@ -52,7 +52,7 @@ vld_string <- function(x, x_name = NULL) {
 #' @describeIn chk_string Check Matches
 #'
 #' Checks if all values match regular expression using
-#' \code{vld_match()}.
+#' `vld_match()`.
 #'
 #' @export
 #'
@@ -78,7 +78,7 @@ chk_match <- function(x, regexp = ".+", x_name = NULL) {
 #'
 #' \code{all(\link{grepl}(regexp, x))}.
 #'
-#' \code{regexp} should be a non-missing character scalar.
+#' `regexp` should be a non-missing character scalar.
 #'
 #' @export
 #'

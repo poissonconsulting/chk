@@ -5,8 +5,8 @@
 #' @inheritParams chk_true
 #' @param class A string specifying the class.
 #' @param formals A count of the number of formal arguments.
-#' @return The \code{chk_} functions throw an informative error if the test fails.
-#' The \code{vld_} functions return a flag indicating whether the test was met.
+#' @return The `chk_` functions throw an informative error if the test fails.
+#' The `vld_` functions return a flag indicating whether the test was met.
 #' @name chk_type
 NULL
 
@@ -92,7 +92,7 @@ vld_s4_class <- function(x, class) isS4(x) && inherits(x, class)
 
 #' @describeIn chk_type Check Whole Numeric
 #'
-#' Checks if integer vector or double equivalent using \code{vld_whole_numeric()}.
+#' Checks if integer vector or double equivalent using `vld_whole_numeric()`.
 #'
 #' The \code{\link{chk_whole_number}()} function checks if
 #' non-missing integer scalar or double equivalent.
@@ -119,7 +119,7 @@ chk_whole_numeric <- function(x, x_name = NULL) {
 #'
 #' Validates integer vector or double equivalent using
 #'
-#' \code{is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))}
+#' `is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))`
 #'
 #' @export
 #'
@@ -139,7 +139,7 @@ vld_whole_numeric <- function(x) {
 #' @describeIn chk_type Check List
 #'
 #' Checks if is a list using
-#' \code{vld_list()}.
+#' `vld_list()`.
 #'
 #' @export
 #'
@@ -176,7 +176,7 @@ vld_list <- function(x) is.list(x)
 
 #' @describeIn chk_type Check Function
 #'
-#' Checks if is a function using \code{vld_function()}.
+#' Checks if is a function using `vld_function()`.
 #'
 #' @export
 #'
@@ -215,7 +215,7 @@ vld_function <- function(x, formals = NULL) {
 
 #' @describeIn chk_type Check Vector
 #'
-#' Checks if is a vector using \code{is.vector()}.
+#' Checks if is a vector using `is.vector()`.
 #'
 #' @export
 #'
@@ -249,7 +249,7 @@ vld_vector <- function(x) is.vector(x)
 
 #' @describeIn chk_type Check Scalar
 #'
-#' Checks if is a vector using \code{length(x) == 1L}.
+#' Checks if is a vector using `length(x) == 1L`.
 #'
 #' @export
 #'
@@ -269,7 +269,7 @@ chk_scalar <- function(x, x_name = NULL) {
 
 #' @describeIn chk_type Validate Scalar
 #'
-#' Validates is \code{length(x) == 1L}.
+#' Validates is `length(x) == 1L`.
 #'
 #' @export
 #'
