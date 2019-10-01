@@ -21,9 +21,13 @@ Useful links:
 \author{
 \strong{Maintainer}: Joe Thorley \email{joe@poissonconsulting.ca} (0000-0002-7683-4592)
 
+Authors:
+\itemize{
+  \item Kirill Müller (0000-0002-1416-3412)
+}
+
 Other contributors:
 \itemize{
-  \item Kirill Müller (0000-0002-1416-3412) [contributor]
   \item Poisson Consulting [copyright holder, funder]
 }
 
