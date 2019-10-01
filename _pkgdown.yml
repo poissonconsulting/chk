@@ -10,7 +10,6 @@ reference:
   - '`chk_range`'
   - '`chk_string`'
   - '`chk_date`'
-  - '`chk_is`'
   - '`chk_identical`'
   - '`chk_subset`'
 - title: Complex checkers
