@@ -114,14 +114,14 @@ The structure of most `chk_` is as exemplified by `chk_flag`.
 chk_flag
 #> function(x, x_name = NULL){
 #>   if(vld_flag(x)) return(invisible())
-#>   if(is.null(x_name))  x_name <- deparse_backtick(substitute(x))
+#>   if(is.null(x_name))  x_name <- deparse_backtick_chk(substitute(x))
 #>   abort_chk(x_name, " must be a flag (TRUE or FALSE)")
 #> }
 #> <bytecode: 0x7fe802835670>
 #> <environment: namespace:chk>
 ```
 
-The `deparse_backtick()` and `abort_chk()` functions are exported to
+The `deparse_backtick_chk()` and `abort_chk()` functions are exported to
 make it easy for programmers to develop their own `chk_` functions.
 
 #### Custom Error Messages
@@ -217,4 +217,4 @@ always welcome.
 
 Please note that this project is released with a [Contributor Code of
 Conduct](https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md).
-By contributing, you agree to abide by its terms.
+By contributing, you agree to abide by its terms
