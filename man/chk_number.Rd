@@ -16,7 +16,7 @@ chk_whole_number(x, x_name = NULL)
 }
 \value{
 \code{NULL}, invisibly. Called for the side effect of throwing an error
-  if the condition is not met.
+if the condition is not met.
 }
 \description{
 \code{chk_number()}
@@ -29,7 +29,7 @@ checks if non-missing numeric scalar using
 \strong{Bad}: \code{"a"}, \code{1:3}, \code{NA_real_}.
 
 \code{chk_whole_number()}
- checks if non-missing integer scalar or double equivalent using
+checks if non-missing integer scalar or double equivalent using
 
 \code{vld_number(x)} and \code{is.integer(x) || vld_true(all.equal(x, trunc(x)))}.
 

@@ -20,7 +20,7 @@ The \code{chk_} function throws an informative error if the test fails.
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
-Checks if non-missing logical scalar using 
+Checks if non-missing logical scalar using
 
 \code{is.logical(x) && length(x) == 1L && !anyNA(x)}.
 }

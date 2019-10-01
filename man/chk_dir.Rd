@@ -20,7 +20,7 @@ The \code{chk_} function throws an informative error if the test fails.
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
-Checks if directory exists using 
+Checks if directory exists using
 
 \code{vld_string(x) && all(\link{dir.exists}(x))}.
 }

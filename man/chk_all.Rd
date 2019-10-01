@@ -29,7 +29,7 @@ chk_all_equivalent(x, tolerance = sqrt(.Machine$double.eps),
 }
 \value{
 \code{NULL}, invisibly. Called for the side effect of throwing an error
-  if the condition is not met.
+if the condition is not met.
 }
 \description{
 \code{chk_all()}

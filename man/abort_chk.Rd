@@ -21,7 +21,7 @@ Throws an error of class \code{'chk_error'}.
 A wrapper on \code{\link{err}} that sets the subclass to be 'chk_error'.
 }
 \details{
-It is exported to allow users to easily construct their own `chk_` functions.
+It is exported to allow users to easily construct their own \code{chk_} functions.
 }
 \examples{
 try(abort_chk("x must be NULL"))

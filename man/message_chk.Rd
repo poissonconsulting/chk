@@ -22,8 +22,8 @@ If \code{tidy = TRUE} constructs a tidyverse style message by
 }
 \details{
 \itemize{
-  \item Capitalizing the first character if possible.
-  \item Adding a trailing . if missing.
+\item Capitalizing the first character if possible.
+\item Adding a trailing . if missing.
 }
 
 Also if \code{n != NULL} replaces the recognized \code{sprintf}-like types.
@@ -34,10 +34,10 @@ Also if \code{n != NULL} replaces the recognized \code{sprintf}-like types.
 The following recognized \code{sprintf}-like types can be used in a message:
 
 \describe{
-  \item{\code{n}}{The value of n.}
-  \item{\code{s}}{'' if n == 1 otherwise 's'}
-  \item{\code{r}}{'is' if n == 1 otherwise 'are'}
-  \item{\code{y}}{'y' if n == 1 otherwise 'ie'}
+\item{\code{n}}{The value of n.}
+\item{\code{s}}{'' if n == 1 otherwise 's'}
+\item{\code{r}}{'is' if n == 1 otherwise 'are'}
+\item{\code{y}}{'y' if n == 1 otherwise 'ie'}
 }
 }
 

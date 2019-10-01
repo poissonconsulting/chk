@@ -28,7 +28,7 @@ to selectively handle the conditions signalled by your functions.}
 The functions call \code{\link{message_chk}()} to process
 the message and then
 \code{\link[rlang]{abort}()}, \code{\link[rlang]{warn}()} and
- \code{\link[rlang]{inform}()}, respectively.
+\code{\link[rlang]{inform}()}, respectively.
 }
 \details{
 The user can set the subclass.
