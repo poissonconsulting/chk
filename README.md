@@ -76,7 +76,9 @@ errors](https://rlang.r-lib.org/reference/abort.html) of subclass
 
 ## Information
 
-For more information see the Getting Started with chk vignette.
+For more information see the [Using
+chk](https://poissonconsulting.github.io/chk/articles/chk.html)
+vignette.
 
 ## Inspiration
 
