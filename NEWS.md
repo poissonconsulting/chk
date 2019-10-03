@@ -1,4 +1,5 @@
-- Changed `chk_true()` (and `chk_false()`) to same behaviour as `isTRUE` in R >= 3.5
+- Changed `chk_match()` so ignores missing values.
+- Changed `chk_true()` (and `chk_false()`) to same behaviour as `isTRUE` in R >= 3.5.
 - Added `formals` argument to `chk_function()` argument.
 - Added `chk_ext()` and `vld_ext()` functions.
 - Added `tidy = TRUE` argument to errors, warnings and messages.

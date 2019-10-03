@@ -203,4 +203,4 @@ Function | Code
 `chk_named(x)` |  `!is.null(names(x))`
 `chk_no_missing(x)` |  `!anyNA(x)`
 `chk_unique(x, incomparables = FALSE)` | `!anyDuplicated(x, incomparables = incomparables)`
-`chk_match(x, regexp = ".+")` | `all(grepl(regexp, x))`
+`chk_match(x, regexp = ".+")` | `all(grepl(regexp, x[!is.na(x)]))`
