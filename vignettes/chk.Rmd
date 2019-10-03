@@ -105,20 +105,101 @@ abort_chk("there %r %n ", "problem director%y%s", n = 2)
 
 ## `chk_` Families
 
-The `chk_` functions (and their `vld_` equivalents) can be divided into the following families
+The `chk_` functions (and their `vld_` equivalents) can be divided into the following families.
+For reasons of space, the `x_name = NULL` argument is not shown.
 
 ### Check Logical Scalars
 
-`chk_` Function | Check
---- | ---
-`chk_true()` | `isTRUE(x)`
+Function | Code
+:- | :-
+`chk_true(x)` | `isTRUE(x)`
 `chk_false(x)` | `isFALSE(x)`
-`chk_flag(x)` | `is.logical(x) && length(x) == 1 && !is.na(x)`
+`chk_flag(x)` | `is.logical(x) && length(x) == 1 && !anyNA(x)`
 `chk_lgl(x)` | `is.logical(x) && length(x) == 1`
+
+### Check Scalars
+
+Function | Code
+:- | :------
+`chk_scalar(x)` | `length(x) == 1L`
+`chk_number(x)` | `is.numeric(x) && length(x) == 1L && !anyNA(x)`
+`chk_whole_number(x)` | `vld_number(x) && (is.integer(x) || vld_true(all.equal(x, trunc(x))))`
+`chk_string(x)` | `is.character(x) && length(x) == 1L && !anyNA(x)`
+`chk_date(x)` | `inherits(x, "Date") && length(x) == 1L && !anyNA(x)`
+`chk_datetime(x)` | `inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)`
 
 ### Check Ranges
 
-`chk_` Function | Check
---- | ------
+Function  | Code
+:- | :---
 `chk_range(x, range = c(0, 1))` | `all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])`
 `chk_lt(x, value = 0)` | `all(x[!is.na(x)] < value)`
+`chk_lte(x, value = 0)` | `all(x[!is.na(x)] <= value)`
+`chk_gt(x, value = 0)` | `all(x[!is.na(x)] > value)`
+`chk_gte(x, value = 0)` | `all(x[!is.na(x)] >= value)`
+
+### Check Equal
+
+Function | Code
+:-- | :-
+`chk_identical(x, y)` | `identical(x, y)`
+`chk_equal(x, y, tolerance = sqrt(.Machine$double.eps))` | `vld_true(all.equal(x, y, tolerance))`
+`chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps))` | `vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))`
+
+### Check All
+
+Function |  Code
+:- | :---
+`chk_all(x, chk_fun, ...)` | 
+`chk_all_identical(x)` | `length(x) < 2L || all(vapply(x, vld_identical, TRUE, y = x[[1]]))`
+`chk_all_equal(x, tolerance = sqrt(.Machine$double.eps))` | `length(x) < 2L || all(vapply(x, vld_equal, TRUE, y = x[[1]], tolerance = tolerance))`
+`chk_all_equivalent(x, tolerance = sqrt(.Machine$double.eps))` | `length(x) < 2L || all(vapply(x, vld_equivalent, TRUE, y = x[[1]], tolerance = tolerance))`
+
+### Check Set
+
+Function | Code
+:- | :---
+`chk_subset(x, values)` | `all(x %in% values)`
+`chk_superset(x, values)` | `all(values %in% x)`
+
+### Check Is
+
+Function | Code
+:- | :---
+`chk_s3_class(x, class)` | `!isS4(x) && inherits(x, class)`
+`chk_s4_class(x, class)` | `isS4(x) && inherits(x, class)`
+`chk_list(x)` | `is.list(x)`
+`chk_vector(x)` | `is.vector(x)`
+`chk_function(x, formals = NULL)` | `is.function(x) && (is.null(formals) || length(formals(x)) == formals)`
+`chk_whole_numeric(x)` | `is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))`
+
+### Check NULL
+
+Function | Code
+:- | :---
+`chk_null(x)` | `is.null(x)`
+`chk_not_null(x)` | `!is.null(x)`
+
+### Check ...
+
+Function | Code
+:- | :---
+`chk_used(...)` | `length(list(...)) != 0L`
+`chk_unused(...)` | `length(list(...)) == 0L`
+
+### Check Files
+
+Function |  Code
+:- | :---
+`chk_file(x)` | `vld_string(x) && file.exists(x) && !dir.exists(x)`
+`chk_ext(x, ext)` | `vld_string(x) && vld_subset(tools::file_ext(x), ext)`
+`chk_dir(x)` | `vld_string(x) && dir.exists(x)`
+
+### Check Miscellaneous
+
+Function | Code
+:- | :--
+`chk_named(x)` |  `!is.null(names(x))`
+`chk_no_missing(x)` |  `!anyNA(x)`
+`chk_unique(x, incomparables = FALSE)` | `!anyDuplicated(x, incomparables = incomparables)`
+`chk_match(x, regexp = ".+")` | `all(grepl(regexp, x))`
