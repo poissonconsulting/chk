@@ -89,10 +89,11 @@ chk_flag
 #> <environment: namespace:chk>
 ```
 
-A `chk_` function initially checks the object (using its `vld_` partner) and if the object passes the check immediately returns (an invisible `NULL`).
-If, and only if, the object fails the check does it construct and then throw an informative error message.
+A `chk_` function initially checks the object (using its `vld_` partner) and if the object passes the check immediately returns an invisible `NULL`.
+If, and only if, the object fails the check does the `chk_` function construct and then throw an informative error message.
 
 The `deparse_backtick_chk()` and `abort_chk()` functions are exported to make it easy for programmers to develop their own `chk_` functions.
+The [chk-lgl.R](https://github.com/poissonconsulting/chk/blob/master/R/chk-lgl.R) script illustrates the general template to use when developing your own `chk_` functions.
 
 ### `abort_chk()`
 
