@@ -39,7 +39,7 @@ Checks if TRUE using
 
 Validates if TRUE using
 
-\code{identical(unname(x), TRUE)}.
+\code{is.logical(x) && length(x) == 1L && !anyNA(x) && x}.
 
 \item \code{chk_false}: Check FALSE
 
@@ -50,7 +50,7 @@ Checks if FALSE using
 
 Validates if FALSE using
 
-\code{identical(unname(x), FALSE)}.
+\code{is.logical(x) && length(x) == 1L && !anyNA(x) && x}.
 }}
 
 \examples{

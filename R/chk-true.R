@@ -34,7 +34,7 @@ chk_true <- function(x, x_name = NULL) {
 #'
 #' Validates if TRUE using
 #'
-#' `identical(unname(x), TRUE)`.
+#' `is.logical(x) && length(x) == 1L && !anyNA(x) && x`.
 #'
 #' @export
 #'
@@ -46,7 +46,7 @@ chk_true <- function(x, x_name = NULL) {
 #' vld_true(NA)
 #' vld_false(0)
 #' vld_true(c(TRUE, TRUE))
-vld_true <- function(x) identical(unname(x), TRUE)
+vld_true <- function(x) is.logical(x) && length(x) == 1L && !anyNA(x) && x
 
 #' @describeIn chk_true Check FALSE
 #'
@@ -72,7 +72,7 @@ chk_false <- function(x, x_name = NULL) {
 #'
 #' Validates if FALSE using
 #'
-#' `identical(unname(x), FALSE)`.
+#' `is.logical(x) && length(x) == 1L && !anyNA(x) && x`.
 #'
 #' @export
 #'
@@ -84,4 +84,4 @@ chk_false <- function(x, x_name = NULL) {
 #' vld_false(NA)
 #' vld_false(0)
 #' vld_false(c(FALSE, FALSE))
-vld_false <- function(x) identical(unname(x), FALSE)
+vld_false <- function(x) is.logical(x) && length(x) == 1L && !anyNA(x) && !x

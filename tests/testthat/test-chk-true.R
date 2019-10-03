@@ -2,6 +2,8 @@ context("chk-true")
 
 test_that("vld_true", {
   expect_true(vld_true(TRUE))
+  expect_true(vld_true(c(x = TRUE)))
+  expect_true(vld_true(structure(TRUE, x = "y")))
   expect_false(vld_true(FALSE))
   expect_false(vld_true(NA))
   expect_false(vld_true(c(TRUE, TRUE)))
@@ -20,6 +22,8 @@ test_that("chk_true", {
 test_that("vld_false", {
   expect_true(vld_false(FALSE))
   expect_false(vld_false(TRUE))
+  expect_true(vld_false(c(x = FALSE)))
+  expect_true(vld_false(structure(FALSE, x = "y")))
   expect_false(vld_false(NA))
   expect_false(vld_false(c(FALSE, FALSE)))
   expect_false(vld_false(0))

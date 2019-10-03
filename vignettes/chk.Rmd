@@ -113,10 +113,10 @@ For reasons of space, the `x_name = NULL` argument is not shown.
 
 Function | Code
 :- | :-
-`chk_true(x)` | `isTRUE(x)`
-`chk_false(x)` | `isFALSE(x)`
-`chk_flag(x)` | `is.logical(x) && length(x) == 1 && !anyNA(x)`
-`chk_lgl(x)` | `is.logical(x) && length(x) == 1`
+`chk_true(x)` | `is.logical(x) && length(x) == 1L && !anyNA(x) && x`
+`chk_false(x)` | `is.logical(x) && length(x) == 1L && !anyNA(x) && !x`
+`chk_flag(x)` | `is.logical(x) && length(x) == 1L && !anyNA(x)`
+`chk_lgl(x)` | `is.logical(x) && length(x) == 1L`
 
 ### Check Scalars
 
