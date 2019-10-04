@@ -8,7 +8,6 @@ reference:
   - '`chk_false`'
   - '`chk_flag`'
   - '`chk_lgl`'
-reference:
 - title: Scalar Checkers
   desc: Checking scalars
   contents:
@@ -18,7 +17,6 @@ reference:
   - '`chk_string`'
   - '`chk_date`'
   - '`chk_datetime`'
-reference:
 - title: Range Checkers
   desc: Checking ranges
   contents:
@@ -27,14 +25,12 @@ reference:
   - '`chk_lte`'
   - '`chk_gt`'
   - '`chk_gte`'
-reference:
 - title: Equal Checkers
   desc: Checking equal
   contents:
   - '`chk_identical`'
   - '`chk_equal`'
   - '`chk_equivalent`'
-reference:
 - title: All Checkers
   desc: Checking all
   contents:
@@ -42,13 +38,11 @@ reference:
   - '`chk_all_identical`' 
   - '`chk_all_equal`'
   - '`chk_all_equivalent`'
-reference:
 - title: Set Checkers
   desc: Checking sets
   contents:
   - '`chk_subset`'
   - '`chk_superset`'
-reference:
 - title: Identity Checkers
   desc: Checking identity
   contents:
@@ -58,26 +52,22 @@ reference:
   - '`chk_list`'
   - '`chk_function`'
   - '`chk_whole_numeric`'
-reference:
 - title: Null Checkers
   desc: Checking null
   contents:
   - '`chk_null`'
   - '`chk_not_null`'
-reference:
 - title: ... Checkers
   desc: Checking ...
   contents:
   - '`chk_used`'
   - '`chk_unused`'
-reference:
 - title: File Checkers
   desc: Checking files
   contents:
   - '`chk_file`'
   - '`chk_ext`'
   - '`chk_dir`'
-reference:
 - title: Miscellaneous Checkers
   desc: Checking miscellaneous
   contents:
@@ -86,7 +76,6 @@ reference:
   - '`chk_no_missing`'
   - '`chk_unique`'
   - '`chkor`'
-reference:
 - title: chk_ Function Extenders
   desc: Extending chk_ functions
   contents:
@@ -95,14 +84,12 @@ reference:
   - '`deparse_backtick_chk`'
   - '`message_chk`'
   - '`abort_chk`'
-reference:
 - title: Message Generators
   desc: Generating messages
   contents:
   - '`err`'
   - '`wrn`'
   - '`msg`'
-reference:
 - title: String Manipulators
   desc: Manipulating strings
   contents:
