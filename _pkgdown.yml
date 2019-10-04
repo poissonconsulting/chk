@@ -49,6 +49,7 @@ reference:
   - '`chk_s3_class`'
   - '`chk_s4_class`'
   - '`chk_vector`'
+  - '`chk_atomic`'
   - '`chk_list`'
   - '`chk_function`'
   - '`chk_whole_numeric`'
