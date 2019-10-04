@@ -169,8 +169,8 @@ Function | Code
 :- | :---
 `chk_s3_class(x, class)` | `!isS4(x) && inherits(x, class)`
 `chk_s4_class(x, class)` | `isS4(x) && inherits(x, class)`
-`chk_list(x)` | `is.list(x)`
 `chk_vector(x)` | `is.vector(x)`
+`chk_list(x)` | `is.list(x)`
 `chk_function(x, formals = NULL)` | `is.function(x) && (is.null(formals) || length(formals(x)) == formals)`
 `chk_whole_numeric(x)` | `is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))`
 
@@ -200,7 +200,7 @@ Function |  Code
 
 Function | Code
 :- | :--
+`chk_match(x, regexp = ".+")` | `all(grepl(regexp, x[!is.na(x)]))`
 `chk_named(x)` |  `!is.null(names(x))`
 `chk_no_missing(x)` |  `!anyNA(x)`
 `chk_unique(x, incomparables = FALSE)` | `!anyDuplicated(x, incomparables = incomparables)`
-`chk_match(x, regexp = ".+")` | `all(grepl(regexp, x[!is.na(x)]))`
