@@ -1,35 +1,111 @@
 destination: docs
 
 reference:
-- title: Scalar checkers
+- title: Logical Scalar Checkers
+  desc: Checking logical scalars
+  contents:
+  - '`chk_true`'
+  - '`chk_false`'
+  - '`chk_flag`'
+  - '`chk_lgl`'
+reference:
+- title: Scalar Checkers
   desc: Checking scalars
   contents:
-  - '`chk_null`'
-  - '`chk_true`'
+  - '`chk_scalar`'
   - '`chk_number`'
-  - '`chk_range`'
+  - '`chk_whole_number`'
   - '`chk_string`'
   - '`chk_date`'
+  - '`chk_datetime`'
+reference:
+- title: Range Checkers
+  desc: Checking ranges
+  contents:
+  - '`chk_range`'
+  - '`chk_lt`'
+  - '`chk_lte`'
+  - '`chk_gt`'
+  - '`chk_gte`'
+reference:
+- title: Equal Checkers
+  desc: Checking equal
+  contents:
   - '`chk_identical`'
-  - '`chk_subset`'
-- title: Complex checkers
-  desc: Checking vectors or combining checks
+  - '`chk_equal`'
+  - '`chk_equivalent`'
+reference:
+- title: All Checkers
+  desc: Checking all
   contents:
-  - '`chk_unique`'
   - '`chk_all`'
-  - '`chkor`'
-  - '`chk_unused`'
-  - '`chk_file`'
-- title: Control
-  desc: Disabling the package's functionality
+  - '`chk_all_identical`' 
+  - '`chk_all_equal`'
+  - '`chk_all_equivalent`'
+reference:
+- title: Set Checkers
+  desc: Checking sets
   contents:
-  - '`chk_on`'
-- title: Templated errors
-  desc: Creating error messages from a template
+  - '`chk_subset`'
+  - '`chk_superset`'
+reference:
+- title: Identity Checkers
+  desc: Checking identity
+  contents:
+  - '`chk_s3_class`'
+  - '`chk_s4_class`'
+  - '`chk_vector`'
+  - '`chk_list`'
+  - '`chk_function`'
+  - '`chk_whole_numeric`'
+reference:
+- title: Null Checkers
+  desc: Checking null
+  contents:
+  - '`chk_null`'
+  - '`chk_not_null`'
+reference:
+- title: ... Checkers
+  desc: Checking ...
+  contents:
+  - '`chk_used`'
+  - '`chk_unused`'
+reference:
+- title: File Checkers
+  desc: Checking files
+  contents:
+  - '`chk_file`'
+  - '`chk_ext`'
+  - '`chk_dir`'
+reference:
+- title: Miscellaneous Checkers
+  desc: Checking miscellaneous
+  contents:
+  - '`chk_match`'
+  - '`chk_named`'
+  - '`chk_no_missing`'
+  - '`chk_unique`'
+  - '`chkor`'
+reference:
+- title: chk_ Function Extenders
+  desc: Extending chk_ functions
+  contents:
+  - '`backtick_chk`'
+  - '`unbacktick_chk`'
+  - '`deparse_backtick_chk`'
+  - '`message_chk`'
+  - '`abort_chk`'
+reference:
+- title: Message Generators
+  desc: Generating messages
   contents:
   - '`err`'
-- title: String manipulation
-  desc: Helper functions for handling strings
+  - '`wrn`'
+  - '`msg`'
+reference:
+- title: String Manipulators
+  desc: Manipulating strings
   contents:
   - '`p`'
+  - '`p0`'
   - '`cc`'
