@@ -1,6 +1,6 @@
 context("chk-atomic")
 
-test_that("vld_at", {
+test_that("vld_atomic", {
   expect_true(vld_atomic(1))
   expect_true(vld_atomic(matrix(1:3)))
   expect_true(vld_atomic(character(0)))

@@ -1,3 +1,4 @@
+- Added `chk_environment()` function.
 - Added `chk_atomic()` function.
 - Changed `chk_match()` so ignores missing values.
 - Changed `chk_true()` (and `chk_false()`) to same behaviour as `isTRUE` in R >= 3.5.
