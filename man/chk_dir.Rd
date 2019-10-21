@@ -22,7 +22,7 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 \description{
 Checks if directory exists using
 
-\code{vld_string(x) && all(dir.exists(x))}.
+\code{vld_string(x) && dir.exists(x)}
 }
 \section{Functions}{
 \itemize{
@@ -40,10 +40,4 @@ vld_dir(1)
 vld_dir(tempdir())
 vld_dir(tempfile())
 }
-\seealso{
-\code{\link[=vld_string]{vld_string()}}
-
-\code{\link[=dir.exists]{dir.exists()}}
-
-\code{\link[=chk_file]{chk_file()}}
-}
+\concept{chk_family}
