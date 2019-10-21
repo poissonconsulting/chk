@@ -3,55 +3,30 @@
 \name{chk_file}
 \alias{chk_file}
 \alias{vld_file}
-\alias{chk_ext}
-\alias{vld_ext}
-\title{Check/Validate File or Directory Exist}
+\title{Check File or Directory Exist}
 \usage{
 chk_file(x, x_name = NULL)
 
 vld_file(x)
-
-chk_ext(x, ext, x_name = NULL)
-
-vld_ext(x, ext)
 }
 \arguments{
 \item{x}{The object to check.}
 
 \item{x_name}{A string of the name of object x or NULL.}
-
-\item{ext}{A character vector of the permitted file extensions (without the .).}
 }
 \value{
 The \code{chk_} functions throw an informative error if the test fails.
+
 The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks/validates if file or directory exists.
-}
-\details{
-If checking/validating multiple files use \code{chk_all(x, chk_file)}.
+Checks if file or directory exists using
+
+\code{vld_string(x) && file.exists(x) && !dir.exists(x)}
 }
 \section{Functions}{
 \itemize{
-\item \code{chk_file}: Check File
-
-Checks if files exist using \code{vld_file(x)}.
-
 \item \code{vld_file}: Validate File
-
-Checks if files exist using \code{all(file.exists(x) && !dir.exists(x))}.
-
-\item \code{chk_ext}: Check File Extension
-
-Checks extension exist using \code{vld_ext(x)}.
-
-The user may want to use \code{\link[=toupper]{toupper()}} or \code{\link[=tolower]{tolower()}}
-to ensure the case matches.
-
-\item \code{vld_ext}: Validate File Extension
-
-Checks extension using \code{vld_string(x) && vld_subset(tools::file_ext(x), ext)}.
 }}
 
 \examples{
@@ -61,16 +36,9 @@ try(chk_file(tempfile()))
 
 # vld_file
 vld_file(tempfile())
-
-# chk_ext
-try(chk_ext("file1.pdf", "png"))
-
-# vld_ext
-vld_ext("oeu.pdf", "pdf")
-vld_ext(toupper("oeu.pdf"), "PDF")
 }
 \seealso{
-\code{\link[=file.exists]{file.exists()}}
-
-\code{\link[=dir.exists]{dir.exists()}}
+Other chk_files: \code{\link{chk_dir}},
+  \code{\link{chk_ext}}
 }
+\concept{chk_files}
