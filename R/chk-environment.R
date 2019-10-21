@@ -28,7 +28,7 @@ chk_environment <- function(x, x_name = NULL) {
 }
 
 
-#' @describeIn chk_atomic Validate Environment
+#' @describeIn chk_environment Validate Environment
 #'
 #' @export
 #'

@@ -2,9 +2,12 @@
 % Please edit documentation in R/chk-environment.R
 \name{chk_environment}
 \alias{chk_environment}
+\alias{vld_environment}
 \title{Check Environment}
 \usage{
 chk_environment(x, x_name = NULL)
+
+vld_environment(x)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -21,11 +24,22 @@ Checks if environment using
 
 \code{is.environment(x)}.
 }
+\section{Functions}{
+\itemize{
+\item \code{vld_environment}: Validate Environment
+}}
+
 \examples{
 
 # chk_environment
 chk_environment(.GlobalEnv)
 try(chk_environment(1))
+
+# vld_environment
+vld_environment(1)
+vld_environment(list(1))
+vld_environment(.GlobalEnv)
+vld_environment(environment())
 }
 \seealso{
 Other chk_is: \code{\link{chk_atomic}}
