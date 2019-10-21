@@ -40,4 +40,8 @@ vld_dir(1)
 vld_dir(tempdir())
 vld_dir(tempfile())
 }
-\concept{chk_family}
+\seealso{
+Other chk_files: \code{\link{chk_ext}},
+  \code{\link{chk_file}}
+}
+\concept{chk_files}

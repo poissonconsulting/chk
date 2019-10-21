@@ -11,7 +11,7 @@
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
 #'
-#' @family chk_family
+#' @family chk_files
 #' @export
 #'
 #' @examples
