@@ -3,17 +3,11 @@
 \name{chk_date}
 \alias{chk_date}
 \alias{vld_date}
-\alias{chk_datetime}
-\alias{vld_datetime}
-\title{Check/Validate Date or DateTime}
+\title{Check Date}
 \usage{
 chk_date(x, x_name = NULL)
 
 vld_date(x)
-
-chk_datetime(x, x_name = NULL)
-
-vld_datetime(x, x_name = NULL)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -22,30 +16,17 @@ vld_datetime(x, x_name = NULL)
 }
 \value{
 The \code{chk_} functions throw an informative error if the test fails.
+
 The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks/validates if Date or POSIXct.
+Checks non-missing Date scalar using
+
+\code{inherits(x, "Date") && length(x) == 1L && !anyNA(x)}
 }
 \section{Functions}{
 \itemize{
-\item \code{chk_date}: Check Date
-
-Checks if non-missing Date scalar using \code{vld_date()}.
-
 \item \code{vld_date}: Validate Date
-
-Validates non-missing Date scalar using
-\code{inherits(x, "Date") && length(x) == 1L && !anyNA(x)}
-
-\item \code{chk_datetime}: Check DateTime
-
-Checks if non-missing POSIXct scalar using \code{vld_datetime()}.
-
-\item \code{vld_datetime}: Validates DateTime
-
-Validates non-missing POSIXct scalar using
-\code{inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)}
 }}
 
 \examples{
@@ -58,15 +39,8 @@ try(chk_date(1))
 vld_date(Sys.Date())
 vld_date(Sys.time())
 vld_date(1)
-
-# chk_datetime
-chk_datetime(as.POSIXct("2001-01-02"))
-try(chk_datetime(1))
-
-# vld_datetime
-vld_datetime(as.POSIXct("2001-01-02"))
-vld_datetime(Sys.time())
-vld_datetime(1)
-vld_datetime("2001-01-02")
-vld_datetime(c(Sys.time(), Sys.time()))
 }
+\seealso{
+Other chk_scalars: \code{\link{chk_datetime}}
+}
+\concept{chk_scalars}
