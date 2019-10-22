@@ -203,5 +203,6 @@ Function | Code
 :- | :--
 `chk_match(x, regexp = ".+")` | `all(grepl(regexp, x[!is.na(x)]))`
 `chk_named(x)` |  `!is.null(names(x))`
+`chk_unnamed(x)` |  `is.null(names(x))`
 `chk_no_missing(x)` |  `!anyNA(x)`
 `chk_unique(x, incomparables = FALSE)` | `!anyDuplicated(x, incomparables = incomparables)`

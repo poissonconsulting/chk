@@ -1,3 +1,4 @@
+- Added `chk_unnamed()` function.
 - Added `chk_environment()` function.
 - Added `chk_atomic()` function.
 - Changed `chk_match()` so ignores missing values.
