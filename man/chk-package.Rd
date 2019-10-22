@@ -6,6 +6,8 @@
 \alias{chk-package}
 \title{chk: Check User-Supplied Function Arguments}
 \description{
+\if{html}{\figure{logo.png}{options: align='right'}}
+
 For developers to check user-supplied function
     arguments.  It is designed to be simple, fast and customizable.  Error
     messages follow the tidyverse style guide.
@@ -28,6 +30,7 @@ Authors:
 
 Other contributors:
 \itemize{
+  \item Ayla Pearson [contributor]
   \item Poisson Consulting [copyright holder, funder]
 }
 
