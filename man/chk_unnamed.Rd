@@ -39,4 +39,7 @@ try(chk_unnamed(c(x = 1)))
 vld_unnamed(1)
 vld_unnamed(c(x = 1))
 }
+\seealso{
+Other chk_miscellaneous: \code{\link{chk_not_any_na}}
+}
 \concept{chk_miscellaneous}

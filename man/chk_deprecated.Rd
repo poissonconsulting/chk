@@ -11,6 +11,8 @@
 \alias{chk_has}
 \alias{chk_is}
 \alias{vld_is}
+\alias{chk_no_missing}
+\alias{vld_no_missing}
 \alias{chk_on}
 \alias{chk_off}
 \alias{is_chk_on}
@@ -33,6 +35,10 @@ chk_has(x, values, x_name = NULL)
 chk_is(x, class, x_name = NULL)
 
 vld_is(x, class)
+
+chk_no_missing(x, x_name = NULL)
+
+vld_no_missing(x)
 
 chk_on()
 
@@ -138,6 +144,17 @@ Validates inherits from class using
 
 Class should be a string.
 
+\item \code{chk_no_missing}: Check No Missing Values
+
+Checks if no missing values using
+\code{vld_no_missing()}.
+
+\item \code{vld_no_missing}: Validate No Missing Values
+
+Validates no missing values using
+
+\code{!anyNA(x)}.
+
 \item \code{chk_on}: Turns checking on
 
 \lifecycle{soft-deprecated}
@@ -163,5 +180,19 @@ vld_is(1, "numeric")
 vld_is(NA_real_, "numeric")
 vld_is(1, "character")
 vld_is(NULL, "numeric")
+
+# chk_no_missing
+chk_no_missing(1)
+try(chk_no_missing(c(1, NA)))
+
+# vld_no_missing
+vld_no_missing(character(0))
+vld_no_missing(1)
+vld_no_missing(1:10)
+vld_no_missing(NA)
+vld_no_missing(c(1, NA))
+}
+\seealso{
+\code{\link[=anyNA]{anyNA()}}
 }
 \keyword{internal}

@@ -3,8 +3,6 @@
 \name{chk_unique}
 \alias{chk_unique}
 \alias{vld_unique}
-\alias{chk_no_missing}
-\alias{vld_no_missing}
 \alias{chk_named}
 \alias{vld_named}
 \title{Check/Validate Unique}
@@ -12,10 +10,6 @@
 chk_unique(x, incomparables = FALSE, x_name = NULL)
 
 vld_unique(x, incomparables = FALSE)
-
-chk_no_missing(x, x_name = NULL)
-
-vld_no_missing(x)
 
 chk_named(x, x_name = NULL)
 
@@ -49,17 +43,6 @@ Validates if unique using
 
 \code{!anyDuplicated(x, incomparables = incomparables)}.
 
-\item \code{chk_no_missing}: Check No Missing Values
-
-Checks if no missing values using
-\code{vld_no_missing()}.
-
-\item \code{vld_no_missing}: Validate No Missing Values
-
-Validates no missing values using
-
-\code{!anyNA(x)}.
-
 \item \code{chk_named}: Check Named
 
 Checks if is named using
@@ -86,17 +69,6 @@ vld_unique(c(NA, 2))
 vld_unique(c(NA, NA, 2))
 vld_unique(c(NA, NA, 2), incomparables = NA)
 
-# chk_no_missing
-chk_no_missing(1)
-try(chk_no_missing(c(1, NA)))
-
-# vld_no_missing
-vld_no_missing(character(0))
-vld_no_missing(1)
-vld_no_missing(1:10)
-vld_no_missing(NA)
-vld_no_missing(c(1, NA))
-
 # chk_named
 chk_named(c(x = 1))
 try(chk_named(list(1)))
@@ -111,8 +83,6 @@ vld_named(list(1))
 }
 \seealso{
 \code{\link[=anyDuplicated]{anyDuplicated()}}
-
-\code{\link[=anyNA]{anyNA()}}
 
 \code{\link[=is.null]{is.null()}}
 
