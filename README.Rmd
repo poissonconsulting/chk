@@ -67,7 +67,7 @@ Error messages follow the [tidyverse style guide](https://style.tidyverse.org/er
 
 ## Information
 
-For more information see the [Using chk](https://poissonconsulting.github.io/chk/articles/chk.html) vignette.
+For more information see the [Get Started with chk](https://poissonconsulting.github.io/chk/articles/chk.html) vignette.
 
 ## Inspiration
 
