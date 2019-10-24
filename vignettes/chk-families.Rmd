@@ -68,6 +68,7 @@ Function |  Code
 
 Function | Code
 :- | :---
+`chk_setequal(x, values)` | `setequal(x, values)`
 `chk_subset(x, values)` | `all(x %in% values)`
 `chk_superset(x, values)` | `all(values %in% x)`
 

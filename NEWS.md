@@ -1,3 +1,4 @@
+- Added `chk_setequal()` function.
 - Added `chk_not_empty()` function.
 - Soft deprecated `chk_no_missing()` for `chk_not_any_na()`. 
 - Added `params()` a non-exported dummy function with key parameter descriptions that can be inherited by other functions.
