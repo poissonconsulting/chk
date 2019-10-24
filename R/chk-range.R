@@ -2,7 +2,7 @@
 #'
 #' Checks/validates range of non-missing values.
 #'
-#' @inheritParams chk_true
+#' @inheritParams params
 #' @param value A non-missing scalar of a value.
 #' @param range A vector of length 2 of the lower and upper permitted values.
 #' @return The `chk_` functions throw an informative error if the test fails.

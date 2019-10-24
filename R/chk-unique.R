@@ -2,7 +2,7 @@
 #'
 #' Unique checks/validations.
 #'
-#' @inheritParams chk_true
+#' @inheritParams params
 #' @param incomparables A vector of values that cannot be compared.
 #' FALSE means that all values can be compared.
 #' @return The `chk_` functions throw an informative error if the test fails.

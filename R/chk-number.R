@@ -1,6 +1,6 @@
 #' Check Number or Whole Number
 #'
-#' @inheritParams chk_true
+#' @inheritParams params
 #' @return `NULL`, invisibly. Called for the side effect of throwing an error
 #'   if the condition is not met.
 #' @seealso [chk_true()], [chk_range()]

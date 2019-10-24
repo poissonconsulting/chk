@@ -1,6 +1,6 @@
 #' Check Identical, Equal or Equivalent
 #'
-#' @inheritParams chk_true
+#' @inheritParams params
 #' @param y An object to check against.
 #' @param tolerance A non-negative numeric scalar.
 #' @return `NULL`, invisibly. Called for the side effect of throwing an error

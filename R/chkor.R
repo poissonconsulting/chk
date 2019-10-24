@@ -12,7 +12,7 @@ try_msg <- function(x) {
 #' Check OR
 #'
 #' @param ... Multiple `chk_` functions.
-#' @inheritParams chk_true
+#' @inheritParams params
 #'
 #' @return An informative error if the test fails.
 #' @export

@@ -2,7 +2,7 @@
 #'
 #' Deprecated `chk_()` functions.
 #'
-#' @inheritParams chk_true
+#' @inheritParams params
 #' @keywords internal
 #' @name chk_deprecated
 NULL

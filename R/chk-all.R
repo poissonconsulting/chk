@@ -1,6 +1,6 @@
 #' Check All or Check All Identical, Equal or Equivalent
 #'
-#' @inheritParams chk_true
+#' @inheritParams params
 #' @inheritParams chk_unused
 #' @inheritParams chk_identical
 #' @param chk_fun A chk_ function.

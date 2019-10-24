@@ -2,7 +2,7 @@
 #'
 #' Checks/validates if NULL or not NULL.
 #'
-#' @inheritParams chk_true
+#' @inheritParams params
 #' @return The `chk_` functions throw an informative error if the test fails.
 #' The `vld_` functions return a flag indicating whether the test was met.
 #' @name chk_null
