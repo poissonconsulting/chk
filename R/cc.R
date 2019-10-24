@@ -12,7 +12,7 @@
 #' @param brac A string to brac the values by.
 #' @param ellipsis A numeric scalar of the maximum number of values to display
 #' before using an ellipsis.
-#' @param chk A flag specifying whether to check the other arguments.
+#' @inheritParams params
 #'
 #' @return A string.
 #' @export

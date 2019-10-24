@@ -19,7 +19,7 @@ cc(x, conj = ", ", sep = ", ", brac = if (is.character(x) ||
 \item{ellipsis}{A numeric scalar of the maximum number of values to display
 before using an ellipsis.}
 
-\item{chk}{A flag specifying whether to check the other arguments.}
+\item{chk}{A flag specifying whether to check the other parameters.}
 }
 \value{
 A string.

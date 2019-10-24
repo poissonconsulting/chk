@@ -1,3 +1,4 @@
+- Added `params()` a non-exported dummy function with key parameter descriptions that can be inherited by other functions.
 - Soft deprecated `chk_on()`, `chk_off()` and `is_chk_on()`.
 - Added `chk_unnamed()` function.
 - Added `chk_environment()` function.
