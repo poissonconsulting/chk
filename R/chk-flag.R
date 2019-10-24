@@ -3,7 +3,7 @@
 #' @description
 #' Checks if non-missing logical scalar using
 #'
-#' `is.logical(x) && length(x) == 1L && !anyNA(x)`.
+#' `is.logical(x) && length(x) == 1L && !anyNA(x)`
 #'
 #' @inheritParams params
 #' @return
@@ -11,6 +11,7 @@
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
 #'
+#' @family chk_logical
 #' @export
 #'
 #' @examples

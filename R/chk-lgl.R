@@ -11,7 +11,7 @@
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
 #'
-#' @seealso [chk_flag()]
+#' @family chk_logical
 #' @export
 #'
 #' @examples

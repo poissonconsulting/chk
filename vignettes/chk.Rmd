@@ -109,7 +109,7 @@ abort_chk("there %r %n ", "problem director%y%s", n = 2)
 The `chk_` functions (and their `vld_` equivalents) can be divided into the following families.
 For reasons of space, the `x_name = NULL` argument is not shown.
 
-### Check Logical Scalars
+### Check Logical
 
 Function | Code
 :- | :-

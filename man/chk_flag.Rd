@@ -22,7 +22,7 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 \description{
 Checks if non-missing logical scalar using
 
-\code{is.logical(x) && length(x) == 1L && !anyNA(x)}.
+\code{is.logical(x) && length(x) == 1L && !anyNA(x)}
 }
 \section{Functions}{
 \itemize{
@@ -42,3 +42,7 @@ vld_flag(NA)
 vld_flag(1)
 vld_flag(c(TRUE, TRUE))
 }
+\seealso{
+Other chk_logical: \code{\link{chk_lgl}}
+}
+\concept{chk_logical}
