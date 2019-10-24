@@ -1,3 +1,4 @@
+- Soft deprecated `chk_on()`, `chk_off()` and `is_chk_on()`.
 - Added `chk_unnamed()` function.
 - Added `chk_environment()` function.
 - Added `chk_atomic()` function.

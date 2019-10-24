@@ -3,7 +3,7 @@
 #' @description
 #' Checks if logical scalar using
 #'
-#' `is.logical(x) && length(x) == 1L`.
+#' `is.logical(x) && length(x) == 1L`
 #'
 #' @inheritParams chk_flag
 #' @return

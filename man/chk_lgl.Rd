@@ -22,7 +22,7 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 \description{
 Checks if logical scalar using
 
-\code{is.logical(x) && length(x) == 1L}.
+\code{is.logical(x) && length(x) == 1L}
 }
 \section{Functions}{
 \itemize{

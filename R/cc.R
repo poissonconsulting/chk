@@ -12,6 +12,7 @@
 #' @param brac A string to brac the values by.
 #' @param ellipsis A numeric scalar of the maximum number of values to display
 #' before using an ellipsis.
+#' @param chk A flag specifying whether to check the other arguments.
 #'
 #' @return A string.
 #' @export
@@ -24,8 +25,8 @@
 #' cc(as.character(1:2))
 cc <- function(x, conj = ", ", sep = ", ",
                brac = if(is.character(x) || is.factor(x)) "'" else "",
-               ellipsis = 10L) {
-  if(is_chk_on()) {
+               ellipsis = 10L, chk = TRUE) {
+  if(chk) {
     chk_string(conj)
     chk_string(sep)
     chk_s3_class(brac, "character")

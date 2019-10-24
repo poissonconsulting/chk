@@ -11,6 +11,9 @@
 \alias{chk_has}
 \alias{chk_is}
 \alias{vld_is}
+\alias{chk_on}
+\alias{chk_off}
+\alias{is_chk_on}
 \title{Deprecated functions}
 \usage{
 chk_dirs(x)
@@ -30,6 +33,12 @@ chk_has(x, values, x_name = NULL)
 chk_is(x, class, x_name = NULL)
 
 vld_is(x, class)
+
+chk_on()
+
+chk_off()
+
+is_chk_on()
 }
 \arguments{
 \item{x}{The object to check.}
@@ -128,6 +137,18 @@ Validates inherits from class using
 \code{inherits(x, class)}
 
 Class should be a string.
+
+\item \code{chk_on}: Turns checking on
+
+\lifecycle{soft-deprecated}
+
+\item \code{chk_off}: Turns checking off
+
+\lifecycle{soft-deprecated}
+
+\item \code{is_chk_on}: Tests checking on
+
+\lifecycle{soft-deprecated}
 }}
 
 \examples{

@@ -214,3 +214,34 @@ deparse_backtick <- function(x) {
   deprecate_soft("0.0.1.9024", what = "deparse_backtick()", with = "deparse_backtick_chk()")
   deparse_backtick_chk(x)
 }
+
+
+#' @describeIn chk_deprecated Turns checking on
+#'
+#' \lifecycle{soft-deprecated}
+#' 
+#' @export
+chk_on <- function() {
+  deprecate_soft("0.0.1.9024", what = "chk_on()")
+  options(chk.on = TRUE)
+}
+
+#' @describeIn chk_deprecated Turns checking off
+#' 
+#' \lifecycle{soft-deprecated}
+#' 
+#' @export
+chk_off <- function() {
+  deprecate_soft("0.0.1.9024", what = "chk_off()")
+  options(chk.on = FALSE)
+}
+
+#' @describeIn chk_deprecated Tests checking on
+#' 
+#' \lifecycle{soft-deprecated}
+#' 
+#' @export
+is_chk_on <- function() {
+  deprecate_soft("0.0.1.9024", what = "is_chk_on()")
+  getOption("chk.on", TRUE)
+}

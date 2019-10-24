@@ -5,7 +5,7 @@
 \title{Concatenate with Commas}
 \usage{
 cc(x, conj = ", ", sep = ", ", brac = if (is.character(x) ||
-  is.factor(x)) "'" else "", ellipsis = 10L)
+  is.factor(x)) "'" else "", ellipsis = 10L, chk = TRUE)
 }
 \arguments{
 \item{x}{The object to concatenate.}
@@ -18,6 +18,8 @@ cc(x, conj = ", ", sep = ", ", brac = if (is.character(x) ||
 
 \item{ellipsis}{A numeric scalar of the maximum number of values to display
 before using an ellipsis.}
+
+\item{chk}{A flag specifying whether to check the other arguments.}
 }
 \value{
 A string.

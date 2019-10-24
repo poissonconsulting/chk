@@ -24,3 +24,16 @@ test_that("chk_is", {
   expect_chk_error(chk_is(x, "c"), "`x` must inherit from class 'c'")
   expect_chk_error(chk_is(x, "c", x_name = "c"), "C must inherit from class 'c'")
 })
+
+test_that("on", {
+  setup(chk_off())
+  teardown(chk_on())
+  expect_false(is_chk_on())
+  expect_identical(chk_on(), list(chk.on = FALSE))
+  expect_true(is_chk_on())
+  expect_identical(chk_on(), list(chk.on = TRUE))
+  expect_identical(chk_off(), list(chk.on = TRUE))
+  expect_false(is_chk_on())
+  expect_identical(chk_off(), list(chk.on = FALSE))
+})
+

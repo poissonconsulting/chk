@@ -27,10 +27,17 @@ fun_checking <- function(x, ...) {
   x
 }
 
-fun_conditional_checking <- function(x, ...) {
+fun_checking_global <- function(x, ...) {
   if(is_chk_on()) {
     chk_flag(x)
     chk_unused(...)
+  }
+  x
+}
+
+fun_checking_arg <- function(x,  chk = TRUE) {
+  if(chk) {
+    chk_flag(x)
   }
   x
 }
@@ -39,12 +46,16 @@ wrapper_on_fun_checking <- function(x) {
   fun_checking(x)
 }
 
-wrapper_on_fun_conditional_checking <- function(x) {
+wrapper_on_fun_checking_global <- function(x) {
   if(is_chk_on()) {
     chk_off()
     on.exit(chk_on())
   }
-  fun_conditional_checking(x)
+  fun_checking_global(x)
+}
+
+wrapper_on_fun_checking_arg <- function(x, chk = TRUE) {
+  fun_checking_arg(x, chk = chk)
 }
 ```
 
@@ -52,13 +63,15 @@ wrapper_on_fun_conditional_checking <- function(x) {
 chk_on()
 microbenchmark(
   wrapper_on_fun_checking(TRUE),
-  wrapper_on_fun_conditional_checking(TRUE)
+  wrapper_on_fun_checking_global(TRUE),
+  wrapper_on_fun_checking_arg(TRUE)
 )
 
 chk_off()
 microbenchmark(
   wrapper_on_fun_checking(TRUE),
-  wrapper_on_fun_conditional_checking(TRUE)
+  wrapper_on_fun_checking_global(TRUE),
+  wrapper_on_fun_checking_arg(TRUE, chk = FALSE)
 )
 ```
 
