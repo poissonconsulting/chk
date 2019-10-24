@@ -5,8 +5,7 @@
 #'
 #' `is.logical(x) && length(x) == 1L && !anyNA(x)`.
 #'
-#' @param x The object to check.
-#' @param x_name A string of the name of object x or NULL.
+#' @inheritParams params
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
