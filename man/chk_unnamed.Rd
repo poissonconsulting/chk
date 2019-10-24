@@ -40,6 +40,7 @@ vld_unnamed(1)
 vld_unnamed(c(x = 1))
 }
 \seealso{
-Other chk_miscellaneous: \code{\link{chk_not_any_na}}
+Other chk_miscellaneous: \code{\link{chk_not_any_na}},
+  \code{\link{chk_not_empty}}
 }
 \concept{chk_miscellaneous}
