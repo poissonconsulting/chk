@@ -81,6 +81,7 @@ Function | Code
 `chk_atomic(x)` | `is.atomic(x)`
 `chk_list(x)` | `is.list(x)`
 `chk_function(x, formals = NULL)` | `is.function(x) && (is.null(formals) || length(formals(x)) == formals)`
+`chk_numeric(x)` | `is.numeric(x)`
 `chk_whole_numeric(x)` | `is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))`
 
 ## Check NULL

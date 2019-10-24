@@ -4,6 +4,10 @@
 #' Checks if non-missing logical scalar using
 #'
 #' `is.logical(x) && length(x) == 1L && !anyNA(x)`
+#' 
+#' **Good**: `TRUE`, `FALSE`, `NA`.
+#'
+#' **Bad**: `logical(0)`, `c(TRUE, TRUE)`, `"TRUE"`, `1`, `NA_real_`.
 #'
 #' @inheritParams params
 #' @return
@@ -35,8 +39,5 @@ chk_flag <- function(x, x_name = NULL) {
 #'
 #' # vld_flag
 #' vld_flag(TRUE)
-#' vld_flag(FALSE)
-#' vld_flag(NA)
 #' vld_flag(1)
-#' vld_flag(c(TRUE, TRUE))
 vld_flag <- function(x) is.logical(x) && length(x) == 1L && !anyNA(x)
