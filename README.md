@@ -76,8 +76,8 @@ errors](https://rlang.r-lib.org/reference/abort.html) of subclass
 
 ## Information
 
-For more information see the [Get Started with
-chk](https://poissonconsulting.github.io/chk/articles/chk.html)
+For more information see the [Get
+Started](https://poissonconsulting.github.io/chk/articles/chk.html)
 vignette.
 
 ## Inspiration
