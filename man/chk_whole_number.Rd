@@ -22,7 +22,6 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 \description{
 Checks if non-missing integer scalar or double equivalent using
 
-\code{vld_number(x)} and \code{is.integer(x) || vld_true(all.equal(x, trunc(x)))}
 \code{vld_number(x) && (is.integer(x) || vld_true(all.equal(x, trunc(x))))}
 
 \strong{Good}: \code{1}, \code{2L}, \code{1e10}, \code{-Inf}

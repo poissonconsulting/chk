@@ -3,7 +3,6 @@
 #' @description
 #'  Checks if non-missing integer scalar or double equivalent using
 #'
-#' `vld_number(x)` and `is.integer(x) || vld_true(all.equal(x, trunc(x)))`
 #' `vld_number(x) && (is.integer(x) || vld_true(all.equal(x, trunc(x))))`
 #'
 #' **Good**: `1`, `2L`, `1e10`, `-Inf`
