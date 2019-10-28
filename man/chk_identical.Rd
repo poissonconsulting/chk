@@ -2,16 +2,12 @@
 % Please edit documentation in R/chk-identical.R
 \name{chk_identical}
 \alias{chk_identical}
-\alias{chk_equal}
-\alias{chk_equivalent}
-\title{Check Identical, Equal or Equivalent}
+\alias{vld_identical}
+\title{Check Identical}
 \usage{
 chk_identical(x, y, x_name = NULL)
 
-chk_equal(x, y, tolerance = sqrt(.Machine$double.eps), x_name = NULL)
-
-chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps),
-  x_name = NULL)
+vld_identical(x, y)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -19,36 +15,20 @@ chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps),
 \item{y}{An object to check against.}
 
 \item{x_name}{A string of the name of object x or NULL.}
-
-\item{tolerance}{A non-negative numeric scalar.}
 }
 \value{
-\code{NULL}, invisibly. Called for the side effect of throwing an error
-if the condition is not met.
+The \code{chk_} function throws an informative error if the test fails.
+
+The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
-\code{chk_identical()}
-checks if is identical to y using
+Checks if is identical to y using
 
-\code{identical(x, y)}.
-
-\code{chk_equal()}
-checks if is equal (identical within tolerance) to y using
-
-\code{vld_true(all.equal(x, y, tolerance))}.
+\code{identical(x, y)}
 }
 \section{Functions}{
 \itemize{
-\item \code{chk_identical}: Check Identical
-
-\item \code{chk_equal}: Check Equal
-
-\item \code{chk_equivalent}: Check Equivalent
-
-\code{chk_equivalent()}
-checks if is equivalent (equal ignoring attributes) to y using
-
-\code{vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))}.
+\item \code{vld_identical}: Validate Identical
 }}
 
 \examples{
@@ -59,23 +39,10 @@ try(chk_identical(1, 1L))
 chk_identical(c(1, 1), c(1, 1))
 try(chk_identical(1, c(1, 1)))
 
-# chk_equal
-chk_equal(1, 1.00000001)
-try(chk_equal(1, 1.0000001))
-chk_equal(1, 1L)
-chk_equal(c(x = 1), c(x = 1L))
-try(chk_equal(c(x = 1), c(y = 1L)))
-
-# chk_equivalent
-chk_equivalent(1, 1.00000001)
-try(chk_equivalent(1, 1.0000001))
-chk_equivalent(1, 1L)
-chk_equivalent(c(x = 1), c(y = 1))
+vld_identical(1, 1)
 }
 \seealso{
-\code{\link[=chk_all_identical]{chk_all_identical()}}
-
-\code{\link[=vld_true]{vld_true()}}
-
-\code{\link[=all.equal]{all.equal()}}
+Other chk_equal: \code{\link{chk_equal}},
+  \code{\link{chk_equivalent}}
 }
+\concept{chk_equal}
