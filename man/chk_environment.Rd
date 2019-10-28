@@ -22,7 +22,7 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 \description{
 Checks if environment using
 
-\code{is.environment(x)}.
+\code{is.environment(x)}
 }
 \section{Functions}{
 \itemize{

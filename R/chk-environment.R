@@ -3,7 +3,7 @@
 #' @description
 #' Checks if environment using
 #'
-#' `is.environment(x)`.
+#' `is.environment(x)`
 #'
 #' @inheritParams chk_flag
 #' @return
