@@ -1,26 +1,21 @@
-#' Check Number or Whole Number
-#'
-#' @inheritParams chk_true
-#' @return `NULL`, invisibly. Called for the side effect of throwing an error
-#'   if the condition is not met.
-#' @seealso [chk_true()], [chk_range()]
-#' and [chk_whole_numeric()]
-#' @name chk_number
-NULL
-
 #' Check Number
-#'
+#' 
 #' @description
+#' Checks if non-missing numeric scalar using
 #'
-#' `chk_number()`
-#' checks if non-missing numeric scalar using
+#' `is.numeric(x) && length(x) == 1L && !anyNA(x)`
 #'
-#' `is.numeric(x) && length(x) == 1L && !anyNA(x)`.
+#' **Good**: `1`, `2L`, `log(10)`, `-Inf`
 #'
-#' **Good**: `1`, `2L`, `log(10)`, `-Inf`.
+#' **Bad**: `"a"`, `1:3`, `NA_real_`
+#' 
+#' @inheritParams chk_flag
+#' @return 
+#' The `chk_` function throws an informative error if the test fails.
 #'
-#' **Bad**: `"a"`, `1:3`, `NA_real_`.
+#' The `vld_` function returns a flag indicating whether the test was met.
 #'
+#' @family chk_scalars
 #' @export
 #'
 #' @examples
@@ -36,58 +31,14 @@ chk_number <- function(x, x_name = NULL) {
   abort_chk(x_name, " must be a number (non-missing numeric scalar)")
 }
 
+#' @describeIn chk_number Validate Number
+#'
 #' @export
-#' @rdname vld
 #'
 #' @examples
+#' 
+#' # vld_number
 #' vld_number(1.1)
 vld_number <- function(x) {
   is.numeric(x) && length(x) == 1L && !anyNA(x)
-}
-
-#' Check Whole Number
-#'
-#' @description
-#'
-#' `chk_whole_number()`
-#'  checks if non-missing integer scalar or double equivalent using
-#'
-#' `vld_number(x)` and `is.integer(x) || vld_true(all.equal(x, trunc(x)))`.
-#'
-#' **Good**: `1`, `2L`, `1e10`, `-Inf`.
-#'
-#' **Bad**: `"a"`, `1:3`, `NA_integer_`, `log(10)`.
-#'
-#' The [chk_whole_numeric()] function checks if
-#' integer vector of any length or double equivalent.
-#'
-#' @export
-#' @rdname chk_number
-#'
-#' @examples
-#'
-#' # chk_whole_number
-#' chk_whole_number(2)
-#' try(chk_whole_number(1.1))
-chk_whole_number <- function(x, x_name = NULL) {
-  if(vld_whole_number(x)) {
-    return(invisible())
-  }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(
-    x_name,
-    " must be a whole number (non-missing integer scalar or double equivalent)"
-  )
-}
-
-#' @export
-#' @rdname vld
-#'
-#' @export
-#'
-#' @examples
-#' vld_whole_number(2)
-vld_whole_number <- function(x) {
-  vld_number(x) &&
-    (is.integer(x) || vld_true(all.equal(x, trunc(x))))
 }

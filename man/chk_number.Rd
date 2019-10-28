@@ -2,12 +2,12 @@
 % Please edit documentation in R/chk-number.R
 \name{chk_number}
 \alias{chk_number}
-\alias{chk_whole_number}
-\title{Check Number or Whole Number}
+\alias{vld_number}
+\title{Check Number}
 \usage{
 chk_number(x, x_name = NULL)
 
-chk_whole_number(x, x_name = NULL)
+vld_number(x)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -15,42 +15,35 @@ chk_whole_number(x, x_name = NULL)
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-\code{NULL}, invisibly. Called for the side effect of throwing an error
-if the condition is not met.
+The \code{chk_} function throws an informative error if the test fails.
+
+The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
-\code{chk_number()}
-checks if non-missing numeric scalar using
+Checks if non-missing numeric scalar using
 
-\code{is.numeric(x) && length(x) == 1L && !anyNA(x)}.
+\code{is.numeric(x) && length(x) == 1L && !anyNA(x)}
 
-\strong{Good}: \code{1}, \code{2L}, \code{log(10)}, \code{-Inf}.
+\strong{Good}: \code{1}, \code{2L}, \code{log(10)}, \code{-Inf}
 
-\strong{Bad}: \code{"a"}, \code{1:3}, \code{NA_real_}.
-
-\code{chk_whole_number()}
-checks if non-missing integer scalar or double equivalent using
-
-\code{vld_number(x)} and \code{is.integer(x) || vld_true(all.equal(x, trunc(x)))}.
-
-\strong{Good}: \code{1}, \code{2L}, \code{1e10}, \code{-Inf}.
-
-\strong{Bad}: \code{"a"}, \code{1:3}, \code{NA_integer_}, \code{log(10)}.
-
-The \code{\link[=chk_whole_numeric]{chk_whole_numeric()}} function checks if
-integer vector of any length or double equivalent.
+\strong{Bad}: \code{"a"}, \code{1:3}, \code{NA_real_}
 }
+\section{Functions}{
+\itemize{
+\item \code{vld_number}: Validate Number
+}}
+
 \examples{
 
 # chk_number
 chk_number(1.1)
 try(chk_number(TRUE))
 
-# chk_whole_number
-chk_whole_number(2)
-try(chk_whole_number(1.1))
+# vld_number
+vld_number(1.1)
 }
 \seealso{
-\code{\link[=chk_true]{chk_true()}}, \code{\link[=chk_range]{chk_range()}}
-and \code{\link[=chk_whole_numeric]{chk_whole_numeric()}}
+Other chk_scalars: \code{\link{chk_datetime}},
+  \code{\link{chk_date}}, \code{\link{chk_whole_number}}
 }
+\concept{chk_scalars}
