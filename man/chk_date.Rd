@@ -41,6 +41,7 @@ vld_date(Sys.time())
 vld_date(1)
 }
 \seealso{
-Other chk_scalars: \code{\link{chk_datetime}}
+Other chk_scalars: \code{\link{chk_datetime}},
+  \code{\link{chk_number}}, \code{\link{chk_whole_number}}
 }
 \concept{chk_scalars}
