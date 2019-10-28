@@ -3,17 +3,11 @@
 \name{chk_null}
 \alias{chk_null}
 \alias{vld_null}
-\alias{chk_not_null}
-\alias{vld_not_null}
-\title{Check/Validate NULL or not NULL}
+\title{Check NULL}
 \usage{
 chk_null(x, x_name = NULL)
 
 vld_null(x)
-
-chk_not_null(x, x_name = NULL)
-
-vld_not_null(x)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -22,34 +16,17 @@ vld_not_null(x)
 }
 \value{
 The \code{chk_} functions throw an informative error if the test fails.
+
 The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks/validates if NULL or not NULL.
+Checks if NULL using
+
+\code{is.null(x)}
 }
 \section{Functions}{
 \itemize{
-\item \code{chk_null}: Validate NULL
-
-Checks if NULL using
-\code{vld_null()}.
-
 \item \code{vld_null}: Validate NULL
-
-Validates if NULL using
-
-\code{is.null(x)}.
-
-\item \code{chk_not_null}: Check Not NULL
-
-Checks if not NULL using
-\code{vld_not_null()}.
-
-\item \code{vld_not_null}: Validate Not NULL
-
-Validates if not NULL using
-
-\code{!is.null(x)}.
 }}
 
 \examples{
@@ -61,15 +38,8 @@ chk_null(NULL)
 # vld_null
 vld_null(NULL)
 vld_null(1)
-
-# chk_not_null
-try(chk_not_null(NULL))
-chk_not_null(1)
-
-# vld_not_null
-vld_not_null(1)
-vld_not_null(NULL)
 }
 \seealso{
-\code{\link[=is.null]{is.null()}}
+Other chk_null: \code{\link{chk_not_null}}
 }
+\concept{chk_null}
