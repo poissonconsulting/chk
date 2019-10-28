@@ -23,7 +23,6 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 Checks if not NULL using
 
 \code{!is.null(x)}
-\code{is.null(x)}
 }
 \section{Functions}{
 \itemize{

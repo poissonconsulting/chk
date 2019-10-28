@@ -4,7 +4,6 @@
 #' Checks if not NULL using
 #'
 #' `!is.null(x)`
-#' `is.null(x)`
 #'
 #' @inheritParams chk_flag 
 #' @return 
