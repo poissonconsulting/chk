@@ -22,7 +22,7 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 \description{
 Checks if logical scalar using
 
-\code{is.logical(x) && length(x) == 1L}.
+\code{is.logical(x) && length(x) == 1L}
 }
 \section{Functions}{
 \itemize{
@@ -43,5 +43,7 @@ vld_lgl(1)
 vld_lgl(c(TRUE, TRUE))
 }
 \seealso{
-\code{\link[=chk_flag]{chk_flag()}}
+Other chk_logicalscalars: \code{\link{chk_false}},
+  \code{\link{chk_flag}}, \code{\link{chk_true}}
 }
+\concept{chk_logicalscalars}

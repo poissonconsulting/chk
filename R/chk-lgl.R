@@ -3,7 +3,7 @@
 #' @description
 #' Checks if logical scalar using
 #'
-#' `is.logical(x) && length(x) == 1L`.
+#' `is.logical(x) && length(x) == 1L`
 #'
 #' @inheritParams chk_flag
 #' @return
@@ -11,7 +11,7 @@
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
 #'
-#' @seealso [chk_flag()]
+#' @family chk_logicalscalars
 #' @export
 #'
 #' @examples
@@ -26,7 +26,6 @@ chk_lgl <- function(x, x_name = NULL) {
   if(is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
   abort_chk(x_name, " must be a logical scalar (TRUE, FALSE or NA)")
 }
-
 
 #' @describeIn chk_lgl Validate Logical Scalar
 #'

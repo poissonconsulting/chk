@@ -3,17 +3,11 @@
 \name{chk_true}
 \alias{chk_true}
 \alias{vld_true}
-\alias{chk_false}
-\alias{vld_false}
-\title{Check/Validate TRUE, FALSE, Flag or Logical Scalar}
+\title{Check TRUE}
 \usage{
 chk_true(x, x_name = NULL)
 
 vld_true(x)
-
-chk_false(x, x_name = NULL)
-
-vld_false(x)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -22,35 +16,17 @@ vld_false(x)
 }
 \value{
 The \code{chk_} functions throw an informative error if the test fails.
+
 The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks/validates if TRUE, FALSE, a flag (TRUE or FALSE)
-or a lgl (TRUE, FALSE, or NA).
+Checks if TRUE using
+
+\code{is.logical(x) && length(x) == 1L && !anyNA(x) && x}
 }
 \section{Functions}{
 \itemize{
-\item \code{chk_true}: Check TRUE
-
-Checks if TRUE using
-\code{vld_true(x)}.
-
 \item \code{vld_true}: Validate TRUE
-
-Validates if TRUE using
-
-\code{is.logical(x) && length(x) == 1L && !anyNA(x) && x}.
-
-\item \code{chk_false}: Check FALSE
-
-Checks if FALSE using
-\code{vld_false(x)}.
-
-\item \code{vld_false}: Validate FALSE
-
-Validates if FALSE using
-
-\code{is.logical(x) && length(x) == 1L && !anyNA(x) && x}.
 }}
 
 \examples{
@@ -63,17 +39,11 @@ try(chk_true(1))
 vld_true(TRUE)
 vld_true(FALSE)
 vld_true(NA)
-vld_false(0)
+vld_true(0)
 vld_true(c(TRUE, TRUE))
-
-# chk_false
-chk_false(FALSE)
-try(chk_false(0))
-
-# vld_false
-vld_false(TRUE)
-vld_false(FALSE)
-vld_false(NA)
-vld_false(0)
-vld_false(c(FALSE, FALSE))
 }
+\seealso{
+Other chk_logicalscalars: \code{\link{chk_false}},
+  \code{\link{chk_flag}}, \code{\link{chk_lgl}}
+}
+\concept{chk_logicalscalars}

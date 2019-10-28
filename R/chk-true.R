@@ -1,20 +1,17 @@
-#' Check/Validate TRUE, FALSE, Flag or Logical Scalar
+#' Check TRUE
 #'
-#' Checks/validates if TRUE, FALSE, a flag (TRUE or FALSE)
-#' or a lgl (TRUE, FALSE, or NA).
-#'
-#' @param x The object to check.
-#' @param x_name A string of the name of object x or NULL.
-#' @return The `chk_` functions throw an informative error if the test fails.
-#' The `vld_` functions return a flag indicating whether the test was met.
-#' @name chk_true
-NULL
-
-#' @describeIn chk_true Check TRUE
-#'
+#' @description 
 #' Checks if TRUE using
-#' `vld_true(x)`.
 #'
+#' `is.logical(x) && length(x) == 1L && !anyNA(x) && x`
+#'
+#' @inheritParams  chk_flag
+#' @return 
+#' The `chk_` functions throw an informative error if the test fails.
+#' 
+#' The `vld_` functions return a flag indicating whether the test was met.
+#' 
+#' @family chk_logicalscalars
 #' @export
 #'
 #' @examples
@@ -32,10 +29,6 @@ chk_true <- function(x, x_name = NULL) {
 
 #' @describeIn chk_true Validate TRUE
 #'
-#' Validates if TRUE using
-#'
-#' `is.logical(x) && length(x) == 1L && !anyNA(x) && x`.
-#'
 #' @export
 #'
 #' @examples
@@ -44,44 +37,7 @@ chk_true <- function(x, x_name = NULL) {
 #' vld_true(TRUE)
 #' vld_true(FALSE)
 #' vld_true(NA)
-#' vld_false(0)
+#' vld_true(0)
 #' vld_true(c(TRUE, TRUE))
 vld_true <- function(x) is.logical(x) && length(x) == 1L && !anyNA(x) && x
 
-#' @describeIn chk_true Check FALSE
-#'
-#' Checks if FALSE using
-#' `vld_false(x)`.
-#'
-#' @export
-#'
-#' @examples
-#'
-#' # chk_false
-#' chk_false(FALSE)
-#' try(chk_false(0))
-chk_false <- function(x, x_name = NULL) {
-  if(vld_false(x)) {
-    return(invisible())
-  }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be FALSE")
-}
-
-#' @describeIn chk_true Validate FALSE
-#'
-#' Validates if FALSE using
-#'
-#' `is.logical(x) && length(x) == 1L && !anyNA(x) && x`.
-#'
-#' @export
-#'
-#' @examples
-#'
-#' # vld_false
-#' vld_false(TRUE)
-#' vld_false(FALSE)
-#' vld_false(NA)
-#' vld_false(0)
-#' vld_false(c(FALSE, FALSE))
-vld_false <- function(x) is.logical(x) && length(x) == 1L && !anyNA(x) && !x
