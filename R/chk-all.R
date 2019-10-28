@@ -1,24 +1,20 @@
-#' Check All or Check All Identical, Equal or Equivalent
+#' Check All
+#' 
+#' @description 
+#' Checks all elements using
 #'
-#' @inheritParams chk_true
+#' `all(vapply(x, chk_fun, TRUE, ...))`
+#' 
+#' @inheritParams chk_flag
 #' @inheritParams chk_unused
-#' @inheritParams chk_identical
+#' @inheritParams vld
 #' @param chk_fun A chk_ function.
-#' @return `NULL`, invisibly. Called for the side effect of throwing an error
-#'   if the condition is not met.
-#' @seealso [chk_identical()].
-#' @name chk_all
-NULL
-
-#' @describeIn chk_all Check All
+#' @return 
+#' The `chk_` function throws an informative error if the test fails.
 #'
-#' @description
-#'
-#' `chk_all()`
-#' checks all elements using
-#'
-#' `all(vapply(x, chk_fun, TRUE, ...))`.
-#'
+#' The `vld_` function returns a flag indicating whether the test was met.
+#' 
+#' @family chk_all
 #' @export
 #'
 #' @examples
@@ -44,12 +40,13 @@ chk_all <- function(x, chk_fun, ..., x_name = NULL) {
   invisible()
 }
 
-#' @export
-#' @rdname vld
+#' @describeIn chk_all Validate All
 #'
 #' @export
 #'
 #' @examples
+#' 
+#' # vld_all
 #' vld_all(c(TRUE, NA), vld_lgl)
 vld_all <- function(x, vld_fun, ...) {
   if(is.null(x)) {
@@ -62,119 +59,4 @@ vld_all <- function(x, vld_fun, ...) {
   args$FUN.VALUE <- TRUE
 
   all(do.call("vapply", args))
-}
-
-#' @describeIn chk_all Check All Identical
-#'
-#' @description
-#'
-#' `chk_all_identical()`
-#' checks all elements in x identical using
-#'
-#' `all(vapply(x, chk_identical, TRUE, y = x[[1]]))`.
-#'
-#' **Good**: `c(1, 1.00000001)`, `list(1, 1)`.
-#'
-#' **Bad**: `c(1, 1.0000001)`, `list(1, NA)`.
-#'
-#' @export
-#'
-#' @examples
-#'
-#' # chk_all_identical
-#' chk_all_identical(c(1, 1))
-#' try(chk_all_identical(c(1, 1.1)))
-chk_all_identical <- function(x, x_name = NULL) {
-  if(vld_all_identical(x)) {
-    return(invisible())
-  }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must have identical elements")
-}
-
-#' @export
-#' @rdname vld
-#'
-#' @export
-#'
-#' @examples
-#' vld_all_identical(c(1, 1))
-vld_all_identical <- function(x) {
-  length(x) < 2L || all(vapply(x, vld_identical, TRUE, y = x[[1]]))
-}
-
-#' @describeIn chk_all Check All Equal
-#'
-#'
-#' @description
-#'
-#' `chk_all_equal()`
-#' checks all elements in x equal using
-#'
-#' `all(vapply(x, chk_equal, TRUE, y = x[[1]]), tolerance = tolerance)`.
-#'
-#' @export
-#'
-#' @examples
-#'
-#' # chk_all_equal
-#' chk_all_equal(c(1, 1.00000001))
-#' try(chk_all_equal(c(1, 1.0000001)))
-#' chk_all_equal(list(c(x = 1), c(x = 1)))
-#' try(chk_all_equal(list(c(x = 1), c(y = 1))))
-chk_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL) {
-  if(vld_all_equal(x, tolerance = tolerance)) {
-    return(invisible())
-  }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must have equal elements")
-}
-
-#' @export
-#' @rdname vld
-#'
-#' @export
-#'
-#' @examples
-#' vld_all_equal(c(1, 1L))
-vld_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps)) {
-  length(x) < 2L || all(vapply(x, vld_equal, TRUE, y = x[[1]], tolerance = tolerance))
-}
-
-#' @describeIn chk_all Check All Equivalent
-#'
-#'
-#' @description
-#'
-#' `chk_all_equivalent()`
-#' checks all elements in x equivalent using
-#'
-#' `all(vapply(x, chk_equivalent, TRUE, y = x[[1]]), tolerance = tolerance)`.
-#'
-#' @export
-#'
-#' @examples
-#'
-#' # chk_all_equivalent
-#' chk_all_equivalent(c(1, 1.00000001))
-#' try(chk_all_equivalent(c(1, 1.0000001)))
-#' chk_all_equivalent(list(c(x = 1), c(x = 1)))
-#' chk_all_equivalent(list(c(x = 1), c(y = 1)))
-chk_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL) {
-  if(vld_all_equivalent(x, tolerance = tolerance)) {
-    return(invisible())
-  }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must have equivalent elements")
-}
-
-#' @export
-#' @rdname vld
-#'
-#' @export
-#'
-#' @examples
-#' vld_all_equivalent(c(x = 1, y = 1))
-vld_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps)) {
-  length(x) < 2L || all(vapply(x, vld_equivalent, TRUE, y = x[[1]], tolerance = tolerance))
 }
