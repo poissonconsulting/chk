@@ -2,10 +2,7 @@
 % Please edit documentation in R/params.R
 \name{params}
 \alias{params}
-\title{Parameter Descriptions}
-\usage{
-params(x, x_name = NULL, chk = TRUE)
-}
+\title{Parameter Descriptions for chk Functions}
 \arguments{
 \item{x}{The object to check.}
 
@@ -14,6 +11,6 @@ params(x, x_name = NULL, chk = TRUE)
 \item{chk}{A flag specifying whether to check the other parameters.}
 }
 \description{
-A non-exported dummy function with key parameter descriptions
-that can be inherited by other functions.
+Parameter Descriptions for chk Functions
 }
+\keyword{internal}
