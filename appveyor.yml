@@ -29,8 +29,8 @@ on_finish: Rscript -e "tic::after_script()"
 
 # Adapt as necessary starting from here
 
-cache:
-  - C:\RLibrary
+#cache:
+#  - C:\RLibrary
 
 environment:
   NOT_CRAN: true
