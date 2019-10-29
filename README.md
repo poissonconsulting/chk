@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# chk
+# chk <img src="man/figures/logo.png" align="right" />
 
 <!-- badges: start -->
 
@@ -76,8 +76,8 @@ errors](https://rlang.r-lib.org/reference/abort.html) of subclass
 
 ## Information
 
-For more information see the [Using
-chk](https://poissonconsulting.github.io/chk/articles/chk.html)
+For more information see the [Get
+Started](https://poissonconsulting.github.io/chk/articles/chk.html)
 vignette.
 
 ## Inspiration

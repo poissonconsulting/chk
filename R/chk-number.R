@@ -1,5 +1,5 @@
 #' Check Number
-#' 
+#'
 #' @description
 #' Checks if non-missing numeric scalar using
 #'
@@ -8,9 +8,9 @@
 #' **Good**: `1`, `2L`, `log(10)`, `-Inf`
 #'
 #' **Bad**: `"a"`, `1:3`, `NA_real_`
-#' 
+#'
 #' @inheritParams chk_flag
-#' @return 
+#' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
@@ -36,7 +36,7 @@ chk_number <- function(x, x_name = NULL) {
 #' @export
 #'
 #' @examples
-#' 
+#'
 #' # vld_number
 #' vld_number(1.1)
 vld_number <- function(x) {

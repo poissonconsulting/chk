@@ -24,3 +24,31 @@ test_that("chk_is", {
   expect_chk_error(chk_is(x, "c"), "`x` must inherit from class 'c'")
   expect_chk_error(chk_is(x, "c", x_name = "c"), "C must inherit from class 'c'")
 })
+
+test_that("on", {
+  setup(chk_off())
+  teardown(chk_on())
+  expect_false(is_chk_on())
+  expect_identical(chk_on(), list(chk.on = FALSE))
+  expect_true(is_chk_on())
+  expect_identical(chk_on(), list(chk.on = TRUE))
+  expect_identical(chk_off(), list(chk.on = TRUE))
+  expect_false(is_chk_on())
+  expect_identical(chk_off(), list(chk.on = FALSE))
+})
+
+test_that("vld_no_missing", {
+  expect_true(vld_no_missing(1))
+  expect_true(vld_no_missing(integer(0)))
+  expect_false(vld_no_missing(NA))
+  expect_false(vld_no_missing(c(NA, 1)))
+})
+
+test_that("chk_no_missing", {
+  expect_null(chk_no_missing(1))
+  expect_invisible(chk_no_missing(1))
+  expect_chk_error(chk_no_missing(NA), "^`NA` must not have missing values[.]$")
+  expect_chk_error(chk_no_missing(NA, x_name = "1"), "^1 must not have missing values[.]$")
+})
+
+

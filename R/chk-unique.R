@@ -2,7 +2,7 @@
 #'
 #' Unique checks/validations.
 #'
-#' @inheritParams chk_true
+#' @inheritParams params
 #' @param incomparables A vector of values that cannot be compared.
 #' FALSE means that all values can be compared.
 #' @return The `chk_` functions throw an informative error if the test fails.
@@ -52,46 +52,6 @@ chk_unique <- function(x, incomparables = FALSE, x_name = NULL) {
 vld_unique <- function(x, incomparables = FALSE) {
   !.anyDuplicated(x, incomparables = incomparables)
 }
-
-#' @describeIn chk_unique Check No Missing Values
-#'
-#' Checks if no missing values using
-#' `vld_no_missing()`.
-#'
-#' @export
-#'
-#' @examples
-#'
-#' # chk_no_missing
-#' chk_no_missing(1)
-#' try(chk_no_missing(c(1, NA)))
-chk_no_missing <- function(x, x_name = NULL) {
-  if(vld_no_missing(x)) {
-    return(invisible())
-  }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must not have missing values")
-}
-
-#' @describeIn chk_unique Validate No Missing Values
-#'
-#' Validates no missing values using
-#'
-#' `!anyNA(x)`.
-#'
-#' @seealso [anyNA()]
-#'
-#' @export
-#'
-#' @examples
-#'
-#' # vld_no_missing
-#' vld_no_missing(character(0))
-#' vld_no_missing(1)
-#' vld_no_missing(1:10)
-#' vld_no_missing(NA)
-#' vld_no_missing(c(1, NA))
-vld_no_missing <- function(x) !anyNA(x)
 
 #' @describeIn chk_unique Check Named
 #'

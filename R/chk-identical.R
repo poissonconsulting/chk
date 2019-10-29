@@ -7,7 +7,7 @@
 #'
 #' @inheritParams chk_flag
 #' @param y An object to check against.
-#' @return 
+#' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
@@ -37,6 +37,6 @@ chk_identical <- function(x, y, x_name = NULL) {
 #' @export
 #'
 #' @examples
-#' 
+#'
 #' vld_identical(1, 1)
 vld_identical <- function(x, y) identical(x, y)

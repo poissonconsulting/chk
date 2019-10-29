@@ -23,6 +23,10 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 Checks if non-missing logical scalar using
 
 \code{is.logical(x) && length(x) == 1L && !anyNA(x)}
+
+\strong{Good}: \code{TRUE}, \code{FALSE}, \code{NA}.
+
+\strong{Bad}: \code{logical(0)}, \code{c(TRUE, TRUE)}, \code{"TRUE"}, \code{1}, \code{NA_real_}.
 }
 \section{Functions}{
 \itemize{
@@ -37,13 +41,9 @@ try(vld_flag(1))
 
 # vld_flag
 vld_flag(TRUE)
-vld_flag(FALSE)
-vld_flag(NA)
 vld_flag(1)
-vld_flag(c(TRUE, TRUE))
 }
 \seealso{
-Other chk_logicalscalars: \code{\link{chk_false}},
-  \code{\link{chk_lgl}}, \code{\link{chk_true}}
+Other chk_logical: \code{\link{chk_lgl}}
 }
-\concept{chk_logicalscalars}
+\concept{chk_logical}

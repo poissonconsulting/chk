@@ -1,16 +1,16 @@
 #' Check NULL
 #'
-#' @description 
+#' @description
 #' Checks if NULL using
 #'
 #' `is.null(x)`
 #'
 #' @inheritParams chk_flag
-#' @return 
+#' @return
 #' The `chk_` functions throw an informative error if the test fails.
-#' 
+#'
 #' The `vld_` functions return a flag indicating whether the test was met.
-#' 
+#'
 #' @family chk_null
 #' @export
 #'

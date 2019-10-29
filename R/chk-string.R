@@ -2,7 +2,7 @@
 #'
 #' Checks/validates if string or matches a regular expression.
 #'
-#' @inheritParams chk_true
+#' @inheritParams params
 #' @param regexp A string of a regular expression.
 #' @return The `chk_` functions throw an informative error if the test fails.
 #' The `vld_` functions return a flag indicating whether the test was met.

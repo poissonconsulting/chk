@@ -5,7 +5,7 @@
 #'
 #' `vld_string(x) && dir.exists(x)`
 #' 
-#' @inheritParams chk_flag
+#' @inheritParams params
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'

@@ -1,19 +1,19 @@
 #' Check All
-#' 
-#' @description 
+#'
+#' @description
 #' Checks all elements using
 #'
 #' `all(vapply(x, chk_fun, TRUE, ...))`
-#' 
+#'
 #' @inheritParams chk_flag
 #' @inheritParams chk_unused
 #' @inheritParams vld
 #' @param chk_fun A chk_ function.
-#' @return 
+#' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
-#' 
+#'
 #' @family chk_all
 #' @export
 #'
@@ -45,7 +45,7 @@ chk_all <- function(x, chk_fun, ..., x_name = NULL) {
 #' @export
 #'
 #' @examples
-#' 
+#'
 #' # vld_all
 #' vld_all(c(TRUE, NA), vld_lgl)
 vld_all <- function(x, vld_fun, ...) {

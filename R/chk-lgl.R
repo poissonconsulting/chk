@@ -5,13 +5,13 @@
 #'
 #' `is.logical(x) && length(x) == 1L`
 #'
-#' @inheritParams chk_flag
+#' @inheritParams params
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
 #'
-#' @family chk_logicalscalars
+#' @family chk_logical
 #' @export
 #'
 #' @examples

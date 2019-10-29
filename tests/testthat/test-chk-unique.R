@@ -51,20 +51,6 @@ test_that("chk_unique data frame", {
   expect_chk_error(chk_unique(data), "^`data` must be unique[.]$")
 })
 
-test_that("vld_no_missing", {
-  expect_true(vld_no_missing(1))
-  expect_true(vld_no_missing(integer(0)))
-  expect_false(vld_no_missing(NA))
-  expect_false(vld_no_missing(c(NA, 1)))
-})
-
-test_that("chk_no_missing", {
-  expect_null(chk_no_missing(1))
-  expect_invisible(chk_no_missing(1))
-  expect_chk_error(chk_no_missing(NA), "^`NA` must not have missing values[.]$")
-  expect_chk_error(chk_no_missing(NA, x_name = "1"), "^1 must not have missing values[.]$")
-})
-
 test_that("vld_named", {
   expect_false(vld_named(list()))
   expect_false(vld_named(list(1)))
