@@ -30,7 +30,7 @@ Authors:
 
 Other contributors:
 \itemize{
-  \item Ayla Pearson [contributor]
+  \item Ayla Pearson (0000-0001-7388-1222) [contributor]
   \item Poisson Consulting [copyright holder, funder]
 }
 
