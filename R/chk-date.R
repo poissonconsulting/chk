@@ -1,19 +1,19 @@
-#' Check Date 
+#' Check Date
 #'
-#' @description 
+#' @description
 #' Checks non-missing Date scalar using
-#' 
+#'
 #' `inherits(x, "Date") && length(x) == 1L && !anyNA(x)`
 #'
 #' @inheritParams params
-#' @return 
+#' @return
 #' The `chk_` functions throw an informative error if the test fails.
-#' 
+#'
 #' The `vld_` functions return a flag indicating whether the test was met.
 #'
 #' @family chk_scalars
 #' @export
-#' 
+#'
 #' @examples
 #'
 #' # chk_date

@@ -4,7 +4,7 @@
 #' Checks if equal set using
 #'
 #' `setequal(x, values)`
-#' 
+#'
 #' @param values A vector of the permitted values.
 #' @inheritParams params
 #' @return

@@ -4,18 +4,18 @@
 #' Checks all elements in x identical using
 #'
 #' `length(x) < 2L || all(vapply(x, vld_identical, TRUE, y = x[[1]]))`
-#' 
+#'
 #'
 #' **Good**: `c(1, 1.00000001)`, `list(1, 1)`
 #'
 #' **Bad**: `c(1, 1.0000001)`, `list(1, NA)`
-#' 
+#'
 #' @inheritParams chk_flag
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
-#' 
+#'
 #' @family chk_all
 #' @export
 #'
@@ -37,7 +37,7 @@ chk_all_identical <- function(x, x_name = NULL) {
 #' @export
 #'
 #' @examples
-#' 
+#'
 #' # vld_all_identical
 #' vld_all_identical(c(1, 1))
 vld_all_identical <- function(x) {

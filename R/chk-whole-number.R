@@ -10,7 +10,7 @@
 #' **Bad**: `"a"`, `1:3`, `NA_integer_`, `log(10)`
 #'
 #' @inheritParams chk_flag
-#' @return 
+#' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
@@ -39,7 +39,7 @@ chk_whole_number <- function(x, x_name = NULL) {
 #' @export
 #'
 #' @examples
-#' 
+#'
 #' # vld_whole_number
 #' vld_whole_number(2)
 vld_whole_number <- function(x) {

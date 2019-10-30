@@ -30,12 +30,12 @@ chk_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NUL
   abort_chk(x_name, " must have equal elements")
 }
 
-#' @describeIn chk_all_equal Validate All Equal 
+#' @describeIn chk_all_equal Validate All Equal
 #'
 #' @export
 #'
 #' @examples
-#' 
+#'
 #' # vld_all_equal
 #' vld_all_equal(c(1, 1L))
 vld_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps)) {

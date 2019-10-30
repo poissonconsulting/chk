@@ -4,7 +4,7 @@
 #' Checks if directory exists using
 #'
 #' `vld_string(x) && dir.exists(x)`
-#' 
+#'
 #' @inheritParams params
 #' @return
 #' The `chk_` function throws an informative error if the test fails.

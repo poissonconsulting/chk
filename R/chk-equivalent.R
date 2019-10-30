@@ -1,6 +1,6 @@
 #' Check Equivalent
-#' 
-#' @description 
+#'
+#' @description
 #' checks if is equivalent (equal ignoring attributes) to y using
 #'
 #' `vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))`
@@ -8,7 +8,7 @@
 #' @inheritParams chk_flag
 #' @param y An object to check against.
 #' @param tolerance A non-negative numeric scalar.
-#' @return 
+#' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
@@ -39,7 +39,7 @@ chk_equivalent <- function(x, y, tolerance = sqrt(.Machine$double.eps),
 #' @export
 #'
 #' @examples
-#' 
+#'
 #' vld_equivalent(c(x = 1), c(y = 1L))
 vld_equivalent <- function(x, y, tolerance = sqrt(.Machine$double.eps)) {
   vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))

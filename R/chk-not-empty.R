@@ -4,7 +4,7 @@
 #' Checks if not empty using
 #'
 #' `length(x) != 0L`
-#' 
+#'
 #' **Good**: `1`, `1:2`, `NA`, `matrix(1:3)`, `list(1)`, `data.frame(x = 1)`.
 #'
 #' **Bad**: `NULL`, `logical(0)`, `list()`, `data.frame()`.

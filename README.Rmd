@@ -21,9 +21,9 @@ knitr::opts_chunk$set(
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/chk?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/chk)
 [![Codecov test coverage](https://codecov.io/gh/poissonconsulting/chk/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/chk?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-<!-- [![Tinyverse status](https://tinyverse.netlify.com/badge/chk)](https://CRAN.R-project.org/package=chk) -->
-<!-- [![CRAN status](https://www.r-pkg.org/badges/version/chk)](https://cran.r-project.org/package=chk) -->
-<!-- ![CRAN downloads](https://cranlogs.r-pkg.org/badges/chk) -->
+[![Tinyverse status](https://tinyverse.netlify.com/badge/chk)](https://CRAN.R-project.org/package=chk)
+[![CRAN status](https://www.r-pkg.org/badges/version/chk)](https://cran.r-project.org/package=chk)
+![CRAN downloads](https://cranlogs.r-pkg.org/badges/chk)
 <!-- badges: end -->
 
 `chk` is an R package for developers to check user-supplied function arguments.
@@ -60,7 +60,7 @@ chk_flag(y)
 chkor(chk_flag(y), chk_number(y))
 
 data <- data.frame(x = 1:2)
-chk_range(nrow(data), c(3,8))
+chk_range(nrow(data), c(3, 8))
 ```
 
 Error messages follow the [tidyverse style guide](https://style.tidyverse.org/error-messages.html) while the errors themselves are [rlang errors](https://rlang.r-lib.org/reference/abort.html) of subclass `chk_error`.

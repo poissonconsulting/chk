@@ -78,9 +78,9 @@ chk_length <- function(x, length = 1L, x_name = NULL) {
 #' @export
 chk_count <- function(x, x_name = NULL) {
   .Deprecated("chk_whole_number(x); chk_gte(x)")
-  
+
   if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 &&
-     (is.integer(x) || vld_true(all.equal(x, as.integer(x))))) {
+    (is.integer(x) || vld_true(all.equal(x, as.integer(x))))) {
     return(TRUE)
   }
   if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
@@ -124,8 +124,8 @@ chk_proportion <- function(x, x_name = NULL) {
 #' @export
 chk_in <- function(x, values, x_name = NULL) {
   deprecate_soft("0.2.0",
-                 what = "chk_in()",
-                 with = "chk_subset()"
+    what = "chk_in()",
+    with = "chk_subset()"
   )
   if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_subset(x, values, x_name = x_name)
@@ -142,8 +142,8 @@ chk_in <- function(x, values, x_name = NULL) {
 #' @export
 chk_has <- function(x, values, x_name = NULL) {
   deprecate_soft("0.2.0",
-                 what = "chk_has()",
-                 with = "chk_superset()"
+    what = "chk_has()",
+    with = "chk_superset()"
   )
   if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_superset(x, values, x_name = x_name)
@@ -167,8 +167,8 @@ chk_has <- function(x, values, x_name = NULL) {
 #' try(chk_is(1, "character"))
 chk_is <- function(x, class, x_name = NULL) {
   deprecate_soft("0.2.0",
-                 what = "chk_is()", with = "chk_s3_class()",
-                 id = "chk_is"
+    what = "chk_is()", with = "chk_s3_class()",
+    id = "chk_is"
   )
   if(vld_is(x, class)) {
     return(invisible())
@@ -199,8 +199,8 @@ chk_is <- function(x, class, x_name = NULL) {
 #' vld_is(NULL, "numeric")
 vld_is <- function(x, class) {
   deprecate_soft("0.2.0",
-                 what = "vld_is()", with = "vld_class_s3()",
-                 id = "chk_is"
+    what = "vld_is()", with = "vld_class_s3()",
+    id = "chk_is"
   )
   inherits(x, class)
 }
@@ -219,8 +219,8 @@ vld_is <- function(x, class) {
 #' try(chk_no_missing(c(1, NA)))
 chk_no_missing <- function(x, x_name = NULL) {
   deprecate_soft("0.2.0",
-                 what = "chk_no_missing()", with = "chk_not_any_na()",
-                 id = "chk_no_missing"
+    what = "chk_no_missing()", with = "chk_not_any_na()",
+    id = "chk_no_missing"
   )
   if(vld_no_missing(x)) {
     return(invisible())
@@ -249,8 +249,8 @@ chk_no_missing <- function(x, x_name = NULL) {
 #' vld_no_missing(c(1, NA))
 vld_no_missing <- function(x) {
   deprecate_soft("0.2.0",
-                 what = "vld_no_missing()", with = "vld_not_any_na()",
-                 id = "chk_no_missing"
+    what = "vld_no_missing()", with = "vld_not_any_na()",
+    id = "chk_no_missing"
   )
   !anyNA(x)
 }
@@ -269,7 +269,7 @@ deparse_backtick <- function(x) {
 #' @describeIn chk_deprecated Turns checking on
 #'
 #' \lifecycle{soft-deprecated}
-#' 
+#'
 #' @export
 chk_on <- function() {
   deprecate_soft("0.2.0", what = "chk_on()")
@@ -277,9 +277,9 @@ chk_on <- function() {
 }
 
 #' @describeIn chk_deprecated Turns checking off
-#' 
+#'
 #' \lifecycle{soft-deprecated}
-#' 
+#'
 #' @export
 chk_off <- function() {
   deprecate_soft("0.2.0", what = "chk_off()")
@@ -287,9 +287,9 @@ chk_off <- function() {
 }
 
 #' @describeIn chk_deprecated Tests checking on
-#' 
+#'
 #' \lifecycle{soft-deprecated}
-#' 
+#'
 #' @export
 is_chk_on <- function() {
   deprecate_soft("0.2.0", what = "is_chk_on()")

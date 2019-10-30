@@ -4,7 +4,7 @@
 #' Checks if not any missing values using
 #'
 #' `!anyNA(x)`
-#' 
+#'
 #' **Good**: `1`, `1:2`, `"1"`, `logical(0)`.
 #'
 #' **Bad**: `NA`, `c(1, NA)`.

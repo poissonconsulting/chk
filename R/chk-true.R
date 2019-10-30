@@ -1,16 +1,16 @@
 #' Check TRUE
 #'
-#' @description 
+#' @description
 #' Checks if TRUE using
 #'
 #' `is.logical(x) && length(x) == 1L && !anyNA(x) && x`
 #'
 #' @inheritParams  chk_flag
-#' @return 
+#' @return
 #' The `chk_` functions throw an informative error if the test fails.
-#' 
+#'
 #' The `vld_` functions return a flag indicating whether the test was met.
-#' 
+#'
 #' @family chk_logicalscalars
 #' @export
 #'
@@ -40,4 +40,3 @@ chk_true <- function(x, x_name = NULL) {
 #' vld_true(0)
 #' vld_true(c(TRUE, TRUE))
 vld_true <- function(x) is.logical(x) && length(x) == 1L && !anyNA(x) && x
-

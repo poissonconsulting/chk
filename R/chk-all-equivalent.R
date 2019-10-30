@@ -1,17 +1,17 @@
 #' Check All Equivalent
-#' 
+#'
 #' @description
 #' Checks all elements in x equivalent using
 #'
 #' `length(x) < 2L || all(vapply(x, vld_equivalent, TRUE, y = x[[1]], tolerance = tolerance))`
-#' 
+#'
 #' @inheritParams chk_flag
 #' @param tolerance A non-negative numeric scalar.
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
-#' 
+#'
 #' @family chk_all
 #' @export
 #'
@@ -35,7 +35,7 @@ chk_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps), x_name 
 #' @export
 #'
 #' @examples
-#' 
+#'
 #' # vld_all_equivalent
 #' vld_all_equivalent(c(x = 1, y = 1))
 vld_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps)) {

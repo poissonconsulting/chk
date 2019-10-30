@@ -1,16 +1,16 @@
 #' Check DateTime
 #'
-#' @description 
+#' @description
 #' Checks if non-missing POSIXct scalar using
-#' 
+#'
 #' `inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)`
 #'
 #' @inheritParams params
-#' @return 
+#' @return
 #' The `chk_` functions throw an informative error if the test fails.
-#' 
+#'
 #' The `vld_` functions return a flag indicating whether the test was met.
-#' 
+#'
 #' @family chk_scalars
 #' @export
 #'

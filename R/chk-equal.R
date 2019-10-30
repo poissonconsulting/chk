@@ -1,4 +1,4 @@
-#' Check Equal 
+#' Check Equal
 #'
 #' @description
 #' Checks if is equal (identical within tolerance) to y using
@@ -8,7 +8,7 @@
 #' @inheritParams chk_flag
 #' @param y An object to check against.
 #' @param tolerance A non-negative numeric scalar.
-#' @return 
+#' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
@@ -40,7 +40,7 @@ chk_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps),
 #' @export
 #'
 #' @examples
-#' 
+#'
 #' vld_equal(1, 1.00000001)
 vld_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps)) {
   vld_true(all.equal(x, y, tolerance))
