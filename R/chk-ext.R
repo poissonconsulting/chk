@@ -8,7 +8,7 @@
 #' The user may want to use [toupper()] or [tolower()]
 #' to ensure the case matches.
 #'
-#' @inheritParams params
+#' @inheritParams chk_flag
 #' @param ext A character vector of the permitted file extensions (without the .).
 #' @return
 #' The `chk_` function throws an informative error if the test fails.

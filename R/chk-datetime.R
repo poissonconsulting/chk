@@ -5,7 +5,7 @@
 #'
 #' `inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)`
 #'
-#' @inheritParams params
+#' @inheritParams chk_flag
 #' @return
 #' The `chk_` functions throw an informative error if the test fails.
 #'

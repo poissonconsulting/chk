@@ -2,7 +2,7 @@
 #'
 #' Checks/validates if ... is unused or used.
 #'
-#' @inheritParams params
+#' @inheritParams chk_flag
 #' @param ... Additional arguments.
 #' @return The `chk_` functions throw an informative error if the test fails.
 #' The `vld_` functions return a flag indicating whether the test was met.

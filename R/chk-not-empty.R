@@ -9,7 +9,7 @@
 #'
 #' **Bad**: `NULL`, `logical(0)`, `list()`, `data.frame()`.
 #'
-#' @inheritParams params
+#' @inheritParams chk_flag
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'

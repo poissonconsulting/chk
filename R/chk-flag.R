@@ -9,7 +9,8 @@
 #'
 #' **Bad**: `logical(0)`, `c(TRUE, TRUE)`, `"TRUE"`, `1`, `NA_real_`.
 #'
-#' @inheritParams params
+#' @param x The object to check.
+#' @param x_name A string of the name of object x or NULL.
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'

@@ -6,7 +6,7 @@
 #' `setequal(x, values)`
 #'
 #' @param values A vector of the permitted values.
-#' @inheritParams params
+#' @inheritParams chk_flag
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'

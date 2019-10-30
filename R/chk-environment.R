@@ -5,7 +5,7 @@
 #'
 #' `is.environment(x)`
 #'
-#' @inheritParams params
+#' @inheritParams chk_flag
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'

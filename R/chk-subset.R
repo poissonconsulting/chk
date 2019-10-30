@@ -2,7 +2,7 @@
 #'
 #' Checks/validates if in and has values.
 #'
-#' @inheritParams params
+#' @inheritParams chk_flag
 #' @param values A vector of the permitted values.
 #' @return The `chk_` functions throw an informative error if the test fails.
 #' The `vld_` functions return a flag indicating whether the test was met.

@@ -2,7 +2,7 @@
 #'
 #' Checks if is a particular type of object.
 #'
-#' @inheritParams params
+#' @inheritParams chk_flag
 #' @param class A string specifying the class.
 #' @param formals A count of the number of formal arguments.
 #' @return The `chk_` functions throw an informative error if the test fails.
