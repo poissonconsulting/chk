@@ -19,7 +19,7 @@ NULL
 #'
 #' @export
 chk_dirs <- function(x) {
-  deprecate_soft("0.0.1.9010", what = "chk_dirs(x)", with = "chk_all(x, chk_dir)")
+  deprecate_soft("0.2.0", what = "chk_dirs(x)", with = "chk_all(x, chk_dir)")
   chk_all(x, chk_dir)
 }
 
@@ -35,7 +35,7 @@ chk_dirs <- function(x) {
 #'
 #' @export
 chk_files <- function(x) {
-  deprecate_soft("0.0.1.9010", what = "chk_files(x)", with = "chk_all(x, chk_file)")
+  deprecate_soft("0.2.0", what = "chk_files(x)", with = "chk_all(x, chk_file)")
   chk_all(x, chk_file)
 }
 
@@ -123,7 +123,7 @@ chk_proportion <- function(x, x_name = NULL) {
 #'
 #' @export
 chk_in <- function(x, values, x_name = NULL) {
-  deprecate_soft("0.0.1.9010",
+  deprecate_soft("0.2.0",
                  what = "chk_in()",
                  with = "chk_subset()"
   )
@@ -141,7 +141,7 @@ chk_in <- function(x, values, x_name = NULL) {
 #'
 #' @export
 chk_has <- function(x, values, x_name = NULL) {
-  deprecate_soft("0.0.1.9010",
+  deprecate_soft("0.2.0",
                  what = "chk_has()",
                  with = "chk_superset()"
   )
@@ -166,7 +166,7 @@ chk_has <- function(x, values, x_name = NULL) {
 #' chk_is(1, "numeric")
 #' try(chk_is(1, "character"))
 chk_is <- function(x, class, x_name = NULL) {
-  deprecate_soft("0.0.1.9018",
+  deprecate_soft("0.2.0",
                  what = "chk_is()", with = "chk_s3_class()",
                  id = "chk_is"
   )
@@ -198,7 +198,7 @@ chk_is <- function(x, class, x_name = NULL) {
 #' vld_is(1, "character")
 #' vld_is(NULL, "numeric")
 vld_is <- function(x, class) {
-  deprecate_soft("0.0.1.9018",
+  deprecate_soft("0.2.0",
                  what = "vld_is()", with = "vld_class_s3()",
                  id = "chk_is"
   )
@@ -218,7 +218,7 @@ vld_is <- function(x, class) {
 #' chk_no_missing(1)
 #' try(chk_no_missing(c(1, NA)))
 chk_no_missing <- function(x, x_name = NULL) {
-  deprecate_soft("0.0.1.9038",
+  deprecate_soft("0.2.0",
                  what = "chk_no_missing()", with = "chk_not_any_na()",
                  id = "chk_no_missing"
   )
@@ -248,7 +248,7 @@ chk_no_missing <- function(x, x_name = NULL) {
 #' vld_no_missing(NA)
 #' vld_no_missing(c(1, NA))
 vld_no_missing <- function(x) {
-  deprecate_soft("0.0.1.9038",
+  deprecate_soft("0.2.0",
                  what = "vld_no_missing()", with = "vld_not_any_na()",
                  id = "chk_no_missing"
   )
@@ -261,7 +261,7 @@ vld_no_missing <- function(x) {
 #'
 #' @export
 deparse_backtick <- function(x) {
-  deprecate_soft("0.0.1.9024", what = "deparse_backtick()", with = "deparse_backtick_chk()")
+  deprecate_soft("0.2.0", what = "deparse_backtick()", with = "deparse_backtick_chk()")
   deparse_backtick_chk(x)
 }
 
@@ -272,7 +272,7 @@ deparse_backtick <- function(x) {
 #' 
 #' @export
 chk_on <- function() {
-  deprecate_soft("0.0.1.9024", what = "chk_on()")
+  deprecate_soft("0.2.0", what = "chk_on()")
   options(chk.on = TRUE)
 }
 
@@ -282,7 +282,7 @@ chk_on <- function() {
 #' 
 #' @export
 chk_off <- function() {
-  deprecate_soft("0.0.1.9024", what = "chk_off()")
+  deprecate_soft("0.2.0", what = "chk_off()")
   options(chk.on = FALSE)
 }
 
@@ -292,6 +292,6 @@ chk_off <- function() {
 #' 
 #' @export
 is_chk_on <- function() {
-  deprecate_soft("0.0.1.9024", what = "is_chk_on()")
+  deprecate_soft("0.2.0", what = "is_chk_on()")
   getOption("chk.on", TRUE)
 }

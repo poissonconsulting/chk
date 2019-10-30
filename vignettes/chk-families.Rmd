@@ -113,7 +113,6 @@ Function | Code
 :- | :--
 `chk_match(x, regexp = ".+")` | `all(grepl(regexp, x[!is.na(x)]))`
 `chk_named(x)` |  `!is.null(names(x))`
-`chk_unnamed(x)` |  `is.null(names(x))`
 `chk_not_empty(x)` |  `length(x) != 0L`
 `chk_not_any_na(x)` |  `!anyNA(x)`
 `chk_unique(x, incomparables = FALSE)` | `!anyDuplicated(x, incomparables = incomparables)`

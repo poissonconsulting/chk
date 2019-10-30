@@ -46,12 +46,12 @@ times <- summary(microbenchmark(
   .fun_checking(TRUE),
   fun_checking_arg(TRUE, chk = TRUE),
   fun_checking_arg(TRUE, chk = FALSE),
-  unit = "ns", times = 10000L
+  unit = "us", times = 10000L
 ))[c("expr", "median")]
 print(times)
 ```
 
-In summary, avoiding `chk_flag()` saves about `r signif(diff(times$median[c(4,3)]),2)` ns while conditional checking using a `chk` argument costs about `r signif(diff(times$median[c(1,3)]),2)` ns.
+In summary, avoiding `chk_flag()` saves about `r signif(diff(times$median[c(4,3)]),2)` $\mu$s while conditional checking using a `chk` argument costs about `r signif(diff(times$median[c(1,3)]),2)` $\mu$s.
 
 It is recommended to always use unconditional checking unless [profiling](http://adv-r.had.co.nz/Profiling.html) indicates the checks are a bottleneck.
 
@@ -115,6 +115,6 @@ summary(microbenchmark(
   chkor(),
   chkor(chk_number(one)),
   chkor(chk_number(one), chk_proportion(one)),
-  unit = "ns", times = 10000L
+  unit = "us", times = 10000L
 ))[c("expr", "median")]
 ```
