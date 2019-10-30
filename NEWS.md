@@ -3,7 +3,6 @@
 - Soft deprecated `chk_no_missing()` for `chk_not_any_na()`. 
 - Added `params()` a non-exported dummy function with key parameter descriptions that can be inherited by other functions.
 - Soft deprecated `chk_on()`, `chk_off()` and `is_chk_on()`.
-- Added `chk_unnamed()` function.
 - Added `chk_environment()` function.
 - Added `chk_atomic()` function.
 - Changed `chk_match()` so ignores missing values.
