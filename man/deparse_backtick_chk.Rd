@@ -5,7 +5,7 @@
 \alias{deparse_backtick_chk}
 \alias{backtick_chk}
 \alias{unbacktick_chk}
-\title{Deparse Back Tick}
+\title{Deparse Backtick}
 \usage{
 deparse_backtick(x)
 
@@ -19,7 +19,7 @@ unbacktick_chk(x)
 \item{x}{A substituted object to deparse.}
 }
 \value{
-A string of the back ticked substituted object.
+A string of the backticked substituted object.
 }
 \description{
 \code{deparse_backtick_chk} is a wrapper on \code{\link[=deparse]{deparse()}}
@@ -30,13 +30,13 @@ It is exported to allow users to easily construct their own \code{chk_} function
 }
 \section{Functions}{
 \itemize{
-\item \code{deparse_backtick}: Deparse Back Tick
+\item \code{deparse_backtick}: Deparse Backtick
 
 \lifecycle{soft-deprecated}
 
-\item \code{backtick_chk}: Back Tick
+\item \code{backtick_chk}: Backtick
 
-\item \code{unbacktick_chk}: Unback Tick
+\item \code{unbacktick_chk}: Unbacktick
 }}
 
 \examples{

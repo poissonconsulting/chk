@@ -29,7 +29,7 @@
 
 - `formals` argument to `chk_function()`.
 - `tidy = TRUE` argument to errors, warnings and messages.
-- `n = NULL` and `call. = FALSE` args to error message generating funcions.
+- `n = NULL` and `call. = FALSE` args to error message generating functions.
 - `ellipsis = 10L` argument to `cc()`.
 - `sep = ", "` arg to `cc()`.
 - `incomparables = FALSE` argument to `chk_unique()`.
@@ -47,7 +47,7 @@
 ## Minor Changes
 
 - Changed `chk_match()` so ignores missing values.
-- Changed `chk_true()` (and `chk_false()`) to same behaviour as `isTRUE` in R >= 3.5.
+- Changed `chk_true()` (and `chk_false()`) to same behavior as `isTRUE` in R >= 3.5.
 - Extended `chk_unique()` to handle `incomparables != FALSE` with data frames.
 - Changed to `range = c(0,1)` for `chk_range()`.
 

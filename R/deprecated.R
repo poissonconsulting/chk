@@ -255,7 +255,7 @@ vld_no_missing <- function(x) {
   !anyNA(x)
 }
 
-#' @describeIn deparse_backtick_chk Deparse Back Tick
+#' @describeIn deparse_backtick_chk Deparse Backtick
 #'
 #' \lifecycle{soft-deprecated}
 #'

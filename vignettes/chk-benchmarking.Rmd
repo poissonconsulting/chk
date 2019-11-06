@@ -56,7 +56,7 @@ In summary, avoiding `chk_flag()` saves about `r signif(diff(times$median[c(4,3)
 It is recommended to always use unconditional checking unless [profiling](http://adv-r.had.co.nz/Profiling.html) indicates the checks are a bottleneck.
 
 If the bottleneck is due to repeated calls within the package the recommended option is to write an internal version of the function that has no checks. 
-Alternatively if the bottleneck is due to repeated calls by a user or other package then the recommended option is to add a chk argument that the user can explicity turn off.
+Alternatively if the bottleneck is due to repeated calls by a user or other package then the recommended option is to add a chk argument that the user can explicitly turn off.
 
 ## `chk` Times
 

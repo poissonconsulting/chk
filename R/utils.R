@@ -18,7 +18,7 @@ abort_chk <- function(..., n = NULL, tidy = TRUE) {
   err(..., n = n, tidy = tidy, .subclass = "chk_error")
 }
 
-#' Deparse Back Tick
+#' Deparse Backtick
 #'
 #' `deparse_backtick_chk` is a wrapper on [deparse()]
 #' and `backtick_chk`.
@@ -27,7 +27,7 @@ abort_chk <- function(..., n = NULL, tidy = TRUE) {
 #'
 #' @param x A substituted object to deparse.
 #'
-#' @return A string of the back ticked substituted object.
+#' @return A string of the backticked substituted object.
 #' @seealso [deparse()]
 #' @export
 #'
@@ -38,10 +38,10 @@ abort_chk <- function(..., n = NULL, tidy = TRUE) {
 #' deparse_backtick_chk(2^2)
 deparse_backtick_chk <- function(x) backtick_chk(deparse(x))
 
-#' @describeIn deparse_backtick_chk Back Tick
+#' @describeIn deparse_backtick_chk Backtick
 #' @export
 backtick_chk <- function(x) p0("`", x, "`")
 
-#' @describeIn deparse_backtick_chk Unback Tick
+#' @describeIn deparse_backtick_chk Unbacktick
 #' @export
 unbacktick_chk <- function(x) gsub("`", "", x)
