@@ -29,6 +29,12 @@ It is designed to be simple, customizable and fast.
 
 ## Installation
 
+To install the latest release from [CRAN](https://cran.r-project.org)
+
+``` r
+install.packages("pkgtemplate")
+```
+
 To install the latest development version from
 [GitHub](https://github.com/poissonconsulting/chk)
 
