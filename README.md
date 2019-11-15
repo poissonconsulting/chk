@@ -15,9 +15,11 @@ status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/chk
 coverage](https://codecov.io/gh/poissonconsulting/chk/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/chk?branch=master)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-<!-- [![Tinyverse status](https://tinyverse.netlify.com/badge/chk)](https://CRAN.R-project.org/package=chk) -->
-<!-- [![CRAN status](https://www.r-pkg.org/badges/version/chk)](https://cran.r-project.org/package=chk) -->
-<!-- ![CRAN downloads](https://cranlogs.r-pkg.org/badges/chk) -->
+[![Tinyverse
+status](https://tinyverse.netlify.com/badge/chk)](https://CRAN.R-project.org/package=chk)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/chk)](https://cran.r-project.org/package=chk)
+![CRAN downloads](https://cranlogs.r-pkg.org/badges/chk)
 <!-- badges: end -->
 
 `chk` is an R package for developers to check user-supplied function
@@ -56,16 +58,16 @@ y <- "a"
 
 chk_string(y)
 chk_flag(y)
-#> `y` must be a flag (TRUE or FALSE).
+#> Error: `y` must be a flag (TRUE or FALSE).
 
 chkor(chk_flag(y), chk_number(y))
-#> At least one of the following conditions must be met:
+#> Error: At least one of the following conditions must be met:
 #> * `y` must be a flag (TRUE or FALSE).
 #> * `y` must be a number (non-missing numeric scalar).
 
 data <- data.frame(x = 1:2)
-chk_range(nrow(data), c(3,8))
-#> `nrow(data)` must be between 3 and 8, not 2.
+chk_range(nrow(data), c(3, 8))
+#> Error: `nrow(data)` must be between 3 and 8, not 2.
 ```
 
 Error messages follow the [tidyverse style
@@ -97,4 +99,4 @@ always welcome.
 
 Please note that this project is released with a [Contributor Code of
 Conduct](https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md).
-By contributing, you agree to abide by its terms.
+By contributing, you agree to abide by its terms

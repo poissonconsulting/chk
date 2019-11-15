@@ -83,4 +83,4 @@ Please report any [issues](https://github.com/poissonconsulting/chk/issues).
 [Pull requests](https://github.com/poissonconsulting/chk/pulls) are always welcome.
 
 Please note that this project is released with a [Contributor Code of Conduct](https://github.com/poissonconsulting/chk/blob/master/CODE_OF_CONDUCT.md).
-By contributing, you agree to abide by its terms.
+By contributing, you agree to abide by its terms
