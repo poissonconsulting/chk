@@ -73,7 +73,7 @@ Checks if all non-missing values are less than value using
 
 Validates all non-missing values are less than value using
 
-\code{all(x[!is.na(x)] < value))}
+\verb{all(x[!is.na(x)] < value))}
 
 \code{value} should be a non-missing scalar.
 
@@ -86,7 +86,7 @@ Checks if all non-missing values are less than or equal to y using
 
 Validates all non-missing values are less than or equal to y using
 
-\code{all(x[!is.na(x)] <= value))}
+\verb{all(x[!is.na(x)] <= value))}
 
 \code{value} should be a non-missing scalar.
 
@@ -99,7 +99,7 @@ Checks if all non-missing values are greater than value using
 
 Validates all non-missing values are greater than value using
 
-\code{all(x[!is.na(x)] > value))}.
+\verb{all(x[!is.na(x)] > value))}.
 
 \code{value} should be a non-missing scalar.
 
@@ -112,7 +112,7 @@ Checks if all non-missing values are greater than or equal to y using
 
 Validates all non-missing values are greater than or equal to y using:
 
-\code{all(x[!is.na(x)] >= value))}.
+\verb{all(x[!is.na(x)] >= value))}.
 
 \code{value} should be a non-missing scalar.
 }}

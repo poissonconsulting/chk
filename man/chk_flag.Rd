@@ -44,6 +44,7 @@ vld_flag(TRUE)
 vld_flag(1)
 }
 \seealso{
-Other chk_logical: \code{\link{chk_lgl}}
+Other chk_logical: 
+\code{\link{chk_lgl}()}
 }
 \concept{chk_logical}

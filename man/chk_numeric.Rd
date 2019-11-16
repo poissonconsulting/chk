@@ -48,7 +48,8 @@ vld_numeric("1")
 vld_numeric(TRUE)
 }
 \seealso{
-Other chk_is: \code{\link{chk_atomic}},
-  \code{\link{chk_environment}}
+Other chk_is: 
+\code{\link{chk_atomic}()},
+\code{\link{chk_environment}()}
 }
 \concept{chk_is}

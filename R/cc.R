@@ -13,7 +13,6 @@
 #' @param ellipsis A numeric scalar of the maximum number of values to display
 #' before using an ellipsis.
 #' @param chk A flag specifying whether to check the other parameters.
-#' @inheritParams chk_flag
 #'
 #' @return A string.
 #' @export

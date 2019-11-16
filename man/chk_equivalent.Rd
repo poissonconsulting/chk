@@ -5,8 +5,7 @@
 \alias{vld_equivalent}
 \title{Check Equivalent}
 \usage{
-chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps),
-  x_name = NULL)
+chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps), x_name = NULL)
 
 vld_equivalent(x, y, tolerance = sqrt(.Machine$double.eps))
 }
@@ -45,7 +44,8 @@ chk_equivalent(c(x = 1), c(y = 1))
 vld_equivalent(c(x = 1), c(y = 1L))
 }
 \seealso{
-Other chk_equal: \code{\link{chk_equal}},
-  \code{\link{chk_identical}}
+Other chk_equal: 
+\code{\link{chk_equal}()},
+\code{\link{chk_identical}()}
 }
 \concept{chk_equal}

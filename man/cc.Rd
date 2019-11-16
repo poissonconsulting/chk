@@ -4,8 +4,14 @@
 \alias{cc}
 \title{Concatenate with Commas}
 \usage{
-cc(x, conj = ", ", sep = ", ", brac = if (is.character(x) ||
-  is.factor(x)) "'" else "", ellipsis = 10L, chk = TRUE)
+cc(
+  x,
+  conj = ", ",
+  sep = ", ",
+  brac = if (is.character(x) || is.factor(x)) "'" else "",
+  ellipsis = 10L,
+  chk = TRUE
+)
 }
 \arguments{
 \item{x}{The object to concatenate.}
