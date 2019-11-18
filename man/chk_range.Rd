@@ -12,7 +12,7 @@ vld_range(x, range = c(0, 1))
 \arguments{
 \item{x}{The object to check.}
 
-\item{range}{A vector of length 2 of the lower and upper permitted values.}
+\item{range}{A non-missing sorted vector of length 2 of the lower and upper permitted values.}
 
 \item{x_name}{A string of the name of object x or NULL.}
 }
@@ -25,8 +25,6 @@ The \code{vld_} functions return a flag indicating whether the test was met.
 Checks all non-missing values fall within range using
 
 \code{all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])}
-
-Range should be a non-missing sorted vector of length 2.
 }
 \section{Functions}{
 \itemize{

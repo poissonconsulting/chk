@@ -5,8 +5,6 @@
 #'
 #' `all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])`
 #'
-#' Range should be a non-missing sorted vector of length 2.
-#'
 #' @inheritParams params
 #' @return 
 #' The `chk_` functions throw an informative error if the test fails.
