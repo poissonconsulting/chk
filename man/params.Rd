@@ -21,6 +21,9 @@
 \item{class}{A string specifying the class.}
 
 \item{formals}{A count of the number of formal arguments.}
+
+\item{incomparables}{A vector of values that cannot be compared.
+FALSE means that all values can be compared.}
 }
 \description{
 Parameter Descriptions for chk Functions

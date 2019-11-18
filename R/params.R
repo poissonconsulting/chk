@@ -13,6 +13,9 @@
 #' @param class A string specifying the class.
 #' @param formals A count of the number of formal arguments.
 #' 
+#' @param incomparables A vector of values that cannot be compared.
+#' FALSE means that all values can be compared.
+#' 
 #' @keywords internal
 #' @name params
 NULL
