@@ -42,8 +42,7 @@ vld_environment(.GlobalEnv)
 vld_environment(environment())
 }
 \seealso{
-Other chk_is: 
-\code{\link{chk_atomic}()},
-\code{\link{chk_numeric}()}
+Other chk_is: \code{\link{chk_atomic}},
+  \code{\link{chk_numeric}}
 }
 \concept{chk_is}

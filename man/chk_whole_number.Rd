@@ -43,9 +43,7 @@ try(chk_whole_number(1.1))
 vld_whole_number(2)
 }
 \seealso{
-Other chk_scalars: 
-\code{\link{chk_datetime}()},
-\code{\link{chk_date}()},
-\code{\link{chk_number}()}
+Other chk_scalars: \code{\link{chk_datetime}},
+  \code{\link{chk_date}}, \code{\link{chk_number}}
 }
 \concept{chk_scalars}

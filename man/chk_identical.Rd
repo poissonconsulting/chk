@@ -42,8 +42,7 @@ try(chk_identical(1, c(1, 1)))
 vld_identical(1, 1)
 }
 \seealso{
-Other chk_equal: 
-\code{\link{chk_equal}()},
-\code{\link{chk_equivalent}()}
+Other chk_equal: \code{\link{chk_equal}},
+  \code{\link{chk_equivalent}}
 }
 \concept{chk_equal}

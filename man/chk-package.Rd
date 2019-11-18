@@ -6,7 +6,7 @@
 \alias{chk-package}
 \title{chk: Check User-Supplied Function Arguments}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: align='right'}}
 
 For developers to check user-supplied function
     arguments.  It is designed to be simple, fast and customizable.  Error
@@ -21,16 +21,16 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Joe Thorley \email{joe@poissonconsulting.ca} (\href{https://orcid.org/0000-0002-7683-4592}{ORCID})
+\strong{Maintainer}: Joe Thorley \email{joe@poissonconsulting.ca} (0000-0002-7683-4592)
 
 Authors:
 \itemize{
-  \item Kirill Müller (\href{https://orcid.org/0000-0002-1416-3412}{ORCID})
+  \item Kirill Müller (0000-0002-1416-3412)
 }
 
 Other contributors:
 \itemize{
-  \item Ayla Pearson (\href{https://orcid.org/0000-0001-7388-1222}{ORCID}) [contributor]
+  \item Ayla Pearson (0000-0001-7388-1222) [contributor]
   \item Poisson Consulting [copyright holder, funder]
 }
 

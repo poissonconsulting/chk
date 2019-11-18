@@ -5,7 +5,8 @@
 \alias{vld_all_equivalent}
 \title{Check All Equivalent}
 \usage{
-chk_all_equivalent(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL)
+chk_all_equivalent(x, tolerance = sqrt(.Machine$double.eps),
+  x_name = NULL)
 
 vld_all_equivalent(x, tolerance = sqrt(.Machine$double.eps))
 }
@@ -43,9 +44,7 @@ chk_all_equivalent(list(c(x = 1), c(y = 1)))
 vld_all_equivalent(c(x = 1, y = 1))
 }
 \seealso{
-Other chk_all: 
-\code{\link{chk_all_equal}()},
-\code{\link{chk_all_identical}()},
-\code{\link{chk_all}()}
+Other chk_all: \code{\link{chk_all_equal}},
+  \code{\link{chk_all_identical}}, \code{\link{chk_all}}
 }
 \concept{chk_all}

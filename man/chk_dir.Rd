@@ -41,8 +41,7 @@ vld_dir(tempdir())
 vld_dir(tempfile())
 }
 \seealso{
-Other chk_files: 
-\code{\link{chk_ext}()},
-\code{\link{chk_file}()}
+Other chk_files: \code{\link{chk_ext}},
+  \code{\link{chk_file}}
 }
 \concept{chk_files}

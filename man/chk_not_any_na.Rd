@@ -48,7 +48,6 @@ vld_not_any_na(c(NA, 1))
 vld_not_any_na(TRUE)
 }
 \seealso{
-Other chk_miscellaneous: 
-\code{\link{chk_not_empty}()}
+Other chk_miscellaneous: \code{\link{chk_not_empty}}
 }
 \concept{chk_miscellaneous}
