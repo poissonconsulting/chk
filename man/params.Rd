@@ -17,6 +17,10 @@
 \item{regexp}{A string of a regular expression.}
 
 \item{values}{A vector of the permitted values.}
+
+\item{class}{A string specifying the class.}
+
+\item{formals}{A count of the number of formal arguments.}
 }
 \description{
 Parameter Descriptions for chk Functions
