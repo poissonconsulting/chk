@@ -13,6 +13,10 @@
 \item{value}{A non-missing scalar of a value.}
 
 \item{range}{A non-missing sorted vector of length 2 of the lower and upper permitted values.}
+
+\item{regexp}{A string of a regular expression.}
+
+\item{values}{A vector of the permitted values.}
 }
 \description{
 Parameter Descriptions for chk Functions
