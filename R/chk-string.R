@@ -1,19 +1,17 @@
-#' Check/Validate String or Matches
+#' Check String
 #'
-#' Checks/validates if string or matches a regular expression.
+#' @description 
+#' Checks if string 
 #'
-#' @inheritParams chk_flag
-#' @param regexp A string of a regular expression.
-#' @return The `chk_` functions throw an informative error if the test fails.
+#' `is.character(x) && length(x) == 1L && !anyNA(x)`
+#'
+#' @inheritParams params
+#' @return 
+#' The `chk_` functions throw an informative error if the test fails.
+#' 
 #' The `vld_` functions return a flag indicating whether the test was met.
-#' @name chk_string
-NULL
-
-#' @describeIn chk_string Check String
-#'
-#' Checks if non-missing character scalar using
-#' `vld_string()`.
-#'
+#' 
+#' @family chk_scalars
 #' @export
 #'
 #' @examples
@@ -31,10 +29,6 @@ chk_string <- function(x, x_name = NULL) {
 
 #' @describeIn chk_string Validate String
 #'
-#' Validates non-missing character scalar using
-#'
-#' `is.character(x) && length(x) == 1L && !anyNA(x)`.
-#'
 #' @export
 #'
 #' @examples
@@ -48,49 +42,3 @@ chk_string <- function(x, x_name = NULL) {
 vld_string <- function(x, x_name = NULL) {
   is.character(x) && length(x) == 1L && !anyNA(x)
 }
-
-#' @describeIn chk_string Check Matches
-#'
-#' Checks if all values match regular expression using
-#' `vld_match()`.
-#'
-#' @export
-#'
-#' @examples
-#'
-#' # chk_match
-#' chk_match("1")
-#' try(chk_match("1", regexp = "2"))
-chk_match <- function(x, regexp = ".+", x_name = NULL) {
-  if(vld_match(x, regexp)) {
-    return(invisible())
-  }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if(length(x) == 1L) {
-    abort_chk(x_name, " must match regular expression '", regexp, "'")
-  }
-  abort_chk(x_name, " must have values matching regular expression '", regexp, "'")
-}
-
-#' @describeIn chk_string Validate Matches
-#'
-#' Validates all values match regular expression using
-#'
-#' `all(grepl(regexp, x))`.
-#'
-#' `regexp` should be a non-missing character scalar.
-#'
-#' @seealso [all()]
-#' @seealso [grepl()]
-#'
-#' @export
-#'
-#' @examples
-#'
-#' # vld_match
-#' vld_match("1")
-#' vld_match("a", regexp = "a")
-#' vld_match("")
-#' vld_match("1", regexp = "2")
-#' vld_match(NA_character_, regexp = ".*")
-vld_match <- function(x, regexp = ".+") all(grepl(regexp, x[!is.na(x)]))
