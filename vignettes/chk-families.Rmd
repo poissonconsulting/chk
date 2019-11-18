@@ -77,7 +77,7 @@ Function | Code
 Function | Code
 :- | :---
 `chk_s3_class(x, class)` | `!isS4(x) && inherits(x, class)`
-`chk_s4_class(x, class)` | `isS4(x) && inherits(x, class)`
+`chk_s4_class(x, class)` | `isS4(x) && methods::is(x, class)`
 `chk_vector(x)` | `is.vector(x)`
 `chk_atomic(x)` | `is.atomic(x)`
 `chk_list(x)` | `is.list(x)`
