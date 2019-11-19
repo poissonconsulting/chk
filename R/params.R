@@ -11,8 +11,6 @@
 #' 
 #' @param y An object to check against.
 #' 
-#' 
-#' 
 #' @param value A non-missing scalar of a value.
 #' @param range A non-missing sorted vector of length 2 of the lower and upper permitted values.
 #' 
