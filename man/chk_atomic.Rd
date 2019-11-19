@@ -22,7 +22,7 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 \description{
 Checks if atomic using
 
-\code{is.atomic(x)}.
+\code{is.atomic(x)}
 }
 \section{Functions}{
 \itemize{
@@ -43,10 +43,14 @@ vld_atomic(list(1))
 vld_atomic(NULL)
 }
 \seealso{
-Other chk_is: \code{\link{chk_environment}},
-  \code{\link{chk_function}}, \code{\link{chk_list}},
-  \code{\link{chk_numeric}}, \code{\link{chk_s3_class}},
-  \code{\link{chk_s4_class}}, \code{\link{chk_vector}},
-  \code{\link{chk_whole_numeric}}
+Other chk_is: 
+\code{\link{chk_environment}()},
+\code{\link{chk_function}()},
+\code{\link{chk_list}()},
+\code{\link{chk_numeric}()},
+\code{\link{chk_s3_class}()},
+\code{\link{chk_s4_class}()},
+\code{\link{chk_vector}()},
+\code{\link{chk_whole_numeric}()}
 }
 \concept{chk_is}

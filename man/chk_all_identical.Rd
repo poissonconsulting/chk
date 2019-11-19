@@ -43,7 +43,9 @@ try(chk_all_identical(c(1, 1.1)))
 vld_all_identical(c(1, 1))
 }
 \seealso{
-Other chk_all: \code{\link{chk_all_equal}},
-  \code{\link{chk_all_equivalent}}, \code{\link{chk_all}}
+Other chk_alls: 
+\code{\link{chk_all_equal}()},
+\code{\link{chk_all_equivalent}()},
+\code{\link{chk_all}()}
 }
-\concept{chk_all}
+\concept{chk_alls}

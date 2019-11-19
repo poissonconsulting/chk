@@ -45,8 +45,10 @@ vld_range(c(0.1, 0.2, NA))
 vld_range(c(0.1, 0.2, NA), range = c(0, 1))
 }
 \seealso{
-Other chk_ranges: \code{\link{chk_gte}},
-  \code{\link{chk_gt}}, \code{\link{chk_lte}},
-  \code{\link{chk_lt}}
+Other chk_ranges: 
+\code{\link{chk_gte}()},
+\code{\link{chk_gt}()},
+\code{\link{chk_lte}()},
+\code{\link{chk_lt}()}
 }
 \concept{chk_ranges}

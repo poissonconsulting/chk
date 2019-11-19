@@ -43,6 +43,9 @@ vld_true(0)
 vld_true(c(TRUE, TRUE))
 }
 \seealso{
-Other chk_logicalscalars: \code{\link{chk_false}}
+Other chk_logical: 
+\code{\link{chk_false}()},
+\code{\link{chk_flag}()},
+\code{\link{chk_lgl}()}
 }
-\concept{chk_logicalscalars}
+\concept{chk_logical}

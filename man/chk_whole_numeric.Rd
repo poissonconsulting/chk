@@ -44,10 +44,14 @@ vld_whole_numeric(TRUE)
 vld_whole_numeric(1.5)
 }
 \seealso{
-Other chk_is: \code{\link{chk_atomic}},
-  \code{\link{chk_environment}},
-  \code{\link{chk_function}}, \code{\link{chk_list}},
-  \code{\link{chk_numeric}}, \code{\link{chk_s3_class}},
-  \code{\link{chk_s4_class}}, \code{\link{chk_vector}}
+Other chk_is: 
+\code{\link{chk_atomic}()},
+\code{\link{chk_environment}()},
+\code{\link{chk_function}()},
+\code{\link{chk_list}()},
+\code{\link{chk_numeric}()},
+\code{\link{chk_s3_class}()},
+\code{\link{chk_s4_class}()},
+\code{\link{chk_vector}()}
 }
 \concept{chk_is}

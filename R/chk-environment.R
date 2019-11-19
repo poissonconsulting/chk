@@ -5,7 +5,7 @@
 #'
 #' `is.environment(x)`
 #'
-#' @inheritParams chk_flag
+#' @inheritParams params
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
@@ -26,7 +26,6 @@ chk_environment <- function(x, x_name = NULL) {
   if(is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
   abort_chk(x_name, " must be an environment")
 }
-
 
 #' @describeIn chk_environment Validate Environment
 #'

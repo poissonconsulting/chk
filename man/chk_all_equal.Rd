@@ -43,7 +43,9 @@ try(chk_all_equal(list(c(x = 1), c(y = 1))))
 vld_all_equal(c(1, 1L))
 }
 \seealso{
-Other chk_all: \code{\link{chk_all_equivalent}},
-  \code{\link{chk_all_identical}}, \code{\link{chk_all}}
+Other chk_alls: 
+\code{\link{chk_all_equivalent}()},
+\code{\link{chk_all_identical}()},
+\code{\link{chk_all}()}
 }
-\concept{chk_all}
+\concept{chk_alls}

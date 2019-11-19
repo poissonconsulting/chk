@@ -3,9 +3,9 @@
 #' @description
 #' Checks if atomic using
 #'
-#' `is.atomic(x)`.
+#' `is.atomic(x)`
 #'
-#' @inheritParams chk_flag
+#' @inheritParams params
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
@@ -26,7 +26,6 @@ chk_atomic <- function(x, x_name = NULL) {
   if(is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
   abort_chk(x_name, " must be atomic")
 }
-
 
 #' @describeIn chk_atomic Validate Atomic
 #'

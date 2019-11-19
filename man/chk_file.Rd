@@ -3,7 +3,7 @@
 \name{chk_file}
 \alias{chk_file}
 \alias{vld_file}
-\title{Check File or Directory Exist}
+\title{Check File Exists}
 \usage{
 chk_file(x, x_name = NULL)
 
@@ -20,13 +20,13 @@ The \code{chk_} functions throw an informative error if the test fails.
 The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks if file or directory exists using
+Checks if file exists using
 
 \code{vld_string(x) && file.exists(x) && !dir.exists(x)}
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_file}: Validate File
+\item \code{vld_file}: Validate File Exists
 }}
 
 \examples{
@@ -38,7 +38,8 @@ try(chk_file(tempfile()))
 vld_file(tempfile())
 }
 \seealso{
-Other chk_files: \code{\link{chk_dir}},
-  \code{\link{chk_ext}}
+Other chk_files: 
+\code{\link{chk_dir}()},
+\code{\link{chk_ext}()}
 }
 \concept{chk_files}

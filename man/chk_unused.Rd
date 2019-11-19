@@ -45,6 +45,7 @@ fun(1)
 try(fun(1, 2))
 }
 \seealso{
-Other chk_...: \code{\link{chk_used}}
+Other chk_ellipsis: 
+\code{\link{chk_used}()}
 }
-\concept{chk_...}
+\concept{chk_ellipsis}

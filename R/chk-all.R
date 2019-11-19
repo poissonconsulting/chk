@@ -5,16 +5,15 @@
 #'
 #' `all(vapply(x, chk_fun, TRUE, ...))`
 #'
-#' @inheritParams chk_flag
-#' @inheritParams chk_unused
+#' @inheritParams params
 #' @inheritParams vld
-#' @param chk_fun A chk_ function.
+#' 
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
 #'
-#' @family chk_all
+#' @family chk_alls
 #' @export
 #'
 #' @examples

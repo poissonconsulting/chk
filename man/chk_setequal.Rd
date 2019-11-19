@@ -44,7 +44,8 @@ vld_setequal(1, 2:1)
 vld_setequal(1:2, 2)
 }
 \seealso{
-Other chk_set: \code{\link{chk_subset}},
-  \code{\link{chk_superset}}
+Other chk_set: 
+\code{\link{chk_subset}()},
+\code{\link{chk_superset}()}
 }
 \concept{chk_set}

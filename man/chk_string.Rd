@@ -43,8 +43,11 @@ vld_string(NA_character_)
 vld_string(c("1", "1"))
 }
 \seealso{
-Other chk_scalars: \code{\link{chk_datetime}},
-  \code{\link{chk_date}}, \code{\link{chk_number}},
-  \code{\link{chk_scalar}}, \code{\link{chk_whole_number}}
+Other chk_scalars: 
+\code{\link{chk_datetime}()},
+\code{\link{chk_date}()},
+\code{\link{chk_number}()},
+\code{\link{chk_scalar}()},
+\code{\link{chk_whole_number}()}
 }
 \concept{chk_scalars}

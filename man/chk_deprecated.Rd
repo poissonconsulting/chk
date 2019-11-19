@@ -88,7 +88,7 @@ Checks if is length length using:
 
 \code{length} should be a count.
 
-Replace by \code{[chk_range](length(x))}.
+Replace by \verb{[chk_range](length(x))}.
 
 \item \code{chk_count}: Check Count
 

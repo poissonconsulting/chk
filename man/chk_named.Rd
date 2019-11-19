@@ -44,7 +44,8 @@ vld_named(1)
 vld_named(list(1))
 }
 \seealso{
-Other chk_misc: \code{\link{chk_match}},
-  \code{\link{chk_unique}}
+Other chk_misc: 
+\code{\link{chk_match}()},
+\code{\link{chk_unique}()}
 }
 \concept{chk_misc}

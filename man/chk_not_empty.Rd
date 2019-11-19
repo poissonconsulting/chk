@@ -48,6 +48,7 @@ vld_not_empty(NULL)
 vld_not_empty(list())
 }
 \seealso{
-Other chk_miscellaneous: \code{\link{chk_not_any_na}}
+Other chk_miscellaneous: 
+\code{\link{chk_not_any_na}()}
 }
 \concept{chk_miscellaneous}

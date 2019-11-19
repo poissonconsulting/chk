@@ -42,10 +42,14 @@ vld_s4_class(numeric(0), "numeric")
 vld_s4_class(getClass("MethodDefinition"), "classRepresentation")
 }
 \seealso{
-Other chk_is: \code{\link{chk_atomic}},
-  \code{\link{chk_environment}},
-  \code{\link{chk_function}}, \code{\link{chk_list}},
-  \code{\link{chk_numeric}}, \code{\link{chk_s3_class}},
-  \code{\link{chk_vector}}, \code{\link{chk_whole_numeric}}
+Other chk_is: 
+\code{\link{chk_atomic}()},
+\code{\link{chk_environment}()},
+\code{\link{chk_function}()},
+\code{\link{chk_list}()},
+\code{\link{chk_numeric}()},
+\code{\link{chk_s3_class}()},
+\code{\link{chk_vector}()},
+\code{\link{chk_whole_numeric}()}
 }
 \concept{chk_is}

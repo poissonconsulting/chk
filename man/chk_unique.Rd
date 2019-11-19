@@ -47,7 +47,8 @@ vld_unique(c(NA, NA, 2))
 vld_unique(c(NA, NA, 2), incomparables = NA)
 }
 \seealso{
-Other chk_misc: \code{\link{chk_match}},
-  \code{\link{chk_named}}
+Other chk_misc: 
+\code{\link{chk_match}()},
+\code{\link{chk_named}()}
 }
 \concept{chk_misc}

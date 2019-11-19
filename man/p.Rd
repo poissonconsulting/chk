@@ -13,10 +13,10 @@ p0(..., collapse = NULL)
 \item{...}{one or more \R objects, to be converted to character vectors.}
 
 \item{sep}{a character string to separate the terms.  Not
-    \code{\link{NA_character_}}.}
+    \code{\link[base]{NA_character_}}.}
 
 \item{collapse}{an optional character string to separate the results.  Not
-    \code{\link{NA_character_}}.}
+    \code{\link[base]{NA_character_}}.}
 }
 \value{
 A character vector.

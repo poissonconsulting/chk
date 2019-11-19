@@ -44,7 +44,8 @@ vld_ext("oeu.pdf", "pdf")
 vld_ext(toupper("oeu.pdf"), "PDF")
 }
 \seealso{
-Other chk_files: \code{\link{chk_dir}},
-  \code{\link{chk_file}}
+Other chk_files: 
+\code{\link{chk_dir}()},
+\code{\link{chk_file}()}
 }
 \concept{chk_files}
