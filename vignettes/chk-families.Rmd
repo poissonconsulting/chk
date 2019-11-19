@@ -47,7 +47,7 @@ Function  | Code
 `chk_gt(x, value = 0)` | `all(x[!is.na(x)] > value)`
 `chk_gte(x, value = 0)` | `all(x[!is.na(x)] >= value)`
 
-## Check Equal
+## Check Equals
 
 Function | Code
 :-- | :-
@@ -55,7 +55,7 @@ Function | Code
 `chk_equal(x, y, tolerance = sqrt(.Machine$double.eps))` | `vld_true(all.equal(x, y, tolerance))`
 `chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps))` | `vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))`
 
-## Check All
+## Check Alls
 
 Function |  Code
 :- | :---
@@ -85,14 +85,14 @@ Function | Code
 `chk_numeric(x)` | `is.numeric(x)`
 `chk_whole_numeric(x)` | `is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))`
 
-## Check NULL
+## Check NULLs
 
 Function | Code
 :- | :---
 `chk_null(x)` | `is.null(x)`
 `chk_not_null(x)` | `!is.null(x)`
 
-## Check ...
+## Check Ellipsis
 
 Function | Code
 :- | :---
