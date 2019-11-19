@@ -28,7 +28,7 @@ Checks if equal set using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_setequal}: Validate Set
+\item \code{vld_setequal}: Validate Set Equal
 }}
 
 \examples{
