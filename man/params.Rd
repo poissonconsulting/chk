@@ -10,6 +10,14 @@
 
 \item{chk}{A flag specifying whether to check the other parameters.}
 
+\item{chk_fun}{A chk_ function.}
+
+\item{tolerance}{A non-negative numeric scalar.}
+
+\item{ext}{A character vector of the permitted file extensions (without the .).}
+
+\item{y}{An object to check against.}
+
 \item{value}{A non-missing scalar of a value.}
 
 \item{range}{A non-missing sorted vector of length 2 of the lower and upper permitted values.}
