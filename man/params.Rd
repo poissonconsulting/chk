@@ -24,6 +24,8 @@
 
 \item{incomparables}{A vector of values that cannot be compared.
 FALSE means that all values can be compared.}
+
+\item{...}{Additional arguments.}
 }
 \description{
 Parameter Descriptions for chk Functions

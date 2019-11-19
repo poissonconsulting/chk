@@ -16,6 +16,8 @@
 #' @param incomparables A vector of values that cannot be compared.
 #' FALSE means that all values can be compared.
 #' 
+#' @param ... Additional arguments.
+#' 
 #' @keywords internal
 #' @name params
 NULL
