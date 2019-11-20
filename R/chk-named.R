@@ -1,10 +1,10 @@
 #' Check Named
 #'
-#' @description 
+#' @description
 #' Checks if is named using
 #'
 #' `!is.null(names(x))`
-#' 
+#'
 #' @inheritParams params
 #' @return
 #' The `chk_` function throws an informative error if the test fails.

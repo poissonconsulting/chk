@@ -1,6 +1,6 @@
 #'  Check List
 #'
-#' @description 
+#' @description
 #' Checks if is a list using
 #'
 #' `is.list(x)`

@@ -1,16 +1,16 @@
 #' Check ... Unused
 #'
-#' @description 
+#' @description
 #' Checks if ... is unused
 #'
 #' `length(list(...)) == 0L`
-#' 
+#'
 #' @inheritParams params
-#' @return 
+#' @return
 #' The `chk_` functions throw an informative error if the test fails.
-#' 
+#'
 #' The `vld_` functions return a flag indicating whether the test was met.
-#' 
+#'
 #' @family chk_ellipsis
 #' @export
 #'

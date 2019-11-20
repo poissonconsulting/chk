@@ -1,8 +1,8 @@
 #' Check Lesss Than
 #'
-#' @description 
+#' @description
 #' Checks if all non-missing values are less than value using
-#' 
+#'
 #' `all(x[!is.na(x)] < value)`
 #'
 #' @inheritParams params
@@ -10,7 +10,7 @@
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
-#' 
+#'
 #' @family chk_ranges
 #' @export
 #'

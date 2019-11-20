@@ -1,10 +1,10 @@
 #' Check Function
-#' 
-#' @description 
-#' Checks if is a function using 
+#'
+#' @description
+#' Checks if is a function using
 #'
 #' `is.function(x) && (is.null(formals) || length(formals(x)) == formals)`
-#' 
+#'
 #' @inheritParams params
 #' @return
 #' The `chk_` function throws an informative error if the test fails.

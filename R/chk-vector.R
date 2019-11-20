@@ -1,6 +1,6 @@
 #'  Check Vector
 #'
-#' @description 
+#' @description
 #' Checks if is a vector using
 #'
 #' `is.vector(x)`

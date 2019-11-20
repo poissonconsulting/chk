@@ -1,8 +1,8 @@
 #' Check Scalar
-#' 
-#' @description 
-#' Checks if is a vector using 
-#' 
+#'
+#' @description
+#' Checks if is a vector using
+#'
 #' `length(x) == 1L`
 #'
 #' @inheritParams params
@@ -10,7 +10,7 @@
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
-#' 
+#'
 #' @family chk_scalars
 #' @export
 #'

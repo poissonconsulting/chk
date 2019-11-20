@@ -1,10 +1,10 @@
 #' Check Inherits from S4 Class
 #'
-#' @description 
-#' Checks inherits from S4 class using 
-#' 
+#' @description
+#' Checks inherits from S4 class using
+#'
 #' `isS4(x) && methods::is(x, class)`
-#' 
+#'
 #' @inheritParams params
 #' @return
 #' The `chk_` function throws an informative error if the test fails.

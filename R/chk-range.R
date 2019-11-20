@@ -1,16 +1,16 @@
 #' Checks range of non-missing values
-#' 
-#' @description 
+#'
+#' @description
 #' Checks all non-missing values fall within range using
 #'
 #' `all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])`
 #'
 #' @inheritParams params
-#' @return 
+#' @return
 #' The `chk_` functions throw an informative error if the test fails.
-#' 
+#'
 #' The `vld_` functions return a flag indicating whether the test was met.
-#' 
+#'
 #' @family chk_ranges
 #' @export
 #'

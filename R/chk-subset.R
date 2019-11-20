@@ -1,16 +1,16 @@
 #' Check Subset
 #'
-#' @description 
+#' @description
 #' Checks if all values in values using
 #'
 #' `all(x %in% values)`
-#' 
+#'
 #' @inheritParams params
-#' @return 
+#' @return
 #' The `chk_` functions throw an informative error if the test fails.
-#' 
+#'
 #' The `vld_` functions return a flag indicating whether the test was met.
-#' 
+#'
 #' @family chk_set
 #' @export
 #'

@@ -7,7 +7,7 @@
 #'
 #' @inheritParams params
 #' @inheritParams vld
-#' 
+#'
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'

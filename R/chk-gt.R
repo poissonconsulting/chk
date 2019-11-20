@@ -1,16 +1,16 @@
 #' Check Greater Than
 #'
-#' @description 
+#' @description
 #' Checks if all non-missing values are greater than value using
 #'
 #' `all(x[!is.na(x)] > value)`
-#' 
+#'
 #' @inheritParams params
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
-#' 
+#'
 #' @family chk_ranges
 #' @export
 #'

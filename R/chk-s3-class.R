@@ -1,16 +1,16 @@
 #' Check Type
 #'
-#' @description 
-#' Checks inherits from S3 class using 
-#' 
+#' @description
+#' Checks inherits from S3 class using
+#'
 #' `!isS4(x) && inherits(x, class)`
 #'
 #' @inheritParams params
-#' @return 
+#' @return
 #' The `chk_` functions throw an informative error if the test fails.
-#' 
+#'
 #' The `vld_` functions return a flag indicating whether the test was met.
-#' 
+#'
 #' @family chk_is
 #' @export
 #'

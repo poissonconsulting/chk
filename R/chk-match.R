@@ -1,6 +1,6 @@
 #' Check Matches
 #'
-#' @description 
+#' @description
 #' Checks if all values match regular expression using
 #'
 #' `all(grepl(regexp, x[!is.na(x)]))`
@@ -10,7 +10,7 @@
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
-#' 
+#'
 #' @family chk_misc
 #' @export
 #'

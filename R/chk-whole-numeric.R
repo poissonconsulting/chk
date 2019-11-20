@@ -1,7 +1,7 @@
 #' Check Whole Numeric
 #'
-#' @description 
-#' Checks if integer vector or double equivalent using 
+#' @description
+#' Checks if integer vector or double equivalent using
 #'
 #' `is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))`
 #'
@@ -12,7 +12,7 @@
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
 #'
-#' @family chk_is 
+#' @family chk_is
 #' @export
 #'
 #' @examples

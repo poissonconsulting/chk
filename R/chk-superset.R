@@ -1,16 +1,16 @@
 #' Check Superset
 #'
-#' @description 
+#' @description
 #' Checks if includes all values using
 #'
-#' `all(values %in% x)` 
+#' `all(values %in% x)`
 #'
 #' @inheritParams params
-#' @return 
+#' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
-#' 
+#'
 #' @family chk_set
 #' @export
 #'

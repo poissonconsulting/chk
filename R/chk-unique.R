@@ -1,16 +1,16 @@
 #' Check Unique
 #'
-#' @description 
+#' @description
 #' Checks if unique using
 #'
 #' `!anyDuplicated(x, incomparables = incomparables)`
-#' 
+#'
 #' @inheritParams params
-#' @return 
+#' @return
 #' The `chk_` functions throw an informative error if the test fails.
-#' 
+#'
 #' The `vld_` functions return a flag indicating whether the test was met.
-#' 
+#'
 #' @family chk_misc
 #' @export
 #'

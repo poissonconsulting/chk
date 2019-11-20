@@ -1,6 +1,6 @@
 #' Check ... Used
 #'
-#' @description 
+#' @description
 #' Checks if is ... used using
 #'
 #' `length(list(...)) != 0L`

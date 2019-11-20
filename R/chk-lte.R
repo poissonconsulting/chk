@@ -1,6 +1,6 @@
 #' Check Less Than or Equal To
 #'
-#' @description 
+#' @description
 #' Checks if all non-missing values are less than or equal to y using
 #'
 #' `all(x[!is.na(x)] <= value)`
@@ -10,7 +10,7 @@
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
-#' 
+#'
 #' @family chk_ranges
 #' @export
 #'
