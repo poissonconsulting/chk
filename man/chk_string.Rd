@@ -3,57 +3,30 @@
 \name{chk_string}
 \alias{chk_string}
 \alias{vld_string}
-\alias{chk_match}
-\alias{vld_match}
-\title{Check/Validate String or Matches}
+\title{Check String}
 \usage{
 chk_string(x, x_name = NULL)
 
 vld_string(x, x_name = NULL)
-
-chk_match(x, regexp = ".+", x_name = NULL)
-
-vld_match(x, regexp = ".+")
 }
 \arguments{
 \item{x}{The object to check.}
 
 \item{x_name}{A string of the name of object x or NULL.}
-
-\item{regexp}{A string of a regular expression.}
 }
 \value{
 The \code{chk_} functions throw an informative error if the test fails.
+
 The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks/validates if string or matches a regular expression.
+Checks if string
+
+\code{is.character(x) && length(x) == 1L && !anyNA(x)}
 }
 \section{Functions}{
 \itemize{
-\item \code{chk_string}: Check String
-
-Checks if non-missing character scalar using
-\code{vld_string()}.
-
 \item \code{vld_string}: Validate String
-
-Validates non-missing character scalar using
-
-\code{is.character(x) && length(x) == 1L && !anyNA(x)}.
-
-\item \code{chk_match}: Check Matches
-
-Checks if all values match regular expression using
-\code{vld_match()}.
-
-\item \code{vld_match}: Validate Matches
-
-Validates all values match regular expression using
-
-\code{all(grepl(regexp, x))}.
-
-\code{regexp} should be a non-missing character scalar.
 }}
 
 \examples{
@@ -68,20 +41,13 @@ vld_string("")
 vld_string(1)
 vld_string(NA_character_)
 vld_string(c("1", "1"))
-
-# chk_match
-chk_match("1")
-try(chk_match("1", regexp = "2"))
-
-# vld_match
-vld_match("1")
-vld_match("a", regexp = "a")
-vld_match("")
-vld_match("1", regexp = "2")
-vld_match(NA_character_, regexp = ".*")
 }
 \seealso{
-\code{\link[=all]{all()}}
-
-\code{\link[=grepl]{grepl()}}
+Other chk_scalars: 
+\code{\link{chk_datetime}()},
+\code{\link{chk_date}()},
+\code{\link{chk_number}()},
+\code{\link{chk_scalar}()},
+\code{\link{chk_whole_number}()}
 }
+\concept{chk_scalars}

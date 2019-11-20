@@ -46,9 +46,9 @@ chk_all(c(TRUE, NA), chk_lgl)
 vld_all(c(TRUE, NA), vld_lgl)
 }
 \seealso{
-Other chk_all: 
+Other chk_alls: 
 \code{\link{chk_all_equal}()},
 \code{\link{chk_all_equivalent}()},
 \code{\link{chk_all_identical}()}
 }
-\concept{chk_all}
+\concept{chk_alls}

@@ -3,17 +3,11 @@
 \name{chk_unique}
 \alias{chk_unique}
 \alias{vld_unique}
-\alias{chk_named}
-\alias{vld_named}
-\title{Check/Validate Unique}
+\title{Check Unique}
 \usage{
 chk_unique(x, incomparables = FALSE, x_name = NULL)
 
 vld_unique(x, incomparables = FALSE)
-
-chk_named(x, x_name = NULL)
-
-vld_named(x)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -25,34 +19,17 @@ FALSE means that all values can be compared.}
 }
 \value{
 The \code{chk_} functions throw an informative error if the test fails.
+
 The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Unique checks/validations.
+Checks if unique using
+
+\code{!anyDuplicated(x, incomparables = incomparables)}
 }
 \section{Functions}{
 \itemize{
-\item \code{chk_unique}: Check Unique
-
-Checks if unique using
-\code{vld_unique()}.
-
 \item \code{vld_unique}: Validate Unique
-
-Validates if unique using
-
-\code{!anyDuplicated(x, incomparables = incomparables)}.
-
-\item \code{chk_named}: Check Named
-
-Checks if is named using
-\code{vld_named()}.
-
-\item \code{vld_named}: Validate Named
-
-Checks if is named using
-
-\code{!is.null(names(x))}.
 }}
 
 \examples{
@@ -68,23 +45,10 @@ vld_unique(numeric(0))
 vld_unique(c(NA, 2))
 vld_unique(c(NA, NA, 2))
 vld_unique(c(NA, NA, 2), incomparables = NA)
-
-# chk_named
-chk_named(c(x = 1))
-try(chk_named(list(1)))
-
-# vld_named
-vld_named(c(x = 1))
-vld_named(list(x = 1))
-vld_named(c(x = 1)[-1])
-vld_named(list(x = 1)[-1])
-vld_named(1)
-vld_named(list(1))
 }
 \seealso{
-\code{\link[=anyDuplicated]{anyDuplicated()}}
-
-\code{\link[=is.null]{is.null()}}
-
-\code{\link[=names]{names()}}
+Other chk_misc: 
+\code{\link{chk_match}()},
+\code{\link{chk_named}()}
 }
+\concept{chk_misc}

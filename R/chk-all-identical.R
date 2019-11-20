@@ -10,13 +10,13 @@
 #'
 #' **Bad**: `c(1, 1.0000001)`, `list(1, NA)`
 #'
-#' @inheritParams chk_flag
+#' @inheritParams params
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
 #'
-#' @family chk_all
+#' @family chk_alls
 #' @export
 #'
 #' @examples

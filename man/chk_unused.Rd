@@ -3,51 +3,28 @@
 \name{chk_unused}
 \alias{chk_unused}
 \alias{vld_unused}
-\alias{chk_used}
-\alias{vld_used}
-\title{Check/Validate ... Unused or Used}
+\title{Check ... Unused}
 \usage{
 chk_unused(...)
 
 vld_unused(...)
-
-chk_used(...)
-
-vld_used(...)
 }
 \arguments{
 \item{...}{Additional arguments.}
 }
 \value{
 The \code{chk_} functions throw an informative error if the test fails.
+
 The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks/validates if ... is unused or used.
+Checks if ... is unused
+
+\code{length(list(...)) == 0L}
 }
 \section{Functions}{
 \itemize{
-\item \code{chk_unused}: Check ... Unused
-
-Checks if is ... unused using
-\code{vld_unused()}.
-
 \item \code{vld_unused}: Validate ... Unused
-
-Validates if is ... unused using
-
-\code{length(list(...)) == 0L}.
-
-\item \code{chk_used}: Check ... Used
-
-Checks if is ... used using
-\code{vld_unused()}.
-
-\item \code{vld_used}: Validate ... Used
-
-Validates if ... used using
-
-\code{length(list(...)) != 0L}.
 }}
 
 \examples{
@@ -66,26 +43,9 @@ fun <- function(x, ...) {
 }
 fun(1)
 try(fun(1, 2))
-
-# chk_used
-fun <- function(x, ...) {
-  chk_used(...)
-  x
-}
-try(fun(1))
-fun(1, 2)
-
-# vld_used
-fun <- function(x, ...) {
-  vld_used(...)
-}
-fun(1)
-fun(1, 2)
 }
 \seealso{
-\code{\link[=length]{length()}}
-
-\code{\link[=list]{list()}}
-
-\code{\link{...}}
+Other chk_ellipsis: 
+\code{\link{chk_used}()}
 }
+\concept{chk_ellipsis}

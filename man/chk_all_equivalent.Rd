@@ -43,9 +43,9 @@ chk_all_equivalent(list(c(x = 1), c(y = 1)))
 vld_all_equivalent(c(x = 1, y = 1))
 }
 \seealso{
-Other chk_all: 
+Other chk_alls: 
 \code{\link{chk_all_equal}()},
 \code{\link{chk_all_identical}()},
 \code{\link{chk_all}()}
 }
-\concept{chk_all}
+\concept{chk_alls}

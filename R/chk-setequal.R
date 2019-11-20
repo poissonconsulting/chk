@@ -5,8 +5,7 @@
 #'
 #' `setequal(x, values)`
 #'
-#' @param values A vector of the permitted values.
-#' @inheritParams chk_flag
+#' @inheritParams params
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
@@ -28,7 +27,7 @@ chk_setequal <- function(x, values, x_name = NULL) {
   abort_chk(x_name, " must equal set: ", cc(values))
 }
 
-#' @describeIn chk_setequal Validate Set
+#' @describeIn chk_setequal Validate Set Equal
 #'
 #' @export
 #'

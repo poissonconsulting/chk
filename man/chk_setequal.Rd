@@ -28,7 +28,7 @@ Checks if equal set using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_setequal}: Validate Set
+\item \code{vld_setequal}: Validate Set Equal
 }}
 
 \examples{
@@ -42,5 +42,10 @@ vld_setequal(1, 1)
 vld_setequal(1:2, 2:1)
 vld_setequal(1, 2:1)
 vld_setequal(1:2, 2)
+}
+\seealso{
+Other chk_set: 
+\code{\link{chk_subset}()},
+\code{\link{chk_superset}()}
 }
 \concept{chk_set}
