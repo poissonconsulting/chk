@@ -25,10 +25,6 @@ The \code{vld_} functions return a flag indicating whether the test was met.
 Checks if all values in values using
 
 \code{all(x \%in\% values)}
-
-but for efficiency the code is
-
-\code{all(match(x, values, nomatch = 0) > 0)}
 }
 \section{Functions}{
 \itemize{

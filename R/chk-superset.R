@@ -4,10 +4,6 @@
 #' Checks if includes all values using
 #'
 #' `all(values %in% x)` 
-#' 
-#'  but for efficiency the code is
-#'
-#' `all(match(values, x, nomatch = 0) > 0)` 
 #'
 #' @inheritParams params
 #' @return 

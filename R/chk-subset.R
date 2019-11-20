@@ -5,10 +5,6 @@
 #'
 #' `all(x %in% values)`
 #' 
-#' but for efficiency the code is 
-#' 
-#' `all(match(x, values, nomatch = 0) > 0)` 
-#' 
 #' @inheritParams params
 #' @return 
 #' The `chk_` functions throw an informative error if the test fails.
