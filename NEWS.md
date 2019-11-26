@@ -2,7 +2,7 @@
 
 ## Minor Changes
 
-- Remove benchmarking vignette as causing problems on CRAN.
+- Removed `chk-benchmarking.Rmd` vignette that was causing problems for many CRAN checks.
 
 # chk 0.2.0
 

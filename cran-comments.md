@@ -7,12 +7,9 @@ release 3.6.1
 * Ubuntu (travis) - oldrelease, release and devel
 
 * Windows (appveyor) - release
-* Windows (win-builder) - release and devel
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 notes
 
-* This is a resubmission of a new release.
-
-I have unwrapped all examples from \dontrun.
+Removed chk-benchmarking.Rmd vignette that was causing problems for many CRAN checks.
