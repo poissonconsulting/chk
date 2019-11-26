@@ -24,7 +24,7 @@
 #' fun(1)
 #' try(fun(1, 2))
 chk_unused <- function(...) {
-  if(!length(list(...))) {
+  if (!length(list(...))) {
     return(invisible())
   }
   abort_chk("`...` must be unused")

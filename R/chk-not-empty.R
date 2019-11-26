@@ -24,10 +24,10 @@
 #' chk_not_empty(1)
 #' try(chk_not_empty(numeric(0)))
 chk_not_empty <- function(x, x_name = NULL) {
-  if(vld_not_empty(x)) {
+  if (vld_not_empty(x)) {
     return(invisible())
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
   abort_chk(x_name, " must not be empty (zero length)")
 }
 

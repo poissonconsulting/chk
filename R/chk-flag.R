@@ -24,10 +24,10 @@
 #' chk_flag(TRUE)
 #' try(vld_flag(1))
 chk_flag <- function(x, x_name = NULL) {
-  if(vld_flag(x)) {
+  if (vld_flag(x)) {
     return(invisible())
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be a flag (TRUE or FALSE)")
 }
 

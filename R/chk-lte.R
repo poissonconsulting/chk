@@ -20,11 +20,11 @@
 #' chk_lte(0)
 #' try(chk_lte(0.1))
 chk_lte <- function(x, value = 0, x_name = NULL) {
-  if(vld_lte(x, value)) {
+  if (vld_lte(x, value)) {
     return(invisible())
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if(length(x) == 1L) {
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (length(x) == 1L) {
     abort_chk(
       x_name, " must be less than or equal to ", cc(value), ", not ", cc(x),
       ""

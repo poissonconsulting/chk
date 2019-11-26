@@ -20,10 +20,10 @@
 #' chk_date(Sys.Date())
 #' try(chk_date(1))
 chk_date <- function(x, x_name = NULL) {
-  if(vld_date(x)) {
+  if (vld_date(x)) {
     return(invisible())
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be a date (non-missing Date scalar)")
 }
 

@@ -20,10 +20,10 @@
 #' chk_list(list())
 #' try(chk_list(1))
 chk_list <- function(x, x_name = NULL) {
-  if(vld_list(x)) {
+  if (vld_list(x)) {
     return(invisible())
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be a list")
 }
 

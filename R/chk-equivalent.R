@@ -23,10 +23,10 @@
 #' chk_equivalent(c(x = 1), c(y = 1))
 chk_equivalent <- function(x, y, tolerance = sqrt(.Machine$double.eps),
                            x_name = NULL) {
-  if(vld_equivalent(x, y, tolerance = tolerance)) {
+  if (vld_equivalent(x, y, tolerance = tolerance)) {
     return(invisible())
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   y <- utils::capture.output(dput(y, control = "all"))
   abort_chk(x_name, " must be equivalent to: ", y)
 }

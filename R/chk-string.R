@@ -20,10 +20,10 @@
 #' chk_string("1")
 #' try(chk_string(1))
 chk_string <- function(x, x_name = NULL) {
-  if(is.character(x) && length(x) == 1L && !anyNA(x)) {
+  if (is.character(x) && length(x) == 1L && !anyNA(x)) {
     return(invisible())
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be a string (non-missing character scalar)")
 }
 

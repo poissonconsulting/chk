@@ -56,10 +56,10 @@ chk_files <- function(x) {
 #' @export
 chk_length <- function(x, length = 1L, x_name = NULL) {
   .Deprecated("chk_range(length(x))")
-  if(length(x) == length) {
+  if (length(x) == length) {
     return(TRUE)
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be length ", length, ", not ", length(x))
 }
 
@@ -79,11 +79,11 @@ chk_length <- function(x, length = 1L, x_name = NULL) {
 chk_count <- function(x, x_name = NULL) {
   .Deprecated("chk_whole_number(x); chk_gte(x)")
 
-  if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 &&
+  if (is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 &&
     (is.integer(x) || vld_true(all.equal(x, as.integer(x))))) {
     return(TRUE)
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(
     x_name,
     " must be a count (non-missing non-negative integer scalar or double equivalent)"
@@ -103,10 +103,10 @@ chk_count <- function(x, x_name = NULL) {
 #' @export
 chk_proportion <- function(x, x_name = NULL) {
   .Deprecated("chk_number(x); chk_range(x)")
-  if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1) {
+  if (is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1) {
     return(TRUE)
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(
     x_name,
     " must be a proportion (non-missing numeric scalar between 0 and 1)"
@@ -127,7 +127,7 @@ chk_in <- function(x, values, x_name = NULL) {
     what = "chk_in()",
     with = "chk_subset()"
   )
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_subset(x, values, x_name = x_name)
 }
 
@@ -145,7 +145,7 @@ chk_has <- function(x, values, x_name = NULL) {
     what = "chk_has()",
     with = "chk_superset()"
   )
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_superset(x, values, x_name = x_name)
 }
 
@@ -170,10 +170,10 @@ chk_is <- function(x, class, x_name = NULL) {
     what = "chk_is()", with = "chk_s3_class()",
     id = "chk_is"
   )
-  if(vld_is(x, class)) {
+  if (vld_is(x, class)) {
     return(invisible())
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must inherit from class '", class, "'")
 }
 
@@ -222,10 +222,10 @@ chk_no_missing <- function(x, x_name = NULL) {
     what = "chk_no_missing()", with = "chk_not_any_na()",
     id = "chk_no_missing"
   )
-  if(vld_no_missing(x)) {
+  if (vld_no_missing(x)) {
     return(invisible())
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must not have missing values")
 }
 

@@ -20,10 +20,10 @@
 #' chk_setequal(1:2, 2:1)
 #' try(chk_setequal(1, 1:2))
 chk_setequal <- function(x, values, x_name = NULL) {
-  if(vld_setequal(x, values)) {
+  if (vld_setequal(x, values)) {
     return(invisible())
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
   abort_chk(x_name, " must equal set: ", cc(values))
 }
 

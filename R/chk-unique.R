@@ -21,10 +21,10 @@
 #' try(chk_unique(c(NA, NA, 2)))
 #' chk_unique(c(NA, NA, 2), incomparables = NA)
 chk_unique <- function(x, incomparables = FALSE, x_name = NULL) {
-  if(vld_unique(x, incomparables = incomparables)) {
+  if (vld_unique(x, incomparables = incomparables)) {
     return(invisible())
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be unique")
 }
 

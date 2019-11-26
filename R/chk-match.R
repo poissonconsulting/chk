@@ -20,11 +20,11 @@
 #' chk_match("1")
 #' try(chk_match("1", regexp = "2"))
 chk_match <- function(x, regexp = ".+", x_name = NULL) {
-  if(vld_match(x, regexp)) {
+  if (vld_match(x, regexp)) {
     return(invisible())
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if(length(x) == 1L) {
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (length(x) == 1L) {
     abort_chk(x_name, " must match regular expression '", regexp, "'")
   }
   abort_chk(x_name, " must have values matching regular expression '", regexp, "'")

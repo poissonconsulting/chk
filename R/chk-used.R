@@ -24,7 +24,7 @@
 #' try(fun(1))
 #' fun(1, 2)
 chk_used <- function(...) {
-  if(vld_used(...)) {
+  if (vld_used(...)) {
     return(invisible())
   }
   abort_chk("`...` must be used")

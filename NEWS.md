@@ -1,3 +1,9 @@
+# chk 0.2.1
+
+## Minor Changes
+
+- Remove benchmarking vignette as causing problems on CRAN.
+
 # chk 0.2.0
 
 ## Major Changes

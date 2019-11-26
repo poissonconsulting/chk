@@ -22,10 +22,10 @@
 #' chk_identical(c(1, 1), c(1, 1))
 #' try(chk_identical(1, c(1, 1)))
 chk_identical <- function(x, y, x_name = NULL) {
-  if(identical(x, y)) {
+  if (identical(x, y)) {
     return(invisible())
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   y <- utils::capture.output(dput(y, control = "all"))
   abort_chk(x_name, " must be identical to: ", y)
 }

@@ -21,10 +21,10 @@
 #' chk_whole_numeric(1)
 #' try(chk_whole_numeric(1.1))
 chk_whole_numeric <- function(x, x_name = NULL) {
-  if(vld_whole_numeric(x)) {
+  if (vld_whole_numeric(x)) {
     return(invisible())
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(
     x_name,
     " must be a whole numeric vector (integer vector or double equivalent)"
