@@ -1,4 +1,4 @@
-#' Check Lesss Than
+#' Check Less Than
 #'
 #' @description
 #' Checks if all non-missing values are less than value using

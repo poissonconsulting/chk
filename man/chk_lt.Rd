@@ -3,7 +3,7 @@
 \name{chk_lt}
 \alias{chk_lt}
 \alias{vld_lt}
-\title{Check Lesss Than}
+\title{Check Less Than}
 \usage{
 chk_lt(x, value = 0, x_name = NULL)
 
