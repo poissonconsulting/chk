@@ -75,6 +75,7 @@ reference:
   - '`chk_match`'
   - '`chk_named`'
   - '`chk_no_missing`'
+  - '`chk_sorted`'
   - '`chk_unique`'
   - '`chkor`'
 - title: chk_ Function Extenders
