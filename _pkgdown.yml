@@ -50,6 +50,7 @@ reference:
   - '`chk_s4_class`'
   - '`chk_vector`'
   - '`chk_atomic`'
+  - '`chk_array`'
   - '`chk_list`'
   - '`chk_function`'
   - '`chk_whole_numeric`'

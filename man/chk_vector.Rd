@@ -41,6 +41,7 @@ vld_vector(1)
 }
 \seealso{
 Other chk_is: 
+\code{\link{chk_array}()},
 \code{\link{chk_atomic}()},
 \code{\link{chk_environment}()},
 \code{\link{chk_function}()},

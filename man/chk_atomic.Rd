@@ -44,6 +44,7 @@ vld_atomic(NULL)
 }
 \seealso{
 Other chk_is: 
+\code{\link{chk_array}()},
 \code{\link{chk_environment}()},
 \code{\link{chk_function}()},
 \code{\link{chk_list}()},
