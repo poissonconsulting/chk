@@ -1,3 +1,4 @@
+- Added `chk_matrix()` and `vld_matrix()`.
 - Added `chk_array()` and `vld_array()`.
 
 # chk 0.3.0

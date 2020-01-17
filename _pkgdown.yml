@@ -53,6 +53,7 @@ reference:
   - '`chk_array`'
   - '`chk_list`'
   - '`chk_function`'
+  - '`chk_matrix`'
   - '`chk_whole_numeric`'
 - title: Null Checkers
   desc: Checking null
