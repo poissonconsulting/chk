@@ -2,67 +2,78 @@
 % Please edit documentation in R/deprecated.R
 \name{chk_deprecated}
 \alias{chk_deprecated}
+\alias{chk_count}
 \alias{chk_dirs}
 \alias{chk_files}
-\alias{chk_length}
-\alias{chk_count}
-\alias{chk_proportion}
-\alias{chk_in}
 \alias{chk_has}
+\alias{chk_in}
 \alias{chk_is}
 \alias{vld_is}
+\alias{chk_length}
 \alias{chk_no_missing}
 \alias{vld_no_missing}
-\alias{chk_on}
 \alias{chk_off}
+\alias{chk_on}
 \alias{is_chk_on}
+\alias{chk_proportion}
+\alias{deparse_backtick}
 \title{Deprecated functions}
 \usage{
+chk_count(x, x_name = NULL)
+
 chk_dirs(x)
 
 chk_files(x)
 
-chk_length(x, length = 1L, x_name = NULL)
-
-chk_count(x, x_name = NULL)
-
-chk_proportion(x, x_name = NULL)
+chk_has(x, values, x_name = NULL)
 
 chk_in(x, values, x_name = NULL)
-
-chk_has(x, values, x_name = NULL)
 
 chk_is(x, class, x_name = NULL)
 
 vld_is(x, class)
 
+chk_length(x, length = 1L, x_name = NULL)
+
 chk_no_missing(x, x_name = NULL)
 
 vld_no_missing(x)
 
-chk_on()
-
 chk_off()
 
+chk_on()
+
 is_chk_on()
+
+chk_proportion(x, x_name = NULL)
+
+deparse_backtick(x)
 }
 \arguments{
 \item{x}{The object to check.}
 
-\item{length}{A count of the length.}
-
 \item{x_name}{A string of the name of object x or NULL.}
+
+\item{class}{A string of the class of the object.}
+
+\item{length}{A count of the length.}
 }
 \description{
 Deprecated \code{chk_()} functions.
 }
 \section{Functions}{
 \itemize{
+\item \code{chk_count}: Check Count
+
+\lifecycle{soft-deprecated}
+
+Replace by \code{\link{chk_whole_number}(x); \link{chk_gte}(x)}
+
 \item \code{chk_dirs}: Check Directories Exist
 
 \lifecycle{soft-deprecated}
 
-Replace with \code{\link{chk_all}(x, \link{chk_dir})}.
+Replace with \code{\link{chk_all}(x, \link{chk_dir})}
 
 \item \code{chk_files}: Check Files Exist
 
@@ -70,107 +81,77 @@ Replace with \code{\link{chk_all}(x, \link{chk_dir})}.
 
 Replace with \code{\link{chk_all}(x, \link{chk_file})}
 
-\item \code{chk_length}: Check Length
+\item \code{chk_has}: Check Has
 
-\lifecycle{deprecated}
+\lifecycle{soft-deprecated}
 
-\code{length} should be a count.
-
-Replace by \code{\link{chk_range}(length(x))}
-
-\item \code{chk_count}: Check Count
-
-\lifecycle{deprecated}
-
-Replace by \code{\link{chk_whole_number}(x); \link{chk_gte}(x)}
-
-\item \code{chk_proportion}: Check Proportion
-
-\lifecycle{deprecated}
-
-Replace by \code{\link{chk_number}(x); \link{chk_range}(x)}
+Replace by \code{\link[=chk_superset]{chk_superset()}}
 
 \item \code{chk_in}: Check In
 
 \lifecycle{soft-deprecated}
 
-Replace by \code{\link{chk_subset}(x, values, x_name=x_name)}
-
-\item \code{chk_has}: Check Has
-
-\lifecycle{soft-deprecated}
-
-Replace by \code{\link{chk_superset}(x, values, x_name = x_name)}
+Replace by \code{\link[=chk_subset]{chk_subset()}}
 
 \item \code{chk_is}: Check Is
 
 \lifecycle{soft-deprecated}
 
-Replace by \code{\link[=chk_s3_class]{chk_s3_class()}} or \code{\link[=chk_s4_class]{chk_s4_class()}}.
+Replace by \code{\link[=chk_s3_class]{chk_s3_class()}} or \code{\link[=chk_s4_class]{chk_s4_class()}}
 
 \item \code{vld_is}: Validate Is
 
 \lifecycle{soft-deprecated}
 
-Validates inherits from class using
+Replace by \code{\link[=vld_s3_class]{vld_s3_class()}} or \code{\link[=vld_s4_class]{vld_s4_class()}}
 
-\code{inherits(x, class)}
+\item \code{chk_length}: Check Length
 
-Class should be a string.
+\lifecycle{soft-deprecated}
+
+Replace by \code{\link{chk_range}(length(x))}
 
 \item \code{chk_no_missing}: Check No Missing Values
 
 \lifecycle{soft-deprecated}
 
-Checks if no missing values using
-\code{vld_no_missing()}.
+Replace with \code{\link[=chk_not_any_na]{chk_not_any_na()}}
 
 \item \code{vld_no_missing}: Validate No Missing Values
 
 \lifecycle{soft-deprecated}
 
-Validates no missing values using
-
-\code{!anyNA(x)}.
-
-\item \code{chk_on}: Turns checking on
-
-\lifecycle{soft-deprecated}
+Replace with \code{\link[=vld_not_any_na]{vld_not_any_na()}}
 
 \item \code{chk_off}: Turns checking off
 
-\lifecycle{soft-deprecated}
+\lifecycle{deprecated}
+
+This approach is no longer recommended
+
+\item \code{chk_on}: Turns checking on
+
+\lifecycle{deprecated}
+
+This approach is no longer recommended
 
 \item \code{is_chk_on}: Tests checking on
 
+\lifecycle{deprecated}
+
+This approach is no longer recommended
+
+\item \code{chk_proportion}: Check Proportion
+
 \lifecycle{soft-deprecated}
+
+Replace by \code{\link{chk_number}(x); \link{chk_range}(x)}
+
+\item \code{deparse_backtick}: Deparse Backtick
+
+\lifecycle{soft-deprecated}
+
+Replace with \code{\link[=deparse_backtick_chk]{deparse_backtick_chk()}}
 }}
 
-\examples{
-
-# chk_is
-chk_is(1, "numeric")
-try(chk_is(1, "character"))
-
-# vld_is
-vld_is(numeric(0), "numeric")
-vld_is(1, "numeric")
-vld_is(NA_real_, "numeric")
-vld_is(1, "character")
-vld_is(NULL, "numeric")
-
-# chk_no_missing
-chk_no_missing(1)
-try(chk_no_missing(c(1, NA)))
-
-# vld_no_missing
-vld_no_missing(character(0))
-vld_no_missing(1)
-vld_no_missing(1:10)
-vld_no_missing(NA)
-vld_no_missing(c(1, NA))
-}
-\seealso{
-\code{\link[=anyNA]{anyNA()}}
-}
 \keyword{internal}
