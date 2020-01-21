@@ -40,7 +40,7 @@ vld_not_null(1)
 vld_not_null(NULL)
 }
 \seealso{
-Other chk_null: 
+Other chk_nulls: 
 \code{\link{chk_null}()}
 }
-\concept{chk_null}
+\concept{chk_nulls}

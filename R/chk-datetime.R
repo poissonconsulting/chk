@@ -5,7 +5,7 @@
 #'
 #' `inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)`
 #'
-#' @inheritParams chk_flag
+#' @inheritParams params
 #' @return
 #' The `chk_` functions throw an informative error if the test fails.
 #'
@@ -26,7 +26,6 @@ chk_datetime <- function(x, x_name = NULL) {
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be a datetime (non-missing POSIXct scalar)")
 }
-
 
 #' @describeIn chk_datetime Validate DateTime
 #'

@@ -5,14 +5,13 @@
 #'
 #' `length(x) < 2L || all(vapply(x, vld_equivalent, TRUE, y = x[[1]], tolerance = tolerance))`
 #'
-#' @inheritParams chk_flag
-#' @param tolerance A non-negative numeric scalar.
+#' @inheritParams params
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
 #'
-#' @family chk_all
+#' @family chk_alls
 #' @export
 #'
 #' @examples

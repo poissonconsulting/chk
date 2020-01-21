@@ -1,20 +1,17 @@
-#' Check/Validate Unique
+#' Check Unique
 #'
-#' Unique checks/validations.
-#'
-#' @inheritParams chk_flag
-#' @param incomparables A vector of values that cannot be compared.
-#' FALSE means that all values can be compared.
-#' @return The `chk_` functions throw an informative error if the test fails.
-#' The `vld_` functions return a flag indicating whether the test was met.
-#' @name chk_unique
-NULL
-
-#' @describeIn chk_unique Check Unique
-#'
+#' @description
 #' Checks if unique using
-#' `vld_unique()`.
 #'
+#' `!anyDuplicated(x, incomparables = incomparables)`
+#'
+#' @inheritParams params
+#' @return
+#' The `chk_` functions throw an informative error if the test fails.
+#'
+#' The `vld_` functions return a flag indicating whether the test was met.
+#'
+#' @family chk_misc
 #' @export
 #'
 #' @examples
@@ -32,12 +29,6 @@ chk_unique <- function(x, incomparables = FALSE, x_name = NULL) {
 }
 
 #' @describeIn chk_unique Validate Unique
-#'
-#' Validates if unique using
-#'
-#' `!anyDuplicated(x, incomparables = incomparables)`.
-#'
-#' @seealso [anyDuplicated()]
 #'
 #' @export
 #'

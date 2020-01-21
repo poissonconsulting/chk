@@ -50,8 +50,10 @@ reference:
   - '`chk_s4_class`'
   - '`chk_vector`'
   - '`chk_atomic`'
+  - '`chk_array`'
   - '`chk_list`'
   - '`chk_function`'
+  - '`chk_matrix`'
   - '`chk_whole_numeric`'
 - title: Null Checkers
   desc: Checking null
@@ -75,6 +77,7 @@ reference:
   - '`chk_match`'
   - '`chk_named`'
   - '`chk_no_missing`'
+  - '`chk_sorted`'
   - '`chk_unique`'
   - '`chkor`'
 - title: chk_ Function Extenders

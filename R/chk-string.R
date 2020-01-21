@@ -1,19 +1,17 @@
-#' Check/Validate String or Matches
+#' Check String
 #'
-#' Checks/validates if string or matches a regular expression.
+#' @description
+#' Checks if string
 #'
-#' @inheritParams chk_flag
-#' @param regexp A string of a regular expression.
-#' @return The `chk_` functions throw an informative error if the test fails.
+#' `is.character(x) && length(x) == 1L && !anyNA(x)`
+#'
+#' @inheritParams params
+#' @return
+#' The `chk_` functions throw an informative error if the test fails.
+#'
 #' The `vld_` functions return a flag indicating whether the test was met.
-#' @name chk_string
-NULL
-
-#' @describeIn chk_string Check String
 #'
-#' Checks if non-missing character scalar using
-#' `vld_string()`.
-#'
+#' @family chk_scalars
 #' @export
 #'
 #' @examples
@@ -30,10 +28,6 @@ chk_string <- function(x, x_name = NULL) {
 }
 
 #' @describeIn chk_string Validate String
-#'
-#' Validates non-missing character scalar using
-#'
-#' `is.character(x) && length(x) == 1L && !anyNA(x)`.
 #'
 #' @export
 #'

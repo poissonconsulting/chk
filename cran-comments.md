@@ -1,18 +1,26 @@
 ## Test environments
 
-release 3.6.1
+release 3.6.2
 
 * OS X (local) - release
 
-* Ubuntu (travis) - oldrelease, release and devel
+* Ubuntu (travis) - 3.3, 3.4, 3.5, release and devel
 
 * Windows (appveyor) - release
 * Windows (win-builder) - release and devel
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 notes
 
-* This is a resubmission of a new release.
+## Reverse Dependencies
 
-I have unwrapped all examples from \dontrun.
+There are three reverse dependencies. 
+
+They had 0 errors | 0 warnings | 0 notes
+
+✓ ssdtools 0.1.0                         ── E: 0     | W: 0     | N: 0            
+✓ term 0.0.1                             ── E: 0     | W: 0     | N: 0            
+✓ ypr 0.4.0                              ── E: 0     | W: 0     | N: 0               
+OK: 3                                                                              
+BROKEN: 0

@@ -5,15 +5,13 @@
 #'
 #' `vld_true(all.equal(x, y, tolerance))`
 #'
-#' @inheritParams chk_flag
-#' @param y An object to check against.
-#' @param tolerance A non-negative numeric scalar.
+#' @inheritParams params
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
 #'
-#' @family chk_equal
+#' @family chk_equals
 #' @export
 #'
 #' @examples
@@ -33,7 +31,6 @@ chk_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps),
   y <- utils::capture.output(dput(y, control = "all"))
   abort_chk(x_name, " must be equal to: ", y)
 }
-
 
 #' @describeIn chk_equal Validate Equal
 #'

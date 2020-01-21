@@ -5,14 +5,13 @@
 #'
 #' `identical(x, y)`
 #'
-#' @inheritParams chk_flag
-#' @param y An object to check against.
+#' @inheritParams params
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
 #'
-#' @family chk_equal
+#' @family chk_equals
 #' @export
 #'
 #' @examples
@@ -30,7 +29,6 @@ chk_identical <- function(x, y, x_name = NULL) {
   y <- utils::capture.output(dput(y, control = "all"))
   abort_chk(x_name, " must be identical to: ", y)
 }
-
 
 #' @describeIn chk_identical Validate Identical
 #'

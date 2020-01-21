@@ -24,7 +24,7 @@ The \code{chk_} function throws an informative error if the test fails.
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
-checks if is equivalent (equal ignoring attributes) to y using
+Checks if is equivalent (equal ignoring attributes) to y using
 
 \code{vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))}
 }
@@ -44,8 +44,8 @@ chk_equivalent(c(x = 1), c(y = 1))
 vld_equivalent(c(x = 1), c(y = 1L))
 }
 \seealso{
-Other chk_equal: 
+Other chk_equals: 
 \code{\link{chk_equal}()},
 \code{\link{chk_identical}()}
 }
-\concept{chk_equal}
+\concept{chk_equals}

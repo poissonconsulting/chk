@@ -1,3 +1,16 @@
+- Added `chk_matrix()` and `vld_matrix()`.
+- Added `chk_array()` and `vld_array()`.
+
+# chk 0.3.0
+
+- Added `chk_sorted()` and `vld_sorted()`.
+
+# chk 0.2.1
+
+## Minor Changes
+
+- Removed `chk-benchmarking.Rmd` vignette that was causing problems for many CRAN checks.
+
 # chk 0.2.0
 
 ## Major Changes

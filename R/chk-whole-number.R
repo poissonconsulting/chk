@@ -9,7 +9,7 @@
 #'
 #' **Bad**: `"a"`, `1:3`, `NA_integer_`, `log(10)`
 #'
-#' @inheritParams chk_flag
+#' @inheritParams params
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'

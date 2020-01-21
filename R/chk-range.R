@@ -1,20 +1,17 @@
-#' Check/Validate Range
+#' Checks range of non-missing values
 #'
-#' Checks/validates range of non-missing values.
+#' @description
+#' Checks all non-missing values fall within range using
 #'
-#' @inheritParams chk_flag
-#' @param value A non-missing scalar of a value.
-#' @param range A vector of length 2 of the lower and upper permitted values.
-#' @return The `chk_` functions throw an informative error if the test fails.
+#' `all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])`
+#'
+#' @inheritParams params
+#' @return
+#' The `chk_` functions throw an informative error if the test fails.
+#'
 #' The `vld_` functions return a flag indicating whether the test was met.
-#' @name chk_range
-NULL
-
-#' @describeIn chk_range Check Range
 #'
-#' Checks if all non-missing values fall within range using
-#' `vld_range()`.
-#'
+#' @family chk_ranges
 #' @export
 #'
 #' @examples
@@ -44,12 +41,6 @@ chk_range <- function(x, range = c(0, 1), x_name = NULL) {
 }
 
 #' @describeIn chk_range Validate Range
-#'
-#' Validates all non-missing values fall within range using
-#'
-#' `all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])`
-#'
-#' Range should be a non-missing sorted vector of length 2.
 #'
 #' @export
 #'

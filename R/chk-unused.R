@@ -1,18 +1,17 @@
-#' Check/Validate ... Unused or Used
+#' Check ... Unused
 #'
-#' Checks/validates if ... is unused or used.
+#' @description
+#' Checks if ... is unused
 #'
-#' @param ... Additional arguments.
-#' @return The `chk_` functions throw an informative error if the test fails.
+#' `length(list(...)) == 0L`
+#'
+#' @inheritParams params
+#' @return
+#' The `chk_` functions throw an informative error if the test fails.
+#'
 #' The `vld_` functions return a flag indicating whether the test was met.
-#' @name chk_unused
-NULL
-
-#' @describeIn chk_unused Check ... Unused
 #'
-#' Checks if is ... unused using
-#' `vld_unused()`.
-#'
+#' @family chk_ellipsis
 #' @export
 #'
 #' @examples
@@ -32,14 +31,6 @@ chk_unused <- function(...) {
 }
 
 #' @describeIn chk_unused Validate ... Unused
-#'
-#' Validates if is ... unused using
-#'
-#' `length(list(...)) == 0L`.
-#'
-#' @seealso [length()]
-#' @seealso [list()]
-#' @seealso [`...`]
 #'
 #' @export
 #'

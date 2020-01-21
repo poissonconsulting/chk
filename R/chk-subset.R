@@ -1,18 +1,17 @@
-#' Check/Validate Superset and Subset
+#' Check Subset
 #'
-#' Checks/validates if in and has values.
+#' @description
+#' Checks if all values in values using
 #'
-#' @inheritParams chk_flag
-#' @param values A vector of the permitted values.
-#' @return The `chk_` functions throw an informative error if the test fails.
+#' `all(x %in% values)`
+#'
+#' @inheritParams params
+#' @return
+#' The `chk_` functions throw an informative error if the test fails.
+#'
 #' The `vld_` functions return a flag indicating whether the test was met.
-#' @name chk_subset
-NULL
-
-#' @describeIn chk_subset Check In
 #'
-#' Checks if all values in values using `vld_subset()`.
-#'
+#' @family chk_set
 #' @export
 #'
 #' @examples
@@ -32,14 +31,7 @@ chk_subset <- function(x, values, x_name = NULL) {
   abort_chk(x_name, " must have values matching ", cc(values, " or "))
 }
 
-#' @describeIn chk_subset Validate In
-#'
-#' Validates all values in `values` using equivalent of
-#'
-#' `all(match(x, values, nomatch = 0) > 0)`
-#'
-#' @seealso [all()]
-#' @seealso [match()]
+#' @describeIn chk_subset Validate Subset
 #'
 #' @export
 #'

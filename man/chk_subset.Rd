@@ -3,17 +3,11 @@
 \name{chk_subset}
 \alias{chk_subset}
 \alias{vld_subset}
-\alias{chk_superset}
-\alias{vld_superset}
-\title{Check/Validate Superset and Subset}
+\title{Check Subset}
 \usage{
 chk_subset(x, values, x_name = NULL)
 
 vld_subset(x, values)
-
-chk_superset(x, values, x_name = NULL)
-
-vld_superset(x, values)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -24,32 +18,17 @@ vld_superset(x, values)
 }
 \value{
 The \code{chk_} functions throw an informative error if the test fails.
+
 The \code{vld_} functions return a flag indicating whether the test was met.
 }
 \description{
-Checks/validates if in and has values.
+Checks if all values in values using
+
+\code{all(x \%in\% values)}
 }
 \section{Functions}{
 \itemize{
-\item \code{chk_subset}: Check In
-
-Checks if all values in values using \code{vld_subset()}.
-
-\item \code{vld_subset}: Validate In
-
-Validates all values in \code{values} using equivalent of
-
-\code{all(match(x, values, nomatch = 0) > 0)}
-
-\item \code{chk_superset}: Check Has
-
-Checks if includes all values using \code{vld_superset()}.
-
-\item \code{vld_superset}: Validates Has
-
-Validates includes all values using
-
-\code{all(match(values, x, nomatch = 0) > 0)}
+\item \code{vld_subset}: Validate Subset
 }}
 
 \examples{
@@ -62,18 +41,10 @@ try(chk_subset(11, 1:10))
 vld_subset(numeric(0), 1:10)
 vld_subset(1, 1:10)
 vld_subset(11, 1:10)
-
-# chk_superset
-chk_superset(1:3, 1)
-try(chk_superset(1:3, 4))
-
-# vld_superset
-vld_superset(1:3, 1)
-vld_superset(1:3, 4)
-vld_superset(integer(0), integer(0))
 }
 \seealso{
-\code{\link[=all]{all()}}
-
-\code{\link[=match]{match()}}
+Other chk_set: 
+\code{\link{chk_setequal}()},
+\code{\link{chk_superset}()}
 }
+\concept{chk_set}

@@ -8,13 +8,11 @@
 #' The user may want to use [toupper()] or [tolower()]
 #' to ensure the case matches.
 #'
-#' @inheritParams chk_flag
-#' @param ext A character vector of the permitted file extensions (without the .).
+#' @inheritParams params
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
-#'
 #'
 #' @family chk_files
 #' @export

@@ -45,8 +45,8 @@ try(chk_equal(c(x = 1), c(y = 1L)))
 vld_equal(1, 1.00000001)
 }
 \seealso{
-Other chk_equal: 
+Other chk_equals: 
 \code{\link{chk_equivalent}()},
 \code{\link{chk_identical}()}
 }
-\concept{chk_equal}
+\concept{chk_equals}
