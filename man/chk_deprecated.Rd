@@ -62,43 +62,27 @@ Deprecated \code{chk_()} functions.
 
 \lifecycle{soft-deprecated}
 
-Checks if directories exist using:
-
-\code{all(dir.exists(x))}
-
-Replace by \code{\link[=chk_dir]{chk_dir()}}.
+Replace with \code{\link{chk_all}(x, \link{chk_dir})}.
 
 \item \code{chk_files}: Check Files Exist
 
 \lifecycle{soft-deprecated}
 
-Checks if files exist using:
-
-\code{all(file.exists(x) && !dir.exists(x))}
-
-Replace by \code{\link[=chk_file]{chk_file()}}.
+Replace with \code{\link{chk_all}(x, \link{chk_file})}
 
 \item \code{chk_length}: Check Length
 
 \lifecycle{deprecated}
 
-Checks if is length length using:
-
-\code{length(x) == length}
-
 \code{length} should be a count.
 
-Replace by \verb{[chk_range](length(x))}.
+Replace by \code{\link{chk_range}(length(x))}
 
 \item \code{chk_count}: Check Count
 
 \lifecycle{deprecated}
 
-Checks if non-missing non-negative integer scalar or double equivalent using:
-
-\code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && vld_true(all.equal(x, as.integer(x)))}
-
-Replace by \code{\link[=chk_whole_number]{chk_whole_number()}} and \code{\link[=chk_gte]{chk_gte()}}.
+Replace by \code{\link{chk_whole_number}(x); \link{chk_gte}(x)}
 
 \item \code{chk_proportion}: Check Proportion
 
@@ -114,17 +98,13 @@ Replace by \code{\link[=chk_number]{chk_number()}} and \code{\link[=chk_range]{c
 
 \lifecycle{soft-deprecated}
 
-Checks if all values in values using \code{chk_subset()}.
-
-Replace by \code{\link[=chk_subset]{chk_subset()}}.
+Replace by \code{\link{chk_subset}(x, values, x_name=x_name)}
 
 \item \code{chk_has}: Check Has
 
 \lifecycle{soft-deprecated}
 
-Checks if includes all values using \code{chk_superset()}.
-
-Replace by \code{\link[=chk_superset]{chk_superset()}}.
+Replace by \code{\link{chk_superset}(x, values, x_name = x_name)}
 
 \item \code{chk_is}: Check Is
 
@@ -146,10 +126,14 @@ Class should be a string.
 
 \item \code{chk_no_missing}: Check No Missing Values
 
+\lifecycle{soft-deprecated}
+
 Checks if no missing values using
 \code{vld_no_missing()}.
 
 \item \code{vld_no_missing}: Validate No Missing Values
+
+\lifecycle{soft-deprecated}
 
 Validates no missing values using
 

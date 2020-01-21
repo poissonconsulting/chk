@@ -1,5 +1,6 @@
 #' Deprecated functions
 #'
+#'
 #' Deprecated `chk_()` functions.
 #'
 #' @inheritParams chk_flag
@@ -11,15 +12,13 @@ NULL
 #'
 #' \lifecycle{soft-deprecated}
 #'
-#' Checks if directories exist using:
-#'
-#' `all(dir.exists(x))`
-#'
-#' Replace by [chk_dir()].
+#' Replace with \code{\link{chk_all}(x, \link{chk_dir})}.
 #'
 #' @export
 chk_dirs <- function(x) {
-  deprecate_soft("0.2.0", what = "chk_dirs(x)", with = "chk_all(x, chk_dir)")
+  deprecate_soft("0.2.0", 
+                 what = "chk_dirs()", 
+                 details = "Please use `chk_all(x, chk_dir)` instead")
   chk_all(x, chk_dir)
 }
 
@@ -27,15 +26,13 @@ chk_dirs <- function(x) {
 #'
 #' \lifecycle{soft-deprecated}
 #'
-#' Checks if files exist using:
-#'
-#' `all(file.exists(x) && !dir.exists(x))`
-#'
-#' Replace by [chk_file()].
+#' Replace with \code{\link{chk_all}(x, \link{chk_file})}
 #'
 #' @export
 chk_files <- function(x) {
-  deprecate_soft("0.2.0", what = "chk_files(x)", with = "chk_all(x, chk_file)")
+  deprecate_soft("0.2.0", 
+                 what = "chk_files()", 
+                 details = "Please use `chk_all(x, chk_file)` instead")
   chk_all(x, chk_file)
 }
 
@@ -43,19 +40,17 @@ chk_files <- function(x) {
 #'
 #' \lifecycle{deprecated}
 #'
-#' Checks if is length length using:
-#'
-#' `length(x) == length`
-#'
 #' `length` should be a count.
 #'
-#' Replace by `[chk_range](length(x))`.
+#' Replace by \code{\link{chk_range}(length(x))} 
 #'
 #' @param length A count of the length.
 #'
 #' @export
 chk_length <- function(x, length = 1L, x_name = NULL) {
-  .Deprecated("chk_range(length(x))")
+  deprecate_soft("0.2.0", 
+                 what = "chk_length()", 
+                 with = "chk_range()")
   if(length(x) == length) {
     return(TRUE)
   }
@@ -68,26 +63,16 @@ chk_length <- function(x, length = 1L, x_name = NULL) {
 #'
 #' \lifecycle{deprecated}
 #'
-#' Checks if non-missing non-negative integer scalar or double equivalent using:
-#'
-#' `is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 &&
-#'   vld_true(all.equal(x, as.integer(x)))`
-#'
-#' Replace by [chk_whole_number()] and [chk_gte()].
+#' Replace by \code{\link{chk_whole_number}(x); \link{chk_gte}(x)} 
 #'
 #' @export
 chk_count <- function(x, x_name = NULL) {
-  .Deprecated("chk_whole_number(x); chk_gte(x)")
-
-  if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 &&
-    (is.integer(x) || vld_true(all.equal(x, as.integer(x))))) {
-    return(TRUE)
-  }
+  deprecate_warn("0.2.0", 
+                 what = "chk_count()", 
+                 details = "Please use `chk_whole_number()` and `chk_gte()` instead")
   if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(
-    x_name,
-    " must be a count (non-missing non-negative integer scalar or double equivalent)"
-  )
+  chk_whole_number(x)
+  chk_gte(x)
 }
 
 #' @describeIn chk_deprecated Check Proportion
@@ -102,7 +87,10 @@ chk_count <- function(x, x_name = NULL) {
 #'
 #' @export
 chk_proportion <- function(x, x_name = NULL) {
-  .Deprecated("chk_number(x); chk_range(x)")
+  
+  deprecate_soft("0.2.0", 
+                 what = "chk_proportion()", 
+                 details = "Please use `chk_number(x)` or `chk_range(x)` instead")
   if(is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1) {
     return(TRUE)
   }
@@ -117,36 +105,34 @@ chk_proportion <- function(x, x_name = NULL) {
 #'
 #' \lifecycle{soft-deprecated}
 #'
-#' Checks if all values in values using `chk_subset()`.
-#'
-#' Replace by [chk_subset()].
+#' Replace by \code{\link{chk_subset}(x, values, x_name=x_name)}
 #'
 #' @export
 chk_in <- function(x, values, x_name = NULL) {
-  deprecate_soft("0.2.0",
-    what = "chk_in()",
-    with = "chk_subset()"
-  )
   if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_subset(x, values, x_name = x_name)
+  deprecate_soft("0.2.0",
+                 what = "chk_in()",
+                 with = "chk_subset()"
+  )
+  invisible()
 }
 
 #' @describeIn chk_deprecated Check Has
 #'
 #' \lifecycle{soft-deprecated}
 #'
-#' Checks if includes all values using `chk_superset()`.
-#'
-#' Replace by [chk_superset()].
+#' Replace by \code{\link{chk_superset}(x, values, x_name = x_name)}
 #'
 #' @export
 chk_has <- function(x, values, x_name = NULL) {
-  deprecate_soft("0.2.0",
-    what = "chk_has()",
-    with = "chk_superset()"
-  )
   if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_superset(x, values, x_name = x_name)
+  deprecate_soft("0.2.0",
+                 what = "chk_has()",
+                 with = "chk_superset()"
+  )
+  invisible()
 }
 
 
@@ -167,7 +153,8 @@ chk_has <- function(x, values, x_name = NULL) {
 #' try(chk_is(1, "character"))
 chk_is <- function(x, class, x_name = NULL) {
   deprecate_soft("0.2.0",
-    what = "chk_is()", with = "chk_s3_class()",
+    what = "chk_is()", 
+    with = "chk_s3_class()",
     id = "chk_is"
   )
   if(vld_is(x, class)) {
@@ -199,13 +186,16 @@ chk_is <- function(x, class, x_name = NULL) {
 #' vld_is(NULL, "numeric")
 vld_is <- function(x, class) {
   deprecate_soft("0.2.0",
-    what = "vld_is()", with = "vld_class_s3()",
+    what = "vld_is()", 
+    with = "vld_class_s3()",
     id = "chk_is"
   )
   inherits(x, class)
 }
 
 #' @describeIn chk_deprecated Check No Missing Values
+#' 
+#' \lifecycle{soft-deprecated}
 #'
 #' Checks if no missing values using
 #' `vld_no_missing()`.
@@ -230,6 +220,8 @@ chk_no_missing <- function(x, x_name = NULL) {
 }
 
 #' @describeIn chk_deprecated Validate No Missing Values
+#' 
+#' \lifecycle{soft-deprecated}
 #'
 #' Validates no missing values using
 #'
@@ -261,7 +253,9 @@ vld_no_missing <- function(x) {
 #'
 #' @export
 deparse_backtick <- function(x) {
-  deprecate_soft("0.2.0", what = "deparse_backtick()", with = "deparse_backtick_chk()")
+  deprecate_soft("0.2.0", 
+                 what = "deparse_backtick()", 
+                 with = "deparse_backtick_chk()")
   deparse_backtick_chk(x)
 }
 
@@ -272,7 +266,9 @@ deparse_backtick <- function(x) {
 #'
 #' @export
 chk_on <- function() {
-  deprecate_soft("0.2.0", what = "chk_on()")
+  deprecate_warn("0.2.0", 
+                 what = "chk_on()",
+                 details = "This approach is no longer recommended")
   options(chk.on = TRUE)
 }
 
@@ -282,7 +278,9 @@ chk_on <- function() {
 #'
 #' @export
 chk_off <- function() {
-  deprecate_soft("0.2.0", what = "chk_off()")
+  deprecate_warn("0.2.0", 
+                 what = "chk_off()",
+                 details = "This approach is no longer recommended")
   options(chk.on = FALSE)
 }
 
@@ -292,6 +290,8 @@ chk_off <- function() {
 #'
 #' @export
 is_chk_on <- function() {
-  deprecate_soft("0.2.0", what = "is_chk_on()")
+  deprecate_warn("0.2.0", 
+                 what = "is_chk_on()",
+                 details = "This approach is no longer recommended")
   getOption("chk.on", TRUE)
 }
