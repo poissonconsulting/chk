@@ -24,10 +24,10 @@
 #' chk_numeric(1)
 #' try(chk_numeric("1"))
 chk_numeric <- function(x, x_name = NULL) {
-  if(vld_numeric(x)) {
+  if (vld_numeric(x)) {
     return(invisible())
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
   abort_chk(x_name, " must be numeric")
 }
 

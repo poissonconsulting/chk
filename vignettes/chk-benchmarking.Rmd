@@ -33,7 +33,7 @@ fun_checking <- function(x) {
 }
 
 fun_checking_arg <- function(x, chk = TRUE) {
-  if(chk) {
+  if (chk) {
     chk_flag(x)
   }
   NULL

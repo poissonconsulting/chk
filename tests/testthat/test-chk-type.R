@@ -99,9 +99,10 @@ test_that("chk_function", {
   expect_invisible(chk_function(c))
   expect_chk_error(chk_function(1), "^`1` must be a function[.]$")
   expect_chk_error(chk_function(1, x_name = "Function()"), "^Function[(][)] must be a function[.]$")
-  expect_chk_error(chk_function(mean, formals = 3),
-    "^`mean` must have 3 formal arguments [(]not 2[)][.]$")
-
+  expect_chk_error(
+    chk_function(mean, formals = 3),
+    "^`mean` must have 3 formal arguments [(]not 2[)][.]$"
+  )
 })
 
 test_that("vld_vector", {

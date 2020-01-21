@@ -24,11 +24,11 @@
 #' # FIXME try(chk_all(1, chk_lgl))
 #' chk_all(c(TRUE, NA), chk_lgl)
 chk_all <- function(x, chk_fun, ..., x_name = NULL) {
-  if(is.null(x)) {
-    if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x)) {
+    if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
     return(chk_fun(x, ..., x_name = x_name))
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   x_name <- paste0("all elements of ", x_name)
 
   args <- list(...)
@@ -49,7 +49,7 @@ chk_all <- function(x, chk_fun, ..., x_name = NULL) {
 #' # vld_all
 #' vld_all(c(TRUE, NA), vld_lgl)
 vld_all <- function(x, vld_fun, ...) {
-  if(is.null(x)) {
+  if (is.null(x)) {
     return(vld_fun(x, ...))
   }
 

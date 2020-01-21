@@ -23,10 +23,10 @@
 #' chk_all_equivalent(list(c(x = 1), c(x = 1)))
 #' chk_all_equivalent(list(c(x = 1), c(y = 1)))
 chk_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL) {
-  if(vld_all_equivalent(x, tolerance = tolerance)) {
+  if (vld_all_equivalent(x, tolerance = tolerance)) {
     return(invisible())
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must have equivalent elements")
 }
 

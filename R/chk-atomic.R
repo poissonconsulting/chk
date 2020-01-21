@@ -20,10 +20,10 @@
 #' chk_atomic(1)
 #' try(chk_atomic(list(1)))
 chk_atomic <- function(x, x_name = NULL) {
-  if(vld_atomic(x)) {
+  if (vld_atomic(x)) {
     return(invisible())
   }
-  if(is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
   abort_chk(x_name, " must be atomic")
 }
 

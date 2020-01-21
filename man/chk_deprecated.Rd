@@ -88,11 +88,7 @@ Replace by \code{\link{chk_whole_number}(x); \link{chk_gte}(x)}
 
 \lifecycle{deprecated}
 
-Checks if non-missing numeric scalar between 0 and 1 using:
-
-\code{is.numeric(x) && length(x) == 1L && !anyNA(x) && x >= 0 && x <= 1}
-
-Replace by \code{\link[=chk_number]{chk_number()}} and \code{\link[=chk_range]{chk_range()}}.
+Replace by \code{\link{chk_number}(x); \link{chk_range}(x)}
 
 \item \code{chk_in}: Check In
 
@@ -109,8 +105,6 @@ Replace by \code{\link{chk_superset}(x, values, x_name = x_name)}
 \item \code{chk_is}: Check Is
 
 \lifecycle{soft-deprecated}
-
-Checks if inherits from class using \code{vld_is()}.
 
 Replace by \code{\link[=chk_s3_class]{chk_s3_class()}} or \code{\link[=chk_s4_class]{chk_s4_class()}}.
 

@@ -46,7 +46,7 @@ vld_flag(NA)
 ```
 The `vld_` functions allow developers to provide their own error messages.
 ```{r, error=TRUE}
-if(!vld_flag(NA)) abort_chk("`NA` is not TRUE or FALSE!!")
+if (!vld_flag(NA)) abort_chk("`NA` is not TRUE or FALSE!!")
 ```
 
 ## Using chk

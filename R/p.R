@@ -10,8 +10,9 @@
 #' @examples
 #' p("a", "b")
 #' p(c("a", "b"), collapse = " ")
-p <- function(..., sep = " ", collapse = NULL)
+p <- function(..., sep = " ", collapse = NULL) {
   paste(..., sep = sep, collapse = collapse)
+}
 
 #' @describeIn p A wrapper on [base::paste0()]
 #' @export
@@ -19,5 +20,6 @@ p <- function(..., sep = " ", collapse = NULL)
 #' @examples
 #' p0("a", "b")
 #' p0(c("a", "b"), collapse = "")
-p0 <- function(..., collapse = NULL)
+p0 <- function(..., collapse = NULL) {
   paste0(..., collapse = collapse)
+}
