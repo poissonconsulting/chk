@@ -1,6 +1,8 @@
 context("deprecated")
 
 test_that("vld_is", {
+  rlang::scoped_options(lifecycle_verbosity = "quiet")
+
   expect_true(vld_is(1, "numeric"))
   expect_false(vld_is(1L, "numeric"))
   expect_true(vld_is(1L, "integer"))
@@ -12,6 +14,8 @@ test_that("vld_is", {
 })
 
 test_that("chk_is", {
+  rlang::scoped_options(lifecycle_verbosity = "quiet")
+
   expect_null(chk_is(1L, "integer"))
   expect_invisible(chk_is(1L, "integer"))
   expect_chk_error(chk_is(1, "integer"), "^`1` must inherit from class 'integer'[.]$")
@@ -26,8 +30,15 @@ test_that("chk_is", {
 })
 
 test_that("on", {
+  rlang::scoped_options(lifecycle_verbosity = "quiet")
+
   setup(chk_off())
-  teardown(chk_on())
+
+  teardown({
+    rlang::scoped_options(lifecycle_verbosity = "quiet")
+    chk_on()
+  })
+
   expect_false(is_chk_on())
   expect_identical(chk_on(), list(chk.on = FALSE))
   expect_true(is_chk_on())
@@ -38,6 +49,8 @@ test_that("on", {
 })
 
 test_that("vld_no_missing", {
+  rlang::scoped_options(lifecycle_verbosity = "quiet")
+
   expect_true(vld_no_missing(1))
   expect_true(vld_no_missing(integer(0)))
   expect_false(vld_no_missing(NA))
@@ -45,6 +58,8 @@ test_that("vld_no_missing", {
 })
 
 test_that("chk_no_missing", {
+  rlang::scoped_options(lifecycle_verbosity = "quiet")
+
   expect_null(chk_no_missing(1))
   expect_invisible(chk_no_missing(1))
   expect_chk_error(chk_no_missing(NA), "^`NA` must not have missing values[.]$")
