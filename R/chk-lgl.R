@@ -24,7 +24,7 @@ chk_lgl <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_chk(x_name, " must be a logical scalar (TRUE, FALSE or NA)")
+  abort_chk(x_name, " must be a logical scalar (TRUE, FALSE or NA)", x = x)
 }
 
 #' @describeIn chk_lgl Validate Logical Scalar

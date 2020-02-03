@@ -25,7 +25,7 @@ chk_vector <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be a vector")
+  abort_chk(x_name, " must be a vector", x = x)
 }
 
 #' @describeIn chk_vector Validate Vector

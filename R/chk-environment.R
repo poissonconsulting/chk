@@ -24,7 +24,7 @@ chk_environment <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_chk(x_name, " must be an environment")
+  abort_chk(x_name, " must be an environment", x = x)
 }
 
 #' @describeIn chk_environment Validate Environment

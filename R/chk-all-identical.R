@@ -29,7 +29,7 @@ chk_all_identical <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must have identical elements")
+  abort_chk(x_name, " must have identical elements", x = x)
 }
 
 #' @describeIn chk_all_identical Validate All Identical

@@ -28,7 +28,7 @@ chk_number <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be a number (non-missing numeric scalar)")
+  abort_chk(x_name, " must be a number (non-missing numeric scalar)", x = x)
 }
 
 #' @describeIn chk_number Validate Number
