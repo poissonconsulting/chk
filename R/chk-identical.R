@@ -26,8 +26,8 @@ chk_identical <- function(x, y, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  y <- utils::capture.output(dput(y, control = "all"))
-  abort_chk(x_name, " must be identical to: ", y)
+  y_name <- as_label(y)
+  abort_chk(x_name, " must be identical to: ", y_name, x = x, y = y)
 }
 
 #' @describeIn chk_identical Validate Identical

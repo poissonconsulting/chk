@@ -28,8 +28,8 @@ chk_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps),
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  y <- utils::capture.output(dput(y, control = "all"))
-  abort_chk(x_name, " must be equal to: ", y)
+  y_name <- as_label(y)
+  abort_chk(x_name, " must be equal to: ", y_name, x = x, y = y)
 }
 
 #' @describeIn chk_equal Validate Equal

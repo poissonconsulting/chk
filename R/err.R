@@ -78,6 +78,13 @@ err <- function(..., n = NULL, tidy = TRUE, .subclass = NULL,
   abort(
     message_chk(..., n = n, tidy = tidy), 
     .subclass = .subclass,
+    body = function(cnd, ...) {
+      if (is.null(cnd$y)) {
+        ""
+      } else {
+        "Use `rlang::last_error()$y` to show the object compared to."
+      }
+    },
     x = x,
     y = y
   )
