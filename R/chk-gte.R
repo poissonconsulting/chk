@@ -30,7 +30,7 @@ chk_gte <- function(x, value = 0, x_name = NULL) {
       ", not ", cc(x)
     )
   }
-  abort_chk(x_name, " must have values greater than or equal to ", cc(value), x = x)
+  abort_chk(x_name, " must have values greater than or equal to ", cc(value), x = x, value = value)
 }
 
 #' @describeIn chk_gte Validate Greater Than or Equal To
