@@ -4,7 +4,7 @@
 \alias{abort_chk}
 \title{Abort Check}
 \usage{
-abort_chk(..., n = NULL, tidy = TRUE)
+abort_chk(..., n = NULL, tidy = TRUE, x = NULL, y = NULL)
 }
 \arguments{
 \item{...}{Multiple objects that are converted to a string using
@@ -13,6 +13,10 @@ abort_chk(..., n = NULL, tidy = TRUE)
 \item{n}{The value of n for converting \code{sprintf}-like types.}
 
 \item{tidy}{A flag specifying whether capitalize the first character and add a missing period.}
+
+\item{x}{LHS value that failed the check.}
+
+\item{y}{RHS value that failed the check, if present.}
 }
 \value{
 Throws an error of class \code{'chk_error'}.

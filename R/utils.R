@@ -5,6 +5,7 @@
 #' It is exported to allow users to easily construct their own `chk_` functions.
 #'
 #' @inheritParams message_chk
+#' @inheritParams err
 #' @return Throws an error of class `'chk_error'`.
 #' @seealso [err()]
 #' @export
@@ -14,8 +15,12 @@
 #' try(abort_chk("`x` must be NULL"))
 #' try(abort_chk("there %r %n problem value%s", n = 1))
 #' try(abort_chk("there %r %n problem value%s", n = 1.5))
-abort_chk <- function(..., n = NULL, tidy = TRUE) {
-  err(..., n = n, tidy = tidy, .subclass = "chk_error")
+abort_chk <- function(..., n = NULL, tidy = TRUE,
+                      x = NULL, y = NULL) {
+  err(...,
+    n = n, tidy = tidy, .subclass = "chk_error", 
+    x = x, y = y
+  )
 }
 
 #' Deparse Backtick

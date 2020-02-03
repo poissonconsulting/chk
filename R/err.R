@@ -64,14 +64,23 @@ NULL
 
 #' @describeIn err Error
 #'
+#' @param x LHS value that failed the check.
+#' @param y RHS value that failed the check, if present.
 #' @export
 #'
 #' @examples
 #'
 #' # err
 #' try(err("there %r %n problem value%s", n = 2))
-err <- function(..., n = NULL, tidy = TRUE, .subclass = NULL) {
-  abort(message_chk(..., n = n, tidy = tidy), .subclass = .subclass)
+err <- function(..., n = NULL, tidy = TRUE, .subclass = NULL,
+                x = NULL, y = NULL) {
+  
+  abort(
+    message_chk(..., n = n, tidy = tidy), 
+    .subclass = .subclass,
+    x = x,
+    y = y
+  )
 }
 
 #' @describeIn err Warning
