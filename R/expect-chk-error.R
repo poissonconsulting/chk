@@ -12,7 +12,7 @@
 #' expect_chk_error(chk_true(FALSE))
 #' try(expect_chk_error(chk_false(FALSE)))
 expect_chk_error <- function(object, regexp = NULL, class = "chk_error", ..., info = NULL, label = NULL) {
-  if(!requireNamespace("testthat", quietly = TRUE))
+  if(!is_installed("testthat"))
     stop("`testhat` must be installed.")
   if(!missing(class)) stop("`class` must be missing.")
   testthat::expect_error(object, regexp = regexp, class = class, ..., info = info, label = label)
