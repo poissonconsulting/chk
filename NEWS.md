@@ -1,4 +1,7 @@
+# chk 0.3.0.9003
+
 - Added `expect_chk_error()`.
+- Added `chk_tz()` and `vld_tz()`.
 - Added `chk_matrix()` and `vld_matrix()`.
 - Added `chk_array()` and `vld_array()`.
 
