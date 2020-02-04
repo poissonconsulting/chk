@@ -6,7 +6,7 @@
 \alias{msg}
 \title{Stop, Warning and Message Messages}
 \usage{
-err(..., n = NULL, tidy = TRUE, .subclass = NULL, x = NULL, y = NULL)
+err(..., n = NULL, tidy = TRUE, .subclass = NULL)
 
 wrn(..., n = NULL, tidy = TRUE, .subclass = NULL)
 
@@ -25,10 +25,6 @@ msg(..., n = NULL, tidy = TRUE, .subclass = NULL)
 0.4.2.  It will be deprecated in the next major version. This is
 for consistency with our conventions for class constructors
 documented in \url{https://adv-r.hadley.nz/s3.html#s3-subclassing}.}
-
-\item{x}{LHS value that failed the check.}
-
-\item{y}{RHS value that failed the check, if present.}
 }
 \description{
 The functions call \code{\link[=message_chk]{message_chk()}} to process

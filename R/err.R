@@ -64,8 +64,6 @@ NULL
 
 #' @describeIn err Error
 #'
-#' @param x LHS value that failed the check.
-#' @param y RHS value that failed the check, if present.
 #' @export
 #'
 #' @examples
@@ -73,7 +71,7 @@ NULL
 #' # err
 #' try(err("there %r %n problem value%s", n = 2))
 err <- function(..., n = NULL, tidy = TRUE, .subclass = NULL) {
-  
+
   args <- list2(...)
   named <- (names2(args) != "")
   msg <- exec(p0, !!!args[!named], collapse = "")
