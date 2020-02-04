@@ -24,7 +24,7 @@ chk_array <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be an array")
+  abort_chk(x_name, " must be an array", x = x)
 }
 
 #' @describeIn chk_array Validate Array

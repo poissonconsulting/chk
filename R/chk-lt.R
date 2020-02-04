@@ -25,9 +25,9 @@ chk_lt <- function(x, value = 0, x_name = NULL) {
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   if (length(x) == 1L) {
-    abort_chk(x_name, " must be less than ", cc(value), ", not ", cc(x))
+    abort_chk(x_name, " must be less than ", cc(value), ", not ", cc(x), x = x, value = value)
   }
-  abort_chk(x_name, " must have values less than ", cc(value))
+  abort_chk(x_name, " must have values less than ", cc(value), x = x, value = value)
 }
 
 #' @describeIn chk_lt Validate Less Than

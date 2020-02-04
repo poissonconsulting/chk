@@ -106,7 +106,7 @@ chk_is <- function(x, class, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must inherit from class '", class, "'")
+  abort_chk(x_name, " must inherit from class '", class, "'", x = x, class = class)
 }
 
 #' @describeIn chk_deprecated Validate Is
@@ -145,7 +145,7 @@ chk_length <- function(x, length = 1L, x_name = NULL) {
     return(TRUE)
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be length ", length, ", not ", length(x))
+  abort_chk(x_name, " must be length ", length, ", not ", length(x), x = x, length = length)
 }
 
 #' @describeIn chk_deprecated Check No Missing Values
@@ -164,7 +164,7 @@ chk_no_missing <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must not have missing values")
+  abort_chk(x_name, " must not have missing values", x = x)
 }
 
 #' @describeIn chk_deprecated Validate No Missing Values

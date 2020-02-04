@@ -25,7 +25,7 @@ chk_unique <- function(x, incomparables = FALSE, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be unique")
+  abort_chk(x_name, " must be unique", x = x, incomparables = incomparables)
 }
 
 #' @describeIn chk_unique Validate Unique

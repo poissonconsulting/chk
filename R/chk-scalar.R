@@ -25,7 +25,7 @@ chk_scalar <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be a scalar (length 1)")
+  abort_chk(x_name, " must be a scalar (length 1)", x = x)
 }
 
 #' @describeIn chk_scalar Validate Scalar

@@ -30,7 +30,7 @@ chk_lte <- function(x, value = 0, x_name = NULL) {
       ""
     )
   }
-  abort_chk(x_name, " must have values less than or equal to ", cc(value))
+  abort_chk(x_name, " must have values less than or equal to ", cc(value), x = x, value = value)
 }
 
 #' @describeIn chk_lte Validate Less Than or Equal To

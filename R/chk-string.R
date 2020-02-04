@@ -24,7 +24,7 @@ chk_string <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be a string (non-missing character scalar)")
+  abort_chk(x_name, " must be a string (non-missing character scalar)", x = x)
 }
 
 #' @describeIn chk_string Validate String

@@ -27,7 +27,7 @@ chk_range <- function(x, range = c(0, 1), x_name = NULL) {
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   if (length(x) == 1L) {
     if (range[1] == range[2]) {
-      abort_chk(x_name, " must be ", cc(range[1]), ", not ", cc(x))
+      abort_chk(x_name, " must be ", cc(range[1]), ", not ", cc(x), x = x, range = range)
     }
     abort_chk(
       x_name, " must be between ", cc(range, " and "),
@@ -35,9 +35,9 @@ chk_range <- function(x, range = c(0, 1), x_name = NULL) {
     )
   }
   if (range[1] == range[2]) {
-    abort_chk(x_name, " must have values of ", cc(range[1]))
+    abort_chk(x_name, " must have values of ", cc(range[1]), x = x, range = range)
   }
-  abort_chk(x_name, " must have values between ", cc(range, " and "))
+  abort_chk(x_name, " must have values between ", cc(range, " and "), x = x, range = range)
 }
 
 #' @describeIn chk_range Validate Range

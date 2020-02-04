@@ -71,7 +71,25 @@ NULL
 #' # err
 #' try(err("there %r %n problem value%s", n = 2))
 err <- function(..., n = NULL, tidy = TRUE, .subclass = NULL) {
-  abort(message_chk(..., n = n, tidy = tidy), .subclass = .subclass)
+
+  args <- list2(...)
+  named <- (names2(args) != "")
+  msg <- exec(p0, !!!args[!named], collapse = "")
+  msg <- message_chk(msg, n = n, tidy = tidy)
+
+  if (!is.null(args$y)) {
+    msg <- paste0(
+      msg,
+      "\nUse `rlang::last_error()$y` to show the object compared to."
+    )
+  }
+
+  exec(
+    abort,
+    msg,
+    .subclass = .subclass,
+    !!!args[named]
+  )
 }
 
 #' @describeIn err Warning

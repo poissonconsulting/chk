@@ -26,7 +26,7 @@ chk_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NUL
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must have equal elements")
+  abort_chk(x_name, " must have equal elements", x = x, tolerance = tolerance)
 }
 
 #' @describeIn chk_all_equal Validate All Equal

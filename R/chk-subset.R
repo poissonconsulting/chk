@@ -26,9 +26,9 @@ chk_subset <- function(x, values, x_name = NULL) {
   values <- sort(unique(values), na.last = TRUE)
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   if (length(x) == 1L) {
-    abort_chk(x_name, " must match ", cc(values, " or "), ", not ", cc(x))
+    abort_chk(x_name, " must match ", cc(values, " or "), ", not ", cc(x), x = x, values = values)
   }
-  abort_chk(x_name, " must have values matching ", cc(values, " or "))
+  abort_chk(x_name, " must have values matching ", cc(values, " or "), x = x, values = values)
 }
 
 #' @describeIn chk_subset Validate Subset

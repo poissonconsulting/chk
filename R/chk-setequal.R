@@ -24,7 +24,7 @@ chk_setequal <- function(x, values, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_chk(x_name, " must equal set: ", cc(values))
+  abort_chk(x_name, " must equal set: ", cc(values), x = x, values = values)
 }
 
 #' @describeIn chk_setequal Validate Set Equal

@@ -26,9 +26,9 @@ chk_dir <- function(x, x_name = NULL) {
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_string(x, x_name = x_name)
   if (file.exists(x)) {
-    abort_chk(x_name, " must specify a directory ('", x, "' is a file)")
+    abort_chk(x_name, " must specify a directory ('", x, "' is a file)", x = x)
   }
-  abort_chk(x_name, " must specify an existing directory ('", x, "' can't be found)")
+  abort_chk(x_name, " must specify an existing directory ('", x, "' can't be found)", x = x)
 }
 
 #' @describeIn chk_dir Validate Directory Exists
