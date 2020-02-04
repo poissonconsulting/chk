@@ -17,6 +17,7 @@ reference:
   - '`chk_string`'
   - '`chk_date`'
   - '`chk_datetime`'
+  - '`chk_tz`'
 - title: Range Checkers
   desc: Checking ranges
   contents:
@@ -35,7 +36,7 @@ reference:
   desc: Checking all
   contents:
   - '`chk_all`'
-  - '`chk_all_identical`' 
+  - '`chk_all_identical`'
   - '`chk_all_equal`'
   - '`chk_all_equivalent`'
 - title: Set Checkers
@@ -88,6 +89,7 @@ reference:
   - '`deparse_backtick_chk`'
   - '`message_chk`'
   - '`abort_chk`'
+  - '`expect_chk_error`'
 - title: Message Generators
   desc: Generating messages
   contents:
