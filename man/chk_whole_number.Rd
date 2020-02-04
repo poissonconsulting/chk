@@ -48,6 +48,7 @@ Other chk_scalars:
 \code{\link{chk_date}()},
 \code{\link{chk_number}()},
 \code{\link{chk_scalar}()},
-\code{\link{chk_string}()}
+\code{\link{chk_string}()},
+\code{\link{chk_tz}()}
 }
 \concept{chk_scalars}
