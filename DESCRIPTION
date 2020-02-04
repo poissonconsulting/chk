@@ -19,8 +19,7 @@ Imports:
     lifecycle,
     methods,
     rlang,
-    tools,
-    utils
+    tools
 Suggests: 
     covr,
     knitr,
