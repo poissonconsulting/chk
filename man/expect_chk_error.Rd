@@ -7,10 +7,10 @@
 expect_chk_error(
   object,
   regexp = NULL,
-  class = "chk_error",
   ...,
   info = NULL,
-  label = NULL
+  label = NULL,
+  class = NULL
 )
 }
 \arguments{
@@ -28,8 +28,6 @@ but doesn't test for a specific value.
 \item If \code{NA}, asserts that there should be no errors.
 }}
 
-\item{class}{Must be \code{"chk_error"}.}
-
 \item{...}{Arguments passed on to \code{expect_match}
 \describe{
   \item{all}{Should all elements of actual value match \code{regexp} (TRUE),
@@ -44,6 +42,8 @@ is soft-deprecated and should not be used in new code. Instead see
 alternatives in \link[testthat]{quasi_label}.}
 
 \item{label}{Used to customise failure messages. For expert use only.}
+
+\item{class}{Must be NULL.}
 }
 \value{
 If \code{regexp = NA}, the value of the first argument; otherwise
