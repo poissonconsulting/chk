@@ -27,7 +27,8 @@ chk_whole_numeric <- function(x, x_name = NULL) {
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(
     x_name,
-    " must be a whole numeric vector (integer vector or double equivalent)"
+    " must be a whole numeric vector (integer vector or double equivalent)",
+    x = x
   )
 }
 

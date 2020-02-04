@@ -1,5 +1,6 @@
 # chk 0.3.0.9003
 
+- `abort_chk` now allows original arguments to be attached.
 - Added `chk_tz()` and `vld_tz()`.
 - Added `chk_matrix()` and `vld_matrix()`.
 - Added `chk_array()` and `vld_array()`.

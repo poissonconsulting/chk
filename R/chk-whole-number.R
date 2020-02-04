@@ -30,7 +30,8 @@ chk_whole_number <- function(x, x_name = NULL) {
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(
     x_name,
-    " must be a whole number (non-missing integer scalar or double equivalent)"
+    " must be a whole number (non-missing integer scalar or double equivalent)",
+    x = x
   )
 }
 

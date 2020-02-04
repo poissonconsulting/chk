@@ -27,7 +27,7 @@ chk_gte <- function(x, value = 0, x_name = NULL) {
   if (length(x) == 1L) {
     abort_chk(
       x_name, " must be greater than or equal to ", cc(value),
-      ", not ", cc(x)
+      ", not ", cc(x), x = x, value = value
     )
   }
   abort_chk(x_name, " must have values greater than or equal to ", cc(value), x = x, value = value)
