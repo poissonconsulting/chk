@@ -11,7 +11,7 @@
 #' @examples
 #' expect_chk_error(chk_true(FALSE))
 #' try(expect_chk_error(chk_false(FALSE)))
-expect_chk_error <- function(object, regexp = NULL, class = "chk_error", ..., info = NULL, label = NULL) {
+expect_chk_error <- function(object, regexp = NULL, ..., info = NULL, label = NULL, class = NULL) {
   if(!is_installed("testthat"))
     stop("`testhat` must be installed.")
   if(!missing(class)) stop("`class` must be missing.")
