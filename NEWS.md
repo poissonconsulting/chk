@@ -1,3 +1,4 @@
+- Added `expect_chk_error()`.
 - Added `chk_matrix()` and `vld_matrix()`.
 - Added `chk_array()` and `vld_array()`.
 
