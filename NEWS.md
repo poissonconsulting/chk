@@ -1,3 +1,8 @@
+# chk 0.3.1
+
+- Same as previous version.
+
+
 # chk 0.3.0.9004
 
 - Added `expect_chk_error()` (fixes #44)
