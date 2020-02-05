@@ -1,10 +1,5 @@
 # chk 0.3.1
 
-- Same as previous version.
-
-
-# chk 0.3.0.9004
-
 - Added `expect_chk_error()` (fixes #44)
 - Added `chk_matrix()` and `vld_matrix()`.
 - Added `chk_array()` and `vld_array()`.
