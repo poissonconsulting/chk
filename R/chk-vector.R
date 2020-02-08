@@ -3,7 +3,11 @@
 #' @description
 #' Checks if is a vector using
 #'
-#' `is.vector(x)`
+#' `(is.atomic(x) && !is.matrix(x) && !is.array(x)) || is.list(x)`
+#'
+#' @details
+#' `is.vector(x)` is not reliable because it returns TRUE only
+#' if the object is a vector with no attributes apart from names.
 #'
 #' @inheritParams params
 #' @return
@@ -36,4 +40,4 @@ chk_vector <- function(x, x_name = NULL) {
 #'
 #' # vld_vector
 #' vld_vector(1)
-vld_vector <- function(x) is.vector(x)
+vld_vector <- function(x) (is.atomic(x) && !is.matrix(x) && !is.array(x)) || is.list(x)
