@@ -45,10 +45,10 @@ vld_number(1.1)
 \seealso{
 Other chk_scalars: 
 \code{\link{chk_datetime}()},
-\code{\link{chk_date}()},
 \code{\link{chk_scalar}()},
 \code{\link{chk_string}()},
 \code{\link{chk_tz}()},
-\code{\link{chk_whole_number}()}
+\code{\link{chk_whole_number}()},
+\code{\link{vld_data}()}
 }
 \concept{chk_scalars}
