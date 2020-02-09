@@ -30,8 +30,10 @@
 
 \item{formals}{A count of the number of formal arguments.}
 
-\item{incomparables}{A vector of values that cannot be compared.
-FALSE means that all values can be compared.}
+\item{incomparables}{A vector of values that cannot be compared.}
+
+\item{by}{A character vector specifying the column names to join x and y on.
+If named the names are the corresponding columns in x.}
 
 \item{...}{Additional arguments.}
 }

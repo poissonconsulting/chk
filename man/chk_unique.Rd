@@ -12,8 +12,7 @@ vld_unique(x, incomparables = FALSE)
 \arguments{
 \item{x}{The object to check.}
 
-\item{incomparables}{A vector of values that cannot be compared.
-FALSE means that all values can be compared.}
+\item{incomparables}{A vector of values that cannot be compared.}
 
 \item{x_name}{A string of the name of object x or NULL.}
 }
