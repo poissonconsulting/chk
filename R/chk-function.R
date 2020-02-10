@@ -6,19 +6,16 @@
 #' `is.function(x) && (is.null(formals) || length(formals(x)) == formals)`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_is
-#' @export
 #'
 #' @examples
-#'
 #' # chk_function
 #' chk_function(mean)
 #' try(chk_function(1))
+#'
+#' @export
 chk_function <- function(x, formals = NULL, x_name = NULL) {
   if (vld_function(x, formals)) {
     return(invisible())
@@ -30,15 +27,14 @@ chk_function <- function(x, formals = NULL, x_name = NULL) {
 
 #' @describeIn chk_function Validate Function
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_function
 #' vld_function(mean)
 #' vld_function(function(x) x)
 #' vld_function(1)
 #' vld_function(list(1))
+#'
+#' @export
 vld_function <- function(x, formals = NULL) {
   is.function(x) && (is.null(formals) || length(formals(x)) == formals)
 }

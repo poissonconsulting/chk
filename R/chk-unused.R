@@ -6,16 +6,11 @@
 #' `length(list(...)) == 0L`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` functions throw an informative error if the test fails.
-#'
-#' The `vld_` functions return a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_ellipsis
-#' @export
 #'
 #' @examples
-#'
 #' # chk_unused
 #' fun <- function(x, ...) {
 #'   chk_unused(...)
@@ -23,6 +18,8 @@
 #' }
 #' fun(1)
 #' try(fun(1, 2))
+#'
+#' @export
 chk_unused <- function(...) {
   if (!length(list(...))) {
     return(invisible())
@@ -32,14 +29,13 @@ chk_unused <- function(...) {
 
 #' @describeIn chk_unused Validate ... Unused
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_unused
 #' fun <- function(x, ...) {
 #'   vld_unused(...)
 #' }
 #' fun(1)
 #' try(fun(1, 2))
+#'
+#' @export
 vld_unused <- function(...) length(list(...)) == 0L

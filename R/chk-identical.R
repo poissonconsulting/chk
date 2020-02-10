@@ -6,21 +6,18 @@
 #' `identical(x, y)`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_equals
-#' @export
 #'
 #' @examples
-#'
 #' # chk_identical
 #' chk_identical(1, 1)
 #' try(chk_identical(1, 1L))
 #' chk_identical(c(1, 1), c(1, 1))
 #' try(chk_identical(1, c(1, 1)))
+#'
+#' @export
 chk_identical <- function(x, y, x_name = NULL) {
   if (identical(x, y)) {
     return(invisible())
@@ -32,9 +29,8 @@ chk_identical <- function(x, y, x_name = NULL) {
 
 #' @describeIn chk_identical Validate Identical
 #'
-#' @export
-#'
 #' @examples
-#'
 #' vld_identical(1, 1)
+#'
+#' @export
 vld_identical <- function(x, y) identical(x, y)

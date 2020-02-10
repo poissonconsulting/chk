@@ -6,18 +6,15 @@
 #' `vld_string(x) && file.exists(x) && !dir.exists(x)`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` functions throw an informative error if the test fails.
-#'
-#' The `vld_` functions return a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_files
-#' @export
 #'
 #' @examples
-#'
 #' # chk_file
 #' try(chk_file(tempfile()))
+#'
+#' @export
 chk_file <- function(x, x_name = NULL) {
   if (vld_file(x)) {
     return(invisible())
@@ -32,10 +29,9 @@ chk_file <- function(x, x_name = NULL) {
 
 #' @describeIn chk_file Validate File Exists
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_file
 #' vld_file(tempfile())
+#'
+#' @export
 vld_file <- function(x) vld_string(x) && file.exists(x) && !dir.exists(x)

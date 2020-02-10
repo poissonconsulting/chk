@@ -10,19 +10,16 @@
 #' **Bad**: `"a"`, `1:3`, `NA_real_`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_scalars
-#' @export
 #'
 #' @examples
-#'
 #' # chk_number
 #' chk_number(1.1)
 #' try(chk_number(TRUE))
+#'
+#' @export
 chk_number <- function(x, x_name = NULL) {
   if (vld_number(x)) {
     return(invisible())
@@ -33,12 +30,11 @@ chk_number <- function(x, x_name = NULL) {
 
 #' @describeIn chk_number Validate Number
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_number
 #' vld_number(1.1)
+#'
+#' @export
 vld_number <- function(x) {
   is.numeric(x) && length(x) == 1L && !anyNA(x)
 }

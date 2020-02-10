@@ -6,19 +6,16 @@
 #' `is.logical(x) && length(x) == 1L`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_logical
-#' @export
 #'
 #' @examples
-#'
 #' # chk_lgl
 #' chk_lgl(NA)
 #' try(chk_lgl(1))
+#'
+#' @export
 chk_lgl <- function(x, x_name = NULL) {
   if (vld_lgl(x)) {
     return(invisible())
@@ -29,14 +26,13 @@ chk_lgl <- function(x, x_name = NULL) {
 
 #' @describeIn chk_lgl Validate Logical Scalar
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_lgl
 #' vld_lgl(TRUE)
 #' vld_lgl(FALSE)
 #' vld_lgl(NA)
 #' vld_lgl(1)
 #' vld_lgl(c(TRUE, TRUE))
+#'
+#' @export
 vld_lgl <- function(x) is.logical(x) && length(x) == 1L

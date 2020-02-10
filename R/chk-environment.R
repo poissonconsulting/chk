@@ -6,19 +6,16 @@
 #' `is.environment(x)`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_is
-#' @export
 #'
 #' @examples
-#'
 #' # chk_environment
 #' chk_environment(.GlobalEnv)
 #' try(chk_environment(1))
+#'
+#' @export
 chk_environment <- function(x, x_name = NULL) {
   if (vld_environment(x)) {
     return(invisible())
@@ -29,13 +26,12 @@ chk_environment <- function(x, x_name = NULL) {
 
 #' @describeIn chk_environment Validate Environment
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_environment
 #' vld_environment(1)
 #' vld_environment(list(1))
 #' vld_environment(.GlobalEnv)
 #' vld_environment(environment())
+#'
+#' @export
 vld_environment <- function(x) is.environment(x)

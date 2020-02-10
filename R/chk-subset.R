@@ -6,19 +6,16 @@
 #' `all(x %in% values)`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` functions throw an informative error if the test fails.
-#'
-#' The `vld_` functions return a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_set
-#' @export
 #'
 #' @examples
-#'
 #' # chk_subset
 #' chk_subset(1, 1:10)
 #' try(chk_subset(11, 1:10))
+#'
+#' @export
 chk_subset <- function(x, values, x_name = NULL) {
   if (vld_subset(x, values)) {
     return(invisible())
@@ -33,12 +30,11 @@ chk_subset <- function(x, values, x_name = NULL) {
 
 #' @describeIn chk_subset Validate Subset
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_subset
 #' vld_subset(numeric(0), 1:10)
 #' vld_subset(1, 1:10)
 #' vld_subset(11, 1:10)
+#'
+#' @export
 vld_subset <- function(x, values) all(x %in% values)

@@ -32,8 +32,10 @@ Checks if non-missing valid scalar timezone using
 \examples{
 chk_tz("UTC")
 try(chk_tz("TCU"))
+
 vld_tz("UTC")
 vld_tz("TCU")
+
 }
 \seealso{
 Other chk_scalars: 

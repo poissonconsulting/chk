@@ -30,7 +30,6 @@ Checks if environment using
 }}
 
 \examples{
-
 # chk_environment
 chk_environment(.GlobalEnv)
 try(chk_environment(1))
@@ -40,6 +39,7 @@ vld_environment(1)
 vld_environment(list(1))
 vld_environment(.GlobalEnv)
 vld_environment(environment())
+
 }
 \seealso{
 Other chk_is: 

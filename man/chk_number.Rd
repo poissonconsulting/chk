@@ -34,13 +34,13 @@ Checks if non-missing numeric scalar using
 }}
 
 \examples{
-
 # chk_number
 chk_number(1.1)
 try(chk_number(TRUE))
 
 # vld_number
 vld_number(1.1)
+
 }
 \seealso{
 Other chk_scalars: 

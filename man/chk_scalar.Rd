@@ -30,7 +30,6 @@ Checks if is a vector using
 }}
 
 \examples{
-
 # chk_scalar
 chk_scalar(1)
 chk_scalar(list(1))
@@ -38,6 +37,7 @@ try(chk_scalar(1:2))
 
 # vld_scalar
 vld_scalar(1)
+
 }
 \seealso{
 Other chk_scalars: 

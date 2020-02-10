@@ -15,9 +15,9 @@ vld_null(x)
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-The \code{chk_} functions throw an informative error if the test fails.
+The \code{chk_} function throws an informative error if the test fails.
 
-The \code{vld_} functions return a flag indicating whether the test was met.
+The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
 Checks if NULL using
@@ -30,7 +30,6 @@ Checks if NULL using
 }}
 
 \examples{
-
 # chk_null
 try(chk_null(1))
 chk_null(NULL)
@@ -38,6 +37,7 @@ chk_null(NULL)
 # vld_null
 vld_null(NULL)
 vld_null(1)
+
 }
 \seealso{
 Other chk_nulls: 

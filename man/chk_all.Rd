@@ -36,7 +36,6 @@ Checks all elements using
 }}
 
 \examples{
-
 # chk_all
 chk_all(TRUE, chk_lgl)
 # FIXME try(chk_all(1, chk_lgl))
@@ -44,6 +43,7 @@ chk_all(c(TRUE, NA), chk_lgl)
 
 # vld_all
 vld_all(c(TRUE, NA), vld_lgl)
+
 }
 \seealso{
 Other chk_alls: 
