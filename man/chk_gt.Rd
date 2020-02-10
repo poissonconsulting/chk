@@ -32,7 +32,6 @@ Checks if all non-missing values are greater than value using
 }}
 
 \examples{
-
 # chk_gt
 chk_gt(0.1)
 try(chk_gt(c(0.1, -0.2)))
@@ -45,6 +44,7 @@ vld_gt(c(0.1, 0.2, NA))
 vld_gt(c(0.1, -0.2))
 vld_gt(c(-0.1, 0.2), value = -1)
 vld_gt("b", value = "a")
+
 }
 \seealso{
 Other chk_ranges: 

@@ -6,19 +6,16 @@
 #' `setequal(x, values)`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_set
-#' @export
 #'
 #' @examples
-#'
 #' # chk_setequal
 #' chk_setequal(1:2, 2:1)
 #' try(chk_setequal(1, 1:2))
+#'
+#' @export
 chk_setequal <- function(x, values, x_name = NULL) {
   if (vld_setequal(x, values)) {
     return(invisible())
@@ -29,13 +26,12 @@ chk_setequal <- function(x, values, x_name = NULL) {
 
 #' @describeIn chk_setequal Validate Set Equal
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_setequal
 #' vld_setequal(1, 1)
 #' vld_setequal(1:2, 2:1)
 #' vld_setequal(1, 2:1)
 #' vld_setequal(1:2, 2)
+#'
+#' @export
 vld_setequal <- function(x, values) setequal(x, values)

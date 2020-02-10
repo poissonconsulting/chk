@@ -34,7 +34,6 @@ Checks if is equal (identical within tolerance) to y using
 }}
 
 \examples{
-
 # chk_equal
 chk_equal(1, 1.00000001)
 try(chk_equal(1, 1.0000001))
@@ -43,6 +42,7 @@ chk_equal(c(x = 1), c(x = 1L))
 try(chk_equal(c(x = 1), c(y = 1L)))
 
 vld_equal(1, 1.00000001)
+
 }
 \seealso{
 Other chk_equals: 

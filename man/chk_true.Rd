@@ -15,9 +15,9 @@ vld_true(x)
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-The \code{chk_} functions throw an informative error if the test fails.
+The \code{chk_} function throws an informative error if the test fails.
 
-The \code{vld_} functions return a flag indicating whether the test was met.
+The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
 Checks if TRUE using
@@ -30,7 +30,6 @@ Checks if TRUE using
 }}
 
 \examples{
-
 # chk_true
 chk_true(TRUE)
 try(chk_true(1))
@@ -41,6 +40,7 @@ vld_true(FALSE)
 vld_true(NA)
 vld_true(0)
 vld_true(c(TRUE, TRUE))
+
 }
 \seealso{
 Other chk_logical: 

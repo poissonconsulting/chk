@@ -6,19 +6,16 @@
 #' `inherits(x, "Date") && length(x) == 1L && !anyNA(x)`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` functions throw an informative error if the test fails.
-#'
-#' The `vld_` functions return a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_scalars
-#' @export
 #'
 #' @examples
-#'
 #' # chk_date
 #' chk_date(Sys.Date())
 #' try(chk_date(1))
+#'
+#' @export
 chk_date <- function(x, x_name = NULL) {
   if (vld_date(x)) {
     return(invisible())
@@ -29,12 +26,11 @@ chk_date <- function(x, x_name = NULL) {
 
 #' @describeIn chk_date Validate Date
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_date
 #' vld_date(Sys.Date())
 #' vld_date(Sys.time())
 #' vld_date(1)
+#'
+#' @export
 vld_date <- function(x) inherits(x, "Date") && length(x) == 1L && !anyNA(x)

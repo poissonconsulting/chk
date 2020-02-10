@@ -6,21 +6,18 @@
 #'  `length(x) < 2L || all(vapply(x, vld_equal, TRUE, y = x[[1]], tolerance = tolerance))`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_alls
-#' @export
 #'
 #' @examples
-#'
 #' # chk_all_equal
 #' chk_all_equal(c(1, 1.00000001))
 #' try(chk_all_equal(c(1, 1.0000001)))
 #' chk_all_equal(list(c(x = 1), c(x = 1)))
 #' try(chk_all_equal(list(c(x = 1), c(y = 1))))
+#'
+#' @export
 chk_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL) {
   if (vld_all_equal(x, tolerance = tolerance)) {
     return(invisible())
@@ -31,12 +28,11 @@ chk_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NUL
 
 #' @describeIn chk_all_equal Validate All Equal
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_all_equal
 #' vld_all_equal(c(1, 1L))
+#'
+#' @export
 vld_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps)) {
   length(x) < 2L || all(vapply(x, vld_equal, TRUE, y = x[[1]], tolerance = tolerance))
 }

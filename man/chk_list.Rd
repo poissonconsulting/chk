@@ -30,7 +30,6 @@ Checks if is a list using
 }}
 
 \examples{
-
 # chk_list
 chk_list(list())
 try(chk_list(1))
@@ -41,6 +40,7 @@ vld_list(list(x = 1))
 vld_list(mtcars)
 vld_list(1)
 vld_list(NULL)
+
 }
 \seealso{
 Other chk_is: 

@@ -32,7 +32,6 @@ Checks if all values match regular expression using
 }}
 
 \examples{
-
 # chk_match
 chk_match("1")
 try(chk_match("1", regexp = "2"))
@@ -43,6 +42,7 @@ vld_match("a", regexp = "a")
 vld_match("")
 vld_match("1", regexp = "2")
 vld_match(NA_character_, regexp = ".*")
+
 }
 \seealso{
 Other chk_misc: 

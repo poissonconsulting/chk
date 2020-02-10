@@ -15,9 +15,9 @@ vld_date(x)
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-The \code{chk_} functions throw an informative error if the test fails.
+The \code{chk_} function throws an informative error if the test fails.
 
-The \code{vld_} functions return a flag indicating whether the test was met.
+The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
 Checks non-missing Date scalar using
@@ -30,7 +30,6 @@ Checks non-missing Date scalar using
 }}
 
 \examples{
-
 # chk_date
 chk_date(Sys.Date())
 try(chk_date(1))
@@ -39,6 +38,7 @@ try(chk_date(1))
 vld_date(Sys.Date())
 vld_date(Sys.time())
 vld_date(1)
+
 }
 \seealso{
 Other chk_scalars: 

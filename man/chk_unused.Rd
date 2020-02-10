@@ -13,9 +13,9 @@ vld_unused(...)
 \item{...}{Additional arguments.}
 }
 \value{
-The \code{chk_} functions throw an informative error if the test fails.
+The \code{chk_} function throws an informative error if the test fails.
 
-The \code{vld_} functions return a flag indicating whether the test was met.
+The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
 Checks if ... is unused
@@ -28,7 +28,6 @@ Checks if ... is unused
 }}
 
 \examples{
-
 # chk_unused
 fun <- function(x, ...) {
   chk_unused(...)
@@ -43,6 +42,7 @@ fun <- function(x, ...) {
 }
 fun(1)
 try(fun(1, 2))
+
 }
 \seealso{
 Other chk_ellipsis: 

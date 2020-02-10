@@ -6,19 +6,16 @@
 #' `isS4(x) && methods::is(x, class)`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_is
-#' @export
 #'
 #' @examples
-#'
 #' # chk_s4_class
 #' try(chk_s4_class(1, "numeric"))
 #' chk_s4_class(getClass("MethodDefinition"), "classRepresentation")
+#'
+#' @export
 chk_s4_class <- function(x, class, x_name = NULL) {
   if (vld_s4_class(x, class)) {
     return(invisible())
@@ -29,11 +26,10 @@ chk_s4_class <- function(x, class, x_name = NULL) {
 
 #' @describeIn chk_s4_class Validate Inherits from S4 Class
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_s4_class
 #' vld_s4_class(numeric(0), "numeric")
 #' vld_s4_class(getClass("MethodDefinition"), "classRepresentation")
+#'
+#' @export
 vld_s4_class <- function(x, class) isS4(x) && methods::is(x, class)

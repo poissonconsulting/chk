@@ -15,9 +15,9 @@ vld_file(x)
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-The \code{chk_} functions throw an informative error if the test fails.
+The \code{chk_} function throws an informative error if the test fails.
 
-The \code{vld_} functions return a flag indicating whether the test was met.
+The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
 Checks if file exists using
@@ -30,12 +30,12 @@ Checks if file exists using
 }}
 
 \examples{
-
 # chk_file
 try(chk_file(tempfile()))
 
 # vld_file
 vld_file(tempfile())
+
 }
 \seealso{
 Other chk_files: 

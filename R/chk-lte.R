@@ -6,19 +6,16 @@
 #' `all(x[!is.na(x)] <= value)`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_ranges
-#' @export
 #'
 #' @examples
-#'
 #' # chk_lte
 #' chk_lte(0)
 #' try(chk_lte(0.1))
+#'
+#' @export
 chk_lte <- function(x, value = 0, x_name = NULL) {
   if (vld_lte(x, value)) {
     return(invisible())
@@ -35,14 +32,13 @@ chk_lte <- function(x, value = 0, x_name = NULL) {
 
 #' @describeIn chk_lte Validate Less Than or Equal To
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_lte
 #' vld_lte(numeric(0))
 #' vld_lte(0)
 #' vld_lte(0.1)
 #' vld_lte(c(-0.1, -0.2, NA))
 #' vld_lte(c(-0.1, -0.2, NA), value = -1)
+#'
+#' @export
 vld_lte <- function(x, value = 0) all(x[!is.na(x)] <= value)

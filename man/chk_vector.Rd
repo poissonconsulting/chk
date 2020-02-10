@@ -30,7 +30,6 @@ Checks if is a vector using
 }}
 
 \examples{
-
 # chk_vector
 chk_vector(1)
 chk_vector(list())
@@ -38,6 +37,7 @@ try(chk_vector(matrix(1)))
 
 # vld_vector
 vld_vector(1)
+
 }
 \seealso{
 Other chk_is: 

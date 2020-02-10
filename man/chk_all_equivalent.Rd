@@ -32,7 +32,6 @@ Checks all elements in x equivalent using
 }}
 
 \examples{
-
 # chk_all_equivalent
 chk_all_equivalent(c(1, 1.00000001))
 try(chk_all_equivalent(c(1, 1.0000001)))
@@ -41,6 +40,7 @@ chk_all_equivalent(list(c(x = 1), c(y = 1)))
 
 # vld_all_equivalent
 vld_all_equivalent(c(x = 1, y = 1))
+
 }
 \seealso{
 Other chk_alls: 

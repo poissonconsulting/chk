@@ -32,7 +32,6 @@ Checks if is a function using
 }}
 
 \examples{
-
 # chk_function
 chk_function(mean)
 try(chk_function(1))
@@ -42,6 +41,7 @@ vld_function(mean)
 vld_function(function(x) x)
 vld_function(1)
 vld_function(list(1))
+
 }
 \seealso{
 Other chk_is: 
