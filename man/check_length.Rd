@@ -22,7 +22,11 @@ Checks length of an object.
 \examples{
 check_length(1)
 try(check_length(1, length = FALSE))
-try(check_length(1, length = c(2, 10)))
-try(check_length(1, length = c(2, 10, 10)))
+try(check_length(1, length = c(10, 2)))
+try(check_length(1, length = c(10, 2, 10)))
+}
+\seealso{
+Other check: 
+\code{\link{check_values}()}
 }
 \concept{check}
