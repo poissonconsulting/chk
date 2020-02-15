@@ -3,6 +3,7 @@
 export(abort_chk)
 export(backtick_chk)
 export(cc)
+export(check_length)
 export(chk_all)
 export(chk_all_equal)
 export(chk_all_equivalent)
