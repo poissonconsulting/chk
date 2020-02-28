@@ -27,6 +27,7 @@ try(check_length(1, length = c(10, 2, 10)))
 }
 \seealso{
 Other check: 
+\code{\link{check_set}()},
 \code{\link{check_values}()}
 }
 \concept{check}

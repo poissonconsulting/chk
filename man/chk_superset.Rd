@@ -45,6 +45,7 @@ vld_superset(integer(0), integer(0))
 \seealso{
 Other chk_set: 
 \code{\link{chk_setequal}()},
+\code{\link{chk_setordered}()},
 \code{\link{chk_subset}()}
 }
 \concept{chk_set}
