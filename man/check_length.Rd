@@ -2,22 +2,26 @@
 % Please edit documentation in R/check-length.R
 \name{check_length}
 \alias{check_length}
-\title{Check Length}
+\title{Check Dimension}
 \usage{
-check_length(x, values = TRUE, x_name = NULL)
+check_length(x, dim = length, values = TRUE, x_name = NULL, dim_name = NULL)
 }
 \arguments{
 \item{x}{The object to check.}
 
+\item{dim}{A function returning a non-negative scalar integer of the dimension.}
+
 \item{values}{A flag or a whole numeric vector of the value, value range or possible values.}
 
 \item{x_name}{A string of the name of object x or NULL.}
+
+\item{dim_name}{A string of the name of the dim function.}
 }
 \value{
 An informative error if the test fails.
 }
 \description{
-Checks length of an object.
+Checks dimension of an object.
 }
 \examples{
 check_length(1)
