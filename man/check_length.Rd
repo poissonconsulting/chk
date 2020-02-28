@@ -4,12 +4,12 @@
 \alias{check_length}
 \title{Check Length}
 \usage{
-check_length(x, length = TRUE, x_name = NULL)
+check_length(x, values = TRUE, x_name = NULL)
 }
 \arguments{
 \item{x}{The object to check.}
 
-\item{length}{A flag or a whole numeric vector of the length, length range or possible values.}
+\item{values}{A flag or a whole numeric vector of the value, value range or possible values.}
 
 \item{x_name}{A string of the name of object x or NULL.}
 }
@@ -21,9 +21,9 @@ Checks length of an object.
 }
 \examples{
 check_length(1)
-try(check_length(1, length = FALSE))
-try(check_length(1, length = c(10, 2)))
-try(check_length(1, length = c(10, 2, 10)))
+try(check_length(1, values = FALSE))
+try(check_length(1, values = c(10, 2)))
+try(check_length(1, values = c(10, 2, 10)))
 }
 \seealso{
 Other check: 

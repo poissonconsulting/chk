@@ -4,31 +4,31 @@
 #' Checks length of an object.
 #'
 #' @inheritParams params
-#' @param length A flag or a whole numeric vector of the length, length range or possible values.
+#' @param values A flag or a whole numeric vector of the value, value range or possible values.
 #' @return An informative error if the test fails.
 #' @family check
 #' @export
 #' @examples
 #' check_length(1)
-#' try(check_length(1, length = FALSE))
-#' try(check_length(1, length = c(10, 2)))
-#' try(check_length(1, length = c(10, 2, 10)))
-check_length <- function(x, length = TRUE, x_name = NULL) {
-  chkor(chk_flag(length), chk_whole_numeric(length))
-  chk_not_empty(length)
+#' try(check_length(1, values = FALSE))
+#' try(check_length(1, values = c(10, 2)))
+#' try(check_length(1, values = c(10, 2, 10)))
+check_length <- function(x, values = TRUE, x_name = NULL) {
+  chkor(chk_flag(values), chk_whole_numeric(values))
+  chk_not_empty(values)
   chkor(is.null(x_name), chk_string(x_name))
 
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
   x_name <- p0("`length(", unbacktick_chk(x_name), ")`")
 
-  if(vld_true(length)) return(chk_gt(length(x), x_name = x_name))
-  if(vld_false(length)) length <- 0L
-  if(identical(length(length), 2L)) {
-    if(!identical(length[1], length[2]))
-      return(chk_range(length(x), sort(length), x_name = x_name))
-    length <- unique(length)
+  if(vld_true(values)) return(chk_gt(length(x), x_name = x_name))
+  if(vld_false(values)) values <- 0L
+  if(identical(length(values), 2L)) {
+    if(!identical(values[1], values[2]))
+      return(chk_range(length(x), sort(values), x_name = x_name))
+    values <- unique(values)
   }
-  if(identical(length(length), 1L))
-    return(chk_equal(length(x), length, x_name = x_name))
-  chk_subset(length(x), sort(unique(length)), x_name = x_name)
+  if(identical(length(values), 1L))
+    return(chk_equal(length(x), values, x_name = x_name))
+  chk_subset(length(x), sort(unique(values)), x_name = x_name)
 }
