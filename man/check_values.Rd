@@ -27,7 +27,7 @@ try(check_values(NA_real_, 1))
 }
 \seealso{
 Other check: 
-\code{\link{check_length}()},
+\code{\link{check_dim}()},
 \code{\link{check_set}()}
 }
 \concept{check}

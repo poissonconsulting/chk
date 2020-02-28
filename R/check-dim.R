@@ -4,21 +4,22 @@
 #' Checks dimension of an object.
 #'
 #' @inheritParams params
-#' @param dim A function returning a non-negative scalar integer of the dimension.
+#' @param dim A function returning a whole number of the dimension.
 #' @param values A flag or a whole numeric vector of the value, value range or possible values.
 #' @param dim_name A string of the name of the dim function.
 #' @return An informative error if the test fails.
 #' @family check
 #' @export
 #' @examples
-#' check_length(1)
-#' try(check_length(1, values = FALSE))
-#' try(check_length(1, values = c(10, 2)))
-#' try(check_length(1, values = c(10, 2, 10)))
-check_length <- function(x, dim = length, values = TRUE, x_name = NULL, dim_name = NULL) {
+#' check_dim(1)
+#' try(check_dim(1, values = FALSE))
+#' try(check_dim(1, values = c(10, 2)))
+#' try(check_dim(1, values = c(10, 2, 10)))
+check_dim <- function(x, dim = length, values = TRUE, x_name = NULL, dim_name = NULL) {
   chk_function(dim)
   chkor(chk_flag(values), chk_whole_numeric(values))
   chk_not_empty(values)
+  chk_whole_number(dim(x))
 
   if (is.null(x_name)) x_name <- deparse((substitute(x)))
   chk_string(x_name)
