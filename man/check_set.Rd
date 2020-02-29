@@ -31,6 +31,7 @@ try(check_set(1:2, 2:1, order = TRUE))
 }
 \seealso{
 Other check: 
+\code{\link{check_data}()},
 \code{\link{check_dim}()},
 \code{\link{check_values}()}
 }

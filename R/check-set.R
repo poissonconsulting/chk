@@ -26,7 +26,7 @@ check_set <- function(x, set, exclusive = FALSE, order = FALSE, x_name = NULL) {
       return(chk_equivalent(x, set, x_name = x_name))
     return(chk_setequal(x, set, x_name = x_name))
   }
-  chk_subset(x, set, x_name = x_name)
+  chk_superset(x, set, x_name = x_name)
   if(!order) return(invisible())
   chk_setordered(x, set, x_name = x_name)
 }

@@ -4,7 +4,7 @@
 \alias{check_dim}
 \title{Check Dimension}
 \usage{
-check_dim(x, dim = length, values = TRUE, x_name = NULL, dim_name = NULL)
+check_dim(x, dim = length, values = numeric(0), x_name = NULL, dim_name = NULL)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -31,6 +31,7 @@ try(check_dim(1, values = c(10, 2, 10)))
 }
 \seealso{
 Other check: 
+\code{\link{check_data}()},
 \code{\link{check_set}()},
 \code{\link{check_values}()}
 }
