@@ -13,7 +13,7 @@
 #' @family check
 #' @export
 check_data <- function(x, values = NULL, exclusive = FALSE, order = FALSE, nrow = numeric(0), key = character(0), x_name = NULL) {
-  chk_s3_class(x, "data.frame")
+  chk_data(x, "data.frame")
   if(is.null(values)) values <- structure(list(), .Names = character(0))
 
   chk_list(values)

@@ -53,6 +53,7 @@ try(check_values(NA_real_, 1))
 Other check: 
 \code{\link{check_data}()},
 \code{\link{check_dim}()},
+\code{\link{check_key}()},
 \code{\link{check_names}()}
 }
 \concept{check}

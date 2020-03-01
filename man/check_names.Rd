@@ -39,6 +39,7 @@ try(check_names(x, "x", exclusive = TRUE))
 Other check: 
 \code{\link{check_data}()},
 \code{\link{check_dim}()},
+\code{\link{check_key}()},
 \code{\link{check_values}()}
 }
 \concept{check}
