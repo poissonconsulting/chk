@@ -14,29 +14,23 @@
 #' @export
 check_data <- function(x, values = NULL, exclusive = FALSE, order = FALSE, nrow = numeric(0), key = character(0), x_name = NULL) {
   chk_data(x, "data.frame")
-  if(is.null(values)) values <- structure(list(), .Names = character(0))
 
+  if(is.null(values)) values <- structure(list(), .Names = character(0))
   chk_list(values)
   chk_named(values)
   chk_unique(names(values))
   chk_all(values, chk_fun = chk_atomic)
-  chk_flag(exclusive)
-  chk_flag(order)
-  chkor(chk_flag(nrow), chk_whole_numeric(nrow))
-  chk_s3_class(key, "character")
-  chk_unique(key)
 
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
   chk_string(x_name)
 
   check_dim(x, dim = base::nrow, values = nrow, x_name = x_name,
             dim_name = "nrow")
-  check_names(x, names(values), exclusive = exclusive,
+  check_names(x, names = names(values), exclusive = exclusive,
             order = order, x_name = x_name)
   lapply(names(values), function(name) {
     check_values(x[[name]], values[[name]], x_name = x_name)
   })
-  chk_subset(key, names(x))
-  chk_unique(x[key])
+  check_key(x, key = key, x_name = x_name)
   invisible()
 }

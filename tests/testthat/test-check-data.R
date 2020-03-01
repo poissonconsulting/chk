@@ -12,5 +12,5 @@ test_that("check_data fails", {
   expect_null(check_data(data.frame(x = 1, y = 2)))
   expect_chk_error(check_data(data.frame(x = 1, y = 2), values = list(x = 1), exclusive = TRUE), "^`names[(]data.frame[(]x = 1, y = 2[)][)]` must equal set: 'x'[.]$")
     expect_chk_error(check_data(data.frame(x = c(1,1)), key = "x"),
-                     "^`x[[]key[]]` must be unique[.]$")
+                     "^Column 'x' in `data.frame[(]x = c[(]1, 1[)][)]` must be a unique key[.]$")
 })
