@@ -42,6 +42,7 @@ vld_array(array(1))
 \seealso{
 Other chk_is: 
 \code{\link{chk_atomic}()},
+\code{\link{chk_data}()},
 \code{\link{chk_environment}()},
 \code{\link{chk_function}()},
 \code{\link{chk_list}()},
