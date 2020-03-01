@@ -9,7 +9,7 @@ check_dim(x, dim = length, values = numeric(0), x_name = NULL, dim_name = NULL)
 \arguments{
 \item{x}{The object to check.}
 
-\item{dim}{A function returning a whole number of the dimension.}
+\item{dim}{A function returning a non-negative whole number of the dimension.}
 
 \item{values}{A flag or a whole numeric vector of the value, value range or possible values.}
 
@@ -27,7 +27,7 @@ Checks dimension of an object.
 check_dim(1)
 try(check_dim(1, values = FALSE))
 try(check_dim(1, values = c(10, 2)))
-try(check_dim(1, values = c(10, 2, 10)))
+try(check_dim(data.frame(x = 1), dim = nrow, values = c(10, 10, 2)))
 }
 \seealso{
 Other check: 
