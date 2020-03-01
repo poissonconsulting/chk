@@ -44,6 +44,7 @@ vld_superset(integer(0), integer(0))
 }
 \seealso{
 Other chk_set: 
+\code{\link{chk_join}()},
 \code{\link{chk_setequal}()},
 \code{\link{chk_subset}()}
 }

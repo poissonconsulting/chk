@@ -22,6 +22,9 @@
 #' @param formals A count of the number of formal arguments.
 #' @param incomparables A vector of values that cannot be compared.
 #'   FALSE means that all values can be compared.
+#' @param by A character vector specifying the column names to join x and y on.
+#' If named the names are the corresponding columns in x.
+#'
 #' @param ... Additional arguments.
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
