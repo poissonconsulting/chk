@@ -6,19 +6,16 @@
 #' `is.array(x)`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_is
-#' @export
 #'
 #' @examples
-#'
 #' # chk_array
 #' chk_array(array(1))
 #' try(chk_array(matrix(1)))
+#'
+#' @export
 chk_array <- function(x, x_name = NULL) {
   if (vld_array(x)) {
     return(invisible())
@@ -29,11 +26,10 @@ chk_array <- function(x, x_name = NULL) {
 
 #' @describeIn chk_array Validate Array
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_array
 #' vld_array(1)
 #' vld_array(array(1))
+#'
+#' @export
 vld_array <- function(x) is.array(x)

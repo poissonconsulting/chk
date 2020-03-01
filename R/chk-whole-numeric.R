@@ -7,19 +7,16 @@
 #'
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_is
-#' @export
 #'
 #' @examples
-#'
 #' # chk_whole_numeric
 #' chk_whole_numeric(1)
 #' try(chk_whole_numeric(1.1))
+#'
+#' @export
 chk_whole_numeric <- function(x, x_name = NULL) {
   if (vld_whole_numeric(x)) {
     return(invisible())
@@ -34,10 +31,7 @@ chk_whole_numeric <- function(x, x_name = NULL) {
 
 #' @describeIn chk_whole_numeric Validate Whole Numeric
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_whole_numeric
 #' vld_whole_numeric(1)
 #' vld_whole_numeric(NA_real_)
@@ -45,6 +39,8 @@ chk_whole_numeric <- function(x, x_name = NULL) {
 #' vld_whole_numeric(double(0))
 #' vld_whole_numeric(TRUE)
 #' vld_whole_numeric(1.5)
+#'
+#' @export
 vld_whole_numeric <- function(x) {
   is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))
 }

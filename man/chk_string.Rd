@@ -15,9 +15,9 @@ vld_string(x, x_name = NULL)
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-The \code{chk_} functions throw an informative error if the test fails.
+The \code{chk_} function throws an informative error if the test fails.
 
-The \code{vld_} functions return a flag indicating whether the test was met.
+The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
 Checks if string
@@ -30,7 +30,6 @@ Checks if string
 }}
 
 \examples{
-
 # chk_string
 chk_string("1")
 try(chk_string(1))
@@ -41,6 +40,7 @@ vld_string("")
 vld_string(1)
 vld_string(NA_character_)
 vld_string(c("1", "1"))
+
 }
 \seealso{
 Other chk_scalars: 

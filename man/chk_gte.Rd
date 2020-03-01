@@ -32,7 +32,6 @@ Checks if all non-missing values are greater than or equal to y using
 }}
 
 \examples{
-
 # chk_gte
 chk_gte(0)
 try(chk_gte(-0.1))
@@ -43,6 +42,7 @@ vld_gte(0)
 vld_gte(-0.1)
 vld_gte(c(0.1, 0.2, NA))
 vld_gte(c(0.1, 0.2, NA), value = 1)
+
 }
 \seealso{
 Other chk_ranges: 

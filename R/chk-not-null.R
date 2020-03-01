@@ -6,19 +6,16 @@
 #' `!is.null(x)`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_nulls
-#' @export
 #'
 #' @examples
-#'
 #' # chk_not_null
 #' try(chk_not_null(NULL))
 #' chk_not_null(1)
+#'
+#' @export
 chk_not_null <- function(x, x_name = NULL) {
   if (vld_not_null(x)) {
     return(invisible())
@@ -29,11 +26,10 @@ chk_not_null <- function(x, x_name = NULL) {
 
 #' @describeIn chk_not_null Validate Not NULL
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_not_null
 #' vld_not_null(1)
 #' vld_not_null(NULL)
+#'
+#' @export
 vld_not_null <- function(x) !is.null(x)

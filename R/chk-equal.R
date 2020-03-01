@@ -6,22 +6,19 @@
 #' `vld_true(all.equal(x, y, tolerance))`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_equals
-#' @export
 #'
 #' @examples
-#'
 #' # chk_equal
 #' chk_equal(1, 1.00000001)
 #' try(chk_equal(1, 1.0000001))
 #' chk_equal(1, 1L)
 #' chk_equal(c(x = 1), c(x = 1L))
 #' try(chk_equal(c(x = 1), c(y = 1L)))
+#'
+#' @export
 chk_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps),
                       x_name = NULL) {
   if (vld_equal(x, y, tolerance = tolerance)) {
@@ -34,11 +31,10 @@ chk_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps),
 
 #' @describeIn chk_equal Validate Equal
 #'
-#' @export
-#'
 #' @examples
-#'
 #' vld_equal(1, 1.00000001)
+#'
+#' @export
 vld_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps)) {
   vld_true(all.equal(x, y, tolerance))
 }

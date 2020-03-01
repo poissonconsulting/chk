@@ -34,7 +34,6 @@ Checks if not empty using
 }}
 
 \examples{
-
 # chk_not_empty
 chk_not_empty(1)
 try(chk_not_empty(numeric(0)))
@@ -46,6 +45,7 @@ vld_not_empty(character(0))
 vld_not_empty(list(1))
 vld_not_empty(NULL)
 vld_not_empty(list())
+
 }
 \seealso{
 Other chk_miscellaneous: 
