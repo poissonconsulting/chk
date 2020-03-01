@@ -31,7 +31,7 @@ check_data <- function(x, values = NULL, exclusive = FALSE, order = FALSE, nrow 
 
   check_dim(x, dim = base::nrow, values = nrow, x_name = x_name,
             dim_name = "nrow")
-  check_set(names(x), names(values), exclusive = exclusive,
+  check_names(x, names(values), exclusive = exclusive,
             order = order, x_name = x_name)
   lapply(names(values), function(name) {
     check_values(x[[name]], values[[name]], x_name = x_name)

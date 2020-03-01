@@ -32,7 +32,7 @@ try(check_dim(data.frame(x = 1), dim = nrow, values = c(10, 10, 2)))
 \seealso{
 Other check: 
 \code{\link{check_data}()},
-\code{\link{check_set}()},
+\code{\link{check_names}()},
 \code{\link{check_values}()}
 }
 \concept{check}

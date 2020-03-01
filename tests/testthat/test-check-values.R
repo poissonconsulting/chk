@@ -12,6 +12,9 @@ test_that("check_values pass", {
   expect_null(check_values(1, c(0.5, 2, NA_real_)))
   expect_null(check_values(c(1, NA_real_), c(0.5, 2, NA_real_)))
   expect_null(check_values(1L, 1))
+  expect_null(check_values(integer(0), 1))
+  expect_null(check_values(NA_integer_, c(1, NA_real_)))
+  expect_null(check_values(1L, c(1, NA)))
 })
 
 test_that("check_values fail", {

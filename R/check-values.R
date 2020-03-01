@@ -45,7 +45,7 @@ check_values <- function(x, values, x_name = NULL) {
   chk_atomic(values)
 
   if(vld_s3_class(values, "numeric") && vld_not_empty(values) &&
-     all(!is.na(values)) && vld_whole_numeric(values)) {
+     any(!is.na(values)) && vld_whole_numeric(values)) {
     chk_whole_numeric(x, x_name = x_name)
   } else {
     class <- class(values)

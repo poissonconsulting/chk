@@ -38,7 +38,7 @@ Checks column names, values and nrow for a data.frame.
 \seealso{
 Other check: 
 \code{\link{check_dim}()},
-\code{\link{check_set}()},
+\code{\link{check_names}()},
 \code{\link{check_values}()}
 }
 \concept{check}
