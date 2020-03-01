@@ -17,9 +17,9 @@ vld_s3_class(x, class)
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-The \code{chk_} functions throw an informative error if the test fails.
+The \code{chk_} function throws an informative error if the test fails.
 
-The \code{vld_} functions return a flag indicating whether the test was met.
+The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
 Checks inherits from S3 class using
@@ -32,7 +32,6 @@ Checks inherits from S3 class using
 }}
 
 \examples{
-
 # chk_s3_class
 chk_s3_class(1, "numeric")
 try(chk_s3_class(getClass("MethodDefinition"), "classRepresentation"))
@@ -40,11 +39,13 @@ try(chk_s3_class(getClass("MethodDefinition"), "classRepresentation"))
 # vld_s3_class
 vld_s3_class(numeric(0), "numeric")
 vld_s3_class(getClass("MethodDefinition"), "classRepresentation")
+
 }
 \seealso{
 Other chk_is: 
 \code{\link{chk_array}()},
 \code{\link{chk_atomic}()},
+\code{\link{chk_data}()},
 \code{\link{chk_environment}()},
 \code{\link{chk_function}()},
 \code{\link{chk_list}()},

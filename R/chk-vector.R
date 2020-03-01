@@ -10,20 +10,17 @@
 #' if the object is a vector with no attributes apart from names.
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_is
-#' @export
 #'
 #' @examples
-#'
 #' # chk_vector
 #' chk_vector(1)
 #' chk_vector(list())
 #' try(chk_vector(matrix(1)))
+#'
+#' @export
 chk_vector <- function(x, x_name = NULL) {
   if (vld_vector(x)) {
     return(invisible())
@@ -34,10 +31,7 @@ chk_vector <- function(x, x_name = NULL) {
 
 #' @describeIn chk_vector Validate Vector
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_vector
 #' vld_vector(1)
 vld_vector <- function(x) (is.atomic(x) && !is.matrix(x) && !is.array(x)) || is.list(x)

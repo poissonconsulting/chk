@@ -34,7 +34,6 @@ Checks if numeric using
 }}
 
 \examples{
-
 # chk_numeric
 chk_numeric(1)
 try(chk_numeric("1"))
@@ -46,11 +45,13 @@ vld_numeric(NA_real_)
 vld_numeric(integer(0))
 vld_numeric("1")
 vld_numeric(TRUE)
+
 }
 \seealso{
 Other chk_is: 
 \code{\link{chk_array}()},
 \code{\link{chk_atomic}()},
+\code{\link{chk_data}()},
 \code{\link{chk_environment}()},
 \code{\link{chk_function}()},
 \code{\link{chk_list}()},

@@ -6,20 +6,17 @@
 #' `length(x) == 1L`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_scalars
-#' @export
 #'
 #' @examples
-#'
 #' # chk_scalar
 #' chk_scalar(1)
 #' chk_scalar(list(1))
 #' try(chk_scalar(1:2))
+#'
+#' @export
 chk_scalar <- function(x, x_name = NULL) {
   if (vld_scalar(x)) {
     return(invisible())
@@ -30,10 +27,9 @@ chk_scalar <- function(x, x_name = NULL) {
 
 #' @describeIn chk_scalar Validate Scalar
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_scalar
 #' vld_scalar(1)
+#'
+#' @export
 vld_scalar <- function(x) length(x) == 1L

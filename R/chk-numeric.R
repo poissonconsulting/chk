@@ -10,19 +10,16 @@
 #' **Bad**: `TRUE`, `"1"`, `NA`, `NULL`.
 #'
 #' @inheritParams chk_flag
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_is
-#' @export
 #'
 #' @examples
-#'
 #' # chk_numeric
 #' chk_numeric(1)
 #' try(chk_numeric("1"))
+#'
+#' @export
 chk_numeric <- function(x, x_name = NULL) {
   if (vld_numeric(x)) {
     return(invisible())
@@ -34,10 +31,7 @@ chk_numeric <- function(x, x_name = NULL) {
 
 #' @describeIn chk_numeric Validate Numeric
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_numeric
 #' vld_numeric(1)
 #' vld_numeric(1:2)
@@ -45,4 +39,6 @@ chk_numeric <- function(x, x_name = NULL) {
 #' vld_numeric(integer(0))
 #' vld_numeric("1")
 #' vld_numeric(TRUE)
+#'
+#' @export
 vld_numeric <- function(x) is.numeric(x)

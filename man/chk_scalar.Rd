@@ -30,7 +30,6 @@ Checks if is a vector using
 }}
 
 \examples{
-
 # chk_scalar
 chk_scalar(1)
 chk_scalar(list(1))
@@ -38,14 +37,15 @@ try(chk_scalar(1:2))
 
 # vld_scalar
 vld_scalar(1)
+
 }
 \seealso{
 Other chk_scalars: 
 \code{\link{chk_datetime}()},
-\code{\link{chk_date}()},
 \code{\link{chk_number}()},
 \code{\link{chk_string}()},
 \code{\link{chk_tz}()},
-\code{\link{chk_whole_number}()}
+\code{\link{chk_whole_number}()},
+\code{\link{vld_data}()}
 }
 \concept{chk_scalars}

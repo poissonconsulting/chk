@@ -34,7 +34,6 @@ if the object is a vector with no attributes apart from names.
 }}
 
 \examples{
-
 # chk_vector
 chk_vector(1)
 chk_vector(list())
@@ -42,11 +41,13 @@ try(chk_vector(matrix(1)))
 
 # vld_vector
 vld_vector(1)
+
 }
 \seealso{
 Other chk_is: 
 \code{\link{chk_array}()},
 \code{\link{chk_atomic}()},
+\code{\link{chk_data}()},
 \code{\link{chk_environment}()},
 \code{\link{chk_function}()},
 \code{\link{chk_list}()},

@@ -17,9 +17,9 @@ vld_subset(x, values)
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-The \code{chk_} functions throw an informative error if the test fails.
+The \code{chk_} function throws an informative error if the test fails.
 
-The \code{vld_} functions return a flag indicating whether the test was met.
+The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
 Checks if all values in values using
@@ -32,7 +32,6 @@ Checks if all values in values using
 }}
 
 \examples{
-
 # chk_subset
 chk_subset(1, 1:10)
 try(chk_subset(11, 1:10))
@@ -41,6 +40,7 @@ try(chk_subset(11, 1:10))
 vld_subset(numeric(0), 1:10)
 vld_subset(1, 1:10)
 vld_subset(11, 1:10)
+
 }
 \seealso{
 Other chk_set: 

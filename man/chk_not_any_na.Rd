@@ -34,7 +34,6 @@ Checks if not any missing values using
 }}
 
 \examples{
-
 # chk_not_any_na
 chk_not_any_na(1)
 try(chk_not_any_na(NA))
@@ -46,6 +45,7 @@ vld_not_any_na(NA_real_)
 vld_not_any_na(integer(0))
 vld_not_any_na(c(NA, 1))
 vld_not_any_na(TRUE)
+
 }
 \seealso{
 Other chk_miscellaneous: 
