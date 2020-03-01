@@ -40,7 +40,6 @@ Checks non-missing Date scalar using
 vld_data(data.frame())
 vld_data(data.frame(x = 1))
 vld_data(c(x = 1))
-
 # chk_date
 chk_date(Sys.Date())
 try(chk_date(1))

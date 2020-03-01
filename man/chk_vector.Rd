@@ -41,7 +41,6 @@ try(chk_vector(matrix(1)))
 
 # vld_vector
 vld_vector(1)
-
 }
 \seealso{
 Other chk_is: 

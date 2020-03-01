@@ -31,6 +31,7 @@ chk_vector <- function(x, x_name = NULL) {
 
 #' @describeIn chk_vector Validate Vector
 #'
+#' @export
 #' @examples
 #' # vld_vector
 #' vld_vector(1)
