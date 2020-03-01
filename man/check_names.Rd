@@ -15,11 +15,11 @@ check_names(
 \arguments{
 \item{x}{The object to check.}
 
-\item{names}{A character vector of the permitted names.}
+\item{names}{A character vector of the required names.}
 
-\item{exclusive}{A flag specifying whether x must only contain the permitted names.}
+\item{exclusive}{A flag specifying whether x must only contain the required names.}
 
-\item{order}{A flag specifying whether the order of the names in x must match the permitted names.}
+\item{order}{A flag specifying whether the order of the required names in x must match the order in names.}
 
 \item{x_name}{A string of the name of object x or NULL.}
 }
@@ -27,7 +27,7 @@ check_names(
 An informative error if the test fails.
 }
 \description{
-Checks whether the names of an object.
+Checks the names of an object.
 }
 \examples{
 x <- c(x = 1, y = 2)

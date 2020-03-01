@@ -1,12 +1,12 @@
 #' Check Names
 #'
 #' @description
-#' Checks whether the names of an object.
+#' Checks the names of an object.
 #'
 #' @inheritParams params
-#' @param names A character vector of the permitted names.
-#' @param exclusive A flag specifying whether x must only contain the permitted names.
-#' @param order A flag specifying whether the order of the names in x must match the permitted names.
+#' @param names A character vector of the required names.
+#' @param exclusive A flag specifying whether x must only contain the required names.
+#' @param order A flag specifying whether the order of the required names in x must match the order in names.
 #' @return An informative error if the test fails.
 #' @family check
 #' @export
@@ -26,14 +26,23 @@ check_names <- function(x, names = character(0), exclusive = FALSE, order = FALS
   chk_string(x_name)
   chk_named(x, x_name = x_name)
 
+  x_names <- names(x)
+
+  if(!length(names)) {
+    if(exclusive && length(x_names))
+      abort_chk(x_name, " must not have any elements")
+    return(invisible())
+  }
+
   x_name <- backtick_chk(p0("names(", unbacktick_chk(x_name), ")"))
 
-  if(exclusive) {
-    if(order)
-      return(chk_equivalent(names(x), names, x_name = x_name))
-    return(chk_setequal(names(x), names, x_name = x_name))
-  }
-  chk_superset(names(x), names, x_name = x_name)
-  if(!order) return(invisible())
-  chk_setordered(names(x), names, x_name = x_name)
+  if (length(setdiff(names, x_names)))
+    abort_chk(x_name, " must include ", cc(setdiff(names, x_names), conj = " and "))
+
+  if (exclusive && length(setdiff(x_names, names)))
+    abort_chk(x_name, " must not include ", cc(setdiff(x_names, names), conj = " or "))
+
+  if(order && !identical(intersect(names, x_names), intersect(x_names, names)))
+    abort_chk(x_name, " must include ", cc(names, conj = " and "), " in that order")
+  invisible()
 }

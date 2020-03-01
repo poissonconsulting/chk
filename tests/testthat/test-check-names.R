@@ -12,10 +12,10 @@ test_that("check_names fails", {
   expect_chk_error(check_names(c(x = 1), c("x", "y")),
                    "`names[(]c[(]x = 1[)][)]` must include 'y'[.]$")
   expect_chk_error(check_names(c(x = 1, z = 2), "x", exclusive = TRUE),
-                   "`names[(]c[(]x = 1, z = 2[)][)]` must equal set: 'x'[.]$")
+                   "^`names[(]c[(]x = 1, z = 2[)][)]` must not include 'z'[.]$")
 
   expect_chk_error(check_names(c(x = 1, y = 2), c("y", "x"), order = TRUE),
-                   "`names[(]c[(]x = 1, y = 2[)][)]` must have the first occurence of each element shared with values in the following order: 'y', 'x'[.]$")
+                   "`names[(]c[(]x = 1, y = 2[)][)]` must include 'y' and 'x' in that order[.]$")
   expect_chk_error(check_names(c(x = 1, y = 2), c("y", "x"), order = TRUE, x_name = "b"),
-                   "`names[(]b[)]` must have the first occurence of each element shared with values in the following order: 'y', 'x'[.]$")
+                   "`names[(]b[)]` must include 'y' and 'x' in that order[.]$")
 })

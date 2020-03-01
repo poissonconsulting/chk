@@ -10,7 +10,7 @@ test_that("check_data fails", {
   expect_chk_error(check_data(data.frame(), values = list(x = 1)),
   "`names[(]data.frame[(][)][)]` must include 'x'.")
   expect_null(check_data(data.frame(x = 1, y = 2)))
-  expect_chk_error(check_data(data.frame(x = 1, y = 2), values = list(x = 1), exclusive = TRUE), "^`names[(]data.frame[(]x = 1, y = 2[)][)]` must equal set: 'x'[.]$")
+  expect_chk_error(check_data(data.frame(x = 1, y = 2), values = list(x = 1), exclusive = TRUE), "^`names[(]data.frame[(]x = 1, y = 2[)][)]` must not include 'y'[.]$")
     expect_chk_error(check_data(data.frame(x = c(1,1)), key = "x"),
                      "^Column 'x' in `data.frame[(]x = c[(]1, 1[)][)]` must be a unique key[.]$")
 })
