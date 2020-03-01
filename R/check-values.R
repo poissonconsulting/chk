@@ -19,14 +19,6 @@
 #'
 #' To check that x only includes specific values
 #' pass three or more non-missing values.
-#'
-#' The only exception to the above is when values is
-#' whole numeric vectors.
-#' In this case the function checks that the values in x
-#' are integers or whole numbers.
-#' To check that the values in x are numeric values
-#' ensure that values includes a fraction.
-#'
 #' @inheritParams params
 #' @param values An atomic vector specifying the S3 class and possible values.
 #' @return An informative error if the test fails.
@@ -44,14 +36,9 @@ check_values <- function(x, values, x_name = NULL) {
   chk_vector(values)
   chk_atomic(values)
 
-  if(vld_s3_class(values, "numeric") && vld_not_empty(values) &&
-     any(!is.na(values)) && vld_whole_numeric(values)) {
-    chk_whole_numeric(x, x_name = x_name)
-  } else {
-    class <- class(values)
-    class <- class[length(class)]
-    chk_s3_class(x, class, x_name = x_name)
-  }
+  class <- class(values)
+  class <- class[length(class)]
+  chk_s3_class(x, class, x_name = x_name)
   if(!length(x) || !length(values)) return(invisible())
   if(vld_not_any_na(values)) chk_not_any_na(x, x_name = x_name)
   x <- x[!is.na(x)]
