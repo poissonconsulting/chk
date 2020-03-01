@@ -19,6 +19,30 @@ An informative error if the test fails.
 \description{
 Checks values and S3 class of an atomic object.
 }
+\details{
+To check the class simply pass a vector of the desired class.
+
+To check that x does not include missing values pass
+a single non-missing value (of the correct class).
+
+To allow it to include missing values include a missing value.
+
+To check that it only includes missing values only pass
+a missing value (of the correct class).
+
+To check the range of the values in x pass two non-missing values
+(as well as the missing value if required).
+
+To check that x only includes specific values
+pass three or more non-missing values.
+
+The only exception to the above is when values is
+whole numeric vectors.
+In this case the function checks that the values in x
+are integers or whole numbers.
+To check that the values in x are numeric values
+ensure that values includes a fraction.
+}
 \examples{
 check_values(1, numeric(0))
 check_values(1, 2)
