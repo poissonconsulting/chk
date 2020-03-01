@@ -6,19 +6,16 @@
 #' `is.logical(x) && length(x) == 1L && !anyNA(x) && !x`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_logical
-#' @export
 #'
 #' @examples
-#'
 #' # chk_false
 #' chk_false(FALSE)
 #' try(chk_false(0))
+#'
+#' @export
 chk_false <- function(x, x_name = NULL) {
   if (vld_false(x)) {
     return(invisible())
@@ -29,14 +26,13 @@ chk_false <- function(x, x_name = NULL) {
 
 #' @describeIn chk_false Validate FALSE
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_false
 #' vld_false(TRUE)
 #' vld_false(FALSE)
 #' vld_false(NA)
 #' vld_false(0)
 #' vld_false(c(FALSE, FALSE))
+#'
+#' @export
 vld_false <- function(x) is.logical(x) && length(x) == 1L && !anyNA(x) && !x

@@ -32,16 +32,18 @@ Checks if non-missing valid scalar timezone using
 \examples{
 chk_tz("UTC")
 try(chk_tz("TCU"))
+
 vld_tz("UTC")
 vld_tz("TCU")
+
 }
 \seealso{
 Other chk_scalars: 
 \code{\link{chk_datetime}()},
-\code{\link{chk_date}()},
 \code{\link{chk_number}()},
 \code{\link{chk_scalar}()},
 \code{\link{chk_string}()},
-\code{\link{chk_whole_number}()}
+\code{\link{chk_whole_number}()},
+\code{\link{vld_data}()}
 }
 \concept{chk_scalars}

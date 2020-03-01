@@ -6,19 +6,16 @@
 #' `is.matrix(x)`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_is
-#' @export
 #'
 #' @examples
-#'
 #' # chk_matrix
 #' chk_matrix(matrix(1))
 #' try(chk_matrix(array(1)))
+#'
+#' @export
 chk_matrix <- function(x, x_name = NULL) {
   if (vld_matrix(x)) {
     return(invisible())
@@ -29,11 +26,10 @@ chk_matrix <- function(x, x_name = NULL) {
 
 #' @describeIn chk_matrix Validate Matrix
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_matrix
 #' vld_matrix(1)
 #' vld_matrix(matrix(1))
+#'
+#' @export
 vld_matrix <- function(x) is.matrix(x)

@@ -15,9 +15,9 @@ vld_datetime(x, x_name = NULL)
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-The \code{chk_} functions throw an informative error if the test fails.
+The \code{chk_} function throws an informative error if the test fails.
 
-The \code{vld_} functions return a flag indicating whether the test was met.
+The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
 Checks if non-missing POSIXct scalar using
@@ -30,7 +30,6 @@ Checks if non-missing POSIXct scalar using
 }}
 
 \examples{
-
 # chk_datetime
 chk_datetime(as.POSIXct("2001-01-02"))
 try(chk_datetime(1))
@@ -41,14 +40,15 @@ vld_datetime(Sys.time())
 vld_datetime(1)
 vld_datetime("2001-01-02")
 vld_datetime(c(Sys.time(), Sys.time()))
+
 }
 \seealso{
 Other chk_scalars: 
-\code{\link{chk_date}()},
 \code{\link{chk_number}()},
 \code{\link{chk_scalar}()},
 \code{\link{chk_string}()},
 \code{\link{chk_tz}()},
-\code{\link{chk_whole_number}()}
+\code{\link{chk_whole_number}()},
+\code{\link{vld_data}()}
 }
 \concept{chk_scalars}

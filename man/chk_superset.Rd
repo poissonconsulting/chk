@@ -32,7 +32,6 @@ Checks if includes all values using
 }}
 
 \examples{
-
 # chk_superset
 chk_superset(1:3, 1)
 try(chk_superset(1:3, 4))
@@ -41,9 +40,11 @@ try(chk_superset(1:3, 4))
 vld_superset(1:3, 1)
 vld_superset(1:3, 4)
 vld_superset(integer(0), integer(0))
+
 }
 \seealso{
 Other chk_set: 
+\code{\link{chk_join}()},
 \code{\link{chk_setequal}()},
 \code{\link{chk_setordered}()},
 \code{\link{chk_subset}()}

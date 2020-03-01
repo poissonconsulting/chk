@@ -30,7 +30,6 @@ Checks if is named using
 }}
 
 \examples{
-
 # chk_named
 chk_named(c(x = 1))
 try(chk_named(list(1)))
@@ -42,6 +41,7 @@ vld_named(c(x = 1)[-1])
 vld_named(list(x = 1)[-1])
 vld_named(1)
 vld_named(list(1))
+
 }
 \seealso{
 Other chk_misc: 

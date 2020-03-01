@@ -31,6 +31,7 @@ try(chk_setordered(2:1, 1:2))
 }
 \seealso{
 Other chk_set: 
+\code{\link{chk_join}()},
 \code{\link{chk_setequal}()},
 \code{\link{chk_subset}()},
 \code{\link{chk_superset}()}

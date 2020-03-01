@@ -34,13 +34,13 @@ Checks all elements in x identical using
 }}
 
 \examples{
-
 # chk_all_identical
 chk_all_identical(c(1, 1))
 try(chk_all_identical(c(1, 1.1)))
 
 # vld_all_identical
 vld_all_identical(c(1, 1))
+
 }
 \seealso{
 Other chk_alls: 

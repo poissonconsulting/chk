@@ -12,7 +12,8 @@ vld_ext(x, ext)
 \arguments{
 \item{x}{The object to check.}
 
-\item{ext}{A character vector of the permitted file extensions (without the .).}
+\item{ext}{A character vector of the permitted file extensions
+(without the .).}
 
 \item{x_name}{A string of the name of object x or NULL.}
 }
@@ -35,13 +36,13 @@ to ensure the case matches.
 }}
 
 \examples{
-
 # chk_ext
 try(chk_ext("file1.pdf", "png"))
 
 # vld_ext
 vld_ext("oeu.pdf", "pdf")
 vld_ext(toupper("oeu.pdf"), "PDF")
+
 }
 \seealso{
 Other chk_files: 
