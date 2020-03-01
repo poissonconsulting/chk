@@ -30,7 +30,6 @@ Checks if is a list using
 }}
 
 \examples{
-
 # chk_list
 chk_list(list())
 try(chk_list(1))
@@ -41,11 +40,13 @@ vld_list(list(x = 1))
 vld_list(mtcars)
 vld_list(1)
 vld_list(NULL)
+
 }
 \seealso{
 Other chk_is: 
 \code{\link{chk_array}()},
 \code{\link{chk_atomic}()},
+\code{\link{chk_data}()},
 \code{\link{chk_environment}()},
 \code{\link{chk_function}()},
 \code{\link{chk_matrix}()},

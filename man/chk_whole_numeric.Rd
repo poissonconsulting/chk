@@ -30,7 +30,6 @@ Checks if integer vector or double equivalent using
 }}
 
 \examples{
-
 # chk_whole_numeric
 chk_whole_numeric(1)
 try(chk_whole_numeric(1.1))
@@ -42,11 +41,13 @@ vld_whole_numeric(1:2)
 vld_whole_numeric(double(0))
 vld_whole_numeric(TRUE)
 vld_whole_numeric(1.5)
+
 }
 \seealso{
 Other chk_is: 
 \code{\link{chk_array}()},
 \code{\link{chk_atomic}()},
+\code{\link{chk_data}()},
 \code{\link{chk_environment}()},
 \code{\link{chk_function}()},
 \code{\link{chk_list}()},

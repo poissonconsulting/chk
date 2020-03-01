@@ -6,19 +6,16 @@
 #' `all(grepl(regexp, x[!is.na(x)]))`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_misc
-#' @export
 #'
 #' @examples
-#'
 #' # chk_match
 #' chk_match("1")
 #' try(chk_match("1", regexp = "2"))
+#'
+#' @export
 chk_match <- function(x, regexp = ".+", x_name = NULL) {
   if (vld_match(x, regexp)) {
     return(invisible())
@@ -32,14 +29,13 @@ chk_match <- function(x, regexp = ".+", x_name = NULL) {
 
 #' @describeIn chk_match Validate Matches
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_match
 #' vld_match("1")
 #' vld_match("a", regexp = "a")
 #' vld_match("")
 #' vld_match("1", regexp = "2")
 #' vld_match(NA_character_, regexp = ".*")
+#'
+#' @export
 vld_match <- function(x, regexp = ".+") all(grepl(regexp, x[!is.na(x)]))

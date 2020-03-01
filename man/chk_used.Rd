@@ -28,7 +28,6 @@ Checks if is ... used using
 }}
 
 \examples{
-
 # chk_used
 fun <- function(x, ...) {
   chk_used(...)
@@ -43,6 +42,7 @@ fun <- function(x, ...) {
 }
 fun(1)
 fun(1, 2)
+
 }
 \seealso{
 Other chk_ellipsis: 

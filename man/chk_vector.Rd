@@ -22,7 +22,11 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 \description{
 Checks if is a vector using
 
-\code{is.vector(x)}
+\code{(is.atomic(x) && !is.matrix(x) && !is.array(x)) || is.list(x)}
+}
+\details{
+\code{is.vector(x)} is not reliable because it returns TRUE only
+if the object is a vector with no attributes apart from names.
 }
 \section{Functions}{
 \itemize{
@@ -30,7 +34,6 @@ Checks if is a vector using
 }}
 
 \examples{
-
 # chk_vector
 chk_vector(1)
 chk_vector(list())
@@ -43,6 +46,7 @@ vld_vector(1)
 Other chk_is: 
 \code{\link{chk_array}()},
 \code{\link{chk_atomic}()},
+\code{\link{chk_data}()},
 \code{\link{chk_environment}()},
 \code{\link{chk_function}()},
 \code{\link{chk_list}()},

@@ -7,21 +7,17 @@
 #'
 #' @inheritParams params
 #' @inheritParams vld
-#'
-#' @return
-#' The `chk_` function throws an informative error if the test fails.
-#'
-#' The `vld_` function returns a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_alls
-#' @export
 #'
 #' @examples
-#'
 #' # chk_all
 #' chk_all(TRUE, chk_lgl)
 #' # FIXME try(chk_all(1, chk_lgl))
 #' chk_all(c(TRUE, NA), chk_lgl)
+#'
+#' @export
 chk_all <- function(x, chk_fun, ..., x_name = NULL) {
   if (is.null(x)) {
     if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
@@ -41,12 +37,11 @@ chk_all <- function(x, chk_fun, ..., x_name = NULL) {
 
 #' @describeIn chk_all Validate All
 #'
-#' @export
-#'
 #' @examples
-#'
 #' # vld_all
 #' vld_all(c(TRUE, NA), vld_lgl)
+#'
+#' @export
 vld_all <- function(x, vld_fun, ...) {
   if (is.null(x)) {
     return(vld_fun(x, ...))
