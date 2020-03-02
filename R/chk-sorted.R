@@ -8,7 +8,7 @@
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_miscellaneous
+#' @family chk_misc
 #'
 #' @examples
 #' # chk_sorted

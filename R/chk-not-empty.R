@@ -9,10 +9,10 @@
 #'
 #' **Bad**: `NULL`, `logical(0)`, `list()`, `data.frame()`.
 #'
-#' @inheritParams chk_flag
+#' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_miscellaneous
+#' @family chk_misc
 #'
 #' @examples
 #' # chk_not_empty

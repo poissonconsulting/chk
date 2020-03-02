@@ -44,6 +44,9 @@ vld_named(list(1))
 \seealso{
 Other chk_misc: 
 \code{\link{chk_match}()},
+\code{\link{chk_not_any_na}()},
+\code{\link{chk_not_empty}()},
+\code{\link{chk_sorted}()},
 \code{\link{chk_unique}()}
 }
 \concept{chk_misc}

@@ -9,10 +9,10 @@
 #'
 #' **Bad**: `NA`, `c(1, NA)`.
 #'
-#' @inheritParams chk_flag
+#' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_miscellaneous
+#' @family chk_misc
 #'
 #' @examples
 #' # chk_not_any_na
