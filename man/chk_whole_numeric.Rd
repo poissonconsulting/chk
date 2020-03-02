@@ -47,6 +47,7 @@ vld_whole_numeric(1.5)
 Other chk_is: 
 \code{\link{chk_array}()},
 \code{\link{chk_atomic}()},
+\code{\link{chk_character}()},
 \code{\link{chk_data}()},
 \code{\link{chk_environment}()},
 \code{\link{chk_function}()},
