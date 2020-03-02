@@ -8,7 +8,7 @@
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_is
+#' @family chk_typeof
 #'
 #' @examples
 #' # chk_environment
