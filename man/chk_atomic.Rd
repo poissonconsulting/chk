@@ -52,6 +52,7 @@ Other chk_is:
 \code{\link{chk_function}()},
 \code{\link{chk_integer}()},
 \code{\link{chk_list}()},
+\code{\link{chk_logical}()},
 \code{\link{chk_matrix}()},
 \code{\link{chk_numeric}()},
 \code{\link{chk_s3_class}()},
