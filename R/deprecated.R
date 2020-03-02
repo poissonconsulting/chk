@@ -12,7 +12,7 @@ NULL
 #'
 #' \lifecycle{soft-deprecated}
 #'
-#' Replace by \code{\link{chk_whole_number}(x); \link{chk_gte}(x)}
+#' Replace by `[chk_whole_number](x); [chk_gte](x)`
 #'
 #' @export
 chk_count <- function(x, x_name = NULL) {
@@ -29,7 +29,7 @@ chk_count <- function(x, x_name = NULL) {
 #'
 #' \lifecycle{soft-deprecated}
 #'
-#' Replace with \code{\link{chk_all}(x, \link{chk_dir})}
+#' Replace with `[chk_all](x, [chk_dir])`
 #'
 #' @export
 chk_dirs <- function(x) {
@@ -44,7 +44,7 @@ chk_dirs <- function(x) {
 #'
 #' \lifecycle{soft-deprecated}
 #'
-#' Replace with \code{\link{chk_all}(x, \link{chk_file})}
+#' Replace with `[chk_all](x, [chk_file])`
 #'
 #' @export
 chk_files <- function(x) {
@@ -131,7 +131,7 @@ vld_is <- function(x, class) {
 #'
 #' \lifecycle{soft-deprecated}
 #'
-#' Replace by \code{\link{chk_range}(length(x))}
+#' Replace by `[chk_range](length(x))`
 #'
 #' @param length A count of the length.
 #'
@@ -231,7 +231,7 @@ is_chk_on <- function() {
 #'
 #' \lifecycle{soft-deprecated}
 #'
-#' Replace by \code{\link{chk_number}(x); \link{chk_range}(x)}
+#' Replace by `[chk_number](x); [chk_range](x)`
 #'
 #' @export
 chk_proportion <- function(x, x_name = NULL) {

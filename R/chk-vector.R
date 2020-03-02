@@ -19,7 +19,6 @@
 #' chk_vector(1)
 #' chk_vector(list())
 #' try(chk_vector(matrix(1)))
-#'
 #' @export
 chk_vector <- function(x, x_name = NULL) {
   if (vld_vector(x)) {
@@ -34,6 +33,5 @@ chk_vector <- function(x, x_name = NULL) {
 #' @examples
 #' # vld_vector
 #' vld_vector(1)
-#'
 #' @export
 vld_vector <- function(x) (is.atomic(x) && !is.matrix(x) && !is.array(x)) || is.list(x)

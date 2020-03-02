@@ -14,7 +14,6 @@
 #' # chk_gte
 #' chk_gte(0)
 #' try(chk_gte(-0.1))
-#'
 #' @export
 chk_gte <- function(x, value = 0, x_name = NULL) {
   if (vld_gte(x, value)) {
@@ -24,7 +23,8 @@ chk_gte <- function(x, value = 0, x_name = NULL) {
   if (length(x) == 1L) {
     abort_chk(
       x_name, " must be greater than or equal to ", cc(value),
-      ", not ", cc(x), x = x, value = value
+      ", not ", cc(x),
+      x = x, value = value
     )
   }
   abort_chk(x_name, " must have values greater than or equal to ", cc(value), x = x, value = value)
@@ -39,6 +39,5 @@ chk_gte <- function(x, value = 0, x_name = NULL) {
 #' vld_gte(-0.1)
 #' vld_gte(c(0.1, 0.2, NA))
 #' vld_gte(c(0.1, 0.2, NA), value = 1)
-#'
 #' @export
 vld_gte <- function(x, value = 0) all(x[!is.na(x)] >= value)

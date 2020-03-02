@@ -18,7 +18,6 @@
 #' # chk_whole_number
 #' chk_whole_number(2)
 #' try(chk_whole_number(1.1))
-#'
 #' @export
 chk_whole_number <- function(x, x_name = NULL) {
   if (vld_whole_number(x)) {
@@ -37,7 +36,6 @@ chk_whole_number <- function(x, x_name = NULL) {
 #' @examples
 #' # vld_whole_number
 #' vld_whole_number(2)
-#'
 #' @export
 vld_whole_number <- function(x) {
   vld_number(x) &&

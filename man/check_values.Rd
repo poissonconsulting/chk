@@ -41,7 +41,6 @@ check_values(1, numeric(0))
 check_values(1, 2)
 try(check_values(1, 1L))
 try(check_values(NA_real_, 1))
-
 }
 \seealso{
 Other check: 

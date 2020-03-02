@@ -14,7 +14,6 @@
 #' # chk_sorted
 #' chk_sorted(1:2)
 #' try(chk_sorted(2:1))
-#'
 #' @export
 chk_sorted <- function(x, x_name = NULL) {
   if (vld_sorted(x)) {
@@ -30,6 +29,5 @@ chk_sorted <- function(x, x_name = NULL) {
 #' # vld_sorted
 #' vld_sorted(1:2)
 #' vld_sorted(2:1)
-#'
 #' @export
 vld_sorted <- function(x) !is.unsorted(x)

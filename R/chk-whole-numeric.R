@@ -15,7 +15,6 @@
 #' # chk_whole_numeric
 #' chk_whole_numeric(1)
 #' try(chk_whole_numeric(1.1))
-#'
 #' @export
 chk_whole_numeric <- function(x, x_name = NULL) {
   if (vld_whole_numeric(x)) {
@@ -39,7 +38,6 @@ chk_whole_numeric <- function(x, x_name = NULL) {
 #' vld_whole_numeric(double(0))
 #' vld_whole_numeric(TRUE)
 #' vld_whole_numeric(1.5)
-#'
 #' @export
 vld_whole_numeric <- function(x) {
   is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))

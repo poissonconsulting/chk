@@ -33,14 +33,12 @@ Checks if logical scalar using
 # chk_lgl
 chk_lgl(NA)
 try(chk_lgl(1))
-
 # vld_lgl
 vld_lgl(TRUE)
 vld_lgl(FALSE)
 vld_lgl(NA)
 vld_lgl(1)
 vld_lgl(c(TRUE, TRUE))
-
 }
 \seealso{
 Other chk_logical: 

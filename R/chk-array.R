@@ -14,7 +14,6 @@
 #' # chk_array
 #' chk_array(array(1))
 #' try(chk_array(matrix(1)))
-#'
 #' @export
 chk_array <- function(x, x_name = NULL) {
   if (vld_array(x)) {
@@ -30,6 +29,5 @@ chk_array <- function(x, x_name = NULL) {
 #' # vld_array
 #' vld_array(1)
 #' vld_array(array(1))
-#'
 #' @export
 vld_array <- function(x) is.array(x)

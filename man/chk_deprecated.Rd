@@ -67,19 +67,19 @@ Deprecated \code{chk_()} functions.
 
 \lifecycle{soft-deprecated}
 
-Replace by \code{\link{chk_whole_number}(x); \link{chk_gte}(x)}
+Replace by \verb{[chk_whole_number](x); [chk_gte](x)}
 
 \item \code{chk_dirs}: Check Directories Exist
 
 \lifecycle{soft-deprecated}
 
-Replace with \code{\link{chk_all}(x, \link{chk_dir})}
+Replace with \verb{[chk_all](x, [chk_dir])}
 
 \item \code{chk_files}: Check Files Exist
 
 \lifecycle{soft-deprecated}
 
-Replace with \code{\link{chk_all}(x, \link{chk_file})}
+Replace with \verb{[chk_all](x, [chk_file])}
 
 \item \code{chk_has}: Check Has
 
@@ -109,7 +109,7 @@ Replace by \code{\link[=vld_s3_class]{vld_s3_class()}} or \code{\link[=vld_s4_cl
 
 \lifecycle{soft-deprecated}
 
-Replace by \code{\link{chk_range}(length(x))}
+Replace by \verb{[chk_range](length(x))}
 
 \item \code{chk_no_missing}: Check No Missing Values
 
@@ -145,7 +145,7 @@ This approach is no longer recommended
 
 \lifecycle{soft-deprecated}
 
-Replace by \code{\link{chk_number}(x); \link{chk_range}(x)}
+Replace by \verb{[chk_number](x); [chk_range](x)}
 
 \item \code{deparse_backtick}: Deparse Backtick
 

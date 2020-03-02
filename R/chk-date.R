@@ -14,7 +14,6 @@
 #' # chk_date
 #' chk_date(Sys.Date())
 #' try(chk_date(1))
-#'
 #' @export
 chk_date <- function(x, x_name = NULL) {
   if (vld_date(x)) {
@@ -31,6 +30,5 @@ chk_date <- function(x, x_name = NULL) {
 #' vld_date(Sys.Date())
 #' vld_date(Sys.time())
 #' vld_date(1)
-#'
 #' @export
 vld_date <- function(x) inherits(x, "Date") && length(x) == 1L && !anyNA(x)

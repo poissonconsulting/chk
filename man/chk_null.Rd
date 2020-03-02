@@ -33,11 +33,9 @@ Checks if NULL using
 # chk_null
 try(chk_null(1))
 chk_null(NULL)
-
 # vld_null
 vld_null(NULL)
 vld_null(1)
-
 }
 \seealso{
 Other chk_nulls: 

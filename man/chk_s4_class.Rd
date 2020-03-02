@@ -35,11 +35,9 @@ Checks inherits from S4 class using
 # chk_s4_class
 try(chk_s4_class(1, "numeric"))
 chk_s4_class(getClass("MethodDefinition"), "classRepresentation")
-
 # vld_s4_class
 vld_s4_class(numeric(0), "numeric")
 vld_s4_class(getClass("MethodDefinition"), "classRepresentation")
-
 }
 \seealso{
 Other chk_is: 

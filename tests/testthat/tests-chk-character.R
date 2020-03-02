@@ -11,6 +11,8 @@ test_that("vld_character", {
 test_that("chk_character", {
   expect_null(chk_character("1"))
   expect_invisible(chk_character("1"))
-  expect_chk_error(chk_character(TRUE),
-                   "^`TRUE` must be character[.]$")
+  expect_chk_error(
+    chk_character(TRUE),
+    "^`TRUE` must be character[.]$"
+  )
 })

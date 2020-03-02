@@ -35,14 +35,12 @@ fun <- function(x, ...) {
 }
 fun(1)
 try(fun(1, 2))
-
 # vld_unused
 fun <- function(x, ...) {
   vld_unused(...)
 }
 fun(1)
 try(fun(1, 2))
-
 }
 \seealso{
 Other chk_ellipsis: 

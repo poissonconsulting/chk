@@ -12,8 +12,9 @@
 #' expect_chk_error(chk_true(FALSE))
 #' try(expect_chk_error(chk_false(FALSE)))
 expect_chk_error <- function(object, regexp = NULL, ..., info = NULL, label = NULL, class = NULL) {
-  if(!is_installed("testthat"))
+  if (!is_installed("testthat")) {
     stop("`testhat` must be installed.")
-  if(!is.null(class)) stop("`class` must be NULL.")
+  }
+  if (!is.null(class)) stop("`class` must be NULL.")
   testthat::expect_error(object, regexp = regexp, class = "chk_error", ..., info = info, label = label)
 }

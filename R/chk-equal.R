@@ -17,7 +17,6 @@
 #' chk_equal(1, 1L)
 #' chk_equal(c(x = 1), c(x = 1L))
 #' try(chk_equal(c(x = 1), c(y = 1L)))
-#'
 #' @export
 chk_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps),
                       x_name = NULL) {
@@ -33,7 +32,6 @@ chk_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps),
 #'
 #' @examples
 #' vld_equal(1, 1.00000001)
-#'
 #' @export
 vld_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps)) {
   vld_true(all.equal(x, y, tolerance))

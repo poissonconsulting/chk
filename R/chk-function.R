@@ -14,7 +14,6 @@
 #' # chk_function
 #' chk_function(mean)
 #' try(chk_function(1))
-#'
 #' @export
 chk_function <- function(x, formals = NULL, x_name = NULL) {
   if (vld_function(x, formals)) {
@@ -33,7 +32,6 @@ chk_function <- function(x, formals = NULL, x_name = NULL) {
 #' vld_function(function(x) x)
 #' vld_function(1)
 #' vld_function(list(1))
-#'
 #' @export
 vld_function <- function(x, formals = NULL) {
   is.function(x) && (is.null(formals) || length(formals(x)) == formals)

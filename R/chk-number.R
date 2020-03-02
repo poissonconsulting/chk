@@ -18,7 +18,6 @@
 #' # chk_number
 #' chk_number(1.1)
 #' try(chk_number(TRUE))
-#'
 #' @export
 chk_number <- function(x, x_name = NULL) {
   if (vld_number(x)) {
@@ -33,7 +32,6 @@ chk_number <- function(x, x_name = NULL) {
 #' @examples
 #' # vld_number
 #' vld_number(1.1)
-#'
 #' @export
 vld_number <- function(x) {
   is.numeric(x) && length(x) == 1L && !anyNA(x)

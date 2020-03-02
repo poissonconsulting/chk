@@ -18,7 +18,6 @@
 #' }
 #' fun(1)
 #' try(fun(1, 2))
-#'
 #' @export
 chk_unused <- function(...) {
   if (!length(list(...))) {
@@ -36,6 +35,5 @@ chk_unused <- function(...) {
 #' }
 #' fun(1)
 #' try(fun(1, 2))
-#'
 #' @export
 vld_unused <- function(...) length(list(...)) == 0L

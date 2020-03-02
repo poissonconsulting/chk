@@ -33,12 +33,10 @@ Checks non-missing Date scalar using
 # chk_date
 chk_date(Sys.Date())
 try(chk_date(1))
-
 # vld_date
 vld_date(Sys.Date())
 vld_date(Sys.time())
 vld_date(1)
-
 }
 \seealso{
 Other chk_scalars: 

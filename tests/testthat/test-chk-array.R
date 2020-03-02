@@ -10,6 +10,8 @@ test_that("vld_array", {
 test_that("vld_array", {
   expect_null(chk_array(array(1)))
   expect_invisible(chk_array(array(1)))
-  expect_chk_error(chk_array(1),
-                   "^`1` must be an array[.]$")
+  expect_chk_error(
+    chk_array(1),
+    "^`1` must be an array[.]$"
+  )
 })

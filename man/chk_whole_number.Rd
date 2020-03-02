@@ -37,10 +37,8 @@ Checks if non-missing integer scalar or double equivalent using
 # chk_whole_number
 chk_whole_number(2)
 try(chk_whole_number(1.1))
-
 # vld_whole_number
 vld_whole_number(2)
-
 }
 \seealso{
 Other chk_scalars: 

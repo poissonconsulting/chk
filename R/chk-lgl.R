@@ -14,7 +14,6 @@
 #' # chk_lgl
 #' chk_lgl(NA)
 #' try(chk_lgl(1))
-#'
 #' @export
 chk_lgl <- function(x, x_name = NULL) {
   if (vld_lgl(x)) {
@@ -33,6 +32,5 @@ chk_lgl <- function(x, x_name = NULL) {
 #' vld_lgl(NA)
 #' vld_lgl(1)
 #' vld_lgl(c(TRUE, TRUE))
-#'
 #' @export
 vld_lgl <- function(x) is.logical(x) && length(x) == 1L

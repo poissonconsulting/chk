@@ -14,7 +14,6 @@
 #' # chk_character
 #' chk_character("1")
 #' try(chk_character(1))
-#'
 #' @export
 chk_character <- function(x, x_name = NULL) {
   if (vld_character(x)) {
@@ -35,6 +34,5 @@ chk_character <- function(x, x_name = NULL) {
 #' vld_character(1)
 #' vld_character(TRUE)
 #' vld_character(factor("text"))
-#'
 #' @export
 vld_character <- function(x) is.character(x)

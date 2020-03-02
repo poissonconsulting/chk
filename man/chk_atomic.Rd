@@ -33,14 +33,12 @@ Checks if atomic using
 # chk_atomic
 chk_atomic(1)
 try(chk_atomic(list(1)))
-
 # vld_atomic
 vld_atomic(1)
 vld_atomic(matrix(1:3))
 vld_atomic(character(0))
 vld_atomic(list(1))
 vld_atomic(NULL)
-
 }
 \seealso{
 Other chk_is: 

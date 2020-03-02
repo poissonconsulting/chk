@@ -33,7 +33,6 @@ Checks if logical using
 # chk_logical
 chk_logical(TRUE)
 try(chk_logical(1))
-
 # vld_logical
 vld_logical(TRUE)
 vld_logical(matrix(TRUE))
@@ -41,7 +40,6 @@ vld_logical(logical(0))
 vld_logical(NA)
 vld_logical(1)
 vld_logical("TRUE")
-
 }
 \seealso{
 Other chk_is: 

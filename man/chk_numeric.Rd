@@ -37,7 +37,6 @@ Checks if numeric using
 # chk_numeric
 chk_numeric(1)
 try(chk_numeric("1"))
-
 # vld_numeric
 vld_numeric(1)
 vld_numeric(1:2)
@@ -45,7 +44,6 @@ vld_numeric(NA_real_)
 vld_numeric(integer(0))
 vld_numeric("1")
 vld_numeric(TRUE)
-
 }
 \seealso{
 Other chk_is: 

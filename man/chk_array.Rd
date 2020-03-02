@@ -33,11 +33,9 @@ Checks if is a array using
 # chk_array
 chk_array(array(1))
 try(chk_array(matrix(1)))
-
 # vld_array
 vld_array(1)
 vld_array(array(1))
-
 }
 \seealso{
 Other chk_is: 

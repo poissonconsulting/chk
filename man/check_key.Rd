@@ -25,7 +25,6 @@ Checks if columns have unique rows.
 x <- data.frame(x = c(1, 2), y = c(1, 1))
 check_key(x)
 try(check_key(x, "y"))
-
 }
 \seealso{
 Other check: 

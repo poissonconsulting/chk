@@ -33,12 +33,10 @@ Checks data.frame using
 # chk_data
 chk_data(data.frame(x = 1))
 try(chk_data(1))
-
 # vld_data
 vld_data(data.frame())
 vld_data(data.frame(x = 1))
 vld_data(c(x = 1))
-
 }
 \seealso{
 Other chk_is: 

@@ -16,7 +16,6 @@
 #' chk_all(TRUE, chk_lgl)
 #' # FIXME try(chk_all(1, chk_lgl))
 #' chk_all(c(TRUE, NA), chk_lgl)
-#'
 #' @export
 chk_all <- function(x, chk_fun, ..., x_name = NULL) {
   if (is.null(x)) {
@@ -40,7 +39,6 @@ chk_all <- function(x, chk_fun, ..., x_name = NULL) {
 #' @examples
 #' # vld_all
 #' vld_all(c(TRUE, NA), vld_lgl)
-#'
 #' @export
 vld_all <- function(x, vld_fun, ...) {
   if (is.null(x)) {

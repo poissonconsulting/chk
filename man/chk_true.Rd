@@ -33,14 +33,12 @@ Checks if TRUE using
 # chk_true
 chk_true(TRUE)
 try(chk_true(1))
-
 # vld_true
 vld_true(TRUE)
 vld_true(FALSE)
 vld_true(NA)
 vld_true(0)
 vld_true(c(TRUE, TRUE))
-
 }
 \seealso{
 Other chk_logical: 

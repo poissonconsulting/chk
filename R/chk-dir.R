@@ -14,7 +14,6 @@
 #' # chk_dir
 #' chk_dir(tempdir())
 #' try(chk_dir(tempfile()))
-#'
 #' @export
 chk_dir <- function(x, x_name = NULL) {
   if (vld_dir(x)) {
@@ -35,6 +34,5 @@ chk_dir <- function(x, x_name = NULL) {
 #' vld_dir(1)
 #' vld_dir(tempdir())
 #' vld_dir(tempfile())
-#'
 #' @export
 vld_dir <- function(x) vld_string(x) && dir.exists(x)

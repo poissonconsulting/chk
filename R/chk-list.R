@@ -14,7 +14,6 @@
 #' # chk_list
 #' chk_list(list())
 #' try(chk_list(1))
-#'
 #' @export
 chk_list <- function(x, x_name = NULL) {
   if (vld_list(x)) {
@@ -33,6 +32,5 @@ chk_list <- function(x, x_name = NULL) {
 #' vld_list(mtcars)
 #' vld_list(1)
 #' vld_list(NULL)
-#'
 #' @export
 vld_list <- function(x) is.list(x)

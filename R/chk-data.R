@@ -14,7 +14,6 @@
 #' # chk_data
 #' chk_data(data.frame(x = 1))
 #' try(chk_data(1))
-#'
 #' @export
 chk_data <- function(x, x_name = NULL) {
   if (vld_data(x)) {
@@ -31,6 +30,5 @@ chk_data <- function(x, x_name = NULL) {
 #' vld_data(data.frame())
 #' vld_data(data.frame(x = 1))
 #' vld_data(c(x = 1))
-#'
 #' @export
 vld_data <- function(x) inherits(x, "data.frame")

@@ -14,7 +14,6 @@
 #' # chk_named
 #' chk_named(c(x = 1))
 #' try(chk_named(list(1)))
-#'
 #' @export
 chk_named <- function(x, x_name = NULL) {
   if (vld_named(x)) {
@@ -34,6 +33,5 @@ chk_named <- function(x, x_name = NULL) {
 #' vld_named(list(x = 1)[-1])
 #' vld_named(1)
 #' vld_named(list(1))
-#'
 #' @export
 vld_named <- function(x) !is.null(names(x))

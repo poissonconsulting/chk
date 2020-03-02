@@ -33,11 +33,9 @@ Checks if is a matrix using
 # chk_matrix
 chk_matrix(matrix(1))
 try(chk_matrix(array(1)))
-
 # vld_matrix
 vld_matrix(1)
 vld_matrix(matrix(1))
-
 }
 \seealso{
 Other chk_is: 

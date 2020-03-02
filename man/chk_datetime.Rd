@@ -33,14 +33,12 @@ Checks if non-missing POSIXct scalar using
 # chk_datetime
 chk_datetime(as.POSIXct("2001-01-02"))
 try(chk_datetime(1))
-
 # vld_datetime
 vld_datetime(as.POSIXct("2001-01-02"))
 vld_datetime(Sys.time())
 vld_datetime(1)
 vld_datetime("2001-01-02")
 vld_datetime(c(Sys.time(), Sys.time()))
-
 }
 \seealso{
 Other chk_scalars: 

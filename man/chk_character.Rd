@@ -33,7 +33,6 @@ Checks if character using
 # chk_character
 chk_character("1")
 try(chk_character(1))
-
 # vld_character
 vld_character("1")
 vld_character(matrix("a"))
@@ -42,7 +41,6 @@ vld_character(NA_character_)
 vld_character(1)
 vld_character(TRUE)
 vld_character(factor("text"))
-
 }
 \seealso{
 Other chk_is: 

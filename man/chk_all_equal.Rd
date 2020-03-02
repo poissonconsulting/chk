@@ -37,10 +37,8 @@ chk_all_equal(c(1, 1.00000001))
 try(chk_all_equal(c(1, 1.0000001)))
 chk_all_equal(list(c(x = 1), c(x = 1)))
 try(chk_all_equal(list(c(x = 1), c(y = 1))))
-
 # vld_all_equal
 vld_all_equal(c(1, 1L))
-
 }
 \seealso{
 Other chk_alls: 

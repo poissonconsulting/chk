@@ -33,12 +33,10 @@ Checks if directory exists using
 # chk_dir
 chk_dir(tempdir())
 try(chk_dir(tempfile()))
-
 # vld_dir
 vld_dir(1)
 vld_dir(tempdir())
 vld_dir(tempfile())
-
 }
 \seealso{
 Other chk_files: 

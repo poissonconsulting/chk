@@ -71,7 +71,6 @@ NULL
 #' # err
 #' try(err("there %r %n problem value%s", n = 2))
 err <- function(..., n = NULL, tidy = TRUE, .subclass = NULL) {
-
   args <- list2(...)
   named <- (names2(args) != "")
   msg <- exec(p0, !!!args[!named], collapse = "")

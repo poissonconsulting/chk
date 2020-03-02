@@ -14,7 +14,6 @@
 #' # chk_integer
 #' chk_integer(1L)
 #' try(chk_integer(1))
-#'
 #' @export
 chk_integer <- function(x, x_name = NULL) {
   if (vld_integer(x)) {
@@ -34,6 +33,5 @@ chk_integer <- function(x, x_name = NULL) {
 #' vld_integer(NA_integer_)
 #' vld_integer(1)
 #' vld_integer(TRUE)
-#'
 #' @export
 vld_integer <- function(x) is.integer(x)

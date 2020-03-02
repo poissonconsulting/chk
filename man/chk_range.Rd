@@ -36,14 +36,12 @@ Checks all non-missing values fall within range using
 # chk_range
 chk_range(0)
 try(chk_range(-0.1))
-
 # vld_range
 vld_range(numeric(0))
 vld_range(0)
 vld_range(-0.1)
 vld_range(c(0.1, 0.2, NA))
 vld_range(c(0.1, 0.2, NA), range = c(0, 1))
-
 }
 \seealso{
 Other chk_ranges: 

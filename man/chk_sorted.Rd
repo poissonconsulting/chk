@@ -33,11 +33,9 @@ Checks if is sorted using
 # chk_sorted
 chk_sorted(1:2)
 try(chk_sorted(2:1))
-
 # vld_sorted
 vld_sorted(1:2)
 vld_sorted(2:1)
-
 }
 \seealso{
 Other chk_miscellaneous: 

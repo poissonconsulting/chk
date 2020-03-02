@@ -33,14 +33,12 @@ Checks if string
 # chk_string
 chk_string("1")
 try(chk_string(1))
-
 # vld_string
 vld_string("1")
 vld_string("")
 vld_string(1)
 vld_string(NA_character_)
 vld_string(c("1", "1"))
-
 }
 \seealso{
 Other chk_scalars: 

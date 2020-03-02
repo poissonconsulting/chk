@@ -14,7 +14,6 @@
 #' x <- data.frame(x = c(1, 2), y = c(1, 1))
 #' check_key(x)
 #' try(check_key(x, "y"))
-#'
 #' @export
 check_key <- function(x, key = character(0), na_distinct = FALSE, x_name = NULL) {
   chk_data(x)
@@ -28,9 +27,9 @@ check_key <- function(x, key = character(0), na_distinct = FALSE, x_name = NULL)
 
   check_names(x, key, x_name = x_name)
 
-  incomparables <- if(na_distinct) NA else FALSE
+  incomparables <- if (na_distinct) NA else FALSE
   if (any(new_duplicated(x[key], incomparables = incomparables))) {
-    abort_chk("Column%s ", cc(key, conj = " and ") ," in ", x_name, " must be a unique key.", n = length(key))
+    abort_chk("Column%s ", cc(key, conj = " and "), " in ", x_name, " must be a unique key.", n = length(key))
   }
   invisible()
 }

@@ -37,11 +37,9 @@ Checks if non-missing logical scalar using
 # chk_flag
 chk_flag(TRUE)
 try(vld_flag(1))
-
 # vld_flag
 vld_flag(TRUE)
 vld_flag(1)
-
 }
 \seealso{
 Other chk_logical: 

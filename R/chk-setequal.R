@@ -14,7 +14,6 @@
 #' # chk_setequal
 #' chk_setequal(1:2, 2:1)
 #' try(chk_setequal(1, 1:2))
-#'
 #' @export
 chk_setequal <- function(x, values, x_name = NULL) {
   if (vld_setequal(x, values)) {
@@ -32,6 +31,5 @@ chk_setequal <- function(x, values, x_name = NULL) {
 #' vld_setequal(1:2, 2:1)
 #' vld_setequal(1, 2:1)
 #' vld_setequal(1:2, 2)
-#'
 #' @export
 vld_setequal <- function(x, values) setequal(x, values)

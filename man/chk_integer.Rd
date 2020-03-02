@@ -33,7 +33,6 @@ Checks if integer using
 # chk_integer
 chk_integer(1L)
 try(chk_integer(1))
-
 # vld_integer
 vld_integer(1L)
 vld_integer(matrix(1:4, nrow = 2L))
@@ -41,7 +40,6 @@ vld_integer(integer(0))
 vld_integer(NA_integer_)
 vld_integer(1)
 vld_integer(TRUE)
-
 }
 \seealso{
 Other chk_is: 

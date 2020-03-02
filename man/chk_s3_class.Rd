@@ -35,11 +35,9 @@ Checks inherits from S3 class using
 # chk_s3_class
 chk_s3_class(1, "numeric")
 try(chk_s3_class(getClass("MethodDefinition"), "classRepresentation"))
-
 # vld_s3_class
 vld_s3_class(numeric(0), "numeric")
 vld_s3_class(getClass("MethodDefinition"), "classRepresentation")
-
 }
 \seealso{
 Other chk_is: 

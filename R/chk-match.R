@@ -14,7 +14,6 @@
 #' # chk_match
 #' chk_match("1")
 #' try(chk_match("1", regexp = "2"))
-#'
 #' @export
 chk_match <- function(x, regexp = ".+", x_name = NULL) {
   if (vld_match(x, regexp)) {
@@ -36,6 +35,5 @@ chk_match <- function(x, regexp = ".+", x_name = NULL) {
 #' vld_match("")
 #' vld_match("1", regexp = "2")
 #' vld_match(NA_character_, regexp = ".*")
-#'
 #' @export
 vld_match <- function(x, regexp = ".+") all(grepl(regexp, x[!is.na(x)]))

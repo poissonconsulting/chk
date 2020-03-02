@@ -14,18 +14,30 @@ test_that("check_values pass", {
 })
 
 test_that("check_values fail", {
-  expect_chk_error(check_values(1L, 1),
-                   "^`1L` must inherit from S3 class 'numeric'[.]$")
+  expect_chk_error(
+    check_values(1L, 1),
+    "^`1L` must inherit from S3 class 'numeric'[.]$"
+  )
   expect_chk_error(check_values(1, 1L), "`1` must inherit from S3 class 'integer'[.]")
   expect_chk_error(check_values(1L, numeric(0)), "`1L` must inherit from S3 class 'numeric'[.]")
-  expect_chk_error(check_values(NA_real_, 1),
-                   "`NA_real_` must not have any missing values[.]")
-  expect_chk_error(check_values(1L, 2:3),
-                   "`1L` must be between 2 and 3, not 1[.]")
-  expect_chk_error(check_values(1:10, 21:22),
-                   "`1:10` must have values between 21 and 22[.]")
-  expect_chk_error(check_values(1:10, 22:21),
-                   "`1:10` must have values between 21 and 22[.]")
-  expect_chk_error(check_values(1:10, 21:23),
-                   "`1:10` must have values matching 21, 22 or 23[.]")
+  expect_chk_error(
+    check_values(NA_real_, 1),
+    "`NA_real_` must not have any missing values[.]"
+  )
+  expect_chk_error(
+    check_values(1L, 2:3),
+    "`1L` must be between 2 and 3, not 1[.]"
+  )
+  expect_chk_error(
+    check_values(1:10, 21:22),
+    "`1:10` must have values between 21 and 22[.]"
+  )
+  expect_chk_error(
+    check_values(1:10, 22:21),
+    "`1:10` must have values between 21 and 22[.]"
+  )
+  expect_chk_error(
+    check_values(1:10, 21:23),
+    "`1:10` must have values matching 21, 22 or 23[.]"
+  )
 })
