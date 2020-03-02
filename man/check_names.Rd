@@ -34,6 +34,7 @@ x <- c(x = 1, y = 2)
 check_names(x, c("y", "x"))
 try(check_names(x, c("y", "x"), order = TRUE))
 try(check_names(x, "x", exclusive = TRUE))
+
 }
 \seealso{
 Other check: 

@@ -8,13 +8,16 @@
 #' @param exclusive A flag specifying whether x must only contain the required names.
 #' @param order A flag specifying whether the order of the required names in x must match the order in names.
 #' @return An informative error if the test fails.
+#'
 #' @family check
-#' @export
+#'
 #' @examples
 #' x <- c(x = 1, y = 2)
 #' check_names(x, c("y", "x"))
 #' try(check_names(x, c("y", "x"), order = TRUE))
 #' try(check_names(x, "x", exclusive = TRUE))
+#'
+#' @export
 check_names <- function(x, names = character(0), exclusive = FALSE, order = FALSE,
                       x_name = NULL) {
   chk_s3_class(names, "character")

@@ -19,16 +19,20 @@
 #'
 #' To check that x only includes specific values
 #' pass three or more non-missing values.
+#'
 #' @inheritParams params
 #' @param values An atomic vector specifying the S3 class and possible values.
 #' @return An informative error if the test fails.
+#'
 #' @family check
-#' @export
+#'
 #' @examples
 #' check_values(1, numeric(0))
 #' check_values(1, 2)
 #' try(check_values(1, 1L))
 #' try(check_values(NA_real_, 1))
+#'
+#' @export
 check_values <- function(x, values, x_name = NULL) {
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
   chk_string(x_name)

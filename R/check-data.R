@@ -10,7 +10,9 @@
 #' @param nrow A flag or a whole numeric vector of the value, value range or possible values.
 #' @param key A character vector of the columns that represent a unique key.
 #' @return An informative error if the test fails.
+#'
 #' @family check
+#'
 #' @export
 check_data <- function(x, values = NULL, exclusive = FALSE, order = FALSE, nrow = numeric(0), key = character(0), x_name = NULL) {
   chk_data(x, "data.frame")

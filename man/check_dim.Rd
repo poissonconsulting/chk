@@ -28,6 +28,7 @@ check_dim(1)
 try(check_dim(1, values = FALSE))
 try(check_dim(1, values = c(10, 2)))
 try(check_dim(data.frame(x = 1), dim = nrow, values = c(10, 10, 2)))
+
 }
 \seealso{
 Other check: 
