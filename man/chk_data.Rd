@@ -2,9 +2,12 @@
 % Please edit documentation in R/chk-data.R
 \name{chk_data}
 \alias{chk_data}
+\alias{vld_data}
 \title{Check Data}
 \usage{
 chk_data(x, x_name = NULL)
+
+vld_data(x)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -12,20 +15,30 @@ chk_data(x, x_name = NULL)
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-The \code{chk_} functions throw an informative error if the test fails.
+The \code{chk_} function throws an informative error if the test fails.
 
-The \code{vld_} functions return a flag indicating whether the test was met.
+The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
 Checks data.frame using
 
 \code{inherits(x, "data.frame")}
 }
-\examples{
+\section{Functions}{
+\itemize{
+\item \code{vld_data}: Validate Data
+}}
 
+\examples{
 # chk_data
 chk_data(data.frame(x = 1))
 try(chk_data(1))
+
+# vld_data
+vld_data(data.frame())
+vld_data(data.frame(x = 1))
+vld_data(c(x = 1))
+
 }
 \seealso{
 Other chk_is: 

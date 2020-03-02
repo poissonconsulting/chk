@@ -35,13 +35,16 @@ Checks if all rows in x match at least one in y using
 }}
 
 \examples{
-
+# chk_join
 chk_join(data.frame(z = 1), data.frame(z = 1:2), by = "z")
 try(chk_join(data.frame(z = 1), data.frame(z = 2), by = "z"))
+
+# vld_join
 vld_join(data.frame(z = 1), data.frame(z = 1:2), by = "z")
 vld_join(data.frame(z = 1), data.frame(z = 2), by = "z")
 vld_join(data.frame(z = 1), data.frame(a = 1:2), by = c(z = "a"))
 vld_join(data.frame(z = 1), data.frame(a = 2), by = c(z = "a"))
+
 }
 \seealso{
 Other chk_set: 

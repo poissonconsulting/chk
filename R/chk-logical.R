@@ -5,7 +5,7 @@
 #'
 #' `is.logical(x)`
 #'
-#' @inheritParams chk_flag
+#' @inheritParams params
 #' @inherit params return
 #'
 #' @family chk_is
