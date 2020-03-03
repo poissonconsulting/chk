@@ -135,9 +135,13 @@ Function | Code
 
 ## Check
 
-Function
- * `check_data(x, values = NULL, exclusive = FALSE, order = FALSE, nrow = numeric(0), key = character(0))` 
-* `check_dim(x, dim = length, values = numeric(0), dim_name = NULL)` 
-* `check_key(x, key = character(0), na_distinct = FALSE)` 
-* `check_names(x, names = character(0), exclusive = FALSE, order = FALSE)` 
-* `check_values(x, values)` 
+**Function**    
+`check_data(x, values = NULL, exclusive = FALSE, order = FALSE, nrow = numeric(0), key = character(0))`   
+
+`check_dim(x, dim = length, values = numeric(0), dim_name = NULL)`   
+
+`check_key(x, key = character(0), na_distinct = FALSE)`   
+
+`check_names(x, names = character(0), exclusive = FALSE, order = FALSE)`    
+
+`check_values(x, values)`    
