@@ -24,9 +24,9 @@ Checks if non-missing numeric scalar using
 
 \code{is.numeric(x) && length(x) == 1L && !anyNA(x)}
 
-\strong{Good}: \code{1}, \code{2L}, \code{log(10)}, \code{-Inf}
+\strong{Pass}: \code{1}, \code{2L}, \code{log(10)}, \code{-Inf}
 
-\strong{Bad}: \code{"a"}, \code{1:3}, \code{NA_real_}
+\strong{Fail}: \code{"a"}, \code{1:3}, \code{NA_real_}
 }
 \section{Functions}{
 \itemize{

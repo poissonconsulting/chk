@@ -24,9 +24,9 @@ Checks if not empty using
 
 \code{length(x) != 0L}
 
-\strong{Good}: \code{1}, \code{1:2}, \code{NA}, \code{matrix(1:3)}, \code{list(1)}, \code{data.frame(x = 1)}.
+\strong{Pass}: \code{1}, \code{1:2}, \code{NA}, \code{matrix(1:3)}, \code{list(1)}, \code{data.frame(x = 1)}.
 
-\strong{Bad}: \code{NULL}, \code{logical(0)}, \code{list()}, \code{data.frame()}.
+\strong{Fail}: \code{NULL}, \code{logical(0)}, \code{list()}, \code{data.frame()}.
 }
 \section{Functions}{
 \itemize{

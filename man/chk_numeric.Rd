@@ -24,9 +24,9 @@ Checks if numeric using
 
 \code{is.numeric(x)}
 
-\strong{Good}: \code{1}, \code{1:2}, \code{NA_real_}, \code{integer(0)}, \code{matrix(1:3)}.
+\strong{Pass}: \code{1}, \code{1:2}, \code{NA_real_}, \code{integer(0)}, \code{matrix(1:3)}.
 
-\strong{Bad}: \code{TRUE}, \code{"1"}, \code{NA}, \code{NULL}.
+\strong{Fail}: \code{TRUE}, \code{"1"}, \code{NA}, \code{NULL}.
 }
 \section{Functions}{
 \itemize{

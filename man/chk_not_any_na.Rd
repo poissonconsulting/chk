@@ -24,9 +24,9 @@ Checks if not any missing values using
 
 \code{!anyNA(x)}
 
-\strong{Good}: \code{1}, \code{1:2}, \code{"1"}, \code{logical(0)}.
+\strong{Pass}: \code{1}, \code{1:2}, \code{"1"}, \code{logical(0)}.
 
-\strong{Bad}: \code{NA}, \code{c(1, NA)}.
+\strong{Fail}: \code{NA}, \code{c(1, NA)}.
 }
 \section{Functions}{
 \itemize{
