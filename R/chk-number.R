@@ -5,9 +5,9 @@
 #'
 #' `is.numeric(x) && length(x) == 1L && !anyNA(x)`
 #'
-#' **Good**: `1`, `2L`, `log(10)`, `-Inf`
+#' **Pass**: `1`, `2L`, `log(10)`, `-Inf`
 #'
-#' **Bad**: `"a"`, `1:3`, `NA_real_`
+#' **Fail**: `"a"`, `1:3`, `NA_real_`
 #'
 #' @inheritParams params
 #' @inherit params return

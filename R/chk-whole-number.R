@@ -5,9 +5,9 @@
 #'
 #' `vld_number(x) && (is.integer(x) || vld_true(all.equal(x, trunc(x))))`
 #'
-#' **Good**: `1`, `2L`, `1e10`, `-Inf`
+#' **Pass**: `1`, `2L`, `1e10`, `-Inf`
 #'
-#' **Bad**: `"a"`, `1:3`, `NA_integer_`, `log(10)`
+#' **Fail**: `"a"`, `1:3`, `NA_integer_`, `log(10)`
 #'
 #' @inheritParams params
 #' @inherit params return

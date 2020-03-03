@@ -6,9 +6,9 @@
 #' `length(x) < 2L || all(vapply(x, vld_identical, TRUE, y = x[[1]]))`
 #'
 #'
-#' **Good**: `c(1, 1.00000001)`, `list(1, 1)`
+#' **Pass**: `c(1, 1.00000001)`, `list(1, 1)`
 #'
-#' **Bad**: `c(1, 1.0000001)`, `list(1, NA)`
+#' **Fail**: `c(1, 1.0000001)`, `list(1, NA)`
 #'
 #' @inheritParams params
 #' @inherit params return

@@ -5,9 +5,9 @@
 #'
 #' `is.numeric(x)`
 #'
-#' **Good**: `1`, `1:2`, `NA_real_`, `integer(0)`, `matrix(1:3)`.
+#' **Pass**: `1`, `1:2`, `NA_real_`, `integer(0)`, `matrix(1:3)`.
 #'
-#' **Bad**: `TRUE`, `"1"`, `NA`, `NULL`.
+#' **Fail**: `TRUE`, `"1"`, `NA`, `NULL`.
 #'
 #' @inheritParams chk_flag
 #' @inherit params return

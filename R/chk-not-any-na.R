@@ -5,9 +5,9 @@
 #'
 #' `!anyNA(x)`
 #'
-#' **Good**: `1`, `1:2`, `"1"`, `logical(0)`.
+#' **Pass**: `1`, `1:2`, `"1"`, `logical(0)`.
 #'
-#' **Bad**: `NA`, `c(1, NA)`.
+#' **Fail**: `NA`, `c(1, NA)`.
 #'
 #' @inheritParams params
 #' @inherit params return

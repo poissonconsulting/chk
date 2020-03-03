@@ -5,9 +5,9 @@
 #'
 #' `is.logical(x) && length(x) == 1L && !anyNA(x)`
 #'
-#' **Good**: `TRUE`, `FALSE`, `NA`.
+#' **Pass**: `TRUE`, `FALSE`, `NA`.
 #'
-#' **Bad**: `logical(0)`, `c(TRUE, TRUE)`, `"TRUE"`, `1`, `NA_real_`.
+#' **Fail**: `logical(0)`, `c(TRUE, TRUE)`, `"TRUE"`, `1`, `NA_real_`.
 #'
 #' @inheritParams params
 #' @inherit params return
