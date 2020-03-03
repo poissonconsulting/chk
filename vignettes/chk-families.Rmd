@@ -122,16 +122,6 @@ Function |  Code
 `chk_ext(x, ext)` | `vld_string(x) && vld_subset(tools::file_ext(x), ext)`
 `chk_dir(x)` | `vld_string(x) && dir.exists(x)`
 
-## Check
-
-Function |  Code
-:- | :-
-`check_data(x, values = NULL, exclusive = FALSE, order = FALSE, nrow = numeric(0), key = character(0))` |
-`check_dim(x, dim = length, values = numeric(0), dim_name = NULL)` |
-`check_key(x, key = character(0), na_distinct = FALSE)` |
-`check_names(x, names = character(0), exclusive = FALSE, order = FALSE)` |
-`check_values(x, values)` |
-
 ## Check Miscellaneous
 
 Function | Code
@@ -143,3 +133,11 @@ Function | Code
 `chk_unique(x, incomparables = FALSE)` | `!anyDuplicated(x, incomparables = incomparables)`
 `chk_sorted(x)` | `is.unsorted(x)`
 
+## Check
+
+Function
+ * `check_data(x, values = NULL, exclusive = FALSE, order = FALSE, nrow = numeric(0), key = character(0))` 
+* `check_dim(x, dim = length, values = numeric(0), dim_name = NULL)` 
+* `check_key(x, key = character(0), na_distinct = FALSE)` 
+* `check_names(x, names = character(0), exclusive = FALSE, order = FALSE)` 
+* `check_values(x, values)` 
