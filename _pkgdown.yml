@@ -115,8 +115,8 @@ reference:
   - '`p`'
   - '`p0`'
   - '`cc`'
-- title: Bigger Checkers
-  desc: Slower functions but easier for general testing
+- title: More in depth Checkers
+  desc: Checks more properties about the objects
   contents:
   - '`check_data`'
   - '`check_dim`'
