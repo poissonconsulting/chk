@@ -9,11 +9,14 @@ test_that("check_values pass", {
   expect_null(check_values(1, NA_real_))
   expect_null(check_values(1, c(2, NA_real_)))
   expect_null(check_values(1, c(1, 2, NA_real_)))
+  expect_null(check_values(1, c(1, 1)))
   expect_null(check_values(1, c(0.5, 2, NA_real_)))
   expect_null(check_values(c(1, NA_real_), c(0.5, 2, NA_real_)))
 })
 
 test_that("check_values fail", {
+  expect_chk_error(check_values(1.1, c(1, 1)),
+                    "^All elements of `1.1` must be equal to: 1[.]")
   expect_chk_error(
     check_values(1L, 1),
     "^`1L` must inherit from S3 class 'numeric'[.]$"
