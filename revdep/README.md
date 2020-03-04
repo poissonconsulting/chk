@@ -10,13 +10,14 @@
 |collate  |en_CA.UTF-8                  |
 |ctype    |en_CA.UTF-8                  |
 |tz       |America/Vancouver            |
-|date     |2020-02-05                   |
+|date     |2020-03-03                   |
 
 # Dependencies
 
-|package |old   |new        |Δ  |
-|:-------|:-----|:----------|:--|
-|chk     |0.3.0 |0.3.0.9003 |*  |
+|package |old   |new   |Δ  |
+|:-------|:-----|:-----|:--|
+|chk     |0.3.1 |0.4.0 |*  |
+|rlang   |NA    |0.4.5 |*  |
 
 # Revdeps
 
