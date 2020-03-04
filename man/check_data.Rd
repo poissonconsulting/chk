@@ -21,7 +21,7 @@ check_data(
 
 \item{exclusive}{A flag specifying whether x must only include columns named in values.}
 
-\item{order}{A flag specifying whether the order of elements in x must match those in values.}
+\item{order}{A flag specifying whether the order of columns in x must match names in values.}
 
 \item{nrow}{A flag or a whole numeric vector of the value, value range or possible values.}
 

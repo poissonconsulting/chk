@@ -25,7 +25,7 @@
 #' @param by A character vector specifying the column names to join x and y on.
 #' If named the names are the corresponding columns in x.
 #' @param exclusive A flag specifying whether x must only include columns named in values.
-#' @param order A flag specifying whether the order of elements in x must match those in values.
+#' @param order A flag specifying whether the order of columns in x must match names in values.
 #' @param nrow A flag or a whole numeric vector of the value, value range or possible values.
 #' @param key A character vector of the columns that represent a unique key.
 #' @param ... Additional arguments.
