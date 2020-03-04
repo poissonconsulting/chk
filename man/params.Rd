@@ -38,6 +38,14 @@ FALSE means that all values can be compared.}
 \item{by}{A character vector specifying the column names to join x and y on.
 If named the names are the corresponding columns in x.}
 
+\item{exclusive}{A flag specifying whether x must only include columns named in values.}
+
+\item{order}{A flag specifying whether the order of elements in x must match those in values.}
+
+\item{nrow}{A flag or a whole numeric vector of the value, value range or possible values.}
+
+\item{key}{A character vector of the columns that represent a unique key.}
+
 \item{...}{Additional arguments.}
 }
 \value{
