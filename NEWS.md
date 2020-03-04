@@ -1,27 +1,30 @@
 # chk 0.4.0
 
-- Added chk_logical() and vld_logical().
-- Added chk_double() and vld_double().
-- Added chk_integer() and vld_integer().
-- Added chk_character() and vld_character().
-- Added chk_join().
-- Fixed chk_vector so ignores attributes (fixes #50)
-- Add chk_data()
+- Added following checks
+  - `check_names()`.
+  - `check_dim()`.
+  - `check_values()`.
+  - `check_key()`.
+  - `check_data()`.
 
+- Added following typeof chks
+  - `chk_logical()` and `vld_logical()`.
+  - `chk_double()` and `vld_double()`.
+  - `chk_integer()` and `vld_integer()`.
+  - `chk_character()` and `vld_character()`.
 
-# chk 0.3.1.9000
-
-- Same as previous version.
-
+- Added miscellaneous chks
+  - `chk_data()` and `vld_data()`.
+  - `chk_join()`.
+  
+- Fixed
+  - `chk_vector()` and `vld_vector()` so ignores attributes.
 
 # chk 0.3.1
 
-- Added `expect_chk_error()` (fixes #44)
+- Added `expect_chk_error()`.
 - Added `chk_matrix()` and `vld_matrix()`.
 - Added `chk_array()` and `vld_array()`.
-
-# chk 0.3.0.9003
-
 - `abort_chk` now allows original arguments to be attached.
 - Added `chk_tz()` and `vld_tz()`.
 - Added `chk_matrix()` and `vld_matrix()`.
