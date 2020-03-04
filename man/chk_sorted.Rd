@@ -33,15 +33,16 @@ Checks if is sorted using
 # chk_sorted
 chk_sorted(1:2)
 try(chk_sorted(2:1))
-
 # vld_sorted
 vld_sorted(1:2)
 vld_sorted(2:1)
-
 }
 \seealso{
-Other chk_miscellaneous: 
+Other chk_misc: 
+\code{\link{chk_match}()},
+\code{\link{chk_named}()},
 \code{\link{chk_not_any_na}()},
-\code{\link{chk_not_empty}()}
+\code{\link{chk_not_empty}()},
+\code{\link{chk_unique}()}
 }
-\concept{chk_miscellaneous}
+\concept{chk_misc}

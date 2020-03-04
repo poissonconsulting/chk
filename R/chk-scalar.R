@@ -15,7 +15,6 @@
 #' chk_scalar(1)
 #' chk_scalar(list(1))
 #' try(chk_scalar(1:2))
-#'
 #' @export
 chk_scalar <- function(x, x_name = NULL) {
   if (vld_scalar(x)) {
@@ -30,6 +29,5 @@ chk_scalar <- function(x, x_name = NULL) {
 #' @examples
 #' # vld_scalar
 #' vld_scalar(1)
-#'
 #' @export
 vld_scalar <- function(x) length(x) == 1L

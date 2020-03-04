@@ -5,9 +5,9 @@
 #'
 #' `is.logical(x) && length(x) == 1L && !anyNA(x)`
 #'
-#' **Good**: `TRUE`, `FALSE`, `NA`.
+#' **Pass**: `TRUE`, `FALSE`, `NA`.
 #'
-#' **Bad**: `logical(0)`, `c(TRUE, TRUE)`, `"TRUE"`, `1`, `NA_real_`.
+#' **Fail**: `logical(0)`, `c(TRUE, TRUE)`, `"TRUE"`, `1`, `NA_real_`.
 #'
 #' @inheritParams params
 #' @inherit params return
@@ -18,7 +18,6 @@
 #' # chk_flag
 #' chk_flag(TRUE)
 #' try(vld_flag(1))
-#'
 #' @export
 chk_flag <- function(x, x_name = NULL) {
   if (vld_flag(x)) {
@@ -34,6 +33,5 @@ chk_flag <- function(x, x_name = NULL) {
 #' # vld_flag
 #' vld_flag(TRUE)
 #' vld_flag(1)
-#'
 #' @export
 vld_flag <- function(x) is.logical(x) && length(x) == 1L && !anyNA(x)

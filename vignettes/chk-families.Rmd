@@ -36,6 +36,7 @@ Function | Code
 `chk_string(x)` | `is.character(x) && length(x) == 1L && !anyNA(x)`
 `chk_date(x)` | `inherits(x, "Date") && length(x) == 1L && !anyNA(x)`
 `chk_datetime(x)` | `inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)`
+`chk_tz(x)` | `is.character(x) && length(x) == 1L && !anyNA(x) && x %in% OlsonNames()`
 
 ## Check Ranges
 
@@ -59,7 +60,7 @@ Function | Code
 
 Function |  Code
 :- | :---
-`chk_all(x, chk_fun, ...)` | 
+`chk_all(x, chk_fun, ...)` | `all(vapply(x, chk_fun, TRUE, ...))`
 `chk_all_identical(x)` | `length(x) < 2L || all(vapply(x, vld_identical, TRUE, y = x[[1]]))`
 `chk_all_equal(x, tolerance = sqrt(.Machine$double.eps))` | `length(x) < 2L || all(vapply(x, vld_equal, TRUE, y = x[[1]], tolerance = tolerance))`
 `chk_all_equivalent(x, tolerance = sqrt(.Machine$double.eps))` | `length(x) < 2L || all(vapply(x, vld_equivalent, TRUE, y = x[[1]], tolerance = tolerance))`
@@ -71,20 +72,33 @@ Function | Code
 `chk_setequal(x, values)` | `setequal(x, values)`
 `chk_subset(x, values)` | `all(x %in% values)`
 `chk_superset(x, values)` | `all(values %in% x)`
+`chk_join(x, y, by)` | `identical(nrow(x), nrow(merge(x, unique(y[if (is.null(names(by))) by else names(by)]), by = by)))`
 
 ## Check Is
 
 Function | Code
 :- | :---
 `chk_atomic(x)` | `is.atomic(x)`
-`chk_environment(x)` | `is.environment(x)`
 `chk_function(x, formals = NULL)` | `is.function(x) && (is.null(formals) || length(formals(x)) == formals)`
-`chk_list(x)` | `is.list(x)`
 `chk_numeric(x)` | `is.numeric(x)`
 `chk_s3_class(x, class)` | `!isS4(x) && inherits(x, class)`
 `chk_s4_class(x, class)` | `isS4(x) && methods::is(x, class)`
 `chk_vector(x)` | `is.vector(x)`
 `chk_whole_numeric(x)` | `is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))`
+`chk_array(x)` | `is.array(x)`
+`chk_matrix(x)` | `is.matrix(x)`
+`chk_data(x)` | `inherits(x, "data.frame")`
+
+## Check Typeof
+
+Function | Code
+:- | :---
+`chk_environment(x)` | `is.environment(x)`
+`chk_list(x)` | `is.list(x)`
+`chk_logical(x)` | `is.logical(x)`
+`chk_double(x)` | `is.double(x)`
+`chk_integer(x)` | `is.integer(x)`
+`chk_character(x)` | `is.character(x)`
 
 ## Check NULLs
 
@@ -117,3 +131,17 @@ Function | Code
 `chk_not_empty(x)` |  `length(x) != 0L`
 `chk_not_any_na(x)` |  `!anyNA(x)`
 `chk_unique(x, incomparables = FALSE)` | `!anyDuplicated(x, incomparables = incomparables)`
+`chk_sorted(x)` | `is.unsorted(x)`
+
+## Check
+
+**Function**    
+`check_data(x, values = NULL, exclusive = FALSE, order = FALSE, nrow = numeric(0), key = character(0))`   
+
+`check_dim(x, dim = length, values = numeric(0), dim_name = NULL)`   
+
+`check_key(x, key = character(0), na_distinct = FALSE)`   
+
+`check_names(x, names = character(0), exclusive = FALSE, order = FALSE)`    
+
+`check_values(x, values)`    

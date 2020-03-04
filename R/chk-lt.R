@@ -14,7 +14,6 @@
 #' # chk_lt
 #' chk_lt(-0.1)
 #' try(chk_lt(c(-0.1, 0.2)))
-#'
 #' @export
 chk_lt <- function(x, value = 0, x_name = NULL) {
   if (vld_lt(x, value)) {
@@ -38,6 +37,5 @@ chk_lt <- function(x, value = 0, x_name = NULL) {
 #' vld_lt(c(-0.1, 0.2))
 #' vld_lt(c(-0.1, 0.2), value = 1)
 #' vld_lt("a", value = "b")
-#'
 #' @export
 vld_lt <- function(x, value = 0) all(x[!is.na(x)] < value)

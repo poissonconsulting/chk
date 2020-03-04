@@ -74,6 +74,7 @@ chk_flag(x, x_name = "`zzz`")
 
 As the `chk_` (and `vld_`) functions are not expected to be directly exposed to users they don't check any of their arguments (other than the object of interest of course!) to ensure that they are as fast as possible.
 
+
 ## Extending chk
 
 The `chk_flag()` function illustrates the general structure of a `chk_` function.
@@ -103,3 +104,7 @@ By default it also capitalizes the first character and adds a missing period.
 abort_chk("There %r %n problem director%y%s.", n = 1)
 abort_chk("there %r %n ", "problem director%y%s", n = 2)
 ```
+
+### `check_` Functions
+
+The `check_` functions are more complex then the `chk_` functions which make them slower but makes doing some general tests easier. These functions are used to check the parameters of the object.

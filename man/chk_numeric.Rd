@@ -24,9 +24,9 @@ Checks if numeric using
 
 \code{is.numeric(x)}
 
-\strong{Good}: \code{1}, \code{1:2}, \code{NA_real_}, \code{integer(0)}, \code{matrix(1:3)}.
+\strong{Pass}: \code{1}, \code{1:2}, \code{NA_real_}, \code{integer(0)}, \code{matrix(1:3)}.
 
-\strong{Bad}: \code{TRUE}, \code{"1"}, \code{NA}, \code{NULL}.
+\strong{Fail}: \code{TRUE}, \code{"1"}, \code{NA}, \code{NULL}.
 }
 \section{Functions}{
 \itemize{
@@ -37,7 +37,6 @@ Checks if numeric using
 # chk_numeric
 chk_numeric(1)
 try(chk_numeric("1"))
-
 # vld_numeric
 vld_numeric(1)
 vld_numeric(1:2)
@@ -45,20 +44,13 @@ vld_numeric(NA_real_)
 vld_numeric(integer(0))
 vld_numeric("1")
 vld_numeric(TRUE)
-
 }
 \seealso{
 Other chk_is: 
 \code{\link{chk_array}()},
 \code{\link{chk_atomic}()},
-\code{\link{chk_character}()},
 \code{\link{chk_data}()},
-\code{\link{chk_double}()},
-\code{\link{chk_environment}()},
 \code{\link{chk_function}()},
-\code{\link{chk_integer}()},
-\code{\link{chk_list}()},
-\code{\link{chk_logical}()},
 \code{\link{chk_matrix}()},
 \code{\link{chk_s3_class}()},
 \code{\link{chk_s4_class}()},

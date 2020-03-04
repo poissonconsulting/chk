@@ -14,7 +14,6 @@
 #' # chk_atomic
 #' chk_atomic(1)
 #' try(chk_atomic(list(1)))
-#'
 #' @export
 chk_atomic <- function(x, x_name = NULL) {
   if (vld_atomic(x)) {
@@ -33,6 +32,5 @@ chk_atomic <- function(x, x_name = NULL) {
 #' vld_atomic(character(0))
 #' vld_atomic(list(1))
 #' vld_atomic(NULL)
-#'
 #' @export
 vld_atomic <- function(x) is.atomic(x)

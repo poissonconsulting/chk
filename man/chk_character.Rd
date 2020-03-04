@@ -33,7 +33,6 @@ Checks if character using
 # chk_character
 chk_character("1")
 try(chk_character(1))
-
 # vld_character
 vld_character("1")
 vld_character(matrix("a"))
@@ -42,24 +41,13 @@ vld_character(NA_character_)
 vld_character(1)
 vld_character(TRUE)
 vld_character(factor("text"))
-
 }
 \seealso{
-Other chk_is: 
-\code{\link{chk_array}()},
-\code{\link{chk_atomic}()},
-\code{\link{chk_data}()},
+Other chk_typeof: 
 \code{\link{chk_double}()},
 \code{\link{chk_environment}()},
-\code{\link{chk_function}()},
 \code{\link{chk_integer}()},
 \code{\link{chk_list}()},
-\code{\link{chk_logical}()},
-\code{\link{chk_matrix}()},
-\code{\link{chk_numeric}()},
-\code{\link{chk_s3_class}()},
-\code{\link{chk_s4_class}()},
-\code{\link{chk_vector}()},
-\code{\link{chk_whole_numeric}()}
+\code{\link{chk_logical}()}
 }
-\concept{chk_is}
+\concept{chk_typeof}

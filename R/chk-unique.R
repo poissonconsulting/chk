@@ -15,7 +15,6 @@
 #' chk_unique(c(NA, 2))
 #' try(chk_unique(c(NA, NA, 2)))
 #' chk_unique(c(NA, NA, 2), incomparables = NA)
-#'
 #' @export
 chk_unique <- function(x, incomparables = FALSE, x_name = NULL) {
   if (vld_unique(x, incomparables = incomparables)) {
@@ -34,7 +33,6 @@ chk_unique <- function(x, incomparables = FALSE, x_name = NULL) {
 #' vld_unique(c(NA, 2))
 #' vld_unique(c(NA, NA, 2))
 #' vld_unique(c(NA, NA, 2), incomparables = NA)
-#'
 #' @export
 vld_unique <- function(x, incomparables = FALSE) {
   !.anyDuplicated(x, incomparables = incomparables)

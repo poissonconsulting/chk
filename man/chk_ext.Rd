@@ -38,11 +38,9 @@ to ensure the case matches.
 \examples{
 # chk_ext
 try(chk_ext("file1.pdf", "png"))
-
 # vld_ext
 vld_ext("oeu.pdf", "pdf")
 vld_ext(toupper("oeu.pdf"), "PDF")
-
 }
 \seealso{
 Other chk_files: 

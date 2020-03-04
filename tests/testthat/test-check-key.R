@@ -10,10 +10,16 @@ test_that("check_key works", {
 
 test_that("check_key fails", {
   x <- data.frame(x = c(1, 2), y = c(1, 1), z = NA)
-  expect_chk_error(check_key(x, c("y", "y")),
-                   "`key` must be unique[.]$")
-  expect_chk_error(check_key(x, "y"),
-                   "^Column 'y' in `x` must be a unique key[.]$")
-  expect_chk_error(check_key(x, c("y", "z")),
-                   "^Columns 'y' and 'z' in `x` must be a unique key[.]$")
+  expect_chk_error(
+    check_key(x, c("y", "y")),
+    "`key` must be unique[.]$"
+  )
+  expect_chk_error(
+    check_key(x, "y"),
+    "^Column 'y' in `x` must be a unique key[.]$"
+  )
+  expect_chk_error(
+    check_key(x, c("y", "z")),
+    "^Columns 'y' and 'z' in `x` must be a unique key[.]$"
+  )
 })

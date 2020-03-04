@@ -16,7 +16,6 @@
 #' try(chk_identical(1, 1L))
 #' chk_identical(c(1, 1), c(1, 1))
 #' try(chk_identical(1, c(1, 1)))
-#'
 #' @export
 chk_identical <- function(x, y, x_name = NULL) {
   if (identical(x, y)) {
@@ -31,6 +30,5 @@ chk_identical <- function(x, y, x_name = NULL) {
 #'
 #' @examples
 #' vld_identical(1, 1)
-#'
 #' @export
 vld_identical <- function(x, y) identical(x, y)

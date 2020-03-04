@@ -5,9 +5,9 @@
 #'
 #' `is.numeric(x) && length(x) == 1L && !anyNA(x)`
 #'
-#' **Good**: `1`, `2L`, `log(10)`, `-Inf`
+#' **Pass**: `1`, `2L`, `log(10)`, `-Inf`
 #'
-#' **Bad**: `"a"`, `1:3`, `NA_real_`
+#' **Fail**: `"a"`, `1:3`, `NA_real_`
 #'
 #' @inheritParams params
 #' @inherit params return
@@ -18,7 +18,6 @@
 #' # chk_number
 #' chk_number(1.1)
 #' try(chk_number(TRUE))
-#'
 #' @export
 chk_number <- function(x, x_name = NULL) {
   if (vld_number(x)) {
@@ -33,7 +32,6 @@ chk_number <- function(x, x_name = NULL) {
 #' @examples
 #' # vld_number
 #' vld_number(1.1)
-#'
 #' @export
 vld_number <- function(x) {
   is.numeric(x) && length(x) == 1L && !anyNA(x)

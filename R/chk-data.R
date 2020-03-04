@@ -6,19 +6,15 @@
 #' `inherits(x, "data.frame")`
 #'
 #' @inheritParams params
-#' @return
-#' The `chk_` functions throw an informative error if the test fails.
-#'
-#' The `vld_` functions return a flag indicating whether the test was met.
+#' @inherit params return
 #'
 #' @family chk_is
-#' @export
 #'
 #' @examples
-#'
 #' # chk_data
 #' chk_data(data.frame(x = 1))
 #' try(chk_data(1))
+#' @export
 chk_data <- function(x, x_name = NULL) {
   if (vld_data(x)) {
     return(invisible())
@@ -27,14 +23,12 @@ chk_data <- function(x, x_name = NULL) {
   abort_chk(x_name, " must be a data.frame", x = x)
 }
 
-#' @describeIn chk_date Validate Data
-#'
-#' @export
+#' @describeIn chk_data Validate Data
 #'
 #' @examples
-#'
 #' # vld_data
 #' vld_data(data.frame())
 #' vld_data(data.frame(x = 1))
 #' vld_data(c(x = 1))
+#' @export
 vld_data <- function(x) inherits(x, "data.frame")

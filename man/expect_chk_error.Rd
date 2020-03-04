@@ -28,14 +28,15 @@ but doesn't test for a specific value.
 \item If \code{NA}, asserts that there should be no errors.
 }}
 
-\item{...}{Arguments passed on to \code{expect_match}
-\describe{
-  \item{all}{Should all elements of actual value match \code{regexp} (TRUE),
+\item{...}{
+  Arguments passed on to \code{\link[testthat:expect_match]{expect_match}}
+  \describe{
+    \item{\code{all}}{Should all elements of actual value match \code{regexp} (TRUE),
 or does only one need to match (FALSE)}
-  \item{perl}{logical.  Should Perl-compatible regexps be used?}
-  \item{fixed}{logical.  If \code{TRUE}, \code{pattern} is a string to be
+    \item{\code{perl}}{logical.  Should Perl-compatible regexps be used?}
+    \item{\code{fixed}}{logical.  If \code{TRUE}, \code{pattern} is a string to be
     matched as is.  Overrides all conflicting arguments.}
-}}
+  }}
 
 \item{info}{Extra information to be included in the message. This argument
 is soft-deprecated and should not be used in new code. Instead see
@@ -84,12 +85,16 @@ expect_chk_error(chk_true(FALSE))
 try(expect_chk_error(chk_false(FALSE)))
 }
 \seealso{
-Other expectations: \code{\link[testthat]{comparison-expectations}},
-  \code{\link[testthat]{equality-expectations}},
-  \code{\link[testthat]{expect_length}}, \code{\link[testthat]{expect_match}},
-  \code{\link[testthat]{expect_message}}, \code{\link[testthat]{expect_named}},
-  \code{\link[testthat]{expect_null}}, \code{\link[testthat]{expect_output}},
-  \code{\link[testthat]{expect_silent}},
-  \code{\link[testthat]{inheritance-expectations}},
-  \code{\link[testthat]{logical-expectations}}
+Other expectations: 
+\code{\link[testthat]{comparison-expectations}},
+\code{\link[testthat]{equality-expectations}},
+\code{\link[testthat]{expect_length}()},
+\code{\link[testthat]{expect_match}()},
+\code{\link[testthat]{expect_message}()},
+\code{\link[testthat]{expect_named}()},
+\code{\link[testthat]{expect_null}()},
+\code{\link[testthat]{expect_output}()},
+\code{\link[testthat]{expect_silent}()},
+\code{\link[testthat]{inheritance-expectations}},
+\code{\link[testthat]{logical-expectations}}
 }

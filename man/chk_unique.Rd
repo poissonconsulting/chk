@@ -37,18 +37,19 @@ Checks if unique using
 chk_unique(c(NA, 2))
 try(chk_unique(c(NA, NA, 2)))
 chk_unique(c(NA, NA, 2), incomparables = NA)
-
 # vld_unique
 vld_unique(NULL)
 vld_unique(numeric(0))
 vld_unique(c(NA, 2))
 vld_unique(c(NA, NA, 2))
 vld_unique(c(NA, NA, 2), incomparables = NA)
-
 }
 \seealso{
 Other chk_misc: 
 \code{\link{chk_match}()},
-\code{\link{chk_named}()}
+\code{\link{chk_named}()},
+\code{\link{chk_not_any_na}()},
+\code{\link{chk_not_empty}()},
+\code{\link{chk_sorted}()}
 }
 \concept{chk_misc}

@@ -13,7 +13,6 @@
 #' @examples
 #' # chk_file
 #' try(chk_file(tempfile()))
-#'
 #' @export
 chk_file <- function(x, x_name = NULL) {
   if (vld_file(x)) {
@@ -32,6 +31,5 @@ chk_file <- function(x, x_name = NULL) {
 #' @examples
 #' # vld_file
 #' vld_file(tempfile())
-#'
 #' @export
 vld_file <- function(x) vld_string(x) && file.exists(x) && !dir.exists(x)

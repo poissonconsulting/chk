@@ -5,9 +5,9 @@
 #'
 #' `is.numeric(x)`
 #'
-#' **Good**: `1`, `1:2`, `NA_real_`, `integer(0)`, `matrix(1:3)`.
+#' **Pass**: `1`, `1:2`, `NA_real_`, `integer(0)`, `matrix(1:3)`.
 #'
-#' **Bad**: `TRUE`, `"1"`, `NA`, `NULL`.
+#' **Fail**: `TRUE`, `"1"`, `NA`, `NULL`.
 #'
 #' @inheritParams chk_flag
 #' @inherit params return
@@ -18,7 +18,6 @@
 #' # chk_numeric
 #' chk_numeric(1)
 #' try(chk_numeric("1"))
-#'
 #' @export
 chk_numeric <- function(x, x_name = NULL) {
   if (vld_numeric(x)) {
@@ -39,6 +38,5 @@ chk_numeric <- function(x, x_name = NULL) {
 #' vld_numeric(integer(0))
 #' vld_numeric("1")
 #' vld_numeric(TRUE)
-#'
 #' @export
 vld_numeric <- function(x) is.numeric(x)

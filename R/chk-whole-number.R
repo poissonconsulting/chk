@@ -5,9 +5,9 @@
 #'
 #' `vld_number(x) && (is.integer(x) || vld_true(all.equal(x, trunc(x))))`
 #'
-#' **Good**: `1`, `2L`, `1e10`, `-Inf`
+#' **Pass**: `1`, `2L`, `1e10`, `-Inf`
 #'
-#' **Bad**: `"a"`, `1:3`, `NA_integer_`, `log(10)`
+#' **Fail**: `"a"`, `1:3`, `NA_integer_`, `log(10)`
 #'
 #' @inheritParams params
 #' @inherit params return
@@ -18,7 +18,6 @@
 #' # chk_whole_number
 #' chk_whole_number(2)
 #' try(chk_whole_number(1.1))
-#'
 #' @export
 chk_whole_number <- function(x, x_name = NULL) {
   if (vld_whole_number(x)) {
@@ -37,7 +36,6 @@ chk_whole_number <- function(x, x_name = NULL) {
 #' @examples
 #' # vld_whole_number
 #' vld_whole_number(2)
-#'
 #' @export
 vld_whole_number <- function(x) {
   vld_number(x) &&

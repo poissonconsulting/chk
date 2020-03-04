@@ -33,14 +33,12 @@ Check if FALSE using
 # chk_false
 chk_false(FALSE)
 try(chk_false(0))
-
 # vld_false
 vld_false(TRUE)
 vld_false(FALSE)
 vld_false(NA)
 vld_false(0)
 vld_false(c(FALSE, FALSE))
-
 }
 \seealso{
 Other chk_logical: 

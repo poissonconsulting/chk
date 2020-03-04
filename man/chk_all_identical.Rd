@@ -24,9 +24,9 @@ Checks all elements in x identical using
 
 \code{length(x) < 2L || all(vapply(x, vld_identical, TRUE, y = x[[1]]))}
 
-\strong{Good}: \code{c(1, 1.00000001)}, \code{list(1, 1)}
+\strong{Pass}: \code{c(1, 1.00000001)}, \code{list(1, 1)}
 
-\strong{Bad}: \code{c(1, 1.0000001)}, \code{list(1, NA)}
+\strong{Fail}: \code{c(1, 1.0000001)}, \code{list(1, NA)}
 }
 \section{Functions}{
 \itemize{
@@ -37,10 +37,8 @@ Checks all elements in x identical using
 # chk_all_identical
 chk_all_identical(c(1, 1))
 try(chk_all_identical(c(1, 1.1)))
-
 # vld_all_identical
 vld_all_identical(c(1, 1))
-
 }
 \seealso{
 Other chk_alls: 

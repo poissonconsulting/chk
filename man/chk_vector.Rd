@@ -38,7 +38,6 @@ if the object is a vector with no attributes apart from names.
 chk_vector(1)
 chk_vector(list())
 try(chk_vector(matrix(1)))
-
 # vld_vector
 vld_vector(1)
 }
@@ -46,14 +45,8 @@ vld_vector(1)
 Other chk_is: 
 \code{\link{chk_array}()},
 \code{\link{chk_atomic}()},
-\code{\link{chk_character}()},
 \code{\link{chk_data}()},
-\code{\link{chk_double}()},
-\code{\link{chk_environment}()},
 \code{\link{chk_function}()},
-\code{\link{chk_integer}()},
-\code{\link{chk_list}()},
-\code{\link{chk_logical}()},
 \code{\link{chk_matrix}()},
 \code{\link{chk_numeric}()},
 \code{\link{chk_s3_class}()},

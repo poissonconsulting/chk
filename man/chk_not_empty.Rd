@@ -24,9 +24,9 @@ Checks if not empty using
 
 \code{length(x) != 0L}
 
-\strong{Good}: \code{1}, \code{1:2}, \code{NA}, \code{matrix(1:3)}, \code{list(1)}, \code{data.frame(x = 1)}.
+\strong{Pass}: \code{1}, \code{1:2}, \code{NA}, \code{matrix(1:3)}, \code{list(1)}, \code{data.frame(x = 1)}.
 
-\strong{Bad}: \code{NULL}, \code{logical(0)}, \code{list()}, \code{data.frame()}.
+\strong{Fail}: \code{NULL}, \code{logical(0)}, \code{list()}, \code{data.frame()}.
 }
 \section{Functions}{
 \itemize{
@@ -37,7 +37,6 @@ Checks if not empty using
 # chk_not_empty
 chk_not_empty(1)
 try(chk_not_empty(numeric(0)))
-
 # vld_not_empty
 vld_not_empty(1)
 vld_not_empty(matrix(1:3))
@@ -45,11 +44,13 @@ vld_not_empty(character(0))
 vld_not_empty(list(1))
 vld_not_empty(NULL)
 vld_not_empty(list())
-
 }
 \seealso{
-Other chk_miscellaneous: 
+Other chk_misc: 
+\code{\link{chk_match}()},
+\code{\link{chk_named}()},
 \code{\link{chk_not_any_na}()},
-\code{\link{chk_sorted}()}
+\code{\link{chk_sorted}()},
+\code{\link{chk_unique}()}
 }
-\concept{chk_miscellaneous}
+\concept{chk_misc}

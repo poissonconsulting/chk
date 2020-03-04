@@ -35,7 +35,6 @@ Checks if all non-missing values are less than value using
 # chk_lt
 chk_lt(-0.1)
 try(chk_lt(c(-0.1, 0.2)))
-
 # vld_lt
 vld_lt(numeric(0))
 vld_lt(0)
@@ -44,7 +43,6 @@ vld_lt(c(-0.1, -0.2, NA))
 vld_lt(c(-0.1, 0.2))
 vld_lt(c(-0.1, 0.2), value = 1)
 vld_lt("a", value = "b")
-
 }
 \seealso{
 Other chk_ranges: 

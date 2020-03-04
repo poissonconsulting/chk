@@ -33,24 +33,16 @@ Checks if is a matrix using
 # chk_matrix
 chk_matrix(matrix(1))
 try(chk_matrix(array(1)))
-
 # vld_matrix
 vld_matrix(1)
 vld_matrix(matrix(1))
-
 }
 \seealso{
 Other chk_is: 
 \code{\link{chk_array}()},
 \code{\link{chk_atomic}()},
-\code{\link{chk_character}()},
 \code{\link{chk_data}()},
-\code{\link{chk_double}()},
-\code{\link{chk_environment}()},
 \code{\link{chk_function}()},
-\code{\link{chk_integer}()},
-\code{\link{chk_list}()},
-\code{\link{chk_logical}()},
 \code{\link{chk_numeric}()},
 \code{\link{chk_s3_class}()},
 \code{\link{chk_s4_class}()},

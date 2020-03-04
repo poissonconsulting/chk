@@ -24,9 +24,9 @@ Checks if non-missing integer scalar or double equivalent using
 
 \code{vld_number(x) && (is.integer(x) || vld_true(all.equal(x, trunc(x))))}
 
-\strong{Good}: \code{1}, \code{2L}, \code{1e10}, \code{-Inf}
+\strong{Pass}: \code{1}, \code{2L}, \code{1e10}, \code{-Inf}
 
-\strong{Bad}: \code{"a"}, \code{1:3}, \code{NA_integer_}, \code{log(10)}
+\strong{Fail}: \code{"a"}, \code{1:3}, \code{NA_integer_}, \code{log(10)}
 }
 \section{Functions}{
 \itemize{
@@ -37,18 +37,16 @@ Checks if non-missing integer scalar or double equivalent using
 # chk_whole_number
 chk_whole_number(2)
 try(chk_whole_number(1.1))
-
 # vld_whole_number
 vld_whole_number(2)
-
 }
 \seealso{
 Other chk_scalars: 
 \code{\link{chk_datetime}()},
+\code{\link{chk_date}()},
 \code{\link{chk_number}()},
 \code{\link{chk_scalar}()},
 \code{\link{chk_string}()},
-\code{\link{chk_tz}()},
-\code{\link{vld_data}()}
+\code{\link{chk_tz}()}
 }
 \concept{chk_scalars}

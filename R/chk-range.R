@@ -14,7 +14,6 @@
 #' # chk_range
 #' chk_range(0)
 #' try(chk_range(-0.1))
-#'
 #' @export
 chk_range <- function(x, range = c(0, 1), x_name = NULL) {
   if (vld_range(x, range)) {
@@ -46,7 +45,6 @@ chk_range <- function(x, range = c(0, 1), x_name = NULL) {
 #' vld_range(-0.1)
 #' vld_range(c(0.1, 0.2, NA))
 #' vld_range(c(0.1, 0.2, NA), range = c(0, 1))
-#'
 #' @export
 vld_range <- function(x, range = c(0, 1)) {
   all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])

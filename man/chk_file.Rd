@@ -32,10 +32,8 @@ Checks if file exists using
 \examples{
 # chk_file
 try(chk_file(tempfile()))
-
 # vld_file
 vld_file(tempfile())
-
 }
 \seealso{
 Other chk_files: 

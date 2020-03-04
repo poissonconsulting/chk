@@ -10,8 +10,10 @@ test_that("vld_join with by = NULL", {
 test_that("vld_join with names", {
   expect_true(vld_join(data.frame(z = 1), data.frame(a = 1:2), by = c(z = "a")))
   expect_false(vld_join(data.frame(z = 1), data.frame(a = 2), by = c(z = "a")))
-  expect_error(vld_join(data.frame(z = 1), data.frame(a = 2), by = c(a = "z")),
-               "undefined columns selected")
+  expect_error(
+    vld_join(data.frame(z = 1), data.frame(a = 2), by = c(a = "z")),
+    "undefined columns selected"
+  )
   expect_true(vld_join(data.frame(z = 1, z2 = 2), data.frame(z = 1:2, z2 = 2:1), by = "z"))
   expect_true(vld_join(data.frame(z = 1, z2 = 2), data.frame(z = 1:2, z2 = 2:1), by = c("z", "z2")))
   expect_true(vld_join(data.frame(z = 1, z2 = 2), data.frame(z = 1:2, z2 = 1:2), by = "z"))

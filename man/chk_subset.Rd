@@ -35,12 +35,10 @@ Checks if all values in values using
 # chk_subset
 chk_subset(1, 1:10)
 try(chk_subset(11, 1:10))
-
 # vld_subset
 vld_subset(numeric(0), 1:10)
 vld_subset(1, 1:10)
 vld_subset(11, 1:10)
-
 }
 \seealso{
 Other chk_set: 

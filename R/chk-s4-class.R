@@ -14,7 +14,6 @@
 #' # chk_s4_class
 #' try(chk_s4_class(1, "numeric"))
 #' chk_s4_class(getClass("MethodDefinition"), "classRepresentation")
-#'
 #' @export
 chk_s4_class <- function(x, class, x_name = NULL) {
   if (vld_s4_class(x, class)) {
@@ -30,6 +29,5 @@ chk_s4_class <- function(x, class, x_name = NULL) {
 #' # vld_s4_class
 #' vld_s4_class(numeric(0), "numeric")
 #' vld_s4_class(getClass("MethodDefinition"), "classRepresentation")
-#'
 #' @export
 vld_s4_class <- function(x, class) isS4(x) && methods::is(x, class)

@@ -5,20 +5,19 @@
 #'
 #' `!anyNA(x)`
 #'
-#' **Good**: `1`, `1:2`, `"1"`, `logical(0)`.
+#' **Pass**: `1`, `1:2`, `"1"`, `logical(0)`.
 #'
-#' **Bad**: `NA`, `c(1, NA)`.
+#' **Fail**: `NA`, `c(1, NA)`.
 #'
-#' @inheritParams chk_flag
+#' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_miscellaneous
+#' @family chk_misc
 #'
 #' @examples
 #' # chk_not_any_na
 #' chk_not_any_na(1)
 #' try(chk_not_any_na(NA))
-#'
 #' @export
 chk_not_any_na <- function(x, x_name = NULL) {
   if (vld_not_any_na(x)) {
@@ -39,6 +38,5 @@ chk_not_any_na <- function(x, x_name = NULL) {
 #' vld_not_any_na(integer(0))
 #' vld_not_any_na(c(NA, 1))
 #' vld_not_any_na(TRUE)
-#'
 #' @export
 vld_not_any_na <- function(x) !anyNA(x)

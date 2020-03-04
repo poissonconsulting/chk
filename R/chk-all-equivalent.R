@@ -16,7 +16,6 @@
 #' try(chk_all_equivalent(c(1, 1.0000001)))
 #' chk_all_equivalent(list(c(x = 1), c(x = 1)))
 #' chk_all_equivalent(list(c(x = 1), c(y = 1)))
-#'
 #' @export
 chk_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL) {
   if (vld_all_equivalent(x, tolerance = tolerance)) {
@@ -31,7 +30,6 @@ chk_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps), x_name 
 #' @examples
 #' # vld_all_equivalent
 #' vld_all_equivalent(c(x = 1, y = 1))
-#'
 #' @export
 vld_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps)) {
   length(x) < 2L || all(vapply(x, vld_equivalent, TRUE, y = x[[1]], tolerance = tolerance))

@@ -33,30 +33,18 @@ Checks if environment using
 # chk_environment
 chk_environment(.GlobalEnv)
 try(chk_environment(1))
-
 # vld_environment
 vld_environment(1)
 vld_environment(list(1))
 vld_environment(.GlobalEnv)
 vld_environment(environment())
-
 }
 \seealso{
-Other chk_is: 
-\code{\link{chk_array}()},
-\code{\link{chk_atomic}()},
+Other chk_typeof: 
 \code{\link{chk_character}()},
-\code{\link{chk_data}()},
 \code{\link{chk_double}()},
-\code{\link{chk_function}()},
 \code{\link{chk_integer}()},
 \code{\link{chk_list}()},
-\code{\link{chk_logical}()},
-\code{\link{chk_matrix}()},
-\code{\link{chk_numeric}()},
-\code{\link{chk_s3_class}()},
-\code{\link{chk_s4_class}()},
-\code{\link{chk_vector}()},
-\code{\link{chk_whole_numeric}()}
+\code{\link{chk_logical}()}
 }
-\concept{chk_is}
+\concept{chk_typeof}

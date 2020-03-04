@@ -14,7 +14,6 @@
 #' # chk_subset
 #' chk_subset(1, 1:10)
 #' try(chk_subset(11, 1:10))
-#'
 #' @export
 chk_subset <- function(x, values, x_name = NULL) {
   if (vld_subset(x, values)) {
@@ -35,6 +34,5 @@ chk_subset <- function(x, values, x_name = NULL) {
 #' vld_subset(numeric(0), 1:10)
 #' vld_subset(1, 1:10)
 #' vld_subset(11, 1:10)
-#'
 #' @export
 vld_subset <- function(x, values) all(x %in% values)

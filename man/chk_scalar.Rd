@@ -34,18 +34,16 @@ Checks if is a vector using
 chk_scalar(1)
 chk_scalar(list(1))
 try(chk_scalar(1:2))
-
 # vld_scalar
 vld_scalar(1)
-
 }
 \seealso{
 Other chk_scalars: 
 \code{\link{chk_datetime}()},
+\code{\link{chk_date}()},
 \code{\link{chk_number}()},
 \code{\link{chk_string}()},
 \code{\link{chk_tz}()},
-\code{\link{chk_whole_number}()},
-\code{\link{vld_data}()}
+\code{\link{chk_whole_number}()}
 }
 \concept{chk_scalars}
