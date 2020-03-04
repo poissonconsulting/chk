@@ -1,3 +1,14 @@
+# chk 0.4.0
+
+- Added chk_logical() and vld_logical().
+- Added chk_double() and vld_double().
+- Added chk_integer() and vld_integer().
+- Added chk_character() and vld_character().
+- Added chk_join().
+- Fixed chk_vector so ignores attributes (fixes #50)
+- Add chk_data()
+
+
 # chk 0.3.1.9000
 
 - Same as previous version.
