@@ -33,7 +33,7 @@ check_data(
 An informative error if the test fails.
 }
 \description{
-Checks column names, values and nrow for a data.frame.
+Checks column names, values, number of rows and key for a data.frame.
 }
 \examples{
 check_data(data.frame())

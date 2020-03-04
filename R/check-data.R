@@ -1,7 +1,7 @@
 #' Check Data
 #'
 #' @description
-#' Checks column names, values and nrow for a data.frame.
+#' Checks column names, values, number of rows and key for a data.frame.
 #'
 #' @inheritParams params
 #' @param values A uniquely named list of atomic vectors of the column values.
