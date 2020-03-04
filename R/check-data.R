@@ -14,6 +14,12 @@
 #' @family check
 #'
 #' @export
+#' @examples
+#' check_data(data.frame())
+#' check_data(data.frame(x = 2), list(x = 1))
+#' try(check_data(data.frame(x = 2), list(y = 1L)))
+#' try(check_data(data.frame(x = 2), list(y = 1)))
+#' try(check_data(data.frame(x = 2), nrow = 2))
 check_data <- function(x, values = NULL, exclusive = FALSE, order = FALSE, nrow = numeric(0), key = character(0), x_name = NULL) {
   chk_data(x, "data.frame")
 

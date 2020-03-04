@@ -35,6 +35,13 @@ An informative error if the test fails.
 \description{
 Checks column names, values and nrow for a data.frame.
 }
+\examples{
+check_data(data.frame())
+check_data(data.frame(x = 2), list(x = 1))
+try(check_data(data.frame(x = 2), list(y = 1L)))
+try(check_data(data.frame(x = 2), list(y = 1)))
+try(check_data(data.frame(x = 2), nrow = 2))
+}
 \seealso{
 Other check: 
 \code{\link{check_dim}()},

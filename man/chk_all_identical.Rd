@@ -24,7 +24,7 @@ Checks all elements in x identical using
 
 \code{length(x) < 2L || all(vapply(x, vld_identical, TRUE, y = x[[1]]))}
 
-\strong{Pass}: \code{c(1, 1.00000001)}, \code{list(1, 1)}
+\strong{Pass}: \code{c(1, 1, 1)}, \code{list(1, 1)}
 
 \strong{Fail}: \code{c(1, 1.0000001)}, \code{list(1, NA)}
 }

@@ -24,9 +24,9 @@ Checks if non-missing logical scalar using
 
 \code{is.logical(x) && length(x) == 1L && !anyNA(x)}
 
-\strong{Pass}: \code{TRUE}, \code{FALSE}, \code{NA}.
+\strong{Pass}: \code{TRUE}, \code{FALSE}.
 
-\strong{Fail}: \code{logical(0)}, \code{c(TRUE, TRUE)}, \code{"TRUE"}, \code{1}, \code{NA_real_}.
+\strong{Fail}: \code{logical(0)}, \code{c(TRUE, TRUE)}, \code{"TRUE"}, \code{1}, \code{NA}.
 }
 \section{Functions}{
 \itemize{
