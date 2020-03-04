@@ -2,7 +2,6 @@
 
 - Same as previous version.
 
-
 # chk 0.4.0
 
 - Added following checks
