@@ -28,6 +28,7 @@
 #' @param order A flag specifying whether the order of columns in x must match names in values.
 #' @param nrow A flag or a whole numeric vector of the value, value range or possible values.
 #' @param key A character vector of the columns that represent a unique key.
+#' @param vld_fun A vld_ function.
 #' @param ... Additional arguments.
 #' @return
 #' The `chk_` function throws an informative error if the test fails.

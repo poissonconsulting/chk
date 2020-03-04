@@ -6,7 +6,6 @@
 #' `all(vapply(x, chk_fun, TRUE, ...))`
 #'
 #' @inheritParams params
-#' @inheritParams vld
 #' @inherit params return
 #'
 #' @family chk_alls

@@ -46,6 +46,8 @@ If named the names are the corresponding columns in x.}
 
 \item{key}{A character vector of the columns that represent a unique key.}
 
+\item{vld_fun}{A vld_ function.}
+
 \item{...}{Additional arguments.}
 }
 \value{
