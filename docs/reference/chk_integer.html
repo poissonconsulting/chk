@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check Whole Numeric — chk_whole_numeric • chk</title>
+<title>Check Integer — chk_integer • chk</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,9 +42,9 @@
 
 
 
-<meta property="og:title" content="Check Whole Numeric — chk_whole_numeric" />
-<meta property="og:description" content="Checks if integer vector or double equivalent using
-is.integer(x) || (is.double(x) &amp;amp;&amp;amp; vld_true(all.equal(x, as.integer(x))))" />
+<meta property="og:title" content="Check Integer — chk_integer" />
+<meta property="og:description" content="Checks if integer using
+is.integer(x)" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -132,19 +132,19 @@ is.integer(x) || (is.double(x) &amp;amp;&amp;amp; vld_true(all.equal(x, as.integ
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check Whole Numeric</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-whole-numeric.R'><code>R/chk-whole-numeric.R</code></a></small>
-    <div class="hidden name"><code>chk_whole_numeric.Rd</code></div>
+    <h1>Check Integer</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-integer.R'><code>R/chk-integer.R</code></a></small>
+    <div class="hidden name"><code>chk_integer.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Checks if integer vector or double equivalent using</p>
-<p><code>is.integer(x) || (is.double(x) &amp;&amp; vld_true(all.equal(x, as.integer(x))))</code></p>
+    <p>Checks if integer using</p>
+<p><code><a href='https://rdrr.io/r/base/integer.html'>is.integer(x)</a></code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>chk_whole_numeric</span>(<span class='no'>x</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>chk_integer</span>(<span class='no'>x</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>vld_whole_numeric</span>(<span class='no'>x</span>)</pre>
+<span class='fu'>vld_integer</span>(<span class='no'>x</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -167,26 +167,22 @@ is.integer(x) || (is.double(x) &amp;amp;&amp;amp; vld_true(all.equal(x, as.integ
 
     
 <ul>
-<li><p><code>vld_whole_numeric</code>: Validate Whole Numeric</p></li>
+<li><p><code>vld_integer</code>: Validate Integer</p></li>
 </ul>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other chk_is: 
-<code><a href='chk_array.html'>chk_array</a>()</code>,
-<code><a href='chk_atomic.html'>chk_atomic</a>()</code>,
-<code><a href='chk_data.html'>chk_data</a>()</code>,
-<code><a href='chk_function.html'>chk_function</a>()</code>,
-<code><a href='chk_matrix.html'>chk_matrix</a>()</code>,
-<code><a href='chk_numeric.html'>chk_numeric</a>()</code>,
-<code><a href='chk_s3_class.html'>chk_s3_class</a>()</code>,
-<code><a href='chk_s4_class.html'>chk_s4_class</a>()</code>,
-<code><a href='chk_vector.html'>chk_vector</a>()</code></p></div>
+    <div class='dont-index'><p>Other chk_typeof: 
+<code><a href='chk_character.html'>chk_character</a>()</code>,
+<code><a href='chk_double.html'>chk_double</a>()</code>,
+<code><a href='chk_environment.html'>chk_environment</a>()</code>,
+<code><a href='chk_list.html'>chk_list</a>()</code>,
+<code><a href='chk_logical.html'>chk_logical</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># chk_whole_numeric</span>
-<span class='fu'>chk_whole_numeric</span>(<span class='fl'>1</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_whole_numeric</span>(<span class='fl'>1.1</span>))</div><div class='output co'>#&gt; Error : `1.1` must be a whole numeric vector (integer vector or double equivalent).</div><div class='input'><span class='co'># vld_whole_numeric</span>
-<span class='fu'>vld_whole_numeric</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_whole_numeric</span>(<span class='fl'>NA_real_</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_whole_numeric</span>(<span class='fl'>1</span>:<span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_whole_numeric</span>(<span class='fu'><a href='https://rdrr.io/r/base/double.html'>double</a></span>(<span class='fl'>0</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_whole_numeric</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_whole_numeric</span>(<span class='fl'>1.5</span>)</div><div class='output co'>#&gt; [1] FALSE</div></pre>
+    <pre class="examples"><div class='input'><span class='co'># chk_integer</span>
+<span class='fu'>chk_integer</span>(<span class='fl'>1L</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_integer</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be integer.</div><div class='input'><span class='co'># vld_integer</span>
+<span class='fu'>vld_integer</span>(<span class='fl'>1L</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_integer</span>(<span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>1</span>:<span class='fl'>4</span>, <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>2L</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_integer</span>(<span class='fu'><a href='https://rdrr.io/r/base/integer.html'>integer</a></span>(<span class='fl'>0</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_integer</span>(<span class='fl'>NA_integer_</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_integer</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_integer</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] FALSE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

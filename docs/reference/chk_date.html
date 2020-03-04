@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check Date — vld_data • chk</title>
+<title>Check Date — chk_date • chk</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,7 +42,7 @@
 
 
 
-<meta property="og:title" content="Check Date — vld_data" />
+<meta property="og:title" content="Check Date — chk_date" />
 <meta property="og:description" content="Checks non-missing Date scalar using
 inherits(x, &quot;Date&quot;) &amp;amp;&amp;amp; length(x) == 1L &amp;amp;&amp;amp; !anyNA(x)" />
 <meta property="og:image" content="/logo.png" />
@@ -78,7 +78,7 @@ inherits(x, &quot;Date&quot;) &amp;amp;&amp;amp; length(x) == 1L &amp;amp;&amp;a
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -133,7 +133,7 @@ inherits(x, &quot;Date&quot;) &amp;amp;&amp;amp; length(x) == 1L &amp;amp;&amp;a
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Check Date</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-data.R'><code>R/chk-data.R</code></a>, <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-date.R'><code>R/chk-date.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-date.R'><code>R/chk-date.R</code></a></small>
     <div class="hidden name"><code>chk_date.Rd</code></div>
     </div>
 
@@ -142,9 +142,7 @@ inherits(x, &quot;Date&quot;) &amp;amp;&amp;amp; length(x) == 1L &amp;amp;&amp;a
 <p><code>inherits(x, "Date") &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>vld_data</span>(<span class='no'>x</span>)
-
-<span class='fu'>chk_date</span>(<span class='no'>x</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>chk_date</span>(<span class='no'>x</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='fu'>vld_date</span>(<span class='no'>x</span>)</pre>
 
@@ -169,7 +167,6 @@ inherits(x, &quot;Date&quot;) &amp;amp;&amp;amp; length(x) == 1L &amp;amp;&amp;a
 
     
 <ul>
-<li><p><code>vld_data</code>: Validate Data</p></li>
 <li><p><code>vld_date</code>: Validate Date</p></li>
 </ul>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -183,14 +180,10 @@ inherits(x, &quot;Date&quot;) &amp;amp;&amp;amp; length(x) == 1L &amp;amp;&amp;a
 <code><a href='chk_whole_number.html'>chk_whole_number</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'># vld_data</span>
-<span class='fu'>vld_data</span>(<span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>())</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_data</span>(<span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_data</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>))</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='co'># chk_date</span>
+    <pre class="examples"><div class='input'><span class='co'># chk_date</span>
 <span class='fu'>chk_date</span>(<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>())
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_date</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be a date (non-missing Date scalar).</div><div class='input'>
-<span class='co'># vld_date</span>
-<span class='fu'>vld_date</span>(<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>())</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_date</span>(<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span>())</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_date</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
-</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_date</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be a date (non-missing Date scalar).</div><div class='input'><span class='co'># vld_date</span>
+<span class='fu'>vld_date</span>(<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>())</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_date</span>(<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span>())</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_date</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] FALSE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

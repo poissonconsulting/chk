@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Validators — vld • chk</title>
+<title>Check Character — chk_character • chk</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,9 @@
 
 
 
-<meta property="og:title" content="Validators — vld" />
-<meta property="og:description" content="Each chk_() function has a corresponding vld_() function." />
+<meta property="og:title" content="Check Character — chk_character" />
+<meta property="og:description" content="Checks if character using
+is.character(x)" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -77,7 +78,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -131,15 +132,19 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Validators</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/vld.R'><code>R/vld.R</code></a></small>
-    <div class="hidden name"><code>vld.Rd</code></div>
+    <h1>Check Character</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-character.R'><code>R/chk-character.R</code></a></small>
+    <div class="hidden name"><code>chk_character.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Each <code>chk_()</code> function has a corresponding <code>vld_()</code> function.</p>
+    <p>Checks if character using</p>
+<p><code><a href='https://rdrr.io/r/base/character.html'>is.character(x)</a></code></p>
     </div>
 
+    <pre class="usage"><span class='fu'>chk_character</span>(<span class='no'>x</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+
+<span class='fu'>vld_character</span>(<span class='no'>x</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -149,33 +154,44 @@
       <td><p>The object to check.</p></td>
     </tr>
     <tr>
-      <th>y</th>
-      <td><p>An object to check against.</p></td>
-    </tr>
-    <tr>
-      <th>vld_fun</th>
-      <td><p>A vld_ function.</p></td>
-    </tr>
-    <tr>
-      <th>tolerance</th>
-      <td><p>A non-negative numeric scalar.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Additional arguments.</p></td>
+      <th>x_name</th>
+      <td><p>A string of the name of object x or NULL.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A flag indicating whether the object passed the test.</p>
+    <p>The <code>chk_</code> function throws an informative error if the test fails.</p>
+<p>The <code>vld_</code> function returns a flag indicating whether the test was met.</p>
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
 
+    
+<ul>
+<li><p><code>vld_character</code>: Validate Character</p></li>
+</ul>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other chk_typeof: 
+<code><a href='chk_double.html'>chk_double</a>()</code>,
+<code><a href='chk_environment.html'>chk_environment</a>()</code>,
+<code><a href='chk_integer.html'>chk_integer</a>()</code>,
+<code><a href='chk_list.html'>chk_list</a>()</code>,
+<code><a href='chk_logical.html'>chk_logical</a>()</code></p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># chk_character</span>
+<span class='fu'>chk_character</span>(<span class='st'>"1"</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_character</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be character.</div><div class='input'><span class='co'># vld_character</span>
+<span class='fu'>vld_character</span>(<span class='st'>"1"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_character</span>(<span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='st'>"a"</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_character</span>(<span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>(<span class='fl'>0</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_character</span>(<span class='fl'>NA_character_</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_character</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_character</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_character</span>(<span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='st'>"text"</span>))</div><div class='output co'>#&gt; [1] FALSE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#functions">Functions</a></li>
+      <li><a href="#see-also">See also</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>

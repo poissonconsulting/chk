@@ -78,7 +78,7 @@ isS4(x) &amp;amp;&amp;amp; methods::is(x, class)" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -179,9 +179,7 @@ isS4(x) &amp;amp;&amp;amp; methods::is(x, class)" />
 <code><a href='chk_array.html'>chk_array</a>()</code>,
 <code><a href='chk_atomic.html'>chk_atomic</a>()</code>,
 <code><a href='chk_data.html'>chk_data</a>()</code>,
-<code><a href='chk_environment.html'>chk_environment</a>()</code>,
 <code><a href='chk_function.html'>chk_function</a>()</code>,
-<code><a href='chk_list.html'>chk_list</a>()</code>,
 <code><a href='chk_matrix.html'>chk_matrix</a>()</code>,
 <code><a href='chk_numeric.html'>chk_numeric</a>()</code>,
 <code><a href='chk_s3_class.html'>chk_s3_class</a>()</code>,
@@ -191,10 +189,8 @@ isS4(x) &amp;amp;&amp;amp; methods::is(x, class)" />
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># chk_s4_class</span>
 <span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_s4_class</span>(<span class='fl'>1</span>, <span class='st'>"numeric"</span>))</div><div class='output co'>#&gt; Error : `1` must inherit from S4 class 'numeric'.</div><div class='input'><span class='fu'>chk_s4_class</span>(<span class='fu'>getClass</span>(<span class='st'>"MethodDefinition"</span>), <span class='st'>"classRepresentation"</span>)
-
 <span class='co'># vld_s4_class</span>
-<span class='fu'>vld_s4_class</span>(<span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span>(<span class='fl'>0</span>), <span class='st'>"numeric"</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_s4_class</span>(<span class='fu'>getClass</span>(<span class='st'>"MethodDefinition"</span>), <span class='st'>"classRepresentation"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
-</div></pre>
+<span class='fu'>vld_s4_class</span>(<span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span>(<span class='fl'>0</span>), <span class='st'>"numeric"</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_s4_class</span>(<span class='fu'>getClass</span>(<span class='st'>"MethodDefinition"</span>), <span class='st'>"classRepresentation"</span>)</div><div class='output co'>#&gt; [1] TRUE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

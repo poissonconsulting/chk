@@ -43,7 +43,7 @@
 
 
 <meta property="og:title" content="Check Data — check_data" />
-<meta property="og:description" content="Checks column names, values and nrow for a data.frame." />
+<meta property="og:description" content="Checks column names, values, number of rows and key for a data.frame." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -137,7 +137,7 @@
     </div>
 
     <div class="ref-description">
-    <p>Checks column names, values and nrow for a data.frame.</p>
+    <p>Checks column names, values, number of rows and key for a data.frame.</p>
     </div>
 
     <pre class="usage"><span class='fu'>check_data</span>(
@@ -167,7 +167,7 @@
     </tr>
     <tr>
       <th>order</th>
-      <td><p>A flag specifying whether the order of elements in x must match those in values.</p></td>
+      <td><p>A flag specifying whether the order of columns in x must match names in values.</p></td>
     </tr>
     <tr>
       <th>nrow</th>
@@ -194,6 +194,11 @@
 <code><a href='check_names.html'>check_names</a>()</code>,
 <code><a href='check_values.html'>check_values</a>()</code></p></div>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>check_data</span>(<span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>())
+<span class='fu'>check_data</span>(<span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>))
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>check_data</span>(<span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>1L</span>)))</div><div class='output co'>#&gt; Error : `names(data.frame(x = 2))` must include 'y'.</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>check_data</span>(<span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>1</span>)))</div><div class='output co'>#&gt; Error : `names(data.frame(x = 2))` must include 'y'.</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>check_data</span>(<span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Error : `nrow(`data.frame(x = 2)`)` must be equal to: 2.
+#&gt; Use `rlang::last_error()$y` to show the object compared to.</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -201,6 +206,7 @@
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#see-also">See also</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>

@@ -78,7 +78,7 @@ is.character(x) &amp;amp;&amp;amp; length(x) == 1L &amp;amp;&amp;amp; !anyNA(x)"
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -173,19 +173,17 @@ is.character(x) &amp;amp;&amp;amp; length(x) == 1L &amp;amp;&amp;amp; !anyNA(x)"
 
     <div class='dont-index'><p>Other chk_scalars: 
 <code><a href='chk_datetime.html'>chk_datetime</a>()</code>,
+<code><a href='chk_date.html'>chk_date</a>()</code>,
 <code><a href='chk_number.html'>chk_number</a>()</code>,
 <code><a href='chk_scalar.html'>chk_scalar</a>()</code>,
 <code><a href='chk_tz.html'>chk_tz</a>()</code>,
-<code><a href='chk_whole_number.html'>chk_whole_number</a>()</code>,
-<code><a href='chk_date.html'>vld_data</a>()</code></p></div>
+<code><a href='chk_whole_number.html'>chk_whole_number</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># chk_string</span>
 <span class='fu'>chk_string</span>(<span class='st'>"1"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_string</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be a string (non-missing character scalar).</div><div class='input'>
-<span class='co'># vld_string</span>
-<span class='fu'>vld_string</span>(<span class='st'>"1"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_string</span>(<span class='st'>""</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_string</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_string</span>(<span class='fl'>NA_character_</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_string</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"1"</span>, <span class='st'>"1"</span>))</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
-</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_string</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be a string (non-missing character scalar).</div><div class='input'><span class='co'># vld_string</span>
+<span class='fu'>vld_string</span>(<span class='st'>"1"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_string</span>(<span class='st'>""</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_string</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_string</span>(<span class='fl'>NA_character_</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_string</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"1"</span>, <span class='st'>"1"</span>))</div><div class='output co'>#&gt; [1] FALSE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -78,7 +78,7 @@ vld_string(x) &amp;amp;&amp;amp; file.exists(x) &amp;amp;&amp;amp; !dir.exists(x
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -177,10 +177,8 @@ vld_string(x) &amp;amp;&amp;amp; file.exists(x) &amp;amp;&amp;amp; !dir.exists(x
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># chk_file</span>
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_file</span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()))</div><div class='output co'>#&gt; Error : `tempfile()` must specify an existing file ('/var/folders/48/q6ltldjs251000_wvjrdy_vm0000gn/T//RtmpMxAitZ/file49b7d962aa8' can't be found).</div><div class='input'>
-<span class='co'># vld_file</span>
-<span class='fu'>vld_file</span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>())</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
-</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_file</span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()))</div><div class='output co'>#&gt; Error : `tempfile()` must specify an existing file ('/var/folders/48/q6ltldjs251000_wvjrdy_vm0000gn/T//RtmpBjelOE/file32fc493b319f' can't be found).</div><div class='input'><span class='co'># vld_file</span>
+<span class='fu'>vld_file</span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>())</div><div class='output co'>#&gt; [1] FALSE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
