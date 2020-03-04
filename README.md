@@ -32,7 +32,7 @@ It is designed to be simple, customizable and fast.
 To install the latest release from [CRAN](https://cran.r-project.org)
 
 ``` r
-install.packages("pkgtemplate")
+install.packages("chk")
 ```
 
 To install the latest development version from
