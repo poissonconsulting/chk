@@ -38,7 +38,8 @@ check_data <- function(x, values = NULL, exclusive = FALSE, order = FALSE, nrow 
   )
   lapply(names(values), function(name) {
     check_values(x[[name]], values[[name]],
-                 x_name = backtick_chk(p0(unbacktick_chk(x_name), "$", name)))
+      x_name = backtick_chk(p0(unbacktick_chk(x_name), "$", name))
+    )
   })
   check_key(x, key = key, x_name = x_name)
   invisible()
