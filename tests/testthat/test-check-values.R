@@ -12,6 +12,15 @@ test_that("check_values pass", {
   expect_null(check_values(1, c(1, 1)))
   expect_null(check_values(1, c(0.5, 2, NA_real_)))
   expect_null(check_values(c(1, NA_real_), c(0.5, 2, NA_real_)))
+  expect_null(check_values(factor(1), factor(2)))
+  expect_null(check_values(factor(c(1, NA)), factor(c(2, NA))))
+  expect_null(check_values(factor(1:2), factor(2:1, levels = 2:1)))
+  expect_null(check_values(factor(1:3), factor(1:2)))
+  expect_null(check_values(factor(1:3), factor(1:2, levels = 1:2)))
+  expect_null(check_values(ordered(1:2), ordered(2:1, levels = 2:1)))
+  expect_null(check_values(ordered(1:2), factor(c(1:2, NA))))
+  expect_null(check_values(as.character(1:2), as.character(2:1)))
+  expect_null(check_values(factor(1:3), factor(1:3)))
 })
 
 test_that("check_values fail", {
@@ -45,4 +54,23 @@ test_that("check_values fail", {
     check_values(1:10, 21:23),
     "`1:10` must have values matching 21, 22 or 23[.]"
   )
+  expect_chk_error(
+    check_values(factor(1:2), as.character(1:3)),
+    "^`factor[(]1:2[)]` must inherit from S3 class 'character'[.]$")
+
+  expect_chk_error(
+    check_values(factor(1:2), ordered(1:3)),
+    "^`factor[(]1:2[)]` must inherit from S3 class 'ordered'[.]$")
+
+  expect_chk_error(
+    check_values(factor(1:2), factor(2:3)),
+    "^`levels[(]factor[(]1:2[)][)]` must include '3'[.]$")
+
+  expect_chk_error(
+    check_values(factor(1:2), factor(1:3)),
+    "^`levels[(]factor[(]1:2[)][)]` must be identical to: <chr>[.]")
+
+  expect_chk_error(
+    check_values(ordered(c(1,3), levels = 1:3), ordered(c(1,2), levels = 1:3)),
+    "^`ordered[(]c[(]1, 3[)], levels = 1:3[)]` must have values between '1' and '2'[.]$")
 })

@@ -20,6 +20,10 @@
 #' To check that x only includes specific values
 #' pass three or more non-missing values.
 #'
+#' In the case of a factor ensure values has two levels to
+#' check that the levels of x are a superset of the levels of value
+#' and three or more levels to check that they are identical.
+#'
 #' @inheritParams params
 #' @param values An atomic vector specifying the S3 class and possible values.
 #' @return An informative error if the test fails.
@@ -39,9 +43,16 @@ check_values <- function(x, values, x_name = NULL) {
   chk_vector(values)
   chk_atomic(values)
 
-  class <- class(values)
-  class <- class[length(class)]
+  class <- class(values)[1]
   chk_s3_class(x, class, x_name = x_name)
+  if(is.factor(values) && nlevels(values) > 1) {
+    x_name_levels <- backtick_chk(p0("levels(", unbacktick_chk(x_name), ")"))
+    if(nlevels(values) > 2) {
+      chk_identical(levels(x), levels(values), x_name = x_name_levels)
+    } else {
+      chk_superset(levels(x), levels(values), x_name = x_name_levels)
+    }
+  }
   if (!length(x) || !length(values)) {
     return(invisible())
   }
@@ -55,6 +66,9 @@ check_values <- function(x, values, x_name = NULL) {
     values <- sort(unique(values))
     if (identical(length(values), 1L)) {
       return(chk_all(x, chk_equal, values, x_name = x_name))
+    }
+    if(is.factor(values) && (nlevels(values) < 3 ||  !is.ordered(values))) {
+      return(invisible())
     }
     return(chk_range(x, values, x_name = x_name))
   }
