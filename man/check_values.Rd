@@ -37,8 +37,7 @@ To check that x only includes specific values
 pass three or more non-missing values.
 
 In the case of a factor ensure values has two levels to
-check that the levels of x are a superset of the levels of value
-(and in the same order if an ordered factor)
+check that the levels of x are an ordered superset of the levels of value
 and three or more levels to check that they are identical.
 }
 \examples{
