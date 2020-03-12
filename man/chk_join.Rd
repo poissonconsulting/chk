@@ -46,9 +46,9 @@ vld_join(data.frame(z = 1), data.frame(a = 2), by = c(z = "a"))
 }
 \seealso{
 Other chk_set: 
-\code{\link{chk_setequal}()},
-\code{\link{chk_setordered}()},
+\code{\link{chk_orderset}()},
 \code{\link{chk_subset}()},
-\code{\link{chk_superset}()}
+\code{\link{chk_superset}()},
+\code{\link{vld_orderset}()}
 }
 \concept{chk_set}

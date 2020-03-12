@@ -16,11 +16,11 @@
 #'
 #' @examples
 #'
-#' # chk_setordered
-#' chk_setordered(1:2, 1:2)
-#' try(chk_setordered(2:1, 1:2))
-chk_setordered <- function(x, values, x_name = NULL) {
-  if (vld_setordered(x, values)) {
+#' # chk_orderset
+#' chk_orderset(1:2, 1:2)
+#' try(chk_orderset(2:1, 1:2))
+chk_orderset <- function(x, values, x_name = NULL) {
+  if (vld_orderset(x, values)) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
@@ -34,10 +34,10 @@ chk_setordered <- function(x, values, x_name = NULL) {
 #'
 #' @examples
 #'
-#' # vld_setordered
-#' vld_setordered(1, 1)
-#' vld_setordered(1:2, 2:1)
-#' vld_setordered(1, 2:1)
-#' vld_setordered(1:2, 2)
-vld_setordered <- function(x, values)
+#' # vld_orderset
+#' vld_orderset(1, 1)
+#' vld_orderset(1:2, 2:1)
+#' vld_orderset(1, 2:1)
+#' vld_orderset(1:2, 2)
+vld_orderset <- function(x, values)
   vld_equivalent(unique(x[x %in% values]), values[values %in% x])
