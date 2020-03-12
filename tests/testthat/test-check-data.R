@@ -24,4 +24,8 @@ test_that("check_data fails", {
     check_data(data.frame(x = c(1, 1)), key = "x"),
     "^Column 'x' in `data.frame[(]x = c[(]1, 1[)][)]` must be a unique key[.]$"
   )
+    expect_chk_error(
+    check_data(data.frame(x = ordered(1:2)), values = list(x = ordered(1:2, levels = 2:1))),
+    "^`levels[(]data.frame[(]x = ordered[(]1:2[)][)][$]x[)]` must have [(]the first occurence of[)] each of the following elements in the following order: '2', '1'[.]$"
+  )
 })

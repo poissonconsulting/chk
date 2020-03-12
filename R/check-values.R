@@ -22,6 +22,7 @@
 #'
 #' In the case of a factor ensure values has two levels to
 #' check that the levels of x are a superset of the levels of value
+#' (and in the same order if an ordered factor)
 #' and three or more levels to check that they are identical.
 #'
 #' @inheritParams params
@@ -49,6 +50,8 @@ check_values <- function(x, values, x_name = NULL) {
     x_name_levels <- backtick_chk(p0("levels(", unbacktick_chk(x_name), ")"))
     if(nlevels(values) > 2) {
       chk_identical(levels(x), levels(values), x_name = x_name_levels)
+    } else if(is.ordered(values)) {
+      chk_orderset(levels(x), levels(values), x_name = x_name_levels)
     } else {
       chk_superset(levels(x), levels(values), x_name = x_name_levels)
     }
