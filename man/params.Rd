@@ -19,6 +19,8 @@
 \item{ext}{A character vector of the permitted file extensions
 (without the .).}
 
+\item{exists}{A flag specifying whether the files/directories must (or must not) exist.}
+
 \item{value}{A non-missing scalar of a value.}
 
 \item{range}{A non-missing sorted vector of length 2 of the lower and

@@ -13,6 +13,7 @@
 #' @param tolerance A non-negative numeric scalar.
 #' @param ext A character vector of the permitted file extensions
 #'   (without the .).
+#' @param exists A flag specifying whether the files/directories must (or must not) exist.
 #' @param value A non-missing scalar of a value.
 #' @param range A non-missing sorted vector of length 2 of the lower and
 #'   upper permitted values.

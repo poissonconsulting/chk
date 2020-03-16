@@ -45,6 +45,8 @@ try(check_data(data.frame(x = 2), nrow = 2))
 \seealso{
 Other check: 
 \code{\link{check_dim}()},
+\code{\link{check_dirs}()},
+\code{\link{check_files}()},
 \code{\link{check_key}()},
 \code{\link{check_names}()},
 \code{\link{check_values}()}
