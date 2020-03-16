@@ -1,3 +1,11 @@
+# chk 0.4.0.9001
+
+- Added check_files() and check_dirs().
+- Rename chk_setordered() to chk_orderset().
+- Added chk_setordered() and vld_setordered().
+- check_values() now checks factor levels.
+
+
 # chk 0.4.0.9000
 
 - Same as previous version.
