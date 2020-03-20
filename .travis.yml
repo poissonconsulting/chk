@@ -7,7 +7,6 @@ r:
   - oldrel
   - 3.5
   - 3.4
-  - 3.3
 
 after_success:
   - Rscript -e 'covr::codecov()'
