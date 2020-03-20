@@ -1,3 +1,8 @@
+# chk 0.4.0.9002
+
+- No longer support R 3.3.
+
+
 # chk 0.4.0.9001
 
 - Added check_files() and check_dirs().
