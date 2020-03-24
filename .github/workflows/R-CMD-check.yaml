@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - action_test
+      - master
   pull_request:
     branches:
       - master
