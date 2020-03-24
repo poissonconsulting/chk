@@ -16,3 +16,5 @@
 ^\.httr-oauth$
 ^tic\.R$
 ^revdep$
+^\.github/workflows/R-CMD-check\.yaml$
+^\.github/workflows/test-coverage\.yaml$
