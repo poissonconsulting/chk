@@ -47,8 +47,7 @@ jobs:
         uses: 8398a7/action-slack@v3.0.0
         with:
           status: ${{ job.status }}
-          text: "chk test-coverage failed"
-          mention: 'here'
+          author_name: "chk test-coverage failed"
           if_mention: failure
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
