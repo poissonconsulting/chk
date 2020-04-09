@@ -48,8 +48,7 @@ jobs:
         with:
           status: ${{ job.status }}
           author_name: "chk test-coverage"
-          fields: repo, workflow, commit, message
+          fields: repo, workflow, commit, message, author
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: always()
