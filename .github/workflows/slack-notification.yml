@@ -1,5 +1,11 @@
+
+name: slack-notifcation
+
 on:
   push:
+    branches:
+      - '*'
+  pull_request:
     branches:
       - '*'
 
@@ -18,3 +24,13 @@ jobs:
     # Runs a single command using the runners shell
     - name: Run a one-line script
       run: echo Hello, world!
+
+
+    # code from action-slack marketplace
+    steps:
+      - name: action-slack
+        uses: 8398a7/action-slack@v3.0.0
+
+
+
+
