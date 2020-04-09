@@ -41,3 +41,11 @@ jobs:
       - name: Test coverage
         run: covr::codecov()
         shell: Rscript {0}
+
+      # slack notifcation
+      - name: action-slack
+        uses: 8398a7/action-slack@v3.0.0
+        with:
+          status: failure
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
