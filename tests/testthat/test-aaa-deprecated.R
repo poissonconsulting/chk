@@ -67,11 +67,11 @@ test_that("chk_no_missing", {
 })
 
 
-test_that("break tests", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
 
-  expect_equal(chk_no_missing(c(1, NA)), 1)
-
-
-})
+# test_that("break tests", {
+#   rlang::scoped_options(lifecycle_verbosity = "quiet")
+#
+#   expect_equal(chk_no_missing(c(1, NA)), 1)
+#
+# })
 
