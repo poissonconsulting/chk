@@ -6,7 +6,8 @@ on:
     branches:
       - '*'
   schedule:
-    -cron: '*/15 * * * *'
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '*/15 * * * *'
 
 name: R-CMD-check
 
