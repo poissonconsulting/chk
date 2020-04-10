@@ -84,7 +84,7 @@ jobs:
         with:
           status: ${{ job.status }}
           author_name: "github action: R-CMD Check"
-          fields: repo, workflow, commit, message, author
+          fields: repo, workflow, commit, message, author, action
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
