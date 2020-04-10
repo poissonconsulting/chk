@@ -83,7 +83,7 @@ jobs:
         uses: 8398a7/action-slack@v3.0.0
         with:
           status: ${{ job.status }}
-          author_name: "github action: test-coverage"
+          author_name: "github action: R-CMD Check"
           fields: repo, workflow, commit, message, author
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
