@@ -20,8 +20,8 @@ jobs:
         config:
           - {os: windows-latest, r: '3.6'}
           - {os: macOS-latest, r: '3.6'}
-          - {os: macOS-latest, r: 'devel'}
-          - {os: ubuntu-16.04, r: '3.4', rspm: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
+          - {os: macOS-latest, r: 'devel'} #3.4 below
+          - {os: ubuntu-16.04, r: '3.1', rspm: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
           - {os: ubuntu-16.04, r: '3.5', rspm: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
           - {os: ubuntu-16.04, r: '3.6', rspm: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
 
@@ -77,3 +77,15 @@ jobs:
         with:
           name: ${{ runner.os }}-r${{ matrix.config.r }}-results
           path: check
+
+      # slack notifcation
+      - name: action-slack
+        uses: 8398a7/action-slack@v3.0.0
+        with:
+          status: ${{ job.status }}
+          author_name: "github action: test-coverage"
+          fields: repo, workflow, commit, message, author
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: failure()
