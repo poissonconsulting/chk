@@ -65,3 +65,28 @@ test_that("chk_no_missing", {
   expect_chk_error(chk_no_missing(NA), "^`NA` must not have missing values[.]$")
   expect_chk_error(chk_no_missing(NA, x_name = "1"), "^1 must not have missing values[.]$")
 })
+
+
+test_that("warning messages are generated for dep functions", {
+  rlang::scoped_options(lifecycle_verbosity = "warning")
+
+  expect_warning(chk_count(1))
+  expect_warning(chk_dirs(tempdir()))
+  expect_warning(chk_has(1:3, 1))
+  expect_warning(chk_in(1, 1:3))
+  expect_warning(chk_is(1, "numeric"))
+  expect_warning(vld_is(1, "numeric"))
+  expect_warning(chk_length(1))
+  expect_warning(chk_no_missing(1))
+  expect_warning(vld_no_missing(1))
+  expect_warning(chk_off())
+  expect_warning(chk_on())
+  expect_warning(is_chk_on())
+  expect_warning(chk_proportion(1))
+  expect_warning(deparse_backtick(2))
+
+  file <- tempfile()
+  writeLines(file, text = "some test data")
+  expect_warning(chk_files(file))
+})
+
