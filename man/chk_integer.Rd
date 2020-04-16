@@ -43,6 +43,7 @@ vld_integer(TRUE)
 }
 \seealso{
 Other chk_typeof: 
+\code{\link{chk_character_or_factor}()},
 \code{\link{chk_character}()},
 \code{\link{chk_double}()},
 \code{\link{chk_environment}()},
