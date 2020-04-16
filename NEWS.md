@@ -1,3 +1,8 @@
+# chk 0.4.0.9004
+
+- Added chk_null_or().
+
+
 # chk 0.4.0.9003
 
 - Added chk_factor() and vld_factor().
