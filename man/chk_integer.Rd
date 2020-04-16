@@ -47,6 +47,7 @@ Other chk_typeof:
 \code{\link{chk_character}()},
 \code{\link{chk_double}()},
 \code{\link{chk_environment}()},
+\code{\link{chk_factor}()},
 \code{\link{chk_list}()},
 \code{\link{chk_logical}()}
 }
