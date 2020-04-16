@@ -1,3 +1,9 @@
+# chk 0.4.0.9003
+
+- Added chk_factor() and vld_factor().
+- Added chk_character_or_factor() and vld_character_or_factor().
+
+
 # chk 0.4.0.9002
 
 - No longer support R 3.3.
