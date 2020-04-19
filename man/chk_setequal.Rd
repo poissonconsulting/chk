@@ -55,8 +55,9 @@ vld_setequal(1:2, 2)
 \seealso{
 Other chk_set: 
 \code{\link{chk_join}()},
+\code{\link{chk_not_subset}()},
 \code{\link{chk_orderset}()},
-\code{\link{chk_subset}()},
-\code{\link{chk_superset}()}
+\code{\link{chk_superset}()},
+\code{\link{vld_not_subset}()}
 }
 \concept{chk_set}
