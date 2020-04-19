@@ -1,3 +1,8 @@
+# chk 0.4.0.9005
+
+- Added chk_not_subset() and vld_not_subset().
+
+
 # chk 0.4.0.9004
 
 - Added chk_null_or().
