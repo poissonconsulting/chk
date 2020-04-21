@@ -7,8 +7,6 @@
 \alias{chk_files}
 \alias{chk_has}
 \alias{chk_in}
-\alias{chk_is}
-\alias{vld_is}
 \alias{chk_length}
 \alias{chk_no_missing}
 \alias{vld_no_missing}
@@ -28,10 +26,6 @@ chk_files(x)
 chk_has(x, values, x_name = NULL)
 
 chk_in(x, values, x_name = NULL)
-
-chk_is(x, class, x_name = NULL)
-
-vld_is(x, class)
 
 chk_length(x, length = 1L, x_name = NULL)
 
@@ -53,8 +47,6 @@ deparse_backtick(x)
 \item{x}{The object to check.}
 
 \item{x_name}{A string of the name of object x or NULL.}
-
-\item{class}{A string of the class of the object.}
 
 \item{length}{A count of the length.}
 }
@@ -92,18 +84,6 @@ Replace by \code{\link[=chk_superset]{chk_superset()}}
 \lifecycle{soft-deprecated}
 
 Replace by \code{\link[=chk_subset]{chk_subset()}}
-
-\item \code{chk_is}: Check Is
-
-\lifecycle{soft-deprecated}
-
-Replace by \code{\link[=chk_s3_class]{chk_s3_class()}} or \code{\link[=chk_s4_class]{chk_s4_class()}}
-
-\item \code{vld_is}: Validate Is
-
-\lifecycle{soft-deprecated}
-
-Replace by \code{\link[=vld_s3_class]{vld_s3_class()}} or \code{\link[=vld_s4_class]{vld_s4_class()}}
 
 \item \code{chk_length}: Check Length
 

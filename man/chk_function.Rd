@@ -46,6 +46,7 @@ Other chk_is:
 \code{\link{chk_array}()},
 \code{\link{chk_atomic}()},
 \code{\link{chk_data}()},
+\code{\link{chk_is}()},
 \code{\link{chk_matrix}()},
 \code{\link{chk_numeric}()},
 \code{\link{chk_s3_class}()},

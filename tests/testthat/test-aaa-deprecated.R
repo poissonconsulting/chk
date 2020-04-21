@@ -1,34 +1,5 @@
 context("deprecated")
 
-test_that("vld_is", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
-
-  expect_true(vld_is(1, "numeric"))
-  expect_false(vld_is(1L, "numeric"))
-  expect_true(vld_is(1L, "integer"))
-
-  x <- list()
-  class(x) <- c("a", "b")
-  expect_true(vld_is(x, "a"))
-  expect_true(vld_is(x, "b"))
-})
-
-test_that("chk_is", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
-
-  expect_null(chk_is(1L, "integer"))
-  expect_invisible(chk_is(1L, "integer"))
-  expect_chk_error(chk_is(1, "integer"), "^`1` must inherit from class 'integer'[.]$")
-  expect_chk_error(
-    chk_is(matrix(1), "numeric"),
-    "`matrix[(]1[)]` must inherit from class 'numeric'[.]$"
-  )
-  x <- list()
-  class(x) <- c("a", "b")
-  expect_chk_error(chk_is(x, "c"), "`x` must inherit from class 'c'")
-  expect_chk_error(chk_is(x, "c", x_name = "c"), "C must inherit from class 'c'")
-})
-
 test_that("on", {
   rlang::scoped_options(lifecycle_verbosity = "quiet")
 
@@ -74,8 +45,6 @@ test_that("warning messages are generated for dep functions", {
   expect_warning(chk_dirs(tempdir()))
   expect_warning(chk_has(1:3, 1))
   expect_warning(chk_in(1, 1:3))
-  expect_warning(chk_is(1, "numeric"))
-  expect_warning(vld_is(1, "numeric"))
   expect_warning(chk_length(1))
   expect_warning(chk_no_missing(1))
   expect_warning(vld_no_missing(1))

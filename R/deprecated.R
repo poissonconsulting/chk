@@ -89,44 +89,6 @@ chk_in <- function(x, values, x_name = NULL) {
   invisible()
 }
 
-#' @describeIn chk_deprecated Check Is
-#'
-#' \lifecycle{soft-deprecated}
-#'
-#' Replace by [chk_s3_class()] or [chk_s4_class()]
-#'
-#' @export
-chk_is <- function(x, class, x_name = NULL) {
-  deprecate_soft("0.2.0",
-    what = "chk::chk_is()",
-    details = "Please use `chk_s3_class()` or `chk_s4_class()` instead",
-    id = "chk_is"
-  )
-  if (vld_is(x, class)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must inherit from class '", class, "'", x = x, class = class)
-}
-
-#' @describeIn chk_deprecated Validate Is
-#'
-#' \lifecycle{soft-deprecated}
-#'
-#' Replace by [vld_s3_class()] or [vld_s4_class()]
-#'
-#' @param class A string of the class of the object.
-#'
-#' @export
-vld_is <- function(x, class) {
-  deprecate_soft("0.2.0",
-    what = "chk::vld_is()",
-    details = "Please use `vld_s3_class()` or `vld_s4_class()` instead",
-    id = "chk_is"
-  )
-  inherits(x, class)
-}
-
 #' @describeIn chk_deprecated Check Length
 #'
 #' \lifecycle{soft-deprecated}
