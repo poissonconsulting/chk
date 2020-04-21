@@ -1,3 +1,11 @@
+# chk 0.4.0.9006
+
+- Added chk_wnum() and vld_wnum() to check whole numeric scalars.
+- Added chk_dbl() and vld_dbl().
+- Added chk_chr() and vld_chr().
+- Undeprecated chk_is() and vld_is() as useful for R6 objects.
+
+
 # chk 0.4.0.9005
 
 - Added chk_not_subset() and vld_not_subset().
