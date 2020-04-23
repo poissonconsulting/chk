@@ -1,10 +1,4 @@
-on:
-  push:
-    branches:
-      - '*'
-  pull_request:
-    branches:
-      - '*'
+on: [push, pull_request]
 
 name: R-CMD-check
 
@@ -78,7 +72,6 @@ jobs:
           name: ${{ runner.os }}-r${{ matrix.config.r }}-results
           path: check
 
-      # slack notifcation
       - name: action-slack
         uses: 8398a7/action-slack@v3.0.0
         with:
