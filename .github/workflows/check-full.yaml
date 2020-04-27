@@ -1,6 +1,6 @@
 on: [push, pull_request]
   schedule:
-    - cron:  '*/15 * * * *'
+    - cron:  '*/5 * * * *'
 
 name: R-CMD-check
 
