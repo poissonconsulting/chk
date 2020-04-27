@@ -1,6 +1,6 @@
 on:
   push:
-  pull:
+  pull_request:
   schedule:
     - cron:  '*/5 * * * *'
 
