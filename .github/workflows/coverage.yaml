@@ -6,10 +6,10 @@ on:
     branches:
       - master
 
-name: test-coverage
+name: coverage
 
 jobs:
-  test-coverage:
+  coverage:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v2
@@ -39,3 +39,14 @@ jobs:
       - name: Test coverage
         run: covr::codecov()
         shell: Rscript {0}
+
+      - name: action-slack
+        uses: 8398a7/action-slack@v3.0.0
+        with:
+          status: ${{ job.status }}
+          author_name: "github action: coverage"
+          fields: repo, workflow, commit, message, author, action
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: failure()
