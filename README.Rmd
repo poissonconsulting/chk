@@ -42,13 +42,6 @@ To install the latest development version from [GitHub](https://github.com/poiss
 remotes::install_github("poissonconsulting/chk")
 ```
 
-To install the latest developmental release from the Poisson drat [repository](https://github.com/poissonconsulting/drat)
-```r
-# install.packages("drat")
-drat::addRepo("poissonconsulting")
-install.packages("chk")
-```
-
 ## Demonstration
 
 `chk` provides simple commonly used checks as (`chk_` functions) which can be combined together for more complex checking.
