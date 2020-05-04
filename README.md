@@ -16,7 +16,6 @@ output: github_document
 [![Tinyverse status](https://tinyverse.netlify.com/badge/chk)](https://CRAN.R-project.org/package=chk)
 [![CRAN status](https://www.r-pkg.org/badges/version/chk)](https://cran.r-project.org/package=chk)
 ![CRAN downloads](https://cranlogs.r-pkg.org/badges/chk)
-[![R build status](https://github.com/poissonconsulting/chk/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/chk/actions)
 <!-- badges: end -->
 
 `chk` is an R package for developers to check user-supplied function arguments.
