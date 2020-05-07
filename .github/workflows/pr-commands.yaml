@@ -1,0 +1,60 @@
+on:
+  issue_comment:
+    types: [created]
+
+name: Commands
+
+jobs:
+  document:
+    if: startsWith(github.event.comment.body, '/document')
+    name: document
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/pr-fetch@master
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: r-lib/actions/setup-r@master
+      - name: Install dependencies
+        run: Rscript -e 'install.packages(c("remotes", "roxygen2"))' -e 'remotes::install_deps(dependencies = TRUE)'
+      - name: Document
+        run: Rscript -e 'roxygen2::roxygenise()'
+      - name: commit
+        run: |
+          git add man/\* NAMESPACE
+          git commit -m 'Document'
+      - uses: r-lib/actions/pr-push@master
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+  style:
+    if: startsWith(github.event.comment.body, '/style')
+    name: style
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/pr-fetch@master
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: r-lib/actions/setup-r@master
+      - name: Install dependencies
+        run: Rscript -e 'install.packages("styler")'
+      - name: Style
+        run: Rscript -e 'styler::style_pkg()'
+      - name: commit
+        run: |
+          git add \*.R
+          git commit -m 'Style'
+      - uses: r-lib/actions/pr-push@master
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: action-slack
+        uses: 8398a7/action-slack@v3.0.0
+        with:
+          status: ${{ job.status }}
+          author_name: "github action: pr-commands"
+          fields: repo, workflow, commit, message, author
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: failure()

@@ -2,8 +2,14 @@
 .Rhistory
 .RData
 .Ruserdata
-inst/doc
+
 .DS_Store
+.Renviron
+.RProfile
 .httr-oauth
+
+*.html
+
 docs
-docs/
+inst/docs
+scripts

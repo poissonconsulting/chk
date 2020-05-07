@@ -16,3 +16,4 @@
 ^\.github/workflows/test-coverage\.yaml$
 ^\.github$
 ^scripts$
+^\.gitignore$
