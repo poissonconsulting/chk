@@ -1,4 +1,4 @@
-#' Check DateTime
+#' Check Date Time
 #'
 #' @description
 #' Checks if non-missing POSIXct scalar using
@@ -11,28 +11,54 @@
 #' @family chk_scalars
 #'
 #' @examples
-#' # chk_datetime
-#' chk_datetime(as.POSIXct("2001-01-02"))
-#' try(chk_datetime(1))
+#' # chk_date_time
+#' chk_date_time(as.POSIXct("2001-01-02"))
+#' try(chk_date_time(1))
+#' @export
+chk_date_time <- function(x, x_name = NULL) {
+  if (vld_date_time(x)) {
+    return(invisible())
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  abort_chk(x_name, " must be a date time (non-missing POSIXct scalar)", x = x)
+}
+
+#' @describeIn chk_date_time Check Date Time (Deprecated)
+#'
 #' @export
 chk_datetime <- function(x, x_name = NULL) {
-  if (vld_datetime(x)) {
+  deprecate_soft("0.4.1",
+                 what = "chk_datetime()",
+                 with = "chk_date_time()",
+                 id = "chk_datetime")
+  if (vld_date_time(x)) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be a datetime (non-missing POSIXct scalar)", x = x)
 }
 
-#' @describeIn chk_datetime Validate DateTime
+#' @describeIn chk_date_time Validate Date Time
 #'
 #' @examples
-#' # vld_datetime
-#' vld_datetime(as.POSIXct("2001-01-02"))
-#' vld_datetime(Sys.time())
-#' vld_datetime(1)
-#' vld_datetime("2001-01-02")
-#' vld_datetime(c(Sys.time(), Sys.time()))
+#' # vld_date_time
+#' vld_date_time(as.POSIXct("2001-01-02"))
+#' vld_date_time(Sys.time())
+#' vld_date_time(1)
+#' vld_date_time("2001-01-02")
+#' vld_date_time(c(Sys.time(), Sys.time()))
 #' @export
-vld_datetime <- function(x, x_name = NULL) {
+vld_date_time <- function(x) {
   inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)
+}
+
+#' @describeIn chk_date_time Validate Date Time (Deprecated)
+#'
+#' @export
+vld_datetime <- function(x) {
+  deprecate_soft("0.4.1",
+                 what = "vld_datetime()",
+                 with = "vld_date_time()",
+                 id = "chk_datetime")
+  vld_date_time(x)
 }

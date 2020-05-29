@@ -37,7 +37,7 @@ vld_tz("TCU")
 }
 \seealso{
 Other chk_scalars: 
-\code{\link{chk_datetime}()},
+\code{\link{chk_date_time}()},
 \code{\link{chk_date}()},
 \code{\link{chk_number}()},
 \code{\link{chk_scalar}()},

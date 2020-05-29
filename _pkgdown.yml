@@ -16,7 +16,10 @@ reference:
   - '`chk_whole_number`'
   - '`chk_string`'
   - '`chk_date`'
-  - '`chk_datetime`'
+  - '`chk_date_time`'
+  - '`chk_wnum`'
+  - '`chk_dbl`'
+  - '`chk_chr`'
   - '`chk_tz`'
 - title: Range Checkers
   desc: Checking ranges
@@ -46,14 +49,19 @@ reference:
   - '`chk_superset`'
   - '`chk_join`'
   - '`chk_setequal`'
+  - '`chk_orderset`'
+  - '`chk_not_subset`'
 - title: Identity Checkers
   desc: Checking identity
   contents:
+  - '`chk_is`'
   - '`chk_s3_class`'
   - '`chk_s4_class`'
+  - '`chk_character_or_factor`''
   - '`chk_vector`'
   - '`chk_atomic`'
   - '`chk_array`'
+  - '`chk_factor`'
   - '`chk_function`'
   - '`chk_matrix`'
   - '`chk_whole_numeric`'
@@ -94,6 +102,7 @@ reference:
   - '`chk_sorted`'
   - '`chk_unique`'
   - '`chkor`'
+  - '`chk_null_or`'
 - title: chk_ Function Extenders
   desc: Extending chk_ functions
   contents:
