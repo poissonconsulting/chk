@@ -1,3 +1,7 @@
+# chk 0.4.0.9007
+
+- Soft-deprecated chk_datetime() for chk_date_time().
+
 # chk 0.4.0.9006
 
 - Added chk_wnum() and vld_wnum() to check whole numeric scalars.
