@@ -57,7 +57,7 @@ reference:
   - '`chk_is`'
   - '`chk_s3_class`'
   - '`chk_s4_class`'
-  - '`chk_character_or_factor`''
+  - '`chk_character_or_factor`'
   - '`chk_vector`'
   - '`chk_atomic`'
   - '`chk_array`'
