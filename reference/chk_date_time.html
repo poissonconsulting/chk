@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check Logical — chk_logical • chk</title>
+<title>Check Date Time — chk_date_time • chk</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,9 +46,9 @@
 
 
 
-<meta property="og:title" content="Check Logical — chk_logical" />
-<meta property="og:description" content="Checks if logical using
-is.logical(x)" />
+<meta property="og:title" content="Check Date Time — chk_date_time" />
+<meta property="og:description" content="Checks if non-missing POSIXct scalar using
+inherits(x, &quot;POSIXct&quot;) &amp;amp;&amp;amp; length(x) == 1L &amp;amp;&amp;amp; !anyNA(x)" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -135,19 +135,23 @@ is.logical(x)" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check Logical</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-logical.R'><code>R/chk-logical.R</code></a></small>
-    <div class="hidden name"><code>chk_logical.Rd</code></div>
+    <h1>Check Date Time</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-datetime.R'><code>R/chk-datetime.R</code></a></small>
+    <div class="hidden name"><code>chk_date_time.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Checks if logical using</p>
-<p><code><a href='https://rdrr.io/r/base/logical.html'>is.logical(x)</a></code></p>
+    <p>Checks if non-missing POSIXct scalar using</p>
+<p><code>inherits(x, "POSIXct") &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>chk_logical</span>(<span class='no'>x</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>chk_date_time</span>(<span class='no'>x</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>vld_logical</span>(<span class='no'>x</span>)</pre>
+<span class='fu'>chk_datetime</span>(<span class='no'>x</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+
+<span class='fu'>vld_date_time</span>(<span class='no'>x</span>)
+
+<span class='fu'>vld_datetime</span>(<span class='no'>x</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -170,24 +174,25 @@ is.logical(x)" />
 
     
 <ul>
-<li><p><code>vld_logical</code>: Validate Logical</p></li>
+<li><p><code>chk_datetime</code>: Check Date Time (Deprecated)</p></li>
+<li><p><code>vld_date_time</code>: Validate Date Time</p></li>
+<li><p><code>vld_datetime</code>: Validate Date Time (Deprecated)</p></li>
 </ul>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other chk_typeof: 
-<code><a href='chk_character_or_factor.html'>chk_character_or_factor</a>()</code>,
-<code><a href='chk_character.html'>chk_character</a>()</code>,
-<code><a href='chk_double.html'>chk_double</a>()</code>,
-<code><a href='chk_environment.html'>chk_environment</a>()</code>,
-<code><a href='chk_factor.html'>chk_factor</a>()</code>,
-<code><a href='chk_integer.html'>chk_integer</a>()</code>,
-<code><a href='chk_list.html'>chk_list</a>()</code></p></div>
+    <div class='dont-index'><p>Other chk_scalars: 
+<code><a href='chk_date.html'>chk_date</a>()</code>,
+<code><a href='chk_number.html'>chk_number</a>()</code>,
+<code><a href='chk_scalar.html'>chk_scalar</a>()</code>,
+<code><a href='chk_string.html'>chk_string</a>()</code>,
+<code><a href='chk_tz.html'>chk_tz</a>()</code>,
+<code><a href='chk_whole_number.html'>chk_whole_number</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># chk_logical</span>
-<span class='fu'>chk_logical</span>(<span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_logical</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be logical.</div><div class='input'><span class='co'># vld_logical</span>
-<span class='fu'>vld_logical</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_logical</span>(<span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_logical</span>(<span class='fu'><a href='https://rdrr.io/r/base/logical.html'>logical</a></span>(<span class='fl'>0</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_logical</span>(<span class='fl'>NA</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_logical</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_logical</span>(<span class='st'>"TRUE"</span>)</div><div class='output co'>#&gt; [1] FALSE</div></pre>
+    <pre class="examples"><div class='input'><span class='co'># chk_date_time</span>
+<span class='fu'>chk_date_time</span>(<span class='fu'><a href='https://rdrr.io/r/base/as.POSIXlt.html'>as.POSIXct</a></span>(<span class='st'>"2001-01-02"</span>))
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_date_time</span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; Error : `1` must be a date time (non-missing POSIXct scalar).</div><div class='input'><span class='co'># vld_date_time</span>
+<span class='fu'>vld_date_time</span>(<span class='fu'><a href='https://rdrr.io/r/base/as.POSIXlt.html'>as.POSIXct</a></span>(<span class='st'>"2001-01-02"</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_date_time</span>(<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span>())</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_date_time</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_date_time</span>(<span class='st'>"2001-01-02"</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_date_time</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span>(), <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span>()))</div><div class='output co'>#&gt; [1] FALSE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
