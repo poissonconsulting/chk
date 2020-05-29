@@ -1,3 +1,8 @@
+# chk 0.5.0.9000
+
+- Same as previous version.
+
+
 # chk 0.5.0
 
 - Added chk_null_or().
