@@ -1,52 +1,18 @@
 # chk 0.5.0
 
-- Internal changes only.
-
-
-# chk 0.4.0.9007
-
-- Soft-deprecated chk_datetime() for chk_date_time().
-
-# chk 0.4.0.9006
-
-- Added chk_wnum() and vld_wnum() to check whole numeric scalars.
-- Added chk_dbl() and vld_dbl().
-- Added chk_chr() and vld_chr().
-- Undeprecated chk_is() and vld_is() as useful for R6 objects.
-
-
-# chk 0.4.0.9005
-
-- Added chk_not_subset() and vld_not_subset().
-
-
-# chk 0.4.0.9004
-
 - Added chk_null_or().
+- Added chk_wnum() to check whole numeric scalars.
+- Added chk_dbl() to check double scalars.
+- Added chk_chr() to check character scalars.
+- Added chk_not_subset() to check not a subset.
+- Added chk_factor() to check factor vector.
+- Added chk_character_or_factor() factor or character vector.
+- Added check_files() and check_dirs() to check if all files or directories exist (or not).
+- Added chk_setordered() and vld_setordered() to check order of elements in set.
 
-
-# chk 0.4.0.9003
-
-- Added chk_factor() and vld_factor().
-- Added chk_character_or_factor() and vld_character_or_factor().
-
-
-# chk 0.4.0.9002
-
-- No longer support R 3.3.
-
-
-# chk 0.4.0.9001
-
-- Added check_files() and check_dirs().
-- Rename chk_setordered() to chk_orderset().
-- Added chk_setordered() and vld_setordered().
 - check_values() now checks factor levels.
-
-
-# chk 0.4.0.9000
-
-- Same as previous version.
+- Undeprecated chk_is() and vld_is() as useful for R6 objects.
+- Soft-deprecated chk_datetime() for chk_date_time().
 
 # chk 0.4.0
 
