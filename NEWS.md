@@ -1,3 +1,8 @@
+# chk 0.5.0
+
+- Internal changes only.
+
+
 # chk 0.4.0.9007
 
 - Soft-deprecated chk_datetime() for chk_date_time().
