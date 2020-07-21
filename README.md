@@ -48,21 +48,21 @@ can be combined together for more complex checking.
 
 ``` r
 library(chk)
+#> Error in library(chk): there is no package called 'chk'
 
 y <- "a"
 
 chk_string(y)
+#> Error in chk_string(y): could not find function "chk_string"
 chk_flag(y)
-#> Error: `y` must be a flag (TRUE or FALSE).
+#> Error in chk_flag(y): could not find function "chk_flag"
 
 chkor(chk_flag(y), chk_number(y))
-#> Error: At least one of the following conditions must be met:
-#> * `y` must be a flag (TRUE or FALSE).
-#> * `y` must be a number (non-missing numeric scalar).
+#> Error in chkor(chk_flag(y), chk_number(y)): could not find function "chkor"
 
 data <- data.frame(x = 1:2)
 chk_range(nrow(data), c(3, 8))
-#> Error: `nrow(data)` must be between 3 and 8, not 2.
+#> Error in chk_range(nrow(data), c(3, 8)): could not find function "chk_range"
 ```
 
 Error messages follow the [tidyverse style
@@ -96,4 +96,4 @@ always welcome.
 
 Please note that the chk project is released with a [Contributor Code of
 Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
-By contributing to this project, you agree to abide by its terms..
+By contributing to this project, you agree to abide by its terms…
