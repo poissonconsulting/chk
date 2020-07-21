@@ -38,18 +38,10 @@ test_that("chk_join", {
 
 })
 
-test_that("chk_join _R_CHECK_SUGGESTS_ONLY not set", {
-  skip_if(as.logical(Sys.getenv("_R_CHECK_SUGGESTS_ONLY_", TRUE)))
+test_that("chk_join", {
   expect_chk_error(
     chk_join(data.frame(z = 1), data.frame(z = 2), by = "z"),
-    "^All rows in `data.frame[(]z [=] 1[)]` must match at least one in: <data.frame>."
+    "^All rows in `data.frame[(]z [=] 1[)]` must match at least one in: <d"
   )
 })
 
-test_that("chk_join R_CHECK_SUGGESTS_ONLY false", {
-  skip_if_not(as.logical(Sys.getenv("_R_CHECK_SUGGESTS_ONLY_", TRUE)))
-  expect_chk_error(
-    chk_join(data.frame(z = 1), data.frame(z = 2), by = "z"),
-    "^All rows in `data.frame[(]z [=] 1[)]` must match at least one in: <df"
-  )
-})
