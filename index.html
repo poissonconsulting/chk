@@ -93,78 +93,9 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="chk-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#chk-" class="anchor"></a>chk <img src="reference/figures/logo.png" align="right">
-</h1></div>
-<!-- badges: start -->
-
-<p><code>chk</code> is an R package for developers to check user-supplied function arguments.</p>
-<p>It is designed to be simple, customizable and fast.</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>To install the latest release from <a href="https://cran.r-project.org">CRAN</a></p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"chk"</span>)
-</pre></div>
-<p>To install the latest development version from <a href="https://github.com/poissonconsulting/chk">GitHub</a></p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="co"># install.packages("remotes")</span>
-<span class="kw">remotes</span>::<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"poissonconsulting/chk"</span>)
-</pre></div>
-</div>
-<div id="demonstration" class="section level2">
-<h2 class="hasAnchor">
-<a href="#demonstration" class="anchor"></a>Demonstration</h2>
-<p><code>chk</code> provides simple commonly used checks as (<code>chk_</code> functions) which can be combined together for more complex checking.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/poissonconsulting/chk">chk</a></span>)
-
-<span class="kw">y</span> <span class="op">&lt;-</span> <span class="st">"a"</span>
-
-<span class="fu"><a href="reference/chk_string.html">chk_string</a></span>(<span class="kw">y</span>)
-<span class="fu"><a href="reference/chk_flag.html">chk_flag</a></span>(<span class="kw">y</span>)
-<span class="co">#&gt; Error: `y` must be a flag (TRUE or FALSE).</span>
-
-<span class="fu"><a href="reference/chkor.html">chkor</a></span>(<span class="fu"><a href="reference/chk_flag.html">chk_flag</a></span>(<span class="kw">y</span>), <span class="fu"><a href="reference/chk_number.html">chk_number</a></span>(<span class="kw">y</span>))
-<span class="co">#&gt; Error: At least one of the following conditions must be met:</span>
-<span class="co">#&gt; * `y` must be a flag (TRUE or FALSE).</span>
-<span class="co">#&gt; * `y` must be a number (non-missing numeric scalar).</span>
-
-<span class="kw">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(x = <span class="fl">1</span><span class="op">:</span><span class="fl">2</span>)
-<span class="fu"><a href="reference/chk_range.html">chk_range</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(<span class="kw">data</span>), <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3</span>, <span class="fl">8</span>))
-<span class="co">#&gt; Error: `nrow(data)` must be between 3 and 8, not 2.</span>
-</pre></div>
-<p>Error messages follow the <a href="https://style.tidyverse.org/error-messages.html">tidyverse style guide</a> while the errors themselves are <a href="https://rlang.r-lib.org/reference/abort.html">rlang errors</a> of subclass <code>chk_error</code>.</p>
-</div>
-<div id="information" class="section level2">
-<h2 class="hasAnchor">
-<a href="#information" class="anchor"></a>Information</h2>
-<p>For more information see the <a href="https://poissonconsulting.github.io/chk/articles/chk.html">Get Started</a> vignette.</p>
-</div>
-<div id="inspiration" class="section level2">
-<h2 class="hasAnchor">
-<a href="#inspiration" class="anchor"></a>Inspiration</h2>
-<ul>
-<li><a href="https://github.com/poissonconsulting/datacheckr/">datacheckr</a></li>
-<li><a href="https://github.com/poissonconsulting/checkr/">checkr</a></li>
-<li><a href="https://github.com/poissonconsulting/err/">err</a></li>
-<li><a href="https://github.com/r-lib/testthat/">testthat</a></li>
-</ul>
-</div>
-<div id="contribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#contribution" class="anchor"></a>Contribution</h2>
-<p>Please report any <a href="https://github.com/poissonconsulting/chk/issues">issues</a>.</p>
-<p><a href="https://github.com/poissonconsulting/chk/pulls">Pull requests</a> are always welcome.</p>
-</div>
-<div id="code-of-conduct" class="section level2">
-<h2 class="hasAnchor">
-<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
-<p>Please note that the chk project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
-</div>
-</div>
+For developers to check user-supplied function
+    arguments.  It is designed to be simple, fast and customizable.  Error
+    messages follow the tidyverse style guide.
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -203,18 +134,7 @@
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://www.tidyverse.org/lifecycle/#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
-<li><a href="https://github.com/poissonconsulting/chk/actions"><img src="https://github.com/poissonconsulting/chk/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
-<li><a href="https://codecov.io/gh/poissonconsulting/chk?branch=master"><img src="https://codecov.io/gh/poissonconsulting/chk/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a></li>
-<li><a href="https://CRAN.R-project.org/package=chk"><img src="https://tinyverse.netlify.com/badge/chk" alt="Tinyverse status"></a></li>
-<li><a href="https://cran.r-project.org/package=chk"><img src="https://www.r-pkg.org/badges/version/chk" alt="CRAN status"></a></li>
-</ul>
-</div>
-</div>
+  </div>
 </div>
 
 
