@@ -83,7 +83,7 @@ Fail: NA, c(1, NA)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9001</span>
       </span>
     </div>
 
@@ -149,9 +149,9 @@ Fail: NA, c(1, NA)." />
 <p><strong>Fail</strong>: <code>NA</code>, <code><a href='https://rdrr.io/r/base/c.html'>c(1, NA)</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>chk_not_any_na</span>(<span class='no'>x</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>chk_not_any_na</span>(<span class='kw'>x</span>, x_name = <span class='kw'>NULL</span>)
 
-<span class='fu'>vld_not_any_na</span>(<span class='no'>x</span>)</pre>
+<span class='fu'>vld_not_any_na</span>(<span class='kw'>x</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -189,7 +189,7 @@ Fail: NA, c(1, NA)." />
     <pre class="examples"><div class='input'><span class='co'># chk_not_any_na</span>
 <span class='fu'>chk_not_any_na</span>(<span class='fl'>1</span>)
 <span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_not_any_na</span>(<span class='fl'>NA</span>))</div><div class='output co'>#&gt; Error : `NA` must not have any missing values.</div><div class='input'><span class='co'># vld_not_any_na</span>
-<span class='fu'>vld_not_any_na</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_not_any_na</span>(<span class='fl'>1</span>:<span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_not_any_na</span>(<span class='fl'>NA_real_</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_not_any_na</span>(<span class='fu'><a href='https://rdrr.io/r/base/integer.html'>integer</a></span>(<span class='fl'>0</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_not_any_na</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>NA</span>, <span class='fl'>1</span>))</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_not_any_na</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] TRUE</div></pre>
+<span class='fu'>vld_not_any_na</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_not_any_na</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_not_any_na</span>(<span class='fl'>NA_real_</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_not_any_na</span>(<span class='fu'><a href='https://rdrr.io/r/base/integer.html'>integer</a></span>(<span class='fl'>0</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_not_any_na</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>NA</span>, <span class='fl'>1</span>))</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_not_any_na</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] TRUE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

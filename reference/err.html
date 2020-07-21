@@ -83,7 +83,7 @@ rlang::inform(), respectively." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9001</span>
       </span>
     </div>
 
@@ -149,11 +149,11 @@ the message and then
 <code><a href='https://rlang.r-lib.org/reference/abort.html'>rlang::inform()</a></code>, respectively.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>err</span>(<span class='no'>...</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>.subclass</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>err</span>(<span class='kw'>...</span>, n = <span class='kw'>NULL</span>, tidy = <span class='fl'>TRUE</span>, .subclass = <span class='kw'>NULL</span>)
 
-<span class='fu'>wrn</span>(<span class='no'>...</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>.subclass</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>wrn</span>(<span class='kw'>...</span>, n = <span class='kw'>NULL</span>, tidy = <span class='fl'>TRUE</span>, .subclass = <span class='kw'>NULL</span>)
 
-<span class='fu'>msg</span>(<span class='no'>...</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>.subclass</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+<span class='fu'>msg</span>(<span class='kw'>...</span>, n = <span class='kw'>NULL</span>, tidy = <span class='fl'>TRUE</span>, .subclass = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -196,11 +196,11 @@ documented in <a href='https://adv-r.hadley.nz/s3.html#s3-subclassing'>https://a
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'># err</span>
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>err</span>(<span class='st'>"there %r %n problem value%s"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Error : There are 2 problem values.</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>err</span>(<span class='st'>"there %r %n problem value%s"</span>, n = <span class='fl'>2</span>))</div><div class='output co'>#&gt; Error : There are 2 problem values.</div><div class='input'>
 <span class='co'># wrn</span>
-<span class='fu'>wrn</span>(<span class='st'>"there %r %n problem value%s"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: There are 2 problem values.</span></div><div class='input'>
+<span class='fu'>wrn</span>(<span class='st'>"there %r %n problem value%s"</span>, n = <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: There are 2 problem values.</span></div><div class='input'>
 <span class='co'># msg</span>
-<span class='fu'>msg</span>(<span class='st'>"there %r %n problem value%s"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='message'>There are 2 problem values.</span></div></pre>
+<span class='fu'>msg</span>(<span class='st'>"there %r %n problem value%s"</span>, n = <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='message'>There are 2 problem values.</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9001</span>
       </span>
     </div>
 
@@ -105,31 +105,37 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>To install the latest release from <a href="https://cran.r-project.org">CRAN</a></p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"chk"</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"chk"</span>)
+</pre></div>
 <p>To install the latest development version from <a href="https://github.com/poissonconsulting/chk">GitHub</a></p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="co"># install.packages("remotes")</span>
-<span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"poissonconsulting/chk"</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="co"># install.packages("remotes")</span>
+<span class="kw">remotes</span>::<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"poissonconsulting/chk"</span>)
+</pre></div>
 </div>
 <div id="demonstration" class="section level2">
 <h2 class="hasAnchor">
 <a href="#demonstration" class="anchor"></a>Demonstration</h2>
 <p><code>chk</code> provides simple commonly used checks as (<code>chk_</code> functions) which can be combined together for more complex checking.</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">chk</span>)
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/poissonconsulting/chk">chk</a></span>)
 
-<span class="no">y</span> <span class="kw">&lt;-</span> <span class="st">"a"</span>
+<span class="kw">y</span> <span class="op">&lt;-</span> <span class="st">"a"</span>
 
-<span class="fu"><a href="reference/chk_string.html">chk_string</a></span>(<span class="no">y</span>)
-<span class="fu"><a href="reference/chk_flag.html">chk_flag</a></span>(<span class="no">y</span>)
+<span class="fu"><a href="reference/chk_string.html">chk_string</a></span>(<span class="kw">y</span>)
+<span class="fu"><a href="reference/chk_flag.html">chk_flag</a></span>(<span class="kw">y</span>)
 <span class="co">#&gt; Error: `y` must be a flag (TRUE or FALSE).</span>
 
-<span class="fu"><a href="reference/chkor.html">chkor</a></span>(<span class="fu"><a href="reference/chk_flag.html">chk_flag</a></span>(<span class="no">y</span>), <span class="fu"><a href="reference/chk_number.html">chk_number</a></span>(<span class="no">y</span>))
+<span class="fu"><a href="reference/chkor.html">chkor</a></span>(<span class="fu"><a href="reference/chk_flag.html">chk_flag</a></span>(<span class="kw">y</span>), <span class="fu"><a href="reference/chk_number.html">chk_number</a></span>(<span class="kw">y</span>))
 <span class="co">#&gt; Error: At least one of the following conditions must be met:</span>
 <span class="co">#&gt; * `y` must be a flag (TRUE or FALSE).</span>
 <span class="co">#&gt; * `y` must be a number (non-missing numeric scalar).</span>
 
-<span class="no">data</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="fl">1</span>:<span class="fl">2</span>)
-<span class="fu"><a href="reference/chk_range.html">chk_range</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(<span class="no">data</span>), <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3</span>, <span class="fl">8</span>))
-<span class="co">#&gt; Error: `nrow(data)` must be between 3 and 8, not 2.</span></pre></div>
+<span class="kw">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(x = <span class="fl">1</span><span class="op">:</span><span class="fl">2</span>)
+<span class="fu"><a href="reference/chk_range.html">chk_range</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(<span class="kw">data</span>), <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3</span>, <span class="fl">8</span>))
+<span class="co">#&gt; Error: `nrow(data)` must be between 3 and 8, not 2.</span>
+</pre></div>
 <p>Error messages follow the <a href="https://style.tidyverse.org/error-messages.html">tidyverse style guide</a> while the errors themselves are <a href="https://rlang.r-lib.org/reference/abort.html">rlang errors</a> of subclass <code>chk_error</code>.</p>
 </div>
 <div id="information" class="section level2">

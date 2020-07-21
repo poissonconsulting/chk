@@ -81,7 +81,7 @@ all(grepl(regexp, x[!is.na(x)]))" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9001</span>
       </span>
     </div>
 
@@ -145,9 +145,9 @@ all(grepl(regexp, x[!is.na(x)]))" />
 <p><code><a href='https://rdrr.io/r/base/all.html'>all(grepl(regexp, x[!is.na(x)]))</a></code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>chk_match</span>(<span class='no'>x</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>".+"</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>chk_match</span>(<span class='kw'>x</span>, regexp = <span class='st'>".+"</span>, x_name = <span class='kw'>NULL</span>)
 
-<span class='fu'>vld_match</span>(<span class='no'>x</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>".+"</span>)</pre>
+<span class='fu'>vld_match</span>(<span class='kw'>x</span>, regexp = <span class='st'>".+"</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -188,8 +188,8 @@ all(grepl(regexp, x[!is.na(x)]))" />
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># chk_match</span>
 <span class='fu'>chk_match</span>(<span class='st'>"1"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_match</span>(<span class='st'>"1"</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"2"</span>))</div><div class='output co'>#&gt; Error : `"1"` must match regular expression '2'.</div><div class='input'><span class='co'># vld_match</span>
-<span class='fu'>vld_match</span>(<span class='st'>"1"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_match</span>(<span class='st'>"a"</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"a"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_match</span>(<span class='st'>""</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_match</span>(<span class='st'>"1"</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"2"</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_match</span>(<span class='fl'>NA_character_</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>".*"</span>)</div><div class='output co'>#&gt; [1] TRUE</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_match</span>(<span class='st'>"1"</span>, regexp = <span class='st'>"2"</span>))</div><div class='output co'>#&gt; Error : `"1"` must match regular expression '2'.</div><div class='input'><span class='co'># vld_match</span>
+<span class='fu'>vld_match</span>(<span class='st'>"1"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_match</span>(<span class='st'>"a"</span>, regexp = <span class='st'>"a"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_match</span>(<span class='st'>""</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_match</span>(<span class='st'>"1"</span>, regexp = <span class='st'>"2"</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_match</span>(<span class='fl'>NA_character_</span>, regexp = <span class='st'>".*"</span>)</div><div class='output co'>#&gt; [1] TRUE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

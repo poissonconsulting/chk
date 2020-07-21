@@ -81,7 +81,7 @@ all(x[!is.na(x)] &amp;gt;= range[1] &amp;amp; x[!is.na(x)] &amp;lt;= range[2])" 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9001</span>
       </span>
     </div>
 
@@ -145,9 +145,9 @@ all(x[!is.na(x)] &amp;gt;= range[1] &amp;amp; x[!is.na(x)] &amp;lt;= range[2])" 
 <p><code>all(x[!is.na(x)] &gt;= range[1] &amp; x[!is.na(x)] &lt;= range[2])</code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>chk_range</span>(<span class='no'>x</span>, <span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>chk_range</span>(<span class='kw'>x</span>, range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), x_name = <span class='kw'>NULL</span>)
 
-<span class='fu'>vld_range</span>(<span class='no'>x</span>, <span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>))</pre>
+<span class='fu'>vld_range</span>(<span class='kw'>x</span>, range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>))</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -188,8 +188,8 @@ upper permitted values.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># chk_range</span>
 <span class='fu'>chk_range</span>(<span class='fl'>0</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_range</span>(-<span class='fl'>0.1</span>))</div><div class='output co'>#&gt; Error : `-0.1` must be between 0 and 1, not -0.1.</div><div class='input'><span class='co'># vld_range</span>
-<span class='fu'>vld_range</span>(<span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span>(<span class='fl'>0</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_range</span>(<span class='fl'>0</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_range</span>(-<span class='fl'>0.1</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_range</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>NA</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_range</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>NA</span>), <span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>))</div><div class='output co'>#&gt; [1] TRUE</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_range</span>(<span class='op'>-</span><span class='fl'>0.1</span>))</div><div class='output co'>#&gt; Error : `-0.1` must be between 0 and 1, not -0.1.</div><div class='input'><span class='co'># vld_range</span>
+<span class='fu'>vld_range</span>(<span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span>(<span class='fl'>0</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_range</span>(<span class='fl'>0</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_range</span>(<span class='op'>-</span><span class='fl'>0.1</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_range</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>NA</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>vld_range</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>NA</span>), range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>))</div><div class='output co'>#&gt; [1] TRUE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

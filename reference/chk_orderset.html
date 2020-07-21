@@ -82,7 +82,7 @@ vld_equivalent(unique(x[x %in% values]), values[values %in% x])." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9001</span>
       </span>
     </div>
 
@@ -147,7 +147,7 @@ in x is equivalent to the first occurrence of each shared element in values usin
 <code><a href='chk_equivalent.html'>vld_equivalent(unique(x[x %in% values]), values[values %in% x])</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>chk_orderset</span>(<span class='no'>x</span>, <span class='no'>values</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>chk_orderset</span>(<span class='kw'>x</span>, <span class='kw'>values</span>, x_name = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -176,14 +176,14 @@ in x is equivalent to the first occurrence of each shared element in values usin
 <code><a href='chk_join.html'>chk_join</a>()</code>,
 <code><a href='chk_not_subset.html'>chk_not_subset</a>()</code>,
 <code><a href='chk_superset.html'>chk_superset</a>()</code>,
-<code><a href='chk_subset.html'>vld_not_subset</a>()</code>,
-<code><a href='chk_setequal.html'>vld_orderset</a>()</code></p></div>
+<code><a href='vld_not_subset.html'>vld_not_subset</a>()</code>,
+<code><a href='vld_orderset.html'>vld_orderset</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'># chk_orderset</span>
-<span class='fu'>chk_orderset</span>(<span class='fl'>1</span>:<span class='fl'>2</span>, <span class='fl'>1</span>:<span class='fl'>2</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_orderset</span>(<span class='fl'>2</span>:<span class='fl'>1</span>, <span class='fl'>1</span>:<span class='fl'>2</span>))</div><div class='output co'>#&gt; Error : `2:1` must have (the first occurence of) each of the following elements in the following order: 1, 2.</div></pre>
+<span class='fu'>chk_orderset</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_orderset</span>(<span class='fl'>2</span><span class='op'>:</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>))</div><div class='output co'>#&gt; Error : `2:1` must have (the first occurence of) each of the following elements in the following order: 1, 2.</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9001</span>
       </span>
     </div>
 
@@ -143,21 +143,21 @@
     <p>Deprecated <code>chk_()</code> functions.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>chk_count</span>(<span class='no'>x</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>chk_count</span>(<span class='kw'>x</span>, x_name = <span class='kw'>NULL</span>)
 
-<span class='fu'>chk_dirs</span>(<span class='no'>x</span>)
+<span class='fu'>chk_dirs</span>(<span class='kw'>x</span>)
 
-<span class='fu'>chk_files</span>(<span class='no'>x</span>)
+<span class='fu'>chk_files</span>(<span class='kw'>x</span>)
 
-<span class='fu'>chk_has</span>(<span class='no'>x</span>, <span class='no'>values</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>chk_has</span>(<span class='kw'>x</span>, <span class='kw'>values</span>, x_name = <span class='kw'>NULL</span>)
 
-<span class='fu'>chk_in</span>(<span class='no'>x</span>, <span class='no'>values</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>chk_in</span>(<span class='kw'>x</span>, <span class='kw'>values</span>, x_name = <span class='kw'>NULL</span>)
 
-<span class='fu'>chk_length</span>(<span class='no'>x</span>, <span class='kw'>length</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>chk_length</span>(<span class='kw'>x</span>, length = <span class='fl'>1L</span>, x_name = <span class='kw'>NULL</span>)
 
-<span class='fu'>chk_no_missing</span>(<span class='no'>x</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>chk_no_missing</span>(<span class='kw'>x</span>, x_name = <span class='kw'>NULL</span>)
 
-<span class='fu'>vld_no_missing</span>(<span class='no'>x</span>)
+<span class='fu'>vld_no_missing</span>(<span class='kw'>x</span>)
 
 <span class='fu'>chk_off</span>()
 
@@ -165,9 +165,9 @@
 
 <span class='fu'>is_chk_on</span>()
 
-<span class='fu'>chk_proportion</span>(<span class='no'>x</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>chk_proportion</span>(<span class='kw'>x</span>, x_name = <span class='kw'>NULL</span>)
 
-<span class='fu'>deparse_backtick</span>(<span class='no'>x</span>)</pre>
+<span class='fu'>deparse_backtick</span>(<span class='kw'>x</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -204,7 +204,7 @@
 <p>Replace by <code><a href='chk_superset.html'>chk_superset()</a></code></p></li>
 <li><p><code>chk_in</code>: Check In</p>
 <p><img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p>
-<p>Replace by <code><a href='chk_subset.html'>chk_subset()</a></code></p></li>
+<p>Replace by <code><a href='vld_not_subset.html'>chk_subset()</a></code></p></li>
 <li><p><code>chk_length</code>: Check Length</p>
 <p><img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p>
 <p>Replace by <code>[chk_range](length(x))</code></p></li>

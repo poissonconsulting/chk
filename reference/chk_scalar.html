@@ -81,7 +81,7 @@ length(x) == 1L" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9001</span>
       </span>
     </div>
 
@@ -145,9 +145,9 @@ length(x) == 1L" />
 <p><code>length(x) == 1L</code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>chk_scalar</span>(<span class='no'>x</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>chk_scalar</span>(<span class='kw'>x</span>, x_name = <span class='kw'>NULL</span>)
 
-<span class='fu'>vld_scalar</span>(<span class='no'>x</span>)</pre>
+<span class='fu'>vld_scalar</span>(<span class='kw'>x</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -186,7 +186,7 @@ length(x) == 1L" />
     <pre class="examples"><div class='input'><span class='co'># chk_scalar</span>
 <span class='fu'>chk_scalar</span>(<span class='fl'>1</span>)
 <span class='fu'>chk_scalar</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>1</span>))
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_scalar</span>(<span class='fl'>1</span>:<span class='fl'>2</span>))</div><div class='output co'>#&gt; Error : `1:2` must be a scalar (length 1).</div><div class='input'><span class='co'># vld_scalar</span>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_scalar</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>))</div><div class='output co'>#&gt; Error : `1:2` must be a scalar (length 1).</div><div class='input'><span class='co'># vld_scalar</span>
 <span class='fu'>vld_scalar</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] TRUE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
