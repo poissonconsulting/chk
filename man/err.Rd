@@ -29,8 +29,8 @@ documented in \url{https://adv-r.hadley.nz/s3.html#s3-subclassing}.}
 \description{
 The functions call \code{\link[=message_chk]{message_chk()}} to process
 the message and then
-\code{\link[rlang:abort]{rlang::abort()}}, \code{\link[rlang:warn]{rlang::warn()}} and
-\code{\link[rlang:inform]{rlang::inform()}}, respectively.
+\code{\link[rlang:abort]{rlang::abort()}}, \code{\link[rlang:abort]{rlang::warn()}} and
+\code{\link[rlang:abort]{rlang::inform()}}, respectively.
 }
 \details{
 The user can set the subclass.

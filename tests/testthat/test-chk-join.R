@@ -35,8 +35,21 @@ test_that("vld_join with missing values", {
 test_that("chk_join", {
   expect_null(chk_join(data.frame(z = 1), data.frame(z = 1), by = "z"))
   expect_invisible(chk_join(data.frame(z = 1), data.frame(z = 1), by = "z"))
+
+})
+
+test_that("chk_join _R_CHECK_SUGGESTS_ONLY not set", {
+  skip_if(as.logical(Sys.getenv("_R_CHECK_SUGGESTS_ONLY_", TRUE)))
   expect_chk_error(
     chk_join(data.frame(z = 1), data.frame(z = 2), by = "z"),
     "^All rows in `data.frame[(]z [=] 1[)]` must match at least one in: <data.frame>."
+  )
+})
+
+test_that("chk_join R_CHECK_SUGGESTS_ONLY false", {
+  skip_if_not(as.logical(Sys.getenv("_R_CHECK_SUGGESTS_ONLY_", TRUE)))
+  expect_chk_error(
+    chk_join(data.frame(z = 1), data.frame(z = 2), by = "z"),
+    "^All rows in `data.frame[(]z [=] 1[)]` must match at least one in: <df"
   )
 })
