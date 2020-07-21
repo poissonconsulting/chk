@@ -6,6 +6,7 @@ name: pkgdown
 
 jobs:
   pkgdown:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
     runs-on: macOS-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -41,14 +42,17 @@ jobs:
         run: R CMD INSTALL .
 
       - name: Deploy package
-        run: pkgdown::deploy_to_branch(new_process = FALSE)
-        shell: Rscript {0}
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          Rscript -e 'pkgdown::deploy_to_branch(new_process = FALSE)'
+
       - name: action-slack
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         uses: 8398a7/action-slack@v3.0.0
         with:
           status: ${{ job.status }}
           author_name: "github action: pkgdown"
           fields: repo, workflow, commit, message, author, action
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        if: failure()
