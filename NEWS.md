@@ -1,3 +1,8 @@
+# chk 0.5.1.9000
+
+- Same as previous version.
+
+
 # chk 0.5.1
 
 - Internal changes only.
