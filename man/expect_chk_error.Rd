@@ -31,8 +31,6 @@ but doesn't test for a specific value.
 \item{...}{
   Arguments passed on to \code{\link[testthat:expect_match]{expect_match}}
   \describe{
-    \item{\code{all}}{Should all elements of actual value match \code{regexp} (TRUE),
-or does only one need to match (FALSE)}
     \item{\code{perl}}{logical.  Should Perl-compatible regexps be used?}
     \item{\code{fixed}}{logical.  If \code{TRUE}, \code{pattern} is a string to be
     matched as is.  Overrides all conflicting arguments.}
@@ -68,15 +66,11 @@ A more robust way is to test for the class of the error, if it has one.
 You can learn more about custom conditions at
 \url{https://adv-r.hadley.nz/conditions.html#custom-conditions}, but in
 short, errors are S3 classes and you can generate a custom class and check
-for it using \code{class} instead of \code{regexp}. Because this is a more reliable
-check, you \code{expect_error()} will warn if the error has a custom class but
-you are testing the message. Eliminate the warning by using \code{class} instead
-of \code{regexp}. Alternatively, if you think the warning is a false positive,
-use \code{class = "error"} to suppress it for any input.
+for it using \code{class} instead of \code{regexp}.
 
 If you are using \code{expect_error()} to check that an error message is
-formatted in such a way that it makes sense to a human, we now recommend
-using \code{\link[testthat:verify_output]{verify_output()}} instead.
+formatted in such a way that it makes sense to a human, we recommend
+using \code{\link[testthat:expect_snapshot]{expect_snapshot()}} instead.
 
 }
 
@@ -90,10 +84,10 @@ Other expectations:
 \code{\link[testthat]{equality-expectations}},
 \code{\link[testthat]{expect_length}()},
 \code{\link[testthat]{expect_match}()},
-\code{\link[testthat]{expect_message}()},
 \code{\link[testthat]{expect_named}()},
 \code{\link[testthat]{expect_null}()},
 \code{\link[testthat]{expect_output}()},
+\code{\link[testthat]{expect_reference}()},
 \code{\link[testthat]{expect_silent}()},
 \code{\link[testthat]{inheritance-expectations}},
 \code{\link[testthat]{logical-expectations}}
