@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R build
 status](https://github.com/poissonconsulting/chk/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/chk/actions)
 [![Codecov test
@@ -79,10 +79,10 @@ vignette.
 
 ## Inspiration
 
-  - [datacheckr](https://github.com/poissonconsulting/datacheckr/)
-  - [checkr](https://github.com/poissonconsulting/checkr/)
-  - [err](https://github.com/poissonconsulting/err/)
-  - [testthat](https://github.com/r-lib/testthat/)
+-   [datacheckr](https://github.com/poissonconsulting/datacheckr/)
+-   [checkr](https://github.com/poissonconsulting/checkr/)
+-   [err](https://github.com/poissonconsulting/err/)
+-   [testthat](https://github.com/r-lib/testthat/)
 
 ## Contribution
 
