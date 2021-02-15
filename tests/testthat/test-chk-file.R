@@ -1,5 +1,3 @@
-context("chk-file")
-
 test_that("vld_file", {
   expect_false(vld_file(character(0)))
   expect_false(vld_file(tempdir()))

@@ -1,5 +1,3 @@
-context("chk-not-any-na")
-
 test_that("vld_not_any_na", {
   expect_true(vld_not_any_na(1))
   expect_true(vld_not_any_na(matrix(1:3)))

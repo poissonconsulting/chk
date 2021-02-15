@@ -1,5 +1,3 @@
-context("setequal")
-
 test_that("vld_setequal", {
   expect_true(vld_setequal(1, 1))
   expect_true(vld_setequal(1L, 1))

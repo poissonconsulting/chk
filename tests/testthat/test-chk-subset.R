@@ -1,5 +1,3 @@
-context("chk-subset")
-
 test_that("vld_subset", {
   expect_true(vld_subset(integer(0), 1))
   expect_false(vld_subset(1:3, 1:2))

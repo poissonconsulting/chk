@@ -1,5 +1,3 @@
-context("chk-type")
-
 test_that("vld_s3_class", {
   expect_true(vld_s3_class(1, "numeric"))
   expect_false(vld_s3_class(1L, "numeric"))

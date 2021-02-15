@@ -1,5 +1,3 @@
-context("chk-all")
-
 test_that("vld_all", {
   expect_true(vld_all(character(0), vld_true))
   expect_true(vld_all(NULL, vld_null))

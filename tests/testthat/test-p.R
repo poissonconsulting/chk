@@ -1,5 +1,3 @@
-context("p")
-
 test_that("p", {
   expect_identical(p(), paste())
 })

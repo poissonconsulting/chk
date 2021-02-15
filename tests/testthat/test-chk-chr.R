@@ -1,5 +1,3 @@
-context("chk-chr")
-
 test_that("vld_chr", {
   expect_false(vld_chr(character(0)))
   expect_true(vld_chr(NA_character_))

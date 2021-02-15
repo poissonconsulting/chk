@@ -1,5 +1,3 @@
-context("chk-true")
-
 test_that("vld_true", {
   expect_true(vld_true(TRUE))
   expect_true(vld_true(c(x = TRUE)))

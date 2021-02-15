@@ -1,5 +1,3 @@
-context("chk-not-empty")
-
 test_that("vld_not_empty", {
   expect_true(vld_not_empty(1))
   expect_true(vld_not_empty(matrix(1:3)))

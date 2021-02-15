@@ -1,5 +1,3 @@
-context("chk-null")
-
 test_that("vld_null", {
   expect_true(vld_null(NULL))
   expect_false(vld_null(1))

@@ -1,4 +1,3 @@
-
 test_that("vld_vector", {
   expect_true(vld_vector(1))
   expect_true(vld_vector(NA))

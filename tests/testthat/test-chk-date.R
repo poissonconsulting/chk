@@ -1,5 +1,3 @@
-context("chk-date")
-
 test_that("vld_date", {
   expect_false(vld_date(NULL))
   expect_false(vld_date(as.Date("2000-01-01")[-1]))

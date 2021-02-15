@@ -1,5 +1,3 @@
-context("chk-string")
-
 test_that("vld_string", {
   expect_false(vld_string(character(0)))
   expect_false(vld_string(NA_character_))

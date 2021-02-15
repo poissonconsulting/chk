@@ -1,5 +1,3 @@
-context("cc")
-
 test_that("cc with atomic vectors", {
   expect_identical(cc(logical(0)), character(0))
   expect_match(cc(1), "^1$")

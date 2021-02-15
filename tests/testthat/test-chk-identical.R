@@ -1,5 +1,3 @@
-context("chk-identical")
-
 test_that("vld_identical", {
   expect_true(vld_identical(1, 1))
   expect_true(vld_identical(1L, 1L))

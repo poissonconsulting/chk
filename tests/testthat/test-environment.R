@@ -1,5 +1,3 @@
-context("chk-environment")
-
 test_that("vld_environment", {
   expect_false(vld_environment(1))
   expect_false(vld_environment(list(1)))

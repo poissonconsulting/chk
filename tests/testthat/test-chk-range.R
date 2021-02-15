@@ -1,5 +1,3 @@
-context("chk-range")
-
 test_that("vld_range", {
   expect_true(vld_range(numeric(0)))
   expect_true(vld_range(numeric(0), c(1, 1)))

@@ -1,5 +1,3 @@
-context("chkor")
-
 test_that("chkor", {
   expect_null(chkor())
   expect_invisible(chkor())

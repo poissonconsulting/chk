@@ -1,5 +1,3 @@
-context("chk-unique")
-
 test_that("vld_unique", {
   expect_true(vld_unique(integer(0)))
   expect_true(vld_unique(NA))

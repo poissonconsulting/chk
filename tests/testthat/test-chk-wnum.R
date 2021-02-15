@@ -1,5 +1,3 @@
-context("chk-number")
-
 test_that("vld_wnum", {
   expect_false(vld_wnum(numeric(0)))
   expect_true(vld_wnum(NA_integer_))

@@ -1,5 +1,3 @@
-context("chk-matrix")
-
 test_that("vld_matrix", {
   expect_false(vld_matrix(1))
   expect_false(vld_matrix(array(1)))

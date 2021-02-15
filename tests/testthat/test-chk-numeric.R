@@ -1,5 +1,3 @@
-context("chk-numeric")
-
 test_that("vld_numeric", {
   expect_true(vld_numeric(1))
   expect_true(vld_numeric(matrix(1:3)))

@@ -1,5 +1,3 @@
-context("utils-chk")
-
 test_that("message_chk", {
   expect_match(message_chk(), "^[.]$")
   expect_match(message_chk("", ""), "^[.]$")

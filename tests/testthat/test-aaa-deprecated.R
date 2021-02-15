@@ -1,5 +1,3 @@
-context("deprecated")
-
 test_that("on", {
   rlang::scoped_options(lifecycle_verbosity = "quiet")
 

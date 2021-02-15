@@ -1,5 +1,3 @@
-context("chk-unused")
-
 test_that("vld_unused", {
   expect_true(vld_unused())
   expect_false(vld_unused(1))

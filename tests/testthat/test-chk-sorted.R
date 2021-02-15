@@ -1,5 +1,3 @@
-context("chk-sorted")
-
 test_that("vld_sorted", {
   expect_true(vld_sorted(TRUE))
   expect_true(vld_sorted(1))

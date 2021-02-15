@@ -1,5 +1,3 @@
-context("utils")
-
 test_that("deparse_backtick_chk", {
   expect_identical(deparse_backtick_chk(1), "`1`")
   expect_identical(deparse_backtick_chk(NA), "`NA`")

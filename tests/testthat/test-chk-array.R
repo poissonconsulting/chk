@@ -1,5 +1,3 @@
-context("chk-array")
-
 test_that("vld_array", {
   expect_false(vld_array(1))
   expect_true(vld_array(array()))
