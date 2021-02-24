@@ -7,7 +7,7 @@
 #' @param dim A function returning a non-negative whole number of the dimension.
 #' @param values A flag or a whole numeric vector of the value, value range or possible values.
 #' @param dim_name A string of the name of the dim function.
-#' @return An informative error if the test fails.
+#' @return An informative error if the test fails or an invisible copy of x.
 #'
 #' @family check
 #'
@@ -31,7 +31,7 @@ check_dim <- function(x, dim = length, values = numeric(0), x_name = NULL, dim_n
   x_name <- backtick_chk(p0(dim_name, "(", x_name, ")"))
 
   if (!length(values)) {
-    return(invisible())
+    return(invisible(x))
   }
 
   if (vld_true(values)) {

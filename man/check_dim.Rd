@@ -18,7 +18,7 @@ check_dim(x, dim = length, values = numeric(0), x_name = NULL, dim_name = NULL)
 \item{dim_name}{A string of the name of the dim function.}
 }
 \value{
-An informative error if the test fails.
+An informative error if the test fails or an invisible copy of x.
 }
 \description{
 Checks dimension of an object.

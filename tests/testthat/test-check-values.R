@@ -1,25 +1,31 @@
 test_that("check_values pass", {
-  expect_null(check_values(1, 1))
+  expect_identical(check_values(1, 1), check_values(1, 1))
   expect_invisible(check_values(1, 1))
-  expect_null(check_values(1, numeric(0)))
-  expect_null(check_values(integer(0), 1:3))
-  expect_null(check_values(1L, integer(0)))
-  expect_null(check_values(NA_real_, numeric(0)))
-  expect_null(check_values(1, -1))
-  expect_null(check_values(1, NA_real_))
-  expect_null(check_values(1, c(2, NA_real_)))
-  expect_null(check_values(1, c(1, 2, NA_real_)))
-  expect_null(check_values(1, c(1, 1)))
-  expect_null(check_values(1, c(0.5, 2, NA_real_)))
-  expect_null(check_values(c(1, NA_real_), c(0.5, 2, NA_real_)))
-  expect_null(check_values(factor(1), factor(2)))
-  expect_null(check_values(factor(c(1, NA)), factor(c(2, NA))))
-  expect_null(check_values(factor(1:3), factor(1:2)))
-  expect_null(check_values(factor(1:3), factor(1:2, levels = 1:2)))
-  expect_null(check_values(ordered(1:2), factor(c(1:2, NA))))
-  expect_null(check_values(ordered(1:3), factor(c(1:2))))
-  expect_null(check_values(as.character(1:2), as.character(2:1)))
-  expect_null(check_values(factor(1:3), factor(1:3)))
+  expect_identical(check_values(1, numeric(0)), check_values(1, numeric(0)))
+  expect_identical(check_values(integer(0), 1:3), check_values(integer(0), 1:3))
+  expect_identical(check_values(1L, integer(0)), check_values(1L, integer(0)))
+  expect_identical(check_values(NA_real_, numeric(0)), check_values(NA_real_, numeric(0)))
+  expect_identical(check_values(1, -1), check_values(1, -1))
+  expect_identical(check_values(1, NA_real_), check_values(1, NA_real_))
+  expect_identical(check_values(1, c(2, NA_real_)), check_values(1, c(2, NA_real_)))
+  expect_identical(check_values(1, c(1, 2, NA_real_)), check_values(1, c(1, 2, NA_real_)))
+  expect_identical(check_values(1, c(1, 1)), check_values(1, c(1, 1)))
+  expect_identical(check_values(1, c(0.5, 2, NA_real_)), check_values(1, c(0.5, 2, NA_real_)))
+  expect_identical(check_values(c(1, NA_real_), c(0.5, 2, NA_real_)),
+                   check_values(c(1, NA_real_), c(0.5, 2, NA_real_)))
+  expect_identical(check_values(factor(1), factor(2)), check_values(factor(1), factor(2)))
+  expect_identical(check_values(factor(c(1, NA)), factor(c(2, NA))),
+                   check_values(factor(c(1, NA)), factor(c(2, NA))))
+  expect_identical(check_values(factor(1:3), factor(1:2)), check_values(factor(1:3), factor(1:2)))
+  expect_identical(check_values(factor(1:3), factor(1:2, levels = 1:2)),
+                   check_values(factor(1:3), factor(1:2, levels = 1:2)))
+  expect_identical(check_values(ordered(1:2), factor(c(1:2, NA))),
+                   check_values(ordered(1:2), factor(c(1:2, NA))))
+  expect_identical(check_values(ordered(1:3), factor(c(1:2))),
+                   check_values(ordered(1:3), factor(c(1:2))))
+  expect_identical(check_values(as.character(1:2), as.character(2:1)),
+                   check_values(as.character(1:2), as.character(2:1)))
+  expect_identical(check_values(factor(1:3), factor(1:3)), check_values(factor(1:3), factor(1:3)))
 })
 
 test_that("check_values fail", {

@@ -1,5 +1,5 @@
 test_that("check_key works", {
-  expect_null(check_key(data.frame()))
+  expect_identical(check_key(data.frame()), data.frame())
   expect_invisible(check_key(data.frame()))
   expect_invisible(check_key(data.frame(x = 1)))
   expect_invisible(check_key(data.frame(x = 1), "x"))

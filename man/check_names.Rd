@@ -24,7 +24,7 @@ check_names(
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-An informative error if the test fails.
+An informative error if the test fails or an invisible copy of x.
 }
 \description{
 Checks the names of an object.

@@ -1,16 +1,17 @@
 test_that("check_dirs works", {
-  expect_null(check_dirs(character(0)))
+  expect_identical(check_dirs(character(0)), character(0))
   expect_invisible(check_dirs(character(0)))
-  expect_null(check_dirs(character(0), exists = TRUE))
+  expect_identical(check_dirs(character(0), exists = TRUE),
+                   check_dirs(character(0), exists = TRUE))
   expect_invisible(check_dirs(character(0), exists = TRUE))
 
   setup(dir.create(file.path(tempdir(), "dir")))
   tmp <- file.path(tempdir(), "dir")
 
-  expect_null(check_dirs(tmp, exists = TRUE))
+  expect_identical(check_dirs(tmp, exists = TRUE), check_dirs(tmp, exists = TRUE))
   expect_invisible(check_dirs(tmp, exists = TRUE))
   unlink(tmp, recursive = TRUE)
-  expect_null(check_dirs(tmp, exists = FALSE))
+  expect_identical(check_dirs(tmp, exists = FALSE), check_dirs(tmp, exists = FALSE))
   expect_invisible(check_dirs(tmp, exists = FALSE))
   teardown(unlink(tmp, recursive = TRUE))
 })

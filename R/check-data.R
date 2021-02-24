@@ -5,7 +5,7 @@
 #'
 #' @inheritParams params
 #' @param values A uniquely named list of atomic vectors of the column values.
-#' @return An informative error if the test fails.
+#' @return An informative error if the test fails or an invisible copy of x.
 #'
 #' @family check
 #'
@@ -42,5 +42,5 @@ check_data <- function(x, values = NULL, exclusive = FALSE, order = FALSE, nrow 
     )
   })
   check_key(x, key = key, x_name = x_name)
-  invisible()
+  invisible(x)
 }

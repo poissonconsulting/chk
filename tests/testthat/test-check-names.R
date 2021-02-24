@@ -1,9 +1,11 @@
 test_that("check_names", {
-  expect_null(check_names(c(x = 1)))
+  expect_identical(check_names(c(x = 1)), c(x = 1))
   expect_invisible(check_names(c(x = 1)))
-  expect_null(check_names(c(x = 1), "x"))
-  expect_null(check_names(c(x = 1, y = 2), "x"))
-  expect_null(check_names(c(x = 1, y = 2), c("y", "x")))
+  expect_identical(check_names(c(x = 1), "x"), check_names(c(x = 1), "x"))
+  expect_identical(check_names(c(x = 1, y = 2), "x"),
+                   check_names(c(x = 1, y = 2), "x"))
+  expect_identical(check_names(c(x = 1, y = 2), c("y", "x")),
+                   check_names(c(x = 1, y = 2), c("y", "x")))
 })
 
 test_that("check_names fails", {

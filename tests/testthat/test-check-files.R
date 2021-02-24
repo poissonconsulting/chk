@@ -1,15 +1,16 @@
 test_that("check_files works", {
-  expect_null(check_files(character(0)))
+  expect_identical(check_files(character(0)), character(0))
   expect_invisible(check_files(character(0)))
-  expect_null(check_files(character(0), exists = TRUE))
+  expect_identical(check_files(character(0), exists = TRUE),
+                   check_files(character(0), exists = TRUE))
   expect_invisible(check_files(character(0), exists = TRUE))
 
   tmp <- tempfile("chk-file")
   setup(writeLines(tmp, text = "some test data"))
-  expect_null(check_files(tmp, exists = TRUE))
+  expect_identical(check_files(tmp, exists = TRUE), check_files(tmp, exists = TRUE))
   expect_invisible(check_files(tmp, exists = TRUE))
   unlink(tmp)
-  expect_null(check_files(tmp, exists = FALSE))
+  expect_identical(check_files(tmp, exists = FALSE), check_files(tmp, exists = FALSE))
   expect_invisible(check_files(tmp, exists = FALSE))
   teardown(unlink(tmp))
 })

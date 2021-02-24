@@ -4,7 +4,7 @@
 #' Checks if all files exist (or if exists = FALSE do not exist as files or directories).
 #'
 #' @inheritParams params
-#' @return An informative error if the test fails.
+#' @return An informative error if the test fails or an invisible copy of x.
 #'
 #' @family check
 #'
@@ -25,7 +25,7 @@ check_files <- function(x, exists = TRUE, x_name = NULL) {
     abort_chk(x_name, " must specify files ('", x[dirs][1], "' is a directory)", x = x)
   }
   x <- x[vapply(x, vld_file, TRUE) != exists]
-  if(!length(x)) return(invisible())
+  if(!length(x)) return(invisible(x))
   x <- x[1]
   if(exists) {
     abort_chk(x_name, " must specify existing files ('", x, "' can't be found)", x = x)
