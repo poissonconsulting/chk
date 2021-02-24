@@ -7,7 +7,7 @@
 #' @param names A character vector of the required names.
 #' @param exclusive A flag specifying whether x must only contain the required names.
 #' @param order A flag specifying whether the order of the required names in x must match the order in names.
-#' @return An informative error if the test fails.
+#' @return An informative error if the test fails or an invisible copy of x.
 #'
 #' @family check
 #'
@@ -34,7 +34,7 @@ check_names <- function(x, names = character(0), exclusive = FALSE, order = FALS
     if (exclusive && length(x_names)) {
       abort_chk(x_name, " must not have any elements")
     }
-    return(invisible())
+    return(invisible(x))
   }
 
   x_name <- backtick_chk(p0("names(", unbacktick_chk(x_name), ")"))
@@ -50,5 +50,5 @@ check_names <- function(x, names = character(0), exclusive = FALSE, order = FALS
   if (order && !identical(intersect(names, x_names), intersect(x_names, names))) {
     abort_chk(x_name, " must include ", cc(names, conj = " and "), " in that order")
   }
-  invisible()
+  invisible(x)
 }

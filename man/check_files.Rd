@@ -14,7 +14,7 @@ check_files(x, exists = TRUE, x_name = NULL)
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-An informative error if the test fails.
+An informative error if the test fails or an invisible copy of x.
 }
 \description{
 Checks if all files exist (or if exists = FALSE do not exist as files or directories).

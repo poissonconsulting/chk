@@ -5,7 +5,7 @@
 #'
 #' @inheritParams params
 #' @param values A uniquely named list of atomic vectors of the column values.
-#' @return An informative error if the test fails or the an invisible copy of x.
+#' @return An informative error if the test fails or an invisible copy of x.
 #'
 #' @family check
 #'

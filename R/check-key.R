@@ -6,7 +6,7 @@
 #' @inheritParams params
 #' @param key A character vector of the columns that represent a unique key.
 #' @param na_distinct A flag specifying whether missing values should be considerd distinct.
-#' @return An informative error if the test fails.
+#' @return An informative error if the test fails or an invisible copy of x.
 #'
 #' @family check
 #'
@@ -24,7 +24,7 @@ check_key <- function(x, key = character(0), na_distinct = FALSE, x_name = NULL)
 
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
   chk_string(x_name)
-  if(!length(key)) return(invisible()) # to ensure not tripped up by sf objects.
+  if(!length(key)) return(invisible(x)) # to ensure not tripped up by sf objects.
 
   check_names(x, key, x_name = x_name)
 
@@ -32,5 +32,5 @@ check_key <- function(x, key = character(0), na_distinct = FALSE, x_name = NULL)
   if (any(new_duplicated(x[key], incomparables = incomparables))) {
     abort_chk("Column%s ", cc(key, conj = " and "), " in ", x_name, " must be a unique key.", n = length(key))
   }
-  invisible()
+  invisible(x)
 }

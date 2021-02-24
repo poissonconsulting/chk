@@ -16,7 +16,7 @@ check_key(x, key = character(0), na_distinct = FALSE, x_name = NULL)
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-An informative error if the test fails.
+An informative error if the test fails or an invisible copy of x.
 }
 \description{
 Checks if columns have unique rows.

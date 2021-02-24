@@ -26,7 +26,7 @@
 #'
 #' @inheritParams params
 #' @param values An atomic vector specifying the S3 class and possible values.
-#' @return An informative error if the test fails.
+#' @return An informative error if the test fails or an invisible copy of x.
 #'
 #' @family check
 #'
@@ -55,13 +55,13 @@ check_values <- function(x, values, x_name = NULL) {
     }
   }
   if (!length(x) || !length(values)) {
-    return(invisible())
+    return(invisible(x))
   }
   if (vld_not_any_na(values)) chk_not_any_na(x, x_name = x_name)
   x <- x[!is.na(x)]
   values <- values[!is.na(values)]
   if (!length(x) || length(values) < 2) {
-    return(invisible())
+    return(invisible(x))
   }
   if (identical(length(values), 2L)) {
     values <- sort(unique(values))
