@@ -1,3 +1,17 @@
+# chk 0.5.1.9001
+
+- Added `check_array()` which returns invisible copy of original object.
+- Modified following checks to return invisible copy of original object
+  - `check_data`.
+  - `check_dim`.
+  - `check_dirs`.
+  - `check_files`.
+  - `check_key`.
+  - `check_names`.
+  - `check_values`.
+- Fix bug in `check_key()` and `check_data()` when key is undefined for `sf `objects.
+
+
 # chk 0.5.1.9000
 
 - Same as previous version.
