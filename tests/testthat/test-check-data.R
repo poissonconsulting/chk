@@ -1,8 +1,9 @@
 test_that("check_data works", {
-  expect_null(check_data(data.frame()))
+  expect_identical(check_data(data.frame()), data.frame())
   expect_invisible(check_data(data.frame()))
-  expect_null(check_data(data.frame(x = 1)))
-  expect_null(check_data(data.frame(x = 1, values = list(x = 1))))
+  expect_identical(check_data(data.frame(x = 1)), data.frame(x = 1))
+  expect_identical(check_data(data.frame(x = 1, values = list(x = 1))),
+              check_data(data.frame(x = 1, values = list(x = 1))))
 })
 
 test_that("check_data fails", {
