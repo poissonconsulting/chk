@@ -3,6 +3,7 @@
 export(abort_chk)
 export(backtick_chk)
 export(cc)
+export(check_array)
 export(check_data)
 export(check_dim)
 export(check_dirs)

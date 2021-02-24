@@ -34,5 +34,8 @@
 #' @return
 #' The `chk_` function throws an informative error if the test fails.
 #'
+#' The `check_` function throws an informative error if the test fails and
+#' returns the original object if successful so it can used in pipes.
+#'
 #' The `vld_` function returns a flag indicating whether the test was met.
 NULL
