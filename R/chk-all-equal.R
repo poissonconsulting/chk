@@ -25,6 +25,23 @@ chk_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NUL
   abort_chk(x_name, " must have equal elements", x = x, tolerance = tolerance)
 }
 
+#' @describeIn chk_all_equal Check All Equal for Pipes
+#'
+#' @examples
+#' # check_all_equal
+#' check_all_equal(c(1, 1.00000001))
+#' try(check_all_equal(c(1, 1.0000001)))
+#' check_all_equal(list(c(x = 1), c(x = 1)))
+#' try(check_all_equal(list(c(x = 1), c(y = 1))))
+#' @export
+check_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL) {
+  if (vld_all_equal(x, tolerance = tolerance)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  abort_chk(x_name, " must have equal elements", x = x, tolerance = tolerance)
+}
+
 #' @describeIn chk_all_equal Validate All Equal
 #'
 #' @examples

@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-factor.R
 \name{chk_factor}
 \alias{chk_factor}
+\alias{check_factor}
 \alias{vld_factor}
 \title{Check Factor}
 \usage{
 chk_factor(x, x_name = NULL)
+
+check_factor(x, x_name = NULL)
 
 vld_factor(x)
 }
@@ -29,6 +32,8 @@ Checks if factor using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_factor}: Check Factor
+
 \item \code{vld_factor}: Validate Factor
 }}
 
@@ -36,6 +41,9 @@ Checks if factor using
 # chk_factor
 chk_factor(factor("1"))
 try(chk_factor("1"))
+# check_factor
+check_factor(factor("1"))
+try(check_factor("1"))
 # vld_factor
 vld_factor(factor("1"))
 vld_factor(factor(0))

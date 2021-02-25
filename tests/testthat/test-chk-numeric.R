@@ -13,3 +13,10 @@ test_that("chk_numeric", {
   expect_chk_error(chk_numeric("1"), "`\"1\"` must be numeric[.]$")
   expect_chk_error(chk_numeric("1", x_name = 1), "^1 must be numeric[.]$")
 })
+
+test_that("check_numeric", {
+  expect_identical(check_numeric(1), 1)
+  expect_invisible(check_numeric(1))
+  expect_chk_error(check_numeric("1"), "`\"1\"` must be numeric[.]$")
+  expect_chk_error(check_numeric("1", x_name = 1), "^1 must be numeric[.]$")
+})

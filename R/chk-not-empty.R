@@ -27,6 +27,21 @@ chk_not_empty <- function(x, x_name = NULL) {
   abort_chk(x_name, " must not be empty (zero length)", x = x)
 }
 
+#' @describeIn chk_not_empty Check Not Empty
+#'
+#' @examples
+#' # check_not_empty
+#' check_not_empty(1)
+#' try(check_not_empty(numeric(0)))
+#' @export
+check_not_empty <- function(x, x_name = NULL) {
+  if (vld_not_empty(x)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  abort_chk(x_name, " must not be empty (zero length)", x = x)
+}
+
 #' @describeIn chk_not_empty Validate Not Empty
 #'
 #' @examples

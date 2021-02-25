@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-join.R
 \name{chk_join}
 \alias{chk_join}
+\alias{check_join}
 \alias{vld_join}
 \title{Check Join}
 \usage{
 chk_join(x, y, by, x_name = NULL)
+
+check_join(x, y, by, x_name = NULL)
 
 vld_join(x, y, by)
 }
@@ -34,6 +37,8 @@ Checks if all rows in x match at least one in y using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_join}: Check Join
+
 \item \code{vld_join}: Validate Join
 }}
 
@@ -41,6 +46,9 @@ Checks if all rows in x match at least one in y using
 # chk_join
 chk_join(data.frame(z = 1), data.frame(z = 1:2), by = "z")
 try(chk_join(data.frame(z = 1), data.frame(z = 2), by = "z"))
+# check_join
+check_join(data.frame(z = 1), data.frame(z = 1:2), by = "z")
+try(check_join(data.frame(z = 1), data.frame(z = 2), by = "z"))
 # vld_join
 vld_join(data.frame(z = 1), data.frame(z = 1:2), by = "z")
 vld_join(data.frame(z = 1), data.frame(z = 2), by = "z")
@@ -49,10 +57,10 @@ vld_join(data.frame(z = 1), data.frame(a = 2), by = c(z = "a"))
 }
 \seealso{
 Other chk_set: 
+\code{\link{check_not_subset}()},
+\code{\link{check_orderset}()},
 \code{\link{chk_not_subset}()},
 \code{\link{chk_orderset}()},
-\code{\link{chk_superset}()},
-\code{\link{vld_not_subset}()},
-\code{\link{vld_orderset}()}
+\code{\link{chk_superset}()}
 }
 \concept{chk_set}

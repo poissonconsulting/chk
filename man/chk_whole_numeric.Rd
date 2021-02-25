@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-whole-numeric.R
 \name{chk_whole_numeric}
 \alias{chk_whole_numeric}
+\alias{check_whole_numeric}
 \alias{vld_whole_numeric}
 \title{Check Whole Numeric}
 \usage{
 chk_whole_numeric(x, x_name = NULL)
+
+check_whole_numeric(x, x_name = NULL)
 
 vld_whole_numeric(x)
 }
@@ -29,6 +32,8 @@ Checks if integer vector or double equivalent using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_whole_numeric}: Check Whole Numeric
+
 \item \code{vld_whole_numeric}: Validate Whole Numeric
 }}
 
@@ -36,6 +41,9 @@ Checks if integer vector or double equivalent using
 # chk_whole_numeric
 chk_whole_numeric(1)
 try(chk_whole_numeric(1.1))
+# check_whole_numeric
+check_whole_numeric(1)
+try(check_whole_numeric(1.1))
 # vld_whole_numeric
 vld_whole_numeric(1)
 vld_whole_numeric(NA_real_)

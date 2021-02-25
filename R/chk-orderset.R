@@ -28,6 +28,24 @@ chk_orderset <- function(x, values, x_name = NULL) {
   abort_chk(x_name, " must have (the first occurence of) each of the following elements in the following order: ", cc(values), x = x, values = values)
 }
 
+#' @describeIn chk_setequal Check Set Ordered
+#'
+#' @export
+#'
+#' @examples
+#'
+#' # check_orderset
+#' check_orderset(1:2, 1:2)
+#' try(check_orderset(2:1, 1:2))
+check_orderset <- function(x, values, x_name = NULL) {
+  if (vld_orderset(x, values)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  values <- values[values %in% x]
+  abort_chk(x_name, " must have (the first occurence of) each of the following elements in the following order: ", cc(values), x = x, values = values)
+}
+
 #' @describeIn chk_setequal Validate Set Ordered
 #'
 #' @export

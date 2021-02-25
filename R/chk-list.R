@@ -23,6 +23,21 @@ chk_list <- function(x, x_name = NULL) {
   abort_chk(x_name, " must be a list", x = x)
 }
 
+#' @describeIn chk_list Check List
+#'
+#' @examples
+#' # check_list
+#' check_list(list())
+#' try(check_list(1))
+#' @export
+check_list <- function(x, x_name = NULL) {
+  if (vld_list(x)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  abort_chk(x_name, " must be a list", x = x)
+}
+
 #' @describeIn chk_list Validate List
 #'
 #' @examples

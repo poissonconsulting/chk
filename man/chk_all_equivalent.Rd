@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-all-equivalent.R
 \name{chk_all_equivalent}
 \alias{chk_all_equivalent}
+\alias{check_all_equivalent}
 \alias{vld_all_equivalent}
 \title{Check All Equivalent}
 \usage{
 chk_all_equivalent(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL)
+
+check_all_equivalent(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL)
 
 vld_all_equivalent(x, tolerance = sqrt(.Machine$double.eps))
 }
@@ -31,6 +34,8 @@ Checks all elements in x equivalent using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_all_equivalent}: Check All Equivalent
+
 \item \code{vld_all_equivalent}: Validate All Equivalent
 }}
 
@@ -40,6 +45,11 @@ chk_all_equivalent(c(1, 1.00000001))
 try(chk_all_equivalent(c(1, 1.0000001)))
 chk_all_equivalent(list(c(x = 1), c(x = 1)))
 chk_all_equivalent(list(c(x = 1), c(y = 1)))
+# check_all_equivalent
+check_all_equivalent(c(1, 1.00000001))
+try(check_all_equivalent(c(1, 1.0000001)))
+check_all_equivalent(list(c(x = 1), c(x = 1)))
+check_all_equivalent(list(c(x = 1), c(y = 1)))
 # vld_all_equivalent
 vld_all_equivalent(c(x = 1, y = 1))
 }

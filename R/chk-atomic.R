@@ -23,6 +23,21 @@ chk_atomic <- function(x, x_name = NULL) {
   abort_chk(x_name, " must be atomic", x = x)
 }
 
+#' @describeIn chk_atomic Check Atomic
+#'
+#' @examples
+#' # check_atomic
+#' check_atomic(1)
+#' try(check_atomic(list(1)))
+#' @export
+check_atomic <- function(x, x_name = NULL) {
+  if (vld_atomic(x)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  abort_chk(x_name, " must be atomic", x = x)
+}
+
 #' @describeIn chk_atomic Validate Atomic
 #'
 #' @examples

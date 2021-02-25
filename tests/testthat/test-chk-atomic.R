@@ -12,3 +12,10 @@ test_that("chk_atomic", {
   expect_chk_error(chk_atomic(list(1)), "^`list[(]1[)]` must be atomic[.]$")
   expect_chk_error(chk_atomic(list(1), x_name = 1), "^1 must be atomic[.]$")
 })
+
+test_that("check_atomic", {
+  expect_identical(check_atomic(1), 1)
+  expect_invisible(check_atomic(1))
+  expect_chk_error(check_atomic(list(1)), "^`list[(]1[)]` must be atomic[.]$")
+  expect_chk_error(check_atomic(list(1), x_name = 1), "^1 must be atomic[.]$")
+})

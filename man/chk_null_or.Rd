@@ -2,9 +2,12 @@
 % Please edit documentation in R/chk-null-or.R
 \name{chk_null_or}
 \alias{chk_null_or}
+\alias{check_null_or}
 \title{Check NULL Or}
 \usage{
 chk_null_or(x, chk, ..., x_name = NULL)
+
+check_null_or(x, chk, ..., x_name = NULL)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -21,8 +24,16 @@ An informative error if the test fails.
 \description{
 Checks if NULL or passes test.
 }
+\section{Functions}{
+\itemize{
+\item \code{check_null_or}: Check NULL Or
+}}
+
 \examples{
 chk_null_or(NULL, chk_number)
 chk_null_or(1, chk_number)
 try(chk_null_or("1", chk_number))
+check_null_or(NULL, check_number)
+check_null_or(1, check_number)
+try(check_null_or("1", check_number))
 }

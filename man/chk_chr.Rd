@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-chr.R
 \name{chk_chr}
 \alias{chk_chr}
+\alias{check_chr}
 \alias{vld_chr}
 \title{Check Character Scalar}
 \usage{
 chk_chr(x, x_name = NULL)
+
+check_chr(x, x_name = NULL)
 
 vld_chr(x)
 }
@@ -29,12 +32,16 @@ Checks if character scalar using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_chr}: Check Character Scalar
+
 \item \code{vld_chr}: Validate Character Scalar
 }}
 
 \examples{
 chk_chr("a")
 try(chk_chr(1))
+check_chr("a")
+try(check_chr(1))
 # vld_chr
 vld_chr("")
 vld_chr("a")

@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-list.R
 \name{chk_list}
 \alias{chk_list}
+\alias{check_list}
 \alias{vld_list}
 \title{Check List}
 \usage{
 chk_list(x, x_name = NULL)
+
+check_list(x, x_name = NULL)
 
 vld_list(x)
 }
@@ -29,6 +32,8 @@ Checks if is a list using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_list}: Check List
+
 \item \code{vld_list}: Validate List
 }}
 
@@ -36,6 +41,9 @@ Checks if is a list using
 # chk_list
 chk_list(list())
 try(chk_list(1))
+# check_list
+check_list(list())
+try(check_list(1))
 # vld_list
 vld_list(list())
 vld_list(list(x = 1))

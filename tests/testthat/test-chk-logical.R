@@ -15,3 +15,12 @@ test_that("chk_logical", {
     "^`1` must be logical[.]$"
   )
 })
+
+test_that("check_logical", {
+  expect_identical(check_logical(TRUE), TRUE)
+  expect_invisible(check_logical(FALSE))
+  expect_chk_error(
+    check_logical(1),
+    "^`1` must be logical[.]$"
+  )
+})

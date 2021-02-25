@@ -27,6 +27,25 @@ chk_subset <- function(x, values, x_name = NULL) {
   abort_chk(x_name, " must have values matching ", cc(values, " or "), x = x, values = values)
 }
 
+#' @describeIn chk_subset Check Subset
+#'
+#' @examples
+#' # check_subset
+#' check_subset(1, 1:10)
+#' try(check_subset(11, 1:10))
+#' @export
+check_subset <- function(x, values, x_name = NULL) {
+  if (vld_subset(x, values)) {
+    return(invisible(x))
+  }
+  values <- sort(unique(values), na.last = TRUE)
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (length(x) == 1L) {
+    abort_chk(x_name, " must match ", cc(values, " or "), ", not ", cc(x), x = x, values = values)
+  }
+  abort_chk(x_name, " must have values matching ", cc(values, " or "), x = x, values = values)
+}
+
 #' @describeIn chk_subset Validate Subset
 #'
 #' @examples

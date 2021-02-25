@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-integer.R
 \name{chk_integer}
 \alias{chk_integer}
+\alias{check_integer}
 \alias{vld_integer}
 \title{Check Integer}
 \usage{
 chk_integer(x, x_name = NULL)
+
+check_integer(x, x_name = NULL)
 
 vld_integer(x)
 }
@@ -29,6 +32,8 @@ Checks if integer using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_integer}: Check Integer
+
 \item \code{vld_integer}: Validate Integer
 }}
 
@@ -36,6 +41,9 @@ Checks if integer using
 # chk_integer
 chk_integer(1L)
 try(chk_integer(1))
+# check_integer
+check_integer(1L)
+try(check_integer(1))
 # vld_integer
 vld_integer(1L)
 vld_integer(matrix(1:4, nrow = 2L))

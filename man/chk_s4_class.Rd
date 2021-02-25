@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-s4-class.R
 \name{chk_s4_class}
 \alias{chk_s4_class}
+\alias{check_s4_class}
 \alias{vld_s4_class}
 \title{Check Inherits from S4 Class}
 \usage{
 chk_s4_class(x, class, x_name = NULL)
+
+check_s4_class(x, class, x_name = NULL)
 
 vld_s4_class(x, class)
 }
@@ -31,6 +34,8 @@ Checks inherits from S4 class using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_s4_class}: Check Inherits from S4 Class
+
 \item \code{vld_s4_class}: Validate Inherits from S4 Class
 }}
 
@@ -38,6 +43,9 @@ Checks inherits from S4 class using
 # chk_s4_class
 try(chk_s4_class(1, "numeric"))
 chk_s4_class(getClass("MethodDefinition"), "classRepresentation")
+# check_s4_class
+try(check_s4_class(1, "numeric"))
+check_s4_class(getClass("MethodDefinition"), "classRepresentation")
 # vld_s4_class
 vld_s4_class(numeric(0), "numeric")
 vld_s4_class(getClass("MethodDefinition"), "classRepresentation")

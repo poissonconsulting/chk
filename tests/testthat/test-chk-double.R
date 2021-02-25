@@ -15,3 +15,12 @@ test_that("chk_double", {
     "^`TRUE` must be double[.]$"
   )
 })
+
+test_that("check_double", {
+  expect_identical(check_double(1), 1)
+  expect_invisible(check_double(1))
+  expect_chk_error(
+    check_double(TRUE),
+    "^`TRUE` must be double[.]$"
+  )
+})

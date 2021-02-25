@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-date.R
 \name{chk_date}
 \alias{chk_date}
+\alias{check_date}
 \alias{vld_date}
 \title{Check Date}
 \usage{
 chk_date(x, x_name = NULL)
+
+check_date(x, x_name = NULL)
 
 vld_date(x)
 }
@@ -29,6 +32,8 @@ Checks non-missing Date scalar using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_date}: Check Date
+
 \item \code{vld_date}: Validate Date
 }}
 
@@ -36,6 +41,9 @@ Checks non-missing Date scalar using
 # chk_date
 chk_date(Sys.Date())
 try(chk_date(1))
+# check_date
+check_date(Sys.Date())
+try(check_date(1))
 # vld_date
 vld_date(Sys.Date())
 vld_date(Sys.time())

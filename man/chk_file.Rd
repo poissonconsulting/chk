@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-file.R
 \name{chk_file}
 \alias{chk_file}
+\alias{check_file}
 \alias{vld_file}
 \title{Check File Exists}
 \usage{
 chk_file(x, x_name = NULL)
+
+check_file(x, x_name = NULL)
 
 vld_file(x)
 }
@@ -29,12 +32,16 @@ Checks if file exists using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_file}: Check File Exists
+
 \item \code{vld_file}: Validate File Exists
 }}
 
 \examples{
 # chk_file
 try(chk_file(tempfile()))
+# check_file
+try(check_file(tempfile()))
 # vld_file
 vld_file(tempfile())
 }

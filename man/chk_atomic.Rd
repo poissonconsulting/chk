@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-atomic.R
 \name{chk_atomic}
 \alias{chk_atomic}
+\alias{check_atomic}
 \alias{vld_atomic}
 \title{Check Atomic}
 \usage{
 chk_atomic(x, x_name = NULL)
+
+check_atomic(x, x_name = NULL)
 
 vld_atomic(x)
 }
@@ -29,6 +32,8 @@ Checks if atomic using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_atomic}: Check Atomic
+
 \item \code{vld_atomic}: Validate Atomic
 }}
 
@@ -36,6 +41,9 @@ Checks if atomic using
 # chk_atomic
 chk_atomic(1)
 try(chk_atomic(list(1)))
+# check_atomic
+check_atomic(1)
+try(check_atomic(list(1)))
 # vld_atomic
 vld_atomic(1)
 vld_atomic(matrix(1:3))

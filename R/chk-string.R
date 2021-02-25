@@ -23,6 +23,21 @@ chk_string <- function(x, x_name = NULL) {
   abort_chk(x_name, " must be a string (non-missing character scalar)", x = x)
 }
 
+#' @describeIn chk_string Check String
+#'
+#' @examples
+#' # check_string
+#' check_string("1")
+#' try(check_string(1))
+#' @export
+check_string <- function(x, x_name = NULL) {
+  if (is.character(x) && length(x) == 1L && !anyNA(x)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  abort_chk(x_name, " must be a string (non-missing character scalar)", x = x)
+}
+
 #' @describeIn chk_string Validate String
 #'
 #' @examples

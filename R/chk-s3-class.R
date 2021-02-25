@@ -23,6 +23,21 @@ chk_s3_class <- function(x, class, x_name = NULL) {
   abort_chk(x_name, " must inherit from S3 class '", class, "'", x = x, class = class)
 }
 
+#' @describeIn chk_s3_class Check Inherits from S3 Class
+#'
+#' @examples
+#' # check_s3_class
+#' check_s3_class(1, "numeric")
+#' try(check_s3_class(getClass("MethodDefinition"), "classRepresentation"))
+#' @export
+check_s3_class <- function(x, class, x_name = NULL) {
+  if (vld_s3_class(x, class)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  abort_chk(x_name, " must inherit from S3 class '", class, "'", x = x, class = class)
+}
+
 #' @describeIn chk_s3_class Validate Inherits from S3 Class
 #'
 #' @examples

@@ -23,6 +23,21 @@ chk_named <- function(x, x_name = NULL) {
   abort_chk(x_name, " must be named", x = x)
 }
 
+#' @describeIn chk_named Check Named
+#'
+#' @examples
+#' # check_named
+#' check_named(c(x = 1))
+#' try(check_named(list(1)))
+#' @export
+check_named <- function(x, x_name = NULL) {
+  if (vld_named(x)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  abort_chk(x_name, " must be named", x = x)
+}
+
 #' @describeIn chk_named Validate Named
 #'
 #' @examples

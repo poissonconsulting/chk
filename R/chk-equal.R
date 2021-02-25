@@ -28,6 +28,26 @@ chk_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps),
   abort_chk(x_name, " must be equal to: ", y_name, x = x, y = y)
 }
 
+#' @describeIn chk_equal Check Equal
+#'
+#' @examples
+#' # check_equal
+#' check_equal(1, 1.00000001)
+#' try(check_equal(1, 1.0000001))
+#' check_equal(1, 1L)
+#' check_equal(c(x = 1), c(x = 1L))
+#' try(check_equal(c(x = 1), c(y = 1L)))
+#' @export
+check_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps),
+                      x_name = NULL) {
+  if (vld_equal(x, y, tolerance = tolerance)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  y_name <- as_label(y)
+  abort_chk(x_name, " must be equal to: ", y_name, x = x, y = y)
+}
+
 #' @describeIn chk_equal Validate Equal
 #'
 #' @examples

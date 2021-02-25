@@ -31,6 +31,25 @@ chk_whole_number <- function(x, x_name = NULL) {
   )
 }
 
+#' @describeIn chk_whole_number Check Whole Number
+#'
+#' @examples
+#' # check_whole_number
+#' check_whole_number(2)
+#' try(check_whole_number(1.1))
+#' @export
+check_whole_number <- function(x, x_name = NULL) {
+  if (vld_whole_number(x)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  abort_chk(
+    x_name,
+    " must be a whole number (non-missing integer scalar or double equivalent)",
+    x = x
+  )
+}
+
 #' @describeIn chk_whole_number Validate Whole Number
 #'
 #' @examples

@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-identical.R
 \name{chk_identical}
 \alias{chk_identical}
+\alias{check_identical}
 \alias{vld_identical}
 \title{Check Identical}
 \usage{
 chk_identical(x, y, x_name = NULL)
+
+check_identical(x, y, x_name = NULL)
 
 vld_identical(x, y)
 }
@@ -31,6 +34,8 @@ Checks if is identical to y using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_identical}: Check Identical
+
 \item \code{vld_identical}: Validate Identical
 }}
 
@@ -40,6 +45,11 @@ chk_identical(1, 1)
 try(chk_identical(1, 1L))
 chk_identical(c(1, 1), c(1, 1))
 try(chk_identical(1, c(1, 1)))
+# check_identical
+check_identical(1, 1)
+try(check_identical(1, 1L))
+check_identical(c(1, 1), c(1, 1))
+try(check_identical(1, c(1, 1)))
 vld_identical(1, 1)
 }
 \seealso{

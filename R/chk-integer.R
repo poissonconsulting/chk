@@ -23,6 +23,21 @@ chk_integer <- function(x, x_name = NULL) {
   abort_chk(x_name, " must be integer", x = x)
 }
 
+#' @describeIn chk_integer Check Integer
+#'
+#' @examples
+#' # check_integer
+#' check_integer(1L)
+#' try(check_integer(1))
+#' @export
+check_integer <- function(x, x_name = NULL) {
+  if (vld_integer(x)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  abort_chk(x_name, " must be integer", x = x)
+}
+
 #' @describeIn chk_integer Validate Integer
 #'
 #' @examples

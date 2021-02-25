@@ -22,3 +22,17 @@ test_that("chk_is", {
   expect_chk_error(chk_is(x, "c"), "`x` must inherit from class 'c'")
   expect_chk_error(chk_is(x, "c", x_name = "c"), "C must inherit from class 'c'")
 })
+
+test_that("check_is", {
+  expect_identical(check_is(1L, "integer"), check_is(1L, "integer"))
+  expect_invisible(check_is(1L, "integer"))
+  expect_chk_error(check_is(1, "integer"), "^`1` must inherit from class 'integer'[.]$")
+  expect_chk_error(
+    check_is(matrix(1), "numeric"),
+    "`matrix[(]1[)]` must inherit from class 'numeric'[.]$"
+  )
+  x <- list()
+  class(x) <- c("a", "b")
+  expect_chk_error(check_is(x, "c"), "`x` must inherit from class 'c'")
+  expect_chk_error(check_is(x, "c", x_name = "c"), "C must inherit from class 'c'")
+})

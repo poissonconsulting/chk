@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-character.R
 \name{chk_character}
 \alias{chk_character}
+\alias{check_character}
 \alias{vld_character}
 \title{Check Character}
 \usage{
 chk_character(x, x_name = NULL)
+
+check_character(x, x_name = NULL)
 
 vld_character(x)
 }
@@ -29,6 +32,8 @@ Checks if character using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_character}: Check Character
+
 \item \code{vld_character}: Validate Character
 }}
 
@@ -36,6 +41,9 @@ Checks if character using
 # chk_character
 chk_character("1")
 try(chk_character(1))
+# check_character
+check_character("1")
+try(check_character(1))
 # vld_character
 vld_character("1")
 vld_character(matrix("a"))

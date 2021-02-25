@@ -22,6 +22,20 @@ chk_tz <- function(x, x_name = NULL) {
   abort_chk(x_name, " must be a tz (non-missing scalar character of a recognized timezone)", x = x)
 }
 
+#' @describeIn chk_tz Check Time Zone
+#'
+#' @examples
+#' check_tz("UTC")
+#' try(check_tz("TCU"))
+#' @export
+check_tz <- function(x, x_name = NULL) {
+  if (vld_tz(x)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  abort_chk(x_name, " must be a tz (non-missing scalar character of a recognized timezone)", x = x)
+}
+
 #' @describeIn chk_tz Validate Time Zone
 #'
 #' @examples

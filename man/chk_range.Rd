@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-range.R
 \name{chk_range}
 \alias{chk_range}
+\alias{check_range}
 \alias{vld_range}
 \title{Checks range of non-missing values}
 \usage{
 chk_range(x, range = c(0, 1), x_name = NULL)
+
+check_range(x, range = c(0, 1), x_name = NULL)
 
 vld_range(x, range = c(0, 1))
 }
@@ -32,6 +35,8 @@ Checks all non-missing values fall within range using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_range}: Check Range
+
 \item \code{vld_range}: Validate Range
 }}
 
@@ -39,6 +44,9 @@ Checks all non-missing values fall within range using
 # chk_range
 chk_range(0)
 try(chk_range(-0.1))
+# check_range
+check_range(0)
+try(check_range(-0.1))
 # vld_range
 vld_range(numeric(0))
 vld_range(0)

@@ -15,3 +15,12 @@ test_that("chk_integer", {
     "^`TRUE` must be integer[.]$"
   )
 })
+
+test_that("check_integer", {
+  expect_identical(check_integer(1L), 1L)
+  expect_invisible(check_integer(1L))
+  expect_chk_error(
+    check_integer(TRUE),
+    "^`TRUE` must be integer[.]$"
+  )
+})

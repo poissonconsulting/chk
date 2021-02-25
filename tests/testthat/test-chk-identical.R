@@ -36,6 +36,33 @@ test_that("chk_identical", {
   )
 })
 
+test_that("check_identical", {
+  expect_identical(check_identical(1, 1), check_identical(1, 1))
+  expect_invisible(check_identical(1, 1))
+  expect_chk_error(
+    check_identical(1L, 2),
+    "^`1L` must be identical to: 2[.]\n"
+  )
+
+  expect_chk_error(check_identical(1, 1L), "^`1` must be identical to: 1L[.]\n")
+  expect_chk_error(
+    check_identical(1, 1:10),
+    "^`1` must be identical to: [<]int[>][.]\n"
+  )
+  expect_chk_error(
+    check_identical(1, 1:100),
+    "^`1` must be identical to: [<]int[>][.]\n"
+  )
+  expect_chk_error(
+    check_identical(1, c(1, 5, 1, 9)),
+    "^`1` must be identical to: [<]dbl[>][.]\n"
+  )
+  expect_chk_error(
+    check_identical(1, 2, x_name = 2),
+    "^2 must be identical to: 2[.]\n"
+  )
+})
+
 test_that("vld_equal", {
   expect_true(vld_equal(1, 1))
   expect_true(vld_equal(1L, 1L))
@@ -74,6 +101,27 @@ test_that("chk_equal", {
   )
 })
 
+test_that("check_equal", {
+  expect_identical(check_equal(1, 1), check_equal(1, 1))
+  expect_invisible(check_equal(1, 1))
+  expect_chk_error(
+    check_equal(c(x = 1L), 1L),
+    "^`c[(]x = 1L[)]` must be equal to: 1L[.]\n"
+  )
+  expect_chk_error(
+    check_equal(1L, 2),
+    "^`1L` must be equal to: 2[.]\n"
+  )
+  expect_chk_error(
+    check_equal(1, c(1, 5, 1, 9)),
+    "^`1` must be equal to: [<]dbl[>][.]\n"
+  )
+  expect_chk_error(
+    check_equal(1, 2, x_name = 2),
+    "^2 must be equal to: 2[.]\n"
+  )
+})
+
 test_that("vld_equivalent", {
   expect_true(vld_equivalent(1, 1))
   expect_true(vld_equivalent(1L, 1L))
@@ -103,6 +151,20 @@ test_that("chk_equivalent", {
   )
   expect_chk_error(
     chk_equivalent(1, 2, x_name = 2),
+    "^2 must be equivalent to: 2[.]\n"
+  )
+})
+
+test_that("check_equivalent", {
+  expect_identical(check_equivalent(1, 1), check_equivalent(1, 1))
+  expect_invisible(check_equivalent(1, 1))
+  expect_chk_error(check_equivalent(1, 1.001, 0.0001), c("^`1` must be equivalent to: 1[.]001[.]\n"))
+  expect_chk_error(
+    check_equivalent(1, c(1, 5, 1, 9)),
+    "^`1` must be equivalent to: [<]dbl[>][.]\n"
+  )
+  expect_chk_error(
+    check_equivalent(1, 2, x_name = 2),
     "^2 must be equivalent to: 2[.]\n"
   )
 })

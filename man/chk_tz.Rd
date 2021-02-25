@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-tz.R
 \name{chk_tz}
 \alias{chk_tz}
+\alias{check_tz}
 \alias{vld_tz}
 \title{Check Time Zone}
 \usage{
 chk_tz(x, x_name = NULL)
+
+check_tz(x, x_name = NULL)
 
 vld_tz(x)
 }
@@ -29,12 +32,16 @@ Checks if non-missing valid scalar timezone using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_tz}: Check Time Zone
+
 \item \code{vld_tz}: Validate Time Zone
 }}
 
 \examples{
 chk_tz("UTC")
 try(chk_tz("TCU"))
+check_tz("UTC")
+try(check_tz("TCU"))
 vld_tz("UTC")
 vld_tz("TCU")
 }
