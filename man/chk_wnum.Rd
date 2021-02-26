@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-wnum.R
 \name{chk_wnum}
 \alias{chk_wnum}
+\alias{check_wnum}
 \alias{vld_wnum}
 \title{Check Whole Numeric Scalar}
 \usage{
 chk_wnum(x, x_name = NULL)
+
+check_wnum(x, x_name = NULL)
 
 vld_wnum(x)
 }
@@ -17,6 +20,9 @@ vld_wnum(x)
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -26,13 +32,18 @@ Checks if whole numeric scalar using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_wnum}: Validate Double
+\item \code{check_wnum}: Check Whole Numeric Scalar
+
+\item \code{vld_wnum}: Validate Whole Numeric Scalar
 }}
 
 \examples{
 # chk_wnum
 chk_wnum(1)
 try(chk_wnum(1.1))
+# check_wnum
+check_wnum(1)
+try(check_wnum(1.1))
 # vld_wnum
 vld_wnum(1)
 vld_wnum(double(0))

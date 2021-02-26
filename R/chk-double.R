@@ -23,6 +23,21 @@ chk_double <- function(x, x_name = NULL) {
   abort_chk(x_name, " must be double", x = x)
 }
 
+#' @describeIn chk_double Check Double
+#'
+#' @examples
+#' # check_double
+#' check_double(1)
+#' try(check_double(1L))
+#' @export
+check_double <- function(x, x_name = NULL) {
+  if (vld_double(x)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  abort_chk(x_name, " must be double", x = x)
+}
+
 #' @describeIn chk_double Validate Double
 #'
 #' @examples

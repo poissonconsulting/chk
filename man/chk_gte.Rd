@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-gte.R
 \name{chk_gte}
 \alias{chk_gte}
+\alias{check_gte}
 \alias{vld_gte}
 \title{Check Greater Than or Equal To}
 \usage{
 chk_gte(x, value = 0, x_name = NULL)
+
+check_gte(x, value = 0, x_name = NULL)
 
 vld_gte(x, value = 0)
 }
@@ -19,6 +22,9 @@ vld_gte(x, value = 0)
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -28,6 +34,8 @@ Checks if all non-missing values are greater than or equal to y using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_gte}: Check Greater Than or Equal To
+
 \item \code{vld_gte}: Validate Greater Than or Equal To
 }}
 
@@ -35,6 +43,9 @@ Checks if all non-missing values are greater than or equal to y using
 # chk_gte
 chk_gte(0)
 try(chk_gte(-0.1))
+# check_gte
+check_gte(0)
+try(check_gte(-0.1))
 # vld_gte
 vld_gte(numeric(0))
 vld_gte(0)

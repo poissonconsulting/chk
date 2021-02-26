@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-match.R
 \name{chk_match}
 \alias{chk_match}
+\alias{check_match}
 \alias{vld_match}
 \title{Check Matches}
 \usage{
 chk_match(x, regexp = ".+", x_name = NULL)
+
+check_match(x, regexp = ".+", x_name = NULL)
 
 vld_match(x, regexp = ".+")
 }
@@ -19,6 +22,9 @@ vld_match(x, regexp = ".+")
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -28,6 +34,8 @@ Checks if all values match regular expression using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_match}: Check Matches
+
 \item \code{vld_match}: Validate Matches
 }}
 
@@ -35,6 +43,9 @@ Checks if all values match regular expression using
 # chk_match
 chk_match("1")
 try(chk_match("1", regexp = "2"))
+# check_match
+check_match("1")
+try(check_match("1", regexp = "2"))
 # vld_match
 vld_match("1")
 vld_match("a", regexp = "a")

@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-ext.R
 \name{chk_ext}
 \alias{chk_ext}
+\alias{check_ext}
 \alias{vld_ext}
 \title{Check File Extension}
 \usage{
 chk_ext(x, ext, x_name = NULL)
+
+check_ext(x, ext, x_name = NULL)
 
 vld_ext(x, ext)
 }
@@ -20,6 +23,9 @@ vld_ext(x, ext)
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -32,12 +38,16 @@ to ensure the case matches.
 }
 \section{Functions}{
 \itemize{
+\item \code{check_ext}: Check File Extension
+
 \item \code{vld_ext}: Validate File Extension
 }}
 
 \examples{
 # chk_ext
 try(chk_ext("file1.pdf", "png"))
+# check_ext
+try(check_ext("file1.pdf", "png"))
 # vld_ext
 vld_ext("oeu.pdf", "pdf")
 vld_ext(toupper("oeu.pdf"), "PDF")

@@ -22,6 +22,17 @@ test_that("chk_range", {
   expect_chk_error(chk_range(2, c(1, 1), x_name = 1), "^1 must be 1, not 2[.]$")
 })
 
+test_that("check_range", {
+  expect_identical(check_range(1), 1)
+  expect_invisible(check_range(1))
+
+  expect_chk_error(check_range(-1), "^`-1` must be between 0 and 1, not -1[.]$")
+  expect_chk_error(check_range(c(-1, NA)), "^`c[(]-1, NA[)]` must have values between 0 and 1[.]$")
+  expect_chk_error(check_range(2, c(1, 1)), "^`2` must be 1, not 2[.]$")
+  expect_chk_error(check_range(c(2, 1), c(1, 1)), "^`c[(]2, 1[)]` must have values of 1[.]$")
+  expect_chk_error(check_range(2, c(1, 1), x_name = 1), "^1 must be 1, not 2[.]$")
+})
+
 test_that("vld_lt", {
   expect_true(vld_lt(numeric(0)))
   expect_true(vld_lt(NA))
@@ -37,6 +48,14 @@ test_that("chk_lt", {
   expect_chk_error(chk_lt(1), "^`1` must be less than 0, not 1[.]$")
   expect_chk_error(chk_lt(c(1, -1)), "^`c[(]1, -1[)]` must have values less than 0[.]$")
   expect_chk_error(chk_lt(1, x_name = -1), "^-1 must be less than 0, not 1[.]$")
+})
+
+test_that("check_lt", {
+  expect_identical(check_lt(-1), -1)
+  expect_invisible(check_lt(-1))
+  expect_chk_error(check_lt(1), "^`1` must be less than 0, not 1[.]$")
+  expect_chk_error(check_lt(c(1, -1)), "^`c[(]1, -1[)]` must have values less than 0[.]$")
+  expect_chk_error(check_lt(1, x_name = -1), "^-1 must be less than 0, not 1[.]$")
 })
 
 test_that("vld_lte", {
@@ -56,6 +75,14 @@ test_that("chk_lte", {
   expect_chk_error(chk_lte(1, x_name = "0"), "^0 must be less than or equal to 0, not 1[.]$")
 })
 
+test_that("check_lte", {
+  expect_identical(check_lte(-1), -1)
+  expect_invisible(check_lte(-1))
+  expect_chk_error(check_lte(1), "^`1` must be less than or equal to 0, not 1[.]$")
+  expect_chk_error(check_lte(c(1, -1)), "^`c[(]1, -1[)]` must have values less than or equal to 0[.]$")
+  expect_chk_error(check_lte(1, x_name = "0"), "^0 must be less than or equal to 0, not 1[.]$")
+})
+
 test_that("vld_gt", {
   expect_true(vld_gt(numeric(0)))
   expect_true(vld_gt(NA))
@@ -73,6 +100,14 @@ test_that("chk_gt", {
   expect_chk_error(chk_gt(-1, x_name = "`a number`"), "^`a number` must be greater than 0, not -1[.]$")
 })
 
+test_that("check_gt", {
+  expect_identical(check_gt(1), 1)
+  expect_invisible(check_gt(1))
+  expect_chk_error(check_gt(-1), "^`-1` must be greater than 0, not -1[.]$")
+  expect_chk_error(check_gt(c(1, -1)), "^`c[(]1, -1[)]` must have values greater than 0[.]$")
+  expect_chk_error(check_gt(-1, x_name = "`a number`"), "^`a number` must be greater than 0, not -1[.]$")
+})
+
 test_that("vld_gte", {
   expect_true(vld_gte(numeric(0)))
   expect_true(vld_gte(NA))
@@ -88,4 +123,12 @@ test_that("chk_gte", {
   expect_chk_error(chk_gte(-1), "^`-1` must be greater than or equal to 0, not -1[.]$")
   expect_chk_error(chk_gte(c(1, -1)), "^`c[(]1, -1[)]` must have values greater than or equal to 0[.]$")
   expect_chk_error(chk_gte(-1, x_name = "another number"), "^Another number must be greater than or equal to 0, not -1[.]$")
+})
+
+test_that("check_gte", {
+  expect_identical(check_gte(1), 1)
+  expect_invisible(check_gte(1))
+  expect_chk_error(check_gte(-1), "^`-1` must be greater than or equal to 0, not -1[.]$")
+  expect_chk_error(check_gte(c(1, -1)), "^`c[(]1, -1[)]` must have values greater than or equal to 0[.]$")
+  expect_chk_error(check_gte(-1, x_name = "another number"), "^Another number must be greater than or equal to 0, not -1[.]$")
 })

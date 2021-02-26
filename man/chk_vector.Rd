@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-vector.R
 \name{chk_vector}
 \alias{chk_vector}
+\alias{check_vector}
 \alias{vld_vector}
 \title{Check Vector}
 \usage{
 chk_vector(x, x_name = NULL)
+
+check_vector(x, x_name = NULL)
 
 vld_vector(x)
 }
@@ -16,6 +19,9 @@ vld_vector(x)
 }
 \value{
 The \code{chk_} function throws an informative error if the test fails.
+
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
 
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
@@ -30,6 +36,8 @@ if the object is a vector with no attributes apart from names.
 }
 \section{Functions}{
 \itemize{
+\item \code{check_vector}: Check Vector
+
 \item \code{vld_vector}: Validate Vector
 }}
 
@@ -38,6 +46,10 @@ if the object is a vector with no attributes apart from names.
 chk_vector(1)
 chk_vector(list())
 try(chk_vector(matrix(1)))
+# check_vector
+check_vector(1)
+check_vector(list())
+try(check_vector(matrix(1)))
 # vld_vector
 vld_vector(1)
 }

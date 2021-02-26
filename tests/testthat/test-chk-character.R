@@ -16,3 +16,12 @@ test_that("chk_character", {
     "^`TRUE` must be character[.]$"
   )
 })
+
+test_that("check_character", {
+  expect_identical(check_character("1"), "1")
+  expect_invisible(check_character("1"))
+  expect_chk_error(
+    check_character(TRUE),
+    "^`TRUE` must be character[.]$"
+  )
+})

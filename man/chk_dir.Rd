@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-dir.R
 \name{chk_dir}
 \alias{chk_dir}
+\alias{check_dir}
 \alias{vld_dir}
 \title{Check Directory Exists}
 \usage{
 chk_dir(x, x_name = NULL)
+
+check_dir(x, x_name = NULL)
 
 vld_dir(x)
 }
@@ -17,6 +20,9 @@ vld_dir(x)
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -26,6 +32,8 @@ Checks if directory exists using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_dir}: Check Directory Exists
+
 \item \code{vld_dir}: Validate Directory Exists
 }}
 
@@ -33,6 +41,9 @@ Checks if directory exists using
 # chk_dir
 chk_dir(tempdir())
 try(chk_dir(tempfile()))
+# check_dir
+check_dir(tempdir())
+try(check_dir(tempfile()))
 # vld_dir
 vld_dir(1)
 vld_dir(tempdir())

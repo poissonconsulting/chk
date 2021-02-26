@@ -27,6 +27,25 @@ chk_equivalent <- function(x, y, tolerance = sqrt(.Machine$double.eps),
   abort_chk(x_name, " must be equivalent to: ", y_name, x = x, y = y)
 }
 
+#' @describeIn chk_equivalent Check Equivalent
+#'
+#' @examples
+#' # check_equivalent
+#' check_equivalent(1, 1.00000001)
+#' try(check_equivalent(1, 1.0000001))
+#' check_equivalent(1, 1L)
+#' check_equivalent(c(x = 1), c(y = 1))
+#' @export
+check_equivalent <- function(x, y, tolerance = sqrt(.Machine$double.eps),
+                           x_name = NULL) {
+  if (vld_equivalent(x, y, tolerance = tolerance)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  y_name <- as_label(y)
+  abort_chk(x_name, " must be equivalent to: ", y_name, x = x, y = y)
+}
+
 #' @describeIn chk_equivalent Validate Equivalent
 #'
 #' @examples

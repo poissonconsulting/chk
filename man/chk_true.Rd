@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-true.R
 \name{chk_true}
 \alias{chk_true}
+\alias{check_true}
 \alias{vld_true}
 \title{Check TRUE}
 \usage{
 chk_true(x, x_name = NULL)
+
+check_true(x, x_name = NULL)
 
 vld_true(x)
 }
@@ -17,6 +20,9 @@ vld_true(x)
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -26,6 +32,8 @@ Checks if TRUE using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_true}: Check TRUE
+
 \item \code{vld_true}: Validate TRUE
 }}
 
@@ -33,6 +41,9 @@ Checks if TRUE using
 # chk_true
 chk_true(TRUE)
 try(chk_true(1))
+# check_true
+check_true(TRUE)
+try(check_true(1))
 # vld_true
 vld_true(TRUE)
 vld_true(FALSE)

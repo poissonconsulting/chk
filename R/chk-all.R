@@ -32,6 +32,31 @@ chk_all <- function(x, chk_fun, ..., x_name = NULL) {
   do.call("lapply", args)
   invisible()
 }
+#' @describeIn chk_all Check All
+#'
+#' @examples
+#' # check_all
+#' check_all(TRUE, chk_lgl)
+#' # FIXME try(check_all(1, chk_lgl))
+#' check_all(c(TRUE, NA), chk_lgl)
+#' @export
+check_all <- function(x, chk_fun, ..., x_name = NULL) {
+  if (is.null(x)) {
+    if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+    chk_fun(x, ..., x_name = x_name)
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  x_name <- paste0("all elements of ", x_name)
+
+  args <- list(...)
+  args$X <- x
+  args$FUN <- chk_fun
+  args$x_name <- x_name
+
+  do.call("lapply", args)
+  invisible(x)
+}
 
 #' @describeIn chk_all Validate All
 #'

@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-array.R
 \name{chk_array}
 \alias{chk_array}
+\alias{check_array}
 \alias{vld_array}
 \title{Check Array}
 \usage{
 chk_array(x, x_name = NULL)
+
+check_array(x, x_name = NULL)
 
 vld_array(x)
 }
@@ -17,15 +20,20 @@ vld_array(x)
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
-Checks if is a array using
+Checks if is an array using
 
 \code{is.array(x)}
 }
 \section{Functions}{
 \itemize{
+\item \code{check_array}: Check Array for Pipes
+
 \item \code{vld_array}: Validate Array
 }}
 
@@ -33,6 +41,11 @@ Checks if is a array using
 # chk_array
 chk_array(array(1))
 try(chk_array(matrix(1)))
+
+# check_array
+print(check_array(array(1)))
+try(check_array(matrix(1)))
+
 # vld_array
 vld_array(1)
 vld_array(array(1))

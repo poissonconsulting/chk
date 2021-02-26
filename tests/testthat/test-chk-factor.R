@@ -15,3 +15,12 @@ test_that("chk_factor", {
     "^`TRUE` must be factor[.]$"
   )
 })
+
+test_that("check_factor", {
+  expect_identical(check_factor(factor("1")), factor("1"))
+  expect_invisible(check_factor(factor("1")))
+  expect_chk_error(
+    check_factor(TRUE),
+    "^`TRUE` must be factor[.]$"
+  )
+})

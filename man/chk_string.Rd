@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-string.R
 \name{chk_string}
 \alias{chk_string}
+\alias{check_string}
 \alias{vld_string}
 \title{Check String}
 \usage{
 chk_string(x, x_name = NULL)
+
+check_string(x, x_name = NULL)
 
 vld_string(x, x_name = NULL)
 }
@@ -17,6 +20,9 @@ vld_string(x, x_name = NULL)
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -26,6 +32,8 @@ Checks if string
 }
 \section{Functions}{
 \itemize{
+\item \code{check_string}: Check String
+
 \item \code{vld_string}: Validate String
 }}
 
@@ -33,6 +41,9 @@ Checks if string
 # chk_string
 chk_string("1")
 try(chk_string(1))
+# check_string
+check_string("1")
+try(check_string(1))
 # vld_string
 vld_string("1")
 vld_string("")

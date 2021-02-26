@@ -16,3 +16,12 @@ test_that("chk_character_or_factor", {
     "^`TRUE` must be character or factor[.]$"
   )
 })
+
+test_that("check_character_or_factor", {
+  expect_identical(check_character_or_factor("1"), "1")
+  expect_invisible(check_character_or_factor("1"))
+  expect_chk_error(
+    check_character_or_factor(TRUE),
+    "^`TRUE` must be character or factor[.]$"
+  )
+})

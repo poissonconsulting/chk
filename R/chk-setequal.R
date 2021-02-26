@@ -23,6 +23,21 @@ chk_setequal <- function(x, values, x_name = NULL) {
   abort_chk(x_name, " must equal set: ", cc(values), x = x, values = values)
 }
 
+#' @describeIn chk_setequal Check Set Equal
+#'
+#' @examples
+#' # check_setequal
+#' check_setequal(1:2, 2:1)
+#' try(check_setequal(1, 1:2))
+#' @export
+check_setequal <- function(x, values, x_name = NULL) {
+  if (vld_setequal(x, values)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  abort_chk(x_name, " must equal set: ", cc(values), x = x, values = values)
+}
+
 #' @describeIn chk_setequal Validate Set Equal
 #'
 #' @examples

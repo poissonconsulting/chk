@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-file.R
 \name{chk_file}
 \alias{chk_file}
+\alias{check_file}
 \alias{vld_file}
 \title{Check File Exists}
 \usage{
 chk_file(x, x_name = NULL)
+
+check_file(x, x_name = NULL)
 
 vld_file(x)
 }
@@ -17,6 +20,9 @@ vld_file(x)
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -26,12 +32,16 @@ Checks if file exists using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_file}: Check File Exists
+
 \item \code{vld_file}: Validate File Exists
 }}
 
 \examples{
 # chk_file
 try(chk_file(tempfile()))
+# check_file
+try(check_file(tempfile()))
 # vld_file
 vld_file(tempfile())
 }

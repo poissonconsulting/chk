@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-whole-number.R
 \name{chk_whole_number}
 \alias{chk_whole_number}
+\alias{check_whole_number}
 \alias{vld_whole_number}
 \title{Check Whole Number}
 \usage{
 chk_whole_number(x, x_name = NULL)
+
+check_whole_number(x, x_name = NULL)
 
 vld_whole_number(x)
 }
@@ -16,6 +19,9 @@ vld_whole_number(x)
 }
 \value{
 The \code{chk_} function throws an informative error if the test fails.
+
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
 
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
@@ -30,6 +36,8 @@ Checks if non-missing integer scalar or double equivalent using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_whole_number}: Check Whole Number
+
 \item \code{vld_whole_number}: Validate Whole Number
 }}
 
@@ -37,6 +45,9 @@ Checks if non-missing integer scalar or double equivalent using
 # chk_whole_number
 chk_whole_number(2)
 try(chk_whole_number(1.1))
+# check_whole_number
+check_whole_number(2)
+try(check_whole_number(1.1))
 # vld_whole_number
 vld_whole_number(2)
 }

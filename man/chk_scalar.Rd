@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-scalar.R
 \name{chk_scalar}
 \alias{chk_scalar}
+\alias{check_scalar}
 \alias{vld_scalar}
 \title{Check Scalar}
 \usage{
 chk_scalar(x, x_name = NULL)
+
+check_scalar(x, x_name = NULL)
 
 vld_scalar(x)
 }
@@ -17,6 +20,9 @@ vld_scalar(x)
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -26,6 +32,8 @@ Checks if is a vector using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_scalar}: Check Scalar
+
 \item \code{vld_scalar}: Validate Scalar
 }}
 
@@ -34,6 +42,10 @@ Checks if is a vector using
 chk_scalar(1)
 chk_scalar(list(1))
 try(chk_scalar(1:2))
+# check_scalar
+check_scalar(1)
+check_scalar(list(1))
+try(check_scalar(1:2))
 # vld_scalar
 vld_scalar(1)
 }

@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-numeric.R
 \name{chk_numeric}
 \alias{chk_numeric}
+\alias{check_numeric}
 \alias{vld_numeric}
 \title{Check Numeric}
 \usage{
 chk_numeric(x, x_name = NULL)
+
+check_numeric(x, x_name = NULL)
 
 vld_numeric(x)
 }
@@ -16,6 +19,9 @@ vld_numeric(x)
 }
 \value{
 The \code{chk_} function throws an informative error if the test fails.
+
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
 
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
@@ -30,6 +36,8 @@ Checks if numeric using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_numeric}: Check Numeric
+
 \item \code{vld_numeric}: Validate Numeric
 }}
 
@@ -37,6 +45,9 @@ Checks if numeric using
 # chk_numeric
 chk_numeric(1)
 try(chk_numeric("1"))
+# check_numeric
+check_numeric(1)
+try(check_numeric("1"))
 # vld_numeric
 vld_numeric(1)
 vld_numeric(1:2)

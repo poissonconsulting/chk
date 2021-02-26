@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-unique.R
 \name{chk_unique}
 \alias{chk_unique}
+\alias{check_unique}
 \alias{vld_unique}
 \title{Check Unique}
 \usage{
 chk_unique(x, incomparables = FALSE, x_name = NULL)
+
+check_unique(x, incomparables = FALSE, x_name = NULL)
 
 vld_unique(x, incomparables = FALSE)
 }
@@ -20,6 +23,9 @@ FALSE means that all values can be compared.}
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -29,6 +35,8 @@ Checks if unique using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_unique}: Check Unique
+
 \item \code{vld_unique}: Validate Unique
 }}
 
@@ -37,6 +45,10 @@ Checks if unique using
 chk_unique(c(NA, 2))
 try(chk_unique(c(NA, NA, 2)))
 chk_unique(c(NA, NA, 2), incomparables = NA)
+# check_unique
+check_unique(c(NA, 2))
+try(check_unique(c(NA, NA, 2)))
+check_unique(c(NA, NA, 2), incomparables = NA)
 # vld_unique
 vld_unique(NULL)
 vld_unique(numeric(0))

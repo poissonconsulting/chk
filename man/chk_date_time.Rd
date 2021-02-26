@@ -3,6 +3,7 @@
 \name{chk_date_time}
 \alias{chk_date_time}
 \alias{chk_datetime}
+\alias{check_date_time}
 \alias{vld_date_time}
 \alias{vld_datetime}
 \title{Check Date Time}
@@ -10,6 +11,8 @@
 chk_date_time(x, x_name = NULL)
 
 chk_datetime(x, x_name = NULL)
+
+check_date_time(x, x_name = NULL)
 
 vld_date_time(x)
 
@@ -23,6 +26,9 @@ vld_datetime(x)
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -34,6 +40,8 @@ Checks if non-missing POSIXct scalar using
 \itemize{
 \item \code{chk_datetime}: Check Date Time (Deprecated)
 
+\item \code{check_date_time}: Check Date Time
+
 \item \code{vld_date_time}: Validate Date Time
 
 \item \code{vld_datetime}: Validate Date Time (Deprecated)
@@ -43,6 +51,9 @@ Checks if non-missing POSIXct scalar using
 # chk_date_time
 chk_date_time(as.POSIXct("2001-01-02"))
 try(chk_date_time(1))
+# check_date_time
+check_date_time(as.POSIXct("2001-01-02"))
+try(check_date_time(1))
 # vld_date_time
 vld_date_time(as.POSIXct("2001-01-02"))
 vld_date_time(Sys.time())

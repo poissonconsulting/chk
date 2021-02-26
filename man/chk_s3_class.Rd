@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-s3-class.R
 \name{chk_s3_class}
 \alias{chk_s3_class}
+\alias{check_s3_class}
 \alias{vld_s3_class}
 \title{Check Type}
 \usage{
 chk_s3_class(x, class, x_name = NULL)
+
+check_s3_class(x, class, x_name = NULL)
 
 vld_s3_class(x, class)
 }
@@ -19,6 +22,9 @@ vld_s3_class(x, class)
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -28,6 +34,8 @@ Checks inherits from S3 class using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_s3_class}: Check Inherits from S3 Class
+
 \item \code{vld_s3_class}: Validate Inherits from S3 Class
 }}
 
@@ -35,6 +43,9 @@ Checks inherits from S3 class using
 # chk_s3_class
 chk_s3_class(1, "numeric")
 try(chk_s3_class(getClass("MethodDefinition"), "classRepresentation"))
+# check_s3_class
+check_s3_class(1, "numeric")
+try(check_s3_class(getClass("MethodDefinition"), "classRepresentation"))
 # vld_s3_class
 vld_s3_class(numeric(0), "numeric")
 vld_s3_class(getClass("MethodDefinition"), "classRepresentation")

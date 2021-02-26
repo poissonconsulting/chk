@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-sorted.R
 \name{chk_sorted}
 \alias{chk_sorted}
+\alias{check_sorted}
 \alias{vld_sorted}
 \title{Check Sorted}
 \usage{
 chk_sorted(x, x_name = NULL)
+
+check_sorted(x, x_name = NULL)
 
 vld_sorted(x)
 }
@@ -17,6 +20,9 @@ vld_sorted(x)
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -26,6 +32,8 @@ Checks if is sorted using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_sorted}: Check Sorted
+
 \item \code{vld_sorted}: Validate Sorted
 }}
 
@@ -33,6 +41,9 @@ Checks if is sorted using
 # chk_sorted
 chk_sorted(1:2)
 try(chk_sorted(2:1))
+# check_sorted
+check_sorted(1:2)
+try(check_sorted(2:1))
 # vld_sorted
 vld_sorted(1:2)
 vld_sorted(2:1)

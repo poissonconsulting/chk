@@ -31,10 +31,10 @@ try(chk_orderset(2:1, 1:2))
 }
 \seealso{
 Other chk_set: 
+\code{\link{check_not_subset}()},
+\code{\link{check_orderset}()},
 \code{\link{chk_join}()},
 \code{\link{chk_not_subset}()},
-\code{\link{chk_superset}()},
-\code{\link{vld_not_subset}()},
-\code{\link{vld_orderset}()}
+\code{\link{chk_superset}()}
 }
 \concept{chk_set}

@@ -27,6 +27,20 @@ chk_numeric <- function(x, x_name = NULL) {
   abort_chk(x_name, " must be numeric", x = x)
 }
 
+#' @describeIn chk_numeric Check Numeric
+#'
+#' @examples
+#' # check_numeric
+#' check_numeric(1)
+#' try(check_numeric("1"))
+#' @export
+check_numeric <- function(x, x_name = NULL) {
+  if (vld_numeric(x)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  abort_chk(x_name, " must be numeric", x = x)
+}
 
 #' @describeIn chk_numeric Validate Numeric
 #'

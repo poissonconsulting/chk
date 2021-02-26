@@ -16,6 +16,9 @@ chk_not_subset(x, values, x_name = NULL)
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -30,10 +33,10 @@ try(chk_not_subset(1, 1:10))
 }
 \seealso{
 Other chk_set: 
+\code{\link{check_not_subset}()},
+\code{\link{check_orderset}()},
 \code{\link{chk_join}()},
 \code{\link{chk_orderset}()},
-\code{\link{chk_superset}()},
-\code{\link{vld_not_subset}()},
-\code{\link{vld_orderset}()}
+\code{\link{chk_superset}()}
 }
 \concept{chk_set}

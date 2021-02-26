@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-equal.R
 \name{chk_equal}
 \alias{chk_equal}
+\alias{check_equal}
 \alias{vld_equal}
 \title{Check Equal}
 \usage{
 chk_equal(x, y, tolerance = sqrt(.Machine$double.eps), x_name = NULL)
+
+check_equal(x, y, tolerance = sqrt(.Machine$double.eps), x_name = NULL)
 
 vld_equal(x, y, tolerance = sqrt(.Machine$double.eps))
 }
@@ -21,6 +24,9 @@ vld_equal(x, y, tolerance = sqrt(.Machine$double.eps))
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -30,6 +36,8 @@ Checks if is equal (identical within tolerance) to y using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_equal}: Check Equal
+
 \item \code{vld_equal}: Validate Equal
 }}
 
@@ -40,6 +48,12 @@ try(chk_equal(1, 1.0000001))
 chk_equal(1, 1L)
 chk_equal(c(x = 1), c(x = 1L))
 try(chk_equal(c(x = 1), c(y = 1L)))
+# check_equal
+check_equal(1, 1.00000001)
+try(check_equal(1, 1.0000001))
+check_equal(1, 1L)
+check_equal(c(x = 1), c(x = 1L))
+try(check_equal(c(x = 1), c(y = 1L)))
 vld_equal(1, 1.00000001)
 }
 \seealso{

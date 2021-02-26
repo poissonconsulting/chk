@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-lte.R
 \name{chk_lte}
 \alias{chk_lte}
+\alias{check_lte}
 \alias{vld_lte}
 \title{Check Less Than or Equal To}
 \usage{
 chk_lte(x, value = 0, x_name = NULL)
+
+check_lte(x, value = 0, x_name = NULL)
 
 vld_lte(x, value = 0)
 }
@@ -19,6 +22,9 @@ vld_lte(x, value = 0)
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -28,6 +34,8 @@ Checks if all non-missing values are less than or equal to y using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_lte}: Check Less Than or Equal To
+
 \item \code{vld_lte}: Validate Less Than or Equal To
 }}
 
@@ -35,6 +43,9 @@ Checks if all non-missing values are less than or equal to y using
 # chk_lte
 chk_lte(0)
 try(chk_lte(0.1))
+# check_lte
+check_lte(0)
+try(check_lte(0.1))
 # vld_lte
 vld_lte(numeric(0))
 vld_lte(0)

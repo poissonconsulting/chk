@@ -23,6 +23,21 @@ chk_null <- function(x, x_name = NULL) {
   abort_chk(x_name, " must be NULL", x = x)
 }
 
+#' @describeIn chk_null Check NULL
+#'
+#' @examples
+#' # check_null
+#' try(check_null(1))
+#' check_null(NULL)
+#' @export
+check_null <- function(x, x_name = NULL) {
+  if (vld_null(x)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  abort_chk(x_name, " must be NULL", x = x)
+}
+
 #' @describeIn chk_null Validate NULL
 #'
 #' @examples

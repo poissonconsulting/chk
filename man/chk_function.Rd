@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-function.R
 \name{chk_function}
 \alias{chk_function}
+\alias{check_function}
 \alias{vld_function}
 \title{Check Function}
 \usage{
 chk_function(x, formals = NULL, x_name = NULL)
+
+check_function(x, formals = NULL, x_name = NULL)
 
 vld_function(x, formals = NULL)
 }
@@ -19,6 +22,9 @@ vld_function(x, formals = NULL)
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -28,6 +34,8 @@ Checks if is a function using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_function}: Check Function
+
 \item \code{vld_function}: Validate Function
 }}
 
@@ -35,6 +43,9 @@ Checks if is a function using
 # chk_function
 chk_function(mean)
 try(chk_function(1))
+# check_function
+check_function(mean)
+try(check_function(1))
 # vld_function
 vld_function(mean)
 vld_function(function(x) x)

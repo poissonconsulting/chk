@@ -28,6 +28,25 @@ chk_whole_numeric <- function(x, x_name = NULL) {
   )
 }
 
+#' @describeIn chk_whole_numeric Check Whole Numeric
+#'
+#' @examples
+#' # check_whole_numeric
+#' check_whole_numeric(1)
+#' try(check_whole_numeric(1.1))
+#' @export
+check_whole_numeric <- function(x, x_name = NULL) {
+  if (vld_whole_numeric(x)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  abort_chk(
+    x_name,
+    " must be a whole numeric vector (integer vector or double equivalent)",
+    x = x
+  )
+}
+
 #' @describeIn chk_whole_numeric Validate Whole Numeric
 #'
 #' @examples

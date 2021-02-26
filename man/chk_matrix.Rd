@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-matrix.R
 \name{chk_matrix}
 \alias{chk_matrix}
+\alias{check_matrix}
 \alias{vld_matrix}
 \title{Check Matrix}
 \usage{
 chk_matrix(x, x_name = NULL)
+
+check_matrix(x, x_name = NULL)
 
 vld_matrix(x)
 }
@@ -17,6 +20,9 @@ vld_matrix(x)
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -26,6 +32,8 @@ Checks if is a matrix using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_matrix}: Check Matrix
+
 \item \code{vld_matrix}: Validate Matrix
 }}
 
@@ -33,6 +41,9 @@ Checks if is a matrix using
 # chk_matrix
 chk_matrix(matrix(1))
 try(chk_matrix(array(1)))
+# check_matrix
+check_matrix(matrix(1))
+try(check_matrix(array(1)))
 # vld_matrix
 vld_matrix(1)
 vld_matrix(matrix(1))

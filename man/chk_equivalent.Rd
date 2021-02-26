@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-equivalent.R
 \name{chk_equivalent}
 \alias{chk_equivalent}
+\alias{check_equivalent}
 \alias{vld_equivalent}
 \title{Check Equivalent}
 \usage{
 chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps), x_name = NULL)
+
+check_equivalent(x, y, tolerance = sqrt(.Machine$double.eps), x_name = NULL)
 
 vld_equivalent(x, y, tolerance = sqrt(.Machine$double.eps))
 }
@@ -21,6 +24,9 @@ vld_equivalent(x, y, tolerance = sqrt(.Machine$double.eps))
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -30,6 +36,8 @@ Checks if is equivalent (equal ignoring attributes) to y using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_equivalent}: Check Equivalent
+
 \item \code{vld_equivalent}: Validate Equivalent
 }}
 
@@ -39,6 +47,11 @@ chk_equivalent(1, 1.00000001)
 try(chk_equivalent(1, 1.0000001))
 chk_equivalent(1, 1L)
 chk_equivalent(c(x = 1), c(y = 1))
+# check_equivalent
+check_equivalent(1, 1.00000001)
+try(check_equivalent(1, 1.0000001))
+check_equivalent(1, 1L)
+check_equivalent(c(x = 1), c(y = 1))
 vld_equivalent(c(x = 1), c(y = 1L))
 }
 \seealso{

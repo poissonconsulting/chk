@@ -28,6 +28,22 @@ chk_vector <- function(x, x_name = NULL) {
   abort_chk(x_name, " must be a vector", x = x)
 }
 
+#' @describeIn chk_vector Check Vector
+#'
+#' @examples
+#' # check_vector
+#' check_vector(1)
+#' check_vector(list())
+#' try(check_vector(matrix(1)))
+#' @export
+check_vector <- function(x, x_name = NULL) {
+  if (vld_vector(x)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  abort_chk(x_name, " must be a vector", x = x)
+}
+
 #' @describeIn chk_vector Validate Vector
 #'
 #' @examples

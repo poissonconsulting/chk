@@ -2,10 +2,13 @@
 % Please edit documentation in R/chk-superset.R
 \name{chk_superset}
 \alias{chk_superset}
+\alias{check_superset}
 \alias{vld_superset}
 \title{Check Superset}
 \usage{
 chk_superset(x, values, x_name = NULL)
+
+check_superset(x, values, x_name = NULL)
 
 vld_superset(x, values)
 }
@@ -19,6 +22,9 @@ vld_superset(x, values)
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 
+The \code{check_} function throws an informative error if the test fails and
+returns the original object if successful so it can used in pipes.
+
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
@@ -28,6 +34,8 @@ Checks if includes all values using
 }
 \section{Functions}{
 \itemize{
+\item \code{check_superset}: Check Superset
+
 \item \code{vld_superset}: Validates Superset
 }}
 
@@ -35,6 +43,9 @@ Checks if includes all values using
 # chk_superset
 chk_superset(1:3, 1)
 try(chk_superset(1:3, 4))
+# check_superset
+check_superset(1:3, 1)
+try(check_superset(1:3, 4))
 # vld_superset
 vld_superset(1:3, 1)
 vld_superset(1:3, 4)
@@ -42,10 +53,10 @@ vld_superset(integer(0), integer(0))
 }
 \seealso{
 Other chk_set: 
+\code{\link{check_not_subset}()},
+\code{\link{check_orderset}()},
 \code{\link{chk_join}()},
 \code{\link{chk_not_subset}()},
-\code{\link{chk_orderset}()},
-\code{\link{vld_not_subset}()},
-\code{\link{vld_orderset}()}
+\code{\link{chk_orderset}()}
 }
 \concept{chk_set}

@@ -15,3 +15,12 @@ test_that("chk_dbl", {
     "^`TRUE` must be double [(]real[)] scalar[.]$"
   )
 })
+
+test_that("check_dbl", {
+  expect_identical(check_dbl(1), 1)
+  expect_invisible(check_dbl(1))
+  expect_chk_error(
+    check_dbl(TRUE),
+    "^`TRUE` must be double [(]real[)] scalar[.]$"
+  )
+})

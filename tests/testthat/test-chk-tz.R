@@ -7,6 +7,15 @@ test_that("chk_tz", {
   )
 })
 
+test_that("check_tz", {
+  expect_identical(check_tz("UTC"), "UTC")
+  expect_invisible(check_tz("UTC"))
+  expect_chk_error(
+    check_tz("TCU"),
+    "^`\"TCU\"` must be a tz [(]non-missing scalar character of a recognized timezone[)][.]$"
+  )
+})
+
 test_that("vld_tz", {
   expect_true(vld_tz("UTC"))
   expect_false(vld_tz("TCU"))

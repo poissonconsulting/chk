@@ -24,6 +24,22 @@ chk_character_or_factor <- function(x, x_name = NULL) {
   abort_chk(x_name, " must be character or factor", x = x)
 }
 
+#' @describeIn chk_character_or_factor Check Character or Factor
+#'
+#' @examples
+#' # check_character_or_factor
+#' check_character_or_factor("1")
+#' check_character_or_factor(factor("1"))
+#' try(check_character(1))
+#' @export
+check_character_or_factor <- function(x, x_name = NULL) {
+  if (vld_character_or_factor(x)) {
+    return(invisible(x))
+  }
+  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  abort_chk(x_name, " must be character or factor", x = x)
+}
+
 #' @describeIn chk_character_or_factor Validate Character or Factor
 #'
 #' @examples
