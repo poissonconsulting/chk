@@ -43,7 +43,8 @@ chk_all <- function(x, chk_fun, ..., x_name = NULL) {
 check_all <- function(x, chk_fun, ..., x_name = NULL) {
   if (is.null(x)) {
     if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-    return(chk_fun(x, ..., x_name = x_name))
+    chk_fun(x, ..., x_name = x_name)
+    return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   x_name <- paste0("all elements of ", x_name)
