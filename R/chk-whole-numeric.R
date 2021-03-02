@@ -21,11 +21,7 @@ chk_whole_numeric <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(
-    x_name,
-    " must be a whole numeric vector (integer vector or double equivalent)",
-    x = x
-  )
+  abort_whole_numeric(x, x_name)
 }
 
 #' @describeIn chk_whole_numeric Check Whole Numeric
@@ -40,11 +36,7 @@ check_whole_numeric <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(
-    x_name,
-    " must be a whole numeric vector (integer vector or double equivalent)",
-    x = x
-  )
+  abort_whole_numeric(x, x_name)
 }
 
 #' @describeIn chk_whole_numeric Validate Whole Numeric
@@ -60,4 +52,12 @@ check_whole_numeric <- function(x, x_name = NULL) {
 #' @export
 vld_whole_numeric <- function(x) {
   is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))
+}
+
+abort_whole_numeric <- function(x, x_name) {
+  abort_chk(
+    x_name,
+    " must be a whole numeric vector (integer vector or double equivalent)",
+    x = x
+  )
 }

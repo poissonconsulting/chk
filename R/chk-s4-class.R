@@ -20,7 +20,7 @@ chk_s4_class <- function(x, class, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must inherit from S4 class '", class, "'", x = x, class = class)
+  abort_s4_class(x, class, x_name)
 }
 
 #' @describeIn chk_s4_class Check Inherits from S4 Class
@@ -35,7 +35,7 @@ check_s4_class <- function(x, class, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must inherit from S4 class '", class, "'", x = x, class = class)
+  abort_s4_class(x, class, x_name)
 }
 
 #' @describeIn chk_s4_class Validate Inherits from S4 Class
@@ -46,3 +46,7 @@ check_s4_class <- function(x, class, x_name = NULL) {
 #' vld_s4_class(getClass("MethodDefinition"), "classRepresentation")
 #' @export
 vld_s4_class <- function(x, class) isS4(x) && methods::is(x, class)
+
+abort_s4_class <- function(x, class, x_name) {
+  abort_chk(x_name, " must inherit from S4 class '", class, "'", x = x, class = class)
+}

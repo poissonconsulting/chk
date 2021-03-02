@@ -20,7 +20,7 @@ chk_double <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_chk(x_name, " must be double", x = x)
+  abort_double(x, x_name)
 }
 
 #' @describeIn chk_double Check Double
@@ -35,7 +35,7 @@ check_double <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_chk(x_name, " must be double", x = x)
+  abort_double(x, x_name)
 }
 
 #' @describeIn chk_double Validate Double
@@ -51,3 +51,7 @@ check_double <- function(x, x_name = NULL) {
 #' vld_double(TRUE)
 #' @export
 vld_double <- function(x) is.double(x)
+
+abort_double <- function(x, x_name) {
+  abort_chk(x_name, " must be double", x = x)
+}

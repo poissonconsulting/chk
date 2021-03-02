@@ -24,6 +24,6 @@ test_that("chk_datetime", {
   rlang::scoped_options(lifecycle_verbosity = "quiet")
   expect_null(chk_datetime(Sys.time()))
   expect_invisible(chk_datetime(Sys.time()))
-  expect_chk_error(chk_datetime(1), "^`1` must be a datetime [(]non-missing POSIXct scalar[)][.]$")
+  expect_chk_error(chk_datetime(1), "^`1` must be a date time [(]non-missing POSIXct scalar[)][.]$")
   expect_chk_error(chk_date(1, x_name = 1), "^1 must be a date [(]non-missing Date scalar[)][.]$")
 })

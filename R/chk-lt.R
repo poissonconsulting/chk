@@ -20,10 +20,7 @@ chk_lt <- function(x, value = 0, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if (length(x) == 1L) {
-    abort_chk(x_name, " must be less than ", cc(value), ", not ", cc(x), x = x, value = value)
-  }
-  abort_chk(x_name, " must have values less than ", cc(value), x = x, value = value)
+  abort_lt(x, value, x_name)
 }
 
 #' @describeIn chk_lt Check Less Than
@@ -38,10 +35,7 @@ check_lt <- function(x, value = 0, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if (length(x) == 1L) {
-    abort_chk(x_name, " must be less than ", cc(value), ", not ", cc(x), x = x, value = value)
-  }
-  abort_chk(x_name, " must have values less than ", cc(value), x = x, value = value)
+  abort_lt(x, value, x_name)
 }
 
 #' @describeIn chk_lt Validate Less Than
@@ -57,3 +51,10 @@ check_lt <- function(x, value = 0, x_name = NULL) {
 #' vld_lt("a", value = "b")
 #' @export
 vld_lt <- function(x, value = 0) all(x[!is.na(x)] < value)
+
+abort_lt <- function(x, value, x_name) {
+  if (length(x) == 1L) {
+    abort_chk(x_name, " must be less than ", cc(value), ", not ", cc(x), x = x, value = value)
+  }
+  abort_chk(x_name, " must have values less than ", cc(value), x = x, value = value)
+}

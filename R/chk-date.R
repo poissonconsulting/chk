@@ -20,7 +20,7 @@ chk_date <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be a date (non-missing Date scalar)", x = x)
+  abort_date(x, x_name)
 }
 
 #' @describeIn chk_date Check Date
@@ -35,7 +35,7 @@ check_date <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be a date (non-missing Date scalar)", x = x)
+  abort_date(x, x_name)
 }
 
 #' @describeIn chk_date Validate Date
@@ -47,3 +47,8 @@ check_date <- function(x, x_name = NULL) {
 #' vld_date(1)
 #' @export
 vld_date <- function(x) inherits(x, "Date") && length(x) == 1L && !anyNA(x)
+
+abort_date <- function(x, x_name) {
+  abort_chk(x_name, " must be a date (non-missing Date scalar)", x = x)
+  }
+

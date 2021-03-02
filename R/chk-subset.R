@@ -21,10 +21,7 @@ chk_subset <- function(x, values, x_name = NULL) {
   }
   values <- sort(unique(values), na.last = TRUE)
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if (length(x) == 1L) {
-    abort_chk(x_name, " must match ", cc(values, " or "), ", not ", cc(x), x = x, values = values)
-  }
-  abort_chk(x_name, " must have values matching ", cc(values, " or "), x = x, values = values)
+  abort_subset(x, values, x_name)
 }
 
 #' @describeIn chk_subset Check Subset
@@ -40,10 +37,7 @@ check_subset <- function(x, values, x_name = NULL) {
   }
   values <- sort(unique(values), na.last = TRUE)
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if (length(x) == 1L) {
-    abort_chk(x_name, " must match ", cc(values, " or "), ", not ", cc(x), x = x, values = values)
-  }
-  abort_chk(x_name, " must have values matching ", cc(values, " or "), x = x, values = values)
+ abort_subset(x, values, x_name)
 }
 
 #' @describeIn chk_subset Validate Subset
@@ -55,3 +49,10 @@ check_subset <- function(x, values, x_name = NULL) {
 #' vld_subset(11, 1:10)
 #' @export
 vld_subset <- function(x, values) all(x %in% values)
+
+abort_subset <- function(x, values, x_name) {
+  if (length(x) == 1L) {
+    abort_chk(x_name, " must match ", cc(values, " or "), ", not ", cc(x), x = x, values = values)
+  }
+  abort_chk(x_name, " must have values matching ", cc(values, " or "), x = x, values = values)
+}

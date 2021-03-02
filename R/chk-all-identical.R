@@ -25,7 +25,7 @@ chk_all_identical <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must have identical elements", x = x)
+  abort_all_identical(x, x_name)
 }
 
 #' @describeIn chk_all_identical Check All Identical
@@ -40,7 +40,7 @@ check_all_identical <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must have identical elements", x = x)
+  abort_all_identical(x, x_name)
 }
 
 #' @describeIn chk_all_identical Validate All Identical
@@ -51,4 +51,8 @@ check_all_identical <- function(x, x_name = NULL) {
 #' @export
 vld_all_identical <- function(x) {
   length(x) < 2L || all(vapply(x, vld_identical, TRUE, y = x[[1]]))
+}
+
+abort_all_identical <- function(x, x_name) {
+  abort_chk(x_name, " must have identical elements", x = x)
 }

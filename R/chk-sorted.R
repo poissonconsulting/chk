@@ -20,7 +20,7 @@ chk_sorted <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be sorted", x = x)
+  abort_sorted(x, x_name)
 }
 
 #' @describeIn chk_sorted Check Sorted
@@ -35,7 +35,7 @@ check_sorted <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be sorted", x = x)
+  abort_sorted(x, x_name)
 }
 
 #' @describeIn chk_sorted Validate Sorted
@@ -46,3 +46,7 @@ check_sorted <- function(x, x_name = NULL) {
 #' vld_sorted(2:1)
 #' @export
 vld_sorted <- function(x) !is.unsorted(x)
+
+abort_sorted <- function(x, x_name) {
+  abort_chk(x_name, " must be sorted", x = x)
+}

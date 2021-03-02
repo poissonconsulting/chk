@@ -20,7 +20,7 @@ chk_wnum <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_chk(x_name, " must be a whole numeric scalar", x = x)
+  abort_wnum(x, x_name)
 }
 
 #' @describeIn chk_wnum Check Whole Numeric Scalar
@@ -35,7 +35,7 @@ check_wnum <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_chk(x_name, " must be a whole numeric scalar", x = x)
+  abort_wnum(x, x_name)
 }
 
 #' @describeIn chk_wnum Validate Whole Numeric Scalar
@@ -50,4 +50,8 @@ check_wnum <- function(x, x_name = NULL) {
 #' @export
 vld_wnum <- function(x) {
   is.numeric(x) && length(x) == 1L && (is.integer(x) || vld_true(all.equal(x, trunc(x))))
+}
+
+abort_wnum <- function(x, x_name) {
+  abort_chk(x_name, " must be a whole numeric scalar", x = x)
 }

@@ -20,7 +20,7 @@ chk_array <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be an array", x = x)
+  abort_array(x, x_name)
 }
 
 #' @describeIn chk_array Check Array for Pipes
@@ -36,7 +36,7 @@ check_array <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be an array", x = x)
+  abort_array(x, x_name)
 }
 
 #' @describeIn chk_array Validate Array
@@ -48,3 +48,7 @@ check_array <- function(x, x_name = NULL) {
 #' vld_array(array(1))
 #' @export
 vld_array <- function(x) is.array(x)
+
+abort_array <- function(x, x_name) {
+  abort_chk(x_name, " must be an array", x = x)
+}

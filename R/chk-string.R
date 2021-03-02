@@ -20,7 +20,7 @@ chk_string <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be a string (non-missing character scalar)", x = x)
+  abort_string(x, x_name)
 }
 
 #' @describeIn chk_string Check String
@@ -35,7 +35,7 @@ check_string <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be a string (non-missing character scalar)", x = x)
+  abort_string(x, x_name)
 }
 
 #' @describeIn chk_string Validate String
@@ -50,4 +50,8 @@ check_string <- function(x, x_name = NULL) {
 #' @export
 vld_string <- function(x, x_name = NULL) {
   is.character(x) && length(x) == 1L && !anyNA(x)
+}
+
+abort_string <- function(x, x_name) {
+  abort_chk(x_name, " must be a string (non-missing character scalar)", x = x)
 }
