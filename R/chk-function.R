@@ -20,8 +20,7 @@ chk_function <- function(x, formals = NULL, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if (!is.function(x)) abort_chk(x_name, " must be a function", x = x, formals = formals)
-  abort_chk(x_name, " must have ", formals, " formal arguments (not ", length(formals(x)), ")", x = x, formals = formals)
+  abort_function(x, formals, x_name)
 }
 
 #' @describeIn chk_function Check Function
@@ -36,8 +35,7 @@ check_function <- function(x, formals = NULL, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if (!is.function(x)) abort_chk(x_name, " must be a function", x = x, formals = formals)
-  abort_chk(x_name, " must have ", formals, " formal arguments (not ", length(formals(x)), ")", x = x, formals = formals)
+  abort_function(x, formals, x_name)
 }
 
 #' @describeIn chk_function Validate Function
@@ -52,3 +50,9 @@ check_function <- function(x, formals = NULL, x_name = NULL) {
 vld_function <- function(x, formals = NULL) {
   is.function(x) && (is.null(formals) || length(formals(x)) == formals)
 }
+
+abort_function <- function(x, formals, x_name) {
+  if (!is.function(x)) abort_chk(x_name, " must be a function", x = x, formals = formals)
+  abort_chk(x_name, " must have ", formals, " formal arguments (not ", length(formals(x)), ")", x = x, formals = formals)
+}
+

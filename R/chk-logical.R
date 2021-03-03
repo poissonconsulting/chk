@@ -20,7 +20,7 @@ chk_logical <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_chk(x_name, " must be logical", x = x)
+  abort_logical(x, x_name)
 }
 
 #' @describeIn chk_logical Check Logical
@@ -35,7 +35,7 @@ check_logical <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_chk(x_name, " must be logical", x = x)
+  abort_logical(x, x_name)
 }
 
 #' @describeIn chk_logical Validate Logical
@@ -50,3 +50,7 @@ check_logical <- function(x, x_name = NULL) {
 #' vld_logical("TRUE")
 #' @export
 vld_logical <- function(x) is.logical(x)
+
+abort_logical <- function(x, x_name) {
+  abort_chk(x_name, " must be logical", x = x)
+}

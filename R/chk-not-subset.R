@@ -21,10 +21,7 @@ chk_not_subset <- function(x, values, x_name = NULL) {
   }
   values <- sort(unique(values), na.last = TRUE)
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if (length(x) == 1L) {
-    abort_chk(x_name, " must not match ", cc(unique(c(x, values)), " or "), x = x, values = values)
-  }
-  abort_chk(x_name, " must not have any values matching ", cc(values, " or "), x = x, values = values)
+  abort_not_subset(x, values, x_name)
 }
 
 #' @describeIn chk_subset Check Not Subset
@@ -40,10 +37,7 @@ check_not_subset <- function(x, values, x_name = NULL) {
   }
   values <- sort(unique(values), na.last = TRUE)
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if (length(x) == 1L) {
-    abort_chk(x_name, " must not match ", cc(unique(c(x, values)), " or "), x = x, values = values)
-  }
-  abort_chk(x_name, " must not have any values matching ", cc(values, " or "), x = x, values = values)
+  abort_not_subset(x, values, x_name)
 }
 
 #' @describeIn chk_subset Validate Not Subset
@@ -55,3 +49,10 @@ check_not_subset <- function(x, values, x_name = NULL) {
 #' vld_not_subset(11, 1:10)
 #' @export
 vld_not_subset <- function(x, values) !any(x %in% values) || !length(x)
+
+abort_not_subset <- function(x, values, x_name) {
+  if (length(x) == 1L) {
+    abort_chk(x_name, " must not match ", cc(unique(c(x, values)), " or "), x = x, values = values)
+  }
+  abort_chk(x_name, " must not have any values matching ", cc(values, " or "), x = x, values = values)
+}

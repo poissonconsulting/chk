@@ -23,7 +23,7 @@ chk_identical <- function(x, y, x_name = NULL) {
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   y_name <- as_label(y)
-  abort_chk(x_name, " must be identical to: ", y_name, x = x, y = y)
+  abort_identical(x, y, y_name, x_name)
 }
 
 #' @describeIn chk_identical Check Identical
@@ -41,7 +41,7 @@ check_identical <- function(x, y, x_name = NULL) {
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   y_name <- as_label(y)
-  abort_chk(x_name, " must be identical to: ", y_name, x = x, y = y)
+  abort_identical(x, y, y_name, x_name)
 }
 
 #' @describeIn chk_identical Validate Identical
@@ -50,3 +50,7 @@ check_identical <- function(x, y, x_name = NULL) {
 #' vld_identical(1, 1)
 #' @export
 vld_identical <- function(x, y) identical(x, y)
+
+abort_identical <- function(x, y, y_name, x_name) {
+  abort_chk(x_name, " must be identical to: ", y_name, x = x, y = y)
+}

@@ -20,7 +20,7 @@ chk_matrix <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be an matrix", x = x)
+  abort_matrix(x, x_name)
 }
 
 #' @describeIn chk_matrix Check Matrix
@@ -35,7 +35,7 @@ check_matrix <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be an matrix", x = x)
+  abort_matrix(x, x_name)
 }
 
 #' @describeIn chk_matrix Validate Matrix
@@ -46,3 +46,7 @@ check_matrix <- function(x, x_name = NULL) {
 #' vld_matrix(matrix(1))
 #' @export
 vld_matrix <- function(x) is.matrix(x)
+
+abort_matrix <- function(x, x_name) {
+  abort_chk(x_name, " must be an matrix", x = x)
+}

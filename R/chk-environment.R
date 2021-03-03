@@ -20,7 +20,7 @@ chk_environment <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_chk(x_name, " must be an environment", x = x)
+  abort_environment(x, x_name)
 }
 
 #' @describeIn chk_environment Check Environment
@@ -35,7 +35,7 @@ check_environment <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_chk(x_name, " must be an environment", x = x)
+  abort_environment(x, x_name)
 }
 
 #' @describeIn chk_environment Validate Environment
@@ -48,3 +48,7 @@ check_environment <- function(x, x_name = NULL) {
 #' vld_environment(environment())
 #' @export
 vld_environment <- function(x) is.environment(x)
+
+abort_environment <- function(x, x_name) {
+  abort_chk(x_name, " must be an environment", x = x)
+}

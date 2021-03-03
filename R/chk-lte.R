@@ -20,13 +20,7 @@ chk_lte <- function(x, value = 0, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if (length(x) == 1L) {
-    abort_chk(
-      x_name, " must be less than or equal to ", cc(value), ", not ", cc(x),
-      ""
-    )
-  }
-  abort_chk(x_name, " must have values less than or equal to ", cc(value), x = x, value = value)
+  abort_lte(x, value, x_name)
 }
 
 #' @describeIn chk_lte Check Less Than or Equal To
@@ -41,13 +35,7 @@ check_lte <- function(x, value = 0, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if (length(x) == 1L) {
-    abort_chk(
-      x_name, " must be less than or equal to ", cc(value), ", not ", cc(x),
-      ""
-    )
-  }
-  abort_chk(x_name, " must have values less than or equal to ", cc(value), x = x, value = value)
+  abort_lte(x, value, x_name)
 }
 
 #' @describeIn chk_lte Validate Less Than or Equal To
@@ -61,3 +49,12 @@ check_lte <- function(x, value = 0, x_name = NULL) {
 #' vld_lte(c(-0.1, -0.2, NA), value = -1)
 #' @export
 vld_lte <- function(x, value = 0) all(x[!is.na(x)] <= value)
+
+abort_lte <- function(x, value, x_name) {
+  if (length(x) == 1L) {
+    abort_chk(
+      x_name, " must be less than or equal to ", cc(value), ", not ", cc(x),
+      "")
+  }
+  abort_chk(x_name, " must have values less than or equal to ", cc(value), x = x, value = value)
+}

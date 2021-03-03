@@ -24,7 +24,7 @@ chk_equivalent <- function(x, y, tolerance = sqrt(.Machine$double.eps),
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   y_name <- as_label(y)
-  abort_chk(x_name, " must be equivalent to: ", y_name, x = x, y = y)
+  abort_equivalent(x, y, y_name, tolerance, x_name)
 }
 
 #' @describeIn chk_equivalent Check Equivalent
@@ -43,8 +43,8 @@ check_equivalent <- function(x, y, tolerance = sqrt(.Machine$double.eps),
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   y_name <- as_label(y)
-  abort_chk(x_name, " must be equivalent to: ", y_name, x = x, y = y)
-}
+  abort_equivalent(x, y, y_name, tolerance, x_name)
+  }
 
 #' @describeIn chk_equivalent Validate Equivalent
 #'
@@ -53,4 +53,8 @@ check_equivalent <- function(x, y, tolerance = sqrt(.Machine$double.eps),
 #' @export
 vld_equivalent <- function(x, y, tolerance = sqrt(.Machine$double.eps)) {
   vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))
+}
+
+abort_equivalent <- function(x, y, y_name, tolerance, x_name) {
+  abort_chk(x_name, " must be equivalent to: ", y_name, x = x, y = y)
 }

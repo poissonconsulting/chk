@@ -19,7 +19,7 @@ chk_tz <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be a tz (non-missing scalar character of a recognized timezone)", x = x)
+  abort_tz(x, x_name)
 }
 
 #' @describeIn chk_tz Check Time Zone
@@ -33,7 +33,7 @@ check_tz <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be a tz (non-missing scalar character of a recognized timezone)", x = x)
+  abort_tz(x, x_name)
 }
 
 #' @describeIn chk_tz Validate Time Zone
@@ -45,4 +45,8 @@ check_tz <- function(x, x_name = NULL) {
 vld_tz <- function(x) {
   is.character(x) && length(x) == 1L && !anyNA(x) &&
     x %in% OlsonNames()
+}
+
+abort_tz <- function(x, x_name) {
+  abort_chk(x_name, " must be a tz (non-missing scalar character of a recognized timezone)", x = x)
 }

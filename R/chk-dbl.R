@@ -20,7 +20,7 @@ chk_dbl <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_chk(x_name, " must be double (real) scalar", x = x)
+  abort_dbl(x, x_name)
 }
 
 #' @describeIn chk_dbl Check Double
@@ -35,7 +35,7 @@ check_dbl <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_chk(x_name, " must be double (real) scalar", x = x)
+  abort_dbl(x, x_name)
 }
 
 #' @describeIn chk_dbl Validate Double
@@ -49,3 +49,7 @@ check_dbl <- function(x, x_name = NULL) {
 #' vld_dbl(1L)
 #' @export
 vld_dbl <- function(x) is.double(x) && length(x) == 1L
+
+abort_dbl <- function(x, x_name) {
+  abort_chk(x_name, " must be double (real) scalar", x = x)
+}

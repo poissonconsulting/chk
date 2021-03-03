@@ -22,7 +22,7 @@ chk_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps), x_name 
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must have equivalent elements", x = x, tolerance = tolerance)
+  abort_all_equivalent(x, tolerance, x_name)
 }
 
 #' @describeIn chk_all_equivalent Check All Equivalent
@@ -39,7 +39,7 @@ check_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps), x_nam
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must have equivalent elements", x = x, tolerance = tolerance)
+  abort_all_equivalent(x, tolerance, x_name)
 }
 
 #' @describeIn chk_all_equivalent Validate All Equivalent
@@ -50,4 +50,8 @@ check_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps), x_nam
 #' @export
 vld_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps)) {
   length(x) < 2L || all(vapply(x, vld_equivalent, TRUE, y = x[[1]], tolerance = tolerance))
+}
+
+abort_all_equivalent <- function(x, tolerance, x_name) {
+  abort_chk(x_name, " must have equivalent elements", x = x, tolerance = tolerance)
 }

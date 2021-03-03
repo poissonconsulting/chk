@@ -20,14 +20,7 @@ chk_gte <- function(x, value = 0, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if (length(x) == 1L) {
-    abort_chk(
-      x_name, " must be greater than or equal to ", cc(value),
-      ", not ", cc(x),
-      x = x, value = value
-    )
-  }
-  abort_chk(x_name, " must have values greater than or equal to ", cc(value), x = x, value = value)
+  abort_gte(x, value, x_name)
 }
 
 #' @describeIn chk_gte Check Greater Than or Equal To
@@ -42,14 +35,7 @@ check_gte <- function(x, value = 0, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if (length(x) == 1L) {
-    abort_chk(
-      x_name, " must be greater than or equal to ", cc(value),
-      ", not ", cc(x),
-      x = x, value = value
-    )
-  }
-  abort_chk(x_name, " must have values greater than or equal to ", cc(value), x = x, value = value)
+  abort_gte(x, value, x_name)
 }
 
 #' @describeIn chk_gte Validate Greater Than or Equal To
@@ -63,3 +49,14 @@ check_gte <- function(x, value = 0, x_name = NULL) {
 #' vld_gte(c(0.1, 0.2, NA), value = 1)
 #' @export
 vld_gte <- function(x, value = 0) all(x[!is.na(x)] >= value)
+
+abort_gte <- function(x, value, x_name) {
+  if (length(x) == 1L) {
+    abort_chk(
+      x_name, " must be greater than or equal to ", cc(value),
+      ", not ", cc(x),
+      x = x, value = value
+    )
+  }
+  abort_chk(x_name, " must have values greater than or equal to ", cc(value), x = x, value = value)
+}
