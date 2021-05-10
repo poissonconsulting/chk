@@ -6,7 +6,7 @@ test_that("vld_data", {
 })
 
 test_that("chk_data", {
-  expect_null(chk_data(data.frame()))
+  expect_identical(chk_data(data.frame()), data.frame())
   expect_invisible(chk_data(data.frame()))
   expect_chk_error(
     chk_data(1),
