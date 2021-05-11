@@ -1,3 +1,11 @@
+# chk 0.5.1.9002
+
+- All `check_xx()` functions with a `chk_xx()` equivalent removed
+- All `chk_xx()` now return x
+- `chk_atomic()` now returns x and removed `check_atomic()`.
+- `chk_data()` now returns input object
+
+
 # chk 0.5.1.9001
 - Added following check functions which return invisible copy of original object to be used in pipes.
   - `check_all_equal()`
