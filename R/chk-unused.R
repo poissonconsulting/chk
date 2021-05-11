@@ -7,6 +7,7 @@
 #'
 #' @inheritParams params
 #' @inherit params return
+#' @return The `chk_` function throws an informative error if the test fails.
 #'
 #' @family chk_ellipsis
 #'

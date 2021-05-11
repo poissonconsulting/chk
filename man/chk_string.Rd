@@ -15,9 +15,7 @@ vld_string(x, x_name = NULL)
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-The \code{chk_} function throws an informative error if the test fails.
-
-The \code{check_} function throws an informative error if the test fails and
+The \code{chk_} function throws an informative error if the test fails or
 returns the original object if successful so it can used in pipes.
 
 The \code{vld_} function returns a flag indicating whether the test was met.
