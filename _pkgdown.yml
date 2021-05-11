@@ -129,6 +129,8 @@ reference:
   contents:
   - '`check_data`'
   - '`check_dim`'
+  - '`check_dirs`'
+  - '`check_files`'
   - '`check_key`'
   - '`check_names`'
   - '`check_values`'
