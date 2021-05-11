@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-lgl.R
 \name{chk_lgl}
 \alias{chk_lgl}
-\alias{check_lgl}
 \alias{vld_lgl}
 \title{Check Logical Scalar}
 \usage{
 chk_lgl(x, x_name = NULL)
-
-check_lgl(x, x_name = NULL)
 
 vld_lgl(x)
 }
@@ -32,8 +29,6 @@ Checks if logical scalar using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_lgl}: Check Logical Scalar
-
 \item \code{vld_lgl}: Validate Logical Scalar
 }}
 
@@ -41,9 +36,6 @@ Checks if logical scalar using
 # chk_lgl
 chk_lgl(NA)
 try(chk_lgl(1))
-# check_lgl
-check_lgl(NA)
-try(check_lgl(1))
 # vld_lgl
 vld_lgl(TRUE)
 vld_lgl(FALSE)

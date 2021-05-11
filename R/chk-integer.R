@@ -17,21 +17,6 @@
 #' @export
 chk_integer <- function(x, x_name = NULL) {
   if (vld_integer(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_integer(x, x_name)
-}
-
-#' @describeIn chk_integer Check Integer
-#'
-#' @examples
-#' # check_integer
-#' check_integer(1L)
-#' try(check_integer(1))
-#' @export
-check_integer <- function(x, x_name = NULL) {
-  if (vld_integer(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))

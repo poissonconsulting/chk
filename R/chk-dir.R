@@ -17,22 +17,6 @@
 #' @export
 chk_dir <- function(x, x_name = NULL) {
   if (vld_dir(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  chk_string(x, x_name = x_name)
-  abort_dir(x, x_name)
-}
-
-#' @describeIn chk_dir Check Directory Exists
-#'
-#' @examples
-#' # check_dir
-#' check_dir(tempdir())
-#' try(check_dir(tempfile()))
-#' @export
-check_dir <- function(x, x_name = NULL) {
-  if (vld_dir(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

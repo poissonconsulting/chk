@@ -8,15 +8,9 @@ test_that("vld_not_any_na", {
 })
 
 test_that("chk_not_any_na", {
-  expect_null(chk_not_any_na(1))
+  expect_identical(chk_not_any_na(1), 1)
   expect_invisible(chk_not_any_na(1))
   expect_chk_error(chk_not_any_na(NA), "^`NA` must not have any missing values[.]$")
   expect_chk_error(chk_not_any_na(NA, x_name = 1), "^1 must not have any missing values[.]$")
 })
 
-test_that("check_not_any_na", {
-  expect_identical(check_not_any_na(1), 1)
-  expect_invisible(check_not_any_na(1))
-  expect_chk_error(check_not_any_na(NA), "^`NA` must not have any missing values[.]$")
-  expect_chk_error(check_not_any_na(NA, x_name = 1), "^1 must not have any missing values[.]$")
-})

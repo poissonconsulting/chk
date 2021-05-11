@@ -4,19 +4,11 @@ test_that("vld_null", {
 })
 
 test_that("chk_null", {
-  expect_null(chk_null(NULL))
+  expect_identical(chk_null(NULL), NULL)
   expect_invisible(chk_null(NULL))
 
   expect_chk_error(chk_null(1), "^`1` must be NULL[.]$")
   expect_chk_error(chk_null(1, x_name = "NULL"), "^NULL must be NULL[.]$")
-})
-
-test_that("check_null", {
-  expect_identical(check_null(NULL), NULL)
-  expect_invisible(check_null(NULL))
-
-  expect_chk_error(check_null(1), "^`1` must be NULL[.]$")
-  expect_chk_error(check_null(1, x_name = "NULL"), "^NULL must be NULL[.]$")
 })
 
 test_that("vld_not_null", {
@@ -25,17 +17,11 @@ test_that("vld_not_null", {
 })
 
 test_that("chk_not_null", {
-  expect_null(chk_not_null(1))
+  expect_identical(chk_not_null(1), 1)
   expect_invisible(chk_not_null(1))
 
   expect_chk_error(chk_not_null(NULL), "^`NULL` must not be NULL[.]$")
   expect_chk_error(chk_not_null(NULL, x_name = "not NULL"), "^Not NULL must not be NULL[.]$")
 })
 
-test_that("check_not_null", {
-  expect_identical(check_not_null(1), 1)
-  expect_invisible(check_not_null(1))
 
-  expect_chk_error(check_not_null(NULL), "^`NULL` must not be NULL[.]$")
-  expect_chk_error(check_not_null(NULL, x_name = "not NULL"), "^Not NULL must not be NULL[.]$")
-})

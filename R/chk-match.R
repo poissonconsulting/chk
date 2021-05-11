@@ -17,21 +17,6 @@
 #' @export
 chk_match <- function(x, regexp = ".+", x_name = NULL) {
   if (vld_match(x, regexp)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_match(x, regexp, x_name)
-}
-
-#' @describeIn chk_match Check Matches
-#'
-#' @examples
-#' # check_match
-#' check_match("1")
-#' try(check_match("1", regexp = "2"))
-#' @export
-check_match <- function(x, regexp = ".+", x_name = NULL) {
-  if (vld_match(x, regexp)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

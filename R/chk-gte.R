@@ -17,21 +17,6 @@
 #' @export
 chk_gte <- function(x, value = 0, x_name = NULL) {
   if (vld_gte(x, value)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_gte(x, value, x_name)
-}
-
-#' @describeIn chk_gte Check Greater Than or Equal To
-#'
-#' @examples
-#' # check_gte
-#' check_gte(0)
-#' try(check_gte(-0.1))
-#' @export
-check_gte <- function(x, value = 0, x_name = NULL) {
-  if (vld_gte(x, value)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

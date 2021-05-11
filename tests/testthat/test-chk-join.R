@@ -33,7 +33,8 @@ test_that("vld_join with missing values", {
 })
 
 test_that("chk_join", {
-  expect_null(chk_join(data.frame(z = 1), data.frame(z = 1), by = "z"))
+  expect_identical(chk_join(data.frame(z = 1), data.frame(z = 1), by = "z"),
+                   chk_join(data.frame(z = 1), data.frame(z = 1), by = "z"))
   expect_invisible(chk_join(data.frame(z = 1), data.frame(z = 1), by = "z"))
 
 })
@@ -45,16 +46,4 @@ test_that("chk_join", {
   )
 })
 
-test_that("check_join", {
-  expect_identical(check_join(data.frame(z = 1), data.frame(z = 1), by = "z"),
-                   check_join(data.frame(z = 1), data.frame(z = 1), by = "z"))
-  expect_invisible(check_join(data.frame(z = 1), data.frame(z = 1), by = "z"))
 
-})
-
-test_that("check_join", {
-  expect_chk_error(
-    check_join(data.frame(z = 1), data.frame(z = 2), by = "z"),
-    "^All rows in `data.frame[(]z [=] 1[)]` must match at least one in: <d"
-  )
-})

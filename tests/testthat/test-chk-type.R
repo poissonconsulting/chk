@@ -11,7 +11,7 @@ test_that("vld_s3_class", {
 })
 
 test_that("chk_s3_class", {
-  expect_null(chk_s3_class(1L, "integer"))
+  expect_identical(chk_s3_class(1L, "integer"), 1L, "integer")
   expect_invisible(chk_s3_class(1L, "integer"))
   expect_chk_error(chk_s3_class(1, "integer"), "^`1` must inherit from S3 class 'integer'[.]$")
   expect_chk_error(
@@ -24,19 +24,6 @@ test_that("chk_s3_class", {
   expect_chk_error(chk_s3_class(x, "c", x_name = "c"), "C must inherit from S3 class 'c'")
 })
 
-test_that("check_s3_class", {
-  expect_identical(check_s3_class(1L, "integer"), check_s3_class(1L, "integer"))
-  expect_invisible(check_s3_class(1L, "integer"))
-  expect_chk_error(check_s3_class(1, "integer"), "^`1` must inherit from S3 class 'integer'[.]$")
-  expect_chk_error(
-    check_s3_class(matrix(1), "numeric"),
-    "`matrix[(]1[)]` must inherit from S3 class 'numeric'[.]$"
-  )
-  x <- list()
-  class(x) <- c("a", "b")
-  expect_chk_error(check_s3_class(x, "c"), "`x` must inherit from S3 class 'c'")
-  expect_chk_error(check_s3_class(x, "c", x_name = "c"), "C must inherit from S3 class 'c'")
-})
 
 test_that("vld_s4_class", {
   expect_false(vld_s4_class(1, "numeric"))
@@ -44,22 +31,12 @@ test_that("vld_s4_class", {
 })
 
 test_that("chk_s4_class", {
-  expect_null(chk_s4_class(getClass("MethodDefinition"), "classRepresentation"))
+  expect_identical(chk_s4_class(getClass("MethodDefinition"), "classRepresentation"),
+                   getClass("MethodDefinition"), "classRepresentation")
   expect_invisible(chk_s4_class(getClass("MethodDefinition"), "classRepresentation"))
   expect_chk_error(chk_s4_class(1, "integer"), "^`1` must inherit from S4 class 'integer'[.]$")
   expect_chk_error(
     chk_s4_class(matrix(1), "numeric"),
-    "`matrix[(]1[)]` must inherit from S4 class 'numeric'[.]$"
-  )
-})
-
-test_that("check_s4_class", {
-  expect_identical(check_s4_class(getClass("MethodDefinition"), "classRepresentation"),
-                   getClass("MethodDefinition"), "classRepresentation")
-  expect_invisible(check_s4_class(getClass("MethodDefinition"), "classRepresentation"))
-  expect_chk_error(check_s4_class(1, "integer"), "^`1` must inherit from S4 class 'integer'[.]$")
-  expect_chk_error(
-    check_s4_class(matrix(1), "numeric"),
     "`matrix[(]1[)]` must inherit from S4 class 'numeric'[.]$"
   )
 })
@@ -84,17 +61,10 @@ test_that("vld_whole_numeric", {
 })
 
 test_that("chk_whole_numeric", {
-  expect_null(chk_whole_numeric(1L))
+  expect_identical(chk_whole_numeric(1L), 1L)
   expect_invisible(chk_whole_numeric(1L))
   expect_chk_error(chk_whole_numeric(TRUE), "^`TRUE` must be a whole numeric vector [(]integer vector or double equivalent[)][.]$")
   expect_chk_error(chk_whole_numeric(TRUE, x_name = "`c(1,2)`"), "^`c[(]1,2[)]` must be a whole numeric vector [(]integer vector or double equivalent[)][.]$")
-})
-
-test_that("check_whole_numeric", {
-  expect_identical(check_whole_numeric(1L), 1L)
-  expect_invisible(check_whole_numeric(1L))
-  expect_chk_error(check_whole_numeric(TRUE), "^`TRUE` must be a whole numeric vector [(]integer vector or double equivalent[)][.]$")
-  expect_chk_error(check_whole_numeric(TRUE, x_name = "`c(1,2)`"), "^`c[(]1,2[)]` must be a whole numeric vector [(]integer vector or double equivalent[)][.]$")
 })
 
 test_that("vld_list", {
@@ -108,17 +78,10 @@ test_that("vld_list", {
 })
 
 test_that("chk_list", {
-  expect_null(chk_list(list()))
+  expect_identical(chk_list(list()), list())
   expect_invisible(chk_list(list()))
   expect_chk_error(chk_list(1), "^`1` must be a list[.]$")
   expect_chk_error(chk_list(1, x_name = "`list()`"), "^`list[(][)]` must be a list[.]$")
-})
-
-test_that("check_list", {
-  expect_identical(check_list(list()), list())
-  expect_invisible(check_list(list()))
-  expect_chk_error(check_list(1), "^`1` must be a list[.]$")
-  expect_chk_error(check_list(1, x_name = "`list()`"), "^`list[(][)]` must be a list[.]$")
 })
 
 test_that("vld_function", {
@@ -132,23 +95,12 @@ test_that("vld_function", {
 })
 
 test_that("chk_function", {
-  expect_null(chk_function(c))
+  expect_identical(chk_function(c), c)
   expect_invisible(chk_function(c))
   expect_chk_error(chk_function(1), "^`1` must be a function[.]$")
   expect_chk_error(chk_function(1, x_name = "Function()"), "^Function[(][)] must be a function[.]$")
   expect_chk_error(
     chk_function(mean, formals = 3),
-    "^`mean` must have 3 formal arguments [(]not 2[)][.]$"
-  )
-})
-
-test_that("check_function", {
-  expect_identical(check_function(c), c)
-  expect_invisible(check_function(c))
-  expect_chk_error(check_function(1), "^`1` must be a function[.]$")
-  expect_chk_error(check_function(1, x_name = "Function()"), "^Function[(][)] must be a function[.]$")
-  expect_chk_error(
-    check_function(mean, formals = 3),
     "^`mean` must have 3 formal arguments [(]not 2[)][.]$"
   )
 })
@@ -167,13 +119,7 @@ test_that("vld_scalar", {
 })
 
 test_that("chk_scalar", {
-  expect_null(chk_scalar(1))
+  expect_identical(chk_scalar(1), 1)
   expect_invisible(chk_scalar(1))
   expect_chk_error(chk_scalar(1:2), "^`1:2` must be a scalar [(]length 1[)][.]$")
-})
-
-test_that("check_scalar", {
-  expect_identical(check_scalar(1), 1)
-  expect_invisible(check_scalar(1))
-  expect_chk_error(check_scalar(1:2), "^`1:2` must be a scalar [(]length 1[)][.]$")
 })

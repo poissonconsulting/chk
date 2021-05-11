@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-all.R
 \name{chk_all}
 \alias{chk_all}
-\alias{check_all}
 \alias{vld_all}
 \title{Check All}
 \usage{
 chk_all(x, chk_fun, ..., x_name = NULL)
-
-check_all(x, chk_fun, ..., x_name = NULL)
 
 vld_all(x, vld_fun, ...)
 }
@@ -38,8 +35,6 @@ Checks all elements using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_all}: Check All
-
 \item \code{vld_all}: Validate All
 }}
 
@@ -48,10 +43,6 @@ Checks all elements using
 chk_all(TRUE, chk_lgl)
 # FIXME try(chk_all(1, chk_lgl))
 chk_all(c(TRUE, NA), chk_lgl)
-# check_all
-check_all(TRUE, chk_lgl)
-# FIXME try(check_all(1, chk_lgl))
-check_all(c(TRUE, NA), chk_lgl)
 # vld_all
 vld_all(c(TRUE, NA), vld_lgl)
 }

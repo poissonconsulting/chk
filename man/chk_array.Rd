@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-array.R
 \name{chk_array}
 \alias{chk_array}
-\alias{check_array}
 \alias{vld_array}
 \title{Check Array}
 \usage{
 chk_array(x, x_name = NULL)
-
-check_array(x, x_name = NULL)
 
 vld_array(x)
 }
@@ -32,8 +29,6 @@ Checks if is an array using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_array}: Check Array for Pipes
-
 \item \code{vld_array}: Validate Array
 }}
 
@@ -41,10 +36,6 @@ Checks if is an array using
 # chk_array
 chk_array(array(1))
 try(chk_array(matrix(1)))
-
-# check_array
-print(check_array(array(1)))
-try(check_array(matrix(1)))
 
 # vld_array
 vld_array(1)

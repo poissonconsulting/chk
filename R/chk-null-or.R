@@ -20,26 +20,6 @@ chk_null_or <- function(x, chk, ..., x_name = NULL) {
 
   try <- try_chk(chk(x, ..., x_name = x_name))
   if (is.null(try)) {
-    return(invisible())
-  }
-  msg <- try_msg(try)
-  msg <- sub("[.]$", " or NULL.", msg)
-  abort_null_or(x, msg)
-}
-
-#' @describeIn chk_null_or Check NULL Or
-#'
-#' @examples
-#' check_null_or(NULL, check_number)
-#' check_null_or(1, check_number)
-#' try(check_null_or("1", check_number))
-#' @export
-check_null_or <- function(x, chk, ..., x_name = NULL) {
-  if (is.null(x)) return(invisible(x))
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-
-  try <- try_chk(chk(x, ..., x_name = x_name))
-  if (is.null(try)) {
     return(invisible(x))
   }
   msg <- try_msg(try)

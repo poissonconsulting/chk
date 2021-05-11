@@ -21,30 +21,12 @@
 #' try(chk_orderset(2:1, 1:2))
 chk_orderset <- function(x, values, x_name = NULL) {
   if (vld_orderset(x, values)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  values <- values[values %in% x]
-  abort_orderset(x, values, x_name)
-}
-
-#' @describeIn chk_setequal Check Set Ordered
-#'
-#' @export
-#'
-#' @examples
-#'
-#' # check_orderset
-#' check_orderset(1:2, 1:2)
-#' try(check_orderset(2:1, 1:2))
-check_orderset <- function(x, values, x_name = NULL) {
-  if (vld_orderset(x, values)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
   values <- values[values %in% x]
   abort_orderset(x, values, x_name)
-  }
+}
 
 #' @describeIn chk_setequal Validate Set Ordered
 #'

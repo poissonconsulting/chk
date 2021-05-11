@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-lt.R
 \name{chk_lt}
 \alias{chk_lt}
-\alias{check_lt}
 \alias{vld_lt}
 \title{Check Less Than}
 \usage{
 chk_lt(x, value = 0, x_name = NULL)
-
-check_lt(x, value = 0, x_name = NULL)
 
 vld_lt(x, value = 0)
 }
@@ -34,8 +31,6 @@ Checks if all non-missing values are less than value using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_lt}: Check Less Than
-
 \item \code{vld_lt}: Validate Less Than
 }}
 
@@ -43,9 +38,6 @@ Checks if all non-missing values are less than value using
 # chk_lt
 chk_lt(-0.1)
 try(chk_lt(c(-0.1, 0.2)))
-# check_lt
-check_lt(-0.1)
-try(check_lt(c(-0.1, 0.2)))
 # vld_lt
 vld_lt(numeric(0))
 vld_lt(0)

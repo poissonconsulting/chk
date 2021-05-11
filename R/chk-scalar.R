@@ -18,22 +18,6 @@
 #' @export
 chk_scalar <- function(x, x_name = NULL) {
   if (vld_scalar(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_scalar(x, x_name)
-}
-
-#' @describeIn chk_scalar Check Scalar
-#'
-#' @examples
-#' # check_scalar
-#' check_scalar(1)
-#' check_scalar(list(1))
-#' try(check_scalar(1:2))
-#' @export
-check_scalar <- function(x, x_name = NULL) {
-  if (vld_scalar(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

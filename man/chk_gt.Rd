@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-gt.R
 \name{chk_gt}
 \alias{chk_gt}
-\alias{check_gt}
 \alias{vld_gt}
 \title{Check Greater Than}
 \usage{
 chk_gt(x, value = 0, x_name = NULL)
-
-check_gt(x, value = 0, x_name = NULL)
 
 vld_gt(x, value = 0)
 }
@@ -34,8 +31,6 @@ Checks if all non-missing values are greater than value using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_gt}: Check Greater Than
-
 \item \code{vld_gt}: Validate Greater Than
 }}
 
@@ -43,9 +38,6 @@ Checks if all non-missing values are greater than value using
 # chk_gt
 chk_gt(0.1)
 try(chk_gt(c(0.1, -0.2)))
-# check_gt
-check_gt(0.1)
-try(check_gt(c(0.1, -0.2)))
 # vld_gt
 vld_gt(numeric(0))
 vld_gt(0)

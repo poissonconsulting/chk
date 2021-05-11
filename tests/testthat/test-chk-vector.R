@@ -15,15 +15,8 @@ test_that("vld_vector", {
 })
 
 test_that("chk_vector", {
-  expect_null(chk_vector(1))
+  expect_identical(chk_vector(1), 1)
   expect_invisible(chk_vector(1))
 
   expect_chk_error(chk_vector(matrix(1)), "^`matrix[(]1[)]` must be a vector[.]$")
-})
-
-test_that("check_vector", {
-  expect_identical(check_vector(1), 1)
-  expect_invisible(check_vector(1))
-
-  expect_chk_error(check_vector(matrix(1)), "^`matrix[(]1[)]` must be a vector[.]$")
 })

@@ -7,7 +7,7 @@ test_that("vld_matrix", {
 })
 
 test_that("chk_matrix", {
-  expect_null(chk_matrix(matrix(1)))
+  expect_identical(chk_matrix(matrix(1)), matrix(1))
   expect_invisible(chk_matrix(matrix(1)))
   expect_chk_error(
     chk_matrix(1),
@@ -15,11 +15,3 @@ test_that("chk_matrix", {
   )
 })
 
-test_that("check_matrix", {
-  expect_identical(check_matrix(matrix(1)), matrix(1))
-  expect_invisible(check_matrix(matrix(1)))
-  expect_chk_error(
-    check_matrix(1),
-    "^`1` must be an matrix[.]$"
-  )
-})

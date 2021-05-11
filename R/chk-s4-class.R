@@ -17,21 +17,6 @@
 #' @export
 chk_s4_class <- function(x, class, x_name = NULL) {
   if (vld_s4_class(x, class)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_s4_class(x, class, x_name)
-}
-
-#' @describeIn chk_s4_class Check Inherits from S4 Class
-#'
-#' @examples
-#' # check_s4_class
-#' try(check_s4_class(1, "numeric"))
-#' check_s4_class(getClass("MethodDefinition"), "classRepresentation")
-#' @export
-check_s4_class <- function(x, class, x_name = NULL) {
-  if (vld_s4_class(x, class)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

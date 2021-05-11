@@ -17,21 +17,6 @@
 #' @export
 chk_not_null <- function(x, x_name = NULL) {
   if (vld_not_null(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_not_null(x, x_name)
-}
-
-#' @describeIn chk_not_null Check Not NULL
-#'
-#' @examples
-#' # check_not_null
-#' try(check_not_null(NULL))
-#' check_not_null(1)
-#' @export
-check_not_null <- function(x, x_name = NULL) {
-  if (vld_not_null(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

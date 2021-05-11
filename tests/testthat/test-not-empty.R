@@ -13,7 +13,7 @@ test_that("vld_not_empty", {
 })
 
 test_that("chk_not_empty", {
-  expect_null(chk_not_empty(1))
+  expect_identical(chk_not_empty(1), 1)
   expect_invisible(chk_not_empty(1))
   expect_chk_error(chk_not_empty(NULL), "^`NULL` must not be empty [(]zero length[)][.]$")
   expect_chk_error(chk_not_empty(NULL, x_name = 1), "^1 must not be empty [(]zero length[)][.]$")

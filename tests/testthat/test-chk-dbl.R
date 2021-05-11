@@ -8,7 +8,7 @@ test_that("vld_dbl", {
 })
 
 test_that("chk_dbl", {
-  expect_null(chk_dbl(1))
+  expect_identical(chk_dbl(1), 1)
   expect_invisible(chk_dbl(1))
   expect_chk_error(
     chk_dbl(TRUE),
@@ -16,11 +16,3 @@ test_that("chk_dbl", {
   )
 })
 
-test_that("check_dbl", {
-  expect_identical(check_dbl(1), 1)
-  expect_invisible(check_dbl(1))
-  expect_chk_error(
-    check_dbl(TRUE),
-    "^`TRUE` must be double [(]real[)] scalar[.]$"
-  )
-})

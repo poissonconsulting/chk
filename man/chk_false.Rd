@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-false.R
 \name{chk_false}
 \alias{chk_false}
-\alias{check_false}
 \alias{vld_false}
 \title{Check FALSE}
 \usage{
 chk_false(x, x_name = NULL)
-
-check_false(x, x_name = NULL)
 
 vld_false(x)
 }
@@ -32,8 +29,6 @@ Check if FALSE using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_false}: Check FALSE
-
 \item \code{vld_false}: Validate FALSE
 }}
 
@@ -41,9 +36,6 @@ Check if FALSE using
 # chk_false
 chk_false(FALSE)
 try(chk_false(0))
-# check_false
-check_false(FALSE)
-try(check_false(0))
 # vld_false
 vld_false(TRUE)
 vld_false(FALSE)

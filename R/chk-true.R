@@ -17,21 +17,6 @@
 #' @export
 chk_true <- function(x, x_name = NULL) {
   if (vld_true(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_true(x, x_name)
-}
-
-#' @describeIn chk_true Check TRUE
-#'
-#' @examples
-#' # check_true
-#' check_true(TRUE)
-#' try(check_true(1))
-#' @export
-check_true <- function(x, x_name = NULL) {
-  if (vld_true(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

@@ -11,13 +11,8 @@ test_that("vld_orderset", {
 })
 
 test_that("chk_orderset", {
-  expect_null(chk_orderset(1, 1))
+  expect_identical(chk_orderset(1, 1), 1, 1)
   expect_invisible(chk_orderset(1, 1))
   expect_chk_error(chk_orderset(2:1, 1:2), "`2:1` must have [(]the first occurence of[)] each of the following elements in the following order: 1, 2[.]$")
 })
 
-test_that("check_orderset", {
-  expect_identical(check_orderset(1, 1), check_orderset(1, 1))
-  expect_invisible(check_orderset(1, 1))
-  expect_chk_error(check_orderset(2:1, 1:2), "`2:1` must have [(]the first occurence of[)] each of the following elements in the following order: 1, 2[.]$")
-})

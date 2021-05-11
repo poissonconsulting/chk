@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-all-equal.R
 \name{chk_all_equal}
 \alias{chk_all_equal}
-\alias{check_all_equal}
 \alias{vld_all_equal}
 \title{Check All Equal}
 \usage{
 chk_all_equal(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL)
-
-check_all_equal(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL)
 
 vld_all_equal(x, tolerance = sqrt(.Machine$double.eps))
 }
@@ -34,8 +31,6 @@ Checks all elements in x equal using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_all_equal}: Check All Equal for Pipes
-
 \item \code{vld_all_equal}: Validate All Equal
 }}
 
@@ -45,11 +40,6 @@ chk_all_equal(c(1, 1.00000001))
 try(chk_all_equal(c(1, 1.0000001)))
 chk_all_equal(list(c(x = 1), c(x = 1)))
 try(chk_all_equal(list(c(x = 1), c(y = 1))))
-# check_all_equal
-check_all_equal(c(1, 1.00000001))
-try(check_all_equal(c(1, 1.0000001)))
-check_all_equal(list(c(x = 1), c(x = 1)))
-try(check_all_equal(list(c(x = 1), c(y = 1))))
 # vld_all_equal
 vld_all_equal(c(1, 1L))
 }

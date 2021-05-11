@@ -7,15 +7,9 @@ test_that("vld_chr", {
 })
 
 test_that("chk_chr", {
-  expect_null(chk_chr(""))
+  expect_identical(chk_chr(""), "")
   expect_invisible(chk_chr(""))
   expect_chk_error(chk_chr(1), "^`1` must be a character scalar[.]$")
   expect_chk_error(chk_chr(1, x_name = "''"), "^'' must be a character scalar[.]$")
 })
 
-test_that("check_chr", {
-  expect_identical(check_chr(""), "")
-  expect_invisible(check_chr(""))
-  expect_chk_error(check_chr(1), "^`1` must be a character scalar[.]$")
-  expect_chk_error(check_chr(1, x_name = "''"), "^'' must be a character scalar[.]$")
-})

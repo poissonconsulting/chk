@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-named.R
 \name{chk_named}
 \alias{chk_named}
-\alias{check_named}
 \alias{vld_named}
 \title{Check Named}
 \usage{
 chk_named(x, x_name = NULL)
-
-check_named(x, x_name = NULL)
 
 vld_named(x)
 }
@@ -32,8 +29,6 @@ Checks if is named using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_named}: Check Named
-
 \item \code{vld_named}: Validate Named
 }}
 
@@ -41,9 +36,6 @@ Checks if is named using
 # chk_named
 chk_named(c(x = 1))
 try(chk_named(list(1)))
-# check_named
-check_named(c(x = 1))
-try(check_named(list(1)))
 # vld_named
 vld_named(c(x = 1))
 vld_named(list(x = 1))

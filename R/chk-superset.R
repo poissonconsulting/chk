@@ -17,23 +17,6 @@
 #' @export
 chk_superset <- function(x, values, x_name = NULL) {
   if (vld_superset(x, values)) {
-    return(invisible())
-  }
-  values <- sort(unique(values), na.last = TRUE)
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  values <- values[!values %in% x]
-  abort_superset(x, values, x_name)
-}
-
-#' @describeIn chk_superset Check Superset
-#'
-#' @examples
-#' # check_superset
-#' check_superset(1:3, 1)
-#' try(check_superset(1:3, 4))
-#' @export
-check_superset <- function(x, values, x_name = NULL) {
-  if (vld_superset(x, values)) {
     return(invisible(x))
   }
   values <- sort(unique(values), na.last = TRUE)

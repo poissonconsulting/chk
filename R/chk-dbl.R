@@ -17,21 +17,6 @@
 #' @export
 chk_dbl <- function(x, x_name = NULL) {
   if (vld_dbl(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_dbl(x, x_name)
-}
-
-#' @describeIn chk_dbl Check Double
-#'
-#' @examples
-#' # check_dbl
-#' check_dbl(1)
-#' try(check_dbl(1L))
-#' @export
-check_dbl <- function(x, x_name = NULL) {
-  if (vld_dbl(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))

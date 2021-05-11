@@ -17,21 +17,6 @@
 #' @export
 chk_lte <- function(x, value = 0, x_name = NULL) {
   if (vld_lte(x, value)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_lte(x, value, x_name)
-}
-
-#' @describeIn chk_lte Check Less Than or Equal To
-#'
-#' @examples
-#' # check_lte
-#' check_lte(0)
-#' try(check_lte(0.1))
-#' @export
-check_lte <- function(x, value = 0, x_name = NULL) {
-  if (vld_lte(x, value)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

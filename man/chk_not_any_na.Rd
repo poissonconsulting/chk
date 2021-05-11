@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-not-any-na.R
 \name{chk_not_any_na}
 \alias{chk_not_any_na}
-\alias{check_not_any_na}
 \alias{vld_not_any_na}
 \title{Check Not Any Missing Values}
 \usage{
 chk_not_any_na(x, x_name = NULL)
-
-check_not_any_na(x, x_name = NULL)
 
 vld_not_any_na(x)
 }
@@ -36,8 +33,6 @@ Checks if not any missing values using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_not_any_na}: Check Not Any Missing Values
-
 \item \code{vld_not_any_na}: Validate Not Any Missing Values
 }}
 
@@ -45,9 +40,6 @@ Checks if not any missing values using
 # chk_not_any_na
 chk_not_any_na(1)
 try(chk_not_any_na(NA))
-# check_not_any_na
-check_not_any_na(1)
-try(check_not_any_na(NA))
 # vld_not_any_na
 vld_not_any_na(1)
 vld_not_any_na(1:2)

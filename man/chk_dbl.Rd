@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-dbl.R
 \name{chk_dbl}
 \alias{chk_dbl}
-\alias{check_dbl}
 \alias{vld_dbl}
 \title{Check Double Scalar}
 \usage{
 chk_dbl(x, x_name = NULL)
-
-check_dbl(x, x_name = NULL)
 
 vld_dbl(x)
 }
@@ -32,8 +29,6 @@ Checks if double scalar using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_dbl}: Check Double
-
 \item \code{vld_dbl}: Validate Double
 }}
 
@@ -41,9 +36,6 @@ Checks if double scalar using
 # chk_dbl
 chk_dbl(1)
 try(chk_dbl(1L))
-# check_dbl
-check_dbl(1)
-try(check_dbl(1L))
 # vld_dbl
 vld_dbl(1)
 vld_dbl(double(0))

@@ -16,20 +16,6 @@
 #' @export
 chk_chr <- function(x, x_name = NULL) {
   if (vld_chr(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_chr(x, x_name)
-}
-
-#' @describeIn chk_chr Check Character Scalar
-#'
-#' @examples
-#' check_chr("a")
-#' try(check_chr(1))
-#' @export
-check_chr <- function(x, x_name = NULL) {
-  if (vld_chr(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))

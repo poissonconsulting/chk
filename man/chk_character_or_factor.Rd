@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-character-or-factor.R
 \name{chk_character_or_factor}
 \alias{chk_character_or_factor}
-\alias{check_character_or_factor}
 \alias{vld_character_or_factor}
 \title{Check Character or Factor}
 \usage{
 chk_character_or_factor(x, x_name = NULL)
-
-check_character_or_factor(x, x_name = NULL)
 
 vld_character_or_factor(x)
 }
@@ -32,8 +29,6 @@ Checks if character or factor using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_character_or_factor}: Check Character or Factor
-
 \item \code{vld_character_or_factor}: Validate Character or Factor
 }}
 
@@ -42,10 +37,6 @@ Checks if character or factor using
 chk_character_or_factor("1")
 chk_character_or_factor(factor("1"))
 try(chk_character(1))
-# check_character_or_factor
-check_character_or_factor("1")
-check_character_or_factor(factor("1"))
-try(check_character(1))
 # vld_character_or_factor
 vld_character_or_factor("1")
 vld_character_or_factor(matrix("a"))

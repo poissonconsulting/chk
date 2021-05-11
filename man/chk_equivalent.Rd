@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-equivalent.R
 \name{chk_equivalent}
 \alias{chk_equivalent}
-\alias{check_equivalent}
 \alias{vld_equivalent}
 \title{Check Equivalent}
 \usage{
 chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps), x_name = NULL)
-
-check_equivalent(x, y, tolerance = sqrt(.Machine$double.eps), x_name = NULL)
 
 vld_equivalent(x, y, tolerance = sqrt(.Machine$double.eps))
 }
@@ -36,8 +33,6 @@ Checks if is equivalent (equal ignoring attributes) to y using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_equivalent}: Check Equivalent
-
 \item \code{vld_equivalent}: Validate Equivalent
 }}
 
@@ -47,11 +42,6 @@ chk_equivalent(1, 1.00000001)
 try(chk_equivalent(1, 1.0000001))
 chk_equivalent(1, 1L)
 chk_equivalent(c(x = 1), c(y = 1))
-# check_equivalent
-check_equivalent(1, 1.00000001)
-try(check_equivalent(1, 1.0000001))
-check_equivalent(1, 1L)
-check_equivalent(c(x = 1), c(y = 1))
 vld_equivalent(c(x = 1), c(y = 1L))
 }
 \seealso{

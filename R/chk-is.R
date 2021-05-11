@@ -16,20 +16,6 @@
 #' @export
 chk_is <- function(x, class, x_name = NULL) {
   if (vld_is(x, class)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_is(x, class, x_name)
-}
-
-#' @describeIn chk_is Check Inherits from Class
-#'
-#' @examples
-#' check_is(1, "numeric")
-#' try(check_is(1L, "double"))
-#' @export
-check_is <- function(x, class, x_name = NULL) {
-  if (vld_is(x, class)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

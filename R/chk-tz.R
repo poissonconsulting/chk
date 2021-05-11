@@ -16,20 +16,6 @@
 #' @export
 chk_tz <- function(x, x_name = NULL) {
   if (vld_tz(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_tz(x, x_name)
-}
-
-#' @describeIn chk_tz Check Time Zone
-#'
-#' @examples
-#' check_tz("UTC")
-#' try(check_tz("TCU"))
-#' @export
-check_tz <- function(x, x_name = NULL) {
-  if (vld_tz(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

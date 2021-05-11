@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-null.R
 \name{chk_null}
 \alias{chk_null}
-\alias{check_null}
 \alias{vld_null}
 \title{Check NULL}
 \usage{
 chk_null(x, x_name = NULL)
-
-check_null(x, x_name = NULL)
 
 vld_null(x)
 }
@@ -32,8 +29,6 @@ Checks if NULL using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_null}: Check NULL
-
 \item \code{vld_null}: Validate NULL
 }}
 
@@ -41,9 +36,6 @@ Checks if NULL using
 # chk_null
 try(chk_null(1))
 chk_null(NULL)
-# check_null
-try(check_null(1))
-check_null(NULL)
 # vld_null
 vld_null(NULL)
 vld_null(1)

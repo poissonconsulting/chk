@@ -7,17 +7,10 @@ test_that("vld_string", {
 })
 
 test_that("chk_string", {
-  expect_null(chk_string(""))
+  expect_identical(chk_string(""), "")
   expect_invisible(chk_string(""))
   expect_chk_error(chk_string(1), "^`1` must be a string [(]non-missing character scalar[)][.]$")
   expect_chk_error(chk_string(1, x_name = "''"), "^'' must be a string [(]non-missing character scalar[)][.]$")
-})
-
-test_that("check_string", {
-  expect_identical(check_string(""), "")
-  expect_invisible(check_string(""))
-  expect_chk_error(check_string(1), "^`1` must be a string [(]non-missing character scalar[)][.]$")
-  expect_chk_error(check_string(1, x_name = "''"), "^'' must be a string [(]non-missing character scalar[)][.]$")
 })
 
 test_that("vld_match", {
@@ -31,7 +24,7 @@ test_that("vld_match", {
 })
 
 test_that("chk_match", {
-  expect_null(chk_match("1"))
+  expect_identical(chk_match("1"), "1")
   expect_invisible(chk_match("1"))
   expect_chk_error(chk_match(""), "^`\"\"` must match regular expression '.+'[.]$")
   expect_chk_error(
@@ -44,16 +37,3 @@ test_that("chk_match", {
   )
 })
 
-test_that("check_match", {
-  expect_identical(check_match("1"), "1")
-  expect_invisible(check_match("1"))
-  expect_chk_error(check_match(""), "^`\"\"` must match regular expression '.+'[.]$")
-  expect_chk_error(
-    check_match(c("a", "b"), "b"),
-    "`c[(]\"a\", \"b\"[)]` must have values matching regular expression 'b'[.]$"
-  )
-  expect_chk_error(
-    check_match(c("a", "b"), "b"),
-    "`c[(]\"a\", \"b\"[)]` must have values matching regular expression 'b'[.]$"
-  )
-})

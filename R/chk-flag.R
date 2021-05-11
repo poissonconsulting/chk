@@ -21,21 +21,6 @@
 #' @export
 chk_flag <- function(x, x_name = NULL) {
   if (vld_flag(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_flag(x, x_name)
-}
-
-#' @describeIn chk_flag Check Flag
-#'
-#' @examples
-#' # check_flag
-#' check_flag(TRUE)
-#' try(vld_flag(1))
-#' @export
-check_flag <- function(x, x_name = NULL) {
-  if (vld_flag(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

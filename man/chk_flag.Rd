@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-flag.R
 \name{chk_flag}
 \alias{chk_flag}
-\alias{check_flag}
 \alias{vld_flag}
 \title{Check Flag}
 \usage{
 chk_flag(x, x_name = NULL)
-
-check_flag(x, x_name = NULL)
 
 vld_flag(x)
 }
@@ -36,17 +33,12 @@ Checks if non-missing logical scalar using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_flag}: Check Flag
-
 \item \code{vld_flag}: Validate Flag
 }}
 
 \examples{
 # chk_flag
 chk_flag(TRUE)
-try(vld_flag(1))
-# check_flag
-check_flag(TRUE)
 try(vld_flag(1))
 # vld_flag
 vld_flag(TRUE)

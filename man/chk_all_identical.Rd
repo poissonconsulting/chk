@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-all-identical.R
 \name{chk_all_identical}
 \alias{chk_all_identical}
-\alias{check_all_identical}
 \alias{vld_all_identical}
 \title{Check All Identical}
 \usage{
 chk_all_identical(x, x_name = NULL)
-
-check_all_identical(x, x_name = NULL)
 
 vld_all_identical(x)
 }
@@ -36,8 +33,6 @@ Checks all elements in x identical using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_all_identical}: Check All Identical
-
 \item \code{vld_all_identical}: Validate All Identical
 }}
 
@@ -45,9 +40,6 @@ Checks all elements in x identical using
 # chk_all_identical
 chk_all_identical(c(1, 1))
 try(chk_all_identical(c(1, 1.1)))
-# check_all_identical
-check_all_identical(c(1, 1))
-try(check_all_identical(c(1, 1.1)))
 # vld_all_identical
 vld_all_identical(c(1, 1))
 }

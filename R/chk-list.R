@@ -17,21 +17,6 @@
 #' @export
 chk_list <- function(x, x_name = NULL) {
   if (vld_list(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_list(x, x_name)
-}
-
-#' @describeIn chk_list Check List
-#'
-#' @examples
-#' # check_list
-#' check_list(list())
-#' try(check_list(1))
-#' @export
-check_list <- function(x, x_name = NULL) {
-  if (vld_list(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

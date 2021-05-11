@@ -19,21 +19,6 @@
 #' @export
 chk_ext <- function(x, ext, x_name = NULL) {
   if (vld_ext(x, ext)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  chk_string(x, x_name = x_name)
-  abort_ext(x, ext, x_name)
-}
-
-#' @describeIn chk_ext Check File Extension
-#'
-#' @examples
-#' # check_ext
-#' try(check_ext("file1.pdf", "png"))
-#' @export
-check_ext <- function(x, ext, x_name = NULL) {
-  if (vld_ext(x, ext)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

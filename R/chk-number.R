@@ -21,21 +21,6 @@
 #' @export
 chk_number <- function(x, x_name = NULL) {
   if (vld_number(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_number(x, x_name)
-}
-
-#' @describeIn chk_number Check Number
-#'
-#' @examples
-#' # check_number
-#' check_number(1.1)
-#' try(check_number(TRUE))
-#' @export
-check_number <- function(x, x_name = NULL) {
-  if (vld_number(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-not-null.R
 \name{chk_not_null}
 \alias{chk_not_null}
-\alias{check_not_null}
 \alias{vld_not_null}
 \title{Check not NULL}
 \usage{
 chk_not_null(x, x_name = NULL)
-
-check_not_null(x, x_name = NULL)
 
 vld_not_null(x)
 }
@@ -32,8 +29,6 @@ Checks if not NULL using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_not_null}: Check Not NULL
-
 \item \code{vld_not_null}: Validate Not NULL
 }}
 
@@ -41,9 +36,6 @@ Checks if not NULL using
 # chk_not_null
 try(chk_not_null(NULL))
 chk_not_null(1)
-# check_not_null
-try(check_not_null(NULL))
-check_not_null(1)
 # vld_not_null
 vld_not_null(1)
 vld_not_null(NULL)

@@ -21,21 +21,6 @@
 #' @export
 chk_not_any_na <- function(x, x_name = NULL) {
   if (vld_not_any_na(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_not_any_na(x, x_name)
-}
-
-#' @describeIn chk_not_any_na Check Not Any Missing Values
-#'
-#' @examples
-#' # check_not_any_na
-#' check_not_any_na(1)
-#' try(check_not_any_na(NA))
-#' @export
-check_not_any_na <- function(x, x_name = NULL) {
-  if (vld_not_any_na(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))

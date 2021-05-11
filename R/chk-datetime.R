@@ -17,7 +17,7 @@
 #' @export
 chk_date_time <- function(x, x_name = NULL) {
   if (vld_date_time(x)) {
-    return(invisible())
+    return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_date_time(x, x_name)
@@ -32,26 +32,11 @@ chk_datetime <- function(x, x_name = NULL) {
                  with = "chk_date_time()",
                  id = "chk_datetime")
   if (vld_date_time(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_date_time(x, x_name)
-}
-
-#' @describeIn chk_date_time Check Date Time
-#'
-#' @examples
-#' # check_date_time
-#' check_date_time(as.POSIXct("2001-01-02"))
-#' try(check_date_time(1))
-#' @export
-check_date_time <- function(x, x_name = NULL) {
-  if (vld_date_time(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_date_time(x, x_name)
-  }
+}
 
 #' @describeIn chk_date_time Validate Date Time
 #'

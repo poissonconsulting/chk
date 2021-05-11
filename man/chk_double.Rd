@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-double.R
 \name{chk_double}
 \alias{chk_double}
-\alias{check_double}
 \alias{vld_double}
 \title{Check Double}
 \usage{
 chk_double(x, x_name = NULL)
-
-check_double(x, x_name = NULL)
 
 vld_double(x)
 }
@@ -32,8 +29,6 @@ Checks if double using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_double}: Check Double
-
 \item \code{vld_double}: Validate Double
 }}
 
@@ -41,9 +36,6 @@ Checks if double using
 # chk_double
 chk_double(1)
 try(chk_double(1L))
-# check_double
-check_double(1)
-try(check_double(1L))
 # vld_double
 vld_double(1)
 vld_double(matrix(c(1, 2, 3, 4), nrow = 2L))

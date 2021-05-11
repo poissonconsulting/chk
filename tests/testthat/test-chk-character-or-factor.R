@@ -9,7 +9,7 @@ test_that("vld_character_or_factor", {
 })
 
 test_that("chk_character_or_factor", {
-  expect_null(chk_character_or_factor("1"))
+  expect_identical(chk_character_or_factor("1"), "1")
   expect_invisible(chk_character_or_factor("1"))
   expect_chk_error(
     chk_character_or_factor(TRUE),
@@ -17,11 +17,3 @@ test_that("chk_character_or_factor", {
   )
 })
 
-test_that("check_character_or_factor", {
-  expect_identical(check_character_or_factor("1"), "1")
-  expect_invisible(check_character_or_factor("1"))
-  expect_chk_error(
-    check_character_or_factor(TRUE),
-    "^`TRUE` must be character or factor[.]$"
-  )
-})

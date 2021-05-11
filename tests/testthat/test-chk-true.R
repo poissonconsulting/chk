@@ -9,21 +9,12 @@ test_that("vld_true", {
 })
 
 test_that("chk_true", {
-  expect_null(chk_true(TRUE))
+  expect_identical(chk_true(TRUE), TRUE)
   expect_invisible(chk_true(TRUE))
-  expect_null(chk_true(c(x = TRUE)))
+  expect_identical(chk_true(c(x = TRUE)), c(x = TRUE))
 
   expect_chk_error(chk_true(FALSE), "^`FALSE` must be TRUE[.]$")
   expect_chk_error(chk_true(FALSE, x_name = TRUE), "^TRUE must be TRUE[.]$")
-})
-
-test_that("check_true", {
-  expect_identical(check_true(TRUE), TRUE)
-  expect_invisible(check_true(TRUE))
-  expect_identical(check_true(c(x = TRUE)), c(x = TRUE))
-
-  expect_chk_error(check_true(FALSE), "^`FALSE` must be TRUE[.]$")
-  expect_chk_error(check_true(FALSE, x_name = TRUE), "^TRUE must be TRUE[.]$")
 })
 
 test_that("vld_false", {
@@ -37,21 +28,12 @@ test_that("vld_false", {
 })
 
 test_that("chk_false", {
-  expect_null(chk_false(FALSE))
+  expect_identical(chk_false(FALSE), FALSE)
   expect_invisible(chk_false(FALSE))
-  expect_null(chk_false(c(x = FALSE)))
+  expect_identical(chk_false(c(x = FALSE)), c(x = FALSE))
 
   expect_chk_error(chk_false(TRUE), "^`TRUE` must be FALSE[.]$")
   expect_chk_error(chk_false(TRUE, x_name = FALSE), "^FALSE must be FALSE[.]$")
-})
-
-test_that("check_false", {
-  expect_identical(check_false(FALSE), FALSE)
-  expect_invisible(check_false(FALSE))
-  expect_identical(check_false(c(x = FALSE)), c(x = FALSE))
-
-  expect_chk_error(check_false(TRUE), "^`TRUE` must be FALSE[.]$")
-  expect_chk_error(check_false(TRUE, x_name = FALSE), "^FALSE must be FALSE[.]$")
 })
 
 test_that("vld_flag", {
@@ -64,17 +46,10 @@ test_that("vld_flag", {
 })
 
 test_that("chk_flag", {
-  expect_null(chk_flag(TRUE))
+  expect_identical(chk_flag(TRUE), TRUE)
   expect_invisible(chk_flag(TRUE))
   expect_chk_error(chk_flag(1), "^`1` must be a flag [(]TRUE or FALSE[)][.]$")
   expect_chk_error(chk_flag(1, x_name = "2"), "^2 must be a flag [(]TRUE or FALSE[)][.]$")
-})
-
-test_that("check_flag", {
-  expect_identical(check_flag(TRUE), TRUE)
-  expect_invisible(check_flag(TRUE))
-  expect_chk_error(check_flag(1), "^`1` must be a flag [(]TRUE or FALSE[)][.]$")
-  expect_chk_error(check_flag(1, x_name = "2"), "^2 must be a flag [(]TRUE or FALSE[)][.]$")
 })
 
 test_that("vld_lgl", {
@@ -87,15 +62,9 @@ test_that("vld_lgl", {
 })
 
 test_that("chk_lgl", {
-  expect_null(chk_lgl(NA))
+  expect_identical(chk_lgl(NA), NA)
   expect_invisible(chk_lgl(NA))
   expect_chk_error(chk_lgl(1), "^`1` must be a logical scalar [(]TRUE, FALSE or NA[)][.]$")
   expect_chk_error(chk_lgl(1, x_name = 2), "^2 must be a logical scalar [(]TRUE, FALSE or NA[)][.]$")
 })
 
-test_that("check_lgl", {
-  expect_identical(check_lgl(NA), NA)
-  expect_invisible(check_lgl(NA))
-  expect_chk_error(check_lgl(1), "^`1` must be a logical scalar [(]TRUE, FALSE or NA[)][.]$")
-  expect_chk_error(check_lgl(1, x_name = 2), "^2 must be a logical scalar [(]TRUE, FALSE or NA[)][.]$")
-})

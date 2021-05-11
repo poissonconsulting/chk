@@ -7,7 +7,7 @@ test_that("vld_setequal", {
 })
 
 test_that("chk_setequal", {
-  expect_null(chk_setequal(1, 1))
+  expect_identical(chk_setequal(1, 1), 1, 1)
   expect_invisible(chk_setequal(1, 1))
   expect_chk_error(chk_setequal(1, 1:2), "^`1` must equal set: 1, 2[.]$")
   expect_chk_error(chk_setequal(1, 1:2, x_name = 2), "^2 must equal set: 1, 2[.]$")

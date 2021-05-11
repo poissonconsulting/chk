@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-number.R
 \name{chk_number}
 \alias{chk_number}
-\alias{check_number}
 \alias{vld_number}
 \title{Check Number}
 \usage{
 chk_number(x, x_name = NULL)
-
-check_number(x, x_name = NULL)
 
 vld_number(x)
 }
@@ -36,8 +33,6 @@ Checks if non-missing numeric scalar using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_number}: Check Number
-
 \item \code{vld_number}: Validate Number
 }}
 
@@ -45,9 +40,6 @@ Checks if non-missing numeric scalar using
 # chk_number
 chk_number(1.1)
 try(chk_number(TRUE))
-# check_number
-check_number(1.1)
-try(check_number(TRUE))
 # vld_number
 vld_number(1.1)
 }

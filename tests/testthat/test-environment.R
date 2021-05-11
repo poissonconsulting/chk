@@ -6,7 +6,7 @@ test_that("vld_environment", {
 })
 
 test_that("chk_environment", {
-  expect_null(chk_environment(.GlobalEnv))
+  expect_identical(chk_environment(.GlobalEnv), .GlobalEnv)
   expect_invisible(chk_environment(.GlobalEnv))
   expect_chk_error(chk_environment(1), "^`1` must be an environment[.]$")
   expect_chk_error(chk_environment(list(1), x_name = 1), "^1 must be an environment[.]$")

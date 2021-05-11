@@ -11,15 +11,9 @@ test_that("vld_wnum", {
 })
 
 test_that("chk_wnum", {
-  expect_null(chk_wnum(1))
+  expect_identical(chk_wnum(1), 1)
   expect_invisible(chk_wnum(1))
   expect_chk_error(chk_wnum(TRUE), "^`TRUE` must be a whole numeric scalar[.]$")
   expect_chk_error(chk_wnum(TRUE, x_name = 1L), "^1 must be a whole numeric scalar[.]$")
 })
 
-test_that("check_wnum", {
-  expect_identical(check_wnum(1), 1)
-  expect_invisible(check_wnum(1))
-  expect_chk_error(check_wnum(TRUE), "^`TRUE` must be a whole numeric scalar[.]$")
-  expect_chk_error(check_wnum(TRUE, x_name = 1L), "^1 must be a whole numeric scalar[.]$")
-})

@@ -19,23 +19,6 @@
 #' @export
 chk_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL) {
   if (vld_all_equivalent(x, tolerance = tolerance)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_all_equivalent(x, tolerance, x_name)
-}
-
-#' @describeIn chk_all_equivalent Check All Equivalent
-#'
-#' @examples
-#' # check_all_equivalent
-#' check_all_equivalent(c(1, 1.00000001))
-#' try(check_all_equivalent(c(1, 1.0000001)))
-#' check_all_equivalent(list(c(x = 1), c(x = 1)))
-#' check_all_equivalent(list(c(x = 1), c(y = 1)))
-#' @export
-check_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NULL) {
-  if (vld_all_equivalent(x, tolerance = tolerance)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

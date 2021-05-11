@@ -17,21 +17,6 @@
 #' @export
 chk_sorted <- function(x, x_name = NULL) {
   if (vld_sorted(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_sorted(x, x_name)
-}
-
-#' @describeIn chk_sorted Check Sorted
-#'
-#' @examples
-#' # check_sorted
-#' check_sorted(1:2)
-#' try(check_sorted(2:1))
-#' @export
-check_sorted <- function(x, x_name = NULL) {
-  if (vld_sorted(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

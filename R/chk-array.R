@@ -17,22 +17,6 @@
 #' @export
 chk_array <- function(x, x_name = NULL) {
   if (vld_array(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_array(x, x_name)
-}
-
-#' @describeIn chk_array Check Array for Pipes
-#'
-#' @examples
-#'
-#' # check_array
-#' print(check_array(array(1)))
-#' try(check_array(matrix(1)))
-#' @export
-check_array <- function(x, x_name = NULL) {
-  if (vld_array(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

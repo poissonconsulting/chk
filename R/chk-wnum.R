@@ -17,21 +17,6 @@
 #' @export
 chk_wnum <- function(x, x_name = NULL) {
   if (vld_wnum(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_wnum(x, x_name)
-}
-
-#' @describeIn chk_wnum Check Whole Numeric Scalar
-#'
-#' @examples
-#' # check_wnum
-#' check_wnum(1)
-#' try(check_wnum(1.1))
-#' @export
-check_wnum <- function(x, x_name = NULL) {
-  if (vld_wnum(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))

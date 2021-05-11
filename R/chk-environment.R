@@ -17,21 +17,6 @@
 #' @export
 chk_environment <- function(x, x_name = NULL) {
   if (vld_environment(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_environment(x, x_name)
-}
-
-#' @describeIn chk_environment Check Environment
-#'
-#' @examples
-#' # check_environment
-#' check_environment(.GlobalEnv)
-#' try(check_environment(1))
-#' @export
-check_environment <- function(x, x_name = NULL) {
-  if (vld_environment(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))

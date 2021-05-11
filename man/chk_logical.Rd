@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-logical.R
 \name{chk_logical}
 \alias{chk_logical}
-\alias{check_logical}
 \alias{vld_logical}
 \title{Check Logical}
 \usage{
 chk_logical(x, x_name = NULL)
-
-check_logical(x, x_name = NULL)
 
 vld_logical(x)
 }
@@ -32,8 +29,6 @@ Checks if logical using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_logical}: Check Logical
-
 \item \code{vld_logical}: Validate Logical
 }}
 
@@ -41,9 +36,6 @@ Checks if logical using
 # chk_logical
 chk_logical(TRUE)
 try(chk_logical(1))
-# check_logical
-check_logical(TRUE)
-try(check_logical(1))
 # vld_logical
 vld_logical(TRUE)
 vld_logical(matrix(TRUE))

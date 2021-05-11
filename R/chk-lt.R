@@ -17,21 +17,6 @@
 #' @export
 chk_lt <- function(x, value = 0, x_name = NULL) {
   if (vld_lt(x, value)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_lt(x, value, x_name)
-}
-
-#' @describeIn chk_lt Check Less Than
-#'
-#' @examples
-#' # check_lt
-#' check_lt(-0.1)
-#' try(check_lt(c(-0.1, 0.2)))
-#' @export
-check_lt <- function(x, value = 0, x_name = NULL) {
-  if (vld_lt(x, value)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

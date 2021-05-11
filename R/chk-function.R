@@ -17,21 +17,6 @@
 #' @export
 chk_function <- function(x, formals = NULL, x_name = NULL) {
   if (vld_function(x, formals)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_function(x, formals, x_name)
-}
-
-#' @describeIn chk_function Check Function
-#'
-#' @examples
-#' # check_function
-#' check_function(mean)
-#' try(check_function(1))
-#' @export
-check_function <- function(x, formals = NULL, x_name = NULL) {
-  if (vld_function(x, formals)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

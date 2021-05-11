@@ -8,19 +8,10 @@ test_that("vld_logical", {
 })
 
 test_that("chk_logical", {
-  expect_null(chk_logical(TRUE))
+  expect_identical(chk_logical(TRUE), TRUE)
   expect_invisible(chk_logical(FALSE))
   expect_chk_error(
     chk_logical(1),
-    "^`1` must be logical[.]$"
-  )
-})
-
-test_that("check_logical", {
-  expect_identical(check_logical(TRUE), TRUE)
-  expect_invisible(check_logical(FALSE))
-  expect_chk_error(
-    check_logical(1),
     "^`1` must be logical[.]$"
   )
 })

@@ -17,21 +17,6 @@
 #' @export
 chk_lgl <- function(x, x_name = NULL) {
   if (vld_lgl(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_lgl(x, x_name)
-}
-
-#' @describeIn chk_lgl Check Logical Scalar
-#'
-#' @examples
-#' # check_lgl
-#' check_lgl(NA)
-#' try(check_lgl(1))
-#' @export
-check_lgl <- function(x, x_name = NULL) {
-  if (vld_lgl(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))

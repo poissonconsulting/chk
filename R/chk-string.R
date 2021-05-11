@@ -17,21 +17,6 @@
 #' @export
 chk_string <- function(x, x_name = NULL) {
   if (is.character(x) && length(x) == 1L && !anyNA(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_string(x, x_name)
-}
-
-#' @describeIn chk_string Check String
-#'
-#' @examples
-#' # check_string
-#' check_string("1")
-#' try(check_string(1))
-#' @export
-check_string <- function(x, x_name = NULL) {
-  if (is.character(x) && length(x) == 1L && !anyNA(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-not-empty.R
 \name{chk_not_empty}
 \alias{chk_not_empty}
-\alias{check_not_empty}
 \alias{vld_not_empty}
 \title{Check Not Empty}
 \usage{
 chk_not_empty(x, x_name = NULL)
-
-check_not_empty(x, x_name = NULL)
 
 vld_not_empty(x)
 }
@@ -36,8 +33,6 @@ Checks if not empty using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_not_empty}: Check Not Empty
-
 \item \code{vld_not_empty}: Validate Not Empty
 }}
 
@@ -45,9 +40,6 @@ Checks if not empty using
 # chk_not_empty
 chk_not_empty(1)
 try(chk_not_empty(numeric(0)))
-# check_not_empty
-check_not_empty(1)
-try(check_not_empty(numeric(0)))
 # vld_not_empty
 vld_not_empty(1)
 vld_not_empty(matrix(1:3))

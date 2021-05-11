@@ -21,21 +21,6 @@
 #' @export
 chk_not_empty <- function(x, x_name = NULL) {
   if (vld_not_empty(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_not_empty(x, x_name)
-}
-
-#' @describeIn chk_not_empty Check Not Empty
-#'
-#' @examples
-#' # check_not_empty
-#' check_not_empty(1)
-#' try(check_not_empty(numeric(0)))
-#' @export
-check_not_empty <- function(x, x_name = NULL) {
-  if (vld_not_empty(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))

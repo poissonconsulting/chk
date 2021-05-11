@@ -17,21 +17,6 @@
 #' @export
 chk_logical <- function(x, x_name = NULL) {
   if (vld_logical(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_logical(x, x_name)
-}
-
-#' @describeIn chk_logical Check Logical
-#'
-#' @examples
-#' # check_logical
-#' check_logical(TRUE)
-#' try(check_logical(1))
-#' @export
-check_logical <- function(x, x_name = NULL) {
-  if (vld_logical(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))

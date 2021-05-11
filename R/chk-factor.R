@@ -17,21 +17,6 @@
 #' @export
 chk_factor <- function(x, x_name = NULL) {
   if (vld_factor(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_factor(x, x_name)
-}
-
-#' @describeIn chk_factor Check Factor
-#'
-#' @examples
-#' # check_factor
-#' check_factor(factor("1"))
-#' try(check_factor("1"))
-#' @export
-check_factor <- function(x, x_name = NULL) {
-  if (vld_factor(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))

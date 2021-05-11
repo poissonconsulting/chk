@@ -22,21 +22,6 @@
 #' @export
 chk_all_identical <- function(x, x_name = NULL) {
   if (vld_all_identical(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_all_identical(x, x_name)
-}
-
-#' @describeIn chk_all_identical Check All Identical
-#'
-#' @examples
-#' # check_all_identical
-#' check_all_identical(c(1, 1))
-#' try(check_all_identical(c(1, 1.1)))
-#' @export
-check_all_identical <- function(x, x_name = NULL) {
-  if (vld_all_identical(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

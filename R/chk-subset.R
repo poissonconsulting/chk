@@ -17,27 +17,11 @@
 #' @export
 chk_subset <- function(x, values, x_name = NULL) {
   if (vld_subset(x, values)) {
-    return(invisible())
-  }
-  values <- sort(unique(values), na.last = TRUE)
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_subset(x, values, x_name)
-}
-
-#' @describeIn chk_subset Check Subset
-#'
-#' @examples
-#' # check_subset
-#' check_subset(1, 1:10)
-#' try(check_subset(11, 1:10))
-#' @export
-check_subset <- function(x, values, x_name = NULL) {
-  if (vld_subset(x, values)) {
     return(invisible(x))
   }
   values <- sort(unique(values), na.last = TRUE)
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
- abort_subset(x, values, x_name)
+  abort_subset(x, values, x_name)
 }
 
 #' @describeIn chk_subset Validate Subset

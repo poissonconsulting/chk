@@ -7,14 +7,14 @@ test_that("vld_all", {
 })
 
 test_that("chk_all", {
-  expect_null(chk_all(character(0), chk_true))
+  expect_identical(chk_all(character(0), chk_true), character(0), chk_true)
   expect_invisible(chk_all(character(0), chk_true))
-  expect_null(chk_all(NULL, chk_null))
+  expect_identical(chk_all(NULL, chk_null), NULL, chk_null)
   expect_invisible(chk_all(NULL, chk_null))
-  expect_null(chk_all(TRUE, chk_true))
-  expect_null(chk_all(FALSE, chk_false))
-  expect_null(chk_all(c(TRUE, TRUE), chk_true))
-  expect_null(chk_all(1.1, chk_gt, 1))
+  expect_identical(chk_all(TRUE, chk_true), TRUE, chk_true)
+  expect_identical(chk_all(FALSE, chk_false), FALSE, chk_false)
+  expect_identical(chk_all(c(TRUE, TRUE), chk_true), c(TRUE, TRUE), chk_true)
+  expect_identical(chk_all(1.1, chk_gt, 1), 1.1, chk_gt, 1)
 
   expect_chk_error(
     chk_all(NULL, chk_flag),
@@ -38,38 +38,6 @@ test_that("chk_all", {
   )
 })
 
-test_that("check_all", {
-  expect_identical(check_all(character(0), check_true), check_all(character(0), check_true))
-  expect_invisible(check_all(character(0), check_true))
-  expect_identical(check_all(NULL, check_null), check_all(NULL, check_null))
-  expect_invisible(check_all(NULL, check_null), check_all(NULL, check_null))
-  expect_identical(check_all(TRUE, check_true), check_all(TRUE, check_true))
-  expect_identical(check_all(FALSE, check_false), check_all(FALSE, check_false))
-  expect_identical(check_all(c(TRUE, TRUE), check_true), check_all(c(TRUE, TRUE), check_true))
-  expect_identical(check_all(1.1, check_gt, 1), check_all(1.1, check_gt, 1))
-
-  expect_chk_error(
-    check_all(NULL, check_flag),
-    "^`NULL` must be a flag [(]TRUE or FALSE[)][.]$"
-  )
-  expect_chk_error(
-    check_all(NULL, check_flag, x_name = "NULL"),
-    "^NULL must be a flag [(]TRUE or FALSE[)][.]$"
-  )
-  expect_chk_error(
-    check_all(FALSE, check_true),
-    "^All elements of `FALSE` must be TRUE[.]$"
-  )
-  expect_chk_error(
-    check_all(FALSE, check_true, x_name = TRUE),
-    "^All elements of TRUE must be TRUE[.]$"
-  )
-  expect_chk_error(
-    check_all(1.1, check_gt, 2),
-    "^All elements of `1.1` must be greater than 2, not 1.1[.]$"
-  )
-})
-
 test_that("vld_all_identical", {
   expect_true(vld_all_identical(NULL))
   expect_true(vld_all_identical(character(0)))
@@ -80,16 +48,11 @@ test_that("vld_all_identical", {
 })
 
 test_that("chk_all_identical", {
-  expect_null(chk_all_identical(NULL))
+  expect_identical(chk_all_identical(NULL), NULL)
   expect_invisible(chk_all_identical(NULL))
   expect_chk_error(chk_all_identical(c(1, 2)), "^`c[(]1, 2[)]` must have identical elements[.]$")
 })
 
-test_that("check_all_identical", {
-  expect_identical(check_all_identical(NULL), NULL)
-  expect_invisible(check_all_identical(NULL))
-  expect_chk_error(check_all_identical(c(1, 2)), "^`c[(]1, 2[)]` must have identical elements[.]$")
-})
 
 test_that("vld_all_equal", {
   expect_true(vld_all_equal(NULL))
@@ -105,15 +68,9 @@ test_that("vld_all_equal", {
 })
 
 test_that("chk_all_equal", {
-  expect_null(chk_all_equal(NULL))
-  expect_invisible(chk_all_equal(NULL))
+  expect_identical(chk_all_equal(NULL), NULL)
+  expect_invisible(chk_all_equal(NULL), NULL)
   expect_chk_error(chk_all_equal(c(1, 2)), "^`c[(]1, 2[)]` must have equal elements[.]$")
-})
-
-test_that("check_all_equal", {
-  expect_identical(check_all_equal(NULL), NULL)
-  expect_invisible(check_all_equal(NULL))
-  expect_chk_error(check_all_equal(c(1, 2)), "^`c[(]1, 2[)]` must have equal elements[.]$")
 })
 
 test_that("vld_all_equivalent", {
@@ -130,13 +87,8 @@ test_that("vld_all_equivalent", {
 })
 
 test_that("chk_all_equivalent", {
-  expect_null(chk_all_equivalent(NULL))
+  expect_identical(chk_all_equivalent(NULL), NULL)
   expect_invisible(chk_all_equivalent(NULL))
   expect_chk_error(chk_all_equivalent(c(1, 2)), "^`c[(]1, 2[)]` must have equivalent elements[.]$")
 })
 
-test_that("check_all_equivalent", {
-  expect_identical(check_all_equivalent(NULL), NULL)
-  expect_invisible(check_all_equivalent(NULL))
-  expect_chk_error(check_all_equivalent(c(1, 2)), "^`c[(]1, 2[)]` must have equivalent elements[.]$")
-})

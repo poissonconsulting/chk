@@ -16,21 +16,6 @@
 #' @export
 chk_file <- function(x, x_name = NULL) {
   if (vld_file(x)) {
-    return(invisible())
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  chk_string(x, x_name = x_name)
-  abort_file(x, x_name)
-}
-
-#' @describeIn chk_file Check File Exists
-#'
-#' @examples
-#' # check_file
-#' try(check_file(tempfile()))
-#' @export
-check_file <- function(x, x_name = NULL) {
-  if (vld_file(x)) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))

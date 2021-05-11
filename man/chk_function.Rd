@@ -2,13 +2,10 @@
 % Please edit documentation in R/chk-function.R
 \name{chk_function}
 \alias{chk_function}
-\alias{check_function}
 \alias{vld_function}
 \title{Check Function}
 \usage{
 chk_function(x, formals = NULL, x_name = NULL)
-
-check_function(x, formals = NULL, x_name = NULL)
 
 vld_function(x, formals = NULL)
 }
@@ -34,8 +31,6 @@ Checks if is a function using
 }
 \section{Functions}{
 \itemize{
-\item \code{check_function}: Check Function
-
 \item \code{vld_function}: Validate Function
 }}
 
@@ -43,9 +38,6 @@ Checks if is a function using
 # chk_function
 chk_function(mean)
 try(chk_function(1))
-# check_function
-check_function(mean)
-try(check_function(1))
 # vld_function
 vld_function(mean)
 vld_function(function(x) x)

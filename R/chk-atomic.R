@@ -23,7 +23,6 @@ chk_atomic <- function(x, x_name = NULL) {
   abort_atomic(x, x_name)
 }
 
-
 #' @describeIn chk_atomic Validate Atomic
 #'
 #' @examples

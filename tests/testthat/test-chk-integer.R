@@ -8,7 +8,7 @@ test_that("vld_integer", {
 })
 
 test_that("chk_integer", {
-  expect_null(chk_integer(1L))
+  expect_identical(chk_integer(1L), 1L)
   expect_invisible(chk_integer(1L))
   expect_chk_error(
     chk_integer(TRUE),
@@ -16,11 +16,3 @@ test_that("chk_integer", {
   )
 })
 
-test_that("check_integer", {
-  expect_identical(check_integer(1L), 1L)
-  expect_invisible(check_integer(1L))
-  expect_chk_error(
-    check_integer(TRUE),
-    "^`TRUE` must be integer[.]$"
-  )
-})
