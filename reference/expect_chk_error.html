@@ -55,6 +55,8 @@ See below for more details." />
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -66,9 +68,16 @@ See below for more details." />
 
 
 
+
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -82,19 +91,13 @@ See below for more details." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9002</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/chk.html">Get started</a>
 </li>
 <li>
@@ -119,7 +122,7 @@ See below for more details." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/poissonconsulting/chk/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -147,14 +150,14 @@ of class <code>"chk_error"</code> with a message that matches regexp.
 See below for more details.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>expect_chk_error</span>(
-  <span class='kw'>object</span>,
-  regexp = <span class='kw'>NULL</span>,
-  <span class='kw'>...</span>,
-  info = <span class='kw'>NULL</span>,
-  label = <span class='kw'>NULL</span>,
-  class = <span class='kw'>NULL</span>
-)</pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>expect_chk_error</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  regexp <span class='op'>=</span> <span class='cn'>NULL</span>,
+  <span class='va'>...</span>,
+  info <span class='op'>=</span> <span class='cn'>NULL</span>,
+  label <span class='op'>=</span> <span class='cn'>NULL</span>,
+  class <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -178,8 +181,6 @@ but doesn't test for a specific value.</p></li>
     <tr>
       <th>...</th>
       <td><p>Arguments passed on to <code><a href='https://testthat.r-lib.org/reference/expect_match.html'>expect_match</a></code></p><dl>
-    <dt><code>all</code></dt><dd><p>Should all elements of actual value match <code>regexp</code> (TRUE),
-or does only one need to match (FALSE)</p></dd>
     <dt><code>perl</code></dt><dd><p>logical.  Should Perl-compatible regexps be used?</p></dd>
     <dt><code>fixed</code></dt><dd><p>logical.  If <code>TRUE</code>, <code>pattern</code> is a string to be
     matched as is.  Overrides all conflicting arguments.</p></dd>
@@ -220,14 +221,10 @@ fail if the error message changes (even if its the same error).</p>
 You can learn more about custom conditions at
 <a href='https://adv-r.hadley.nz/conditions.html#custom-conditions'>https://adv-r.hadley.nz/conditions.html#custom-conditions</a>, but in
 short, errors are S3 classes and you can generate a custom class and check
-for it using <code>class</code> instead of <code>regexp</code>. Because this is a more reliable
-check, you <code>expect_error()</code> will warn if the error has a custom class but
-you are testing the message. Eliminate the warning by using <code>class</code> instead
-of <code>regexp</code>. Alternatively, if you think the warning is a false positive,
-use <code>class = "error"</code> to suppress it for any input.</p>
+for it using <code>class</code> instead of <code>regexp</code>.</p>
 <p>If you are using <code>expect_error()</code> to check that an error message is
-formatted in such a way that it makes sense to a human, we now recommend
-using <code><a href='https://testthat.r-lib.org/reference/verify_output.html'>verify_output()</a></code> instead.</p>
+formatted in such a way that it makes sense to a human, we recommend
+using <code><a href='https://testthat.r-lib.org/reference/expect_snapshot.html'>expect_snapshot()</a></code> instead.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other expectations: 
@@ -235,17 +232,19 @@ using <code><a href='https://testthat.r-lib.org/reference/verify_output.html'>ve
 <code><a href='https://testthat.r-lib.org/reference/equality-expectations.html'>equality-expectations</a></code>,
 <code><a href='https://testthat.r-lib.org/reference/expect_length.html'>expect_length</a>()</code>,
 <code><a href='https://testthat.r-lib.org/reference/expect_match.html'>expect_match</a>()</code>,
-<code><a href='https://testthat.r-lib.org/reference/expect_message.html'>expect_message</a>()</code>,
 <code><a href='https://testthat.r-lib.org/reference/expect_named.html'>expect_named</a>()</code>,
 <code><a href='https://testthat.r-lib.org/reference/expect_null.html'>expect_null</a>()</code>,
 <code><a href='https://testthat.r-lib.org/reference/expect_output.html'>expect_output</a>()</code>,
+<code><a href='https://testthat.r-lib.org/reference/expect_reference.html'>expect_reference</a>()</code>,
 <code><a href='https://testthat.r-lib.org/reference/expect_silent.html'>expect_silent</a>()</code>,
 <code><a href='https://testthat.r-lib.org/reference/inheritance-expectations.html'>inheritance-expectations</a></code>,
 <code><a href='https://testthat.r-lib.org/reference/logical-expectations.html'>logical-expectations</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>expect_chk_error</span>(<span class='fu'><a href='chk_true.html'>chk_true</a></span>(<span class='fl'>FALSE</span>))
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>expect_chk_error</span>(<span class='fu'><a href='chk_false.html'>chk_false</a></span>(<span class='fl'>FALSE</span>)))</div><div class='output co'>#&gt; Error : `object` did not throw an error.</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>expect_chk_error</span><span class='op'>(</span><span class='fu'><a href='chk_true.html'>chk_true</a></span><span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='fu'>expect_chk_error</span><span class='op'>(</span><span class='fu'><a href='chk_false.html'>chk_false</a></span><span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Error : `object` did not throw an error.</span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -257,11 +256,11 @@ using <code><a href='https://testthat.r-lib.org/reference/verify_output.html'>ve
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joe Thorley, Kirill Müller, Poisson Consulting.</p>
+  <p><p>Developed by Joe Thorley, Kirill Müller, Poisson Consulting.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -269,6 +268,8 @@ using <code><a href='https://testthat.r-lib.org/reference/verify_output.html'>ve
 
   
 
+
+  
 
   </body>
 </html>

@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,18 +40,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9002</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../articles/chk.html">Get started</a>
 </li>
@@ -74,8 +70,8 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/poissonconsulting/chk/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/poissonconsulting/chk/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -95,7 +91,7 @@
       <h1 data-toc-skip>chk Families</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/master/vignettes/chk-families.Rmd"><code>vignettes/chk-families.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/master/vignettes/chk-families.Rmd" class="external-link"><code>vignettes/chk-families.Rmd</code></a></small>
       <div class="hidden name"><code>chk-families.Rmd</code></div>
 
     </div>
@@ -105,7 +101,7 @@
 <p>The <code>chk_</code> functions (and their <code>vld_</code> equivalents) can be divided into the following families. For reasons of space, the <code>x_name = NULL</code> argument is not shown.</p>
 <div id="check-logical" class="section level2">
 <h2 class="hasAnchor">
-<a href="#check-logical" class="anchor"></a>Check Logical</h2>
+<a href="#check-logical" class="anchor" aria-hidden="true"></a>Check Logical</h2>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Function</th>
@@ -113,19 +109,19 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_true.html">chk_true(x)</a></code></td>
+<td align="left"><code>chk_true(x)</code></td>
 <td align="left"><code>is.logical(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x) &amp;&amp; x</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_false.html">chk_false(x)</a></code></td>
+<td align="left"><code>chk_false(x)</code></td>
 <td align="left"><code>is.logical(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x) &amp;&amp; !x</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_flag.html">chk_flag(x)</a></code></td>
+<td align="left"><code>chk_flag(x)</code></td>
 <td align="left"><code>is.logical(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_lgl.html">chk_lgl(x)</a></code></td>
+<td align="left"><code>chk_lgl(x)</code></td>
 <td align="left"><code>is.logical(x) &amp;&amp; length(x) == 1L</code></td>
 </tr>
 </tbody>
@@ -133,7 +129,7 @@
 </div>
 <div id="check-scalars" class="section level2">
 <h2 class="hasAnchor">
-<a href="#check-scalars" class="anchor"></a>Check Scalars</h2>
+<a href="#check-scalars" class="anchor" aria-hidden="true"></a>Check Scalars</h2>
 <table class="table">
 <colgroup>
 <col width="22%">
@@ -145,31 +141,31 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_scalar.html">chk_scalar(x)</a></code></td>
+<td align="left"><code>chk_scalar(x)</code></td>
 <td align="left"><code>length(x) == 1L</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_number.html">chk_number(x)</a></code></td>
+<td align="left"><code>chk_number(x)</code></td>
 <td align="left"><code>is.numeric(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_whole_number.html">chk_whole_number(x)</a></code></td>
+<td align="left"><code>chk_whole_number(x)</code></td>
 <td align="left"><code>vld_number(x) &amp;&amp; (is.integer(x) || vld_true(all.equal(x, trunc(x))))</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_string.html">chk_string(x)</a></code></td>
+<td align="left"><code>chk_string(x)</code></td>
 <td align="left"><code>is.character(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_date.html">chk_date(x)</a></code></td>
+<td align="left"><code>chk_date(x)</code></td>
 <td align="left"><code>inherits(x, "Date") &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_date_time.html">chk_datetime(x)</a></code></td>
+<td align="left"><code>chk_datetime(x)</code></td>
 <td align="left"><code>inherits(x, "POSIXct") &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_tz.html">chk_tz(x)</a></code></td>
+<td align="left"><code>chk_tz(x)</code></td>
 <td align="left"><code>is.character(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x) &amp;&amp; x %in% OlsonNames()</code></td>
 </tr>
 </tbody>
@@ -177,7 +173,7 @@
 </div>
 <div id="check-ranges" class="section level2">
 <h2 class="hasAnchor">
-<a href="#check-ranges" class="anchor"></a>Check Ranges</h2>
+<a href="#check-ranges" class="anchor" aria-hidden="true"></a>Check Ranges</h2>
 <table class="table">
 <colgroup>
 <col width="33%">
@@ -189,31 +185,31 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_range.html">chk_range(x, range = c(0, 1))</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/all.html">all(x[!is.na(x)] &gt;= range[1] &amp; x[!is.na(x)] &lt;= range[2])</a></code></td>
+<td align="left"><code>chk_range(x, range = c(0, 1))</code></td>
+<td align="left"><code>all(x[!is.na(x)] &gt;= range[1] &amp; x[!is.na(x)] &lt;= range[2])</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_lt.html">chk_lt(x, value = 0)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/all.html">all(x[!is.na(x)] &lt; value)</a></code></td>
+<td align="left"><code>chk_lt(x, value = 0)</code></td>
+<td align="left"><code>all(x[!is.na(x)] &lt; value)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_lte.html">chk_lte(x, value = 0)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/all.html">all(x[!is.na(x)] &lt;= value)</a></code></td>
+<td align="left"><code>chk_lte(x, value = 0)</code></td>
+<td align="left"><code>all(x[!is.na(x)] &lt;= value)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_gt.html">chk_gt(x, value = 0)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/all.html">all(x[!is.na(x)] &gt; value)</a></code></td>
+<td align="left"><code>chk_gt(x, value = 0)</code></td>
+<td align="left"><code>all(x[!is.na(x)] &gt; value)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_gte.html">chk_gte(x, value = 0)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/all.html">all(x[!is.na(x)] &gt;= value)</a></code></td>
+<td align="left"><code>chk_gte(x, value = 0)</code></td>
+<td align="left"><code>all(x[!is.na(x)] &gt;= value)</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="check-equals" class="section level2">
 <h2 class="hasAnchor">
-<a href="#check-equals" class="anchor"></a>Check Equals</h2>
+<a href="#check-equals" class="anchor" aria-hidden="true"></a>Check Equals</h2>
 <table class="table">
 <colgroup>
 <col width="60%">
@@ -225,23 +221,23 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_identical.html">chk_identical(x, y)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/identical.html">identical(x, y)</a></code></td>
+<td align="left"><code>chk_identical(x, y)</code></td>
+<td align="left"><code>identical(x, y)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_equal.html">chk_equal(x, y, tolerance = sqrt(.Machine$double.eps))</a></code></td>
-<td align="left"><code><a href="../reference/chk_true.html">vld_true(all.equal(x, y, tolerance))</a></code></td>
+<td align="left"><code>chk_equal(x, y, tolerance = sqrt(.Machine$double.eps))</code></td>
+<td align="left"><code>vld_true(all.equal(x, y, tolerance))</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_equivalent.html">chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps))</a></code></td>
-<td align="left"><code><a href="../reference/chk_true.html">vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))</a></code></td>
+<td align="left"><code>chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps))</code></td>
+<td align="left"><code>vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="check-alls" class="section level2">
 <h2 class="hasAnchor">
-<a href="#check-alls" class="anchor"></a>Check Alls</h2>
+<a href="#check-alls" class="anchor" aria-hidden="true"></a>Check Alls</h2>
 <table class="table">
 <colgroup>
 <col width="33%">
@@ -253,19 +249,19 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_all.html">chk_all(x, chk_fun, ...)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/all.html">all(vapply(x, chk_fun, TRUE, ...))</a></code></td>
+<td align="left"><code>chk_all(x, chk_fun, ...)</code></td>
+<td align="left"><code>all(vapply(x, chk_fun, TRUE, ...))</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_all_identical.html">chk_all_identical(x)</a></code></td>
+<td align="left"><code>chk_all_identical(x)</code></td>
 <td align="left"><code>length(x) &lt; 2L || all(vapply(x, vld_identical, TRUE, y = x[[1]]))</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_all_equal.html">chk_all_equal(x, tolerance = sqrt(.Machine$double.eps))</a></code></td>
+<td align="left"><code>chk_all_equal(x, tolerance = sqrt(.Machine$double.eps))</code></td>
 <td align="left"><code>length(x) &lt; 2L || all(vapply(x, vld_equal, TRUE, y = x[[1]], tolerance = tolerance))</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_all_equivalent.html">chk_all_equivalent(x, tolerance = sqrt(.Machine$double.eps))</a></code></td>
+<td align="left"><code>chk_all_equivalent(x, tolerance = sqrt(.Machine$double.eps))</code></td>
 <td align="left"><code>length(x) &lt; 2L || all(vapply(x, vld_equivalent, TRUE, y = x[[1]], tolerance = tolerance))</code></td>
 </tr>
 </tbody>
@@ -273,7 +269,7 @@
 </div>
 <div id="check-set" class="section level2">
 <h2 class="hasAnchor">
-<a href="#check-set" class="anchor"></a>Check Set</h2>
+<a href="#check-set" class="anchor" aria-hidden="true"></a>Check Set</h2>
 <table class="table">
 <colgroup>
 <col width="33%">
@@ -285,27 +281,27 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code><a href="../reference/vld_orderset.html">chk_setequal(x, values)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/sets.html">setequal(x, values)</a></code></td>
+<td align="left"><code>chk_setequal(x, values)</code></td>
+<td align="left"><code>setequal(x, values)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/vld_not_subset.html">chk_subset(x, values)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/all.html">all(x %in% values)</a></code></td>
+<td align="left"><code>chk_subset(x, values)</code></td>
+<td align="left"><code>all(x %in% values)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_superset.html">chk_superset(x, values)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/all.html">all(values %in% x)</a></code></td>
+<td align="left"><code>chk_superset(x, values)</code></td>
+<td align="left"><code>all(values %in% x)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_join.html">chk_join(x, y, by)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/identical.html">identical(nrow(x), nrow(merge(x, unique(y[if (is.null(names(by))) by else names(by)]), by = by)))</a></code></td>
+<td align="left"><code>chk_join(x, y, by)</code></td>
+<td align="left"><code>identical(nrow(x), nrow(merge(x, unique(y[if (is.null(names(by))) by else names(by)]), by = by)))</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="check-is" class="section level2">
 <h2 class="hasAnchor">
-<a href="#check-is" class="anchor"></a>Check Is</h2>
+<a href="#check-is" class="anchor" aria-hidden="true"></a>Check Is</h2>
 <table class="table">
 <colgroup>
 <col width="33%">
@@ -317,51 +313,51 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_atomic.html">chk_atomic(x)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/is.recursive.html">is.atomic(x)</a></code></td>
+<td align="left"><code>chk_atomic(x)</code></td>
+<td align="left"><code>is.atomic(x)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_function.html">chk_function(x, formals = NULL)</a></code></td>
+<td align="left"><code>chk_function(x, formals = NULL)</code></td>
 <td align="left"><code>is.function(x) &amp;&amp; (is.null(formals) || length(formals(x)) == formals)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_numeric.html">chk_numeric(x)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/numeric.html">is.numeric(x)</a></code></td>
+<td align="left"><code>chk_numeric(x)</code></td>
+<td align="left"><code>is.numeric(x)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_s3_class.html">chk_s3_class(x, class)</a></code></td>
+<td align="left"><code>chk_s3_class(x, class)</code></td>
 <td align="left"><code>!isS4(x) &amp;&amp; inherits(x, class)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_s4_class.html">chk_s4_class(x, class)</a></code></td>
+<td align="left"><code>chk_s4_class(x, class)</code></td>
 <td align="left"><code>isS4(x) &amp;&amp; methods::is(x, class)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_vector.html">chk_vector(x)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/vector.html">is.vector(x)</a></code></td>
+<td align="left"><code>chk_vector(x)</code></td>
+<td align="left"><code>is.vector(x)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_whole_numeric.html">chk_whole_numeric(x)</a></code></td>
+<td align="left"><code>chk_whole_numeric(x)</code></td>
 <td align="left"><code>is.integer(x) || (is.double(x) &amp;&amp; vld_true(all.equal(x, as.integer(x))))</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_array.html">chk_array(x)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/array.html">is.array(x)</a></code></td>
+<td align="left"><code>chk_array(x)</code></td>
+<td align="left"><code>is.array(x)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_matrix.html">chk_matrix(x)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/matrix.html">is.matrix(x)</a></code></td>
+<td align="left"><code>chk_matrix(x)</code></td>
+<td align="left"><code>is.matrix(x)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_data.html">chk_data(x)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/class.html">inherits(x, "data.frame")</a></code></td>
+<td align="left"><code>chk_data(x)</code></td>
+<td align="left"><code>inherits(x, "data.frame")</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="check-typeof" class="section level2">
 <h2 class="hasAnchor">
-<a href="#check-typeof" class="anchor"></a>Check Typeof</h2>
+<a href="#check-typeof" class="anchor" aria-hidden="true"></a>Check Typeof</h2>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Function</th>
@@ -369,35 +365,35 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_environment.html">chk_environment(x)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/environment.html">is.environment(x)</a></code></td>
+<td align="left"><code>chk_environment(x)</code></td>
+<td align="left"><code>is.environment(x)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_list.html">chk_list(x)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/list.html">is.list(x)</a></code></td>
+<td align="left"><code>chk_list(x)</code></td>
+<td align="left"><code>is.list(x)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_logical.html">chk_logical(x)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/logical.html">is.logical(x)</a></code></td>
+<td align="left"><code>chk_logical(x)</code></td>
+<td align="left"><code>is.logical(x)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_double.html">chk_double(x)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/double.html">is.double(x)</a></code></td>
+<td align="left"><code>chk_double(x)</code></td>
+<td align="left"><code>is.double(x)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_integer.html">chk_integer(x)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/integer.html">is.integer(x)</a></code></td>
+<td align="left"><code>chk_integer(x)</code></td>
+<td align="left"><code>is.integer(x)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_character.html">chk_character(x)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/character.html">is.character(x)</a></code></td>
+<td align="left"><code>chk_character(x)</code></td>
+<td align="left"><code>is.character(x)</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="check-nulls" class="section level2">
 <h2 class="hasAnchor">
-<a href="#check-nulls" class="anchor"></a>Check NULLs</h2>
+<a href="#check-nulls" class="anchor" aria-hidden="true"></a>Check NULLs</h2>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Function</th>
@@ -405,11 +401,11 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_null.html">chk_null(x)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/NULL.html">is.null(x)</a></code></td>
+<td align="left"><code>chk_null(x)</code></td>
+<td align="left"><code>is.null(x)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_not_null.html">chk_not_null(x)</a></code></td>
+<td align="left"><code>chk_not_null(x)</code></td>
 <td align="left"><code>!is.null(x)</code></td>
 </tr>
 </tbody>
@@ -417,7 +413,7 @@
 </div>
 <div id="check-ellipsis" class="section level2">
 <h2 class="hasAnchor">
-<a href="#check-ellipsis" class="anchor"></a>Check Ellipsis</h2>
+<a href="#check-ellipsis" class="anchor" aria-hidden="true"></a>Check Ellipsis</h2>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Function</th>
@@ -425,11 +421,11 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_used.html">chk_used(...)</a></code></td>
+<td align="left"><code>chk_used(...)</code></td>
 <td align="left"><code>length(list(...)) != 0L</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_unused.html">chk_unused(...)</a></code></td>
+<td align="left"><code>chk_unused(...)</code></td>
 <td align="left"><code>length(list(...)) == 0L</code></td>
 </tr>
 </tbody>
@@ -437,7 +433,7 @@
 </div>
 <div id="check-files" class="section level2">
 <h2 class="hasAnchor">
-<a href="#check-files" class="anchor"></a>Check Files</h2>
+<a href="#check-files" class="anchor" aria-hidden="true"></a>Check Files</h2>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Function</th>
@@ -445,15 +441,15 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_file.html">chk_file(x)</a></code></td>
+<td align="left"><code>chk_file(x)</code></td>
 <td align="left"><code>vld_string(x) &amp;&amp; file.exists(x) &amp;&amp; !dir.exists(x)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_ext.html">chk_ext(x, ext)</a></code></td>
+<td align="left"><code>chk_ext(x, ext)</code></td>
 <td align="left"><code>vld_string(x) &amp;&amp; vld_subset(tools::file_ext(x), ext)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_dir.html">chk_dir(x)</a></code></td>
+<td align="left"><code>chk_dir(x)</code></td>
 <td align="left"><code>vld_string(x) &amp;&amp; dir.exists(x)</code></td>
 </tr>
 </tbody>
@@ -461,7 +457,7 @@
 </div>
 <div id="check-miscellaneous" class="section level2">
 <h2 class="hasAnchor">
-<a href="#check-miscellaneous" class="anchor"></a>Check Miscellaneous</h2>
+<a href="#check-miscellaneous" class="anchor" aria-hidden="true"></a>Check Miscellaneous</h2>
 <table class="table">
 <colgroup>
 <col width="40%">
@@ -473,40 +469,40 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_match.html">chk_match(x, regexp = ".+")</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/all.html">all(grepl(regexp, x[!is.na(x)]))</a></code></td>
+<td align="left"><code>chk_match(x, regexp = ".+")</code></td>
+<td align="left"><code>all(grepl(regexp, x[!is.na(x)]))</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_named.html">chk_named(x)</a></code></td>
+<td align="left"><code>chk_named(x)</code></td>
 <td align="left"><code>!is.null(names(x))</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_not_empty.html">chk_not_empty(x)</a></code></td>
+<td align="left"><code>chk_not_empty(x)</code></td>
 <td align="left"><code>length(x) != 0L</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_not_any_na.html">chk_not_any_na(x)</a></code></td>
+<td align="left"><code>chk_not_any_na(x)</code></td>
 <td align="left"><code>!anyNA(x)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code><a href="../reference/chk_unique.html">chk_unique(x, incomparables = FALSE)</a></code></td>
+<td align="left"><code>chk_unique(x, incomparables = FALSE)</code></td>
 <td align="left"><code>!anyDuplicated(x, incomparables = incomparables)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code><a href="../reference/chk_sorted.html">chk_sorted(x)</a></code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/is.unsorted.html">is.unsorted(x)</a></code></td>
+<td align="left"><code>chk_sorted(x)</code></td>
+<td align="left"><code>is.unsorted(x)</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="check" class="section level2">
 <h2 class="hasAnchor">
-<a href="#check" class="anchor"></a>Check</h2>
-<p><strong>Function</strong><br><code><a href="../reference/check_data.html">check_data(x, values = NULL, exclusive = FALSE, order = FALSE, nrow = numeric(0), key = character(0))</a></code></p>
-<p><code><a href="../reference/check_dim.html">check_dim(x, dim = length, values = numeric(0), dim_name = NULL)</a></code></p>
-<p><code><a href="../reference/check_key.html">check_key(x, key = character(0), na_distinct = FALSE)</a></code></p>
-<p><code><a href="../reference/check_names.html">check_names(x, names = character(0), exclusive = FALSE, order = FALSE)</a></code></p>
-<p><code><a href="../reference/check_values.html">check_values(x, values)</a></code></p>
+<a href="#check" class="anchor" aria-hidden="true"></a>Check</h2>
+<p><strong>Function</strong><br><code>check_data(x, values = NULL, exclusive = FALSE, order = FALSE, nrow = numeric(0), key = character(0))</code></p>
+<p><code>check_dim(x, dim = length, values = numeric(0), dim_name = NULL)</code></p>
+<p><code>check_key(x, key = character(0), na_distinct = FALSE)</code></p>
+<p><code>check_names(x, names = character(0), exclusive = FALSE, order = FALSE)</code></p>
+<p><code>check_values(x, values)</code></p>
 </div>
   </div>
 
@@ -521,11 +517,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Joe Thorley, Kirill Müller, Poisson Consulting.</p>
+  <p></p>
+<p>Developed by Joe Thorley, Kirill Müller, Poisson Consulting.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9001.</p>
 </div>
 
       </footer>
@@ -533,6 +531,8 @@
 
   
 
+
+  
 
   </body>
 </html>

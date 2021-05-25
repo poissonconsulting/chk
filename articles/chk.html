@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,18 +40,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9002</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../articles/chk.html">Get started</a>
 </li>
@@ -74,8 +70,8 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/poissonconsulting/chk/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/poissonconsulting/chk/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -95,7 +91,7 @@
       <h1 data-toc-skip>Get Started with chk</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/master/vignettes/chk.Rmd"><code>vignettes/chk.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/master/vignettes/chk.Rmd" class="external-link"><code>vignettes/chk.Rmd</code></a></small>
       <div class="hidden name"><code>chk.Rmd</code></div>
 
     </div>
@@ -104,95 +100,88 @@
     
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>Introduction</h2>
+<a href="#introduction" class="anchor" aria-hidden="true"></a>Introduction</h2>
 <p><code>chk</code> is an R package for developers to check user-supplied function arguments. It is designed to be simple, customizable and fast.</p>
 <div id="chk_-functions" class="section level3">
 <h3 class="hasAnchor">
-<a href="#chk_-functions" class="anchor"></a><code>chk_</code> Functions</h3>
-<p><code>chk_</code> functions check the properties of individual objects. For example <code><a href="../reference/chk_flag.html">chk_flag(x)</a></code> checks whether <code>x</code> is a flag, i.e., a non-missing logical vector of length 1.</p>
+<a href="#chk_-functions" class="anchor" aria-hidden="true"></a><code>chk_</code> Functions</h3>
+<p><code>chk_</code> functions check the properties of individual objects. For example <code>chk_flag(x)</code> checks whether <code>x</code> is a flag, i.e., a non-missing logical vector of length 1.</p>
 <p><code>chk_</code> functions are called for their side-effects, i.e., they throw an informative error if the object fails the check.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/poissonconsulting/chk">chk</a></span>)
-<span class="kw">y</span> <span class="op">&lt;-</span> <span class="fl">TRUE</span>
-<span class="fu"><a href="../reference/chk_flag.html">chk_flag</a></span>(<span class="kw">y</span>)
-<span class="kw">y</span> <span class="op">&lt;-</span> <span class="fl">NA</span>
-<span class="fu"><a href="../reference/chk_flag.html">chk_flag</a></span>(<span class="kw">y</span>)
-<span class="co">#&gt; Error: `y` must be a flag (TRUE or FALSE).</span>
-</pre></div>
-<p>The error messages, which follow the <a href="https://style.tidyverse.org/error-messages.html">tidyverse style guide</a>, are designed to allow the user to quickly identify the problem with the argument value(s) they are providing. The errors are <a href="https://rlang.r-lib.org/reference/abort.html">rlang errors</a> of subclass <code>'chk_error'</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/chk" class="external-link">chk</a></span><span class="op">)</span>
+<span class="va">y</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span>
+<span class="fu"><a href="../reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>
+<span class="va">y</span> <span class="op">&lt;-</span> <span class="cn">NA</span>
+<span class="fu"><a href="../reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>
+<span class="co">#&gt; Error: `y` must be a flag (TRUE or FALSE).</span></code></pre></div>
+<p>The error messages, which follow the <a href="https://style.tidyverse.org/error-messages.html" class="external-link">tidyverse style guide</a>, are designed to allow the user to quickly identify the problem with the argument value(s) they are providing. The errors are <a href="https://rlang.r-lib.org/reference/abort.html" class="external-link">rlang errors</a> of subclass <code>'chk_error'</code>.</p>
 </div>
 <div id="vld_-functions" class="section level3">
 <h3 class="hasAnchor">
-<a href="#vld_-functions" class="anchor"></a><code>vld_</code> Functions</h3>
+<a href="#vld_-functions" class="anchor" aria-hidden="true"></a><code>vld_</code> Functions</h3>
 <p>Each <code>chk_</code> function has a matching <code>vld_</code> function which returns a flag indicating whether the object passed the check.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="../reference/chk_flag.html">vld_flag</a></span>(<span class="fl">TRUE</span>)
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE</span>
-<span class="fu"><a href="../reference/chk_flag.html">vld_flag</a></span>(<span class="fl">NA</span>)
-<span class="co">#&gt; [1] FALSE</span>
-</pre></div>
+<span class="fu"><a href="../reference/chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span>
+<span class="co">#&gt; [1] FALSE</span></code></pre></div>
 <p>The <code>vld_</code> functions allow developers to provide their own error messages.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="co">if</span> (<span class="op">!</span><span class="fu"><a href="../reference/chk_flag.html">vld_flag</a></span>(<span class="fl">NA</span>)) <span class="fu"><a href="../reference/abort_chk.html">abort_chk</a></span>(<span class="st">"`NA` is not TRUE or FALSE!!"</span>)
-<span class="co">#&gt; Error: `NA` is not TRUE or FALSE!!</span>
-</pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="../reference/chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="../reference/abort_chk.html">abort_chk</a></span><span class="op">(</span><span class="st">"`NA` is not TRUE or FALSE!!"</span><span class="op">)</span>
+<span class="co">#&gt; Error: `NA` is not TRUE or FALSE!!</span></code></pre></div>
 </div>
 </div>
 <div id="using-chk" class="section level2">
 <h2 class="hasAnchor">
-<a href="#using-chk" class="anchor"></a>Using chk</h2>
+<a href="#using-chk" class="anchor" aria-hidden="true"></a>Using chk</h2>
 <p>The <code>chk_</code> functions are designed to be used within functions. Consequently, when constructing an error message they use the name of the object that they received as this is expected to be the name of the argument.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="kw">fun1</span> <span class="op">&lt;-</span> <span class="fu">function</span>(<span class="kw">x</span>) {
-  <span class="fu"><a href="../reference/chk_whole_number.html">chk_whole_number</a></span>(<span class="kw">x</span>)
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">fun1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="../reference/chk_whole_number.html">chk_whole_number</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
   <span class="co"># use x</span>
-}
+<span class="op">}</span>
 
-<span class="fu">fun1</span>(<span class="fl">1</span>)
-<span class="kw">y</span> <span class="op">&lt;-</span> <span class="fl">1.3</span>
-<span class="fu">fun1</span>(x = <span class="kw">y</span>)
-<span class="co">#&gt; Error: `x` must be a whole number (non-missing integer scalar or double equivalent).</span>
-</pre></div>
+<span class="fu">fun1</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>
+<span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">1.3</span>
+<span class="fu">fun1</span><span class="op">(</span>x <span class="op">=</span> <span class="va">y</span><span class="op">)</span>
+<span class="co">#&gt; Error: `x` must be a whole number (non-missing integer scalar or double equivalent).</span></code></pre></div>
 <p>If this is not the case, developers can provide a different name using the <code>x_name</code> argument.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit">
-<span class="kw">x</span> <span class="op">&lt;-</span> <span class="fl">NA</span>
-<span class="fu"><a href="../reference/chk_flag.html">chk_flag</a></span>(<span class="kw">x</span>, x_name = <span class="st">"`zzz`"</span>)
-<span class="co">#&gt; Error: `zzz` must be a flag (TRUE or FALSE).</span>
-</pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="cn">NA</span>
+<span class="fu"><a href="../reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">x</span>, x_name <span class="op">=</span> <span class="st">"`zzz`"</span><span class="op">)</span>
+<span class="co">#&gt; Error: `zzz` must be a flag (TRUE or FALSE).</span></code></pre></div>
 <p><strong>IMPORTANT NOTE</strong></p>
 <p>As the <code>chk_</code> (and <code>vld_</code>) functions are not expected to be directly exposed to users they don’t check any of their arguments (other than the object of interest of course!) to ensure that they are as fast as possible.</p>
 </div>
 <div id="extending-chk" class="section level2">
 <h2 class="hasAnchor">
-<a href="#extending-chk" class="anchor"></a>Extending chk</h2>
+<a href="#extending-chk" class="anchor" aria-hidden="true"></a>Extending chk</h2>
 <p>The <code><a href="../reference/chk_flag.html">chk_flag()</a></code> function illustrates the general structure of a <code>chk_</code> function.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit">
-<span class="kw">chk_flag</span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">chk_flag</span>
 <span class="co">#&gt; function(x, x_name = NULL){</span>
 <span class="co">#&gt;   if(vld_flag(x)) return(invisible())</span>
 <span class="co">#&gt;   if(is.null(x_name))  x_name &lt;- deparse_backtick_chk(substitute(x))</span>
 <span class="co">#&gt;   abort_chk(x_name, " must be a flag (TRUE or FALSE)")</span>
 <span class="co">#&gt; }</span>
 <span class="co">#&gt; &lt;bytecode: 0x7fe802835670&gt;</span>
-<span class="co">#&gt; &lt;environment: namespace:chk&gt;</span>
-</pre></div>
+<span class="co">#&gt; &lt;environment: namespace:chk&gt;</span></code></pre></div>
 <p>A <code>chk_</code> function initially checks the object (using its <code>vld_</code> partner) and if the object passes the check immediately returns an invisible <code>NULL</code>. If, and only if, the object fails the check does the <code>chk_</code> function construct and then throw an informative error message.</p>
-<p>The <code><a href="../reference/deparse_backtick_chk.html">deparse_backtick_chk()</a></code> and <code><a href="../reference/abort_chk.html">abort_chk()</a></code> functions are exported to make it easy for programmers to develop their own <code>chk_</code> functions. The <a href="https://github.com/poissonconsulting/chk/blob/master/R/chk-lgl.R">chk-lgl.R</a> script illustrates the general template to use when developing your own <code>chk_</code> functions.</p>
+<p>The <code><a href="../reference/deparse_backtick_chk.html">deparse_backtick_chk()</a></code> and <code><a href="../reference/abort_chk.html">abort_chk()</a></code> functions are exported to make it easy for programmers to develop their own <code>chk_</code> functions. The <a href="https://github.com/poissonconsulting/chk/blob/master/R/chk-lgl.R" class="external-link">chk-lgl.R</a> script illustrates the general template to use when developing your own <code>chk_</code> functions.</p>
 <div id="abort_chk" class="section level3">
 <h3 class="hasAnchor">
-<a href="#abort_chk" class="anchor"></a><code>abort_chk()</code>
+<a href="#abort_chk" class="anchor" aria-hidden="true"></a><code>abort_chk()</code>
 </h3>
-<p>The <code><a href="../reference/abort_chk.html">abort_chk()</a></code> function converts multiple arguments to a string using <code><a href="https://rdrr.io/r/base/paste.html">paste0(..., collapse = '')</a></code> and provides number sensitive <code>sprintf</code>-like types. By default it also capitalizes the first character and adds a missing period.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit">
-<span class="fu"><a href="../reference/abort_chk.html">abort_chk</a></span>(<span class="st">"There %r %n problem director%y%s."</span>, n = <span class="fl">1</span>)
+<p>The <code><a href="../reference/abort_chk.html">abort_chk()</a></code> function converts multiple arguments to a string using <code>paste0(..., collapse = '')</code> and provides number sensitive <code>sprintf</code>-like types. By default it also capitalizes the first character and adds a missing period.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/abort_chk.html">abort_chk</a></span><span class="op">(</span><span class="st">"There %r %n problem director%y%s."</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="co">#&gt; Error: There is 1 problem directory.</span>
-<span class="fu"><a href="../reference/abort_chk.html">abort_chk</a></span>(<span class="st">"there %r %n "</span>, <span class="st">"problem director%y%s"</span>, n = <span class="fl">2</span>)
-<span class="co">#&gt; Error: There are 2 problem directories.</span>
-</pre></div>
+<span class="fu"><a href="../reference/abort_chk.html">abort_chk</a></span><span class="op">(</span><span class="st">"there %r %n "</span>, <span class="st">"problem director%y%s"</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+<span class="co">#&gt; Error: There are 2 problem directories.</span></code></pre></div>
 </div>
 <div id="check_-functions" class="section level3">
 <h3 class="hasAnchor">
-<a href="#check_-functions" class="anchor"></a><code>check_</code> Functions</h3>
+<a href="#check_-functions" class="anchor" aria-hidden="true"></a><code>check_</code> Functions</h3>
 <p>The <code>check_</code> functions are more complex then the <code>chk_</code> functions which make them slower but makes doing some general tests easier. These functions are used to check the parameters of the object.</p>
 </div>
 </div>
@@ -209,11 +198,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Joe Thorley, Kirill Müller, Poisson Consulting.</p>
+  <p></p>
+<p>Developed by Joe Thorley, Kirill Müller, Poisson Consulting.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9001.</p>
 </div>
 
       </footer>
@@ -221,6 +212,8 @@
 
   
 
+
+  
 
   </body>
 </html>

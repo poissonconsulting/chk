@@ -52,6 +52,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -63,9 +65,16 @@
 
 
 
+
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -79,19 +88,13 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9002</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/chk.html">Get started</a>
 </li>
 <li>
@@ -116,7 +119,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/poissonconsulting/chk/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -137,28 +140,115 @@
       <small>Source: <a href='https://github.com/poissonconsulting/chk/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="chk-0519002" class="section level1">
+<h1 class="page-header" data-toc-text="0.5.1.9002">
+<a href="#chk-0519002" class="anchor" aria-hidden="true"></a>chk 0.5.1.9002<small> Unreleased </small></h1>
+<ul><li>All <code>check_xx()</code> functions with a <code>chk_xx()</code> equivalent removed</li>
+<li>All <code>chk_xx()</code> now return x</li>
+<li>
+<code><a href="../reference/chk_atomic.html">chk_atomic()</a></code> now returns x and removed <code>check_atomic()</code>.</li>
+<li>
+<code><a href="../reference/chk_data.html">chk_data()</a></code> now returns input object</li>
+</ul></div>
+    <div id="chk-0519001" class="section level1">
+<h1 class="page-header" data-toc-text="0.5.1.9001">
+<a href="#chk-0519001" class="anchor" aria-hidden="true"></a>chk 0.5.1.9001<small> Unreleased </small></h1>
+<ul><li>Added following check functions which return invisible copy of original object to be used in pipes.
+<ul><li><code>check_all_equal()</code></li>
+<li><code>check_all_equivalent()</code></li>
+<li><code>check_all()</code></li>
+<li><code>check_array()</code></li>
+<li><code>check_atomic()</code></li>
+<li><code>check_character_or_factor()</code></li>
+<li><code>check_character()</code></li>
+<li><code>check_chr()</code></li>
+<li><code><a href="../reference/check_data.html">check_data()</a></code></li>
+<li><code>check_date()</code></li>
+<li><code>check_datetime()</code></li>
+<li><code>check_dbl()</code></li>
+<li><code>check_dir()</code></li>
+<li><code>check_double()</code></li>
+<li><code>check_environment()</code></li>
+<li><code>check_equal()</code></li>
+<li><code>check_equivalent()</code></li>
+<li><code>check_ext()</code></li>
+<li><code>check_factor()</code></li>
+<li><code>check_false()</code></li>
+<li><code>check_file()</code></li>
+<li><code>check_flag()</code></li>
+<li><code>check_function()</code></li>
+<li><code>check_gt()</code></li>
+<li><code>check_gte()</code></li>
+<li><code>check_identical()</code></li>
+<li><code>check_integer()</code></li>
+<li><code>check_is()</code></li>
+<li><code>check_join()</code></li>
+<li><code>check_lgl()</code></li>
+<li><code>check_list()</code></li>
+<li><code>check_logical()</code></li>
+<li><code>check_lt()</code></li>
+<li><code>check_lte()</code></li>
+<li><code>check_match()</code></li>
+<li><code>check_matrix()</code></li>
+<li><code>check_named()</code></li>
+<li><code>check_not_any_na()</code></li>
+<li><code>check_not_empty()</code></li>
+<li><code>check_not_null()</code></li>
+<li><code>check_not_subset()</code></li>
+<li><code>check_null_or()</code></li>
+<li><code>check_null()</code></li>
+<li><code>check_number()</code></li>
+<li><code>check_numeric()</code></li>
+<li><code>check_orderset()</code></li>
+<li><code>check_range()</code></li>
+<li><code>check_s3_class()</code></li>
+<li><code>check_s4_class()</code></li>
+<li><code>check_scalar()</code></li>
+<li><code>check_setequal()</code></li>
+<li><code>check_sorted()</code></li>
+<li><code>check_string()</code></li>
+<li><code>check_subset()</code></li>
+<li><code>check_superset()</code></li>
+<li><code>check_true()</code></li>
+<li><code>check_tz()</code></li>
+<li><code>check_unique()</code></li>
+<li><code>check_vector()</code></li>
+<li><code>check_whole_number()</code></li>
+<li><code>check_whole_numeric()</code></li>
+<li><code>check_wnum()</code></li>
+</ul></li>
+<li>Modified following checks to return invisible copy of original object
+<ul><li>
+<code><a href="../reference/check_data.html">check_data()</a></code>.</li>
+<li>
+<code><a href="../reference/check_dim.html">check_dim()</a></code>.</li>
+<li>
+<code><a href="../reference/check_dirs.html">check_dirs()</a></code>.</li>
+<li>
+<code><a href="../reference/check_files.html">check_files()</a></code>.</li>
+<li>
+<code><a href="../reference/check_key.html">check_key()</a></code>.</li>
+<li>
+<code><a href="../reference/check_names.html">check_names()</a></code>.</li>
+<li>
+<code><a href="../reference/check_values.html">check_values()</a></code>.</li>
+</ul></li>
+<li>Fix bug in <code><a href="../reference/check_key.html">check_key()</a></code> and <code><a href="../reference/check_data.html">check_data()</a></code> when key is undefined for <code>sf</code>objects.</li>
+</ul></div>
     <div id="chk-0519000" class="section level1">
 <h1 class="page-header" data-toc-text="0.5.1.9000">
-<a href="#chk-0519000" class="anchor"></a>chk 0.5.1.9000<small> Unreleased </small>
-</h1>
-<ul>
-<li>Same as previous version.</li>
-</ul>
-</div>
+<a href="#chk-0519000" class="anchor" aria-hidden="true"></a>chk 0.5.1.9000<small> Unreleased </small></h1>
+<ul><li>Same as previous version.</li>
+</ul></div>
     <div id="chk-051" class="section level1">
 <h1 class="page-header" data-toc-text="0.5.1">
-<a href="#chk-051" class="anchor"></a>chk 0.5.1<small> 2020-07-24 </small>
-</h1>
-<ul>
-<li>Internal changes only.</li>
-</ul>
-</div>
+<a href="#chk-051" class="anchor" aria-hidden="true"></a>chk 0.5.1<small> 2020-07-24 </small></h1>
+<ul><li>Internal changes only.</li>
+</ul></div>
     <div id="chk-050" class="section level1">
 <h1 class="page-header" data-toc-text="0.5.0">
-<a href="#chk-050" class="anchor"></a>chk 0.5.0<small> 2020-05-29 </small>
-</h1>
-<ul>
-<li><p>Added <code><a href="../reference/chk_null_or.html">chk_null_or()</a></code>.</p></li>
+<a href="#chk-050" class="anchor" aria-hidden="true"></a>chk 0.5.0<small> 2020-05-29 </small></h1>
+<ul><li><p>Added <code><a href="../reference/chk_null_or.html">chk_null_or()</a></code>.</p></li>
 <li><p>Added <code><a href="../reference/chk_wnum.html">chk_wnum()</a></code> to check whole numeric scalars.</p></li>
 <li><p>Added <code><a href="../reference/chk_dbl.html">chk_dbl()</a></code> to check double scalars.</p></li>
 <li><p>Added <code><a href="../reference/chk_chr.html">chk_chr()</a></code> to check character scalars.</p></li>
@@ -170,16 +260,12 @@
 <li><p><code><a href="../reference/check_values.html">check_values()</a></code> now checks factor levels.</p></li>
 <li><p>Undeprecated <code><a href="../reference/chk_is.html">chk_is()</a></code> as useful for R6 objects.</p></li>
 <li><p>Soft-deprecated <code><a href="../reference/chk_date_time.html">chk_datetime()</a></code> for <code><a href="../reference/chk_date_time.html">chk_date_time()</a></code>.</p></li>
-</ul>
-</div>
+</ul></div>
     <div id="chk-040" class="section level1">
 <h1 class="page-header" data-toc-text="0.4.0">
-<a href="#chk-040" class="anchor"></a>chk 0.4.0<small> 2020-03-04 </small>
-</h1>
-<ul>
-<li>Added following checks
-<ul>
-<li>
+<a href="#chk-040" class="anchor" aria-hidden="true"></a>chk 0.4.0<small> 2020-03-04 </small></h1>
+<ul><li>Added following checks
+<ul><li>
 <code><a href="../reference/check_names.html">check_names()</a></code>.</li>
 <li>
 <code><a href="../reference/check_dim.html">check_dim()</a></code>.</li>
@@ -189,11 +275,9 @@
 <code><a href="../reference/check_key.html">check_key()</a></code>.</li>
 <li>
 <code><a href="../reference/check_data.html">check_data()</a></code>.</li>
-</ul>
-</li>
+</ul></li>
 <li>Added following typeof chks
-<ul>
-<li>
+<ul><li>
 <code><a href="../reference/chk_logical.html">chk_logical()</a></code> and <code><a href="../reference/chk_logical.html">vld_logical()</a></code>.</li>
 <li>
 <code><a href="../reference/chk_double.html">chk_double()</a></code> and <code><a href="../reference/chk_double.html">vld_double()</a></code>.</li>
@@ -201,30 +285,22 @@
 <code><a href="../reference/chk_integer.html">chk_integer()</a></code> and <code><a href="../reference/chk_integer.html">vld_integer()</a></code>.</li>
 <li>
 <code><a href="../reference/chk_character.html">chk_character()</a></code> and <code><a href="../reference/chk_character.html">vld_character()</a></code>.</li>
-</ul>
-</li>
+</ul></li>
 <li>Added miscellaneous chks
-<ul>
-<li>
+<ul><li>
 <code><a href="../reference/chk_data.html">chk_data()</a></code> and <code><a href="../reference/chk_data.html">vld_data()</a></code>.</li>
 <li>
 <code><a href="../reference/chk_join.html">chk_join()</a></code>.</li>
-</ul>
-</li>
+</ul></li>
 <li>Fixed
-<ul>
-<li>
+<ul><li>
 <code><a href="../reference/chk_vector.html">chk_vector()</a></code> and <code><a href="../reference/chk_vector.html">vld_vector()</a></code> so ignores attributes.</li>
-</ul>
-</li>
-</ul>
-</div>
+</ul></li>
+</ul></div>
     <div id="chk-031" class="section level1">
 <h1 class="page-header" data-toc-text="0.3.1">
-<a href="#chk-031" class="anchor"></a>chk 0.3.1<small> 2020-02-05 </small>
-</h1>
-<ul>
-<li>Added <code><a href="../reference/expect_chk_error.html">expect_chk_error()</a></code>.</li>
+<a href="#chk-031" class="anchor" aria-hidden="true"></a>chk 0.3.1<small> 2020-02-05 </small></h1>
+<ul><li>Added <code><a href="../reference/expect_chk_error.html">expect_chk_error()</a></code>.</li>
 <li>Added <code><a href="../reference/chk_matrix.html">chk_matrix()</a></code> and <code><a href="../reference/chk_matrix.html">vld_matrix()</a></code>.</li>
 <li>Added <code><a href="../reference/chk_array.html">chk_array()</a></code> and <code><a href="../reference/chk_array.html">vld_array()</a></code>.</li>
 <li>
@@ -233,48 +309,37 @@
 <li>Added <code><a href="../reference/chk_matrix.html">chk_matrix()</a></code> and <code><a href="../reference/chk_matrix.html">vld_matrix()</a></code>.</li>
 <li>Added <code><a href="../reference/chk_array.html">chk_array()</a></code> and <code><a href="../reference/chk_array.html">vld_array()</a></code>.</li>
 <li>Added <code><a href="../reference/expect_chk_error.html">expect_chk_error()</a></code>.</li>
-</ul>
-</div>
+</ul></div>
     <div id="chk-030" class="section level1">
 <h1 class="page-header" data-toc-text="0.3.0">
-<a href="#chk-030" class="anchor"></a>chk 0.3.0<small> 2020-01-15 </small>
-</h1>
-<ul>
-<li>Added <code><a href="../reference/chk_sorted.html">chk_sorted()</a></code> and <code><a href="../reference/chk_sorted.html">vld_sorted()</a></code>.</li>
-</ul>
-</div>
+<a href="#chk-030" class="anchor" aria-hidden="true"></a>chk 0.3.0<small> 2020-01-15 </small></h1>
+<ul><li>Added <code><a href="../reference/chk_sorted.html">chk_sorted()</a></code> and <code><a href="../reference/chk_sorted.html">vld_sorted()</a></code>.</li>
+</ul></div>
     <div id="chk-021" class="section level1">
 <h1 class="page-header" data-toc-text="0.2.1">
-<a href="#chk-021" class="anchor"></a>chk 0.2.1<small> 2019-11-26 </small>
-</h1>
+<a href="#chk-021" class="anchor" aria-hidden="true"></a>chk 0.2.1<small> 2019-11-26 </small></h1>
 <div id="minor-changes" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-changes" class="anchor"></a>Minor Changes</h2>
-<ul>
-<li>Removed <code>chk-benchmarking.Rmd</code> vignette that was causing problems for many CRAN checks.</li>
-</ul>
-</div>
+<a href="#minor-changes" class="anchor" aria-hidden="true"></a>Minor Changes</h2>
+<ul><li>Removed <code>chk-benchmarking.Rmd</code> vignette that was causing problems for many CRAN checks.</li>
+</ul></div>
 </div>
     <div id="chk-020" class="section level1">
 <h1 class="page-header" data-toc-text="0.2.0">
-<a href="#chk-020" class="anchor"></a>chk 0.2.0<small> 2019-11-15 </small>
-</h1>
+<a href="#chk-020" class="anchor" aria-hidden="true"></a>chk 0.2.0<small> 2019-11-15 </small></h1>
 <div id="major-changes" class="section level2">
 <h2 class="hasAnchor">
-<a href="#major-changes" class="anchor"></a>Major Changes</h2>
-<ul>
-<li>Added <code>x_name = NULL</code> argument to relevant <code>chk_</code> functions.</li>
+<a href="#major-changes" class="anchor" aria-hidden="true"></a>Major Changes</h2>
+<ul><li>Added <code>x_name = NULL</code> argument to relevant <code>chk_</code> functions.</li>
 <li>Replaced <code>err = FALSE</code> variant with <code>vld_</code> variant.</li>
-<li>Switched from <code><a href="https://rdrr.io/r/base/stop.html">stop()</a></code>, <code><a href="https://rdrr.io/r/base/warning.html">warning()</a></code> and <code><a href="https://rdrr.io/r/base/message.html">message()</a></code> to rlang variants <code>abort()</code>, <code>warn()</code> and <code>inform()</code>.</li>
+<li>Switched from <code><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop()</a></code>, <code><a href="https://rdrr.io/r/base/warning.html" class="external-link">warning()</a></code> and <code><a href="https://rdrr.io/r/base/message.html" class="external-link">message()</a></code> to rlang variants <code>abort()</code>, <code>warn()</code> and <code>inform()</code>.</li>
 <li>All error messages now start with x_name.</li>
 <li>Err capitalizes first character and adds missing period (tidyverse style).</li>
-</ul>
-</div>
+</ul></div>
 <div id="new-functions" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-functions" class="anchor"></a>New Functions</h2>
-<ul>
-<li><code><a href="../reference/chk_all.html">chk_all()</a></code></li>
+<a href="#new-functions" class="anchor" aria-hidden="true"></a>New Functions</h2>
+<ul><li><code><a href="../reference/chk_all.html">chk_all()</a></code></li>
 <li><code><a href="../reference/chk_atomic.html">chk_atomic()</a></code></li>
 <li><code><a href="../reference/chk_environment.html">chk_environment()</a></code></li>
 <li><code><a href="../reference/chk_ext.html">chk_ext()</a></code></li>
@@ -282,23 +347,19 @@
 <li><code><a href="../reference/chk_not_empty.html">chk_not_empty()</a></code></li>
 <li><code><a href="../reference/chk_s3_class.html">chk_s3_class()</a></code></li>
 <li><code><a href="../reference/chk_s4_class.html">chk_s4_class()</a></code></li>
-<li><code><a href="../reference/vld_orderset.html">chk_setequal()</a></code></li>
-</ul>
-</div>
+<li><code><a href="../reference/chk_setequal.html">chk_setequal()</a></code></li>
+</ul></div>
 <div id="newly-exported-functions" class="section level2">
 <h2 class="hasAnchor">
-<a href="#newly-exported-functions" class="anchor"></a>Newly Exported Functions</h2>
-<ul>
-<li><code><a href="../reference/deparse_backtick_chk.html">backtick_chk()</a></code></li>
+<a href="#newly-exported-functions" class="anchor" aria-hidden="true"></a>Newly Exported Functions</h2>
+<ul><li><code><a href="../reference/deparse_backtick_chk.html">backtick_chk()</a></code></li>
 <li>
 <code><a href="../reference/deparse_backtick_chk.html">unbacktick_chk()</a></code>.</li>
-</ul>
-</div>
+</ul></div>
 <div id="new-arguments" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-arguments" class="anchor"></a>New Arguments</h2>
-<ul>
-<li>
+<a href="#new-arguments" class="anchor" aria-hidden="true"></a>New Arguments</h2>
+<ul><li>
 <code>formals</code> argument to <code><a href="../reference/chk_function.html">chk_function()</a></code>.</li>
 <li>
 <code>tidy = TRUE</code> argument to errors, warnings and messages.</li>
@@ -312,38 +373,30 @@
 <code>incomparables = FALSE</code> argument to <code><a href="../reference/chk_unique.html">chk_unique()</a></code>.</li>
 <li>
 <code>%y</code> to sprintf-like types.</li>
-</ul>
-</div>
+</ul></div>
 <div id="soft-deprecated-functions" class="section level2">
 <h2 class="hasAnchor">
-<a href="#soft-deprecated-functions" class="anchor"></a>(Soft) Deprecated Functions</h2>
-<ul>
-<li><p><code><a href="../reference/chk_deprecated.html">chk_no_missing()</a></code> for <code><a href="../reference/chk_not_any_na.html">chk_not_any_na()</a></code>.</p></li>
-<li><p><code><a href="../reference/chk_deprecated.html">chk_files()</a></code> and <code><a href="../reference/chk_deprecated.html">chk_dirs()</a></code> for <code><a href="../reference/chk_all.html">chk_all(x, chk_file)</a></code> etc.</p></li>
+<a href="#soft-deprecated-functions" class="anchor" aria-hidden="true"></a>(Soft) Deprecated Functions</h2>
+<ul><li><p><code><a href="../reference/chk_deprecated.html">chk_no_missing()</a></code> for <code><a href="../reference/chk_not_any_na.html">chk_not_any_na()</a></code>.</p></li>
+<li><p><code><a href="../reference/chk_deprecated.html">chk_files()</a></code> and <code><a href="../reference/chk_deprecated.html">chk_dirs()</a></code> for <code>chk_all(x, chk_file)</code> etc.</p></li>
 <li><p><code><a href="../reference/chk_deprecated.html">deparse_backtick()</a></code> for <code><a href="../reference/deparse_backtick_chk.html">deparse_backtick_chk()</a></code>.</p></li>
 <li><p><code><a href="../reference/chk_deprecated.html">chk_length()</a></code>, <code><a href="../reference/chk_deprecated.html">chk_proportion()</a></code> and <code><a href="../reference/chk_deprecated.html">chk_count()</a></code>.</p></li>
 <li><p><code><a href="../reference/chk_deprecated.html">chk_on()</a></code>, <code><a href="../reference/chk_deprecated.html">chk_off()</a></code> and <code><a href="../reference/chk_deprecated.html">is_chk_on()</a></code>.</p></li>
-</ul>
-</div>
+</ul></div>
 <div id="minor-changes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-changes-1" class="anchor"></a>Minor Changes</h2>
-<ul>
-<li>Changed <code><a href="../reference/chk_match.html">chk_match()</a></code> so ignores missing values.</li>
+<a href="#minor-changes-1" class="anchor" aria-hidden="true"></a>Minor Changes</h2>
+<ul><li>Changed <code><a href="../reference/chk_match.html">chk_match()</a></code> so ignores missing values.</li>
 <li>Changed <code><a href="../reference/chk_true.html">chk_true()</a></code> (and <code><a href="../reference/chk_false.html">chk_false()</a></code>) to same behavior as <code>isTRUE</code> in R &gt;= 3.5.</li>
 <li>Extended <code><a href="../reference/chk_unique.html">chk_unique()</a></code> to handle <code>incomparables != FALSE</code> with data frames.</li>
 <li>Changed to <code>range = c(0,1)</code> for <code><a href="../reference/chk_range.html">chk_range()</a></code>.</li>
-</ul>
-</div>
+</ul></div>
 </div>
     <div id="chk-001" class="section level1">
 <h1 class="page-header" data-toc-text="0.0.1">
-<a href="#chk-001" class="anchor"></a>chk 0.0.1<small> Unreleased </small>
-</h1>
-<ul>
-<li>Initial release.</li>
-</ul>
-</div>
+<a href="#chk-001" class="anchor" aria-hidden="true"></a>chk 0.0.1<small> Unreleased </small></h1>
+<ul><li>Initial release.</li>
+</ul></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -357,11 +410,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joe Thorley, Kirill Müller, Poisson Consulting.</p>
+  <p><p>Developed by Joe Thorley, Kirill Müller, Poisson Consulting.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -369,6 +422,8 @@
 
   
 
+
+  
 
   </body>
 </html>

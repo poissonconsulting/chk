@@ -47,9 +47,11 @@
 
 
 <meta property="og:title" content="Check Array — chk_array" />
-<meta property="og:description" content="Checks if is a array using
+<meta property="og:description" content="Checks if is an array using
 is.array(x)" />
 <meta property="og:image" content="/logo.png" />
+
+
 
 
 
@@ -65,9 +67,16 @@ is.array(x)" />
 
 
 
+
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -81,19 +90,13 @@ is.array(x)" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9002</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/chk.html">Get started</a>
 </li>
 <li>
@@ -118,7 +121,7 @@ is.array(x)" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/poissonconsulting/chk/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -141,13 +144,13 @@ is.array(x)" />
     </div>
 
     <div class="ref-description">
-    <p>Checks if is a array using</p>
-<p><code><a href='https://rdrr.io/r/base/array.html'>is.array(x)</a></code></p>
+    <p>Checks if is an array using</p>
+<p><code>is.array(x)</code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>chk_array</span>(<span class='kw'>x</span>, x_name = <span class='kw'>NULL</span>)
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>chk_array</span><span class='op'>(</span><span class='va'>x</span>, x_name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>vld_array</span>(<span class='kw'>x</span>)</pre>
+<span class='fu'>vld_array</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -164,7 +167,8 @@ is.array(x)" />
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The <code>chk_</code> function throws an informative error if the test fails.</p>
+    <p>The <code>chk_</code> function throws an informative error if the test fails or
+returns the original object if successful so it can used in pipes.</p>
 <p>The <code>vld_</code> function returns a flag indicating whether the test was met.</p>
     <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
 
@@ -187,11 +191,16 @@ is.array(x)" />
 <code><a href='chk_whole_numeric.html'>chk_whole_numeric</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># chk_array</span>
-<span class='fu'>chk_array</span>(<span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fl'>1</span>))
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>chk_array</span>(<span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>1</span>)))
-<span class='co'># vld_array</span>
-<span class='fu'>vld_array</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>vld_array</span>(<span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fl'>1</span>))</div><div class='output co'>#&gt; [1] TRUE</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'># chk_array</span></span>
+<span class='r-in'><span class='fu'>chk_array</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='fu'>chk_array</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># vld_array</span></span>
+<span class='r-in'><span class='fu'>vld_array</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] FALSE</span>
+<span class='r-in'><span class='fu'>vld_array</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] TRUE</span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -203,11 +212,11 @@ is.array(x)" />
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joe Thorley, Kirill Müller, Poisson Consulting.</p>
+  <p><p>Developed by Joe Thorley, Kirill Müller, Poisson Consulting.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -215,6 +224,8 @@ is.array(x)" />
 
   
 
+
+  
 
   </body>
 </html>

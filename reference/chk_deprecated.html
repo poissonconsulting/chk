@@ -53,6 +53,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -64,9 +66,16 @@
 
 
 
+
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -80,19 +89,13 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9002</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/chk.html">Get started</a>
 </li>
 <li>
@@ -117,7 +120,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/poissonconsulting/chk/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -143,31 +146,31 @@
     <p>Deprecated <code>chk_()</code> functions.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>chk_count</span>(<span class='kw'>x</span>, x_name = <span class='kw'>NULL</span>)
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>chk_count</span><span class='op'>(</span><span class='va'>x</span>, x_name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>chk_dirs</span>(<span class='kw'>x</span>)
+<span class='fu'>chk_dirs</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 
-<span class='fu'>chk_files</span>(<span class='kw'>x</span>)
+<span class='fu'>chk_files</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 
-<span class='fu'>chk_has</span>(<span class='kw'>x</span>, <span class='kw'>values</span>, x_name = <span class='kw'>NULL</span>)
+<span class='fu'>chk_has</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>values</span>, x_name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>chk_in</span>(<span class='kw'>x</span>, <span class='kw'>values</span>, x_name = <span class='kw'>NULL</span>)
+<span class='fu'>chk_in</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>values</span>, x_name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>chk_length</span>(<span class='kw'>x</span>, length = <span class='fl'>1L</span>, x_name = <span class='kw'>NULL</span>)
+<span class='fu'>chk_length</span><span class='op'>(</span><span class='va'>x</span>, length <span class='op'>=</span> <span class='fl'>1L</span>, x_name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>chk_no_missing</span>(<span class='kw'>x</span>, x_name = <span class='kw'>NULL</span>)
+<span class='fu'>chk_no_missing</span><span class='op'>(</span><span class='va'>x</span>, x_name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>vld_no_missing</span>(<span class='kw'>x</span>)
+<span class='fu'>vld_no_missing</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 
-<span class='fu'>chk_off</span>()
+<span class='fu'>chk_off</span><span class='op'>(</span><span class='op'>)</span>
 
-<span class='fu'>chk_on</span>()
+<span class='fu'>chk_on</span><span class='op'>(</span><span class='op'>)</span>
 
-<span class='fu'>is_chk_on</span>()
+<span class='fu'>is_chk_on</span><span class='op'>(</span><span class='op'>)</span>
 
-<span class='fu'>chk_proportion</span>(<span class='kw'>x</span>, x_name = <span class='kw'>NULL</span>)
+<span class='fu'>chk_proportion</span><span class='op'>(</span><span class='va'>x</span>, x_name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>deparse_backtick</span>(<span class='kw'>x</span>)</pre>
+<span class='fu'>deparse_backtick</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -191,43 +194,43 @@
     
 <ul>
 <li><p><code>chk_count</code>: Check Count</p>
-<p><img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p>
+<p><a href='https://lifecycle.r-lib.org/articles/stages.html#soft-deprecated'><img src='figures/lifecycle-soft-deprecated.svg' alt='[Soft-deprecated]' /></a></p>
 <p>Replace by <code>[chk_whole_number](x); [chk_gte](x)</code></p></li>
 <li><p><code>chk_dirs</code>: Check Directories Exist</p>
-<p><img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p>
+<p><a href='https://lifecycle.r-lib.org/articles/stages.html#soft-deprecated'><img src='figures/lifecycle-soft-deprecated.svg' alt='[Soft-deprecated]' /></a></p>
 <p>Replace with <code>[chk_all](x, [chk_dir])</code></p></li>
 <li><p><code>chk_files</code>: Check Files Exist</p>
-<p><img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p>
+<p><a href='https://lifecycle.r-lib.org/articles/stages.html#soft-deprecated'><img src='figures/lifecycle-soft-deprecated.svg' alt='[Soft-deprecated]' /></a></p>
 <p>Replace with <code>[chk_all](x, [chk_file])</code></p></li>
 <li><p><code>chk_has</code>: Check Has</p>
-<p><img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p>
+<p><a href='https://lifecycle.r-lib.org/articles/stages.html#soft-deprecated'><img src='figures/lifecycle-soft-deprecated.svg' alt='[Soft-deprecated]' /></a></p>
 <p>Replace by <code><a href='chk_superset.html'>chk_superset()</a></code></p></li>
 <li><p><code>chk_in</code>: Check In</p>
-<p><img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p>
-<p>Replace by <code><a href='vld_not_subset.html'>chk_subset()</a></code></p></li>
+<p><a href='https://lifecycle.r-lib.org/articles/stages.html#soft-deprecated'><img src='figures/lifecycle-soft-deprecated.svg' alt='[Soft-deprecated]' /></a></p>
+<p>Replace by <code><a href='chk_subset.html'>chk_subset()</a></code></p></li>
 <li><p><code>chk_length</code>: Check Length</p>
-<p><img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p>
+<p><a href='https://lifecycle.r-lib.org/articles/stages.html#soft-deprecated'><img src='figures/lifecycle-soft-deprecated.svg' alt='[Soft-deprecated]' /></a></p>
 <p>Replace by <code>[chk_range](length(x))</code></p></li>
 <li><p><code>chk_no_missing</code>: Check No Missing Values</p>
-<p><img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p>
+<p><a href='https://lifecycle.r-lib.org/articles/stages.html#soft-deprecated'><img src='figures/lifecycle-soft-deprecated.svg' alt='[Soft-deprecated]' /></a></p>
 <p>Replace with <code><a href='chk_not_any_na.html'>chk_not_any_na()</a></code></p></li>
 <li><p><code>vld_no_missing</code>: Validate No Missing Values</p>
-<p><img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p>
+<p><a href='https://lifecycle.r-lib.org/articles/stages.html#soft-deprecated'><img src='figures/lifecycle-soft-deprecated.svg' alt='[Soft-deprecated]' /></a></p>
 <p>Replace with <code><a href='chk_not_any_na.html'>vld_not_any_na()</a></code></p></li>
 <li><p><code>chk_off</code>: Turns checking off</p>
-<p><img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /></p>
+<p><a href='https://lifecycle.r-lib.org/articles/stages.html#deprecated'><img src='figures/lifecycle-deprecated.svg' alt='[Deprecated]' /></a></p>
 <p>This approach is no longer recommended</p></li>
 <li><p><code>chk_on</code>: Turns checking on</p>
-<p><img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /></p>
+<p><a href='https://lifecycle.r-lib.org/articles/stages.html#deprecated'><img src='figures/lifecycle-deprecated.svg' alt='[Deprecated]' /></a></p>
 <p>This approach is no longer recommended</p></li>
 <li><p><code>is_chk_on</code>: Tests checking on</p>
-<p><img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /></p>
+<p><a href='https://lifecycle.r-lib.org/articles/stages.html#deprecated'><img src='figures/lifecycle-deprecated.svg' alt='[Deprecated]' /></a></p>
 <p>This approach is no longer recommended</p></li>
 <li><p><code>chk_proportion</code>: Check Proportion</p>
-<p><img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p>
+<p><a href='https://lifecycle.r-lib.org/articles/stages.html#soft-deprecated'><img src='figures/lifecycle-soft-deprecated.svg' alt='[Soft-deprecated]' /></a></p>
 <p>Replace by <code>[chk_number](x); [chk_range](x)</code></p></li>
 <li><p><code>deparse_backtick</code>: Deparse Backtick</p>
-<p><img src='figures/lifecycle-soft-deprecated.svg' alt='Soft-deprecated lifecycle' /></p>
+<p><a href='https://lifecycle.r-lib.org/articles/stages.html#soft-deprecated'><img src='figures/lifecycle-soft-deprecated.svg' alt='[Soft-deprecated]' /></a></p>
 <p>Replace with <code><a href='deparse_backtick_chk.html'>deparse_backtick_chk()</a></code></p></li>
 </ul>
 
@@ -242,11 +245,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joe Thorley, Kirill Müller, Poisson Consulting.</p>
+  <p><p>Developed by Joe Thorley, Kirill Müller, Poisson Consulting.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -254,6 +257,8 @@
 
   
 
+
+  
 
   </body>
 </html>
