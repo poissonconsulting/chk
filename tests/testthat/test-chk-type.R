@@ -45,10 +45,7 @@ test_that("vld_whole_numeric", {
   expect_true(vld_whole_numeric(numeric(0)))
   expect_true(vld_whole_numeric(integer(0)))
   expect_false(vld_whole_numeric(logical(0)))
-  expect_warning(
-    vld_whole_numeric(Inf),
-    "^NAs introduced by coercion to integer range$"
-  )
+  expect_true(vld_whole_numeric(Inf))
   expect_true(vld_whole_numeric(NA_integer_))
   expect_true(vld_whole_numeric(NA_real_))
   expect_false(vld_whole_numeric(NA))
@@ -63,6 +60,8 @@ test_that("vld_whole_numeric", {
 test_that("chk_whole_numeric", {
   expect_identical(chk_whole_numeric(1L), 1L)
   expect_invisible(chk_whole_numeric(1L))
+  expect_identical(chk_whole_numeric(1), 1)
+  expect_identical(chk_whole_numeric(Inf), Inf)
   expect_chk_error(chk_whole_numeric(TRUE), "^`TRUE` must be a whole numeric vector [(]integer vector or double equivalent[)][.]$")
   expect_chk_error(chk_whole_numeric(TRUE, x_name = "`c(1,2)`"), "^`c[(]1,2[)]` must be a whole numeric vector [(]integer vector or double equivalent[)][.]$")
 })

@@ -36,7 +36,8 @@ chk_whole_numeric <- function(x, x_name = NULL) {
 #' vld_whole_numeric(1.5)
 #' @export
 vld_whole_numeric <- function(x) {
-  is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))
+  is.integer(x) || (is.double(x) &&
+                      vld_true(all.equal(x[!is.na(x)], trunc(x[!is.na(x)]))))
 }
 
 abort_whole_numeric <- function(x, x_name) {

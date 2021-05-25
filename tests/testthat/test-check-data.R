@@ -4,6 +4,8 @@ test_that("check_data works", {
   expect_identical(check_data(data.frame(x = 1)), data.frame(x = 1))
   expect_identical(check_data(data.frame(x = 1, values = list(x = 1))),
               check_data(data.frame(x = 1, values = list(x = 1))))
+  expect_identical(check_data(data.frame(x = 1), nrow = c(1, Inf)), data.frame(x = 1))
+
 })
 
 test_that("check_data fails", {
