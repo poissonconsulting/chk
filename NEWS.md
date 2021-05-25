@@ -1,3 +1,8 @@
+# chk 0.5.1.9003
+
+- `chk_whole_numeric()` now handle Inf values.
+
+
 # chk 0.5.1.9002
 
 - All `check_xx()` functions with a `chk_xx()` equivalent removed
