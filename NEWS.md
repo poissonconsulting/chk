@@ -1,3 +1,10 @@
+<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+
+# chk 0.5.1.9004
+
+- Same as previous version.
+
+
 # chk 0.5.1.9003
 
 - `chk_whole_numeric()` now handle Inf values.
