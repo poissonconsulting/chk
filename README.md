@@ -13,8 +13,6 @@ status](https://github.com/poissonconsulting/chk/workflows/R-CMD-check/badge.svg
 coverage](https://codecov.io/gh/poissonconsulting/chk/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/chk?branch=master)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Tinyverse
-status](https://tinyverse.netlify.com/badge/chk)](https://CRAN.R-project.org/package=chk)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/chk)](https://cran.r-project.org/package=chk)
 ![CRAN downloads](https://cranlogs.r-pkg.org/badges/chk)
