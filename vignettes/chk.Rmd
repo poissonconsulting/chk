@@ -25,6 +25,7 @@ It is designed to be simple, customizable and fast.
 For example `chk_flag(x)` checks whether `x` is a flag, i.e., a non-missing logical vector of length 1. 
 
 `chk_` functions are called for their side-effects, i.e., they throw an informative error if the object fails the check.
+Although do return an invisible copy of the first argument so they can be used in pipes.
 
 ```{r, error=TRUE}
 library(chk)
@@ -82,7 +83,7 @@ The `chk_flag()` function illustrates the general structure of a `chk_` function
 ``` r
 chk_flag
 #> function(x, x_name = NULL){
-#>   if(vld_flag(x)) return(invisible())
+#>   if(vld_flag(x)) return(invisible(x))
 #>   if(is.null(x_name))  x_name <- deparse_backtick_chk(substitute(x))
 #>   abort_chk(x_name, " must be a flag (TRUE or FALSE)")
 #> }
@@ -90,7 +91,7 @@ chk_flag
 #> <environment: namespace:chk>
 ```
 
-A `chk_` function initially checks the object (using its `vld_` partner) and if the object passes the check immediately returns an invisible `NULL`.
+A `chk_` function initially checks the object (using its `vld_` partner) and if the object passes the check immediately returns an invisible copy of the object.
 If, and only if, the object fails the check does the `chk_` function construct and then throw an informative error message.
 
 The `deparse_backtick_chk()` and `abort_chk()` functions are exported to make it easy for programmers to develop their own `chk_` functions.
@@ -107,4 +108,4 @@ abort_chk("there %r %n ", "problem director%y%s", n = 2)
 
 ### `check_` Functions
 
-The `check_` functions are more complex then the `chk_` functions which make them slower but makes doing some general tests easier. These functions are used to check the parameters of the object.
+The `check_` functions are more complex then the `chk_` functions which make them slower but makes doing some general tests easier.

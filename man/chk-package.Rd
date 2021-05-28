@@ -8,9 +8,9 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-For developers to check user-supplied function
-    arguments.  It is designed to be simple, fast and customizable.  Error
-    messages follow the tidyverse style guide.
+For developers to check user-supplied function arguments.  It
+    is designed to be simple, fast and customizable.  Error messages
+    follow the tidyverse style guide.
 }
 \seealso{
 Useful links:
@@ -31,6 +31,7 @@ Authors:
 Other contributors:
 \itemize{
   \item Ayla Pearson (\href{https://orcid.org/0000-0001-7388-1222}{ORCID}) [contributor]
+  \item Nadine Hussein \email{nadine@poissonconsulting.ca} (\href{https://orcid.org/0000-0003-4470-8361}{ORCID}) [contributor]
   \item Poisson Consulting [copyright holder, funder]
 }
 
