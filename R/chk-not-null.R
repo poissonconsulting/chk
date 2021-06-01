@@ -20,7 +20,7 @@ chk_not_null <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_not_null(x, x_name)
+  abort_chk(x_name, " must not be NULL", x = x)
 }
 
 #' @describeIn chk_not_null Validate Not NULL
@@ -32,6 +32,3 @@ chk_not_null <- function(x, x_name = NULL) {
 #' @export
 vld_not_null <- function(x) !is.null(x)
 
-abort_not_null <- function(x, x_name) {
-  abort_chk(x_name, " must not be NULL", x = x)
-}

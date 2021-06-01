@@ -20,7 +20,7 @@ chk_s3_class <- function(x, class, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_s3_class(x, class, x_name)
+  abort_chk(x_name, " must inherit from S3 class '", class, "'", x = x, class = class)
 }
 
 #' @describeIn chk_s3_class Validate Inherits from S3 Class
@@ -32,6 +32,3 @@ chk_s3_class <- function(x, class, x_name = NULL) {
 #' @export
 vld_s3_class <- function(x, class) !isS4(x) && inherits(x, class)
 
-abort_s3_class <- function(x, class, x_name) {
-  abort_chk(x_name, " must inherit from S3 class '", class, "'", x = x, class = class)
-}

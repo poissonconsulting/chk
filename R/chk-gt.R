@@ -20,7 +20,10 @@ chk_gt <- function(x, value = 0, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_gt(x, value, x_name)
+  if (length(x) == 1L) {
+    abort_chk(x_name, " must be greater than ", cc(value), ", not ", cc(x), x = x, value = value)
+  }
+  abort_chk(x_name, " must have values greater than ", cc(value), x = x, value = value)
 }
 
 #' @describeIn chk_gt Validate Greater Than
@@ -36,10 +39,3 @@ chk_gt <- function(x, value = 0, x_name = NULL) {
 #' vld_gt("b", value = "a")
 #' @export
 vld_gt <- function(x, value = 0) all(x[!is.na(x)] > value)
-
-abort_gt <- function(x, value, x_name) {
-  if (length(x) == 1L) {
-    abort_chk(x_name, " must be greater than ", cc(value), ", not ", cc(x), x = x, value = value)
-  }
-  abort_chk(x_name, " must have values greater than ", cc(value), x = x, value = value)
-}

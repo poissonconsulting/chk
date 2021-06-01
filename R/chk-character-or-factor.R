@@ -21,7 +21,7 @@ chk_character_or_factor <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_character_or_factor(x, x_name)
+  abort_chk(x_name, " must be character or factor", x = x)
 }
 
 #' @describeIn chk_character_or_factor Validate Character or Factor
@@ -38,6 +38,3 @@ chk_character_or_factor <- function(x, x_name = NULL) {
 #' @export
 vld_character_or_factor <- function(x) is.character(x) || is.factor(x)
 
-abort_character_or_factor <- function(x, x_name) {
-  abort_chk(x_name, " must be character or factor", x = x)
-}

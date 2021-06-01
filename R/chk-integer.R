@@ -20,7 +20,7 @@ chk_integer <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_integer(x, x_name)
+  abort_chk(x_name, " must be integer", x = x)
 }
 
 #' @describeIn chk_integer Validate Integer
@@ -36,6 +36,3 @@ chk_integer <- function(x, x_name = NULL) {
 #' @export
 vld_integer <- function(x) is.integer(x)
 
-abort_integer <- function(x, x_name) {
-  abort_chk(x_name, " must be integer", x = x)
-}

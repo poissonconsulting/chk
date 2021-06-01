@@ -24,7 +24,7 @@ chk_numeric <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_numeric(x, x_name)
+  abort_chk(x_name, " must be numeric", x = x)
 }
 
 #' @describeIn chk_numeric Validate Numeric
@@ -39,7 +39,3 @@ chk_numeric <- function(x, x_name = NULL) {
 #' vld_numeric(TRUE)
 #' @export
 vld_numeric <- function(x) is.numeric(x)
-
-abort_numeric <- function(x, x_name) {
-  abort_chk(x_name, " must be numeric", x = x)
-}

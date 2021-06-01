@@ -19,7 +19,7 @@ chk_tz <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_tz(x, x_name)
+  abort_chk(x_name, " must be a tz (non-missing scalar character of a recognized timezone)", x = x)
 }
 
 #' @describeIn chk_tz Validate Time Zone
@@ -33,6 +33,3 @@ vld_tz <- function(x) {
     x %in% OlsonNames()
 }
 
-abort_tz <- function(x, x_name) {
-  abort_chk(x_name, " must be a tz (non-missing scalar character of a recognized timezone)", x = x)
-}

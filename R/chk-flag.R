@@ -24,7 +24,7 @@ chk_flag <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_flag(x, x_name)
+  abort_chk(x_name, " must be a flag (TRUE or FALSE)", x = x)
 }
 
 #' @describeIn chk_flag Validate Flag
@@ -36,6 +36,3 @@ chk_flag <- function(x, x_name = NULL) {
 #' @export
 vld_flag <- function(x) is.logical(x) && length(x) == 1L && !anyNA(x)
 
-abort_flag <- function(x, x_name) {
-  abort_chk(x_name, " must be a flag (TRUE or FALSE)", x = x)
-}

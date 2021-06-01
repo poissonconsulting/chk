@@ -22,7 +22,7 @@ chk_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps), x_name = NUL
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_all_equal(x, tolerance, x_name)
+  abort_chk(x_name, " must have equal elements", x = x, tolerance = tolerance)
 }
 
 #' @describeIn chk_all_equal Validate All Equal
@@ -35,6 +35,3 @@ vld_all_equal <- function(x, tolerance = sqrt(.Machine$double.eps)) {
   length(x) < 2L || all(vapply(x, vld_equal, TRUE, y = x[[1]], tolerance = tolerance))
 }
 
-abort_all_equal <- function(x, tolerance, x_name) {
-  abort_chk(x_name, " must have equal elements", x = x, tolerance = tolerance)
-}

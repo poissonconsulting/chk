@@ -20,8 +20,7 @@ chk_date_time <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_date_time(x, x_name)
-}
+  abort_chk(x_name, " must be a date time (non-missing POSIXct scalar)", x = x)}
 
 #' @describeIn chk_date_time Check Date Time (Deprecated)
 #'
@@ -35,7 +34,7 @@ chk_datetime <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_date_time(x, x_name)
+  abort_chk(x_name, " must be a date time (non-missing POSIXct scalar)", x = x)
 }
 
 #' @describeIn chk_date_time Validate Date Time
@@ -61,8 +60,4 @@ vld_datetime <- function(x) {
                  with = "vld_date_time()",
                  id = "chk_datetime")
   vld_date_time(x)
-}
-
-abort_date_time <- function(x, x_name) {
-  abort_chk(x_name, " must be a date time (non-missing POSIXct scalar)", x = x)
 }

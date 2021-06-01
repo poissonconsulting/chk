@@ -24,7 +24,7 @@ chk_not_any_na <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_not_any_na(x, x_name)
+  abort_chk(x_name, " must not have any missing values", x = x)
 }
 
 #' @describeIn chk_not_any_na Validate Not Any Missing Values
@@ -39,7 +39,3 @@ chk_not_any_na <- function(x, x_name = NULL) {
 #' vld_not_any_na(TRUE)
 #' @export
 vld_not_any_na <- function(x) !anyNA(x)
-
-abort_not_any_na <- function(x, x_name) {
-  abort_chk(x_name, " must not have any missing values", x = x)
-}

@@ -20,7 +20,11 @@ chk_match <- function(x, regexp = ".+", x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_match(x, regexp, x_name)
+
+  if (length(x) == 1L) {
+    abort_chk(x_name, " must match regular expression '", regexp, "'", x = x, regexp = regexp)
+  }
+  abort_chk(x_name, " must have values matching regular expression '", regexp, "'", x = x, regexp = regexp)
 }
 
 #' @describeIn chk_match Validate Matches
@@ -35,9 +39,3 @@ chk_match <- function(x, regexp = ".+", x_name = NULL) {
 #' @export
 vld_match <- function(x, regexp = ".+") all(grepl(regexp, x[!is.na(x)]))
 
-abort_match <- function(x, regexp, x_name) {
-  if (length(x) == 1L) {
-    abort_chk(x_name, " must match regular expression '", regexp, "'", x = x, regexp = regexp)
-  }
-  abort_chk(x_name, " must have values matching regular expression '", regexp, "'", x = x, regexp = regexp)
-}

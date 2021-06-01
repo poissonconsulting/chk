@@ -23,7 +23,10 @@ chk_ext <- function(x, ext, x_name = NULL) {
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_string(x, x_name = x_name)
-  abort_ext(x, ext, x_name)
+  abort_chk(
+    x_name, " must have extension ", cc(ext, " or "), " (not '",
+    tools::file_ext(x), "')",
+    x = x, ext = ext)
 }
 
 #' @describeIn chk_ext Validate File Extension
@@ -35,10 +38,3 @@ chk_ext <- function(x, ext, x_name = NULL) {
 #' @export
 vld_ext <- function(x, ext) vld_string(x) && vld_subset(tools::file_ext(x), ext)
 
-abort_ext <- function(x, ext, x_name) {
-  abort_chk(
-    x_name, " must have extension ", cc(ext, " or "), " (not '",
-    tools::file_ext(x), "')",
-    x = x, ext = ext
-  )
-}

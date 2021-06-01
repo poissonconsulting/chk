@@ -21,7 +21,20 @@ chk_range <- function(x, range = c(0, 1), x_name = NULL) {
   }
 
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_range(x, range, x_name)
+
+  if (length(x) == 1L) {
+    if (range[1] == range[2]) {
+      abort_chk(x_name, " must be ", cc(range[1]), ", not ", cc(x), x = x, range = range)
+    }
+    abort_chk(
+      x_name, " must be between ", cc(range, " and "),
+      ", not ", cc(x)
+    )
+  }
+  if (range[1] == range[2]) {
+    abort_chk(x_name, " must have values of ", cc(range[1]), x = x, range = range)
+  }
+  abort_chk(x_name, " must have values between ", cc(range, " and "), x = x, range = range)
 }
 
 #' @describeIn chk_range Validate Range
@@ -38,18 +51,3 @@ vld_range <- function(x, range = c(0, 1)) {
   all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])
 }
 
-abort_range <- function(x, range, x_name) {
-  if (length(x) == 1L) {
-    if (range[1] == range[2]) {
-      abort_chk(x_name, " must be ", cc(range[1]), ", not ", cc(x), x = x, range = range)
-    }
-    abort_chk(
-      x_name, " must be between ", cc(range, " and "),
-      ", not ", cc(x)
-    )
-  }
-  if (range[1] == range[2]) {
-    abort_chk(x_name, " must have values of ", cc(range[1]), x = x, range = range)
-  }
-  abort_chk(x_name, " must have values between ", cc(range, " and "), x = x, range = range)
-}

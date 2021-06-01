@@ -20,7 +20,7 @@ chk_lgl <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_lgl(x, x_name)
+  abort_chk(x_name, " must be a logical scalar (TRUE, FALSE or NA)", x = x)
 }
 
 #' @describeIn chk_lgl Validate Logical Scalar
@@ -35,6 +35,3 @@ chk_lgl <- function(x, x_name = NULL) {
 #' @export
 vld_lgl <- function(x) is.logical(x) && length(x) == 1L
 
-abort_lgl <- function(x, x_name) {
-  abort_chk(x_name, " must be a logical scalar (TRUE, FALSE or NA)", x = x)
-}

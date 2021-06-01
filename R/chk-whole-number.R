@@ -24,7 +24,10 @@ chk_whole_number <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_whole_number(x, x_name)
+  abort_chk(
+    x_name,
+    " must be a whole number (non-missing integer scalar or double equivalent)",
+    x = x)
 }
 
 #' @describeIn chk_whole_number Validate Whole Number
@@ -38,10 +41,3 @@ vld_whole_number <- function(x) {
     (is.integer(x) || vld_true(all.equal(x, trunc(x))))
 }
 
-abort_whole_number <- function(x, x_name) {
-  abort_chk(
-    x_name,
-    " must be a whole number (non-missing integer scalar or double equivalent)",
-    x = x
-  )
-}

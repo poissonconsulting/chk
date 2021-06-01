@@ -20,7 +20,7 @@ chk_true <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_true(x, x_name)
+  abort_chk(x_name, " must be TRUE", x = x)
 }
 
 #' @describeIn chk_true Validate TRUE
@@ -35,6 +35,3 @@ chk_true <- function(x, x_name = NULL) {
 #' @export
 vld_true <- function(x) is.logical(x) && length(x) == 1L && !anyNA(x) && x
 
-abort_true <- function(x, x_name) {
-  abort_chk(x_name, " must be TRUE", x = x)
-}

@@ -24,9 +24,6 @@ chk_null_or <- function(x, chk, ..., x_name = NULL) {
   }
   msg <- try_msg(try)
   msg <- sub("[.]$", " or NULL.", msg)
-  abort_null_or(x, msg)
-}
-
-abort_null_or <- function(x, msg) {
   abort_chk(msg, x = x)
 }
+

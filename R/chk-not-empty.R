@@ -24,7 +24,7 @@ chk_not_empty <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_not_empty(x, x_name)
+  abort_chk(x_name, " must not be empty (zero length)", x = x)
 }
 
 #' @describeIn chk_not_empty Validate Not Empty
@@ -40,6 +40,3 @@ chk_not_empty <- function(x, x_name = NULL) {
 #' @export
 vld_not_empty <- function(x) length(x) != 0L
 
-abort_not_empty <- function(x, x_name) {
-  abort_chk(x_name, " must not be empty (zero length)", x = x)
-}

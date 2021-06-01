@@ -25,7 +25,7 @@ chk_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps),
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   y_name <- as_label(y)
-  abort_equal(x, y, y_name, tolerance, x_name)
+  abort_chk(x_name, " must be equal to: ", y_name, x = x, y = y)
 }
 
 #' @describeIn chk_equal Validate Equal
@@ -37,6 +37,3 @@ vld_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps)) {
   vld_true(all.equal(x, y, tolerance))
 }
 
-abort_equal <- function(x, y, y_name, tolerance, x_name) {
-  abort_chk(x_name, " must be equal to: ", y_name, x = x, y = y)
-}

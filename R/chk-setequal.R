@@ -20,7 +20,7 @@ chk_setequal <- function(x, values, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_setequal(x, values, x_name)
+  abort_chk(x_name, " must equal set: ", cc(values), x = x, values = values)
 }
 
 #' @describeIn chk_setequal Validate Set Equal
@@ -33,7 +33,3 @@ chk_setequal <- function(x, values, x_name = NULL) {
 #' vld_setequal(1:2, 2)
 #' @export
 vld_setequal <- function(x, values) setequal(x, values)
-
-abort_setequal <- function(x, values, x_name) {
-  abort_chk(x_name, " must equal set: ", cc(values), x = x, values = values)
-}

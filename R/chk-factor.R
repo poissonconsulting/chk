@@ -20,7 +20,7 @@ chk_factor <- function(x, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_factor(x, x_name)
+  abort_chk(x_name, " must be factor", x = x)
 }
 
 #' @describeIn chk_factor Validate Factor
@@ -33,7 +33,3 @@ chk_factor <- function(x, x_name = NULL) {
 #' vld_factor(1L)
 #' @export
 vld_factor <- function(x) is.factor(x)
-
-abort_factor <- function(x, x_name) {
-  abort_chk(x_name, " must be factor", x = x)
-}
