@@ -5,7 +5,7 @@
 #'
 #' @inheritParams params
 #' @param key A character vector of the columns that represent a unique key.
-#' @param na_distinct A flag specifying whether missing values should be considerd distinct.
+#' @param na_distinct A flag specifying whether missing values should be considered distinct.
 #' @return An informative error if the test fails or an invisible copy of x.
 #'
 #' @family check

@@ -11,7 +11,7 @@ check_key(x, key = character(0), na_distinct = FALSE, x_name = NULL)
 
 \item{key}{A character vector of the columns that represent a unique key.}
 
-\item{na_distinct}{A flag specifying whether missing values should be considerd distinct.}
+\item{na_distinct}{A flag specifying whether missing values should be considered distinct.}
 
 \item{x_name}{A string of the name of object x or NULL.}
 }
