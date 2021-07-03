@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# chk 0.6.0
+
+- Same as previous version.
+
+
 # chk 0.5.1.9005
 
 - All `chk_xx()` functions now return invisible copy of x (if passes check)
