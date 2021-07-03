@@ -10,19 +10,13 @@
 |collate  |en_CA.UTF-8                  |
 |ctype    |en_CA.UTF-8                  |
 |tz       |America/Vancouver            |
-|date     |2021-07-02                   |
+|date     |2021-07-03                   |
 
 # Dependencies
 
-|package |old   |new        |Δ  |
-|:-------|:-----|:----------|:--|
-|chk     |0.5.1 |0.5.1.9004 |*  |
+|package |old   |new   |Δ  |
+|:-------|:-----|:-----|:--|
+|chk     |0.5.1 |0.6.0 |*  |
 
 # Revdeps
-
-## New problems (1)
-
-|package                |version |error  |warning |note |
-|:----------------------|:-------|:------|:-------|:----|
-|[ypr](problems.md#ypr) |0.5.1   |__+1__ |        |     |
 
