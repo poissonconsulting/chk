@@ -21,7 +21,7 @@ check_dirs <- function(x, exists = TRUE, x_name = NULL) {
   chk_flag(exists)
 
   dirs <- vapply(x, vld_file, TRUE)
-  if(any(dirs)) {
+  if (any(dirs)) {
     abort_chk(x_name, " must specify directories ('", x[dirs][1], "' is a file)", x = x)
   }
   x <- x[vapply(x, vld_dir, TRUE) != exists]
