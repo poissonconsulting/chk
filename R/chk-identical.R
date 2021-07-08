@@ -32,4 +32,3 @@ chk_identical <- function(x, y, x_name = NULL) {
 #' vld_identical(1, 1)
 #' @export
 vld_identical <- function(x, y) identical(x, y)
-

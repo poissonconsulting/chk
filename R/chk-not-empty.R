@@ -39,4 +39,3 @@ chk_not_empty <- function(x, x_name = NULL) {
 #' vld_not_empty(list())
 #' @export
 vld_not_empty <- function(x) length(x) != 0L
-

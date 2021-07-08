@@ -31,4 +31,3 @@ chk_scalar <- function(x, x_name = NULL) {
 #' vld_scalar(1)
 #' @export
 vld_scalar <- function(x) length(x) == 1L
-

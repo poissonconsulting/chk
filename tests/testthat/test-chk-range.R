@@ -89,4 +89,3 @@ test_that("chk_gte", {
   expect_chk_error(chk_gte(c(1, -1)), "^`c[(]1, -1[)]` must have values greater than or equal to 0[.]$")
   expect_chk_error(chk_gte(-1, x_name = "another number"), "^Another number must be greater than or equal to 0, not -1[.]$")
 })
-

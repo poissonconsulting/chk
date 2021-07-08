@@ -35,4 +35,3 @@ chk_flag <- function(x, x_name = NULL) {
 #' vld_flag(1)
 #' @export
 vld_flag <- function(x) is.logical(x) && length(x) == 1L && !anyNA(x)
-

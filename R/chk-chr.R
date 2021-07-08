@@ -33,4 +33,3 @@ chk_chr <- function(x, x_name = NULL) {
 #' vld_chr(1)
 #' @export
 vld_chr <- function(x) is.character(x) && length(x) == 1L
-

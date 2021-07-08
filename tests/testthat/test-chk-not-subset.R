@@ -21,5 +21,3 @@ test_that("chk_not_subset", {
   expect_chk_error(chk_not_subset(1, c(0, 1, NA)), "^`1` must not match 1, 0 or NA[.]$")
   expect_chk_error(chk_not_subset(0L, 0L), c("^`0L` must not match 0[.]$"))
 })
-
-

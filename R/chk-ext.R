@@ -26,7 +26,8 @@ chk_ext <- function(x, ext, x_name = NULL) {
   abort_chk(
     x_name, " must have extension ", cc(ext, " or "), " (not '",
     tools::file_ext(x), "')",
-    x = x, ext = ext)
+    x = x, ext = ext
+  )
 }
 
 #' @describeIn chk_ext Validate File Extension
@@ -37,4 +38,3 @@ chk_ext <- function(x, ext, x_name = NULL) {
 #' vld_ext(toupper("oeu.pdf"), "PDF")
 #' @export
 vld_ext <- function(x, ext) vld_string(x) && vld_subset(tools::file_ext(x), ext)
-

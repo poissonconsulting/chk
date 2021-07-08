@@ -27,7 +27,8 @@ chk_whole_number <- function(x, x_name = NULL) {
   abort_chk(
     x_name,
     " must be a whole number (non-missing integer scalar or double equivalent)",
-    x = x)
+    x = x
+  )
 }
 
 #' @describeIn chk_whole_number Validate Whole Number
@@ -40,4 +41,3 @@ vld_whole_number <- function(x) {
   vld_number(x) &&
     (is.integer(x) || vld_true(all.equal(x, trunc(x))))
 }
-

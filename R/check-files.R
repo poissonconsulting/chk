@@ -21,13 +21,15 @@ check_files <- function(x, exists = TRUE, x_name = NULL) {
   chk_flag(exists)
 
   dirs <- vapply(x, vld_dir, TRUE)
-  if(any(dirs)) {
+  if (any(dirs)) {
     abort_chk(x_name, " must specify files ('", x[dirs][1], "' is a directory)", x = x)
   }
   x <- x[vapply(x, vld_file, TRUE) != exists]
-  if(!length(x)) return(invisible(x))
+  if (!length(x)) {
+    return(invisible(x))
+  }
   x <- x[1]
-  if(exists) {
+  if (exists) {
     abort_chk(x_name, " must specify existing files ('", x, "' can't be found)", x = x)
   }
   abort_chk(x_name, " must not specify existing files ('", x, "' exists)", x = x)

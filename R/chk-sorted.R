@@ -31,4 +31,3 @@ chk_sorted <- function(x, x_name = NULL) {
 #' vld_sorted(2:1)
 #' @export
 vld_sorted <- function(x) !is.unsorted(x)
-

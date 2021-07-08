@@ -37,4 +37,3 @@ chk_all_identical <- function(x, x_name = NULL) {
 vld_all_identical <- function(x) {
   length(x) < 2L || all(vapply(x, vld_identical, TRUE, y = x[[1]]))
 }
-

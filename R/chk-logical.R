@@ -35,4 +35,3 @@ chk_logical <- function(x, x_name = NULL) {
 #' vld_logical("TRUE")
 #' @export
 vld_logical <- function(x) is.logical(x)
-

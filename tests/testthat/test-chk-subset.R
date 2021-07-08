@@ -56,6 +56,3 @@ test_that("chk_superset", {
   expect_chk_error(chk_superset(1, 1:3), "^`1` must include 2 and 3[.]$")
   expect_chk_error(chk_superset(2, 1), "^`2` must include 1[.]$")
 })
-
-
-

@@ -36,4 +36,3 @@ chk_double <- function(x, x_name = NULL) {
 #' vld_double(TRUE)
 #' @export
 vld_double <- function(x) is.double(x)
-

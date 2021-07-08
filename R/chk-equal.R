@@ -36,4 +36,3 @@ chk_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps),
 vld_equal <- function(x, y, tolerance = sqrt(.Machine$double.eps)) {
   vld_true(all.equal(x, y, tolerance))
 }
-

@@ -41,4 +41,3 @@ chk_gte <- function(x, value = 0, x_name = NULL) {
 #' vld_gte(c(0.1, 0.2, NA), value = 1)
 #' @export
 vld_gte <- function(x, value = 0) all(x[!is.na(x)] >= value)
-

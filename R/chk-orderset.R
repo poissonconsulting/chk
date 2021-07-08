@@ -39,6 +39,6 @@ chk_orderset <- function(x, values, x_name = NULL) {
 #' vld_orderset(1:2, 2:1)
 #' vld_orderset(1, 2:1)
 #' vld_orderset(1:2, 2)
-vld_orderset <- function(x, values)
+vld_orderset <- function(x, values) {
   vld_equivalent(unique(x[x %in% values]), values[values %in% x])
-
+}

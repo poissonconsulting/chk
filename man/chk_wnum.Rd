@@ -38,7 +38,7 @@ try(chk_wnum(1.1))
 vld_wnum(1)
 vld_wnum(double(0))
 vld_wnum(NA_real_)
-vld_wnum(c(1,1))
+vld_wnum(c(1, 1))
 vld_wnum(1L)
 }
 \concept{chk_wnum}

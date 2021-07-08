@@ -2,10 +2,11 @@ test_that("check_data works", {
   expect_identical(check_data(data.frame()), data.frame())
   expect_invisible(check_data(data.frame()))
   expect_identical(check_data(data.frame(x = 1)), data.frame(x = 1))
-  expect_identical(check_data(data.frame(x = 1, values = list(x = 1))),
-              check_data(data.frame(x = 1, values = list(x = 1))))
+  expect_identical(
+    check_data(data.frame(x = 1, values = list(x = 1))),
+    check_data(data.frame(x = 1, values = list(x = 1)))
+  )
   expect_identical(check_data(data.frame(x = 1), nrow = c(1, Inf)), data.frame(x = 1))
-
 })
 
 test_that("check_data fails", {
@@ -27,7 +28,7 @@ test_that("check_data fails", {
     check_data(data.frame(x = c(1, 1)), key = "x"),
     "^Column 'x' in `data.frame[(]x = c[(]1, 1[)][)]` must be a unique key[.]$"
   )
-    expect_chk_error(
+  expect_chk_error(
     check_data(data.frame(x = ordered(1:2)), values = list(x = ordered(1:2, levels = 2:1))),
     "^`levels[(]data.frame[(]x = ordered[(]1:2[)][)][$]x[)]` must have [(]the first occurence of[)] each of the following elements in the following order: '2', '1'[.]$"
   )

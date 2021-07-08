@@ -35,4 +35,3 @@ chk_named <- function(x, x_name = NULL) {
 #' vld_named(list(1))
 #' @export
 vld_named <- function(x) !is.null(names(x))
-

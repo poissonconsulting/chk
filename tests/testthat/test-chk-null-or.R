@@ -8,5 +8,3 @@ test_that("chk", {
     "^`\"1\"` must be a number [(]non-missing numeric scalar[)] or NULL[.]$"
   )
 })
-
-

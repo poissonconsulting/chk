@@ -22,5 +22,3 @@ test_that("chk_is", {
   expect_chk_error(chk_is(x, "c"), "`x` must inherit from class 'c'")
   expect_chk_error(chk_is(x, "c", x_name = "c"), "C must inherit from class 'c'")
 })
-
-

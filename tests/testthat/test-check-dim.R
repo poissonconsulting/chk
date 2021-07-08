@@ -43,8 +43,10 @@ test_that("check_dim length", {
 })
 
 test_that("check_dim nrow", {
-  expect_identical(check_dim(data.frame(x = 1), dim = nrow),
-                   check_dim(data.frame(x = 1), dim = nrow))
+  expect_identical(
+    check_dim(data.frame(x = 1), dim = nrow),
+    check_dim(data.frame(x = 1), dim = nrow)
+  )
   expect_invisible(check_dim(data.frame(x = 1), dim = nrow))
   expect_chk_error(
     check_dim(data.frame(x = integer(0)), values = TRUE, dim = nrow),

@@ -67,4 +67,3 @@ test_that("chk_lgl", {
   expect_chk_error(chk_lgl(1), "^`1` must be a logical scalar [(]TRUE, FALSE or NA[)][.]$")
   expect_chk_error(chk_lgl(1, x_name = 2), "^2 must be a logical scalar [(]TRUE, FALSE or NA[)][.]$")
 })
-

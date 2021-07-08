@@ -15,4 +15,3 @@ test_that("chk_integer", {
     "^`TRUE` must be integer[.]$"
   )
 })
-

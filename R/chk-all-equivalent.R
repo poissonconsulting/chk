@@ -34,4 +34,3 @@ chk_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps), x_name 
 vld_all_equivalent <- function(x, tolerance = sqrt(.Machine$double.eps)) {
   length(x) < 2L || all(vapply(x, vld_equivalent, TRUE, y = x[[1]], tolerance = tolerance))
 }
-

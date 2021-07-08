@@ -15,4 +15,3 @@ test_that("chk_factor", {
     "^`TRUE` must be factor[.]$"
   )
 })
-

@@ -45,9 +45,9 @@ check_values <- function(x, values, x_name = NULL) {
 
   class <- class(values)[1]
   chk_s3_class(x, class, x_name = x_name)
-  if(is.factor(values) && nlevels(values) > 1) {
+  if (is.factor(values) && nlevels(values) > 1) {
     x_name_levels <- backtick_chk(p0("levels(", unbacktick_chk(x_name), ")"))
-    if(nlevels(values) > 2) {
+    if (nlevels(values) > 2) {
       chk_identical(levels(x), levels(values), x_name = x_name_levels)
     } else {
       chk_superset(levels(x), levels(values), x_name = x_name_levels)
@@ -68,7 +68,7 @@ check_values <- function(x, values, x_name = NULL) {
     if (identical(length(values), 1L)) {
       return(chk_all(x, chk_equal, values, x_name = x_name))
     }
-    if(is.factor(values) && (nlevels(values) < 3 ||  !is.ordered(values))) {
+    if (is.factor(values) && (nlevels(values) < 3 || !is.ordered(values))) {
       return(invisible())
     }
     return(chk_range(x, values, x_name = x_name))

@@ -36,4 +36,3 @@ chk_dir <- function(x, x_name = NULL) {
 #' vld_dir(tempfile())
 #' @export
 vld_dir <- function(x) vld_string(x) && dir.exists(x)
-

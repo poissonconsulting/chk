@@ -33,4 +33,3 @@ chk_environment <- function(x, x_name = NULL) {
 #' vld_environment(environment())
 #' @export
 vld_environment <- function(x) is.environment(x)
-

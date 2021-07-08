@@ -32,4 +32,3 @@ chk_array <- function(x, x_name = NULL) {
 #' vld_array(array(1))
 #' @export
 vld_array <- function(x) is.array(x)
-

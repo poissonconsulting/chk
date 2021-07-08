@@ -32,4 +32,3 @@ chk_date <- function(x, x_name = NULL) {
 #' vld_date(1)
 #' @export
 vld_date <- function(x) inherits(x, "Date") && length(x) == 1L && !anyNA(x)
-

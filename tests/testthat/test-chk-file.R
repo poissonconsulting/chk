@@ -97,4 +97,3 @@ test_that("chk_ext", {
   expect_identical(chk_ext("file.pdf", "pdf"), "file.pdf", "pdf")
   expect_invisible(chk_ext("file.pdf", "pdf"))
 })
-

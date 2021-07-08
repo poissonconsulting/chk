@@ -35,4 +35,3 @@ chk_integer <- function(x, x_name = NULL) {
 #' vld_integer(TRUE)
 #' @export
 vld_integer <- function(x) is.integer(x)
-

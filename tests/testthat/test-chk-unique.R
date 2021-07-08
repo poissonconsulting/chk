@@ -64,4 +64,3 @@ test_that("chk_named", {
   expect_chk_error(chk_named(1), "^`1` must be named[.]$")
   expect_chk_error(chk_named(1, x_name = "new born"), "^New born must be named[.]$")
 })
-

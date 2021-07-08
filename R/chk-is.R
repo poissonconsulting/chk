@@ -20,7 +20,6 @@ chk_is <- function(x, class, x_name = NULL) {
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must inherit from class '", class, "'", x = x, class = class)
-
 }
 
 #' @describeIn chk_is Validate Inherits from Class
@@ -34,4 +33,3 @@ chk_is <- function(x, class, x_name = NULL) {
 vld_is <- function(x, class) {
   inherits(x, class)
 }
-

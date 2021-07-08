@@ -13,4 +13,3 @@ test_that("chk_array", {
     "^`1` must be an array[.]$"
   )
 })
-

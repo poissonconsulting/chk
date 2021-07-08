@@ -16,4 +16,3 @@ test_that("chk_character", {
     "^`TRUE` must be character[.]$"
   )
 })
-

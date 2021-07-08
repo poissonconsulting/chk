@@ -15,4 +15,3 @@ test_that("chk_dbl", {
     "^`TRUE` must be double [(]real[)] scalar[.]$"
   )
 })
-

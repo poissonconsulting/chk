@@ -91,4 +91,3 @@ test_that("chk_all_equivalent", {
   expect_invisible(chk_all_equivalent(NULL))
   expect_chk_error(chk_all_equivalent(c(1, 2)), "^`c[(]1, 2[)]` must have equivalent elements[.]$")
 })
-

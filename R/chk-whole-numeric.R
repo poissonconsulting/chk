@@ -24,7 +24,8 @@ chk_whole_numeric <- function(x, x_name = NULL) {
   abort_chk(
     x_name,
     " must be a whole numeric vector (integer vector or double equivalent)",
-    x = x)
+    x = x
+  )
 }
 
 #' @describeIn chk_whole_numeric Validate Whole Numeric
@@ -40,7 +41,5 @@ chk_whole_numeric <- function(x, x_name = NULL) {
 #' @export
 vld_whole_numeric <- function(x) {
   is.integer(x) || (is.double(x) &&
-                      vld_true(all.equal(x[!is.na(x)], trunc(x[!is.na(x)]))))
+    vld_true(all.equal(x[!is.na(x)], trunc(x[!is.na(x)]))))
 }
-
-

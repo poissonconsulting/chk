@@ -37,4 +37,3 @@ chk_character_or_factor <- function(x, x_name = NULL) {
 #' vld_character_or_factor(factor("text"))
 #' @export
 vld_character_or_factor <- function(x) is.character(x) || is.factor(x)
-

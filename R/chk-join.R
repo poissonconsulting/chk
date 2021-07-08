@@ -23,8 +23,9 @@ chk_join <- function(x, y, by, x_name = NULL) {
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   y_name <- as_label(y)
   abort_chk("All rows in ", x_name, " must match at least one in: ",
-            y_name,
-            x = x, y = y, by = by)
+    y_name,
+    x = x, y = y, by = by
+  )
 }
 
 #' @describeIn chk_join Validate Join
@@ -44,4 +45,3 @@ vld_join <- function(x, y, by) {
     ))
   )
 }
-

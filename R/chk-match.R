@@ -38,4 +38,3 @@ chk_match <- function(x, regexp = ".+", x_name = NULL) {
 #' vld_match(NA_character_, regexp = ".*")
 #' @export
 vld_match <- function(x, regexp = ".+") all(grepl(regexp, x[!is.na(x)]))
-

@@ -12,4 +12,3 @@ test_that("chk_chr", {
   expect_chk_error(chk_chr(1), "^`1` must be a character scalar[.]$")
   expect_chk_error(chk_chr(1, x_name = "''"), "^'' must be a character scalar[.]$")
 })
-

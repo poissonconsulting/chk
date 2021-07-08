@@ -31,4 +31,3 @@ chk_not_null <- function(x, x_name = NULL) {
 #' vld_not_null(NULL)
 #' @export
 vld_not_null <- function(x) !is.null(x)
-

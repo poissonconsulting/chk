@@ -16,4 +16,3 @@ test_that("chk_character_or_factor", {
     "^`TRUE` must be character or factor[.]$"
   )
 })
-

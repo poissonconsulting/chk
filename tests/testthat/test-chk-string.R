@@ -36,4 +36,3 @@ test_that("chk_match", {
     "`c[(]\"a\", \"b\"[)]` must have values matching regular expression 'b'[.]$"
   )
 })
-

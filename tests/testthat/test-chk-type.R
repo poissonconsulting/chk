@@ -31,8 +31,10 @@ test_that("vld_s4_class", {
 })
 
 test_that("chk_s4_class", {
-  expect_identical(chk_s4_class(getClass("MethodDefinition"), "classRepresentation"),
-                   getClass("MethodDefinition"), "classRepresentation")
+  expect_identical(
+    chk_s4_class(getClass("MethodDefinition"), "classRepresentation"),
+    getClass("MethodDefinition"), "classRepresentation"
+  )
   expect_invisible(chk_s4_class(getClass("MethodDefinition"), "classRepresentation"))
   expect_chk_error(chk_s4_class(1, "integer"), "^`1` must inherit from S4 class 'integer'[.]$")
   expect_chk_error(

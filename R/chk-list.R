@@ -34,4 +34,3 @@ chk_list <- function(x, x_name = NULL) {
 #' vld_list(NULL)
 #' @export
 vld_list <- function(x) is.list(x)
-

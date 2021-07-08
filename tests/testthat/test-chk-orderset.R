@@ -15,4 +15,3 @@ test_that("chk_orderset", {
   expect_invisible(chk_orderset(1, 1))
   expect_chk_error(chk_orderset(2:1, 1:2), "`2:1` must have [(]the first occurence of[)] each of the following elements in the following order: 1, 2[.]$")
 })
-

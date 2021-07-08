@@ -34,4 +34,3 @@ chk_true <- function(x, x_name = NULL) {
 #' vld_true(c(TRUE, TRUE))
 #' @export
 vld_true <- function(x) is.logical(x) && length(x) == 1L && !anyNA(x) && x
-

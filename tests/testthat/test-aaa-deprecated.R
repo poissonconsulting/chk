@@ -56,4 +56,3 @@ test_that("warning messages are generated for dep functions", {
   writeLines(file, text = "some test data")
   expect_warning(chk_files(file))
 })
-

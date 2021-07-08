@@ -23,7 +23,8 @@ chk_lte <- function(x, value = 0, x_name = NULL) {
   if (length(x) == 1L) {
     abort_chk(
       x_name, " must be less than or equal to ", cc(value), ", not ", cc(x),
-      "")
+      ""
+    )
   }
   abort_chk(x_name, " must have values less than or equal to ", cc(value), x = x, value = value)
 }
@@ -39,4 +40,3 @@ chk_lte <- function(x, value = 0, x_name = NULL) {
 #' vld_lte(c(-0.1, -0.2, NA), value = -1)
 #' @export
 vld_lte <- function(x, value = 0) all(x[!is.na(x)] <= value)
-

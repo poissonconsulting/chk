@@ -34,4 +34,3 @@ chk_superset <- function(x, values, x_name = NULL) {
 #' vld_superset(integer(0), integer(0))
 #' @export
 vld_superset <- function(x, values) all(values %in% x)
-

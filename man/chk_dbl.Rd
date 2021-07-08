@@ -38,7 +38,7 @@ try(chk_dbl(1L))
 vld_dbl(1)
 vld_dbl(double(0))
 vld_dbl(NA_real_)
-vld_dbl(c(1,1))
+vld_dbl(c(1, 1))
 vld_dbl(1L)
 }
 \concept{chk_dbl}

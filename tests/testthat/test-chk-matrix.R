@@ -14,4 +14,3 @@ test_that("chk_matrix", {
     "^`1` must be an matrix[.]$"
   )
 })
-

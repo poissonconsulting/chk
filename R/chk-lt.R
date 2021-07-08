@@ -39,4 +39,3 @@ chk_lt <- function(x, value = 0, x_name = NULL) {
 #' vld_lt("a", value = "b")
 #' @export
 vld_lt <- function(x, value = 0) all(x[!is.na(x)] < value)
-

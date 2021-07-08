@@ -37,4 +37,3 @@ chk_not_subset <- function(x, values, x_name = NULL) {
 #' vld_not_subset(11, 1:10)
 #' @export
 vld_not_subset <- function(x, values) !any(x %in% values) || !length(x)
-

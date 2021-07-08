@@ -50,4 +50,3 @@ chk_range <- function(x, range = c(0, 1), x_name = NULL) {
 vld_range <- function(x, range = c(0, 1)) {
   all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])
 }
-

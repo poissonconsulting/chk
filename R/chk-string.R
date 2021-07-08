@@ -36,4 +36,3 @@ chk_string <- function(x, x_name = NULL) {
 vld_string <- function(x, x_name = NULL) {
   is.character(x) && length(x) == 1L && !anyNA(x)
 }
-

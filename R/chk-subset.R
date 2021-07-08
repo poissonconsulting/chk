@@ -36,4 +36,3 @@ chk_subset <- function(x, values, x_name = NULL) {
 #' vld_subset(11, 1:10)
 #' @export
 vld_subset <- function(x, values) all(x %in% values)
-

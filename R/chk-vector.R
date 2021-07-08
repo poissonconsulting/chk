@@ -35,4 +35,3 @@ chk_vector <- function(x, x_name = NULL) {
 #' vld_vector(1)
 #' @export
 vld_vector <- function(x) (is.atomic(x) && !is.matrix(x) && !is.array(x)) || is.list(x)
-

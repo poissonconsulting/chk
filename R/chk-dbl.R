@@ -30,8 +30,7 @@ chk_dbl <- function(x, x_name = NULL) {
 #' vld_dbl(1)
 #' vld_dbl(double(0))
 #' vld_dbl(NA_real_)
-#' vld_dbl(c(1,1))
+#' vld_dbl(c(1, 1))
 #' vld_dbl(1L)
 #' @export
 vld_dbl <- function(x) is.double(x) && length(x) == 1L
-

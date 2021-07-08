@@ -30,10 +30,9 @@ chk_wnum <- function(x, x_name = NULL) {
 #' vld_wnum(1)
 #' vld_wnum(double(0))
 #' vld_wnum(NA_real_)
-#' vld_wnum(c(1,1))
+#' vld_wnum(c(1, 1))
 #' vld_wnum(1L)
 #' @export
 vld_wnum <- function(x) {
   is.numeric(x) && length(x) == 1L && (is.integer(x) || vld_true(all.equal(x, trunc(x))))
 }
-

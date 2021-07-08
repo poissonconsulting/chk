@@ -15,4 +15,3 @@ test_that("chk_double", {
     "^`TRUE` must be double[.]$"
   )
 })
-

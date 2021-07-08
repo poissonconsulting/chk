@@ -1,8 +1,10 @@
 test_that("check_dirs works", {
   expect_identical(check_dirs(character(0)), character(0))
   expect_invisible(check_dirs(character(0)))
-  expect_identical(check_dirs(character(0), exists = TRUE),
-                   check_dirs(character(0), exists = TRUE))
+  expect_identical(
+    check_dirs(character(0), exists = TRUE),
+    check_dirs(character(0), exists = TRUE)
+  )
   expect_invisible(check_dirs(character(0), exists = TRUE))
 
   setup(dir.create(file.path(tempdir(), "dir")))
@@ -24,16 +26,24 @@ test_that("check_dirs errors", {
   file <- file.path(tmp, "file")
   setup(writeLines(file, text = "some test data"))
 
-  expect_chk_error(check_dirs(file),
-              "^`file` must specify directories [(]'.*' is a file[)][.]$")
-  expect_chk_error(check_dirs(file, exists = FALSE),
-              "^`file` must specify directories [(]'.*' is a file[)][.]$")
+  expect_chk_error(
+    check_dirs(file),
+    "^`file` must specify directories [(]'.*' is a file[)][.]$"
+  )
+  expect_chk_error(
+    check_dirs(file, exists = FALSE),
+    "^`file` must specify directories [(]'.*' is a file[)][.]$"
+  )
 
-  expect_chk_error(check_dirs(tmp, exists = FALSE),
-              "^`tmp` must not specify existing directories [(]'.*' exists[)][.]$")
+  expect_chk_error(
+    check_dirs(tmp, exists = FALSE),
+    "^`tmp` must not specify existing directories [(]'.*' exists[)][.]$"
+  )
 
   unlink(tmp, recursive = TRUE)
-  expect_chk_error(check_dirs(tmp),
-              "^`tmp` must specify existing directories [(]'.*' can't be found[)][.]$")
+  expect_chk_error(
+    check_dirs(tmp),
+    "^`tmp` must specify existing directories [(]'.*' can't be found[)][.]$"
+  )
   teardown(unlink(tmp, recursive = TRUE))
 })

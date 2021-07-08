@@ -14,5 +14,3 @@ test_that("chk_sorted", {
 
   expect_chk_error(chk_sorted(2:1), "^`2:1` must be sorted[.]$")
 })
-
-

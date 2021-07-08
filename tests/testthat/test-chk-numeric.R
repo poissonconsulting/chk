@@ -13,4 +13,3 @@ test_that("chk_numeric", {
   expect_chk_error(chk_numeric("1"), "`\"1\"` must be numeric[.]$")
   expect_chk_error(chk_numeric("1", x_name = 1), "^1 must be numeric[.]$")
 })
-

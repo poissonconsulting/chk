@@ -13,4 +13,3 @@ test_that("chk_not_any_na", {
   expect_chk_error(chk_not_any_na(NA), "^`NA` must not have any missing values[.]$")
   expect_chk_error(chk_not_any_na(NA, x_name = 1), "^1 must not have any missing values[.]$")
 })
-
