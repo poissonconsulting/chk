@@ -1,8 +1,8 @@
 pandoc: 2.7.3
 pkgdown: 1.6.1.9001
-pkgdown_sha: 0328c6c9129896e5e2f555a864a71e6b014b5366
+pkgdown_sha: ce9781a15c7ea07df9fb17a11295ba4abec0b54b
 articles:
-  chk-families: articles/chk-families.html
-  chk: articles/chk.html
-last_built: 2021-07-05T15:24Z
+  chk-families: chk-families.html
+  chk: chk.html
+last_built: 2021-07-08T18:52Z
 
