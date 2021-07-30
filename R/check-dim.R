@@ -19,7 +19,10 @@
 #' @export
 check_dim <- function(x, dim = length, values = numeric(0), x_name = NULL, dim_name = NULL) {
   chk_function(dim)
-  chkor(chk_flag(values), chk_whole_numeric(values))
+  # avoids calling chkor unless needed as really slow
+  if(!vld_flag(values) & !vld_whole_numeric(values)) {
+    chkor(chk_flag(values), chk_whole_numeric(values))
+  }
   chk_whole_number(dim(x))
   chk_gte(dim(x))
 
