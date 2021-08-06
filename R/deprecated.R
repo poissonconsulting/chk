@@ -101,7 +101,7 @@ chk_in <- function(x, values, x_name = NULL) {
 chk_length <- function(x, length = 1L, x_name = NULL) {
   deprecate_soft("0.2.0",
     what = "chk::chk_length()",
-    with = "chk::chk_dim()"
+    with = "chk::check_dim()"
   )
   if (length(x) == length) {
     return(TRUE)
