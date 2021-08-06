@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# chk 0.6.0.9001
+
+- Fix `chk_length()` so recommended deprecation is `chk_dim()`.
+- Speed up `check_dim()` by not calling chkor unless required.
+
+
 # chk 0.6.0.9000
 
 - Same as previous version.
