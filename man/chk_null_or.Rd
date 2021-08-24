@@ -4,14 +4,16 @@
 \alias{chk_null_or}
 \title{Check NULL Or}
 \usage{
-chk_null_or(x, chk, ..., x_name = NULL)
+chk_null_or(x, chk, ..., vld, x_name = NULL)
 }
 \arguments{
 \item{x}{The object to check.}
 
-\item{chk}{A chk function.}
+\item{chk}{A chk function. Soft-deprecated for vld.}
 
 \item{...}{Arguments passed to chk.}
+
+\item{vld}{A vld function.}
 
 \item{x_name}{A string of the name of object x or NULL.}
 }
