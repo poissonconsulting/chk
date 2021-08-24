@@ -12,7 +12,9 @@ comment_chks <- function(lines) {
   chk_not_any_na(lines)
 
   if(!length(lines)) return(lines)
-  paste0("# !chk ", lines[grepl(chk_reg_exp(), lines)])
+  chk <- grepl(chk_reg_exp(), lines)
+  lines[chk] <- paste0("# !chk ", lines[chk])
+  lines
 }
 
 uncomment_chks <- function(lines) {

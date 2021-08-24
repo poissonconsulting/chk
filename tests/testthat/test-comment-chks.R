@@ -29,6 +29,13 @@ test_that("comment_chks works multiple rows ", {
     c("# !chk chk_flag(TRUE)", "# !chk chk_string(TRUE)"))
 })
 
+test_that("comment_chks works multiple rows only 1 chk ", {
+  expect_identical(comment_chks(c(
+    "chk_flag(TRUE)",
+    "is.string(TRUE)")),
+    c("# !chk chk_flag(TRUE)", "is.string(TRUE)"))
+})
+
 test_that("uncomment_chks works no length", {
   expect_identical(uncomment_chks(character(0)), character(0))
 })
@@ -60,6 +67,13 @@ test_that("uncomment_chks works multiple rows ", {
     c(
       "chk_flag(TRUE)",
       "chk_string(TRUE)"))
+})
+
+test_that("uncomment_chks works multiple rows only 1 chk ", {
+  expect_identical(uncomment_chks(comment_chks(c(
+    "chk_flag(TRUE)",
+    "is.string(TRUE)"))),
+    c("chk_flag(TRUE)", "is.string(TRUE)"))
 })
 
 test_that("uncomment_chks works gaps ", {
