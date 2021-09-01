@@ -72,27 +72,6 @@ chk_in <- function(x, values, x_name = NULL) {
   invisible()
 }
 
-#' @describeIn chk_deprecated Check Length
-#'
-#' \lifecycle{soft-deprecated}
-#'
-#' Replace by `[chk_range](length(x))`
-#'
-#' @param length A count of the length.
-#'
-#' @export
-chk_length <- function(x, length = 1L, x_name = NULL) {
-  deprecate_warn("0.2.0",
-    what = "chk::chk_length()",
-    with = "chk::check_dim()"
-  )
-  if (length(x) == length) {
-    return(TRUE)
-  }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  abort_chk(x_name, " must be length ", length, ", not ", length(x), x = x, length = length)
-}
-
 #' @describeIn chk_deprecated Check No Missing Values
 #'
 #' \lifecycle{soft-deprecated}

@@ -96,6 +96,7 @@ reference:
 - title: Miscellaneous Checkers
   desc: Checking miscellaneous
   contents:
+  - '`chk_length`'
   - '`chk_match`'
   - '`chk_named`'
   - '`chk_not_any_na`'

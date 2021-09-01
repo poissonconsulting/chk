@@ -48,6 +48,7 @@ vld_not_any_na(TRUE)
 }
 \seealso{
 Other chk_misc: 
+\code{\link{chk_length}()},
 \code{\link{chk_match}()},
 \code{\link{chk_named}()},
 \code{\link{chk_not_empty}()},

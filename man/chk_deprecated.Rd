@@ -6,7 +6,6 @@
 \alias{chk_files}
 \alias{chk_has}
 \alias{chk_in}
-\alias{chk_length}
 \alias{chk_no_missing}
 \alias{vld_no_missing}
 \alias{chk_off}
@@ -23,8 +22,6 @@ chk_files(x)
 chk_has(x, values, x_name = NULL)
 
 chk_in(x, values, x_name = NULL)
-
-chk_length(x, length = 1L, x_name = NULL)
 
 chk_no_missing(x, x_name = NULL)
 
@@ -44,8 +41,6 @@ deparse_backtick(x)
 \item{x}{The object to check.}
 
 \item{x_name}{A string of the name of object x or NULL.}
-
-\item{length}{A count of the length.}
 }
 \description{
 Deprecated \code{chk_()} functions.
@@ -75,12 +70,6 @@ Replace by \code{\link[=chk_superset]{chk_superset()}}
 \lifecycle{soft-deprecated}
 
 Replace by \code{\link[=chk_subset]{chk_subset()}}
-
-\item \code{chk_length}: Check Length
-
-\lifecycle{soft-deprecated}
-
-Replace by \verb{[chk_range](length(x))}
 
 \item \code{chk_no_missing}: Check No Missing Values
 
