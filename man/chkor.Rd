@@ -13,7 +13,7 @@ chkor(...)
 An informative error if the test fails.
 }
 \description{
-Check OR
+The \code{chkor()} function has been deprecated because it is too slow.
 }
 \examples{
 chkor()

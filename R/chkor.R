@@ -11,6 +11,8 @@ try_msg <- function(x) {
 
 #' Check OR
 #'
+#' The `chkor()` function has been deprecated because it is too slow.
+#'
 #' @param ... Multiple `chk_` functions.
 #'
 #' @return An informative error if the test fails.
@@ -23,6 +25,8 @@ try_msg <- function(x) {
 #' try(chkor(chk_flag(1), chk_flag(2)))
 #' chkor(chk_flag(1), chk_flag(TRUE))
 chkor <- function(...) {
+  lifecycle::deprecate_soft("0.6.1", "chkor()",
+                            details = "`chkor()` is slow. Use `chk_null_or()` if possible or write a custom test.")
   quos <- enquos(...)
 
   n <- length(quos)
