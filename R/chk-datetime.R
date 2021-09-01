@@ -27,7 +27,7 @@ chk_date_time <- function(x, x_name = NULL) {
 #'
 #' @export
 chk_datetime <- function(x, x_name = NULL) {
-  deprecate_soft("0.4.1",
+  deprecate_warn("0.4.1",
     what = "chk_datetime()",
     with = "chk_date_time()",
     id = "chk_datetime"
@@ -57,7 +57,7 @@ vld_date_time <- function(x) {
 #'
 #' @export
 vld_datetime <- function(x) {
-  deprecate_soft("0.4.1",
+  deprecate_warn("0.4.1",
     what = "vld_datetime()",
     with = "vld_date_time()",
     id = "chk_datetime"
