@@ -153,8 +153,6 @@
 
 <span class='fu'>chk_in</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>values</span>, x_name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>chk_length</span><span class='op'>(</span><span class='va'>x</span>, length <span class='op'>=</span> <span class='fl'>1L</span>, x_name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
-
 <span class='fu'>chk_no_missing</span><span class='op'>(</span><span class='va'>x</span>, x_name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
 <span class='fu'>vld_no_missing</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
@@ -180,10 +178,6 @@
       <th>x_name</th>
       <td><p>A string of the name of object x or NULL.</p></td>
     </tr>
-    <tr>
-      <th>length</th>
-      <td><p>A count of the length.</p></td>
-    </tr>
     </table>
 
     <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
@@ -202,9 +196,6 @@
 <li><p><code>chk_in</code>: Check In</p>
 <p><a href='https://lifecycle.r-lib.org/articles/stages.html#soft-deprecated'><img src='figures/lifecycle-soft-deprecated.svg' alt='[Soft-deprecated]' /></a></p>
 <p>Replace by <code><a href='chk_subset.html'>chk_subset()</a></code></p></li>
-<li><p><code>chk_length</code>: Check Length</p>
-<p><a href='https://lifecycle.r-lib.org/articles/stages.html#soft-deprecated'><img src='figures/lifecycle-soft-deprecated.svg' alt='[Soft-deprecated]' /></a></p>
-<p>Replace by <code>[chk_range](length(x))</code></p></li>
 <li><p><code>chk_no_missing</code>: Check No Missing Values</p>
 <p><a href='https://lifecycle.r-lib.org/articles/stages.html#soft-deprecated'><img src='figures/lifecycle-soft-deprecated.svg' alt='[Soft-deprecated]' /></a></p>
 <p>Replace with <code><a href='chk_not_any_na.html'>chk_not_any_na()</a></code></p></li>
