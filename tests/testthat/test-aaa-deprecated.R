@@ -1,22 +1,3 @@
-test_that("on", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
-
-  setup(chk_off())
-
-  teardown({
-    rlang::scoped_options(lifecycle_verbosity = "quiet")
-    chk_on()
-  })
-
-  expect_false(is_chk_on())
-  expect_identical(chk_on(), list(chk.on = FALSE))
-  expect_true(is_chk_on())
-  expect_identical(chk_on(), list(chk.on = TRUE))
-  expect_identical(chk_off(), list(chk.on = TRUE))
-  expect_false(is_chk_on())
-  expect_identical(chk_off(), list(chk.on = FALSE))
-})
-
 test_that("vld_no_missing", {
   rlang::scoped_options(lifecycle_verbosity = "quiet")
 
@@ -46,9 +27,6 @@ test_that("warning messages are generated for dep functions", {
   expect_warning(chk_length(1))
   expect_warning(chk_no_missing(1))
   expect_warning(vld_no_missing(1))
-  expect_warning(chk_off())
-  expect_warning(chk_on())
-  expect_warning(is_chk_on())
   expect_warning(chk_proportion(1))
   expect_warning(deparse_backtick(2))
 
