@@ -8,23 +8,6 @@
 #' @name chk_deprecated
 NULL
 
-#' @describeIn chk_deprecated Check Count
-#'
-#' \lifecycle{soft-deprecated}
-#'
-#' Replace by `[chk_whole_number](x); [chk_gte](x)`
-#'
-#' @export
-chk_count <- function(x, x_name = NULL) {
-  deprecate_warn("0.2.0",
-    what = "chk::chk_count()",
-    details = "Please use `chk_whole_number()` and `chk_gte()` instead"
-  )
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  chk_whole_number(x)
-  chk_gte(x)
-}
-
 #' @describeIn chk_deprecated Check Directories Exist
 #'
 #' \lifecycle{soft-deprecated}

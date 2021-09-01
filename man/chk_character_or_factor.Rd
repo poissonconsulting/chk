@@ -47,6 +47,7 @@ vld_character_or_factor(factor("text"))
 \seealso{
 Other chk_typeof: 
 \code{\link{chk_character}()},
+\code{\link{chk_count}()},
 \code{\link{chk_double}()},
 \code{\link{chk_environment}()},
 \code{\link{chk_factor}()},

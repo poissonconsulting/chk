@@ -2,7 +2,6 @@
 % Please edit documentation in R/deprecated.R
 \name{chk_deprecated}
 \alias{chk_deprecated}
-\alias{chk_count}
 \alias{chk_dirs}
 \alias{chk_files}
 \alias{chk_has}
@@ -17,8 +16,6 @@
 \alias{deparse_backtick}
 \title{Deprecated functions}
 \usage{
-chk_count(x, x_name = NULL)
-
 chk_dirs(x)
 
 chk_files(x)
@@ -55,12 +52,6 @@ Deprecated \code{chk_()} functions.
 }
 \section{Functions}{
 \itemize{
-\item \code{chk_count}: Check Count
-
-\lifecycle{soft-deprecated}
-
-Replace by \verb{[chk_whole_number](x); [chk_gte](x)}
-
 \item \code{chk_dirs}: Check Directories Exist
 
 \lifecycle{soft-deprecated}

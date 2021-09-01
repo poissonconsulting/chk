@@ -20,7 +20,6 @@ test_that("chk_no_missing", {
 test_that("warning messages are generated for dep functions", {
   rlang::scoped_options(lifecycle_verbosity = "warning")
 
-  expect_warning(chk_count(1))
   expect_warning(chk_dirs(tempdir()))
   expect_warning(chk_has(1:3, 1))
   expect_warning(chk_in(1, 1:3))
