@@ -1,4 +1,6 @@
 test_that("chkor", {
+  rlang::scoped_options(lifecycle_verbosity = "quiet")
+
   expect_null(chkor())
   expect_invisible(chkor())
   expect_null(chkor(chk_flag(TRUE)))

@@ -1,10 +1,9 @@
 test_that("vld_file", {
   expect_false(vld_file(character(0)))
   expect_false(vld_file(tempdir()))
-  file <- paste0(tempfile(), ".csv")
+  file <- withr::local_tempfile()
   expect_false(vld_file(file))
 
-  teardown(unlink(file))
   write.csv(data.frame(x = 1), file)
   expect_true(vld_file(file))
   expect_false(vld_file(dirname(file)))
@@ -18,13 +17,12 @@ test_that("chk_file", {
 
   expect_chk_error(chk_file(tempdir()), "`tempdir[(][)]` must specify a file [(]'.*' is a directory[)][.]$")
 
-  file1 <- paste0(tempfile(), "1.csv")
+  file1 <- withr::local_tempfile(fileext = ".csv")
   expect_chk_error(
     chk_file(file1),
     "^`file1` must specify an existing file [(]'.*[.]csv' can't be found[)][.]$"
   )
   write.csv(data.frame(x = 1), file1)
-  teardown(unlink(file1))
   expect_identical(chk_file(file1), file1)
   expect_invisible(chk_file(file1))
 
@@ -54,16 +52,15 @@ test_that("chk_dir", {
     "^`tempfile[(][)]` must specify an existing directory [(]'.*' can't be found[)][.]$"
   )
 
-  file1 <- paste0(tempfile(), "1.csv")
+  file1 <- withr::local_tempfile(fileext = ".csv")
   write.csv(data.frame(x = 1), file1)
-  teardown(unlink(file1))
   expect_chk_error(
     chk_dir(file1),
     "^`file1` must specify a directory [(]'.*[.]csv' is a file[)][.]$"
   )
 
-  path <- file.path(tempdir(), "chk")
-  unlink(path)
+  path <- withr::local_tempdir()
+  unlink(path, recursive = TRUE)
   expect_chk_error(chk_dir(path), "^`path` must specify an existing directory [(]'.*' can't be found[)][.]$")
   expect_chk_error(chk_dir(1), "^`1` must be a string [(]non-missing character scalar[)][.]$")
   expect_invisible(chk_all(c(tempdir(), tempdir()), chk_dir))

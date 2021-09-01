@@ -23,7 +23,7 @@ test_that("warning messages are generated for dep functions", {
   expect_warning(chk_dirs(tempdir()))
   expect_warning(chk_has(1:3, 1))
   expect_warning(chk_in(1, 1:3))
-  expect_warning(chk_no_missing(1))
+  expect_warning(expect_warning(chk_no_missing(1)))
   expect_warning(vld_no_missing(1))
   expect_warning(chk_proportion(1))
   expect_warning(deparse_backtick(2))
