@@ -3,6 +3,8 @@
 #'
 #' Deprecated `chk_()` functions.
 #'
+#' @family deprecated
+#'
 #' @inheritParams chk_flag
 #' @keywords internal
 #' @name chk_deprecated

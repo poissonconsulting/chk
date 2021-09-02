@@ -23,11 +23,15 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 \description{
 Checks if double scalar using
 
+\lifecycle{soft-deprecated}
+
 \code{is.double(x) && length(x) == 1L}
 }
 \section{Functions}{
 \itemize{
 \item \code{vld_dbl}: Validate Double
+
+\lifecycle{soft-deprecated}
 }}
 
 \examples{
@@ -41,4 +45,11 @@ vld_dbl(NA_real_)
 vld_dbl(c(1, 1))
 vld_dbl(1L)
 }
-\concept{chk_dbl}
+\seealso{
+Other deprecated: 
+\code{\link{chk_deprecated}}
+
+Other deprecated: 
+\code{\link{chk_deprecated}}
+}
+\concept{deprecated}

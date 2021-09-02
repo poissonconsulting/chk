@@ -1,4 +1,8 @@
 test_that("vld_dbl", {
+  rlang::scoped_options(lifecycle_verbosity = "quiet")
+
+  lifecycle::expect_deprecated(vld_dbl(1))
+
   expect_true(vld_dbl(1))
   expect_false(vld_dbl(matrix(c(1, 2))))
   expect_true(vld_dbl(dbl(0)))
@@ -8,6 +12,10 @@ test_that("vld_dbl", {
 })
 
 test_that("chk_dbl", {
+  rlang::scoped_options(lifecycle_verbosity = "quiet")
+
+  lifecycle::expect_deprecated(chk_dbl(1))
+
   expect_identical(chk_dbl(1), 1)
   expect_invisible(chk_dbl(1))
   expect_chk_error(

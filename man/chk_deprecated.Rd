@@ -114,4 +114,9 @@ Replace by \verb{[chk_number](x); [chk_range](x)}
 Replace with \code{\link[=deparse_backtick_chk]{deparse_backtick_chk()}}
 }}
 
+\seealso{
+Other deprecated: 
+\code{\link{chk_dbl}()}
+}
+\concept{deprecated}
 \keyword{internal}

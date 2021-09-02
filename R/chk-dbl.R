@@ -3,12 +3,14 @@
 #' @description
 #' Checks if double scalar using
 #'
+#' \lifecycle{soft-deprecated}
+#'
 #' `is.double(x) && length(x) == 1L`
 #'
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_dbl
+#' @family deprecated
 #'
 #' @examples
 #' # chk_dbl
@@ -19,11 +21,22 @@ chk_dbl <- function(x, x_name = NULL) {
   if (vld_dbl(x)) {
     return(invisible(x))
   }
+  deprecate_soft(
+    "0.6.1",
+    what = "chk::chk_dbl()",
+    details = "Please use `chk::chk_scalar(x);` `chk::chk_double(x)` instead",
+    id = "chk_dbl"
+  )
+
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
   abort_chk(x_name, " must be double (real) scalar", x = x)
 }
 
 #' @describeIn chk_dbl Validate Double
+#'
+#' \lifecycle{soft-deprecated}
+#'
+#' @family deprecated
 #'
 #' @examples
 #' # vld_dbl
@@ -33,4 +46,13 @@ chk_dbl <- function(x, x_name = NULL) {
 #' vld_dbl(c(1, 1))
 #' vld_dbl(1L)
 #' @export
-vld_dbl <- function(x) is.double(x) && length(x) == 1L
+vld_dbl <- function(x) {
+  deprecate_soft(
+    "0.6.1",
+    what = "chk::chk_dbl()",
+    details = "Please use `chk::chk_scalar(x);` `chk::chk_double(x)` instead",
+    id = "chk_dbl"
+  )
+
+  is.double(x) && length(x) == 1L
+}
