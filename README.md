@@ -7,8 +7,7 @@
 
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![R build
-status](https://github.com/poissonconsulting/chk/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/chk/actions)
+[![R-CMD-check](https://github.com/poissonconsulting/chk/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/chk/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/chk/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/chk?branch=master)
 [![License:
@@ -54,6 +53,8 @@ chk_flag(y)
 #> Error: `y` must be a flag (TRUE or FALSE).
 
 chkor(chk_flag(y), chk_number(y))
+#> Warning: `chkor()` was deprecated in chk 0.6.1.
+#> Please use `chkor_vld()` instead.
 #> Error: At least one of the following conditions must be met:
 #> * `y` must be a flag (TRUE or FALSE).
 #> * `y` must be a number (non-missing numeric scalar).
@@ -94,4 +95,4 @@ always welcome.
 
 Please note that the chk project is released with a [Contributor Code of
 Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
-By contributing to this project, you agree to abide by its terms.
+By contributing to this project, you agree to abide by its terms

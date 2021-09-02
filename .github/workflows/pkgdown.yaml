@@ -1,6 +1,8 @@
 on:
   push:
-    branches: master
+    branches: 
+      - main
+      - master
 
 name: pkgdown
 
@@ -25,7 +27,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Cache R packages
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
@@ -33,7 +35,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          install.packages("remotes")
           remotes::install_deps(dependencies = TRUE)
           remotes::install_dev("pkgdown")
         shell: Rscript {0}
@@ -54,5 +55,5 @@ jobs:
         uses: 8398a7/action-slack@v3.0.0
         with:
           status: ${{ job.status }}
-          author_name: "github action: pkgdown"
-          fields: repo, workflow, commit, message, author, action
+          author_name: "github action: ${{github.workflow}}"
+          fields: repo, ref, commit, author, message
