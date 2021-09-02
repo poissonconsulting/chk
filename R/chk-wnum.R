@@ -5,10 +5,13 @@
 #'
 #' `is.numeric(x) && length(x) == 1L && (is.integer(x) || vld_true(all.equal(x, trunc(x))))`
 #'
+#' \lifecycle{soft-deprecated}
+#'
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_wnum
+#'
+#' @family deprecated
 #'
 #' @examples
 #' # chk_wnum
@@ -19,11 +22,19 @@ chk_wnum <- function(x, x_name = NULL) {
   if (vld_wnum(x)) {
     return(invisible(x))
   }
+  deprecate_soft(
+    "0.6.1",
+    what = "chk::chk_wnum()",
+    details = "Please use `chk::chk_scalar(x);` `chk::chk_whole_numeric(x)` instead",
+    id = "chk_wnum"
+  )
   if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
   abort_chk(x_name, " must be a whole numeric scalar", x = x)
 }
 
 #' @describeIn chk_wnum Validate Whole Numeric Scalar
+#'
+#' \lifecycle{soft-deprecated}
 #'
 #' @examples
 #' # vld_wnum
@@ -34,5 +45,12 @@ chk_wnum <- function(x, x_name = NULL) {
 #' vld_wnum(1L)
 #' @export
 vld_wnum <- function(x) {
+  deprecate_soft(
+    "0.6.1",
+    what = "chk::chk_wnum()",
+    details = "Please use `chk::chk_scalar(x);` `chk::chk_whole_numeric(x)` instead",
+    id = "chk_wnum"
+  )
+
   is.numeric(x) && length(x) == 1L && (is.integer(x) || vld_true(all.equal(x, trunc(x))))
 }

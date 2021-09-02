@@ -3,9 +3,9 @@
 #' @description
 #' Checks if double scalar using
 #'
-#' \lifecycle{soft-deprecated}
-#'
 #' `is.double(x) && length(x) == 1L`
+#'
+#' \lifecycle{soft-deprecated}
 #'
 #' @inheritParams params
 #' @inherit params return
@@ -35,8 +35,6 @@ chk_dbl <- function(x, x_name = NULL) {
 #' @describeIn chk_dbl Validate Double
 #'
 #' \lifecycle{soft-deprecated}
-#'
-#' @family deprecated
 #'
 #' @examples
 #' # vld_dbl

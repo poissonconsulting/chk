@@ -116,7 +116,9 @@ Replace with \code{\link[=deparse_backtick_chk]{deparse_backtick_chk()}}
 
 \seealso{
 Other deprecated: 
-\code{\link{chk_dbl}()}
+\code{\link{chk_chr}()},
+\code{\link{chk_dbl}()},
+\code{\link{chk_wnum}()}
 }
 \concept{deprecated}
 \keyword{internal}

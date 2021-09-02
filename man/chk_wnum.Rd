@@ -24,10 +24,14 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 Checks if whole numeric scalar using
 
 \code{is.numeric(x) && length(x) == 1L && (is.integer(x) || vld_true(all.equal(x, trunc(x))))}
+
+\lifecycle{soft-deprecated}
 }
 \section{Functions}{
 \itemize{
 \item \code{vld_wnum}: Validate Whole Numeric Scalar
+
+\lifecycle{soft-deprecated}
 }}
 
 \examples{
@@ -41,4 +45,10 @@ vld_wnum(NA_real_)
 vld_wnum(c(1, 1))
 vld_wnum(1L)
 }
-\concept{chk_wnum}
+\seealso{
+Other deprecated: 
+\code{\link{chk_chr}()},
+\code{\link{chk_dbl}()},
+\code{\link{chk_deprecated}}
+}
+\concept{deprecated}

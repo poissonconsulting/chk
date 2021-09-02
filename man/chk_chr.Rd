@@ -24,10 +24,14 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 Checks if character scalar using
 
 \code{is.character(x) && length(x) == 1L}
+
+\lifecycle{soft-deprecated}
 }
 \section{Functions}{
 \itemize{
 \item \code{vld_chr}: Validate Character Scalar
+
+\lifecycle{soft-deprecated}
 }}
 
 \examples{
@@ -40,4 +44,11 @@ vld_chr(NA_character_)
 vld_chr(c("a", "b"))
 vld_chr(1)
 }
+\seealso{
+Other deprecated: 
+\code{\link{chk_dbl}()},
+\code{\link{chk_deprecated}},
+\code{\link{chk_wnum}()}
+}
 \concept{chk_character}
+\concept{deprecated}

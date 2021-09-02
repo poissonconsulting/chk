@@ -23,9 +23,9 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 \description{
 Checks if double scalar using
 
-\lifecycle{soft-deprecated}
-
 \code{is.double(x) && length(x) == 1L}
+
+\lifecycle{soft-deprecated}
 }
 \section{Functions}{
 \itemize{
@@ -47,9 +47,8 @@ vld_dbl(1L)
 }
 \seealso{
 Other deprecated: 
-\code{\link{chk_deprecated}}
-
-Other deprecated: 
-\code{\link{chk_deprecated}}
+\code{\link{chk_chr}()},
+\code{\link{chk_deprecated}},
+\code{\link{chk_wnum}()}
 }
 \concept{deprecated}
