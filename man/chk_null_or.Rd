@@ -9,7 +9,7 @@ chk_null_or(x, chk, ..., vld, x_name = NULL)
 \arguments{
 \item{x}{The object to check.}
 
-\item{chk}{A chk function. Soft-deprecated for vld.}
+\item{chk}{A chk function. Soft-deprecated for vld. \lifecycle{soft-deprecated}}
 
 \item{...}{Arguments passed to chk.}
 

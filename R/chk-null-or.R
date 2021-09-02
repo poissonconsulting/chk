@@ -4,7 +4,8 @@
 #' Checks if NULL or passes test.
 #'
 #' @inheritParams params
-#' @param chk A chk function. Soft-deprecated for vld.
+#' @param chk A chk function. Soft-deprecated for vld. \lifecycle{soft-deprecated}
+
 #' @param vld A vld function.
 #' @param ... Arguments passed to chk.
 #'

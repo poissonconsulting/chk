@@ -13,9 +13,14 @@ try_msg <- function(x) {
 #'
 #' The `chkor()` function has been deprecated because it is too slow.
 #'
+#' \lifecycle{soft-deprecated}
+#'
 #' @param ... Multiple `chk_` functions.
 #'
 #' @return An informative error if the test fails.
+#'
+#' @seealso [chk_null_or()]
+#'
 #' @export
 #'
 #' @examples
