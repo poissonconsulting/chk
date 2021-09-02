@@ -10,7 +10,7 @@ NULL
 
 #' @describeIn chk_deprecated Check Directories Exist
 #'
-#' \lifecycle{soft-deprecated}
+#' \lifecycle{deprecated}
 #'
 #' Replace with `[chk_all](x, [chk_dir])`
 #'
@@ -25,7 +25,7 @@ chk_dirs <- function(x) {
 
 #' @describeIn chk_deprecated Check Files Exist
 #'
-#' \lifecycle{soft-deprecated}
+#' \lifecycle{deprecated}
 #'
 #' Replace with `[chk_all](x, [chk_file])`
 #'
@@ -40,7 +40,7 @@ chk_files <- function(x) {
 
 #' @describeIn chk_deprecated Check Has
 #'
-#' \lifecycle{soft-deprecated}
+#' \lifecycle{deprecated}
 #'
 #' Replace by [chk_superset()]
 #'
@@ -57,7 +57,7 @@ chk_has <- function(x, values, x_name = NULL) {
 
 #' @describeIn chk_deprecated Check In
 #'
-#' \lifecycle{soft-deprecated}
+#' \lifecycle{deprecated}
 #'
 #' Replace by [chk_subset()]
 #'
@@ -74,7 +74,7 @@ chk_in <- function(x, values, x_name = NULL) {
 
 #' @describeIn chk_deprecated Check No Missing Values
 #'
-#' \lifecycle{soft-deprecated}
+#' \lifecycle{deprecated}
 #'
 #' Replace with [chk_not_any_na()]
 #'
@@ -93,7 +93,7 @@ chk_no_missing <- function(x, x_name = NULL) {
 
 #' @describeIn chk_deprecated Validate No Missing Values
 #'
-#' \lifecycle{soft-deprecated}
+#' \lifecycle{deprecated}
 #'
 #' Replace with [vld_not_any_na()]
 #'
@@ -153,7 +153,7 @@ is_chk_on <- function() {
 
 #' @describeIn chk_deprecated Check Proportion
 #'
-#' \lifecycle{soft-deprecated}
+#' \lifecycle{deprecated}
 #'
 #' Replace by `[chk_number](x); [chk_range](x)`
 #'
@@ -170,7 +170,7 @@ chk_proportion <- function(x, x_name = NULL) {
 
 #' @describeIn chk_deprecated Deparse Backtick
 #'
-#' \lifecycle{soft-deprecated}
+#' \lifecycle{deprecated}
 #'
 #' Replace with [deparse_backtick_chk()]
 #'

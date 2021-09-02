@@ -49,37 +49,37 @@ Deprecated \code{chk_()} functions.
 \itemize{
 \item \code{chk_dirs}: Check Directories Exist
 
-\lifecycle{soft-deprecated}
+\lifecycle{deprecated}
 
 Replace with \verb{[chk_all](x, [chk_dir])}
 
 \item \code{chk_files}: Check Files Exist
 
-\lifecycle{soft-deprecated}
+\lifecycle{deprecated}
 
 Replace with \verb{[chk_all](x, [chk_file])}
 
 \item \code{chk_has}: Check Has
 
-\lifecycle{soft-deprecated}
+\lifecycle{deprecated}
 
 Replace by \code{\link[=chk_superset]{chk_superset()}}
 
 \item \code{chk_in}: Check In
 
-\lifecycle{soft-deprecated}
+\lifecycle{deprecated}
 
 Replace by \code{\link[=chk_subset]{chk_subset()}}
 
 \item \code{chk_no_missing}: Check No Missing Values
 
-\lifecycle{soft-deprecated}
+\lifecycle{deprecated}
 
 Replace with \code{\link[=chk_not_any_na]{chk_not_any_na()}}
 
 \item \code{vld_no_missing}: Validate No Missing Values
 
-\lifecycle{soft-deprecated}
+\lifecycle{deprecated}
 
 Replace with \code{\link[=vld_not_any_na]{vld_not_any_na()}}
 
@@ -103,13 +103,13 @@ This approach is no longer recommended
 
 \item \code{chk_proportion}: Check Proportion
 
-\lifecycle{soft-deprecated}
+\lifecycle{deprecated}
 
 Replace by \verb{[chk_number](x); [chk_range](x)}
 
 \item \code{deparse_backtick}: Deparse Backtick
 
-\lifecycle{soft-deprecated}
+\lifecycle{deprecated}
 
 Replace with \code{\link[=deparse_backtick_chk]{deparse_backtick_chk()}}
 }}
