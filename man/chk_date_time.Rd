@@ -35,9 +35,13 @@ Checks if non-missing POSIXct scalar using
 \itemize{
 \item \code{chk_datetime}: Check Date Time (Deprecated)
 
+\lifecycle{deprecated}
+
 \item \code{vld_date_time}: Validate Date Time
 
 \item \code{vld_datetime}: Validate Date Time (Deprecated)
+
+\lifecycle{deprecated}
 }}
 
 \examples{
