@@ -1,5 +1,6 @@
 Alls
 Backtick
+CMD
 Codecov
 Lifecycle
 NULLs
@@ -7,6 +8,7 @@ ORCID
 POSIXct
 Tidyverse
 Typeof
+Un
 Unbacktick
 Undeprecated
 alls
@@ -29,4 +31,3 @@ testthat
 tidyverse
 typeof
 vld
-wnum
