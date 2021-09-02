@@ -9,6 +9,7 @@ test_that("vld_subset", {
 
   expect_false(vld_subset(c(NA, 1), 1))
   expect_true(vld_subset(NA, NA))
+  expect_true(vld_subset(c(NA, 1), c(1, NA)))
 
   expect_false(vld_subset(c(NA, 1), 1:2))
 })
