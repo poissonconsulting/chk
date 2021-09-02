@@ -87,7 +87,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.0</span>
       </span>
     </div>
 
@@ -139,17 +139,34 @@
       <small>Source: <a href='https://github.com/poissonconsulting/chk/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="chk-0609001" class="section level1">
-<h1 class="page-header" data-toc-text="0.6.0.9001">
-<a href="#chk-0609001" class="anchor" aria-hidden="true"></a>chk 0.6.0.9001<small> Unreleased </small></h1>
-<ul><li>Fix <code><a href="../reference/chk_length.html">chk_length()</a></code> so recommended deprecation is <code><a href="../reference/check_dim.html">check_dim()</a></code>.</li>
-<li>Speed up <code><a href="../reference/check_dim.html">check_dim()</a></code> by not calling chkor unless required.</li>
+    <div id="chk-070" class="section level1">
+<h1 class="page-header" data-toc-text="0.7.0">
+<a href="#chk-070" class="anchor" aria-hidden="true"></a>chk 0.7.0<small> Unreleased </small></h1>
+<div id="added" class="section level2">
+<h2 class="hasAnchor">
+<a href="#added" class="anchor" aria-hidden="true"></a>Added</h2>
+<ul><li>Added <code><a href="../reference/chkor_vld.html">chkor_vld()</a></code> as faster replacement for soft-deprecated <code><a href="../reference/chkor.html">chkor()</a></code>.</li>
+<li>Sped up <code><a href="../reference/chk_null_or.html">chk_null_or()</a></code> by soft-deprecating <code>chk</code> argument for <code>vld</code> argument.</li>
+<li>Un-deprecated <code><a href="../reference/chk_count.html">chk_count()</a></code> and <code><a href="../reference/chk_length.html">chk_length()</a></code> because so useful.</li>
+<li>Updated error messages to precede objects which are described by their class by ‘the y object of class’.</li>
 </ul></div>
-    <div id="chk-0609000" class="section level1">
-<h1 class="page-header" data-toc-text="0.6.0.9000">
-<a href="#chk-0609000" class="anchor" aria-hidden="true"></a>chk 0.6.0.9000<small> Unreleased </small></h1>
-<ul><li>Same as previous version.</li>
+<div id="fixed" class="section level2">
+<h2 class="hasAnchor">
+<a href="#fixed" class="anchor" aria-hidden="true"></a>Fixed</h2>
+<ul><li>
+<code><a href="../reference/chk_null_or.html">chk_null_or()</a></code> now returns (invisible) x.</li>
 </ul></div>
+<div id="deprecated" class="section level2">
+<h2 class="hasAnchor">
+<a href="#deprecated" class="anchor" aria-hidden="true"></a>Deprecated</h2>
+<ul><li>Soft deprecated <code><a href="../reference/chkor.html">chkor()</a></code> for <code><a href="../reference/chkor_vld.html">chkor_vld()</a></code> as slow.</li>
+<li>Soft deprecated <code>chk</code> argument of <code><a href="../reference/chk_null_or.html">chk_null_or()</a></code> for <code>vld</code> argument.</li>
+<li>Soft deprecated <code><a href="../reference/chk_chr.html">chk_chr()</a></code>, <code><a href="../reference/chk_dbl.html">chk_dbl()</a></code> and <code><a href="../reference/chk_wnum.html">chk_wnum()</a></code> and <code>vld_</code> equivalents.</li>
+<li>Warn deprecated <code><a href="../reference/chk_count.html">chk_count()</a></code>, <code><a href="../reference/chk_deprecated.html">chk_dirs()</a></code>, <code><a href="../reference/chk_deprecated.html">chk_files()</a></code>, <code><a href="../reference/chk_deprecated.html">chk_has()</a></code>, <code><a href="../reference/chk_deprecated.html">chk_in()</a></code>, <code><a href="../reference/chk_length.html">chk_length()</a></code>, <code><a href="../reference/chk_deprecated.html">chk_no_missing()</a></code>, <code><a href="../reference/chk_deprecated.html">vld_no_missing()</a></code>, <code><a href="../reference/chk_deprecated.html">chk_proportion()</a></code>
+</li>
+<li>Stop deprecated <code><a href="../reference/chk_deprecated.html">chk_off()</a></code>, <code><a href="../reference/chk_deprecated.html">chk_on()</a></code>, <code><a href="../reference/chk_deprecated.html">is_chk_on()</a></code>,</li>
+</ul></div>
+</div>
     <div id="chk-060" class="section level1">
 <h1 class="page-header" data-toc-text="0.6.0">
 <a href="#chk-060" class="anchor" aria-hidden="true"></a>chk 0.6.0<small> 2021-07-04 </small></h1>

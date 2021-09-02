@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check Character — chk_character • chk</title>
+<title>Chk OR — chkor_vld • chk</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,9 +46,8 @@
 
 
 
-<meta property="og:title" content="Check Character — chk_character" />
-<meta property="og:description" content="Checks if character using
-is.character(x)" />
+<meta property="og:title" content="Chk OR — chkor_vld" />
+<meta property="og:description" content="Chk OR" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -137,76 +136,48 @@ is.character(x)" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check Character</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chk-character.R'><code>R/chk-character.R</code></a></small>
-    <div class="hidden name"><code>chk_character.Rd</code></div>
+    <h1>Chk OR</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/chk/blob/master/R/chkor-vld.R'><code>R/chkor-vld.R</code></a></small>
+    <div class="hidden name"><code>chkor_vld.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Checks if character using</p>
-<p><code>is.character(x)</code></p>
+    <p>Chk OR</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>chk_character</span><span class='op'>(</span><span class='va'>x</span>, x_name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
-
-<span class='fu'>vld_character</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></code></pre></div>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>chkor_vld</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>The object to check.</p></td>
-    </tr>
-    <tr>
-      <th>x_name</th>
-      <td><p>A string of the name of object x or NULL.</p></td>
+      <th>...</th>
+      <td><p>Multiple <code>vld_</code> calls.</p>
+<p>A common mistake is to pass <code>chk_</code> calls.</p>
+<p><code>chkor_vld()</code> is relatively slow.
+If at all possible use <code><a href='chk_null_or.html'>chk_null_or()</a></code> or first test using the individual
+<code>vld_</code> functions and then call <code>chkor_vld()</code> to generate an informative
+error message.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The <code>chk_</code> function throws an informative error if the test fails or
-returns the original object if successful so it can used in pipes.</p>
-<p>The <code>vld_</code> function returns a flag indicating whether the test was met.</p>
-    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
-
-    
-<ul>
-<li><p><code>vld_character</code>: Validate Character</p></li>
-</ul>
+    <p>An informative error if the test fails.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other chk_typeof: 
-<code><a href='chk_character_or_factor.html'>chk_character_or_factor</a>()</code>,
-<code><a href='chk_count.html'>chk_count</a>()</code>,
-<code><a href='chk_double.html'>chk_double</a>()</code>,
-<code><a href='chk_environment.html'>chk_environment</a>()</code>,
-<code><a href='chk_factor.html'>chk_factor</a>()</code>,
-<code><a href='chk_integer.html'>chk_integer</a>()</code>,
-<code><a href='chk_list.html'>chk_list</a>()</code>,
-<code><a href='chk_logical.html'>chk_logical</a>()</code></p></div>
+    <div class='dont-index'><p><code><a href='chk_null_or.html'>chk_null_or()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'># chk_character</span></span>
-<span class='r-in'><span class='fu'>chk_character</span><span class='op'>(</span><span class='st'>"1"</span><span class='op'>)</span></span>
-<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='fu'>chk_character</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Error : `1` must be character.</span>
-<span class='r-in'><span class='co'># vld_character</span></span>
-<span class='r-in'><span class='fu'>vld_character</span><span class='op'>(</span><span class='st'>"1"</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] TRUE</span>
-<span class='r-in'><span class='fu'>vld_character</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='st'>"a"</span><span class='op'>)</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] TRUE</span>
-<span class='r-in'><span class='fu'>vld_character</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] TRUE</span>
-<span class='r-in'><span class='fu'>vld_character</span><span class='op'>(</span><span class='cn'>NA_character_</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] TRUE</span>
-<span class='r-in'><span class='fu'>vld_character</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] FALSE</span>
-<span class='r-in'><span class='fu'>vld_character</span><span class='op'>(</span><span class='cn'>TRUE</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] FALSE</span>
-<span class='r-in'><span class='fu'>vld_character</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='st'>"text"</span><span class='op'>)</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] FALSE</span>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>chkor_vld</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>chkor_vld</span><span class='op'>(</span><span class='fu'><a href='chk_flag.html'>vld_flag</a></span><span class='op'>(</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='fu'>chkor_vld</span><span class='op'>(</span><span class='fu'><a href='chk_flag.html'>vld_flag</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Error : `1` must be a flag (TRUE or FALSE).</span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='fu'>chkor_vld</span><span class='op'>(</span><span class='fu'><a href='chk_flag.html'>vld_flag</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>, <span class='fu'><a href='chk_flag.html'>vld_flag</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Error : At least one of the following conditions must be met:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> * `1` must be a flag (TRUE or FALSE).</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> * `2` must be a flag (TRUE or FALSE).</span>
+<span class='r-in'><span class='fu'>chkor_vld</span><span class='op'>(</span><span class='fu'><a href='chk_flag.html'>vld_flag</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>, <span class='fu'><a href='chk_flag.html'>vld_flag</a></span><span class='op'>(</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span></span>
 </code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
