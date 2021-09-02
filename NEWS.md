@@ -2,27 +2,24 @@
 
 # chk 0.7.0
 
-- Updated error message to precede objects which are described by their class by 'the y object of class'.
-- Soft-deprecated `chk_chr()` and `chk_wnum()` and `vld_` equivalents.
-- Soft-deprecated `chk_dbl()` and `vld_dbl()`
-- Soft-deprecated `chkor()` as slow.
-- Undeprecated `chk_length()` because so useful.
-- Undeprecated `chk_count()` because used so commonly.
-- Warn unconditionally for deprecated functions `chk_count()`, `chk_dirs()`, `chk_files()`, `chk_has()`, `chk_in()`, `chk_length()`, `chk_no_missing()`, `vld_no_missing()`, `chk_proportion()`
-- Fail unconditionally for deprecated functions `chk_off()`, `chk_on()`, `is_chk_on()`,
-- Fix bug `chk_null_or()` now returns (invisible) x.
-- Speed up `chk_null_or()`.
+## Added
 
+- Added `chkor_vld()` as faster replacement for soft-deprecated `chkor()`.
+- Sped up `chk_null_or()` by soft-deprecating `chk` argument for `vld` argument.
+- Un-deprecated `chk_count()` and `chk_length()` because so useful.
+- Updated error messages to precede objects which are described by their class by 'the y object of class'.
 
-# chk 0.6.0.9001
+## Fixed
 
-- Fix `chk_length()` so recommended deprecation is `check_dim()`.
-- Speed up `check_dim()` by not calling chkor unless required.
+- `chk_null_or()` now returns (invisible) x.
 
-# chk 0.6.0.9000
+## Deprecated 
 
-- Same as previous version.
-
+- Soft deprecated `chkor()` for `chkor_vld()` as slow.
+- Soft deprecated `chk` argument of `chk_null_or()` for `vld` argument.
+- Soft deprecated `chk_chr()`, `chk_dbl()` and `chk_wnum()` and `vld_` equivalents.
+- Warn deprecated `chk_count()`, `chk_dirs()`, `chk_files()`, `chk_has()`, `chk_in()`, `chk_length()`, `chk_no_missing()`, `vld_no_missing()`, `chk_proportion()`
+- Stop deprecated `chk_off()`, `chk_on()`, `is_chk_on()`,
 
 # chk 0.6.0
 

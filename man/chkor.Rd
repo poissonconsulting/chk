@@ -13,7 +13,7 @@ chkor(...)
 An informative error if the test fails.
 }
 \description{
-The \code{chkor()} function has been deprecated because it is too slow.
+The \code{chkor()} function has been deprecated for the faster \code{chkor_vld()}.
 }
 \details{
 \lifecycle{soft-deprecated}
