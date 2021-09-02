@@ -31,7 +31,6 @@ BugReports: https://github.com/poissonconsulting/chk/issues
 Depends: 
     R (>= 3.3)
 Imports: 
-    backports,
     lifecycle,
     methods,
     rlang,
