@@ -43,6 +43,6 @@ test_that("chk_join", {
 test_that("chk_join", {
   expect_chk_error(
     chk_join(data.frame(z = 1), data.frame(z = 2), by = "z"),
-    "^All rows in `data.frame[(]z [=] 1[)]` must match at least one in: <d"
+    "^All rows in `data.frame[(]z [=] 1[)]` must match at least one in the y object of class <d"
   )
 })

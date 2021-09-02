@@ -43,7 +43,7 @@ test_that("check_values pass", {
 test_that("check_values fail", {
   expect_chk_error(
     check_values(1.1, c(1, 1)),
-    "^All elements of `1.1` must be equal to: 1[.]"
+    "^All elements of `1.1` must be equal to 1[.]"
   )
   expect_chk_error(
     check_values(1L, 1),
@@ -88,7 +88,7 @@ test_that("check_values fail", {
 
   expect_chk_error(
     check_values(factor(1:2), factor(1:3)),
-    "^`levels[(]factor[(]1:2[)][)]` must be identical to: <chr>[.]"
+    "^`levels[(]factor[(]1:2[)][)]` must be identical to the y object of class <chr>[.]"
   )
 
   expect_chk_error(

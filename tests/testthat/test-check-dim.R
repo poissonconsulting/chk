@@ -12,12 +12,12 @@ test_that("check_dim length", {
   )
   expect_chk_error(
     check_dim(1, values = FALSE),
-    "^`length[(]1[)]` must be equal to: 0L[.]"
+    "^`length[(]1[)]` must be equal to 0L[.]"
   )
   expect_identical(check_dim(2, values = 1), check_dim(2, values = 1))
   expect_chk_error(
     check_dim(1, values = 2),
-    "^`length[(]1[)]` must be equal to: 2[.]"
+    "^`length[(]1[)]` must be equal to 2[.]"
   )
   expect_chk_error(
     check_dim(1, values = 2:3),
@@ -30,7 +30,7 @@ test_that("check_dim length", {
   expect_identical(check_dim(1:2, values = 2:3), check_dim(1:2, values = 2:3))
   expect_chk_error(
     check_dim(2, values = c(2, 2)),
-    "`length[(]2[)]` must be equal to: 2[.]"
+    "`length[(]2[)]` must be equal to 2[.]"
   )
   expect_chk_error(
     check_dim(2, values = c(2, 2, 2)),
