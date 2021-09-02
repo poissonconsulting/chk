@@ -10,7 +10,3 @@
 #' @examples
 #' options(rlang_backtrace_on_error = "none")
 NULL
-
-.onLoad <- function(libname, pkgname) {
-  backports::import(pkgname, "str2lang")
-}
