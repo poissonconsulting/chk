@@ -48,7 +48,8 @@
 
 <meta property="og:title" content="Check Character Scalar — chk_chr" />
 <meta property="og:description" content="Checks if character scalar using
-is.character(x) &amp;amp;&amp;amp; length(x) == 1L" />
+is.character(x) &amp;amp;&amp;amp; length(x) == 1L
+" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -145,6 +146,7 @@ is.character(x) &amp;amp;&amp;amp; length(x) == 1L" />
     <div class="ref-description">
     <p>Checks if character scalar using</p>
 <p><code>is.character(x) &amp;&amp; length(x) == 1L</code></p>
+<p><a href='https://lifecycle.r-lib.org/articles/stages.html#soft-deprecated'><img src='figures/lifecycle-soft-deprecated.svg' alt='[Soft-deprecated]' /></a></p>
     </div>
 
     <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>chk_chr</span><span class='op'>(</span><span class='va'>x</span>, x_name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
@@ -173,23 +175,42 @@ returns the original object if successful so it can used in pipes.</p>
 
     
 <ul>
-<li><p><code>vld_chr</code>: Validate Character Scalar</p></li>
+<li><p><code>vld_chr</code>: Validate Character Scalar</p>
+<p><a href='https://lifecycle.r-lib.org/articles/stages.html#soft-deprecated'><img src='figures/lifecycle-soft-deprecated.svg' alt='[Soft-deprecated]' /></a></p></li>
 </ul>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other deprecated: 
+<code><a href='chk_dbl.html'>chk_dbl</a>()</code>,
+<code><a href='chk_deprecated.html'>chk_deprecated</a></code>,
+<code><a href='chk_wnum.html'>chk_wnum</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>chk_chr</span><span class='op'>(</span><span class='st'>"a"</span><span class='op'>)</span></span>
 <span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='fu'>chk_chr</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>`chk_chr()` was deprecated in chk 0.6.1.</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> Please use `chk::chk_scalar(x);` `chk::chk_character(x)` instead</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> Error : `1` must be a character scalar.</span>
 <span class='r-in'><span class='co'># vld_chr</span></span>
 <span class='r-in'><span class='fu'>vld_chr</span><span class='op'>(</span><span class='st'>""</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>`chk_chr()` was deprecated in chk 0.6.1.</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> Please use `chk::chk_scalar(x);` `chk::chk_character(x)` instead</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> [1] TRUE</span>
 <span class='r-in'><span class='fu'>vld_chr</span><span class='op'>(</span><span class='st'>"a"</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>`chk_chr()` was deprecated in chk 0.6.1.</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> Please use `chk::chk_scalar(x);` `chk::chk_character(x)` instead</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> [1] TRUE</span>
 <span class='r-in'><span class='fu'>vld_chr</span><span class='op'>(</span><span class='cn'>NA_character_</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>`chk_chr()` was deprecated in chk 0.6.1.</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> Please use `chk::chk_scalar(x);` `chk::chk_character(x)` instead</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> [1] TRUE</span>
 <span class='r-in'><span class='fu'>vld_chr</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='st'>"b"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>`chk_chr()` was deprecated in chk 0.6.1.</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> Please use `chk::chk_scalar(x);` `chk::chk_character(x)` instead</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> [1] FALSE</span>
 <span class='r-in'><span class='fu'>vld_chr</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>`chk_chr()` was deprecated in chk 0.6.1.</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> Please use `chk::chk_scalar(x);` `chk::chk_character(x)` instead</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> [1] FALSE</span>
 </code></pre></div>
   </div>
