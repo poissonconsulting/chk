@@ -1,5 +1,19 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# chk 0.7.0
+
+- Updated error message to precede objects which are described by their class by 'the y object of class'.
+- Soft-deprecated `chk_chr()` and `chk_wnum()` and `vld_` equivalents.
+- Soft-deprecated `chk_dbl()` and `vld_dbl()`
+- Soft-deprecated `chkor()` as slow.
+- Undeprecated `chk_length()` because so useful.
+- Undeprecated `chk_count()` because used so commonly.
+- Warn unconditionally for deprecated functions `chk_count()`, `chk_dirs()`, `chk_files()`, `chk_has()`, `chk_in()`, `chk_length()`, `chk_no_missing()`, `vld_no_missing()`, `chk_proportion()`
+- Fail unconditionally for deprecated functions `chk_off()`, `chk_on()`, `is_chk_on()`,
+- Fix bug `chk_null_or()` now returns (invisible) x.
+- Speed up `chk_null_or()`.
+
+
 # chk 0.6.0.9001
 
 - Fix `chk_length()` so recommended deprecation is `check_dim()`.
