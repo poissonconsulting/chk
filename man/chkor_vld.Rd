@@ -9,7 +9,12 @@ chkor_vld(...)
 \arguments{
 \item{...}{Multiple \code{vld_} calls.
 
-A common mistake is to pass \code{chk_} calls.}
+A common mistake is to pass \code{chk_} calls.
+
+\code{chkor_vld()} is relatively slow.
+If at all possible use \code{\link[=chk_null_or]{chk_null_or()}} or first test using the individual
+\code{vld_} functions and then call \code{chkor_vld()} to generate an informative
+error message.}
 }
 \value{
 An informative error if the test fails.

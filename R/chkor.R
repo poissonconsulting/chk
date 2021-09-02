@@ -19,9 +19,7 @@
 #' try(chkor(chk_flag(1), chk_flag(2)))
 #' chkor(chk_flag(1), chk_flag(TRUE))
 chkor <- function(...) {
-  lifecycle::deprecate_soft(
-    "0.6.1", "chkor()",
-    details = "`chkor()` is slow. Use `chk_null_or()` if possible or `chkor_vld()`.")
+  lifecycle::deprecate_soft("0.6.1", "chkor()", "chkor_vld()")
   quos <- enquos(...)
 
   invisible(chkor_quos(quos))

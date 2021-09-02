@@ -43,6 +43,11 @@ vld__to_chk_ <- function(quo) {
 #'
 #' A common mistake is to pass `chk_` calls.
 #'
+#' `chkor_vld()` is relatively slow.
+#' If at all possible use [chk_null_or()] or first test using the individual
+#' `vld_` functions and then call `chkor_vld()` to generate an informative
+#' error message.
+#'
 #' @return An informative error if the test fails.
 #'
 #' @seealso [chk_null_or()]
