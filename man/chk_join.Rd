@@ -26,9 +26,7 @@ returns the original object if successful so it can used in pipes.
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
-Checks if all rows in x match at least one in y using
-
-\code{identical(nrow(x), nrow(merge(x, unique(y[if (is.null(names(by))) by else names(by)]), by = by)))}
+Checks if all rows in x match at least one in y.
 }
 \section{Functions}{
 \itemize{
