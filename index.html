@@ -42,7 +42,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">chk</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.7.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.7.0.9001</span>
       </span>
     </div>
 
@@ -72,7 +72,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/poissonconsulting/chk/">
+  <a href="https://github.com/poissonconsulting/chk/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -89,17 +89,16 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="chk-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#chk-" class="anchor" aria-hidden="true"></a>chk <img src="reference/figures/logo.png" align="right">
+<div class="section level1">
+<div class="page-header"><h1 id="chk-">chk <img src="reference/figures/logo.png" align="right"><a class="anchor" aria-label="anchor" href="#chk-"></a>
 </h1></div>
 <!-- badges: start -->
 
 <p><code>chk</code> is an R package for developers to check user-supplied function arguments.</p>
 <p>It is designed to be simple, customizable and fast.</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor" aria-hidden="true"></a>Installation</h2>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>To install the latest release from <a href="https://cran.r-project.org" class="external-link">CRAN</a></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"chk"</span><span class="op">)</span></code></pre></div>
@@ -108,9 +107,9 @@
 <code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"poissonconsulting/chk"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="demonstration" class="section level2">
-<h2 class="hasAnchor">
-<a href="#demonstration" class="anchor" aria-hidden="true"></a>Demonstration</h2>
+<div class="section level2">
+<h2 id="demonstration">Demonstration<a class="anchor" aria-label="anchor" href="#demonstration"></a>
+</h2>
 <p><code>chk</code> provides simple commonly used checks as (<code>chk_</code> functions) which can be combined together for more complex checking.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/chk" class="external-link">chk</a></span><span class="op">)</span>
@@ -133,14 +132,14 @@
 <span class="co">#&gt; Error: `nrow(data)` must be between 3 and 8, not 2.</span></code></pre></div>
 <p>Error messages follow the <a href="https://style.tidyverse.org/error-messages.html" class="external-link">tidyverse style guide</a> while the errors themselves are <a href="https://rlang.r-lib.org/reference/abort.html" class="external-link">rlang errors</a> of subclass <code>chk_error</code>.</p>
 </div>
-<div id="information" class="section level2">
-<h2 class="hasAnchor">
-<a href="#information" class="anchor" aria-hidden="true"></a>Information</h2>
+<div class="section level2">
+<h2 id="information">Information<a class="anchor" aria-label="anchor" href="#information"></a>
+</h2>
 <p>For more information see the <a href="https://poissonconsulting.github.io/chk/articles/chk.html" class="external-link">Get Started</a> vignette.</p>
 </div>
-<div id="inspiration" class="section level2">
-<h2 class="hasAnchor">
-<a href="#inspiration" class="anchor" aria-hidden="true"></a>Inspiration</h2>
+<div class="section level2">
+<h2 id="inspiration">Inspiration<a class="anchor" aria-label="anchor" href="#inspiration"></a>
+</h2>
 <ul>
 <li><a href="https://github.com/poissonconsulting/datacheckr/" class="external-link">datacheckr</a></li>
 <li><a href="https://github.com/poissonconsulting/checkr/" class="external-link">checkr</a></li>
@@ -148,15 +147,15 @@
 <li><a href="https://github.com/r-lib/testthat/" class="external-link">testthat</a></li>
 </ul>
 </div>
-<div id="contribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#contribution" class="anchor" aria-hidden="true"></a>Contribution</h2>
+<div class="section level2">
+<h2 id="contribution">Contribution<a class="anchor" aria-label="anchor" href="#contribution"></a>
+</h2>
 <p>Please report any <a href="https://github.com/poissonconsulting/chk/issues" class="external-link">issues</a>.</p>
 <p><a href="https://github.com/poissonconsulting/chk/pulls" class="external-link">Pull requests</a> are always welcome.</p>
 </div>
-<div id="code-of-conduct" class="section level2">
-<h2 class="hasAnchor">
-<a href="#code-of-conduct" class="anchor" aria-hidden="true"></a>Code of Conduct</h2>
+<div class="section level2">
+<h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
+</h2>
 <p>Please note that the chk project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms</p>
 </div>
 </div>
@@ -166,11 +165,11 @@
     <div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=chk">https://​cloud.r-project.org/​package=chk</a>
+<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=chk" class="external-link">https://​cloud.r-project.org/​package=chk</a>
 </li>
-<li>Browse source code at <br><a href="https://github.com/poissonconsulting/chk/">https://​github.com/​poissonconsulting/​chk/​</a>
+<li>Browse source code at <br><a href="https://github.com/poissonconsulting/chk/" class="external-link">https://​github.com/​poissonconsulting/​chk/​</a>
 </li>
-<li>Report a bug at <br><a href="https://github.com/poissonconsulting/chk/issues">https://​github.com/​poissonconsulting/​chk/​issues</a>
+<li>Report a bug at <br><a href="https://github.com/poissonconsulting/chk/issues" class="external-link">https://​github.com/​poissonconsulting/​chk/​issues</a>
 </li>
 </ul>
 </div>
@@ -179,7 +178,7 @@
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
 
@@ -194,8 +193,8 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Joe Thorley <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-7683-4592" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Kirill Müller <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-1416-3412" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Joe Thorley <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-7683-4592" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Kirill Müller <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-1416-3412" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Poisson Consulting <br><small class="roles"> Copyright holder, funder </small>  </li>
 <li><a href="authors.html">More on authors...</a></li>
 </ul>
@@ -223,7 +222,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
 </div>
 
       </footer>
