@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# chk 0.7.0.9001
+
+- Fixed `chk_join()` with `sf` data frames.
+
+
 # chk 0.7.0.9000
 
 - Same as previous version.
