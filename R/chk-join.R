@@ -1,9 +1,7 @@
 #' Check Join
 #'
 #' @description
-#' Checks if all rows in x match at least one in y using
-#'
-#' `identical(nrow(x), nrow(merge(x, unique(y[if (is.null(names(by))) by else names(by)]), by = by)))`
+#' Checks if all rows in x match at least one in y.
 #'
 #' @inheritParams params
 #' @param y A data.frame with columns in by.
@@ -41,7 +39,7 @@ chk_join <- function(x, y, by, x_name = NULL) {
 vld_join <- function(x, y, by) {
   identical(
     nrow(x),
-    nrow(merge(x, unique(y[by]),
+    nrow(merge(as.data.frame(x), unique(as.data.frame(y)[by]),
       by.x = if (is.null(names(by))) by else names(by), by.y = by
     ))
   )
