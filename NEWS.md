@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# chk 0.7.0.9002
+
+- Added `chk_valid_name()`.
+
+
 # chk 0.7.0.9001
 
 - Fixed `chk_join()` with `sf` data frames.
