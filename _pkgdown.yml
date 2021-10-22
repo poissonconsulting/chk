@@ -101,6 +101,7 @@ reference:
   - '`chk_sorted`'
   - '`chk_unique`'
   - '`chkor_vld`'
+  - '`chk_valid_name`'
   - '`chk_null_or`'
 - title: chk_ Function Extenders
   desc: Extending chk_ functions
