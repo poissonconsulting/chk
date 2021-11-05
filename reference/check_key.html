@@ -57,7 +57,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Check Key</h1>
-    <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/master/R/check-key.R" class="external-link"><code>R/check-key.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/HEAD/R/check-key.R" class="external-link"><code>R/check-key.R</code></a></small>
     <div class="hidden name"><code>check_key.Rd</code></div>
     </div>
 
@@ -67,19 +67,18 @@
 
     <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">check_key</span><span class="op">(</span><span class="va">x</span>, key <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>, na_distinct <span class="op">=</span> <span class="cn">FALSE</span>, x_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
 
+    <div id="ref-sections">
     <div id="arguments">
     <h2>Arguments</h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>x</th>
-      <td><p>The object to check.</p></td>
-    </tr><tr><th>key</th>
-      <td><p>A character vector of the columns that represent a unique key.</p></td>
-    </tr><tr><th>na_distinct</th>
-      <td><p>A flag specifying whether missing values should be considered distinct.</p></td>
-    </tr><tr><th>x_name</th>
-      <td><p>A string of the name of object x or NULL.</p></td>
-    </tr></table></div>
-
-    <div id="ref-sections">
+    <dl><dt>x</dt>
+<dd><p>The object to check.</p></dd>
+<dt>key</dt>
+<dd><p>A character vector of the columns that represent a unique key.</p></dd>
+<dt>na_distinct</dt>
+<dd><p>A flag specifying whether missing values should be considered distinct.</p></dd>
+<dt>x_name</dt>
+<dd><p>A string of the name of object x or NULL.</p></dd>
+</dl></div>
     <div id="value">
     <h2>Value</h2>
     <p>An informative error if the test fails or an invisible copy of x.</p>
@@ -101,8 +100,7 @@
     <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu">check_key</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">check_key</span><span class="op">(</span><span class="va">x</span>, <span class="st">"y"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Column 'y' in `x` must be a unique key.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error : Column 'y' in `x` must be a unique key.</span>
 </code></pre></div>
     </div>
   </div>

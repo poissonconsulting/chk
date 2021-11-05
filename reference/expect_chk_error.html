@@ -59,7 +59,7 @@ See below for more details.'><meta property="og:image" content="/logo.png"><!-- 
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Expect Chk Error</h1>
-    <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/master/R/expect-chk-error.R" class="external-link"><code>R/expect-chk-error.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/HEAD/R/expect-chk-error.R" class="external-link"><code>R/expect-chk-error.R</code></a></small>
     <div class="hidden name"><code>expect_chk_error.Rd</code></div>
     </div>
 
@@ -78,36 +78,39 @@ See below for more details.</p>
   class <span class="op">=</span> <span class="cn">NULL</span>
 <span class="op">)</span></code></pre></div>
 
+    <div id="ref-sections">
     <div id="arguments">
     <h2>Arguments</h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>object</th>
-      <td><p>Object to test.</p>
+    <dl><dt>object</dt>
+<dd><p>Object to test.</p>
 <p>Supports limited unquoting to make it easier to generate readable failures
-within a function or for loop. See <a href="https://testthat.r-lib.org/reference/quasi_label.html" class="external-link">quasi_label</a> for more details.</p></td>
-    </tr><tr><th>regexp</th>
-      <td><p>Regular expression to test against.</p><ul><li><p>A character vector giving a regular expression that must match the
+within a function or for loop. See <a href="https://testthat.r-lib.org/reference/quasi_label.html" class="external-link">quasi_label</a> for more details.</p></dd>
+<dt>regexp</dt>
+<dd><p>Regular expression to test against.</p><ul><li><p>A character vector giving a regular expression that must match the
 error message.</p></li>
 <li><p>If <code>NULL</code>, the default, asserts that there should be a error,
 but doesn't test for a specific value.</p></li>
 <li><p>If <code>NA</code>, asserts that there should be no errors.</p></li>
-</ul></td>
-    </tr><tr><th>...</th>
-      <td><p>Arguments passed on to <code><a href="https://testthat.r-lib.org/reference/expect_match.html" class="external-link">expect_match</a></code></p><dl><dt><code>perl</code></dt><dd><p>logical.  Should Perl-compatible regexps be used?</p></dd>
-    <dt><code>fixed</code></dt><dd><p>logical.  If <code>TRUE</code>, <code>pattern</code> is a string to be
-    matched as is.  Overrides all conflicting arguments.</p></dd>
-  
-</dl></td>
-    </tr><tr><th>info</th>
-      <td><p>Extra information to be included in the message. This argument
-is soft-deprecated and should not be used in new code. Instead see
-alternatives in <a href="https://testthat.r-lib.org/reference/quasi_label.html" class="external-link">quasi_label</a>.</p></td>
-    </tr><tr><th>label</th>
-      <td><p>Used to customise failure messages. For expert use only.</p></td>
-    </tr><tr><th>class</th>
-      <td><p>Must be NULL.</p></td>
-    </tr></table></div>
+</ul></dd>
+<dt>...</dt>
+<dd><p>Arguments passed on to <code><a href="https://testthat.r-lib.org/reference/expect_match.html" class="external-link">expect_match</a></code></p><dl><dt><code>perl</code></dt>
+<dd><p>logical.  Should Perl-compatible regexps be used?</p></dd>
 
-    <div id="ref-sections">
+    <dt><code>fixed</code></dt>
+<dd><p>logical.  If <code>TRUE</code>, <code>pattern</code> is a string to be
+    matched as is.  Overrides all conflicting arguments.</p></dd>
+
+  
+</dl></dd>
+<dt>info</dt>
+<dd><p>Extra information to be included in the message. This argument
+is soft-deprecated and should not be used in new code. Instead see
+alternatives in <a href="https://testthat.r-lib.org/reference/quasi_label.html" class="external-link">quasi_label</a>.</p></dd>
+<dt>label</dt>
+<dd><p>Used to customise failure messages. For expert use only.</p></dd>
+<dt>class</dt>
+<dd><p>Must be NULL.</p></dd>
+</dl></div>
     <div id="value">
     <h2>Value</h2>
     <p>If <code>regexp = NA</code>, the value of the first argument; otherwise

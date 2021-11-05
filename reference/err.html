@@ -60,7 +60,7 @@ rlang::inform(), respectively."><meta property="og:image" content="/logo.png"><!
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Stop, Warning and Message Messages</h1>
-    <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/master/R/err.R" class="external-link"><code>R/err.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/HEAD/R/err.R" class="external-link"><code>R/err.R</code></a></small>
     <div class="hidden name"><code>err.Rd</code></div>
     </div>
 
@@ -77,24 +77,23 @@ the message and then
 
 <span class="fu">msg</span><span class="op">(</span><span class="va">...</span>, n <span class="op">=</span> <span class="cn">NULL</span>, tidy <span class="op">=</span> <span class="cn">TRUE</span>, .subclass <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
 
+    <div id="ref-sections">
     <div id="arguments">
     <h2>Arguments</h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>...</th>
-      <td><p>zero or more objects which can be coerced to character
+    <dl><dt>...</dt>
+<dd><p>zero or more objects which can be coerced to character
     (and which are pasted together with no separator) or a single
-    condition object.</p></td>
-    </tr><tr><th>n</th>
-      <td><p>The value of n for converting <code>sprintf</code>-like types.</p></td>
-    </tr><tr><th>tidy</th>
-      <td><p>A flag specifying whether capitalize the first character and add a missing period.</p></td>
-    </tr><tr><th>.subclass</th>
-      <td><p>This argument was renamed to <code>class</code> in rlang
+    condition object.</p></dd>
+<dt>n</dt>
+<dd><p>The value of n for converting <code>sprintf</code>-like types.</p></dd>
+<dt>tidy</dt>
+<dd><p>A flag specifying whether capitalize the first character and add a missing period.</p></dd>
+<dt>.subclass</dt>
+<dd><p>This argument was renamed to <code>class</code> in rlang
 0.4.2.  It will be deprecated in the next major version. This is
 for consistency with our conventions for class constructors
-documented in <a href="https://adv-r.hadley.nz/s3.html#s3-subclassing" class="external-link">https://adv-r.hadley.nz/s3.html#s3-subclassing</a>.</p></td>
-    </tr></table></div>
-
-    <div id="ref-sections">
+documented in <a href="https://adv-r.hadley.nz/s3.html#s3-subclassing" class="external-link">https://adv-r.hadley.nz/s3.html#s3-subclassing</a>.</p></dd>
+</dl></div>
     <div id="details">
     <h2>Details</h2>
     <p>The user can set the subclass.</p>
@@ -113,8 +112,7 @@ documented in <a href="https://adv-r.hadley.nz/s3.html#s3-subclassing" class="ex
     <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
 <span class="r-in"><span class="co"># err</span></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">err</span><span class="op">(</span><span class="st">"there %r %n problem value%s"</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err("there %r %n problem value%s", n = 2) : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   There are 2 problem values.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error : There are 2 problem values.</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># wrn</span></span>
 <span class="r-in"><span class="fu">wrn</span><span class="op">(</span><span class="st">"there %r %n problem value%s"</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>

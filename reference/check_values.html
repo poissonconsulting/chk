@@ -57,7 +57,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Check Values and Class</h1>
-    <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/master/R/check-values.R" class="external-link"><code>R/check-values.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/HEAD/R/check-values.R" class="external-link"><code>R/check-values.R</code></a></small>
     <div class="hidden name"><code>check_values.Rd</code></div>
     </div>
 
@@ -67,17 +67,16 @@
 
     <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">check_values</span><span class="op">(</span><span class="va">x</span>, <span class="va">values</span>, x_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
 
+    <div id="ref-sections">
     <div id="arguments">
     <h2>Arguments</h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>x</th>
-      <td><p>The object to check.</p></td>
-    </tr><tr><th>values</th>
-      <td><p>An atomic vector specifying the S3 class and possible values.</p></td>
-    </tr><tr><th>x_name</th>
-      <td><p>A string of the name of object x or NULL.</p></td>
-    </tr></table></div>
-
-    <div id="ref-sections">
+    <dl><dt>x</dt>
+<dd><p>The object to check.</p></dd>
+<dt>values</dt>
+<dd><p>An atomic vector specifying the S3 class and possible values.</p></dd>
+<dt>x_name</dt>
+<dd><p>A string of the name of object x or NULL.</p></dd>
+</dl></div>
     <div id="value">
     <h2>Value</h2>
     <p>An informative error if the test fails or an invisible copy of x.</p>
@@ -115,11 +114,9 @@ and three or more levels to check that they are identical.</p>
     <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">check_values</span><span class="op">(</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu">check_values</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">check_values</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1L</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   `1` must inherit from S3 class 'integer'.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error : `1` must inherit from S3 class 'integer'.</span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">check_values</span><span class="op">(</span><span class="cn">NA_real_</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   `NA_real_` must not have any missing values.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error : `NA_real_` must not have any missing values.</span>
 </code></pre></div>
     </div>
   </div>

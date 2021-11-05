@@ -58,7 +58,7 @@ all(vapply(x, chk_fun, TRUE, ...))"><meta property="og:image" content="/logo.png
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Check All</h1>
-    <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/master/R/chk-all.R" class="external-link"><code>R/chk-all.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/HEAD/R/chk-all.R" class="external-link"><code>R/chk-all.R</code></a></small>
     <div class="hidden name"><code>chk_all.Rd</code></div>
     </div>
 
@@ -71,26 +71,25 @@ all(vapply(x, chk_fun, TRUE, ...))"><meta property="og:image" content="/logo.png
 
 <span class="fu">vld_all</span><span class="op">(</span><span class="va">x</span>, <span class="va">vld_fun</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
 
+    <div id="ref-sections">
     <div id="arguments">
     <h2>Arguments</h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>x</th>
-      <td><p>The object to check.</p></td>
-    </tr><tr><th>chk_fun</th>
-      <td><p>A chk_ function.</p></td>
-    </tr><tr><th>...</th>
-      <td><p>Additional arguments.</p></td>
-    </tr><tr><th>x_name</th>
-      <td><p>A string of the name of object x or NULL.</p></td>
-    </tr><tr><th>vld_fun</th>
-      <td><p>A vld_ function.</p></td>
-    </tr></table></div>
-
-    <div id="ref-sections">
+    <dl><dt>x</dt>
+<dd><p>The object to check.</p></dd>
+<dt>chk_fun</dt>
+<dd><p>A chk_ function.</p></dd>
+<dt>...</dt>
+<dd><p>Additional arguments.</p></dd>
+<dt>x_name</dt>
+<dd><p>A string of the name of object x or NULL.</p></dd>
+<dt>vld_fun</dt>
+<dd><p>A vld_ function.</p></dd>
+</dl></div>
     <div id="value">
     <h2>Value</h2>
     <p>The <code>chk_</code> function throws an informative error if the test fails or
-returns the original object if successful so it can used in pipes.</p>
-<p>The <code>vld_</code> function returns a flag indicating whether the test was met.</p>
+returns the original object if successful so it can used in pipes.
+The <code>vld_</code> function returns a flag indicating whether the test was met.</p>
     </div>
     <div id="functions">
     <h2>Functions</h2>

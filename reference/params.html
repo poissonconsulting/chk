@@ -57,7 +57,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Parameters for chk functions</h1>
-    <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/master/R/template.R" class="external-link"><code>R/template.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/HEAD/R/template.R" class="external-link"><code>R/template.R</code></a></small>
     <div class="hidden name"><code>params.Rd</code></div>
     </div>
 
@@ -66,66 +66,65 @@
     </div>
 
 
+    <div id="ref-sections">
     <div id="arguments">
     <h2>Arguments</h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>x</th>
-      <td><p>The object to check.</p></td>
-    </tr><tr><th>x_name</th>
-      <td><p>A string of the name of object x or NULL.</p></td>
-    </tr><tr><th>y</th>
-      <td><p>An object to check against.</p></td>
-    </tr><tr><th>chk</th>
-      <td><p>A flag specifying whether to check the other parameters.</p></td>
-    </tr><tr><th>chk_fun</th>
-      <td><p>A chk_ function.</p></td>
-    </tr><tr><th>tolerance</th>
-      <td><p>A non-negative numeric scalar.</p></td>
-    </tr><tr><th>ext</th>
-      <td><p>A character vector of the permitted file extensions
-(without the .).</p></td>
-    </tr><tr><th>exists</th>
-      <td><p>A flag specifying whether the files/directories must (or must not) exist.</p></td>
-    </tr><tr><th>value</th>
-      <td><p>A non-missing scalar of a value.</p></td>
-    </tr><tr><th>range</th>
-      <td><p>A non-missing sorted vector of length 2 of the lower and
-upper permitted values.</p></td>
-    </tr><tr><th>regexp</th>
-      <td><p>A string of a regular expression.</p></td>
-    </tr><tr><th>values</th>
-      <td><p>A vector of the permitted values.</p></td>
-    </tr><tr><th>class</th>
-      <td><p>A string specifying the class.</p></td>
-    </tr><tr><th>length</th>
-      <td><p>A count of the length.</p></td>
-    </tr><tr><th>formals</th>
-      <td><p>A count of the number of formal arguments.</p></td>
-    </tr><tr><th>incomparables</th>
-      <td><p>A vector of values that cannot be compared.
-FALSE means that all values can be compared.</p></td>
-    </tr><tr><th>by</th>
-      <td><p>A character vector specifying the column names to join x and y on.
-If named the names are the corresponding columns in x.</p></td>
-    </tr><tr><th>exclusive</th>
-      <td><p>A flag specifying whether x must only include columns named in values.</p></td>
-    </tr><tr><th>order</th>
-      <td><p>A flag specifying whether the order of columns in x must match names in values.</p></td>
-    </tr><tr><th>nrow</th>
-      <td><p>A flag or a whole numeric vector of the value, value range or possible values.</p></td>
-    </tr><tr><th>key</th>
-      <td><p>A character vector of the columns that represent a unique key.</p></td>
-    </tr><tr><th>vld_fun</th>
-      <td><p>A vld_ function.</p></td>
-    </tr><tr><th>...</th>
-      <td><p>Additional arguments.</p></td>
-    </tr></table></div>
-
-    <div id="ref-sections">
+    <dl><dt>x</dt>
+<dd><p>The object to check.</p></dd>
+<dt>x_name</dt>
+<dd><p>A string of the name of object x or NULL.</p></dd>
+<dt>y</dt>
+<dd><p>An object to check against.</p></dd>
+<dt>chk</dt>
+<dd><p>A flag specifying whether to check the other parameters.</p></dd>
+<dt>chk_fun</dt>
+<dd><p>A chk_ function.</p></dd>
+<dt>tolerance</dt>
+<dd><p>A non-negative numeric scalar.</p></dd>
+<dt>ext</dt>
+<dd><p>A character vector of the permitted file extensions
+(without the .).</p></dd>
+<dt>exists</dt>
+<dd><p>A flag specifying whether the files/directories must (or must not) exist.</p></dd>
+<dt>value</dt>
+<dd><p>A non-missing scalar of a value.</p></dd>
+<dt>range</dt>
+<dd><p>A non-missing sorted vector of length 2 of the lower and
+upper permitted values.</p></dd>
+<dt>regexp</dt>
+<dd><p>A string of a regular expression.</p></dd>
+<dt>values</dt>
+<dd><p>A vector of the permitted values.</p></dd>
+<dt>class</dt>
+<dd><p>A string specifying the class.</p></dd>
+<dt>length</dt>
+<dd><p>A count of the length.</p></dd>
+<dt>formals</dt>
+<dd><p>A count of the number of formal arguments.</p></dd>
+<dt>incomparables</dt>
+<dd><p>A vector of values that cannot be compared.
+FALSE means that all values can be compared.</p></dd>
+<dt>by</dt>
+<dd><p>A character vector specifying the column names to join x and y on.
+If named the names are the corresponding columns in x.</p></dd>
+<dt>exclusive</dt>
+<dd><p>A flag specifying whether x must only include columns named in values.</p></dd>
+<dt>order</dt>
+<dd><p>A flag specifying whether the order of columns in x must match names in values.</p></dd>
+<dt>nrow</dt>
+<dd><p>A flag or a whole numeric vector of the value, value range or possible values.</p></dd>
+<dt>key</dt>
+<dd><p>A character vector of the columns that represent a unique key.</p></dd>
+<dt>vld_fun</dt>
+<dd><p>A vld_ function.</p></dd>
+<dt>...</dt>
+<dd><p>Additional arguments.</p></dd>
+</dl></div>
     <div id="value">
     <h2>Value</h2>
     <p>The <code>chk_</code> function throws an informative error if the test fails or
-returns the original object if successful so it can used in pipes.</p>
-<p>The <code>vld_</code> function returns a flag indicating whether the test was met.</p>
+returns the original object if successful so it can used in pipes.
+The <code>vld_</code> function returns a flag indicating whether the test was met.</p>
     </div>
     </div>
 

@@ -60,7 +60,7 @@ to ensure the case matches."><meta property="og:image" content="/logo.png"><!-- 
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Check File Extension</h1>
-    <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/master/R/chk-ext.R" class="external-link"><code>R/chk-ext.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/HEAD/R/chk-ext.R" class="external-link"><code>R/chk-ext.R</code></a></small>
     <div class="hidden name"><code>chk_ext.Rd</code></div>
     </div>
 
@@ -75,23 +75,22 @@ to ensure the case matches.</p>
 
 <span class="fu">vld_ext</span><span class="op">(</span><span class="va">x</span>, <span class="va">ext</span><span class="op">)</span></code></pre></div>
 
+    <div id="ref-sections">
     <div id="arguments">
     <h2>Arguments</h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>x</th>
-      <td><p>The object to check.</p></td>
-    </tr><tr><th>ext</th>
-      <td><p>A character vector of the permitted file extensions
-(without the .).</p></td>
-    </tr><tr><th>x_name</th>
-      <td><p>A string of the name of object x or NULL.</p></td>
-    </tr></table></div>
-
-    <div id="ref-sections">
+    <dl><dt>x</dt>
+<dd><p>The object to check.</p></dd>
+<dt>ext</dt>
+<dd><p>A character vector of the permitted file extensions
+(without the .).</p></dd>
+<dt>x_name</dt>
+<dd><p>A string of the name of object x or NULL.</p></dd>
+</dl></div>
     <div id="value">
     <h2>Value</h2>
     <p>The <code>chk_</code> function throws an informative error if the test fails or
-returns the original object if successful so it can used in pipes.</p>
-<p>The <code>vld_</code> function returns a flag indicating whether the test was met.</p>
+returns the original object if successful so it can used in pipes.
+The <code>vld_</code> function returns a flag indicating whether the test was met.</p>
     </div>
     <div id="functions">
     <h2>Functions</h2>
@@ -110,8 +109,7 @@ returns the original object if successful so it can used in pipes.</p>
     <h2>Examples</h2>
     <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># chk_ext</span></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">chk_ext</span><span class="op">(</span><span class="st">"file1.pdf"</span>, <span class="st">"png"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   `"file1.pdf"` must have extension 'png' (not 'pdf').</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error : `"file1.pdf"` must have extension 'png' (not 'pdf').</span>
 <span class="r-in"><span class="co"># vld_ext</span></span>
 <span class="r-in"><span class="fu">vld_ext</span><span class="op">(</span><span class="st">"oeu.pdf"</span>, <span class="st">"pdf"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
