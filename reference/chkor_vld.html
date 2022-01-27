@@ -65,9 +65,10 @@
     <p>Chk OR</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">chkor_vld</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div id="ref-usage">
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">chkor_vld</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></code></pre></div>
+    </div>
 
-    <div id="ref-sections">
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
@@ -86,16 +87,17 @@ error message.</p></dd>
     <h2>See also</h2>
     <div class="dont-index"><p><code><a href="chk_null_or.html">chk_null_or()</a></code></p></div>
     </div>
-    </div>
 
-    <div id="examples">
+    <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">chkor_vld</span><span class="op">(</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">chkor_vld</span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu">chkor_vld</span><span class="op">(</span><span class="fu"><a href="chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">chkor_vld</span><span class="op">(</span><span class="fu"><a href="chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error : `1` must be a flag (TRUE or FALSE).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   `1` must be a flag (TRUE or FALSE).</span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">chkor_vld</span><span class="op">(</span><span class="fu"><a href="chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>, <span class="fu"><a href="chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error : At least one of the following conditions must be met:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   At least one of the following conditions must be met:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * `1` must be a flag (TRUE or FALSE).</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * `2` must be a flag (TRUE or FALSE).</span>
 <span class="r-in"><span class="fu">chkor_vld</span><span class="op">(</span><span class="fu"><a href="chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>, <span class="fu"><a href="chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
@@ -113,7 +115,7 @@ error message.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.9000.</p>
 </div>
 
       </footer></div>

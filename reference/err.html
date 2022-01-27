@@ -71,13 +71,14 @@ the message and then
 <code><a href="https://rlang.r-lib.org/reference/abort.html" class="external-link">rlang::inform()</a></code>, respectively.</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">err</span><span class="op">(</span><span class="va">...</span>, n <span class="op">=</span> <span class="cn">NULL</span>, tidy <span class="op">=</span> <span class="cn">TRUE</span>, .subclass <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
+    <div id="ref-usage">
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">err</span><span class="op">(</span><span class="va">...</span>, n <span class="op">=</span> <span class="cn">NULL</span>, tidy <span class="op">=</span> <span class="cn">TRUE</span>, .subclass <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
 
 <span class="fu">wrn</span><span class="op">(</span><span class="va">...</span>, n <span class="op">=</span> <span class="cn">NULL</span>, tidy <span class="op">=</span> <span class="cn">TRUE</span>, .subclass <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
 
 <span class="fu">msg</span><span class="op">(</span><span class="va">...</span>, n <span class="op">=</span> <span class="cn">NULL</span>, tidy <span class="op">=</span> <span class="cn">TRUE</span>, .subclass <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    </div>
 
-    <div id="ref-sections">
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
@@ -89,10 +90,7 @@ the message and then
 <dt>tidy</dt>
 <dd><p>A flag specifying whether capitalize the first character and add a missing period.</p></dd>
 <dt>.subclass</dt>
-<dd><p>This argument was renamed to <code>class</code> in rlang
-0.4.2.  It will be deprecated in the next major version. This is
-for consistency with our conventions for class constructors
-documented in <a href="https://adv-r.hadley.nz/s3.html#s3-subclassing" class="external-link">https://adv-r.hadley.nz/s3.html#s3-subclassing</a>.</p></dd>
+<dd><p>A string of the class of the error message.</p></dd>
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -105,14 +103,14 @@ documented in <a href="https://adv-r.hadley.nz/s3.html#s3-subclassing" class="ex
 <li><p><code>wrn</code>: Warning</p></li>
 <li><p><code>msg</code>: Message</p></li>
 </ul></div>
-    </div>
 
-    <div id="examples">
+    <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
 <span class="r-in"><span class="co"># err</span></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">err</span><span class="op">(</span><span class="st">"there %r %n problem value%s"</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error : There are 2 problem values.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err("there %r %n problem value%s", n = 2) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   There are 2 problem values.</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># wrn</span></span>
 <span class="r-in"><span class="fu">wrn</span><span class="op">(</span><span class="st">"there %r %n problem value%s"</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
@@ -135,7 +133,7 @@ documented in <a href="https://adv-r.hadley.nz/s3.html#s3-subclassing" class="ex
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.9000.</p>
 </div>
 
       </footer></div>

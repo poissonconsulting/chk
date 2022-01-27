@@ -67,11 +67,12 @@ length(list(...)) == 0L"><meta property="og:image" content="/logo.png"><!-- math
 <p><code>length(list(...)) == 0L</code></p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">chk_unused</span><span class="op">(</span><span class="va">...</span><span class="op">)</span>
+    <div id="ref-usage">
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">chk_unused</span><span class="op">(</span><span class="va">...</span><span class="op">)</span>
 
 <span class="fu">vld_unused</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></code></pre></div>
+    </div>
 
-    <div id="ref-sections">
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
@@ -91,11 +92,10 @@ length(list(...)) == 0L"><meta property="og:image" content="/logo.png"><!-- math
     <div class="dont-index"><p>Other chk_ellipsis: 
 <code><a href="chk_used.html">chk_used</a>()</code></p></div>
     </div>
-    </div>
 
-    <div id="examples">
+    <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># chk_unused</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># chk_unused</span></span>
 <span class="r-in"><span class="va">fun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
 <span class="r-in">  <span class="fu">chk_unused</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span class="r-in">  <span class="va">x</span></span>
@@ -103,7 +103,8 @@ length(list(...)) == 0L"><meta property="og:image" content="/logo.png"><!-- math
 <span class="r-in"><span class="fu">fun</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fun</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error : `...` must be unused.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   `...` must be unused.</span>
 <span class="r-in"><span class="co"># vld_unused</span></span>
 <span class="r-in"><span class="va">fun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
 <span class="r-in">  <span class="fu">vld_unused</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
@@ -126,7 +127,7 @@ length(list(...)) == 0L"><meta property="og:image" content="/logo.png"><!-- math
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.9000.</p>
 </div>
 
       </footer></div>

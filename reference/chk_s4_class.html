@@ -67,11 +67,12 @@ isS4(x) &amp;amp;&amp;amp; methods::is(x, class)"><meta property="og:image" cont
 <p><code>isS4(x) &amp;&amp; methods::is(x, class)</code></p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">chk_s4_class</span><span class="op">(</span><span class="va">x</span>, <span class="va">class</span>, x_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
+    <div id="ref-usage">
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">chk_s4_class</span><span class="op">(</span><span class="va">x</span>, <span class="va">class</span>, x_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
 
 <span class="fu">vld_s4_class</span><span class="op">(</span><span class="va">x</span>, <span class="va">class</span><span class="op">)</span></code></pre></div>
+    </div>
 
-    <div id="ref-sections">
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
@@ -106,13 +107,13 @@ The <code>vld_</code> function returns a flag indicating whether the test was me
 <code><a href="chk_vector.html">chk_vector</a>()</code>,
 <code><a href="chk_whole_numeric.html">chk_whole_numeric</a>()</code></p></div>
     </div>
-    </div>
 
-    <div id="examples">
+    <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># chk_s4_class</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># chk_s4_class</span></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">chk_s4_class</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"numeric"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error : `1` must inherit from S4 class 'numeric'.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   `1` must inherit from S4 class 'numeric'.</span>
 <span class="r-in"><span class="fu">chk_s4_class</span><span class="op">(</span><span class="fu">getClass</span><span class="op">(</span><span class="st">"MethodDefinition"</span><span class="op">)</span>, <span class="st">"classRepresentation"</span><span class="op">)</span></span>
 <span class="r-in"><span class="co"># vld_s4_class</span></span>
 <span class="r-in"><span class="fu">vld_s4_class</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>, <span class="st">"numeric"</span><span class="op">)</span></span>
@@ -133,7 +134,7 @@ The <code>vld_</code> function returns a flag indicating whether the test was me
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.9000.</p>
 </div>
 
       </footer></div>
