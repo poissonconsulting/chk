@@ -55,7 +55,7 @@ message_chk <- function(..., n = NULL, tidy = TRUE) {
 #'  [rlang::inform()], respectively.
 #'
 #'  The user can set the subclass.
-#'
+#' @param .subclass A string of the class of the error message.
 #' @inheritParams base::stop
 #' @inheritParams rlang::abort
 #' @inheritParams message_chk
@@ -86,7 +86,7 @@ err <- function(..., n = NULL, tidy = TRUE, .subclass = NULL) {
   exec(
     abort,
     msg,
-    .subclass = .subclass,
+    class = .subclass,
     !!!args[named]
   )
 }
@@ -100,7 +100,7 @@ err <- function(..., n = NULL, tidy = TRUE, .subclass = NULL) {
 #' # wrn
 #' wrn("there %r %n problem value%s", n = 2)
 wrn <- function(..., n = NULL, tidy = TRUE, .subclass = NULL) {
-  warn(message_chk(..., n = n, tidy = tidy), .subclass = .subclass)
+  warn(message_chk(..., n = n, tidy = tidy), class = .subclass)
 }
 
 #' @describeIn err Message
@@ -112,5 +112,5 @@ wrn <- function(..., n = NULL, tidy = TRUE, .subclass = NULL) {
 #' # msg
 #' msg("there %r %n problem value%s", n = 2)
 msg <- function(..., n = NULL, tidy = TRUE, .subclass = NULL) {
-  inform(message_chk(..., n = n, tidy = tidy), .subclass = .subclass)
+  inform(message_chk(..., n = n, tidy = tidy), class = .subclass)
 }
