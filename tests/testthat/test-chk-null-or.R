@@ -10,7 +10,7 @@ test_that("chk_null_or works vld", {
 })
 
 test_that("chk_null_or still works chk", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
+  rlang::local_options(lifecycle_verbosity = "quiet")
 
   expect_identical(chk_null_or(NULL, chk_number), NULL, chk_number)
   expect_invisible(chk_null_or(NULL, chk_number))
@@ -23,7 +23,7 @@ test_that("chk_null_or still works chk", {
 })
 
 test_that("chk_null_or vld overrides chk", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
+  rlang::local_options(lifecycle_verbosity = "quiet")
   expect_identical(chk_null_or(1, chk_flag, vld = vld_number), 1)
   expect_chk_error(
     chk_null_or(1, chk = chk_number, vld = vld_flag),

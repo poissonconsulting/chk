@@ -14,7 +14,7 @@ test_that("chk_date_time", {
 })
 
 test_that("vld_datetime", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
+  rlang::local_options(lifecycle_verbosity = "quiet")
   expect_false(vld_datetime(NULL))
   expect_false(vld_datetime(Sys.time()[-1]))
   expect_false(vld_datetime(Sys.time()[c(1, 1)]))
@@ -22,7 +22,7 @@ test_that("vld_datetime", {
 })
 
 test_that("chk_datetime", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
+  rlang::local_options(lifecycle_verbosity = "quiet")
   time <- Sys.time()
   expect_identical(chk_date_time(time), time)
   expect_invisible(chk_datetime(Sys.time()))

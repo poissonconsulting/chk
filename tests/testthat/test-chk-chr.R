@@ -1,5 +1,5 @@
 test_that("vld_chr", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
+  rlang::local_options(lifecycle_verbosity = "quiet")
 
   lifecycle::expect_deprecated(chk_chr(""))
 
@@ -11,7 +11,7 @@ test_that("vld_chr", {
 })
 
 test_that("chk_chr", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
+  rlang::local_options(lifecycle_verbosity = "quiet")
 
   lifecycle::expect_deprecated(chk_chr(""))
 
