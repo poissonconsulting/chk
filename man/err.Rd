@@ -21,10 +21,10 @@ msg(..., n = NULL, tidy = TRUE, .subclass = NULL)
 
 \item{tidy}{A flag specifying whether capitalize the first character and add a missing period.}
 
-\item{.subclass}{This argument was renamed to \code{class} in rlang
-0.4.2.  It will be deprecated in the next major version. This is
-for consistency with our conventions for class constructors
-documented in \url{https://adv-r.hadley.nz/s3.html#s3-subclassing}.}
+\item{.subclass}{\ifelse{{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}} This argument
+was renamed to \code{class} in rlang 0.4.2 for consistency with our
+conventions for class constructors documented in
+\url{https://adv-r.hadley.nz/s3.html#s3-subclassing}.}
 }
 \description{
 The functions call \code{\link[=message_chk]{message_chk()}} to process
