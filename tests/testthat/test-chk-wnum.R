@@ -1,5 +1,5 @@
 test_that("vld_wnum", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
+  rlang::local_options(lifecycle_verbosity = "quiet")
 
   lifecycle::expect_deprecated(vld_wnum(1))
 
@@ -15,7 +15,7 @@ test_that("vld_wnum", {
 })
 
 test_that("chk_wnum", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
+  rlang::local_options(lifecycle_verbosity = "quiet")
 
   lifecycle::expect_deprecated(chk_wnum(1))
 
