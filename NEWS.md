@@ -2,10 +2,7 @@
 
 # chk 0.8.0
 
-- Same as previous version.
-
-
-- Same as previous version.
+- Updated deprecated argument `.subclass` to `class` in rlang function calls
 
 
 # chk 0.7.0.9002
