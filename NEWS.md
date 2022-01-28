@@ -1,5 +1,13 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# chk 0.8.0
+
+- Same as previous version.
+
+
+- Same as previous version.
+
+
 # chk 0.7.0.9002
 
 - Added `chk_valid_name()`.
