@@ -30,6 +30,7 @@ Other contributors:
 \itemize{
   \item Ayla Pearson (\href{https://orcid.org/0000-0001-7388-1222}{ORCID}) [contributor]
   \item Nadine Hussein \email{nadine@poissonconsulting.ca} (\href{https://orcid.org/0000-0003-4470-8361}{ORCID}) [contributor]
+  \item Evan Amies-Galonski \email{evan@poissonconsulting.ca} (\href{https://orcid.org/0000-0003-1096-2089}{ORCID}) [contributor]
   \item Poisson Consulting [copyright holder, funder]
 }
 
