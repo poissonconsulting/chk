@@ -53,8 +53,6 @@ y <- "a"
 chk_string(y)
 chk_flag(y)
 
-chkor(chk_flag(y), chk_number(y))
-
 data <- data.frame(x = 1:2)
 chk_range(nrow(data), c(3, 8))
 ```
