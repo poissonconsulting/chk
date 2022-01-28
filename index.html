@@ -118,18 +118,13 @@
 
 <span class="fu"><a href="reference/chk_string.html">chk_string</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>
 <span class="fu"><a href="reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>
-<span class="co">#&gt; Error: `y` must be a flag (TRUE or FALSE).</span>
-
-<span class="fu"><a href="reference/chkor.html">chkor</a></span><span class="op">(</span><span class="fu"><a href="reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, <span class="fu"><a href="reference/chk_number.html">chk_number</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; Warning: `chkor()` was deprecated in chk 0.6.1.</span>
-<span class="co">#&gt; Please use `chkor_vld()` instead.</span>
-<span class="co">#&gt; Error: At least one of the following conditions must be met:</span>
-<span class="co">#&gt; * `y` must be a flag (TRUE or FALSE).</span>
-<span class="co">#&gt; * `y` must be a number (non-missing numeric scalar).</span>
+<span class="co">#&gt; Error in `err()` at chk/R/utils.R:18:2:</span>
+<span class="co">#&gt; ! `y` must be a flag (TRUE or FALSE).</span>
 
 <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span>
 <span class="fu"><a href="reference/chk_range.html">chk_range</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">8</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; Error: `nrow(data)` must be between 3 and 8, not 2.</span></code></pre></div>
+<span class="co">#&gt; Error in `err()` at chk/R/utils.R:18:2:</span>
+<span class="co">#&gt; ! `nrow(data)` must be between 3 and 8, not 2.</span></code></pre></div>
 <p>Error messages follow the <a href="https://style.tidyverse.org/error-messages.html" class="external-link">tidyverse style guide</a> while the errors themselves are <a href="https://rlang.r-lib.org/reference/abort.html" class="external-link">rlang errors</a> of subclass <code>chk_error</code>.</p>
 </div>
 <div class="section level2">
