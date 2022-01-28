@@ -1,5 +1,5 @@
 test_that("vld_dbl", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
+  rlang::local_options(lifecycle_verbosity = "quiet")
 
   lifecycle::expect_deprecated(vld_dbl(1))
 
@@ -12,7 +12,7 @@ test_that("vld_dbl", {
 })
 
 test_that("chk_dbl", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
+  rlang::local_options(lifecycle_verbosity = "quiet")
 
   lifecycle::expect_deprecated(chk_dbl(1))
 

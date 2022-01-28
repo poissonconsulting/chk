@@ -20,6 +20,11 @@ Authors@R:
              role = "ctb",
              email = "nadine@poissonconsulting.ca",
              comment = c(ORCID = "0000-0003-4470-8361")),
+      person(given = "Evan",
+             family = "Amies-Galonski",
+             role = "ctb",
+             email = "evan@poissonconsulting.ca",
+             comment = c(ORCID = "0000-0003-1096-2089")),
       person(given = "Poisson Consulting",
              role = c("cph", "fnd")))
 Description: For developers to check user-supplied function arguments.  It

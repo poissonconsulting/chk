@@ -1,5 +1,5 @@
 test_that("vld_no_missing", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
+  rlang::local_options(lifecycle_verbosity = "quiet")
 
   expect_true(vld_no_missing(1))
   expect_true(vld_no_missing(integer(0)))
@@ -8,7 +8,7 @@ test_that("vld_no_missing", {
 })
 
 test_that("chk_no_missing", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
+  rlang::local_options(lifecycle_verbosity = "quiet")
 
   expect_null(chk_no_missing(1))
   expect_invisible(chk_no_missing(1))
@@ -18,7 +18,7 @@ test_that("chk_no_missing", {
 
 
 test_that("warning messages are generated for dep functions", {
-  rlang::scoped_options(lifecycle_verbosity = "warning")
+  rlang::local_options(lifecycle_verbosity = "warning")
 
   expect_warning(chk_dirs(tempdir()))
   expect_warning(chk_has(1:3, 1))
