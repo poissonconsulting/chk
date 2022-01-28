@@ -25,13 +25,13 @@ Checks if double scalar using
 
 \code{is.double(x) && length(x) == 1L}
 
-\lifecycle{soft-deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 }
 \section{Functions}{
 \itemize{
 \item \code{vld_dbl}: Validate Double
 
-\lifecycle{soft-deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 }}
 
 \examples{

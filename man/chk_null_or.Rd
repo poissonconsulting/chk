@@ -9,7 +9,7 @@ chk_null_or(x, chk, ..., vld, x_name = NULL)
 \arguments{
 \item{x}{The object to check.}
 
-\item{chk}{A chk function. Soft-deprecated for vld. \lifecycle{soft-deprecated}}
+\item{chk}{A chk function. Soft-deprecated for vld. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}}
 
 \item{...}{Arguments passed to chk.}
 

@@ -16,7 +16,7 @@ An informative error if the test fails.
 The \code{chkor()} function has been deprecated for the faster \code{chkor_vld()}.
 }
 \details{
-\lifecycle{soft-deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 }
 \examples{
 chkor()

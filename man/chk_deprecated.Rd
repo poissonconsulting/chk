@@ -49,67 +49,67 @@ Deprecated \code{chk_()} functions.
 \itemize{
 \item \code{chk_dirs}: Check Directories Exist
 
-\lifecycle{deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
 Replace with \verb{[chk_all](x, [chk_dir])}
 
 \item \code{chk_files}: Check Files Exist
 
-\lifecycle{deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
 Replace with \verb{[chk_all](x, [chk_file])}
 
 \item \code{chk_has}: Check Has
 
-\lifecycle{deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
 Replace by \code{\link[=chk_superset]{chk_superset()}}
 
 \item \code{chk_in}: Check In
 
-\lifecycle{deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
 Replace by \code{\link[=chk_subset]{chk_subset()}}
 
 \item \code{chk_no_missing}: Check No Missing Values
 
-\lifecycle{deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
 Replace with \code{\link[=chk_not_any_na]{chk_not_any_na()}}
 
 \item \code{vld_no_missing}: Validate No Missing Values
 
-\lifecycle{deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
 Replace with \code{\link[=vld_not_any_na]{vld_not_any_na()}}
 
 \item \code{chk_off}: Turns checking off
 
-\lifecycle{deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
 This approach is no longer recommended
 
 \item \code{chk_on}: Turns checking on
 
-\lifecycle{deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
 This approach is no longer recommended
 
 \item \code{is_chk_on}: Tests checking on
 
-\lifecycle{deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
 This approach is no longer recommended
 
 \item \code{chk_proportion}: Check Proportion
 
-\lifecycle{deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
 Replace by \verb{[chk_number](x); [chk_range](x)}
 
 \item \code{deparse_backtick}: Deparse Backtick
 
-\lifecycle{deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
 Replace with \code{\link[=deparse_backtick_chk]{deparse_backtick_chk()}}
 }}

@@ -25,13 +25,13 @@ Checks if character scalar using
 
 \code{is.character(x) && length(x) == 1L}
 
-\lifecycle{soft-deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 }
 \section{Functions}{
 \itemize{
 \item \code{vld_chr}: Validate Character Scalar
 
-\lifecycle{soft-deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 }}
 
 \examples{
