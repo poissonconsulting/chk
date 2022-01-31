@@ -35,13 +35,13 @@ Checks if non-missing POSIXct scalar using
 \itemize{
 \item \code{chk_datetime}: Check Date Time (Deprecated)
 
-\lifecycle{deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
 \item \code{vld_date_time}: Validate Date Time
 
 \item \code{vld_datetime}: Validate Date Time (Deprecated)
 
-\lifecycle{deprecated}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 }}
 
 \examples{

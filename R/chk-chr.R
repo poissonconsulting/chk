@@ -5,7 +5,7 @@
 #'
 #' `is.character(x) && length(x) == 1L`
 #'
-#' \lifecycle{soft-deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' @family deprecated
 #'
@@ -35,7 +35,7 @@ chk_chr <- function(x, x_name = NULL) {
 
 #' @describeIn chk_chr Validate Character Scalar
 #'
-#' \lifecycle{soft-deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' @examples
 #' # vld_chr

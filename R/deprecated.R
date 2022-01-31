@@ -12,7 +12,7 @@ NULL
 
 #' @describeIn chk_deprecated Check Directories Exist
 #'
-#' \lifecycle{deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' Replace with `[chk_all](x, [chk_dir])`
 #'
@@ -27,7 +27,7 @@ chk_dirs <- function(x) {
 
 #' @describeIn chk_deprecated Check Files Exist
 #'
-#' \lifecycle{deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' Replace with `[chk_all](x, [chk_file])`
 #'
@@ -42,7 +42,7 @@ chk_files <- function(x) {
 
 #' @describeIn chk_deprecated Check Has
 #'
-#' \lifecycle{deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' Replace by [chk_superset()]
 #'
@@ -59,7 +59,7 @@ chk_has <- function(x, values, x_name = NULL) {
 
 #' @describeIn chk_deprecated Check In
 #'
-#' \lifecycle{deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' Replace by [chk_subset()]
 #'
@@ -76,7 +76,7 @@ chk_in <- function(x, values, x_name = NULL) {
 
 #' @describeIn chk_deprecated Check No Missing Values
 #'
-#' \lifecycle{deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' Replace with [chk_not_any_na()]
 #'
@@ -95,7 +95,7 @@ chk_no_missing <- function(x, x_name = NULL) {
 
 #' @describeIn chk_deprecated Validate No Missing Values
 #'
-#' \lifecycle{deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' Replace with [vld_not_any_na()]
 #'
@@ -110,7 +110,7 @@ vld_no_missing <- function(x) {
 
 #' @describeIn chk_deprecated Turns checking off
 #'
-#' \lifecycle{deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' This approach is no longer recommended
 #'
@@ -125,7 +125,7 @@ chk_off <- function() {
 
 #' @describeIn chk_deprecated Turns checking on
 #'
-#' \lifecycle{deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' This approach is no longer recommended
 #'
@@ -140,7 +140,7 @@ chk_on <- function() {
 
 #' @describeIn chk_deprecated Tests checking on
 #'
-#' \lifecycle{deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' This approach is no longer recommended
 #'
@@ -155,7 +155,7 @@ is_chk_on <- function() {
 
 #' @describeIn chk_deprecated Check Proportion
 #'
-#' \lifecycle{deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' Replace by `[chk_number](x); [chk_range](x)`
 #'
@@ -172,7 +172,7 @@ chk_proportion <- function(x, x_name = NULL) {
 
 #' @describeIn chk_deprecated Deparse Backtick
 #'
-#' \lifecycle{deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' Replace with [deparse_backtick_chk()]
 #'

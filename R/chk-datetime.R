@@ -25,7 +25,7 @@ chk_date_time <- function(x, x_name = NULL) {
 
 #' @describeIn chk_date_time Check Date Time (Deprecated)
 #'
-#' \lifecycle{deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' @export
 chk_datetime <- function(x, x_name = NULL) {
@@ -57,7 +57,7 @@ vld_date_time <- function(x) {
 
 #' @describeIn chk_date_time Validate Date Time (Deprecated)
 #'
-#' \lifecycle{deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' @export
 vld_datetime <- function(x) {

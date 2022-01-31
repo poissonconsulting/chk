@@ -2,7 +2,7 @@
 #'
 #' The `chkor()` function has been deprecated for the faster `chkor_vld()`.
 #'
-#' \lifecycle{soft-deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' @param ... Multiple `chk_` functions.
 #'

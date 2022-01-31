@@ -5,7 +5,7 @@
 #'
 #' `is.double(x) && length(x) == 1L`
 #'
-#' \lifecycle{soft-deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' @inheritParams params
 #' @inherit params return
@@ -34,7 +34,7 @@ chk_dbl <- function(x, x_name = NULL) {
 
 #' @describeIn chk_dbl Validate Double
 #'
-#' \lifecycle{soft-deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' @examples
 #' # vld_dbl

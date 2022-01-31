@@ -5,7 +5,7 @@
 #'
 #' `is.numeric(x) && length(x) == 1L && (is.integer(x) || vld_true(all.equal(x, trunc(x))))`
 #'
-#' \lifecycle{soft-deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' @inheritParams params
 #' @inherit params return
@@ -34,7 +34,7 @@ chk_wnum <- function(x, x_name = NULL) {
 
 #' @describeIn chk_wnum Validate Whole Numeric Scalar
 #'
-#' \lifecycle{soft-deprecated}
+#' `r lifecycle::badge("deprecated")`
 #'
 #' @examples
 #' # vld_wnum
