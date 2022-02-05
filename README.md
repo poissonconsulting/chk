@@ -62,7 +62,7 @@ chk_range(nrow(data), c(3, 8))
 Error messages follow the [tidyverse style
 guide](https://style.tidyverse.org/error-messages.html) while the errors
 themselves are [rlang
-errors](https://rlang.r-lib.org/reference/abort.html) of subclass
+errors](https://rlang.r-lib.org/reference/abort.html) of class
 `chk_error`.
 
 ## Information
