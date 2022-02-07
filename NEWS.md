@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# chk 0.8.0.9000
+
+- Same as previous version.
+
+
 # chk 0.8.0
 
 - Updated deprecated argument `.subclass` to `class` in rlang function calls
