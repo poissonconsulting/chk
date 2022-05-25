@@ -45,7 +45,7 @@ chk_null_or <- function(x, chk, ..., vld, x_name = NULL) {
   chk <- deparse(substitute(vld))
   chk <- sub("^vld_", "chk_", chk)
   chk <- paste0(chk, "(x, ..., x_name = x_name)")
-  chk <- parse(text = chk)
+  chk <- str2lang(chk)
   try <- try_chk(eval(chk))
   msg <- try_msg(try)
   msg <- sub("[.]$", " or NULL.", msg)
