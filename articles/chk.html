@@ -53,7 +53,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -114,7 +114,7 @@
 <span class="fu"><a href="../reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>
 <span class="va">y</span> <span class="op">&lt;-</span> <span class="cn">NA</span>
 <span class="fu"><a href="../reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in </span><span style="color: #262626; background-color: #DADADA; font-weight: bold;">`err()`</span><span style="font-weight: bold;">:</span></span>
+<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span>
 <span class="co">#&gt; <span style="color: #BBBB00;">!</span> `y` must be a flag (TRUE or FALSE).</span></code></pre></div>
 <p>The error messages, which follow the <a href="https://style.tidyverse.org/error-messages.html" class="external-link">tidyverse style guide</a>, are designed to allow the user to quickly identify the problem with the argument value(s) they are providing. The errors are <a href="https://rlang.r-lib.org/reference/abort.html" class="external-link">rlang errors</a> of subclass <code>'chk_error'</code>.</p>
 </div>
@@ -131,7 +131,7 @@
 <p>The <code>vld_</code> functions allow developers to provide their own error messages.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="../reference/chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="../reference/abort_chk.html">abort_chk</a></span><span class="op">(</span><span class="st">"`NA` is not TRUE or FALSE!!"</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in </span><span style="color: #262626; background-color: #DADADA; font-weight: bold;">`err()`</span><span style="font-weight: bold;">:</span></span>
+<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span>
 <span class="co">#&gt; <span style="color: #BBBB00;">!</span> `NA` is not TRUE or FALSE!!</span></code></pre></div>
 </div>
 </div>
@@ -148,13 +148,13 @@
 <span class="fu">fun1</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>
 <span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">1.3</span>
 <span class="fu">fun1</span><span class="op">(</span>x <span class="op">=</span> <span class="va">y</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in </span><span style="color: #262626; background-color: #DADADA; font-weight: bold;">`err()`</span><span style="font-weight: bold;">:</span></span>
+<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span>
 <span class="co">#&gt; <span style="color: #BBBB00;">!</span> `x` must be a whole number (non-missing integer scalar or double equivalent).</span></code></pre></div>
 <p>If this is not the case, developers can provide a different name using the <code>x_name</code> argument.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="cn">NA</span>
 <span class="fu"><a href="../reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">x</span>, x_name <span class="op">=</span> <span class="st">"`zzz`"</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in </span><span style="color: #262626; background-color: #DADADA; font-weight: bold;">`err()`</span><span style="font-weight: bold;">:</span></span>
+<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span>
 <span class="co">#&gt; <span style="color: #BBBB00;">!</span> `zzz` must be a flag (TRUE or FALSE).</span></code></pre></div>
 <p><strong>IMPORTANT NOTE</strong></p>
 <p>As the <code>chk_</code> (and <code>vld_</code>) functions are not expected to be directly exposed to users they don’t check any of their arguments (other than the object of interest of course!) to ensure that they are as fast as possible.</p>
@@ -181,10 +181,10 @@
 <p>The <code><a href="../reference/abort_chk.html">abort_chk()</a></code> function converts multiple arguments to a string using <code>paste0(..., collapse = '')</code> and provides number sensitive <code>sprintf</code>-like types. By default it also capitalizes the first character and adds a missing period.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/abort_chk.html">abort_chk</a></span><span class="op">(</span><span class="st">"There %r %n problem director%y%s."</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in </span><span style="color: #262626; background-color: #DADADA; font-weight: bold;">`err()`</span><span style="font-weight: bold;">:</span></span>
+<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span>
 <span class="co">#&gt; <span style="color: #BBBB00;">!</span> There is 1 problem directory.</span>
 <span class="fu"><a href="../reference/abort_chk.html">abort_chk</a></span><span class="op">(</span><span class="st">"there %r %n "</span>, <span class="st">"problem director%y%s"</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in </span><span style="color: #262626; background-color: #DADADA; font-weight: bold;">`err()`</span><span style="font-weight: bold;">:</span></span>
+<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span>
 <span class="co">#&gt; <span style="color: #BBBB00;">!</span> There are 2 problem directories.</span></code></pre></div>
 </div>
 <div class="section level3">
@@ -213,7 +213,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
 </div>
 
       </footer>
