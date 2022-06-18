@@ -86,6 +86,8 @@ See below for more details.</p>
 <dd><p>Object to test.</p>
 <p>Supports limited unquoting to make it easier to generate readable failures
 within a function or for loop. See <a href="https://testthat.r-lib.org/reference/quasi_label.html" class="external-link">quasi_label</a> for more details.</p></dd>
+
+
 <dt>regexp</dt>
 <dd><p>Regular expression to test against.</p><ul><li><p>A character vector giving a regular expression that must match the
 error message.</p></li>
@@ -93,6 +95,8 @@ error message.</p></li>
 but doesn't test for a specific value.</p></li>
 <li><p>If <code>NA</code>, asserts that there should be no errors.</p></li>
 </ul></dd>
+
+
 <dt>...</dt>
 <dd><p>Arguments passed on to <code><a href="https://testthat.r-lib.org/reference/expect_match.html" class="external-link">expect_match</a></code></p><dl><dt><code>perl</code></dt>
 <dd><p>logical.  Should Perl-compatible regexps be used?</p></dd>
@@ -103,18 +107,27 @@ but doesn't test for a specific value.</p></li>
 
   
 </dl></dd>
+
+
 <dt>info</dt>
 <dd><p>Extra information to be included in the message. This argument
 is soft-deprecated and should not be used in new code. Instead see
 alternatives in <a href="https://testthat.r-lib.org/reference/quasi_label.html" class="external-link">quasi_label</a>.</p></dd>
+
+
 <dt>label</dt>
 <dd><p>Used to customise failure messages. For expert use only.</p></dd>
+
+
 <dt>class</dt>
 <dd><p>Must be NULL.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>If <code>regexp = NA</code>, the value of the first argument; otherwise
+    
+
+<p>If <code>regexp = NA</code>, the value of the first argument; otherwise
 the captured condition.</p>
     </div>
     <div id="testing-message-vs-class">
@@ -171,7 +184,7 @@ using <code><a href="https://testthat.r-lib.org/reference/expect_snapshot.html" 
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.9000.</p>
 </div>
 
       </footer></div>
