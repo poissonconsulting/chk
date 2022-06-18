@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# chk 0.8.0.9001
+
+- Fixed bug where`check_key()` failing on sf objects.
+
+
 # chk 0.8.0.9000
 
 - Same as previous version.
