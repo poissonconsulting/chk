@@ -26,9 +26,9 @@ A wrapper on \code{\link[base:paste]{base::paste()}}.
 }
 \section{Functions}{
 \itemize{
-\item \code{p0}: A wrapper on \code{\link[base:paste]{base::paste0()}}
-}}
+\item \code{p0()}: A wrapper on \code{\link[base:paste]{base::paste0()}}
 
+}}
 \examples{
 p("a", "b")
 p(c("a", "b"), collapse = " ")

@@ -31,9 +31,9 @@ Checks if non-missing integer scalar or double equivalent using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_whole_number}: Validate Whole Number
-}}
+\item \code{vld_whole_number()}: Validate Whole Number
 
+}}
 \examples{
 # chk_whole_number
 chk_whole_number(2)

@@ -29,11 +29,11 @@ Checks if double scalar using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_dbl}: Validate Double
+\item \code{vld_dbl()}: Validate Double
 
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
-}}
 
+}}
 \examples{
 # chk_dbl
 chk_dbl(1)

@@ -27,9 +27,9 @@ Checks if logical using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_logical}: Validate Logical
-}}
+\item \code{vld_logical()}: Validate Logical
 
+}}
 \examples{
 # chk_logical
 chk_logical(TRUE)

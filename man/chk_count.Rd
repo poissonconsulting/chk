@@ -27,9 +27,9 @@ Checks if non-negative whole number using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_count}: Validate Count
-}}
+\item \code{vld_count()}: Validate Count
 
+}}
 \examples{
 # chk_count
 chk_count(1)

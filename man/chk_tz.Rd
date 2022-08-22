@@ -27,9 +27,9 @@ Checks if non-missing valid scalar timezone using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_tz}: Validate Time Zone
-}}
+\item \code{vld_tz()}: Validate Time Zone
 
+}}
 \examples{
 chk_tz("UTC")
 try(chk_tz("TCU"))

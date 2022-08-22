@@ -27,9 +27,9 @@ Checks if environment using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_environment}: Validate Environment
-}}
+\item \code{vld_environment()}: Validate Environment
 
+}}
 \examples{
 # chk_environment
 chk_environment(.GlobalEnv)

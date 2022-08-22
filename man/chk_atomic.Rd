@@ -27,9 +27,9 @@ Checks if atomic using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_atomic}: Validate Atomic
-}}
+\item \code{vld_atomic()}: Validate Atomic
 
+}}
 \examples{
 # chk_atomic
 chk_atomic(1)

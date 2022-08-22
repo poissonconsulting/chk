@@ -29,9 +29,9 @@ Checks inherits from S4 class using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_s4_class}: Validate Inherits from S4 Class
-}}
+\item \code{vld_s4_class()}: Validate Inherits from S4 Class
 
+}}
 \examples{
 # chk_s4_class
 try(chk_s4_class(1, "numeric"))

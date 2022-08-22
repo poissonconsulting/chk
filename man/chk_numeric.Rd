@@ -31,9 +31,9 @@ Checks if numeric using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_numeric}: Validate Numeric
-}}
+\item \code{vld_numeric()}: Validate Numeric
 
+}}
 \examples{
 # chk_numeric
 chk_numeric(1)

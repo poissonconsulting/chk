@@ -31,9 +31,9 @@ Checks all elements in x identical using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_all_identical}: Validate All Identical
-}}
+\item \code{vld_all_identical()}: Validate All Identical
 
+}}
 \examples{
 # chk_all_identical
 chk_all_identical(c(1, 1))

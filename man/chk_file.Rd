@@ -27,9 +27,9 @@ Checks if file exists using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_file}: Validate File Exists
-}}
+\item \code{vld_file()}: Validate File Exists
 
+}}
 \examples{
 # chk_file
 try(chk_file(tempfile()))

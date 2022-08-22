@@ -32,11 +32,11 @@ Checks if all values in values using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_not_subset}: Validate Not Subset
+\item \code{vld_not_subset()}: Validate Not Subset
 
-\item \code{vld_subset}: Validate Subset
+\item \code{vld_subset()}: Validate Subset
+
 }}
-
 \examples{
 # vld_not_subset
 vld_not_subset(numeric(0), 1:10)

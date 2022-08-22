@@ -27,9 +27,9 @@ Checks if is an array using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_array}: Validate Array
-}}
+\item \code{vld_array()}: Validate Array
 
+}}
 \examples{
 # chk_array
 chk_array(array(1))

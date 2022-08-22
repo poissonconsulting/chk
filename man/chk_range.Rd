@@ -30,9 +30,9 @@ Checks all non-missing values fall within range using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_range}: Validate Range
-}}
+\item \code{vld_range()}: Validate Range
 
+}}
 \examples{
 # chk_range
 chk_range(0)

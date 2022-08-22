@@ -31,9 +31,9 @@ Checks if is equivalent (equal ignoring attributes) to y using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_equivalent}: Validate Equivalent
-}}
+\item \code{vld_equivalent()}: Validate Equivalent
 
+}}
 \examples{
 # chk_equivalent
 chk_equivalent(1, 1.00000001)

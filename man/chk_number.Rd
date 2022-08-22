@@ -31,9 +31,9 @@ Checks if non-missing numeric scalar using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_number}: Validate Number
-}}
+\item \code{vld_number()}: Validate Number
 
+}}
 \examples{
 # chk_number
 chk_number(1.1)

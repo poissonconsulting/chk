@@ -27,9 +27,9 @@ Checks if is a list using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_list}: Validate List
-}}
+\item \code{vld_list()}: Validate List
 
+}}
 \examples{
 # chk_list
 chk_list(list())

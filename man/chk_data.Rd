@@ -27,9 +27,9 @@ Checks data.frame using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_data}: Validate Data
-}}
+\item \code{vld_data()}: Validate Data
 
+}}
 \examples{
 # chk_data
 chk_data(data.frame(x = 1))

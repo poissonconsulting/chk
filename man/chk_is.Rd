@@ -29,9 +29,9 @@ Checks inherits from class using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_is}: Validate Inherits from Class
-}}
+\item \code{vld_is()}: Validate Inherits from Class
 
+}}
 \examples{
 chk_is(1, "numeric")
 try(chk_is(1L, "double"))

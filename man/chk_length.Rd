@@ -29,9 +29,9 @@ Checks length is a particular value using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_length}: Validate Length
-}}
+\item \code{vld_length()}: Validate Length
 
+}}
 \examples{
 # chk_length
 chk_length("text")

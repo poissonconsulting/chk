@@ -27,9 +27,9 @@ Checks non-missing Date scalar using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_date}: Validate Date
-}}
+\item \code{vld_date()}: Validate Date
 
+}}
 \examples{
 # chk_date
 chk_date(Sys.Date())

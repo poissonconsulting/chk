@@ -33,17 +33,17 @@ Checks if non-missing POSIXct scalar using
 }
 \section{Functions}{
 \itemize{
-\item \code{chk_datetime}: Check Date Time (Deprecated)
+\item \code{chk_datetime()}: Check Date Time (Deprecated)
 
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-\item \code{vld_date_time}: Validate Date Time
+\item \code{vld_date_time()}: Validate Date Time
 
-\item \code{vld_datetime}: Validate Date Time (Deprecated)
+\item \code{vld_datetime()}: Validate Date Time (Deprecated)
 
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
 }}
-
 \examples{
 # chk_date_time
 chk_date_time(as.POSIXct("2001-01-02"))

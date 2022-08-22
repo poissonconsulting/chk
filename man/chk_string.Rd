@@ -27,9 +27,9 @@ Checks if string
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_string}: Validate String
-}}
+\item \code{vld_string()}: Validate String
 
+}}
 \examples{
 # chk_string
 chk_string("1")

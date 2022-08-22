@@ -29,9 +29,9 @@ Checks if all non-missing values are greater than value using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_gt}: Validate Greater Than
-}}
+\item \code{vld_gt()}: Validate Greater Than
 
+}}
 \examples{
 # chk_gt
 chk_gt(0.1)

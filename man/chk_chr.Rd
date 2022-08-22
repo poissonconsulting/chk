@@ -29,11 +29,11 @@ Checks if character scalar using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_chr}: Validate Character Scalar
+\item \code{vld_chr()}: Validate Character Scalar
 
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
-}}
 
+}}
 \examples{
 chk_chr("a")
 try(chk_chr(1))

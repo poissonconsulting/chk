@@ -27,9 +27,9 @@ Checks if TRUE using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_true}: Validate TRUE
-}}
+\item \code{vld_true()}: Validate TRUE
 
+}}
 \examples{
 # chk_true
 chk_true(TRUE)

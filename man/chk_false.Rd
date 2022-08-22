@@ -27,9 +27,9 @@ Check if FALSE using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_false}: Validate FALSE
-}}
+\item \code{vld_false()}: Validate FALSE
 
+}}
 \examples{
 # chk_false
 chk_false(FALSE)

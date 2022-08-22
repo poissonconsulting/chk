@@ -27,11 +27,11 @@ It is exported to allow users to easily construct their own \code{chk_} function
 }
 \section{Functions}{
 \itemize{
-\item \code{backtick_chk}: Backtick
+\item \code{backtick_chk()}: Backtick
 
-\item \code{unbacktick_chk}: Unbacktick
+\item \code{unbacktick_chk()}: Unbacktick
+
 }}
-
 \examples{
 
 # deparse_backtick_chk

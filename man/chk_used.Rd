@@ -22,9 +22,9 @@ Checks if is ... used using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_used}: Validate ... Used
-}}
+\item \code{vld_used()}: Validate ... Used
 
+}}
 \examples{
 # chk_used
 fun <- function(x, ...) {

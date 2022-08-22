@@ -29,9 +29,9 @@ Checks if is identical to y using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_identical}: Validate Identical
-}}
+\item \code{vld_identical()}: Validate Identical
 
+}}
 \examples{
 # chk_identical
 chk_identical(1, 1)

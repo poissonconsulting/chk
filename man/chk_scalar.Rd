@@ -27,9 +27,9 @@ Checks if is a vector using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_scalar}: Validate Scalar
-}}
+\item \code{vld_scalar()}: Validate Scalar
 
+}}
 \examples{
 # chk_scalar
 chk_scalar(1)

@@ -27,9 +27,9 @@ Checks if integer vector or double equivalent using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_whole_numeric}: Validate Whole Numeric
-}}
+\item \code{vld_whole_numeric()}: Validate Whole Numeric
 
+}}
 \examples{
 # chk_whole_numeric
 chk_whole_numeric(1)

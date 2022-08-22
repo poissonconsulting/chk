@@ -22,9 +22,9 @@ Checks if ... is unused
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_unused}: Validate ... Unused
-}}
+\item \code{vld_unused()}: Validate ... Unused
 
+}}
 \examples{
 # chk_unused
 fun <- function(x, ...) {
