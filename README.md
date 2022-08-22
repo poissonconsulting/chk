@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# chk <img src="man/figures/logo.png" align="right" />
+# chk <img src="man/figures/logo.png" style="float: right;" />
 
 <!-- badges: start -->
 
@@ -50,12 +50,12 @@ y <- "a"
 
 chk_string(y)
 chk_flag(y)
-#> Error in `err()` at chk/R/utils.R:18:2:
+#> Error in `err()`:
 #> ! `y` must be a flag (TRUE or FALSE).
 
 data <- data.frame(x = 1:2)
 chk_range(nrow(data), c(3, 8))
-#> Error in `err()` at chk/R/utils.R:18:2:
+#> Error in `err()`:
 #> ! `nrow(data)` must be between 3 and 8, not 2.
 ```
 
