@@ -109,13 +109,13 @@
 <p><code>chk_</code> functions check the properties of individual objects. For example <code>chk_flag(x)</code> checks whether <code>x</code> is a flag, i.e., a non-missing logical vector of length 1.</p>
 <p><code>chk_</code> functions are called for their side-effects, i.e., they throw an informative error if the object fails the check. Although do return an invisible copy of the first argument so they can be used in pipes.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/chk" class="external-link">chk</a></span><span class="op">)</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span>
-<span class="fu"><a href="../reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="cn">NA</span>
-<span class="fu"><a href="../reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span>
-<span class="co">#&gt; <span style="color: #BBBB00;">!</span> `y` must be a flag (TRUE or FALSE).</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/chk" class="external-link">chk</a></span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span>
+<span><span class="fu"><a href="../reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> `y` must be a flag (TRUE or FALSE).</span></span></code></pre></div>
 <p>The error messages, which follow the <a href="https://style.tidyverse.org/error-messages.html" class="external-link">tidyverse style guide</a>, are designed to allow the user to quickly identify the problem with the argument value(s) they are providing. The errors are <a href="https://rlang.r-lib.org/reference/abort.html" class="external-link">rlang errors</a> of subclass <code>'chk_error'</code>.</p>
 </div>
 <div class="section level3">
@@ -124,15 +124,15 @@
 </h3>
 <p>Each <code>chk_</code> function has a matching <code>vld_</code> function which returns a flag indicating whether the object passed the check.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; [1] TRUE</span>
-<span class="fu"><a href="../reference/chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span>
-<span class="co">#&gt; [1] FALSE</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 <p>The <code>vld_</code> functions allow developers to provide their own error messages.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="../reference/chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="../reference/abort_chk.html">abort_chk</a></span><span class="op">(</span><span class="st">"`NA` is not TRUE or FALSE!!"</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span>
-<span class="co">#&gt; <span style="color: #BBBB00;">!</span> `NA` is not TRUE or FALSE!!</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="../reference/chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="../reference/abort_chk.html">abort_chk</a></span><span class="op">(</span><span class="st">"`NA` is not TRUE or FALSE!!"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> `NA` is not TRUE or FALSE!!</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -140,22 +140,22 @@
 </h2>
 <p>The <code>chk_</code> functions are designed to be used within functions. Consequently, when constructing an error message they use the name of the object that they received as this is expected to be the name of the argument.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fun1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
-  <span class="fu"><a href="../reference/chk_whole_number.html">chk_whole_number</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-  <span class="co"># use x</span>
-<span class="op">}</span>
-
-<span class="fu">fun1</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">1.3</span>
-<span class="fu">fun1</span><span class="op">(</span>x <span class="op">=</span> <span class="va">y</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span>
-<span class="co">#&gt; <span style="color: #BBBB00;">!</span> `x` must be a whole number (non-missing integer scalar or double equivalent).</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">fun1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="../reference/chk_whole_number.html">chk_whole_number</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span>  <span class="co"># use x</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu">fun1</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">1.3</span></span>
+<span><span class="fu">fun1</span><span class="op">(</span>x <span class="op">=</span> <span class="va">y</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> `x` must be a whole number (non-missing integer scalar or double equivalent).</span></span></code></pre></div>
 <p>If this is not the case, developers can provide a different name using the <code>x_name</code> argument.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="cn">NA</span>
-<span class="fu"><a href="../reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">x</span>, x_name <span class="op">=</span> <span class="st">"`zzz`"</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span>
-<span class="co">#&gt; <span style="color: #BBBB00;">!</span> `zzz` must be a flag (TRUE or FALSE).</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span>
+<span><span class="fu"><a href="../reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">x</span>, x_name <span class="op">=</span> <span class="st">"`zzz`"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> `zzz` must be a flag (TRUE or FALSE).</span></span></code></pre></div>
 <p><strong>IMPORTANT NOTE</strong></p>
 <p>As the <code>chk_</code> (and <code>vld_</code>) functions are not expected to be directly exposed to users they don’t check any of their arguments (other than the object of interest of course!) to ensure that they are as fast as possible.</p>
 </div>
@@ -164,14 +164,14 @@
 </h2>
 <p>The <code><a href="../reference/chk_flag.html">chk_flag()</a></code> function illustrates the general structure of a <code>chk_</code> function.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">chk_flag</span>
-<span class="co">#&gt; function(x, x_name = NULL){</span>
-<span class="co">#&gt;   if(vld_flag(x)) return(invisible(x))</span>
-<span class="co">#&gt;   if(is.null(x_name))  x_name &lt;- deparse_backtick_chk(substitute(x))</span>
-<span class="co">#&gt;   abort_chk(x_name, " must be a flag (TRUE or FALSE)")</span>
-<span class="co">#&gt; }</span>
-<span class="co">#&gt; &lt;bytecode: 0x7fe802835670&gt;</span>
-<span class="co">#&gt; &lt;environment: namespace:chk&gt;</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">chk_flag</span></span>
+<span><span class="co">#&gt; function(x, x_name = NULL){</span></span>
+<span><span class="co">#&gt;   if(vld_flag(x)) return(invisible(x))</span></span>
+<span><span class="co">#&gt;   if(is.null(x_name))  x_name &lt;- deparse_backtick_chk(substitute(x))</span></span>
+<span><span class="co">#&gt;   abort_chk(x_name, " must be a flag (TRUE or FALSE)")</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; &lt;bytecode: 0x7fe802835670&gt;</span></span>
+<span><span class="co">#&gt; &lt;environment: namespace:chk&gt;</span></span></code></pre></div>
 <p>A <code>chk_</code> function initially checks the object (using its <code>vld_</code> partner) and if the object passes the check immediately returns an invisible copy of the object. If, and only if, the object fails the check does the <code>chk_</code> function construct and then throw an informative error message.</p>
 <p>The <code><a href="../reference/deparse_backtick_chk.html">deparse_backtick_chk()</a></code> and <code><a href="../reference/abort_chk.html">abort_chk()</a></code> functions are exported to make it easy for programmers to develop their own <code>chk_</code> functions. The <a href="https://github.com/poissonconsulting/chk/blob/master/R/chk-lgl.R" class="external-link">chk-lgl.R</a> script illustrates the general template to use when developing your own <code>chk_</code> functions.</p>
 <div class="section level3">
@@ -180,12 +180,12 @@
 </h3>
 <p>The <code><a href="../reference/abort_chk.html">abort_chk()</a></code> function converts multiple arguments to a string using <code>paste0(..., collapse = '')</code> and provides number sensitive <code>sprintf</code>-like types. By default it also capitalizes the first character and adds a missing period.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/abort_chk.html">abort_chk</a></span><span class="op">(</span><span class="st">"There %r %n problem director%y%s."</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span>
-<span class="co">#&gt; <span style="color: #BBBB00;">!</span> There is 1 problem directory.</span>
-<span class="fu"><a href="../reference/abort_chk.html">abort_chk</a></span><span class="op">(</span><span class="st">"there %r %n "</span>, <span class="st">"problem director%y%s"</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span>
-<span class="co">#&gt; <span style="color: #BBBB00;">!</span> There are 2 problem directories.</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/abort_chk.html">abort_chk</a></span><span class="op">(</span><span class="st">"There %r %n problem director%y%s."</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> There is 1 problem directory.</span></span>
+<span><span class="fu"><a href="../reference/abort_chk.html">abort_chk</a></span><span class="op">(</span><span class="st">"there %r %n "</span>, <span class="st">"problem director%y%s"</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `err()`:</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> There are 2 problem directories.</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="check_-functions">
@@ -213,7 +213,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer>

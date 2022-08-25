@@ -66,27 +66,27 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">chk_dirs</span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-
-<span class="fu">chk_files</span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-
-<span class="fu">chk_has</span><span class="op">(</span><span class="va">x</span>, <span class="va">values</span>, x_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
-
-<span class="fu">chk_in</span><span class="op">(</span><span class="va">x</span>, <span class="va">values</span>, x_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
-
-<span class="fu">chk_no_missing</span><span class="op">(</span><span class="va">x</span>, x_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
-
-<span class="fu">vld_no_missing</span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-
-<span class="fu">chk_off</span><span class="op">(</span><span class="op">)</span>
-
-<span class="fu">chk_on</span><span class="op">(</span><span class="op">)</span>
-
-<span class="fu">is_chk_on</span><span class="op">(</span><span class="op">)</span>
-
-<span class="fu">chk_proportion</span><span class="op">(</span><span class="va">x</span>, x_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
-
-<span class="fu">deparse_backtick</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">chk_dirs</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">chk_files</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">chk_has</span><span class="op">(</span><span class="va">x</span>, <span class="va">values</span>, x_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">chk_in</span><span class="op">(</span><span class="va">x</span>, <span class="va">values</span>, x_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">chk_no_missing</span><span class="op">(</span><span class="va">x</span>, x_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">vld_no_missing</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">chk_off</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">chk_on</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_chk_on</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">chk_proportion</span><span class="op">(</span><span class="va">x</span>, x_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">deparse_backtick</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -102,37 +102,37 @@
     <div id="functions">
     <h2>Functions</h2>
     
-<ul><li><p><code>chk_dirs</code>: Check Directories Exist</p>
+<ul><li><p><code>chk_dirs()</code>: Check Directories Exist</p>
 <p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated" class="external-link"><img src="figures/lifecycle-deprecated.svg" alt="[Deprecated]"></a></p>
 <p>Replace with <code>[chk_all](x, [chk_dir])</code></p></li>
-<li><p><code>chk_files</code>: Check Files Exist</p>
+<li><p><code>chk_files()</code>: Check Files Exist</p>
 <p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated" class="external-link"><img src="figures/lifecycle-deprecated.svg" alt="[Deprecated]"></a></p>
 <p>Replace with <code>[chk_all](x, [chk_file])</code></p></li>
-<li><p><code>chk_has</code>: Check Has</p>
+<li><p><code>chk_has()</code>: Check Has</p>
 <p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated" class="external-link"><img src="figures/lifecycle-deprecated.svg" alt="[Deprecated]"></a></p>
 <p>Replace by <code><a href="chk_superset.html">chk_superset()</a></code></p></li>
-<li><p><code>chk_in</code>: Check In</p>
+<li><p><code>chk_in()</code>: Check In</p>
 <p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated" class="external-link"><img src="figures/lifecycle-deprecated.svg" alt="[Deprecated]"></a></p>
 <p>Replace by <code><a href="chk_subset.html">chk_subset()</a></code></p></li>
-<li><p><code>chk_no_missing</code>: Check No Missing Values</p>
+<li><p><code>chk_no_missing()</code>: Check No Missing Values</p>
 <p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated" class="external-link"><img src="figures/lifecycle-deprecated.svg" alt="[Deprecated]"></a></p>
 <p>Replace with <code><a href="chk_not_any_na.html">chk_not_any_na()</a></code></p></li>
-<li><p><code>vld_no_missing</code>: Validate No Missing Values</p>
+<li><p><code>vld_no_missing()</code>: Validate No Missing Values</p>
 <p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated" class="external-link"><img src="figures/lifecycle-deprecated.svg" alt="[Deprecated]"></a></p>
 <p>Replace with <code><a href="chk_not_any_na.html">vld_not_any_na()</a></code></p></li>
-<li><p><code>chk_off</code>: Turns checking off</p>
+<li><p><code>chk_off()</code>: Turns checking off</p>
 <p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated" class="external-link"><img src="figures/lifecycle-deprecated.svg" alt="[Deprecated]"></a></p>
 <p>This approach is no longer recommended</p></li>
-<li><p><code>chk_on</code>: Turns checking on</p>
+<li><p><code>chk_on()</code>: Turns checking on</p>
 <p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated" class="external-link"><img src="figures/lifecycle-deprecated.svg" alt="[Deprecated]"></a></p>
 <p>This approach is no longer recommended</p></li>
-<li><p><code>is_chk_on</code>: Tests checking on</p>
+<li><p><code>is_chk_on()</code>: Tests checking on</p>
 <p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated" class="external-link"><img src="figures/lifecycle-deprecated.svg" alt="[Deprecated]"></a></p>
 <p>This approach is no longer recommended</p></li>
-<li><p><code>chk_proportion</code>: Check Proportion</p>
+<li><p><code>chk_proportion()</code>: Check Proportion</p>
 <p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated" class="external-link"><img src="figures/lifecycle-deprecated.svg" alt="[Deprecated]"></a></p>
 <p>Replace by <code>[chk_number](x); [chk_range](x)</code></p></li>
-<li><p><code>deparse_backtick</code>: Deparse Backtick</p>
+<li><p><code>deparse_backtick()</code>: Deparse Backtick</p>
 <p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated" class="external-link"><img src="figures/lifecycle-deprecated.svg" alt="[Deprecated]"></a></p>
 <p>Replace with <code><a href="deparse_backtick_chk.html">deparse_backtick_chk()</a></code></p></li>
 </ul></div>
@@ -156,7 +156,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>

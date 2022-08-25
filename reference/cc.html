@@ -68,14 +68,14 @@ and the last value separated by a conjunction.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">cc</span><span class="op">(</span>
-  <span class="va">x</span>,
-  conj <span class="op">=</span> <span class="st">", "</span>,
-  sep <span class="op">=</span> <span class="st">", "</span>,
-  brac <span class="op">=</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">is.character</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">||</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">is.factor</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="st">"'"</span> <span class="kw">else</span> <span class="st">""</span>,
-  ellipsis <span class="op">=</span> <span class="fl">10L</span>,
-  chk <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">cc</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  conj <span class="op">=</span> <span class="st">", "</span>,</span>
+<span>  sep <span class="op">=</span> <span class="st">", "</span>,</span>
+<span>  brac <span class="op">=</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">is.character</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">||</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">is.factor</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="st">"'"</span> <span class="kw">else</span> <span class="st">""</span>,</span>
+<span>  ellipsis <span class="op">=</span> <span class="fl">10L</span>,</span>
+<span>  chk <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -119,15 +119,15 @@ to ensure only 10 values are displayed (including the ellipsis).</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">cc</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">cc</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1, 2"</span>
-<span class="r-in"><span class="fu">cc</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, conj <span class="op">=</span> <span class="st">" or"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">cc</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, conj <span class="op">=</span> <span class="st">" or"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1 or2"</span>
-<span class="r-in"><span class="fu">cc</span><span class="op">(</span><span class="fl">3</span><span class="op">:</span><span class="fl">1</span>, brac <span class="op">=</span> <span class="st">"'"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">cc</span><span class="op">(</span><span class="fl">3</span><span class="op">:</span><span class="fl">1</span>, brac <span class="op">=</span> <span class="st">"'"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "'3', '2', '1'"</span>
-<span class="r-in"><span class="fu">cc</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">11</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">cc</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">11</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1, 2, 3, 4, 5, 6, 7, 8, ..., 11"</span>
-<span class="r-in"><span class="fu">cc</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">cc</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "'1', '2'"</span>
 </code></pre></div>
     </div>
@@ -143,7 +143,7 @@ to ensure only 10 values are displayed (including the ellipsis).</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>

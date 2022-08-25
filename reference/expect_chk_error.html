@@ -70,14 +70,14 @@ See below for more details.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">expect_chk_error</span><span class="op">(</span>
-  <span class="va">object</span>,
-  regexp <span class="op">=</span> <span class="cn">NULL</span>,
-  <span class="va">...</span>,
-  info <span class="op">=</span> <span class="cn">NULL</span>,
-  label <span class="op">=</span> <span class="cn">NULL</span>,
-  class <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">expect_chk_error</span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  regexp <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  info <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  label <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  class <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -167,8 +167,8 @@ using <code><a href="https://testthat.r-lib.org/reference/expect_snapshot.html" 
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">expect_chk_error</span><span class="op">(</span><span class="fu"><a href="chk_true.html">chk_true</a></span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">expect_chk_error</span><span class="op">(</span><span class="fu"><a href="chk_false.html">chk_false</a></span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">expect_chk_error</span><span class="op">(</span><span class="fu"><a href="chk_true.html">chk_true</a></span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">expect_chk_error</span><span class="op">(</span><span class="fu"><a href="chk_false.html">chk_false</a></span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error : `object` did not throw an error.</span>
 </code></pre></div>
     </div>
@@ -184,7 +184,7 @@ using <code><a href="https://testthat.r-lib.org/reference/expect_snapshot.html" 
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>
