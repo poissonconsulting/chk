@@ -70,7 +70,7 @@ NULL
 #'
 #' # err
 #' try(err("there %r %n problem value%s", n = 2))
-err <- function(..., n = NULL, tidy = TRUE, .subclass = NULL) {
+err <- function(..., n = NULL, tidy = TRUE, .subclass = NULL, call = rlang::caller_call(3)) {
   args <- list2(...)
   named <- (names2(args) != "")
   msg <- exec(p0, !!!args[!named], collapse = "")
@@ -83,11 +83,11 @@ err <- function(..., n = NULL, tidy = TRUE, .subclass = NULL) {
     )
   }
 
-  exec(
-    abort,
+  rlang::abort(
     msg,
     class = .subclass,
-    !!!args[named]
+    !!!args[named],
+    call = call
   )
 }
 

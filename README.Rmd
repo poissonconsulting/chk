@@ -57,6 +57,17 @@ data <- data.frame(x = 1:2)
 chk_range(nrow(data), c(3, 8))
 ```
 
+Or used inside functions to test user-provided arguments.
+
+```{r, error = TRUE}
+my_fun <- function(x) {
+  chk_flag(x)
+  x
+}
+my_fun(TRUE)
+my_fun(NA)
+```
+
 Error messages follow the [tidyverse style guide](https://style.tidyverse.org/error-messages.html) while the errors themselves are [rlang errors](https://rlang.r-lib.org/reference/abort.html) of class `chk_error`.
 
 ## Information
