@@ -72,7 +72,7 @@ the message and then
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">err</span><span class="op">(</span><span class="va">...</span>, n <span class="op">=</span> <span class="cn">NULL</span>, tidy <span class="op">=</span> <span class="cn">TRUE</span>, .subclass <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">err</span><span class="op">(</span><span class="va">...</span>, n <span class="op">=</span> <span class="cn">NULL</span>, tidy <span class="op">=</span> <span class="cn">TRUE</span>, .subclass <span class="op">=</span> <span class="cn">NULL</span>, call <span class="op">=</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/stack.html" class="external-link">caller_call</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">wrn</span><span class="op">(</span><span class="va">...</span>, n <span class="op">=</span> <span class="cn">NULL</span>, tidy <span class="op">=</span> <span class="cn">TRUE</span>, .subclass <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span></span>
@@ -98,6 +98,19 @@ the message and then
 <dt>.subclass</dt>
 <dd><p>A string of the class of the error message.</p></dd>
 
+
+<dt>call</dt>
+<dd><p>The execution environment of a currently running
+function, e.g. <code>call = caller_env()</code>. The corresponding function
+call is retrieved and mentioned in error messages as the source
+of the error.</p>
+<p>You only need to supply <code>call</code> when throwing a condition from a
+helper function which wouldn't be relevant to mention in the
+message.</p>
+<p>Can also be <code>NULL</code> or a <a href="https://rlang.r-lib.org/reference/topic-defuse.html" class="external-link">defused function call</a> to
+respectively not display any call or hard-code a code to display.</p>
+<p>For more information about error calls, see <a href="https://rlang.r-lib.org/reference/topic-error-call.html" class="external-link">Including function calls in error messages</a>.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -116,7 +129,7 @@ the message and then
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># err</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">err</span><span class="op">(</span><span class="st">"there %r %n problem value%s"</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err("there %r %n problem value%s", n = 2) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval_with_user_handlers(expr, envir, enclos, user_handlers) : </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   There are 2 problem values.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># wrn</span></span></span>

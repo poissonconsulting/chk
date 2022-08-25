@@ -66,7 +66,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">abort_chk</span><span class="op">(</span><span class="va">...</span>, n <span class="op">=</span> <span class="cn">NULL</span>, tidy <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">abort_chk</span><span class="op">(</span><span class="va">...</span>, n <span class="op">=</span> <span class="cn">NULL</span>, tidy <span class="op">=</span> <span class="cn">TRUE</span>, call <span class="op">=</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/stack.html" class="external-link">caller_call</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -82,6 +82,19 @@
 
 <dt>tidy</dt>
 <dd><p>A flag specifying whether capitalize the first character and add a missing period.</p></dd>
+
+
+<dt>call</dt>
+<dd><p>The execution environment of a currently running
+function, e.g. <code>call = caller_env()</code>. The corresponding function
+call is retrieved and mentioned in error messages as the source
+of the error.</p>
+<p>You only need to supply <code>call</code> when throwing a condition from a
+helper function which wouldn't be relevant to mention in the
+message.</p>
+<p>Can also be <code>NULL</code> or a <a href="https://rlang.r-lib.org/reference/topic-defuse.html" class="external-link">defused function call</a> to
+respectively not display any call or hard-code a code to display.</p>
+<p>For more information about error calls, see <a href="https://rlang.r-lib.org/reference/topic-error-call.html" class="external-link">Including function calls in error messages</a>.</p></dd>
 
 </dl></div>
     <div id="value">
@@ -102,17 +115,13 @@
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">abort_chk</span><span class="op">(</span><span class="st">"x must be NULL"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   X must be NULL.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir, enclos) : X must be NULL.</span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">abort_chk</span><span class="op">(</span><span class="st">"`x` must be NULL"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   `x` must be NULL.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir, enclos) : `x` must be NULL.</span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">abort_chk</span><span class="op">(</span><span class="st">"there %r %n problem value%s"</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   There is 1 problem value.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir, enclos) : There is 1 problem value.</span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">abort_chk</span><span class="op">(</span><span class="st">"there %r %n problem value%s"</span>, n <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   There are 1.5 problem values.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir, enclos) : There are 1.5 problem values.</span>
 </code></pre></div>
     </div>
   </div>

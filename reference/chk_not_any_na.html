@@ -121,7 +121,7 @@ returns the original object if successful so it can used in pipes.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># chk_not_any_na</span></span></span>
 <span class="r-in"><span><span class="fu">chk_not_any_na</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">chk_not_any_na</span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir, enclos) : </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   `NA` must not have any missing values.</span>
 <span class="r-in"><span><span class="co"># vld_not_any_na</span></span></span>
 <span class="r-in"><span><span class="fu">vld_not_any_na</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>

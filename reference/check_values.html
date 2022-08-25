@@ -121,10 +121,9 @@ and three or more levels to check that they are identical.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">check_values</span><span class="op">(</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">check_values</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">check_values</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1L</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   `1` must inherit from S3 class 'integer'.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in check_values(1, 1L) : `1` must inherit from S3 class 'integer'.</span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">check_values</span><span class="op">(</span><span class="cn">NA_real_</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in check_values(NA_real_, 1) : </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   `NA_real_` must not have any missing values.</span>
 </code></pre></div>
     </div>

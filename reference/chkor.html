@@ -101,12 +101,11 @@
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">chkor</span><span class="op">(</span><span class="fu"><a href="chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`chkor()` was deprecated in chk 0.6.1.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Please use `chkor_vld()` instead.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   `1` must be a flag (TRUE or FALSE).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in chkor(chk_flag(1)) : `1` must be a flag (TRUE or FALSE).</span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">chkor</span><span class="op">(</span><span class="fu"><a href="chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>, <span class="fu"><a href="chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`chkor()` was deprecated in chk 0.6.1.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Please use `chkor_vld()` instead.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in chkor(chk_flag(1), chk_flag(2)) : </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   At least one of the following conditions must be met:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * `1` must be a flag (TRUE or FALSE).</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * `2` must be a flag (TRUE or FALSE).</span>

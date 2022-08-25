@@ -118,7 +118,7 @@ returns the original object if successful so it can used in pipes.</p>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># chk_ext</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">chk_ext</span><span class="op">(</span><span class="st">"file1.pdf"</span>, <span class="st">"png"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in err(..., n = n, tidy = tidy, .subclass = "chk_error") : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir, enclos) : </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   `"file1.pdf"` must have extension 'png' (not 'pdf').</span>
 <span class="r-in"><span><span class="co"># vld_ext</span></span></span>
 <span class="r-in"><span><span class="fu">vld_ext</span><span class="op">(</span><span class="st">"oeu.pdf"</span>, <span class="st">"pdf"</span><span class="op">)</span></span></span>
