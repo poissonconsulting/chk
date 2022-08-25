@@ -7,7 +7,7 @@
 \usage{
 chk_string(x, x_name = NULL)
 
-vld_string(x, x_name = NULL)
+vld_string(x)
 }
 \arguments{
 \item{x}{The object to check.}

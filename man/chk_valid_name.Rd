@@ -41,9 +41,11 @@ vld_valid_name(".1")
 Other chk_misc: 
 \code{\link{chk_length}()},
 \code{\link{chk_match}()},
+\code{\link{chk_missing}()},
 \code{\link{chk_named}()},
 \code{\link{chk_not_any_na}()},
 \code{\link{chk_not_empty}()},
+\code{\link{chk_not_missing}()},
 \code{\link{chk_sorted}()},
 \code{\link{chk_unique}()}
 }

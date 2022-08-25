@@ -45,9 +45,11 @@ vld_length(2:1, 1)
 
 Other chk_misc: 
 \code{\link{chk_match}()},
+\code{\link{chk_missing}()},
 \code{\link{chk_named}()},
 \code{\link{chk_not_any_na}()},
 \code{\link{chk_not_empty}()},
+\code{\link{chk_not_missing}()},
 \code{\link{chk_sorted}()},
 \code{\link{chk_unique}()},
 \code{\link{chk_valid_name}()}

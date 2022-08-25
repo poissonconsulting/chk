@@ -98,6 +98,8 @@ reference:
   - '`chk_named`'
   - '`chk_not_any_na`'
   - '`chk_not_empty`'
+  - '`chk_missing`'
+  - '`chk_not_missing`'
   - '`chk_sorted`'
   - '`chk_unique`'
   - '`chkor_vld`'
