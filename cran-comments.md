@@ -1,6 +1,6 @@
 ## Test environments
 
-release 4.1.2
+release 4.2.1
 
 * OSX (local) - release
 * OSX (actions) - release
@@ -14,7 +14,7 @@ release 4.1.2
 
 ## revdepcheck results
 
-We checked 23 reverse dependencies (21 from CRAN + 2 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.
+We checked 25 reverse dependencies (19 from CRAN + 6 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.
 
  * We saw 0 new problems
  * We failed to check 0 packages
