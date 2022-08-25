@@ -22,3 +22,9 @@
 
 # Revdeps
 
+## New problems (1)
+
+|package                            |version |error     |warning |note |
+|:----------------------------------|:-------|:---------|:-------|:----|
+|[biodbKegg](problems.md#biodbkegg) |1.2.0   |-1 __+1__ |        |     |
+
