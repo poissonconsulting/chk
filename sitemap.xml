@@ -196,6 +196,9 @@
     <loc>/reference/chk_matrix.html</loc>
   </url>
   <url>
+    <loc>/reference/chk_missing.html</loc>
+  </url>
+  <url>
     <loc>/reference/chk_named.html</loc>
   </url>
   <url>
@@ -203,6 +206,9 @@
   </url>
   <url>
     <loc>/reference/chk_not_empty.html</loc>
+  </url>
+  <url>
+    <loc>/reference/chk_not_missing.html</loc>
   </url>
   <url>
     <loc>/reference/chk_not_null.html</loc>
