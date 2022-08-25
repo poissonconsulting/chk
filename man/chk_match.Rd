@@ -29,9 +29,9 @@ Checks if all values match regular expression using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_match}: Validate Matches
-}}
+\item \code{vld_match()}: Validate Matches
 
+}}
 \examples{
 # chk_match
 chk_match("1")

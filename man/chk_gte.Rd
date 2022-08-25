@@ -29,9 +29,9 @@ Checks if all non-missing values are greater than or equal to y using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_gte}: Validate Greater Than or Equal To
-}}
+\item \code{vld_gte()}: Validate Greater Than or Equal To
 
+}}
 \examples{
 # chk_gte
 chk_gte(0)

@@ -29,9 +29,9 @@ Checks if includes all values using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_superset}: Validates Superset
-}}
+\item \code{vld_superset()}: Validates Superset
 
+}}
 \examples{
 # chk_superset
 chk_superset(1:3, 1)

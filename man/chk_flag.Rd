@@ -31,9 +31,9 @@ Checks if non-missing logical scalar using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_flag}: Validate Flag
-}}
+\item \code{vld_flag()}: Validate Flag
 
+}}
 \examples{
 # chk_flag
 chk_flag(TRUE)

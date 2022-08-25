@@ -27,9 +27,9 @@ Checks if integer using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_integer}: Validate Integer
-}}
+\item \code{vld_integer()}: Validate Integer
 
+}}
 \examples{
 # chk_integer
 chk_integer(1L)

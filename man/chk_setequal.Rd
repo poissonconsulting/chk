@@ -32,11 +32,11 @@ Checks if equal set using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_orderset}: Validate Set Ordered
+\item \code{vld_orderset()}: Validate Set Ordered
 
-\item \code{vld_setequal}: Validate Set Equal
+\item \code{vld_setequal()}: Validate Set Equal
+
 }}
-
 \examples{
 
 # vld_orderset

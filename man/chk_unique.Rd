@@ -30,9 +30,9 @@ Checks if unique using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_unique}: Validate Unique
-}}
+\item \code{vld_unique()}: Validate Unique
 
+}}
 \examples{
 # chk_unique
 chk_unique(c(NA, 2))

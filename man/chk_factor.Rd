@@ -27,9 +27,9 @@ Checks if factor using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_factor}: Validate Factor
-}}
+\item \code{vld_factor()}: Validate Factor
 
+}}
 \examples{
 # chk_factor
 chk_factor(factor("1"))

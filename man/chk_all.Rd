@@ -33,9 +33,9 @@ Checks all elements using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_all}: Validate All
-}}
+\item \code{vld_all()}: Validate All
 
+}}
 \examples{
 # chk_all
 chk_all(TRUE, chk_lgl)

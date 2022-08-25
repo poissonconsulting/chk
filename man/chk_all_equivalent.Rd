@@ -29,9 +29,9 @@ Checks all elements in x equivalent using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_all_equivalent}: Validate All Equivalent
-}}
+\item \code{vld_all_equivalent()}: Validate All Equivalent
 
+}}
 \examples{
 # chk_all_equivalent
 chk_all_equivalent(c(1, 1.00000001))

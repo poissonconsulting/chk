@@ -27,9 +27,9 @@ Checks if double using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_double}: Validate Double
-}}
+\item \code{vld_double()}: Validate Double
 
+}}
 \examples{
 # chk_double
 chk_double(1)

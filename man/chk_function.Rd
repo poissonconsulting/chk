@@ -29,9 +29,9 @@ Checks if is a function using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_function}: Validate Function
-}}
+\item \code{vld_function()}: Validate Function
 
+}}
 \examples{
 # chk_function
 chk_function(mean)

@@ -27,9 +27,9 @@ Checks if valid name using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_valid_name}: Validate Valid Name
-}}
+\item \code{vld_valid_name()}: Validate Valid Name
 
+}}
 \examples{
 # chk_valid_name
 chk_valid_name("text")

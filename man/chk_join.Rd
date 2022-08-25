@@ -30,9 +30,9 @@ Checks if all rows in x match at least one in y.
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_join}: Validate Join
-}}
+\item \code{vld_join()}: Validate Join
 
+}}
 \examples{
 # chk_join
 chk_join(data.frame(z = 1), data.frame(z = 1:2), by = "z")

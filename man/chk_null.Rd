@@ -27,9 +27,9 @@ Checks if NULL using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_null}: Validate NULL
-}}
+\item \code{vld_null()}: Validate NULL
 
+}}
 \examples{
 # chk_null
 try(chk_null(1))

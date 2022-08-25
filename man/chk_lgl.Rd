@@ -27,9 +27,9 @@ Checks if logical scalar using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_lgl}: Validate Logical Scalar
-}}
+\item \code{vld_lgl()}: Validate Logical Scalar
 
+}}
 \examples{
 # chk_lgl
 chk_lgl(NA)

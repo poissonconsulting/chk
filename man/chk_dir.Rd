@@ -27,9 +27,9 @@ Checks if directory exists using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_dir}: Validate Directory Exists
-}}
+\item \code{vld_dir()}: Validate Directory Exists
 
+}}
 \examples{
 # chk_dir
 chk_dir(tempdir())

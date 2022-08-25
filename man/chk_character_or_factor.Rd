@@ -27,9 +27,9 @@ Checks if character or factor using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_character_or_factor}: Validate Character or Factor
-}}
+\item \code{vld_character_or_factor()}: Validate Character or Factor
 
+}}
 \examples{
 # chk_character_or_factor
 chk_character_or_factor("1")

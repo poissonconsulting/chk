@@ -29,9 +29,9 @@ Checks if all non-missing values are less than value using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_lt}: Validate Less Than
-}}
+\item \code{vld_lt()}: Validate Less Than
 
+}}
 \examples{
 # chk_lt
 chk_lt(-0.1)

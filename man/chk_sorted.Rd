@@ -27,9 +27,9 @@ Checks if is sorted using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_sorted}: Validate Sorted
-}}
+\item \code{vld_sorted()}: Validate Sorted
 
+}}
 \examples{
 # chk_sorted
 chk_sorted(1:2)

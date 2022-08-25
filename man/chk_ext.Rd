@@ -33,9 +33,9 @@ to ensure the case matches.
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_ext}: Validate File Extension
-}}
+\item \code{vld_ext()}: Validate File Extension
 
+}}
 \examples{
 # chk_ext
 try(chk_ext("file1.pdf", "png"))

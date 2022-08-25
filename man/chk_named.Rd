@@ -27,9 +27,9 @@ Checks if is named using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_named}: Validate Named
-}}
+\item \code{vld_named()}: Validate Named
 
+}}
 \examples{
 # chk_named
 chk_named(c(x = 1))

@@ -27,9 +27,9 @@ Checks if is a matrix using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_matrix}: Validate Matrix
-}}
+\item \code{vld_matrix()}: Validate Matrix
 
+}}
 \examples{
 # chk_matrix
 chk_matrix(matrix(1))

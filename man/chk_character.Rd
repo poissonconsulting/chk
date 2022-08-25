@@ -27,9 +27,9 @@ Checks if character using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_character}: Validate Character
-}}
+\item \code{vld_character()}: Validate Character
 
+}}
 \examples{
 # chk_character
 chk_character("1")

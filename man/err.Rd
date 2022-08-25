@@ -34,13 +34,13 @@ The user can set the subclass.
 }
 \section{Functions}{
 \itemize{
-\item \code{err}: Error
+\item \code{err()}: Error
 
-\item \code{wrn}: Warning
+\item \code{wrn()}: Warning
 
-\item \code{msg}: Message
+\item \code{msg()}: Message
+
 }}
-
 \examples{
 
 # err

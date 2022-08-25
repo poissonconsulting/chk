@@ -29,9 +29,9 @@ Checks if all non-missing values are less than or equal to y using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_lte}: Validate Less Than or Equal To
-}}
+\item \code{vld_lte()}: Validate Less Than or Equal To
 
+}}
 \examples{
 # chk_lte
 chk_lte(0)

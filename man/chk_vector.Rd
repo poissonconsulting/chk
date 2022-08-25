@@ -31,9 +31,9 @@ if the object is a vector with no attributes apart from names.
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_vector}: Validate Vector
-}}
+\item \code{vld_vector()}: Validate Vector
 
+}}
 \examples{
 # chk_vector
 chk_vector(1)

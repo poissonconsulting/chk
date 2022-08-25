@@ -29,9 +29,9 @@ Checks inherits from S3 class using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_s3_class}: Validate Inherits from S3 Class
-}}
+\item \code{vld_s3_class()}: Validate Inherits from S3 Class
 
+}}
 \examples{
 # chk_s3_class
 chk_s3_class(1, "numeric")

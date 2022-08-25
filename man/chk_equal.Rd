@@ -31,9 +31,9 @@ Checks if is equal (identical within tolerance) to y using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_equal}: Validate Equal
-}}
+\item \code{vld_equal()}: Validate Equal
 
+}}
 \examples{
 # chk_equal
 chk_equal(1, 1.00000001)

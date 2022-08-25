@@ -29,11 +29,11 @@ Checks if whole numeric scalar using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_wnum}: Validate Whole Numeric Scalar
+\item \code{vld_wnum()}: Validate Whole Numeric Scalar
 
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
-}}
 
+}}
 \examples{
 # chk_wnum
 chk_wnum(1)

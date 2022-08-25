@@ -31,9 +31,9 @@ Checks if not empty using
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_not_empty}: Validate Not Empty
-}}
+\item \code{vld_not_empty()}: Validate Not Empty
 
+}}
 \examples{
 # chk_not_empty
 chk_not_empty(1)
