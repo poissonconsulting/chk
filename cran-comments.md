@@ -18,3 +18,11 @@ We checked 25 reverse dependencies (19 from CRAN + 6 from Bioconductor), compari
 
  * We saw 0 new problems
  * We failed to check 0 packages
+ 
+## CRAN Checks
+ 
+> Result: NOTE 
+>    Found the following HTML validation problems:
+>    chk-package.html:23:4: Warning: <img> attribute "align" not allowed for HTML5 
+
+Fixed.
