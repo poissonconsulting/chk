@@ -23,7 +23,7 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 \description{
 Checks if is sorted using
 
-\code{is.unsorted(x)}
+\code{is.unsorted(x, na.rm = TRUE)}
 }
 \section{Functions}{
 \itemize{

@@ -5,6 +5,8 @@ test_that("vld_sorted", {
   expect_true(vld_sorted(NA))
   expect_true(vld_sorted(1:2))
   expect_false(vld_sorted(2:1))
+  expect_true(vld_sorted(c(1:2, NA)))
+  expect_false(vld_sorted(c(2:1, NA)))
 })
 
 test_that("chk_sorted", {

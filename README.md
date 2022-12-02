@@ -7,7 +7,7 @@
 
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![R-CMD-check](https://github.com/poissonconsulting/chk/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/chk/actions)
+[![R-CMD-check](https://github.com/poissonconsulting/chk/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/chk/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/chk/branch/master/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/chk?branch=master)
 [![License:
@@ -87,10 +87,10 @@ vignette.
 
 ## Inspiration
 
--   [datacheckr](https://github.com/poissonconsulting/datacheckr/)
--   [checkr](https://github.com/poissonconsulting/checkr/)
--   [err](https://github.com/poissonconsulting/err/)
--   [testthat](https://github.com/r-lib/testthat/)
+- [datacheckr](https://github.com/poissonconsulting/datacheckr/)
+- [checkr](https://github.com/poissonconsulting/checkr/)
+- [err](https://github.com/poissonconsulting/err/)
+- [testthat](https://github.com/r-lib/testthat/)
 
 ## Contribution
 

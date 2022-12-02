@@ -3,7 +3,7 @@
 #' @description
 #' Checks if is sorted using
 #'
-#' `is.unsorted(x)`
+#' `is.unsorted(x, na.rm = TRUE)`
 #'
 #' @inheritParams params
 #' @inherit params return
@@ -30,4 +30,4 @@ chk_sorted <- function(x, x_name = NULL) {
 #' vld_sorted(1:2)
 #' vld_sorted(2:1)
 #' @export
-vld_sorted <- function(x) !is.unsorted(x)
+vld_sorted <- function(x) !is.unsorted(x, na.rm = TRUE)
