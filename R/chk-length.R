@@ -22,7 +22,6 @@ chk_length <- function(x, length = 1L, x_name = NULL) {
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   abort_chk(x_name, " must be length ", length, " not ", length(x), x = x, length = length)
-
 }
 
 #' @describeIn chk_length Validate Length

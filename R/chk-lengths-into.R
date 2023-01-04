@@ -28,7 +28,7 @@
 #' chk_lengths_into(hour, min, sec)
 #'
 #' tag <- c(14, 16, 28, 42)
-#' color_code <- c("G", "G" , "B", "B")
+#' color_code <- c("G", "G", "B", "B")
 #' type <- "p"
 #' chk_lengths_into(tag, color_code, type)
 #'
@@ -37,7 +37,7 @@ chk_lengths_into <- function(...) {
     return(invisible())
   }
 
-  vec_lengths <-lengths(list(...))
+  vec_lengths <- lengths(list(...))
   length_set <- unique(vec_lengths)
 
   abort_chk(

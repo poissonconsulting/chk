@@ -16,7 +16,9 @@
 #'
 #' @examples
 #' # chk_missing
-#' fun <- function (x) { chk_missing(x) }
+#' fun <- function(x) {
+#'   chk_missing(x)
+#' }
 #' fun()
 #' try(fun(1))
 #' @export
@@ -32,7 +34,9 @@ chk_missing <- function(x, x_name = NULL) {
 #'
 #' @examples
 #' # vld_missing
-#' fun <- function (x) { vld_missing(x) }
+#' fun <- function(x) {
+#'   vld_missing(x)
+#' }
 #' fun()
 #' fun(1)
 #' @export

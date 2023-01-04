@@ -16,7 +16,9 @@
 #'
 #' @examples
 #' # chk_not_missing
-#' fun <- function (x) { chk_not_missing(x) }
+#' fun <- function(x) {
+#'   chk_not_missing(x)
+#' }
 #' fun(1)
 #' try(fun())
 #' @export
@@ -31,7 +33,9 @@ chk_not_missing <- function(x, x_name = "`x`") {
 #'
 #' @examples
 #' # vld_not_missing
-#' fun <- function (x) { vld_not_missing(x) }
+#' fun <- function(x) {
+#'   vld_not_missing(x)
+#' }
 #' fun()
 #' fun(1)
 #' @export

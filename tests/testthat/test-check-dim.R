@@ -42,7 +42,8 @@ test_that("check_dim length", {
   )
 
   expect_chk_error(
-    check_dim(1, values = 1.1), "^At least one of the following conditions must be met:\n[*] `values` must be a flag [(]TRUE or FALSE[)].\n[*] `values` must be a whole numeric vector \\(integer vector or double equivalent\\)\\.$")
+    check_dim(1, values = 1.1), "^At least one of the following conditions must be met:\n[*] `values` must be a flag [(]TRUE or FALSE[)].\n[*] `values` must be a whole numeric vector \\(integer vector or double equivalent\\)\\.$"
+  )
 })
 
 test_that("check_dim nrow", {

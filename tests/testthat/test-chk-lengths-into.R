@@ -1,4 +1,4 @@
- # vld -----
+# vld -----
 test_that("validate true single vector passed", {
   x <- c(1, 3, 5)
   expect_true(vld_lengths_into(x))

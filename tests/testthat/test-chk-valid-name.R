@@ -14,5 +14,5 @@ test_that("chk_valid_name", {
   expect_identical(chk_valid_name("x"), "x")
   expect_invisible(chk_valid_name("x"))
   expect_chk_error(chk_valid_name(".1"), '^`".1"` must be valid name\\.$')
-  expect_chk_error(chk_valid_name(".1", x_name = 1L), '^1 must be valid name\\.$')
+  expect_chk_error(chk_valid_name(".1", x_name = 1L), "^1 must be valid name\\.$")
 })

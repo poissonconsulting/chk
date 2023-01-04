@@ -17,6 +17,6 @@
 
 # remove when no longer support R < 3.6.0
 str2lang <- function(text) {
-  ex <- parse(text=text, keep.source=FALSE)
+  ex <- parse(text = text, keep.source = FALSE)
   ex[[1L]]
 }
