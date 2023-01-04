@@ -5,7 +5,7 @@
 \alias{vld_vector_lengths}
 \title{Check Vectors have the Same Length}
 \usage{
-chk_vector_lengths(..., x_name = NULL)
+chk_vector_lengths(...)
 
 vld_vector_lengths(...)
 }
