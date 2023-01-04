@@ -23,7 +23,7 @@ chk_vector_lengths <- function(...) {
     return(invisible())
   }
 
-  vec_lengths <- vapply(list(...), length, FUN.VALUE = 1)
+  vec_lengths <-lengths(list(...))
   length_set <- unique(vec_lengths)
 
   abort_chk(
@@ -44,7 +44,7 @@ chk_vector_lengths <- function(...) {
 #' sec <- 0
 #' vld_vector_lengths
 vld_vector_lengths <- function(...) {
-  vec_lengths <- vapply(list(...), length, FUN.VALUE = 1)
+  vec_lengths <- lengths(list(...))
   length_set <- unique(vec_lengths)
 
   if (length(length_set) == 1) {
