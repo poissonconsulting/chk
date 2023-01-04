@@ -22,6 +22,14 @@ chk_vector_lengths <- function(...) {
   if (vld_vector_lengths(...)) {
     return(invisible())
   }
+
+  vec_lengths <- vapply(list(...), length, FUN.VALUE = 1)
+  length_set <- unique(vec_lengths)
+
+  abort_chk(
+    "vectors must be all the same length or length 1 but not lengths ",
+    cc(length_set, conj = " and ")
+  )
 }
 
 #' @describeIn chk_vector_lengths Check Vectors have the Same Length
@@ -36,6 +44,15 @@ chk_vector_lengths <- function(...) {
 #' sec <- 0
 #' vld_vector_lengths
 vld_vector_lengths <- function(...) {
+  vec_lengths <- vapply(list(...), length, FUN.VALUE = 1)
+  length_set <- unique(vec_lengths)
 
+  if (length(length_set) == 1) {
+    return(TRUE)
+  }
+
+  if (length(length_set) >= 3) {
+    return(FALSE)
+  }
+  any(length_set == 1)
 }
-
