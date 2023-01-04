@@ -46,7 +46,7 @@ sec <- 0
 chk_lengths_into(hour, min, sec)
 
 tag <- c(14, 16, 28, 42)
-color_code <- c("G", "G" , "B", "B")
+color_code <- c("G", "G", "B", "B")
 type <- "p"
 chk_lengths_into(tag, color_code, type)
 

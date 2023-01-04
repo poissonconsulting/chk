@@ -36,11 +36,15 @@ Currently only checks if value is available
 }}
 \examples{
 # chk_not_missing
-fun <- function (x) { chk_not_missing(x) }
+fun <- function(x) {
+  chk_not_missing(x)
+}
 fun(1)
 try(fun())
 # vld_not_missing
-fun <- function (x) { vld_not_missing(x) }
+fun <- function(x) {
+  vld_not_missing(x)
+}
 fun()
 fun(1)
 }
