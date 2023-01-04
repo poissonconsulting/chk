@@ -12,14 +12,14 @@
 #' @examples
 #' a <- c(1, 2, 3)
 #' b <- c(1, 2, 3)
-#' chk_vector_lengths(a, b)
+#' chk_lengths_into(a, b)
 #'
 #' hour <- c(7, 6, 8)
 #' min <- c(30, 45, 30)
 #' sec <- 0
-#' chk_vector_lengths(hour, min, sec)
-chk_vector_lengths <- function(...) {
-  if (vld_vector_lengths(...)) {
+#' chk_lengths_into(hour, min, sec)
+chk_lengths_into <- function(...) {
+  if (vld_lengths_into(...)) {
     return(invisible())
   }
 
@@ -32,18 +32,18 @@ chk_vector_lengths <- function(...) {
   )
 }
 
-#' @describeIn chk_vector_lengths Check Vectors have the Same Length
+#' @describeIn chk_lengths_into Check Vectors have the Same Length
 #' @export
 #' @examples
 #' a <- c(1, 2, 3)
 #' b <- c(1, 2, 3)
-#' vld_vector_lengths(a, b)
+#' vld_lengths_into(a, b)
 #'
 #' hour <- c(7, 6, 8)
 #' min <- c(30, 45, 30)
 #' sec <- 0
-#' vld_vector_lengths
-vld_vector_lengths <- function(...) {
+#' vld_lengths_into
+vld_lengths_into <- function(...) {
   vec_lengths <- lengths(list(...))
   length_set <- unique(vec_lengths)
 
