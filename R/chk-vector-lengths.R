@@ -1,10 +1,12 @@
 #' Check Vectors have the Same Length
 #'
-#' To combine vectors they either need to all be the same length or be of length one. If they are length one then the value will be recycled in the longer vectors.
+#' To combine vectors they either need to all be the same length or be of length
+#' one. If they are length one then the value will be recycled in the longer
+#' vectors.
 #'
 #' @param ... The vectors to check the lengths of.
 #'
-#' @return
+#' @return The `chk_` function throws an informative error if the test fails.
 #' @export
 #'
 #' @examples
@@ -18,7 +20,7 @@
 #' chk_vector_lengths(hour, min, sec)
 chk_vector_lengths <- function(...) {
   if (vld_vector_lengths(...)) {
-    return(invisible(NULL))
+    return(invisible())
   }
 }
 
