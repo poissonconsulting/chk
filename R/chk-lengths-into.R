@@ -16,35 +16,36 @@
 #'   occurring.
 #'
 #' @examples
-#' # chk_lengths_into
+#' # chk_compatible_lengths
 #'
 #' a <- integer(0)
 #' b <- numeric(0)
-#' chk_lengths_into(a, b)
+#' chk_compatible_lengths(a, b)
 #'
 #' a <- 1
 #' b <- 2
-#' chk_lengths_into(a, b)
+#' chk_compatible_lengths(a, b)
 #'
 #' a <- 1:3
 #' b <- 1:3
-#' chk_lengths_into(a, b)
+#' chk_compatible_lengths(a, b)
 #'
 #' b <- 1
-#' chk_lengths_into(a, b)
+#' chk_compatible_lengths(a, b)
 #'
 #' b <- 1:2
-#' try(chk_lengths_into(a, b))
+#' try(chk_compatible_lengths(a, b))
 #'
 #' b <- 1:6
-#' try(chk_lengths_into(a, b))
+#' try(chk_compatible_lengths(a, b))
 #' @export
-chk_lengths_into <- function(..., x_name = NULL) {
-  if (vld_lengths_into(...)) {
+chk_compatible_lengths <- function(..., x_name = NULL) {
+  if (vld_compatible_lengths(...)) {
     return(invisible())
   }
-
-  if (is.null(x_name)) x_name <- "... objects"
+  if (is.null(x_name)) {
+    x_name <- "... objects"
+  }
   chk_string(x_name)
 
   vec_lengths <- lengths(list(...))
@@ -52,37 +53,40 @@ chk_lengths_into <- function(..., x_name = NULL) {
 
   abort_chk(
     x_name,
-    " must be all zero length or the same length with some of length of 1 but not lengths ",
+    paste0(
+      " must be all zero length or the same length with some of length of 1 ",
+      "but not lengths "
+    ),
     cc(length_set, conj = " and ")
   )
 }
 
-#' @describeIn chk_lengths_into Validate Compatible Lengths
+#' @describeIn chk_compatible_lengths Validate Compatible Lengths
 #' @export
 #' @examples
-#' # vld_length_into
+#' # vld_compatible_lengths
 #'
 #' a <- integer(0)
 #' b <- numeric(0)
-#' vld_lengths_into(a, b)
+#' vld_compatible_lengths(a, b)
 #'
 #' a <- 1
 #' b <- 2
-#' vld_lengths_into(a, b)
+#' vld_compatible_lengths(a, b)
 #'
 #' a <- 1:3
 #' b <- 1:3
-#' vld_lengths_into(a, b)
+#' vld_compatible_lengths(a, b)
 #'
 #' b <- 1
-#' vld_lengths_into(a, b)
+#' vld_compatible_lengths(a, b)
 #'
 #' b <- 1:2
-#' vld_lengths_into(a, b)
+#' vld_compatible_lengths(a, b)
 #'
 #' b <- 1:6
-#' vld_lengths_into(a, b)
-vld_lengths_into <- function(...) {
+#' vld_compatible_lengths(a, b)
+vld_compatible_lengths <- function(...) {
   vec_lengths <- lengths(list(...))
   length_set <- unique(vec_lengths)
 
