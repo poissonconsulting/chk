@@ -100,42 +100,38 @@
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p>To install the latest release from <a href="https://cran.r-project.org" class="external-link">CRAN</a></p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"chk"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"chk"</span>)</span></code></pre></div>
 <p>To install the latest development version from <a href="https://github.com/poissonconsulting/chk" class="external-link">GitHub</a></p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"poissonconsulting/chk"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("remotes")</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"poissonconsulting/chk"</span>)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="demonstration">Demonstration<a class="anchor" aria-label="anchor" href="#demonstration"></a>
 </h2>
 <p><code>chk</code> provides simple commonly used checks as (<code>chk_</code> functions) which can be combined together for more complex checking.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/chk" class="external-link">chk</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="st">"a"</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/chk_string.html">chk_string</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error:</span></span>
-<span><span class="co">#&gt; ! `y` must be a flag (TRUE or FALSE).</span></span>
-<span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/chk_range.html">chk_range</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">8</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error:</span></span>
-<span><span class="co">#&gt; ! `nrow(data)` must be between 3 and 8, not 2.</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(chk)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">"a"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">chk_string</span>(y)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">chk_flag</span>(y)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error:</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ! `y` must be a flag (TRUE or FALSE).</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">chk_range</span>(<span class="fu">nrow</span>(data), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">8</span>))</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error:</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ! `nrow(data)` must be between 3 and 8, not 2.</span></span></code></pre></div>
 <p>Or used inside functions to test user-provided arguments.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">my_fun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span>  <span class="va">x</span></span>
-<span><span class="op">}</span></span>
-<span><span class="fu">my_fun</span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="fu">my_fun</span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error in `my_fun()`:</span></span>
-<span><span class="co">#&gt; ! `x` must be a flag (TRUE or FALSE).</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">chk_flag</span>(x)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  x</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">my_fun</span>(<span class="cn">TRUE</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">my_fun</span>(<span class="cn">NA</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in `my_fun()`:</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ! `x` must be a flag (TRUE or FALSE).</span></span></code></pre></div>
 <p>Error messages follow the <a href="https://style.tidyverse.org/error-messages.html" class="external-link">tidyverse style guide</a> while the errors themselves are <a href="https://rlang.r-lib.org/reference/abort.html" class="external-link">rlang errors</a> of class <code>chk_error</code>.</p>
 </div>
 <div class="section level2">
