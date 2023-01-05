@@ -3,60 +3,81 @@
 \name{chk_lengths_into}
 \alias{chk_lengths_into}
 \alias{vld_lengths_into}
-\title{Check Vectors Compatible Lengths}
+\title{Check Compatible Lengths}
 \usage{
-chk_lengths_into(...)
+chk_lengths_into(..., x_name = NULL)
 
 vld_lengths_into(...)
 }
 \arguments{
-\item{...}{The vectors to check the lengths of.}
+\item{...}{The objects to check for compatible lengths.}
+
+\item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
 The \code{chk_} function throws an informative error if the test fails.
 }
 \description{
-Check vectors have the same length or are length one.
+Checks objects (including vectors) have lengths that could be 'strictly recycled'.
+That is to say they must all be either zero length or the same length
+with some of length 1.
 }
 \details{
-This function checks if the length of each vector is the same or
-if the length is one. This function helps to ensure you are not recycling
-values in the vector. For example the function will error if you
+This function helps to check vectors could be 'strictly recycled.'
+For example the function will error if you
 had a vector of length 2 and length 4, even though the vector of length 2
-could be recycled to match up to the vector of length 4 when combined.
+could be 'loosely recycled' to match up to the vector of length 4 when combined.
 
-The intent of the function is to ensure when vectors are combined that the
-lengths are the same so the outputs do not have parts that are recycled
-except in the case of a single value which is a special case.
+The intent of the function is to check that only strict recycling is occurring.
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_lengths_into()}: Check Vectors have the Same Length
+\item \code{vld_lengths_into()}: Validate Compatible Lengths
 
 }}
 \examples{
-# chk_
-a <- c(1, 2, 3)
-b <- c(1, 2, 3)
+# chk_lengths_into
+
+a <- integer(0)
+b <- numeric(0)
 chk_lengths_into(a, b)
 
-hour <- c(7, 6, 8)
-min <- c(30, 45, 30)
-sec <- 0
-chk_lengths_into(hour, min, sec)
+a <- 1
+b <- 2
+chk_lengths_into(a, b)
 
-tag <- c(14, 16, 28, 42)
-color_code <- c("G", "G", "B", "B")
-type <- "p"
-chk_lengths_into(tag, color_code, type)
+a <- 1:3
+b <- 1:3
+chk_lengths_into(a, b)
 
-# vld_
-a <- c(1, 2, 3)
-b <- c(1, 2, 3)
+b <- 1
+chk_lengths_into(a, b)
+
+b <- 1:2
+try(chk_lengths_into(a, b))
+
+b <- 1:6
+try(chk_lengths_into(a, b))
+# vld_length_into
+
+a <- integer(0)
+b <- numeric(0)
 vld_lengths_into(a, b)
 
-hour <- c(7, 6, 8)
-min <- c(30, 45, 30)
-sec <- 0
-vld_lengths_into
+a <- 1
+b <- 2
+vld_lengths_into(a, b)
+
+a <- 1:3
+b <- 1:3
+vld_lengths_into(a, b)
+
+b <- 1
+vld_lengths_into(a, b)
+
+b <- 1:2
+vld_lengths_into(a, b)
+
+b <- 1:6
+vld_lengths_into(a, b)
 }

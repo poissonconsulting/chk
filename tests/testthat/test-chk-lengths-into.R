@@ -18,9 +18,13 @@ test_that("validate true when one vectors is length 1 and other vectors are the
   expect_true(vld_lengths_into(x, y, z))
 })
 
-test_that("validate false when vector is length 0", {
+test_that("validate true when vector is length 0", {
   x <- NULL
   expect_true(vld_lengths_into(x))
+})
+
+test_that("validate true when nothing", {
+  expect_true(vld_lengths_into())
 })
 
 test_that("validate false if one vectors is length 0", {
@@ -109,8 +113,8 @@ test_that("throws error when vector of length zero and other length passed", {
   expect_error(
     chk_lengths_into(x, y),
     regexp = paste0(
-      "Vectors must be all the same length or length 1 but ",
-      "not lengths 0 and 3\\."
+      "^... objects must be all zero length or the same length ",
+      "with some of length of 1 but not lengths 0 and 3\\.$"
     )
   )
 })
@@ -121,21 +125,21 @@ test_that("throws error when vector have two different lengths", {
   expect_error(
     chk_lengths_into(x, y),
     regexp = paste0(
-      "Vectors must be all the same length or length 1 but ",
-      "not lengths 2 and 3\\."
+      "^... objects must be all zero length or the same length ",
+      "with some of length of 1 but not lengths 2 and 3\\.$"
     )
   )
 })
 
 test_that("throws error when vector have three different lengths", {
   x <- c(4, 5)
-  y <- c(1, 2, 3)
   z <- c(6, 7, 8, 9)
+  y <- c(1, 2, 3)
   expect_error(
-    chk_lengths_into(x, y, z),
+    chk_lengths_into(x, z, y, x_name = "`test vectors`"),
     regexp = paste0(
-      "Vectors must be all the same length or length 1 but ",
-      "not lengths 2, 3 and 4\\."
+      "^`test vectors` must be all zero length or the same length ",
+      "with some of length of 1 but not lengths 2, 3 and 4\\.$"
     )
   )
 })
