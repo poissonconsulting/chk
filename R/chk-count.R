@@ -32,5 +32,6 @@ chk_count <- function(x, x_name = NULL) {
 #' vld_count(-1)
 #' vld_count(0.5)
 #' @export
-vld_count <- function(x)
+vld_count <- function(x) {
   vld_whole_number(x) && x >= 0
+}

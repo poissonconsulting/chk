@@ -30,4 +30,3 @@ test_that("chk_null_or vld overrides chk", {
     "^`1` must be a flag [(]TRUE or FALSE[)] or NULL[.]$"
   )
 })
-

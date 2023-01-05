@@ -68,8 +68,9 @@ chkor_vld <- function(...) {
     return(invisible())
   }
   for (quo in quos) {
-    if(eval_tidy(quo))
+    if (eval_tidy(quo)) {
       return(invisible())
+    }
   }
   for (i in seq_len(n)) {
     quos[[i]] <- quo_set_expr(quos[[i]], vld__to_chk_(quo_get_expr(quos[[i]])))
