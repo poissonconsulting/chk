@@ -1,18 +1,19 @@
 #' Check Compatible Lengths
 #'
-#' Checks objects (including vectors) have lengths that could be 'strictly recycled'.
-#' That is to say they must all be either zero length or the same length
-#' with some of length 1.
+#' Checks objects (including vectors) have lengths that could be 'strictly
+#' recycled'. That is to say they must all be either zero length or the same
+#' length with some of length 1.
 #'
 #' @inheritParams params
 #' @param ... The objects to check for compatible lengths.
 #' @return The `chk_` function throws an informative error if the test fails.
 #' @details This function helps to check vectors could be 'strictly recycled.'
-#'   For example the function will error if you
-#'   had a vector of length 2 and length 4, even though the vector of length 2
-#'   could be 'loosely recycled' to match up to the vector of length 4 when combined.
+#'   For example the function will error if you had a vector of length 2 and
+#'   length 4, even though the vector of length 2 could be 'loosely recycled' to
+#'   match up to the vector of length 4 when combined.
 #'
-#'   The intent of the function is to check that only strict recycling is occurring.
+#'   The intent of the function is to check that only strict recycling is
+#'   occurring.
 #'
 #' @examples
 #' # chk_lengths_into
@@ -50,7 +51,8 @@ chk_lengths_into <- function(..., x_name = NULL) {
   length_set <- sort(unique(vec_lengths))
 
   abort_chk(
-    x_name, " must be all zero length or the same length with some of length of 1 but not lengths ",
+    x_name,
+    " must be all zero length or the same length with some of length of 1 but not lengths ",
     cc(length_set, conj = " and ")
   )
 }

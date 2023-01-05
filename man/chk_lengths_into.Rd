@@ -18,17 +18,18 @@ vld_lengths_into(...)
 The \code{chk_} function throws an informative error if the test fails.
 }
 \description{
-Checks objects (including vectors) have lengths that could be 'strictly recycled'.
-That is to say they must all be either zero length or the same length
-with some of length 1.
+Checks objects (including vectors) have lengths that could be 'strictly
+recycled'. That is to say they must all be either zero length or the same
+length with some of length 1.
 }
 \details{
 This function helps to check vectors could be 'strictly recycled.'
-For example the function will error if you
-had a vector of length 2 and length 4, even though the vector of length 2
-could be 'loosely recycled' to match up to the vector of length 4 when combined.
+For example the function will error if you had a vector of length 2 and
+length 4, even though the vector of length 2 could be 'loosely recycled' to
+match up to the vector of length 4 when combined.
 
-The intent of the function is to check that only strict recycling is occurring.
+The intent of the function is to check that only strict recycling is
+occurring.
 }
 \section{Functions}{
 \itemize{
