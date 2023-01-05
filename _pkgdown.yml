@@ -94,7 +94,7 @@ reference:
   desc: Checking miscellaneous
   contents:
   - '`chk_length`'
-  - '`chk_lengths_into`'
+  - '`chk_compatible_lengths`'
   - '`chk_match`'
   - '`chk_named`'
   - '`chk_not_any_na`'
