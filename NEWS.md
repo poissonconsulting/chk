@@ -1,5 +1,9 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# chk 0.8.1.9002
+
+- Added `chk_compatible_lengths()` and `vld_compatible_lengths()` to check that lengths of objects are 'strictly recycleable'.
+
 # chk 0.8.1.9001
 
 - `vld_sorted()` and `chk_sorted()` now ignore missing values.
