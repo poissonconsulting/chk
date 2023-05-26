@@ -34,6 +34,8 @@ upper permitted values.}
 
 \item{length}{A count of the length.}
 
+\item{upper}{A count of the max length.}
+
 \item{formals}{A count of the number of formal arguments.}
 
 \item{incomparables}{A vector of values that cannot be compared.

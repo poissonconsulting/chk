@@ -21,6 +21,7 @@
 #' @param values A vector of the permitted values.
 #' @param class A string specifying the class.
 #' @param length A count of the length.
+#' @param upper A count of the max length.
 #' @param formals A count of the number of formal arguments.
 #' @param incomparables A vector of values that cannot be compared.
 #'   FALSE means that all values can be compared.
