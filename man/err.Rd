@@ -6,11 +6,18 @@
 \alias{msg}
 \title{Stop, Warning and Message Messages}
 \usage{
-err(..., n = NULL, tidy = TRUE, .subclass = NULL, call = rlang::caller_call(3))
+err(
+  ...,
+  n = NULL,
+  tidy = TRUE,
+  .subclass = NULL,
+  class = NULL,
+  call = rlang::caller_call(3)
+)
 
-wrn(..., n = NULL, tidy = TRUE, .subclass = NULL)
+wrn(..., n = NULL, tidy = TRUE, .subclass = NULL, class = NULL)
 
-msg(..., n = NULL, tidy = TRUE, .subclass = NULL)
+msg(..., n = NULL, tidy = TRUE, .subclass = NULL, class = NULL)
 }
 \arguments{
 \item{...}{zero or more objects which can be coerced to character
@@ -22,6 +29,8 @@ msg(..., n = NULL, tidy = TRUE, .subclass = NULL)
 \item{tidy}{A flag specifying whether capitalize the first character and add a missing period.}
 
 \item{.subclass}{A string of the class of the error message.}
+
+\item{class}{Subclass of the condition.}
 
 \item{call}{The execution environment of a currently running
 function, e.g. \code{call = caller_env()}. The corresponding function

@@ -53,6 +53,11 @@ test_that("err", {
   )
 })
 
+test_that("err .subclass deprecated", {
+  lifecycle::expect_deprecated(expect_s3_class(expect_error(err(.subclass = "xx"), "^[.]$"), "xx"))
+  expect_s3_class(expect_error(err(class = "xx"), "^[.]$"), "xx")
+})
+
 test_that("msg", {
   expect_message(msg(), "^[.]")
   expect_message(msg("this", "is"), "^Thisis[.]")
@@ -70,6 +75,11 @@ test_that("msg", {
   )
 })
 
+test_that("msg .subclass deprecated", {
+  lifecycle::expect_deprecated(expect_s3_class(expect_message(msg(.subclass = "xx"), "^[.]$"), "xx"))
+  expect_s3_class(expect_message(msg(class = "xx"), "^[.]$"), "xx")
+})
+
 test_that("wrn", {
   expect_warning(wrn(), "^[.]$")
   expect_warning(wrn("this", "is"), "^Thisis[.]$")
@@ -85,4 +95,9 @@ test_that("wrn", {
     wrn("there %r %n problem value%s", n = 0, tidy = FALSE),
     "there are 0 problem values$"
   )
+})
+
+test_that("wrn .subclass deprecated", {
+  lifecycle::expect_deprecated(expect_s3_class(expect_warning(wrn(.subclass = "xx"), "^[.]$"), "xx"))
+  expect_s3_class(expect_warning(wrn(class = "xx"), "^[.]$"), "xx")
 })
