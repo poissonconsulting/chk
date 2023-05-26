@@ -68,9 +68,9 @@ length(x) == length"><meta property="og:image" content="/logo.png"><!-- mathjax 
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">chk_length</span><span class="op">(</span><span class="va">x</span>, length <span class="op">=</span> <span class="fl">1L</span>, x_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">chk_length</span><span class="op">(</span><span class="va">x</span>, length <span class="op">=</span> <span class="fl">1L</span>, upper <span class="op">=</span> <span class="va">length</span>, x_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">vld_length</span><span class="op">(</span><span class="va">x</span>, length <span class="op">=</span> <span class="fl">1L</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">vld_length</span><span class="op">(</span><span class="va">x</span>, length <span class="op">=</span> <span class="fl">1L</span>, upper <span class="op">=</span> <span class="va">length</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -81,6 +81,10 @@ length(x) == length"><meta property="og:image" content="/logo.png"><!-- mathjax 
 
 <dt>length</dt>
 <dd><p>A count of the length.</p></dd>
+
+
+<dt>upper</dt>
+<dd><p>A count of the max length.</p></dd>
 
 
 <dt>x_name</dt>
