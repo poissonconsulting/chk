@@ -2,29 +2,11 @@
 
 # chk 0.9.0
 
-- Soft deprecated `.subclass` for `class` argument in `err()`, `wrn()` and `msg()`.
-
+- Added `chk_compatible_lengths()` and `vld_compatible_lengths()` to check that lengths of objects are 'strictly recyclable'.
 - Added `inclusive = TRUE` argument to `chk_range()`.
-
 - Added `upper` argument to `chk_length()`.
-
-- Now requires R \>= 3.6.
-
-- Added Ayla Pearson as co-author.
-
-
-# chk 0.8.1.9002
-
-- Added `chk_compatible_lengths()` and `vld_compatible_lengths()` to check that lengths of objects are 'strictly recycleable'.
-
-# chk 0.8.1.9001
-
 - `vld_sorted()` and `chk_sorted()` now ignore missing values.
-
-
-# chk 0.8.1.9000
-
-- Same as previous version.
+- Soft deprecated `.subclass` for `class` argument in `err()`, `wrn()` and `msg()`.
 
 
 # chk 0.8.1
