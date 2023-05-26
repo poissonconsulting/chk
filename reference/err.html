@@ -72,11 +72,18 @@ the message and then
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">err</span><span class="op">(</span><span class="va">...</span>, n <span class="op">=</span> <span class="cn">NULL</span>, tidy <span class="op">=</span> <span class="cn">TRUE</span>, .subclass <span class="op">=</span> <span class="cn">NULL</span>, call <span class="op">=</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/stack.html" class="external-link">caller_call</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">err</span><span class="op">(</span></span>
+<span>  <span class="va">...</span>,</span>
+<span>  n <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  tidy <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  .subclass <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  class <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  call <span class="op">=</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/stack.html" class="external-link">caller_call</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">wrn</span><span class="op">(</span><span class="va">...</span>, n <span class="op">=</span> <span class="cn">NULL</span>, tidy <span class="op">=</span> <span class="cn">TRUE</span>, .subclass <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span><span class="fu">wrn</span><span class="op">(</span><span class="va">...</span>, n <span class="op">=</span> <span class="cn">NULL</span>, tidy <span class="op">=</span> <span class="cn">TRUE</span>, .subclass <span class="op">=</span> <span class="cn">NULL</span>, class <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">msg</span><span class="op">(</span><span class="va">...</span>, n <span class="op">=</span> <span class="cn">NULL</span>, tidy <span class="op">=</span> <span class="cn">TRUE</span>, .subclass <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">msg</span><span class="op">(</span><span class="va">...</span>, n <span class="op">=</span> <span class="cn">NULL</span>, tidy <span class="op">=</span> <span class="cn">TRUE</span>, .subclass <span class="op">=</span> <span class="cn">NULL</span>, class <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -97,6 +104,10 @@ the message and then
 
 <dt>.subclass</dt>
 <dd><p>A string of the class of the error message.</p></dd>
+
+
+<dt>class</dt>
+<dd><p>Subclass of the condition.</p></dd>
 
 
 <dt>call</dt>
