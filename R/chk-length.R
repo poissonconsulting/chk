@@ -1,9 +1,9 @@
 #' Check Length
 #'
 #' @description
-#' Checks length is a particular value using
+#' Checks length is a particular value or range using
 #'
-#' `length(x) == length`
+#' `length(x) >= length && length(x) <= upper`
 #'
 #' @inheritParams params
 #' @inherit params return

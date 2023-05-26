@@ -25,9 +25,9 @@ returns the original object if successful so it can used in pipes.
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
-Checks length is a particular value using
+Checks length is a particular value or range using
 
-\code{length(x) == length}
+\code{length(x) >= length && length(x) <= upper}
 }
 \section{Functions}{
 \itemize{
