@@ -26,6 +26,8 @@
 \item{range}{A non-missing sorted vector of length 2 of the lower and
 upper permitted values.}
 
+\item{inclusive}{A flag specifying whether the range is exclusive.}
+
 \item{regexp}{A string of a regular expression.}
 
 \item{values}{A vector of the permitted values.}

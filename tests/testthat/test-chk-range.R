@@ -20,6 +20,12 @@ test_that("chk_range", {
   expect_chk_error(chk_range(2, c(1, 1)), "^`2` must be 1, not 2[.]$")
   expect_chk_error(chk_range(c(2, 1), c(1, 1)), "^`c[(]2, 1[)]` must have values of 1[.]$")
   expect_chk_error(chk_range(2, c(1, 1), x_name = 1), "^1 must be 1, not 2[.]$")
+
+  expect_chk_error(chk_range(-1, inclusive = FALSE), "^`-1` must be between 0 and 1 exclusive, not -1[.]$")
+  expect_chk_error(chk_range(c(-1, NA), inclusive = FALSE), "^`c[(]-1, NA[)]` must have values between 0 and 1 exclusive[.]$")
+  expect_chk_error(chk_range(2, c(1, 1), inclusive = FALSE), "^`2` must be between 1 and 1 exclusive, not 2[.]$")
+  expect_chk_error(chk_range(c(2, 1), c(1, 1), inclusive = FALSE), "^`c[(]2, 1[)]` must have values between 1 and 1 exclusive[.]$")
+  expect_chk_error(chk_range(2, c(3, 4), inclusive = FALSE, x_name = 1), "^1 must be between 3 and 4 exclusive, not 2[.]$")
 })
 
 test_that("vld_lt", {

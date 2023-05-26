@@ -5,15 +5,17 @@
 \alias{vld_range}
 \title{Checks range of non-missing values}
 \usage{
-chk_range(x, range = c(0, 1), x_name = NULL)
+chk_range(x, range = c(0, 1), inclusive = TRUE, x_name = NULL)
 
-vld_range(x, range = c(0, 1))
+vld_range(x, range = c(0, 1), inclusive = TRUE)
 }
 \arguments{
 \item{x}{The object to check.}
 
 \item{range}{A non-missing sorted vector of length 2 of the lower and
 upper permitted values.}
+
+\item{inclusive}{A flag specifying whether the range is exclusive.}
 
 \item{x_name}{A string of the name of object x or NULL.}
 }
@@ -26,7 +28,13 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 \description{
 Checks all non-missing values fall within range using
 
+If inclusive
+
 \code{all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])}
+
+else
+
+\code{all(x[!is.na(x)] > range[1] & x[!is.na(x)] < range[2])}
 }
 \section{Functions}{
 \itemize{
