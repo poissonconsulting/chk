@@ -13,7 +13,7 @@ Authors@R:
              comment = c(ORCID = "0000-0002-1416-3412")),
       person(given = "Ayla",
              family = "Pearson",
-             role = "ctb",
+             role = "aut",
              comment = c(ORCID = "0000-0001-7388-1222")),
       person(given = "Nadine",
              family = "Hussein",
