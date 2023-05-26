@@ -1,4 +1,17 @@
-<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+<!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
+
+# chk 0.9.0
+
+- Soft deprecated `.subclass` for `class` argument in `err()`, `wrn()` and `msg()`.
+
+- Added `inclusive = TRUE` argument to `chk_range()`.
+
+- Added `upper` argument to `chk_length()`.
+
+- Now requires R \>= 3.6.
+
+- Added Ayla Pearson as co-author.
+
 
 # chk 0.8.1.9002
 
