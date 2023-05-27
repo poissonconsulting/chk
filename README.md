@@ -1,3 +1,4 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # chk <img src="man/figures/logo.png" style="float: right;" />
@@ -10,7 +11,7 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/chk/branch/master/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/chk?branch=master)
 [![License:
-MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/license/mit/)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/chk)](https://cran.r-project.org/package=chk)
 ![CRAN downloads](https://cranlogs.r-pkg.org/badges/chk)
@@ -25,44 +26,52 @@ It is designed to be simple, customizable and fast.
 
 To install the latest release from [CRAN](https://cran.r-project.org)
 
-    install.packages("chk")
+``` r
+install.packages("chk")
+```
 
 To install the latest development version from
 [GitHub](https://github.com/poissonconsulting/chk)
 
-    # install.packages("remotes")
-    remotes::install_github("poissonconsulting/chk")
+``` r
+# install.packages("remotes")
+remotes::install_github("poissonconsulting/chk")
+```
 
 ## Demonstration
 
 `chk` provides simple commonly used checks as (`chk_` functions) which
 can be combined together for more complex checking.
 
-    library(chk)
+``` r
+library(chk)
 
-    y <- "a"
+y <- "a"
 
-    chk_string(y)
-    chk_flag(y)
-    #> Error:
-    #> ! `y` must be a flag (TRUE or FALSE).
+chk_string(y)
+chk_flag(y)
+#> Error:
+#> ! `y` must be a flag (TRUE or FALSE).
 
-    data <- data.frame(x = 1:2)
-    chk_range(nrow(data), c(3, 8))
-    #> Error:
-    #> ! `nrow(data)` must be between 3 and 8, not 2.
+data <- data.frame(x = 1:2)
+chk_range(nrow(data), c(3, 8))
+#> Error:
+#> ! `nrow(data)` must be between 3 and 8, not 2.
+```
 
 Or used inside functions to test user-provided arguments.
 
-    my_fun <- function(x) {
-      chk_flag(x)
-      x
-    }
-    my_fun(TRUE)
-    #> [1] TRUE
-    my_fun(NA)
-    #> Error in `my_fun()`:
-    #> ! `x` must be a flag (TRUE or FALSE).
+``` r
+my_fun <- function(x) {
+  chk_flag(x)
+  x
+}
+my_fun(TRUE)
+#> [1] TRUE
+my_fun(NA)
+#> Error in `my_fun()`:
+#> ! `x` must be a flag (TRUE or FALSE).
+```
 
 Error messages follow the [tidyverse style
 guide](https://style.tidyverse.org/error-messages.html) while the errors
@@ -78,10 +87,10 @@ vignette.
 
 ## Inspiration
 
--   [datacheckr](https://github.com/poissonconsulting/datacheckr/)
--   [checkr](https://github.com/poissonconsulting/checkr/)
--   [err](https://github.com/poissonconsulting/err/)
--   [testthat](https://github.com/r-lib/testthat/)
+- [datacheckr](https://github.com/poissonconsulting/datacheckr/)
+- [checkr](https://github.com/poissonconsulting/checkr/)
+- [err](https://github.com/poissonconsulting/err/)
+- [testthat](https://github.com/r-lib/testthat/)
 
 ## Contribution
 
