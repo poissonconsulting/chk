@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.9.0.9000
+
+- Same as previous version.
+
+
 # chk 0.9.0
 
 - Added `chk_compatible_lengths()` and `vld_compatible_lengths()` to check that lengths of objects are 'strictly recyclable'.
