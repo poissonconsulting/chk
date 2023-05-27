@@ -17,3 +17,4 @@
 ^\.github$
 ^scripts$
 ^\.gitignore$
+^CRAN-SUBMISSION$
