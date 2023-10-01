@@ -45,7 +45,7 @@ chk_null_or <- function(x, chk, ..., vld, x_name = NULL) {
     x_name <- deparse_backtick_chk(substitute(x))
   }
   chk <- deparse(substitute(vld))
-  chk <- sub("^vld_", "chk_", chk)
+  chk <- sub("^(chk::){0,1}vld_", "chk_", chk)
   chk <- paste0(chk, "(x, ..., x_name = x_name)")
   chk <- parse(text = chk)
   try <- try_chk(eval(chk))
