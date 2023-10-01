@@ -2,8 +2,14 @@ test_that("vld_atomic", {
   expect_true(vld_atomic(1))
   expect_true(vld_atomic(matrix(1:3)))
   expect_true(vld_atomic(character(0)))
-  expect_true(vld_atomic(NULL))
   expect_false(vld_atomic(list(1)))
+
+  skip_on_cran()
+  if (sub("(R version )((\\d+\\.){2,2}\\d+)(.*)", "\\2", R.version$version.string) <= "4.4.0") {
+    expect_true(vld_atomic(NULL))
+  } else {
+    expect_false(vld_atomic(NULL))
+  }
 })
 
 test_that("chk_atomic", {
