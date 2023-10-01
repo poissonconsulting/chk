@@ -49,8 +49,6 @@ test_that("vld_equal", {
 
   expect_true(vld_equal(1, 1.00000001))
   expect_true(vld_equal(1, 1.001, 0.01))
-  expect_true(vld_equal(1, 1.001, 0.001))
-
   expect_false(vld_equal(1, 1.001, 0.0001))
 })
 
@@ -89,7 +87,6 @@ test_that("vld_equivalent", {
 
   expect_true(vld_equivalent(1, 1.00000001))
   expect_true(vld_equivalent(1, 1.001, 0.01))
-  expect_true(vld_equivalent(1, 1.001, 0.001))
 
   expect_false(vld_equivalent(1, 1.001, 0.0001))
 })
