@@ -1,32 +1,19 @@
 Package: chk
 Title: Check User-Supplied Function Arguments
 Version: 0.9.0.9000
-Authors@R: 
-    c(person(given = "Joe",
-             family = "Thorley",
-             role = c("aut", "cre"),
-             email = "joe@poissonconsulting.ca",
-             comment = c(ORCID = "0000-0002-7683-4592")),
-      person(given = "Kirill",
-             family = "Müller",
-             role = "aut",
-             comment = c(ORCID = "0000-0002-1416-3412")),
-      person(given = "Ayla",
-             family = "Pearson",
-             role = "aut",
-             comment = c(ORCID = "0000-0001-7388-1222")),
-      person(given = "Nadine",
-             family = "Hussein",
-             role = "ctb",
-             email = "nadine@poissonconsulting.ca",
-             comment = c(ORCID = "0000-0003-4470-8361")),
-      person(given = "Evan",
-             family = "Amies-Galonski",
-             role = "ctb",
-             email = "evan@poissonconsulting.ca",
-             comment = c(ORCID = "0000-0003-1096-2089")),
-      person(given = "Poisson Consulting",
-             role = c("cph", "fnd")))
+Authors@R: c(
+    person("Joe", "Thorley", , "joe@poissonconsulting.ca", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-7683-4592")),
+    person("Kirill", "Müller", role = "aut",
+           comment = c(ORCID = "0000-0002-1416-3412")),
+    person("Ayla", "Pearson", role = "aut",
+           comment = c(ORCID = "0000-0001-7388-1222")),
+    person("Nadine", "Hussein", , "nadine@poissonconsulting.ca", role = "ctb",
+           comment = c(ORCID = "0000-0003-4470-8361")),
+    person("Evan", "Amies-Galonski", , "evan@poissonconsulting.ca", role = "ctb",
+           comment = c(ORCID = "0000-0003-1096-2089")),
+    person("Poisson Consulting", role = c("cph", "fnd"))
+  )
 Description: For developers to check user-supplied function arguments.  It
     is designed to be simple, fast and customizable.  Error messages
     follow the tidyverse style guide.
