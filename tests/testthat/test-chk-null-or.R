@@ -35,9 +35,10 @@ test_that("chk_null_or gives correct error message", {
   rlang::local_options(lifecycle_verbosity = "quiet")
   expect_error(
     chk_null_or("2000", vld = vld_whole_number),
-    "^`\"2000\"` must be a whole number \\(non-missing integer scalar or double equivalent\\) or NULL\\.$")
+    "^`\"2000\"` must be a whole number \\(non-missing integer scalar or double equivalent\\) or NULL\\.$"
+  )
   expect_error(
     chk_null_or("2000", vld = chk::vld_whole_number),
-    "^`\"2000\"` must be a whole number \\(non-missing integer scalar or double equivalent\\) or NULL\\.$")
+    "^`\"2000\"` must be a whole number \\(non-missing integer scalar or double equivalent\\) or NULL\\.$"
+  )
 })
-

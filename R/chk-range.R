@@ -42,8 +42,9 @@ chk_range <- function(x, range = c(0, 1), inclusive = TRUE, x_name = NULL) {
     abort_chk(x_name, " must have values of ", cc(range[1]), x = x, range = range)
   }
   abort_chk(x_name, " must have values between ", cc(range, " and "),
-            ifelse(isTRUE(inclusive), "", " exclusive"),
-            x = x, range = range)
+    ifelse(isTRUE(inclusive), "", " exclusive"),
+    x = x, range = range
+  )
 }
 
 #' @describeIn chk_range Validate Range
@@ -57,7 +58,7 @@ chk_range <- function(x, range = c(0, 1), inclusive = TRUE, x_name = NULL) {
 #' vld_range(c(0.1, 0.2, NA), range = c(0, 1))
 #' @export
 vld_range <- function(x, range = c(0, 1), inclusive = TRUE) {
-  if(isTRUE(inclusive)) {
+  if (isTRUE(inclusive)) {
     return(all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2]))
   }
   all(x[!is.na(x)] > range[1] & x[!is.na(x)] < range[2])

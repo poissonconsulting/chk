@@ -71,7 +71,7 @@ NULL
 #' # err
 #' try(err("there %r %n problem value%s", n = 2))
 err <- function(..., n = NULL, tidy = TRUE, .subclass = NULL, class = NULL, call = rlang::caller_call(3)) {
-  if(!is.null(.subclass)) {
+  if (!is.null(.subclass)) {
     deprecate_soft("0.8.1", "err(.subclass)", "err(class)")
     class <- .subclass
   }
@@ -104,7 +104,7 @@ err <- function(..., n = NULL, tidy = TRUE, .subclass = NULL, class = NULL, call
 #' # wrn
 #' wrn("there %r %n problem value%s", n = 2)
 wrn <- function(..., n = NULL, tidy = TRUE, .subclass = NULL, class = NULL) {
-  if(!is.null(.subclass)) {
+  if (!is.null(.subclass)) {
     deprecate_soft("0.8.1", "wrn(.subclass)", "wrn(class)")
     class <- .subclass
   }
@@ -120,7 +120,7 @@ wrn <- function(..., n = NULL, tidy = TRUE, .subclass = NULL, class = NULL) {
 #' # msg
 #' msg("there %r %n problem value%s", n = 2)
 msg <- function(..., n = NULL, tidy = TRUE, .subclass = NULL, class = NULL) {
-  if(!is.null(.subclass)) {
+  if (!is.null(.subclass)) {
     deprecate_soft("0.8.1", "msg(.subclass)", "msg(class)")
     class <- .subclass
   }

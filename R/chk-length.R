@@ -21,7 +21,7 @@ chk_length <- function(x, length = 1L, upper = length, x_name = NULL) {
     return(invisible(x))
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if(length == upper) {
+  if (length == upper) {
     abort_chk(x_name, " must be length ", length, " not ", length(x), x = x, length = length)
   }
   abort_chk(x_name, " must have a length between ", length, " and ", upper, " not ", length(x), x = x, length = length)
