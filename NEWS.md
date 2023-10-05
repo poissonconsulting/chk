@@ -2,14 +2,7 @@
 
 # chk 0.9.1
 
-- Merge pull request #123 from poissonconsulting/b-atomic.
-
 - Fixes incorrect error message with `chk_null_or()` when `vld = chk::vld_xx`.
-
-
-# chk 0.9.0.9000
-
-- Same as previous version.
 
 
 # chk 0.9.0
