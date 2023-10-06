@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.9.1.9000
+
+- Same as previous version.
+
+
 # chk 0.9.1
 
 - Fixes incorrect error message with `chk_null_or()` when `vld = chk::vld_xx`.
