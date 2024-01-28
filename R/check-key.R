@@ -32,10 +32,10 @@ check_key <- function(x, key = character(0), na_distinct = FALSE, x_name = NULL)
   check_names(x, key, x_name = x_name)
 
   # to ensure not tripped up by sf objects.
-  x <- as.data.frame(x)
+  x2 <- as.data.frame(x)
 
   incomparables <- if (na_distinct) NA else FALSE
-  if (any(new_duplicated(x[key], incomparables = incomparables))) {
+  if (any(new_duplicated(x2[key], incomparables = incomparables))) {
     abort_chk("Column%s ", cc(key, conj = " and "), " in ", x_name, " must be a unique key.", n = length(key))
   }
   invisible(x)
