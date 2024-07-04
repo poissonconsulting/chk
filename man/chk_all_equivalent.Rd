@@ -43,8 +43,8 @@ vld_all_equivalent(c(x = 1, y = 1))
 }
 \seealso{
 Other chk_alls: 
+\code{\link{chk_all}()},
 \code{\link{chk_all_equal}()},
-\code{\link{chk_all_identical}()},
-\code{\link{chk_all}()}
+\code{\link{chk_all_identical}()}
 }
 \concept{chk_alls}

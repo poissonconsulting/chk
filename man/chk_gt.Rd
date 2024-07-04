@@ -48,8 +48,8 @@ vld_gt("b", value = "a")
 \seealso{
 Other chk_ranges: 
 \code{\link{chk_gte}()},
-\code{\link{chk_lte}()},
 \code{\link{chk_lt}()},
+\code{\link{chk_lte}()},
 \code{\link{chk_range}()}
 }
 \concept{chk_ranges}

@@ -45,8 +45,8 @@ vld_lte(c(-0.1, -0.2, NA), value = -1)
 }
 \seealso{
 Other chk_ranges: 
-\code{\link{chk_gte}()},
 \code{\link{chk_gt}()},
+\code{\link{chk_gte}()},
 \code{\link{chk_lt}()},
 \code{\link{chk_range}()}
 }
