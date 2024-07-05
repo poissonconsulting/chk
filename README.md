@@ -8,8 +8,7 @@
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R-CMD-check](https://github.com/poissonconsulting/chk/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/chk/actions/workflows/R-CMD-check.yaml)
-[![Codecov test
-coverage](https://codecov.io/gh/poissonconsulting/chk/branch/master/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/chk?branch=master)
+[![codecov](https://codecov.io/gh/poissonconsulting/chk/graph/badge.svg?token=tcCyqD76ou)](https://codecov.io/gh/poissonconsulting/chk)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/license/mit/)
 [![CRAN
@@ -52,6 +51,9 @@ chk_string(y)
 chk_flag(y)
 #> Error:
 #> ! `y` must be a flag (TRUE or FALSE).
+```
+
+``` r
 
 data <- data.frame(x = 1:2)
 chk_range(nrow(data), c(3, 8))
@@ -68,6 +70,9 @@ my_fun <- function(x) {
 }
 my_fun(TRUE)
 #> [1] TRUE
+```
+
+``` r
 my_fun(NA)
 #> Error in `my_fun()`:
 #> ! `x` must be a flag (TRUE or FALSE).
