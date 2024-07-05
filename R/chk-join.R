@@ -37,11 +37,11 @@ chk_join <- function(x, y, by, x_name = NULL) {
 #' vld_join(data.frame(z = 1), data.frame(a = 2), by = c(z = "a"))
 #' @export
 vld_join <- function(x, y, by) {
-  print(nrow(x))
+  print("vld_join")
+  print(x)
+  print(y)
   print(merge(as.data.frame(x), unique(as.data.frame(y)[by]),
               by.x = if (is.null(names(by))) by else names(by), by.y = by))
-  print(nrow(merge(as.data.frame(x), unique(as.data.frame(y)[by]),
-                       by.x = if (is.null(names(by))) by else names(by), by.y = by)))
   identical(
     nrow(x),
     nrow(merge(as.data.frame(x), unique(as.data.frame(y)[by]),
