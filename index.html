@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="index.html">chk</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.1.9001</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -108,21 +108,23 @@
 <span><span class="fu"><a href="reference/chk_string.html">chk_string</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Error:</span></span>
-<span><span class="co">#&gt; ! `y` must be a flag (TRUE or FALSE).</span></span>
-<span></span>
+<span><span class="co">#&gt; ! `y` must be a flag (TRUE or FALSE).</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/chk_range.html">chk_range</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">8</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Error:</span></span>
 <span><span class="co">#&gt; ! `nrow(data)` must be between 3 and 8, not 2.</span></span></code></pre></div>
 <p>Or used inside functions to test user-provided arguments.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_fun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="reference/chk_flag.html">chk_flag</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span>  <span class="va">x</span></span>
 <span><span class="op">}</span></span>
 <span><span class="fu">my_fun</span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="fu">my_fun</span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">my_fun</span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Error in `my_fun()`:</span></span>
 <span><span class="co">#&gt; ! `x` must be a flag (TRUE or FALSE).</span></span></code></pre></div>
 <p>Error messages follow the <a href="https://style.tidyverse.org/error-messages.html" class="external-link">tidyverse style guide</a> while the errors themselves are <a href="https://rlang.r-lib.org/reference/abort.html" class="external-link">rlang errors</a> of class <code>chk_error</code>.</p>
@@ -207,7 +209,7 @@
 <ul class="list-unstyled">
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
 <li><a href="https://github.com/poissonconsulting/chk/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/poissonconsulting/chk/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://app.codecov.io/gh/poissonconsulting/chk?branch=master" class="external-link"><img src="https://codecov.io/gh/poissonconsulting/chk/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://codecov.io/gh/poissonconsulting/chk" class="external-link"><img src="https://codecov.io/gh/poissonconsulting/chk/graph/badge.svg?token=tcCyqD76ou" alt="codecov"></a></li>
 <li><a href="https://opensource.org/license/mit/" class="external-link"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a></li>
 <li><a href="https://cran.r-project.org/package=chk" class="external-link"><img src="https://www.r-pkg.org/badges/version/chk" alt="CRAN status"></a></li>
 </ul>
