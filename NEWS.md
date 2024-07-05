@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.9.2
+
+- Test back to 4.0.
+
+
 # chk 0.9.1.9001
 
 - `check_key()` now preserves active status of `sfc` column of `sf` object.
