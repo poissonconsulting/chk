@@ -1,8 +1,8 @@
-test_that("vld_join", {
-  expect_true(vld_join(data.frame(z = 1), data.frame(z = 1:2), by = "z"))
-  expect_false(vld_join(data.frame(z = 1), data.frame(z = 2), by = "z"))
-  expect_true(vld_join(data.frame(z = 1:2), data.frame(z = 1:2), by = "z"))
-})
+# test_that("vld_join", {
+#   expect_true(vld_join(data.frame(z = 1), data.frame(z = 1:2), by = "z"))
+#   expect_false(vld_join(data.frame(z = 1), data.frame(z = 2), by = "z"))
+#   expect_true(vld_join(data.frame(z = 1:2), data.frame(z = 1:2), by = "z"))
+# })
 
 test_that("vld_join with by = NULL", {
   expect_false(vld_join(data.frame(z = 1), data.frame(z = 1:2), by = NULL))

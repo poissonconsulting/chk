@@ -42,6 +42,7 @@ vld_join <- function(x, y, by) {
   print(y)
   print(merge(as.data.frame(x), unique(as.data.frame(y)[by]),
               by.x = if (is.null(names(by))) by else names(by), by.y = by))
+  stop()
   identical(
     nrow(x),
     nrow(merge(as.data.frame(x), unique(as.data.frame(y)[by]),
