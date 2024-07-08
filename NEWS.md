@@ -3,6 +3,7 @@
 # chk 0.9.2
 
 - `check_key()` now preserves active status of `sfc` column of `sf` object.
+- Fixed `vld_join(by = NULL)` with R 4.5.
 
 
 # chk 0.9.1
