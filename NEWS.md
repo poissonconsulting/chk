@@ -2,9 +2,9 @@
 
 # chk 0.9.2
 
+- No longer support R 3.6 as dependency `evaluate` of suggested dependency `testthat` switched to 4.0.
 - `check_key()` now preserves active status of `sfc` column of `sf` object.
 - Fixed `vld_join(by = NULL)` with R 4.5.
-
 
 # chk 0.9.1
 
