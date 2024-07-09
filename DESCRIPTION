@@ -21,7 +21,7 @@ License: MIT + file LICENSE
 URL: https://poissonconsulting.github.io/chk/, https://github.com/poissonconsulting/chk/
 BugReports: https://github.com/poissonconsulting/chk/issues/
 Depends: 
-    R (>= 4.0)
+    R (>= 3.6)
 Imports: 
     lifecycle,
     methods,
