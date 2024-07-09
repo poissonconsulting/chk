@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.9.2.9000
+
+- Same as previous version.
+
+
 # chk 0.9.2
 
 - No longer officially supports R 3.6 as dependency `evaluate` of suggested dependency `testthat` switched to 4.0.
