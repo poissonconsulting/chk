@@ -51,9 +51,6 @@ chk_string(y)
 chk_flag(y)
 #> Error:
 #> ! `y` must be a flag (TRUE or FALSE).
-```
-
-``` r
 
 data <- data.frame(x = 1:2)
 chk_range(nrow(data), c(3, 8))
@@ -70,9 +67,6 @@ my_fun <- function(x) {
 }
 my_fun(TRUE)
 #> [1] TRUE
-```
-
-``` r
 my_fun(NA)
 #> Error in `my_fun()`:
 #> ! `x` must be a flag (TRUE or FALSE).
@@ -109,4 +103,4 @@ always welcome.
 
 Please note that the chk project is released with a [Contributor Code of
 Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
-By contributing to this project, you agree to abide by its terms
+By contributing to this project, you agree to abide by its terms.
