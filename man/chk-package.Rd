@@ -13,8 +13,8 @@ For developers to check user-supplied function arguments. It is designed to be s
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://github.com/poissonconsulting/chk}
   \item \url{https://poissonconsulting.github.io/chk/}
-  \item \url{https://github.com/poissonconsulting/chk/}
   \item Report bugs at \url{https://github.com/poissonconsulting/chk/issues/}
 }
 
