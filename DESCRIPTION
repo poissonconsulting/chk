@@ -20,7 +20,7 @@ Description: For developers to check user-supplied function arguments.  It
 License: MIT + file LICENSE
 BugReports: https://github.com/poissonconsulting/chk/issues/
 Depends: 
-    R (>= 3.6)
+    R (>= 4.0)
 Imports: 
     lifecycle,
     methods,
