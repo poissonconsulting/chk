@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R-CMD-check](https://github.com/poissonconsulting/chk/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/chk/actions/workflows/R-CMD-check.yaml)
-[![codecov](https://codecov.io/gh/poissonconsulting/chk/graph/badge.svg?token=tcCyqD76ou)](https://app.codecov.io/gh/poissonconsulting/chk)
+[![Codecov test coverage](https://codecov.io/gh/poissonconsulting/chk/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/chk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/license/mit)
 [![CRAN status](https://www.r-pkg.org/badges/version/chk)](https://cran.r-project.org/package=chk)
 ![CRAN downloads](https://cranlogs.r-pkg.org/badges/chk)
@@ -28,17 +28,23 @@ knitr::opts_chunk$set(
 
 It is designed to be simple, customizable and fast.
 
+
 ## Installation
 
-To install the latest release from [CRAN](https://cran.r-project.org)
+To install the latest release version from CRAN.
 ```r
 install.packages("chk")
 ```
 
+To install the latest development version from [r-universe](https://poissonconsulting.r-universe.dev/chk).
+```r
+install.packages("chk", repos = c("https://poissonconsulting.r-universe.dev", "https://cloud.r-project.org"))
+```
+
 To install the latest development version from [GitHub](https://github.com/poissonconsulting/chk)
 ```r
-# install.packages("remotes")
-remotes::install_github("poissonconsulting/chk")
+# install.packages("pak", repos = sprintf("https://r-lib.github.io/p/pak/stable/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch))
+pak::pak("poissonconsulting/chk")
 ```
 
 ## Demonstration

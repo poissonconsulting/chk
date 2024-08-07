@@ -18,10 +18,11 @@ Description: For developers to check user-supplied function arguments.  It
     is designed to be simple, fast and customizable.  Error messages
     follow the tidyverse style guide.
 License: MIT + file LICENSE
-URL: https://poissonconsulting.github.io/chk/, https://github.com/poissonconsulting/chk/
+URL: https://github.com/poissonconsulting/chk,
+    https://poissonconsulting.github.io/chk/
 BugReports: https://github.com/poissonconsulting/chk/issues/
 Depends: 
-    R (>= 3.6)
+    R (>= 4.0)
 Imports: 
     lifecycle,
     methods,
