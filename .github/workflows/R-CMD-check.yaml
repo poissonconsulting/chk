@@ -13,6 +13,12 @@ on:
     branches:
       - main
       - master
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Branch or tag to check out"
+        required: false
+        default: "main"
   merge_group:
     types:
       - checks_requested
@@ -42,6 +48,7 @@ jobs:
       - uses: ./.github/workflows/rate-limit
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          sha: ${{ inputs.ref }}
 
       - uses: ./.github/workflows/git-identity
 
