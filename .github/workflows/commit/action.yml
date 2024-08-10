@@ -7,23 +7,24 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Commit if changed
+    - name: Commit to a new branch and create PR if changed
       id: commit
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         set -x
         if [ -n "$(git status --porcelain)" ]; then
           echo "Changed"
-          git fetch
-          if [ -n "${GITHUB_HEAD_REF}" ]; then
-            git add .
-            git stash save
-            git switch ${GITHUB_HEAD_REF}
-            git merge origin/${GITHUB_BASE_REF} --no-edit
-            git stash pop
-          fi
+          current_branch=$(git branch --show-current)
+          git checkout -b gha-${GITHUB_RUN_ID}-${GITHUB_RUN_NUMBER}-${GITHUB_RUN_ATTEMPT}
           git add .
           git commit -m "chore: Auto-update from GitHub Actions"$'\n'$'\n'"Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
           git push -u origin HEAD
-          echo sha=$(git rev-parse HEAD) >> $GITHUB_OUTPUT
+
+          pr_number=$(gh pr create --base main --head $current_branch --title "chore: Auto-update from GitHub Actions" --body "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" --json | jq -r '.number')
+
+          sha=$(gh pr merge $pr_number --merge --json | jq -r '.sha')
+
+          echo sha=$sha >> $GITHUB_OUTPUT
         fi
       shell: bash
