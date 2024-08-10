@@ -1,4 +1,8 @@
 name: "Action to commit changes to the repository"
+inputs:
+  token:
+    description: "GitHub token"
+    required: true
 outputs:
   sha:
     description: "SHA of generated commit"
@@ -10,7 +14,7 @@ runs:
     - name: Commit to a new branch and create PR if changed
       id: commit
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ inputs.token }}
       run: |
         set -x
         if [ -n "$(git status --porcelain)" ]; then
