@@ -26,7 +26,9 @@ runs:
             git checkout -b ${new_branch}
             git add .
             git commit -m "chore: Auto-update from GitHub Actions"$'\n'$'\n'"Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-            git push -u origin HEAD
+            # Force-push, used in only one place
+            # Alternative: separate branch names for each usage
+            git push -u origin HEAD -f
 
             gh pr create --base main --head ${new_branch} --title "chore: Auto-update from GitHub Actions" --body "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
           else
