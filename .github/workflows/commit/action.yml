@@ -20,14 +20,15 @@ runs:
         if [ -n "$(git status --porcelain)" ]; then
           echo "Changed"
           current_branch=$(git branch --show-current)
-          git checkout -b gha-${GITHUB_RUN_ID}-${GITHUB_RUN_NUMBER}-${GITHUB_RUN_ATTEMPT}
+          new_branch=gha-${GITHUB_RUN_ID}-${GITHUB_RUN_NUMBER}-${GITHUB_RUN_ATTEMPT}
+          git checkout -b ${new_branch}
           git add .
           git commit -m "chore: Auto-update from GitHub Actions"$'\n'$'\n'"Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
           git push -u origin HEAD
 
           this_sha=$(git rev-parse HEAD)
 
-          pr_number=$(gh pr create --base main --head $current_branch --title "chore: Auto-update from GitHub Actions" --body "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" | sed '#^[.*]/([^/]+)#\1#')
+          pr_number=$(gh pr create --base main --head ${new_branch} --title "chore: Auto-update from GitHub Actions" --body "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" | sed '#^[.*]/([^/]+)#\1#')
 
           sha=$(gh api -X PUT /repos/$GITHUB_REPOSITORY/pulls/$pr_number/merge -f merge_method=merge -f sha=${this_sha} | jq -r '.sha')
 
