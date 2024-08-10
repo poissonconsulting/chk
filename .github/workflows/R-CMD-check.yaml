@@ -26,7 +26,7 @@ on:
     - cron: "10 0 * * *"
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.head_ref || github.sha }}-${{ github.base_ref || '' }}
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ inputs.ref || github.head_ref || github.sha }}-${{ github.base_ref || '' }}
   cancel-in-progress: true
 
 name: rcc
@@ -44,11 +44,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
 
       - uses: ./.github/workflows/rate-limit
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          sha: ${{ inputs.ref }}
 
       - uses: ./.github/workflows/git-identity
 
