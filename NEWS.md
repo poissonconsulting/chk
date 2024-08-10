@@ -1,5 +1,20 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.9.2.9001
+
+## Continuous integration
+
+- Use workflows from actions-sync.
+
+- Sync rcc workflows.
+
+- Sync codecov workflows.
+
+## Uncategorized
+
+- Merge pull request #134 from poissonconsulting/upkeep-2024-08.
+
+
 # chk 0.9.2.9000
 
 - Same as previous version.
