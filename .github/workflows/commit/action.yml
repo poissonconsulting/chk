@@ -30,7 +30,11 @@ runs:
             # Alternative: separate branch names for each usage
             git push -u origin HEAD -f
 
-            gh pr create --base main --head ${new_branch} --title "chore: Auto-update from GitHub Actions" --body "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+            pr_url=$(gh pr create --base main --head ${new_branch} --title "chore: Auto-update from GitHub Actions" --body "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" || true)
+            if [ -z "${pr_url}" ]; then
+              echo "Failed to create PR"
+              exit 1
+            fi
           else
             git fetch
             if [ -n "${GITHUB_HEAD_REF}" ]; then
