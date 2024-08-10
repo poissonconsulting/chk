@@ -25,9 +25,11 @@ runs:
           git commit -m "chore: Auto-update from GitHub Actions"$'\n'$'\n'"Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
           git push -u origin HEAD
 
-          pr_number=$(gh pr create --base main --head $current_branch --title "chore: Auto-update from GitHub Actions" --body "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" --json | jq -r '.number')
+          this_sha=$(git rev-parse HEAD)
 
-          sha=$(gh pr merge $pr_number --merge --json | jq -r '.sha')
+          pr_number=$(gh pr create --base main --head $current_branch --title "chore: Auto-update from GitHub Actions" --body "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" | sed '#^[.*]/([^/]+)#\1#')
+
+          sha=$(gh api -X PUT /repos/$GITHUB_REPOSITORY/pulls/$pr_number/merge -f merge_method=merge -f sha=${this_sha} | jq -r '.sha')
 
           echo sha=$sha >> $GITHUB_OUTPUT
         fi
