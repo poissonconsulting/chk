@@ -32,8 +32,7 @@ runs:
 
             existing_pr=$(gh pr list --state open --base main --head ${new_branch} --json number --jq '.[] | .number')
             if [ -n "${existing_pr}" ]; then
-              pr_url=$(gh pr view ${existing_pr} --json html_url --jq '.html_url')
-              echo "Existing PR: ${pr_url}"
+              echo "Existing PR: ${existing_pr}"
             else
               gh pr create --base main --head ${new_branch} --title "chore: Auto-update from GitHub Actions" --body "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
             fi
