@@ -11,7 +11,7 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Commit to a new branch and create PR if changed
+    - name: Commit if changed, create a PR if protected
       id: commit
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
@@ -19,19 +19,29 @@ runs:
         set -x
         if [ -n "$(git status --porcelain)" ]; then
           echo "Changed"
-          current_branch=$(git branch --show-current)
-          new_branch=gha-${GITHUB_RUN_ID}-${GITHUB_RUN_NUMBER}-${GITHUB_RUN_ATTEMPT}
-          git checkout -b ${new_branch}
-          git add .
-          git commit -m "chore: Auto-update from GitHub Actions"$'\n'$'\n'"Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-          git push -u origin HEAD
+          protected=${{ github.ref_protected }}
+          if [ "${protected}" = "true" ]; then
+            current_branch=$(git branch --show-current)
+            new_branch=gha-commit
+            git checkout -b ${new_branch}
+            git add .
+            git commit -m "chore: Auto-update from GitHub Actions"$'\n'$'\n'"Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+            git push -u origin HEAD
 
-          this_sha=$(git rev-parse HEAD)
-
-          pr_number=$(gh pr create --base main --head ${new_branch} --title "chore: Auto-update from GitHub Actions" --body "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" | sed '#^[.*]/([^/]+)#\1#')
-
-          sha=$(gh api -X PUT /repos/$GITHUB_REPOSITORY/pulls/$pr_number/merge -f merge_method=merge -f sha=${this_sha} | jq -r '.sha')
-
-          echo sha=$sha >> $GITHUB_OUTPUT
+            gh pr create --base main --head ${new_branch} --title "chore: Auto-update from GitHub Actions" --body "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          else
+            git fetch
+            if [ -n "${GITHUB_HEAD_REF}" ]; then
+              git add .
+              git stash save
+              git switch ${GITHUB_HEAD_REF}
+              git merge origin/${GITHUB_BASE_REF} --no-edit
+              git stash pop
+            fi
+            git add .
+            git commit -m "chore: Auto-update from GitHub Actions"$'\n'$'\n'"Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+            git push -u origin HEAD
+            echo sha=$(git rev-parse HEAD) >> $GITHUB_OUTPUT
+          fi
         fi
       shell: bash
