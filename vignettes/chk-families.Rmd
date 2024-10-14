@@ -12,33 +12,271 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+library(chk)
 ```
 
-The `chk_` functions (and their `vld_` equivalents) can be divided into the following families.
-For reasons of space, the `x_name = NULL` argument is not shown.
+## Introduction
 
-## Check Logical
+The `chk_` functions (and their `vld_` equivalents)
+can be divided into the following families.
+For reasons of space,
+the `x_name = NULL` argument is not shown.
+
+## Check if the function input...
+### ...is missing or not
+
+Function |  Code
+:- | :---
+`chk_missing()` | `missing()`
+`chk_not_missing()` | `!missing()`
+
+### ...comes from `...` (`dot-dot-dot`) or not
+
+Function | Code
+:- | :---
+`chk_used(...)` | `length(list(...)) != 0L`
+`chk_unused(...)` | `length(list(...)) == 0L`
+
+### ...is a valid external data source
+These `chk` functions check the existence of a file,
+the validity of its extension,
+and the existence of a directory.
+
+Function |  Code
+:- | :---
+`chk_file(x)` | `vld_string(x) && file.exists(x) && !dir.exists(x)`
+`chk_ext(x, ext)` | `vld_string(x) && vld_subset(tools::file_ext(x), ext)`
+`chk_dir(x)` | `vld_string(x) && dir.exists(x)`
+
+### ...is NULL or not
+
+Function | Code
+:- | :---
+`chk_null(x)` | `is.null(x)`
+`chk_not_null(x)` | `!is.null(x)`
+
+### ...has a specific data structure 
+Vectors are a family of data types that comes in two flavours, 
+atomic vectors and lists.
+When vectors are all compose for the same data type,
+could be atomic, matrices or arrays.
+For atomic vectors, all elements must have the same data types,
+for lists elements can have different types.
+
+To check if a function argument is a vector
+you can use `chk_vector()`.
+ 
+
+Function | Code
+:- | :---
+`chk_vector(x)` | `is.atomic(x) && !is.matrix(x) && !is.array(x)) || is.list(x)`
+
+
+Pay attention that `chk_vector()` and `vld_vector()` 
+are different from `is.vector()`,
+that will return FALSE 
+if the vector has any attributes except names.
+
+```{r}
+vector <- c(1, 2, 3)
+is.vector(vector) # TRUE
+vld_vector(vector) # TRUE
+
+attributes(vector) <-  list("a" = 10, "b" = 20, "c" = 30)
+is.vector(vector) # FALSE
+vld_vector(vector) # TRUE
+```
+Function | Code
+:- | :---
+`chk_atomic(x)` | `is.atomic(x)`
+
+Notice that `is.atomic` is true for the types
+"logical", "integer", "numeric", "complex", 
+"character" and "raw. 
+
+Also, it is TRUE for NULL.
+
+```{r}
+vector <- c(1, 2, 3)
+is.atomic(vector) # TRUE
+vld_vector(vector) # TRUE
+
+is.atomic(NULL) # TRUE
+vld_vector(NULL) # TRUE
+```
+
+The dimension attribute converts vectors into matrices and arrays.
+
+Function | Code
+:- | :---
+`chk_array(x)` | `is.array(x)`
+`chk_matrix(x)` | `is.matrix(x)`
+
+When a vector is composed by heterogenoeus 
+data types, can be a list.
+
+Data frames are among the most important S3 vectors,
+constructed on top of lists.
+An S3 object is a fundamental type that includes at least a class attribute. 
+
+Function | Code
+:- | :---
+`chk_list(x)` | `is.list()`
+`chk_data(x)` | `inherits(x, "data.frame")`
+
+You can also use `check_data()`,
+that checks column names, values,
+number of rows and key for a `data.frame`.
+
+`check_data(x, values = NULL, exclusive = FALSE, order = FALSE, nrow = numeric(0), key = character(0))` 
+
+### ...has a data type
+You can use the function `typeof()` 
+to confirm the data type.
+
+Function | Code
+:- | :---
+`chk_environment(x)` | `is.environment(x)`
+`chk_list(x)` | `is.list(x)`
+`chk_logical(x)` | `is.logical(x)`
+`chk_character(x)` | `is.character(x)`
+
+In the special case
+where the character vector you want to check
+consists of the names of an object, 
+you can use `check_names()`
+
+`check_names(x, names = character(0), exclusive = FALSE, order = FALSE)`
+
+For numbers there are three functions.
+R differentiates between doubles (`chk_double()`) 
+and integers (`chk_integer()`).
+You can also use the generic function `chk_numeric()`,
+which will detect both.
+
+Function | Code
+:- | :---
+`chk_numeric(x)` | `is.numeric(x)`
+`chk_double(x)` | `is.double(x)`
+`chk_integer(x)` | `is.integer(x)`
+
+Consider that to explicitly create an integer in R,
+you need to use the suffix `L`.
+
+```{r}
+vld_numeric(33) # TRUE
+
+vld_double(33) # TRUE
+vld_integer(33) # FALSE
+
+vld_integer(33L) # TRUE
+```
+### ...is a factor
+
+Function | Code
+:- | :------
+`chk_factor` | `is.factor(x)`
+`chk_character_or_factor` | `is.character(x) || is.factor(x)`
+
+Factors can be specially confusing for users, 
+because despite they are displayed as characters
+are built in top of integer vectors.
+
+`chk` provides the function `chk_character_or_factor()`
+that allows detecting if the argument
+that the user is providing contains strings. 
+
+```{r}
+# Factor with specified levels
+
+vector_fruits <- c("apple", "banana", "apple", "orange", "banana", "apple")
+
+factor_fruits <- factor(c("apple", "banana", "apple", "orange", "banana", "apple"),
+                levels = c("apple", "banana", "orange"))
+
+
+is.factor(factor_fruits) # TRUE
+is.character(factor_fruits) # FALSE
+vld_factor(factor_fruits) # TRUE
+vld_character_or_factor(factor_fruits) # TRUE
+
+```
+
+
+### ...is a scalar
+In R, scalars are vectors of length 1. 
+
+Function | Code
+:- | :------
+`chk_scalar(x)` | `length(x) == 1L`
+
+The following functions check if
+the functions inputs are vectors of length 1 
+of a particular data type.
+Each data type has a special syntax
+to create an individual value or "scalar".
+
+Function | Code
+:- | :------
+`chk_string(x)` | `is.character(x) && length(x) == 1L && !anyNA(x)`
+`chk_number(x)` | `is.numeric(x) && length(x) == 1L && !anyNA(x)`
+`chk_whole_number(x)` | `vld_number(x) && (is.integer(x) || vld_true(all.equal(x, trunc(x))))`
+
+For logical data types,
+you can check flags using `chk_flag()`,
+which considers `TRUE` or `FALSE` as possible values,
+or use `chk_lgl()` to verify if a scalar is of type logical,
+including NA as a valid value.
+
+Function | Code
+:- | :-
+`chk_flag(x)` | `is.logical(x) && length(x) == 1L && !anyNA(x)`
+`chk_lgl(x)` | `is.logical(x) && length(x) == 1L`
+
+It is also posible to check if the user-provided argument
+is only `TRUE` or only `FALSE`:
 
 Function | Code
 :- | :-
 `chk_true(x)` | `is.logical(x) && length(x) == 1L && !anyNA(x) && x`
 `chk_false(x)` | `is.logical(x) && length(x) == 1L && !anyNA(x) && !x`
-`chk_flag(x)` | `is.logical(x) && length(x) == 1L && !anyNA(x)`
-`chk_lgl(x)` | `is.logical(x) && length(x) == 1L`
 
-## Check Scalars
+### ...is of class Date or DateTime
+
+Date and datetime classes can be checked with `chk_date` and `chk_datetime`.
+Note that `chk_datetime`, the old name, is going to be deprecated in 0.4.1.
 
 Function | Code
 :- | :------
-`chk_scalar(x)` | `length(x) == 1L`
-`chk_number(x)` | `is.numeric(x) && length(x) == 1L && !anyNA(x)`
-`chk_whole_number(x)` | `vld_number(x) && (is.integer(x) || vld_true(all.equal(x, trunc(x))))`
-`chk_string(x)` | `is.character(x) && length(x) == 1L && !anyNA(x)`
 `chk_date(x)` | `inherits(x, "Date") && length(x) == 1L && !anyNA(x)`
-`chk_datetime(x)` | `inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)`
+`chk_date_time(x)` | `inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)`
+
+### ...is a Time Zone
+Also you can check the time zone with `chk_tz()`
+
+Function | Code
+:- | :------
 `chk_tz(x)` | `is.character(x) && length(x) == 1L && !anyNA(x) && x %in% OlsonNames()`
 
-## Check Ranges
+
+### ...is another function
+
+Function | Code
+:- | :------
+`chk_function` | `is.function(x) && (is.null(formals) || length(formals(x)) == formals)`
+
+### ...has a characteristic shared by all its elements.
+
+If you want to apply any of the previously defined functions
+for `length(x) == 1L` to all the elements of a vector,
+you can use `chk_all()`.
+
+Function |  Code
+:- | :---
+`chk_all(x, chk_fun, ...)` | `all(vapply(x, chk_fun, TRUE, ...))`
+
+### ...is part of a range of values.
+The function input should be numeric for these functions to work.
 
 Function  | Code
 :- | :---
@@ -48,7 +286,10 @@ Function  | Code
 `chk_gt(x, value = 0)` | `all(x[!is.na(x)] > value)`
 `chk_gte(x, value = 0)` | `all(x[!is.na(x)] >= value)`
 
-## Check Equals
+### ...is equal or similar to predefined object
+These function check if the argument
+provided `x` is equal or similar 
+to another object (`y`)
 
 Function | Code
 :-- | :-
@@ -56,92 +297,59 @@ Function | Code
 `chk_equal(x, y, tolerance = sqrt(.Machine$double.eps))` | `vld_true(all.equal(x, y, tolerance))`
 `chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps))` | `vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))`
 
-## Check Alls
+In the case you want to apply this function 
+to more values, you can use the `check_all_`
+functions.
 
-Function |  Code
-:- | :---
-`chk_all(x, chk_fun, ...)` | `all(vapply(x, chk_fun, TRUE, ...))`
+Function | Code
+:-- | :--
 `chk_all_identical(x)` | `length(x) < 2L || all(vapply(x, vld_identical, TRUE, y = x[[1]]))`
 `chk_all_equal(x, tolerance = sqrt(.Machine$double.eps))` | `length(x) < 2L || all(vapply(x, vld_equal, TRUE, y = x[[1]], tolerance = tolerance))`
 `chk_all_equivalent(x, tolerance = sqrt(.Machine$double.eps))` | `length(x) < 2L || all(vapply(x, vld_equivalent, TRUE, y = x[[1]], tolerance = tolerance))`
 
-## Check Set
+### ...is composed by certain elements 
 
 Function | Code
 :- | :---
 `chk_setequal(x, values)` | `setequal(x, values)`
 `chk_subset(x, values)` | `all(x %in% values)`
 `chk_superset(x, values)` | `all(values %in% x)`
-`chk_join(x, y, by)` | `identical(nrow(x), nrow(merge(x, unique(y[if (is.null(names(by))) by else names(by)]), by = by)))`
 
-## Check Is
+### ...belongs to a class or type
 
 Function | Code
 :- | :---
-`chk_atomic(x)` | `is.atomic(x)`
-`chk_function(x, formals = NULL)` | `is.function(x) && (is.null(formals) || length(formals(x)) == formals)`
-`chk_numeric(x)` | `is.numeric(x)`
 `chk_s3_class(x, class)` | `!isS4(x) && inherits(x, class)`
 `chk_s4_class(x, class)` | `isS4(x) && methods::is(x, class)`
-`chk_vector(x)` | `is.vector(x)`
-`chk_whole_numeric(x)` | `is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))`
-`chk_array(x)` | `is.array(x)`
-`chk_matrix(x)` | `is.matrix(x)`
-`chk_data(x)` | `inherits(x, "data.frame")`
 
-## Check Typeof
+`check_values(x, values)`  
 
-Function | Code
-:- | :---
-`chk_environment(x)` | `is.environment(x)`
-`chk_list(x)` | `is.list(x)`
-`chk_logical(x)` | `is.logical(x)`
-`chk_double(x)` | `is.double(x)`
-`chk_integer(x)` | `is.integer(x)`
-`chk_character(x)` | `is.character(x)`
-
-## Check NULLs
-
-Function | Code
-:- | :---
-`chk_null(x)` | `is.null(x)`
-`chk_not_null(x)` | `!is.null(x)`
-
-## Check Ellipsis
-
-Function | Code
-:- | :---
-`chk_used(...)` | `length(list(...)) != 0L`
-`chk_unused(...)` | `length(list(...)) == 0L`
-
-## Check Files
-
-Function |  Code
-:- | :---
-`chk_file(x)` | `vld_string(x) && file.exists(x) && !dir.exists(x)`
-`chk_ext(x, ext)` | `vld_string(x) && vld_subset(tools::file_ext(x), ext)`
-`chk_dir(x)` | `vld_string(x) && dir.exists(x)`
-
-## Check Miscellaneous
+### ...matches a REGEX
 
 Function | Code
 :- | :--
 `chk_match(x, regexp = ".+")` | `all(grepl(regexp, x[!is.na(x)]))`
+
+### ...meet some user defined quality cirteria (Miscellanous)
+
+Function | Code
+:- | :--
 `chk_named(x)` |  `!is.null(names(x))`
 `chk_not_empty(x)` |  `length(x) != 0L`
 `chk_not_any_na(x)` |  `!anyNA(x)`
 `chk_unique(x, incomparables = FALSE)` | `!anyDuplicated(x, incomparables = incomparables)`
-`chk_sorted(x)` | `is.unsorted(x)`
-
-## Check
-
-**Function**    
-`check_data(x, values = NULL, exclusive = FALSE, order = FALSE, nrow = numeric(0), key = character(0))`   
-
-`check_dim(x, dim = length, values = numeric(0), dim_name = NULL)`   
+`chk_join(x, y, by)` | `identical(nrow(x), nrow(merge(x, unique(y[if (is.null(names(by))) by else names(by)]), by = by)))`
 
 `check_key(x, key = character(0), na_distinct = FALSE)`   
 
-`check_names(x, names = character(0), exclusive = FALSE, order = FALSE)`    
+### ...are numbers ordered in a particular way
 
-`check_values(x, values)`    
+Function | Code
+:- | :--
+`chk_sorted(x)` | `is.unsorted(x)`
+
+
+
+
+    
+  
