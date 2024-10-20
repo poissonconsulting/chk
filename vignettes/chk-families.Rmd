@@ -16,33 +16,36 @@ library(chk)
 ```
 
 ## Introduction
-If you want to learn more about the logic behind some of the functions explained here, we recommend reading the book  [Advanced R](https://adv-r.hadley.nz/) (Wickham, 2019).
-
 The `vld_` functions are used within the `chk_` functions.
 The `chk_` functions (and their `vld_` equivalents)
 can be divided into the following families.
+
+If you want to learn more about the logic behind some of the functions explained here, we recommend reading the book [Advanced R](https://adv-r.hadley.nz/) (Wickham, 2019).
 
 For reasons of space,
 the `x_name = NULL` argument is not shown.
 For a more simplified list of the `chk` functions, you can see the [Reference](https://poissonconsulting.github.io/chk/reference/index.html) section.
 
-## `chk_` functions
-### Check if the function input...
-#### ...is missing or not
+## `chk_` Functions
+### Missing Input Checker
+Check if the function input is missing or not
 
 Function |  Code
 :- | :---
 `chk_missing()` | `missing()`
 `chk_not_missing()` | `!missing()`
 
-#### ...comes from `...` (`dot-dot-dot`) or not
+### `...` Checker
+Check if the function input comes from `...` (`dot-dot-dot`) or not
 
 Function | Code
 :- | :---
 `chk_used(...)` | `length(list(...)) != 0L`
 `chk_unused(...)` | `length(list(...)) == 0L`
 
-#### ...is a valid external data source
+### External Data Source Checkers
+Check if the function input is a valid external data source.
+
 These `chk` functions check the existence of a file,
 the validity of its extension,
 and the existence of a directory.
@@ -53,15 +56,17 @@ Function |  Code
 `chk_ext(x, ext)` | `vld_string(x) && vld_subset(tools::file_ext(x), ext)`
 `chk_dir(x)` | `vld_string(x) && dir.exists(x)`
 
-#### ...is NULL or not
-These functions check if the input `x` is NULL or not.
+### NULL checker
+Check if the function input is NULL or not
 
 Function | Code
 :- | :---
 `chk_null(x)` | `is.null(x)`
 `chk_not_null(x)` | `!is.null(x)`
 
-#### ...has a specific data structure 
+#### Data Structure Checker
+Check if the function input has a specific data structure.
+
 Vectors are a family of data types that come in two forms: atomic vectors and lists. When vectors consist of elements of the same data type, they can be considered atomic, matrices, or arrays. The elements in a list, however, can be of different types.
 
 To check if a function argument is a vector
@@ -147,7 +152,8 @@ b <- 1:6
 vld_compatible_lengths(a, b) # FALSE
 ```
 
-#### ...has a data type
+### Data Type Checkers
+Check if the function input has a data type
 You can use the function `typeof()` to confirm the data type.
 
 Function | Code
@@ -224,8 +230,8 @@ vld_count(-1) # FALSE
 # Non-whole number
 vld_count(2.5) # FALSE
 ```
-
-#### ...is a factor
+### Factor Checker
+Check if the function input is a factor
 
 Function | Code
 :- | :------
@@ -259,7 +265,8 @@ vld_character_or_factor(factor_fruits) # TRUE
 
 ```
 
-#### ...is a scalar
+### Scalar Checkers
+Check if the function input is a scalar
 In R, scalars are vectors of length 1. 
 
 Function | Code
@@ -296,7 +303,8 @@ Function | Code
 `chk_true(x)` | `is.logical(x) && length(x) == 1L && !anyNA(x) && x`
 `chk_false(x)` | `is.logical(x) && length(x) == 1L && !anyNA(x) && !x`
 
-#### ...is of class Date or DateTime
+### class Date or DateTime Checkers
+Check if the function input is of class Date or DateTime
 
 Date and datetime classes can be checked with `chk_date` and `chk_datetime`.
 Note that `chk_datetime`, the old name, is going to be deprecated in 0.4.1.
@@ -306,7 +314,7 @@ Function | Code
 `chk_date(x)` | `inherits(x, "Date") && length(x) == 1L && !anyNA(x)`
 `chk_date_time(x)` | `inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)`
 
-#### ...is a Time Zone
+### Time Zone Checker
 Also you can check the time zone with `chk_tz()`.
 The available time zones can be retrieved using the function `OlsonNames()`.
 
@@ -314,7 +322,8 @@ Function | Code
 :- | :------
 `chk_tz(x)` | `is.character(x) && length(x) == 1L && !anyNA(x) && x %in% OlsonNames()`
 
-#### ...has a characteristic shared by all its elements.
+### All Elements Checkers
+Check if the function input has a characteristic shared by all its elements.
 
 If you want to apply any of the previously defined functions
 for `length(x) == 1L` to the elements of a vector,
@@ -328,13 +337,15 @@ Function |  Code
 vld_all(c(TRUE, TRUE, FALSE), chk_lgl) # FALSE
 ```
 
-#### ...is another function
+### Function Checker
+Check if the function input is another function
 
 Function | Code
 :- | :------
 `chk_function` | `is.function(x) && (is.null(formals) || length(formals(x)) == formals)`
 
-#### ...has names and are valid
+### Names Checkers
+Check if the function input has names and are valid
 `chk_named` function works with vectors, lists, data frames, and matrices that have named columns or rows.
 Do not confuse with `check_names`.
 
@@ -357,8 +368,8 @@ vld_named(c(a = 1, b = 2)) # TRUE
 vld_named(c(1, 2, 3)) # FALSE 
 
 ```
-
-#### ...is part of a range of values.
+### Range Checkers
+Check if the function input is part of a range of values.
 The function input should be numeric for these functions to work.
 
 Function  | Code
@@ -369,7 +380,9 @@ Function  | Code
 `chk_gt(x, value = 0)` | `all(x[!is.na(x)] > value)`
 `chk_gte(x, value = 0)` | `all(x[!is.na(x)] >= value)`
 
-#### ...is equal or similar to a predefined object
+### Equal Checkers
+Check if the function input is equal or similar to a predefined object.
+
 The functions `chk_identical()`, `chk_equal()`, and `chk_equivalent()` are used to compare two objects, but they differ in how strict the comparison is.
 
 `chk_equal` and `chk_equivalent`checks if x and y are numerically equivalent within a specified tolerance, but `chk_equivalent` ignores differences in attributes.
@@ -407,7 +420,8 @@ vld_equal(x, y, tolerance = 0.5) # FALSE
 vld_equivalent(x, y, tolerance = 0.5) # TRUE
 ```
 
-#### ...are numbers in increasing order
+### Order Checker
+Check if the function input are numbers in increasing order
 `chk_sorted` function checks if `x` is sorted in non-decreasing order, ignoring any NA values.
 
 Function | Code
@@ -420,7 +434,8 @@ vld_sorted(c(1, 2, 3, NA, 4))  # TRUE
 vld_sorted(c(3, 1, 2, NA, 4))  # FALSE
 ```
 
-#### ...is composed by certain elements 
+### Elements Checkers
+Check if the function input is composed by certain elements 
 
 The `setequal` function in R is used to check if two vectors 
 contain exactly the same elements,
@@ -492,7 +507,9 @@ vld_orderset(c("A", "C"),  c("A", "B", "C", "D")) # TRUE
 ```
 
 
-#### ...belongs to a class or type
+### Class Checkers
+Check if the function input belongs to a class or type.
+
 These functions check if `x` is an S3 or S4 object of the specified class.
 
 Function | Code
@@ -507,8 +524,9 @@ Function | Code
 :- | :---
 `chk_is(x, class)` | `inherits(x, class)`
 
+### REGEX Checker
+Check if the function input matches a REGEX.
 
-#### ...matches a REGEX
 `chk_match(x, regexp = ".+")` checks if the regular expression pattern 
 specified by `regexp` matches all the non-missing values in the vector `x`.
 If `regexp` it is not specified by the user, `chk_match` checks whether all non-missing values in `x` contain at least one character (regexp = ".+")
@@ -517,7 +535,9 @@ Function | Code
 :- | :--
 `chk_match(x, regexp = ".+")` | `all(grepl(regexp, x[!is.na(x)]))`
 
-#### ...meet some user defined quality criteria (Miscellanous)
+### Quality Checkers
+Check if the function input meet some user defined quality criteria (Miscellanous),
+
 `chk_not_empty` function checks if the length of the object is not zero. For a data frame or matrix, the length corresponds to the number of elements (not rows or columns), while for a vector or list, it corresponds to the number of elements.
 
 `chk_not_any_na` function checks if there are no NA values present in the entire object.
