@@ -4,26 +4,87 @@ template:
   package: poissontemplate
 
 reference:
-- title: Logical Scalar Checkers
-  desc: Checking logical scalars
+- title: Missing Input Checkers
+  desc: Check if the function input is missing or not
   contents:
-  - chk_true
-  - chk_false
-  - chk_flag
-  - chk_lgl
-- title: Scalar Checkers
-  desc: Checking scalars
+  - chk_missing
+  - chk_not_missing
+- title: ... Checkers
+  desc: Check if the function input comes from ... (dot-dot-dot) or not
   contents:
-  - chk_scalar
-  - chk_number
+  - chk_used
+  - chk_unused
+- title: External Data Source Checkers
+  desc: Check if the function input is a valid external data source
+  contents:
+  - chk_file
+  - chk_ext
+  - chk_dir
+- title: NULL Checkers
+  desc: Check if the function input is NULL or not
+  contents:
+  - chk_null
+  - chk_not_null
+- title: Data Structure Checkers
+  desc: Check if the function input has a specific data structure
+  contents:
+  - chk_vector
+  - chk_atomic
+  - chk_array
+  - chk_matrix
+  - chk_list
+  - chk_data
+- title: Data Type Checkers
+  desc: Check if the function input has a data type
+  contents:
+  - chk_environment
+  - chk_logical
+  - chk_character
+  - chk_numeric
+  - chk_double
+  - chk_integer
+  - chk_whole_numeric
   - chk_whole_number
   - chk_count
+- title: Factor Checker
+  desc: Check if the function input is a factor
+  contents:
+  - chk_factor
+  - chk_character_or_factor
+- title: Scalar Checkers
+  desc: Check if the function input is a vector of length 1
+  contents:
+  - chk_scalar
   - chk_string
+  - chk_number
+  - chk_flag
+  - chk_lgl
+  - chk_true
+  - chk_false
+- title: Date or DateTime Checkers
+  desc: Check if the function input is of class Date or DateTime
+  contents:
   - chk_date
   - chk_date_time
+- title: Time Zone Checker
+  desc: Check if the function input is a Time Zone
+  contents:
   - chk_tz
+- title: All Elements Checker
+  desc: Check if the function input has a characteristic shared by all its elements
+  contents:
+  - chk_all
+- title: Function Checker
+  desc: Check if the function input is another function
+  contents:
+  - chk_function
+- title: Names Checkers
+  desc: Check if the function input has names and are valid
+  contents:
+  - chk_named
+  - chk_valid_name
 - title: Range Checkers
-  desc: Checking ranges
+  desc: Check if the function input is part of a range of values
   contents:
   - chk_range
   - chk_lt
@@ -31,84 +92,47 @@ reference:
   - chk_gt
   - chk_gte
 - title: Equal Checkers
-  desc: Checking equal
+  desc: Check if the function input is equal or similar to a predefined object
   contents:
   - chk_identical
   - chk_equal
   - chk_equivalent
-- title: All Checkers
-  desc: Checking all
-  contents:
-  - chk_all
   - chk_all_identical
   - chk_all_equal
   - chk_all_equivalent
+- title: Order Checker
+  desc: Check if the function input are numbers in increasing order
+  contents:
+  - chk_sorted
 - title: Set Checkers
-  desc: Checking sets
+  desc: Check if the function input is composed by certain elements
   contents:
   - chk_subset
+  - chk_not_subset
   - chk_superset
-  - chk_join
   - chk_setequal
   - chk_orderset
-  - chk_not_subset
 - title: Identity Checkers
-  desc: Checking identity
+  desc: Check if the function input belongs to a class
   contents:
   - chk_is
   - chk_s3_class
   - chk_s4_class
-  - chk_character_or_factor
-  - chk_vector
-  - chk_atomic
-  - chk_array
-  - chk_factor
-  - chk_function
-  - chk_matrix
-  - chk_whole_numeric
-  - chk_data
-  - chk_numeric
-- title: Type Checkers
-  desc: Checking type
+- title: REGEX Checker
+  desc: Check if the function input matches a REGEX
   contents:
-  - chk_logical
-  - chk_list
-  - chk_double
-  - chk_environment
-  - chk_integer
-  - chk_character
-- title: Null Checkers
-  desc: Checking null
-  contents:
-  - chk_null
-  - chk_not_null
-- title: '... Checkers'
-  desc: Checking ...
-  contents:
-  - chk_used
-  - chk_unused
-- title: File Checkers
-  desc: Checking files
-  contents:
-  - chk_file
-  - chk_ext
-  - chk_dir
-- title: Miscellaneous Checkers
-  desc: Checking miscellaneous
+  - chk_match
+- title: Quality Checkers
+  desc: Check if the function input meet some user defined quality criteria
   contents:
   - chk_length
   - chk_compatible_lengths
-  - chk_match
-  - chk_named
   - chk_not_any_na
   - chk_not_empty
-  - chk_missing
-  - chk_not_missing
   - chk_sorted
   - chk_unique
+  - chk_join
   - chkor_vld
-  - chk_valid_name
-  - chk_null_or
 - title: chk_ Function Extenders
   desc: Extending chk_ functions
   contents:
@@ -130,7 +154,7 @@ reference:
   - p
   - p0
   - cc
-- title: More in depth Checkers
+- title: check_ Functions
   desc: Checks more properties about the objects
   contents:
   - check_data
@@ -147,3 +171,4 @@ reference:
   - chk_dbl
   - chk_wnum
   - chkor
+  - chk_null_or
