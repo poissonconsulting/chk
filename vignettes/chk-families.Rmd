@@ -126,31 +126,6 @@ Function | Code
 
 Do not confuse `chk_data()` with `check_data()`. See 
 
-Another useful function is `chk_compatible_lenghts()`
-This function helps to check vectors could be 'strictly recycled.'
-
-```{r}
-a <- integer(0)
-b <- numeric(0)
-vld_compatible_lengths(a, b) # TRUE
-
-a <- 1
-b <- 2
-vld_compatible_lengths(a, b) # TRUE
-
-a <- 1:3
-b <- 1:3
-vld_compatible_lengths(a, b) # TRUE
-
-b <- 1
-vld_compatible_lengths(a, b) # TRUE
-
-b <- 1:2
-vld_compatible_lengths(a, b) # FALSE
-
-b <- 1:6
-vld_compatible_lengths(a, b) # FALSE
-```
 
 ### Data Type Checkers
 Check if the function input has a data type
@@ -159,7 +134,6 @@ You can use the function `typeof()` to confirm the data type.
 Function | Code
 :- | :---
 `chk_environment(x)` | `is.environment(x)`
-`chk_list(x)` | `is.list(x)`
 `chk_logical(x)` | `is.logical(x)`
 `chk_character(x)` | `is.character(x)`
 
@@ -191,7 +165,7 @@ There are other functions you can use to work with numbers.
 
 Function | Code
 :- | :---
-`chk_whole_numberic` | `is.integer(x) || (is.double(x) && vld_true(all.equal(x[!is.na(x)],  trunc(x[!is.na(x)]))))`
+`chk_whole_numeric` | `is.integer(x) || (is.double(x) && vld_true(all.equal(x[!is.na(x)],  trunc(x[!is.na(x)]))))`
 `chk_whole_number` |  `vld_number(x) && (is.integer(x) || vld_true(all.equal(x, trunc(x))))`
 `chk_count` | `vld_whole_number(x) && x >= 0`
 
@@ -303,7 +277,7 @@ Function | Code
 `chk_true(x)` | `is.logical(x) && length(x) == 1L && !anyNA(x) && x`
 `chk_false(x)` | `is.logical(x) && length(x) == 1L && !anyNA(x) && !x`
 
-### class Date or DateTime Checkers
+### Date or DateTime Checkers
 Check if the function input is of class Date or DateTime
 
 Date and datetime classes can be checked with `chk_date` and `chk_datetime`.
@@ -434,7 +408,7 @@ vld_sorted(c(1, 2, 3, NA, 4))  # TRUE
 vld_sorted(c(3, 1, 2, NA, 4))  # FALSE
 ```
 
-### Elements Checkers
+### Set Checkers
 Check if the function input is composed by certain elements 
 
 The `setequal` function in R is used to check if two vectors 
@@ -457,6 +431,7 @@ First, the `%in%` function is used to check whether the elements of a vector `x`
 Function | Code
 :-- | :--
 `chk_subset(x, values)` | `all(x %in% values)`
+`chk_not_subset(x, values)` | `!any(x %in% values) || !length(x)`
 `chk_superset(x, values)` | `all(values %in% x)`
 
 ```{r}
@@ -567,6 +542,58 @@ Function | Code
 ```{r}
 vld_unique(c(1, 2, 3, 4)) # TRUE
 vld_unique(c(1, 2, 2, 4)) # FALSE
+```
+
+The function `chk_length` checks whether the length of `x` is
+within a specified range. 
+It ensures that the length is at least equal to `length` and no more than `upper`.
+It can be used with vectors, lists and data frames. 
+
+Function | Code
+:- | :--
+`chk_length(x, length = 1L, upper = length)` | `length(x) >= length && length(x) <= upper`
+
+```{r}
+vld_length(c(1, 2, 3), length = 2, upper = 5)  # TRUE
+vld_length(c("a", "b"), length = 3)  # FALSE
+
+vld_length(list(a = 1, b = 2, c = 3), length = 2, upper = 4) # TRUE
+vld_length(list(a = 1, b = 2, c = 3), length = 4) # FALSE
+
+# 2 columns
+vld_length(data.frame(x = 1:3, y = 4:6), length = 1, upper = 3)  # TRUE
+vld_length(data.frame(x = 1:3, y = 4:6), length = 3)  # FALSE    
+
+# length of NULL is 0
+vld_length(NULL, length = 0) # TRUE
+vld_length(NULL, length = 1) # FALSE
+```
+
+
+Another useful function is `chk_compatible_lenghts()`
+This function helps to check vectors could be 'strictly recycled'.
+
+```{r}
+a <- integer(0)
+b <- numeric(0)
+vld_compatible_lengths(a, b) # TRUE
+
+a <- 1
+b <- 2
+vld_compatible_lengths(a, b) # TRUE
+
+a <- 1:3
+b <- 1:3
+vld_compatible_lengths(a, b) # TRUE
+
+b <- 1
+vld_compatible_lengths(a, b) # TRUE
+
+b <- 1:2
+vld_compatible_lengths(a, b) # FALSE
+
+b <- 1:6
+vld_compatible_lengths(a, b) # FALSE
 ```
 
 The `chk_join()` function is designed to validate
