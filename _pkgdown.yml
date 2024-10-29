@@ -43,6 +43,9 @@ reference:
   - chk_numeric
   - chk_double
   - chk_integer
+- title: Whole Number Validation Checkers
+  desc: Check if the function input is a whole number, whether explicitly an integer or a double type without fractional parts
+  contents:
   - chk_whole_numeric
   - chk_whole_number
   - chk_count
@@ -122,11 +125,14 @@ reference:
   desc: Check if the function input matches a REGEX
   contents:
   - chk_match
-- title: Quality Checkers
-  desc: Check if the function input meet some user defined quality criteria
+- title: Length Checkers
+  desc: Check if the function input object's length is a specific value or if because of its length can be strictly recycled.
   contents:
   - chk_length
   - chk_compatible_lengths
+- title: Quality Checkers
+  desc: Check if the function input meet some user defined quality criteria
+  contents:
   - chk_not_any_na
   - chk_not_empty
   - chk_sorted
