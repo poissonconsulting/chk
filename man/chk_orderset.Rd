@@ -30,11 +30,18 @@ chk_orderset(1:2, 1:2)
 try(chk_orderset(2:1, 1:2))
 }
 \seealso{
-Other chk_set: 
-\code{\link{chk_join}()},
+\code{\link[=vld_equivalent]{vld_equivalent()}}
+
+\code{\link[=unique]{unique()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other set_checkers: 
 \code{\link{chk_not_subset}()},
 \code{\link{chk_superset}()},
 \code{\link{vld_not_subset}()},
 \code{\link{vld_orderset}()}
 }
-\concept{chk_set}
+\concept{set_checkers}

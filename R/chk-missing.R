@@ -12,7 +12,12 @@
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_misc
+#' @family missing_checkers
+#'
+#' @seealso [missing()]
+#' @seealso For more details about the use of this function,
+#' please read the article
+#' \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 #'
 #' @examples
 #' # chk_missing

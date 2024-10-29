@@ -40,8 +40,16 @@ vld_dir(tempdir())
 vld_dir(tempfile())
 }
 \seealso{
-Other chk_files: 
+\code{\link[=vld_string]{vld_string()}}
+
+\code{\link[=dir.exists]{dir.exists()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other file_checkers: 
 \code{\link{chk_ext}()},
 \code{\link{chk_file}()}
 }
-\concept{chk_files}
+\concept{file_checkers}

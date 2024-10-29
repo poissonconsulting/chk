@@ -39,15 +39,10 @@ vld_sorted(1:2)
 vld_sorted(2:1)
 }
 \seealso{
-Other chk_misc: 
-\code{\link{chk_length}()},
-\code{\link{chk_match}()},
-\code{\link{chk_missing}()},
-\code{\link{chk_named}()},
-\code{\link{chk_not_any_na}()},
-\code{\link{chk_not_empty}()},
-\code{\link{chk_not_missing}()},
-\code{\link{chk_unique}()},
-\code{\link{chk_valid_name}()}
+\code{\link[=is.unsorted]{is.unsorted()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 }
-\concept{chk_misc}
+\concept{sorted_checkers}

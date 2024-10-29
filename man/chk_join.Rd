@@ -44,11 +44,13 @@ vld_join(data.frame(z = 1), data.frame(a = 1:2), by = c(z = "a"))
 vld_join(data.frame(z = 1), data.frame(a = 2), by = c(z = "a"))
 }
 \seealso{
-Other chk_set: 
-\code{\link{chk_not_subset}()},
-\code{\link{chk_orderset}()},
-\code{\link{chk_superset}()},
-\code{\link{vld_not_subset}()},
-\code{\link{vld_orderset}()}
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other misc_checkers: 
+\code{\link{chk_not_any_na}()},
+\code{\link{chk_not_empty}()},
+\code{\link{chk_unique}()}
 }
-\concept{chk_set}
+\concept{misc_checkers}

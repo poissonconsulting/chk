@@ -82,3 +82,12 @@ vld_compatible_lengths(a, b)
 b <- 1:6
 vld_compatible_lengths(a, b)
 }
+\seealso{
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other length_checkers: 
+\code{\link{chk_length}()}
+}
+\concept{length_checkers}

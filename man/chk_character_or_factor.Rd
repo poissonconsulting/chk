@@ -45,14 +45,24 @@ vld_character_or_factor(TRUE)
 vld_character_or_factor(factor("text"))
 }
 \seealso{
-Other chk_typeof: 
+\code{\link[=is.character]{is.character()}}
+
+\code{\link[=is.factor]{is.factor()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other data_type_checkers: 
 \code{\link{chk_character}()},
-\code{\link{chk_count}()},
 \code{\link{chk_double}()},
 \code{\link{chk_environment}()},
-\code{\link{chk_factor}()},
 \code{\link{chk_integer}()},
-\code{\link{chk_list}()},
-\code{\link{chk_logical}()}
+\code{\link{chk_logical}()},
+\code{\link{chk_numeric}()}
+
+Other factor_checkers: 
+\code{\link{chk_factor}()}
 }
-\concept{chk_typeof}
+\concept{data_type_checkers}
+\concept{factor_checkers}

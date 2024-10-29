@@ -37,8 +37,18 @@ try(chk_file(tempfile()))
 vld_file(tempfile())
 }
 \seealso{
-Other chk_files: 
+\code{\link[=vld_string]{vld_string()}}
+
+\code{\link[=file.exists]{file.exists()}}
+
+\code{\link[=dir.exists]{dir.exists()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other file_checkers: 
 \code{\link{chk_dir}()},
 \code{\link{chk_ext}()}
 }
-\concept{chk_files}
+\concept{file_checkers}

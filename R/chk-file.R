@@ -8,7 +8,14 @@
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_files
+#' @family file_checkers
+#'
+#' @seealso [vld_string()]
+#' @seealso [file.exists()]
+#' @seealso [dir.exists()]
+#' @seealso For more details about the use of this function,
+#' please read the article
+#' \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 #'
 #' @examples
 #' # chk_file

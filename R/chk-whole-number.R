@@ -12,7 +12,16 @@
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_scalars
+#' @family scalar_checker
+#' @family whole_number_checkers
+#'
+#' @seealso [is.integer()]
+#' @seealso [vld_true()]
+#' @seealso [vld_number()]
+#'
+#' @seealso For more details about the use of this function,
+#' please read the article
+#' \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 #'
 #' @examples
 #' # chk_whole_number

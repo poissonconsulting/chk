@@ -8,7 +8,14 @@
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_alls
+#' @family equal_checkers
+#' @family all_checkers
+#'
+#' @seealso [length()]
+#' @seealso [vld_equivalent()]
+#' @seealso For more details about the use of this function,
+#' please read the article
+#' \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 #'
 #' @examples
 #' # chk_all_equivalent

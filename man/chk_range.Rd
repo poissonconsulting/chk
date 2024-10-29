@@ -53,10 +53,16 @@ vld_range(c(0.1, 0.2, NA))
 vld_range(c(0.1, 0.2, NA), range = c(0, 1))
 }
 \seealso{
-Other chk_ranges: 
+\code{\link[=all]{all()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other range_checkers: 
 \code{\link{chk_gt}()},
 \code{\link{chk_gte}()},
 \code{\link{chk_lt}()},
 \code{\link{chk_lte}()}
 }
-\concept{chk_ranges}
+\concept{range_checkers}

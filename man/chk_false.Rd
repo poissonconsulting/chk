@@ -42,9 +42,30 @@ vld_false(0)
 vld_false(c(FALSE, FALSE))
 }
 \seealso{
-Other chk_logical: 
+\code{\link[=is.logical]{is.logical()}}
+
+\code{\link[=length]{length()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other logical_checkers: 
 \code{\link{chk_flag}()},
 \code{\link{chk_lgl}()},
+\code{\link{chk_logical}()},
 \code{\link{chk_true}()}
+
+Other scalar_checkers: 
+\code{\link{chk_count}()},
+\code{\link{chk_date}()},
+\code{\link{chk_date_time}()},
+\code{\link{chk_flag}()},
+\code{\link{chk_lgl}()},
+\code{\link{chk_scalar}()},
+\code{\link{chk_string}()},
+\code{\link{chk_true}()},
+\code{\link{chk_tz}()}
 }
-\concept{chk_logical}
+\concept{logical_checkers}
+\concept{scalar_checkers}

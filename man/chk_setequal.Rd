@@ -54,11 +54,16 @@ vld_setequal(1, 2:1)
 vld_setequal(1:2, 2)
 }
 \seealso{
-Other chk_set: 
-\code{\link{chk_join}()},
+\code{\link[=setequal]{setequal()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other set_checkers: 
 \code{\link{chk_not_subset}()},
 \code{\link{chk_orderset}()},
 \code{\link{chk_superset}()},
 \code{\link{vld_not_subset}()}
 }
-\concept{chk_set}
+\concept{set_checkers}

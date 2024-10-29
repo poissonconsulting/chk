@@ -41,14 +41,28 @@ vld_count(-1)
 vld_count(0.5)
 }
 \seealso{
-Other chk_typeof: 
-\code{\link{chk_character}()},
-\code{\link{chk_character_or_factor}()},
-\code{\link{chk_double}()},
-\code{\link{chk_environment}()},
-\code{\link{chk_factor}()},
-\code{\link{chk_integer}()},
-\code{\link{chk_list}()},
-\code{\link{chk_logical}()}
+\code{\link[=vld_whole_number]{vld_whole_number()}}
+
+\code{\link[=length]{length()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other scalar_checkers: 
+\code{\link{chk_date}()},
+\code{\link{chk_date_time}()},
+\code{\link{chk_false}()},
+\code{\link{chk_flag}()},
+\code{\link{chk_lgl}()},
+\code{\link{chk_scalar}()},
+\code{\link{chk_string}()},
+\code{\link{chk_true}()},
+\code{\link{chk_tz}()}
+
+Other whole_number_checkers: 
+\code{\link{chk_whole_number}()},
+\code{\link{chk_whole_numeric}()}
 }
-\concept{chk_typeof}
+\concept{scalar_checkers}
+\concept{whole_number_checkers}

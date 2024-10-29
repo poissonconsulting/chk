@@ -24,6 +24,9 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 Checks data.frame using
 
 \code{inherits(x, "data.frame")}
+
+Note that there is a similar function, \code{\link[=check_data]{check_data()}}, which checks
+the column names, values, number of rows, and keys of a data.frame.
 }
 \section{Functions}{
 \itemize{
@@ -40,16 +43,15 @@ vld_data(data.frame(x = 1))
 vld_data(c(x = 1))
 }
 \seealso{
-Other chk_is: 
-\code{\link{chk_array}()},
-\code{\link{chk_atomic}()},
-\code{\link{chk_function}()},
+\code{\link[=inherits]{inherits()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other id_checkers: 
 \code{\link{chk_is}()},
-\code{\link{chk_matrix}()},
-\code{\link{chk_numeric}()},
 \code{\link{chk_s3_class}()},
-\code{\link{chk_s4_class}()},
-\code{\link{chk_vector}()},
-\code{\link{chk_whole_numeric}()}
+\code{\link{chk_s4_class}()}
 }
-\concept{chk_is}
+\concept{id_checkers}

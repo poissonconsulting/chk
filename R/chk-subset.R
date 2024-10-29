@@ -5,10 +5,19 @@
 #'
 #' `all(x %in% values)`
 #'
+#' Pay attention to the order of the arguments `value` and `x`
+#' in this function compared to [chk_superset()]
+#'
+#'
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_set
+#' @family set_checkers
+#'
+#' @seealso [all()]
+#' @seealso For more details about the use of this function,
+#' please read the article
+#' \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 #'
 #' @examples
 #' # chk_subset

@@ -43,17 +43,13 @@ vld_length(2:1, 2)
 vld_length(2:1, 1)
 }
 \seealso{
-\code{\link[=check_dim]{check_dim()}}
+\code{\link[=length]{length()}}, \code{\link[=check_dim]{check_dim()}}
 
-Other chk_misc: 
-\code{\link{chk_match}()},
-\code{\link{chk_missing}()},
-\code{\link{chk_named}()},
-\code{\link{chk_not_any_na}()},
-\code{\link{chk_not_empty}()},
-\code{\link{chk_not_missing}()},
-\code{\link{chk_sorted}()},
-\code{\link{chk_unique}()},
-\code{\link{chk_valid_name}()}
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other length_checkers: 
+\code{\link{chk_compatible_lengths}()}
 }
-\concept{chk_misc}
+\concept{length_checkers}

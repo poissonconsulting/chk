@@ -11,7 +11,14 @@
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
 #'
-#' @family chk_set
+#' @family set_checkers
+#'
+#' @seealso [vld_equivalent()]
+#' @seealso [unique()]
+#'
+#' @seealso For more details about the use of this function,
+#' please read the article
+#' \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 #' @export
 #'
 #' @examples

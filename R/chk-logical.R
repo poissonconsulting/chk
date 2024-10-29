@@ -5,10 +5,20 @@
 #'
 #' `is.logical(x)`
 #'
+#' If you want to check if it is a scalar,
+#' meaning that in addition to being of logical type,
+#' it has `length(x) == 1`, you should use [chk_lgl()]
+#'
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_typeof
+#' @family logical_checkers
+#' @family data_type_checkers
+#'
+#' @seealso [is.logical()]
+#' @seealso For more details about the use of this function,
+#' please read the article
+#' \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 #'
 #' @examples
 #' # chk_logical

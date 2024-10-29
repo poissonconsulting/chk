@@ -30,11 +30,18 @@ chk_not_subset(11, 1:10)
 try(chk_not_subset(1, 1:10))
 }
 \seealso{
-Other chk_set: 
-\code{\link{chk_join}()},
+\code{\link[=any]{any()}}
+
+\code{\link[=length]{length()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other set_checkers: 
 \code{\link{chk_orderset}()},
 \code{\link{chk_superset}()},
 \code{\link{vld_not_subset}()},
 \code{\link{vld_orderset}()}
 }
-\concept{chk_set}
+\concept{set_checkers}

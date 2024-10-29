@@ -46,10 +46,16 @@ vld_gt(c(-0.1, 0.2), value = -1)
 vld_gt("b", value = "a")
 }
 \seealso{
-Other chk_ranges: 
+\code{\link[=all]{all()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other range_checkers: 
 \code{\link{chk_gte}()},
 \code{\link{chk_lt}()},
 \code{\link{chk_lte}()},
 \code{\link{chk_range}()}
 }
-\concept{chk_ranges}
+\concept{range_checkers}

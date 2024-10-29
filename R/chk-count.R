@@ -8,7 +8,14 @@
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_typeof
+#' @family scalar_checkers
+#' @family whole_number_checkers
+#'
+#' @seealso [vld_whole_number()]
+#' @seealso [length()]
+#' @seealso For more details about the use of this function,
+#' please read the article
+#' \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 #'
 #' @examples
 #' # chk_count
