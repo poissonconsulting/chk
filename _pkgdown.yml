@@ -126,11 +126,11 @@ reference:
   contents:
   - chk_match
 - title: Length Checkers
-  desc: Check if the function input object's length is a specific value or if because of its length can be strictly recycled.
+  desc: Check if the function input object's length is a specific value or if because of its length can be strictly recycled
   contents:
   - chk_length
   - chk_compatible_lengths
-- title: Quality Checkers
+- title: Quality Checkers (Miscellaneous)
   desc: Check if the function input meet some user defined quality criteria
   contents:
   - chk_not_any_na
