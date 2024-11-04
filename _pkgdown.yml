@@ -147,3 +147,6 @@ reference:
   - chk_dbl
   - chk_wnum
   - chkor
+
+development:
+  mode: auto
