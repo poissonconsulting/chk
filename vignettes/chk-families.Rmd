@@ -17,17 +17,13 @@ library(chk)
 
 ## Introduction
 The `vld_` functions are used within the `chk_` functions.
-The `chk_` functions (and their `vld_` equivalents)
-can be divided into the following families.
+The `chk_` functions (and their `vld_` equivalents) can be divided into the following families.
 
 In the code in this examples, we will use `vld_*` functions
 
-If you want to learn more about the logic behind
-some of the functions explained here, 
-we recommend reading the book [Advanced R](https://adv-r.hadley.nz/) (Wickham, 2019).
+If you want to learn more about the logic behind some of the functions explained here, we recommend reading the book [Advanced R](https://adv-r.hadley.nz/) (Wickham, 2019).
 
-For reasons of space,
-the `x_name = NULL` argument is not shown.
+For reasons of space, the `x_name = NULL` argument is not shown.
 For a more simplified list of the `chk` functions, you can see the [Reference](https://poissonconsulting.github.io/chk/reference/index.html) section.
 
 ## `chk_` Functions
@@ -52,9 +48,7 @@ Function |  Code
 Check if the function input comes from `...` (`dot-dot-dot`) or not
 
 The functions `chk_used(...)` and `chk_unused(...)` check 
-if any arguments have been provided through `...` 
-(called `dot-dot-dot` or  ellipsis),
-which is commonly used in R to allow a variable number of arguments.
+if any arguments have been provided through `...` (called `dot-dot-dot` or  ellipsis), which is commonly used in R to allow a variable number of arguments.
 
 Function | Code
 :- | :---
@@ -64,9 +58,7 @@ Function | Code
 ### External Data Source Checkers
 Check if the function input is a valid external data source.
 
-These `chk` functions check the existence of a file,
-the validity of its extension,
-and the existence of a directory.
+These `chk` functions check the existence of a file, the validity of its extension, and the existence of a directory.
 
 Function |  Code
 :- | :---
@@ -83,37 +75,29 @@ Function | Code
 `chk_not_null(x)` | `!is.null(x)`
 
 ### Scalar Checkers
-Check if the function input is a scalar
+Check if the function input is a scalar.
 In R, scalars are vectors of length 1. 
 
 Function | Code
 :- | :------
 `chk_scalar(x)` | `length(x) == 1L`
 
-The following functions check if
-the functions inputs are vectors of length 1 
-of a particular data type.
-Each data type has a special syntax
-to create an individual value or "scalar".
+The following functions check if the functions inputs are vectors of length 1 of a particular data type.
+Each data type has a special syntax to create an individual value or "scalar".
 
 Function | Code
 :- | :------
 `chk_string(x)` | `is.character(x) && length(x) == 1L && !anyNA(x)`
 `chk_number(x)` | `is.numeric(x) && length(x) == 1L && !anyNA(x)`
 
-For logical data types,
-you can check flags using `chk_flag()`,
-which considers `TRUE` or `FALSE` as possible values,
-or use `chk_lgl()` to verify if a scalar is of type logical,
-including NA as element.
+For logical data types, you can check flags using `chk_flag()`, which considers `TRUE` or `FALSE` as possible values, or use `chk_lgl()` to verify if a scalar is of type logical, including NA as element.
 
 Function | Code
 :- | :-
 `chk_flag(x)` | `is.logical(x) && length(x) == 1L && !anyNA(x)`
 `chk_lgl(x)` | `is.logical(x) && length(x) == 1L`
 
-It is also possible to check if the user-provided argument
-is only `TRUE` or only `FALSE`:
+It is also possible to check if the user-provided argument is only `TRUE` or only `FALSE`:
 
 Function | Code
 :- | :-
@@ -141,23 +125,18 @@ Function | Code
 #### Data Structure Checker
 Check if the function input has a specific data structure.
 
-Vectors are a family of data types that come in two forms: 
-atomic vectors and lists. 
-When vectors consist of elements of the same data type, 
-they can be considered atomic, matrices, or arrays.
+Vectors are a family of data types that come in two forms: atomic vectors and lists. 
+When vectors consist of elements of the same data type, they can be considered atomic, matrices, or arrays.
 The elements in a list, however, can be of different types.
 
-To check if a function argument is a vector
-you can use `chk_vector()`.
+To check if a function argument is a vector you can use `chk_vector()`.
  
 Function | Code
 :- | :---
 `chk_vector(x)` | `is.atomic(x) && !is.matrix(x) && !is.array(x)) || is.list(x)`
 
 Pay attention that `chk_vector()` and `vld_vector()` 
-are different from `is.vector()`,
-that will return FALSE 
-if the vector has any attributes except names.
+are different from `is.vector()`, that will return FALSE if the vector has any attributes except names.
 
 ```{r}
 vector <- c(1, 2, 3)
@@ -172,9 +151,7 @@ Function | Code
 :- | :---
 `chk_atomic(x)` | `is.atomic(x)`
 
-Notice that `is.atomic` is true for the types 
-logical, integer, numeric, complex, 
-character and raw. Also, it is TRUE for NULL.
+Notice that `is.atomic` is true for the types logical, integer, numeric, complex, character and raw. Also, it is TRUE for NULL.
 
 ```{r}
 vector <- c(1, 2, 3)
@@ -193,8 +170,7 @@ Function | Code
 `chk_matrix(x)` | `is.matrix(x)`
 
 When a vector is composed by heterogeneous data types, can be a list.
-Data frames are among the most important S3 vectors,
-constructed on top of lists.
+Data frames are among the most important S3 vectors, constructed on top of lists.
 
 Function | Code
 :- | :---
@@ -202,11 +178,10 @@ Function | Code
 `chk_data(x)` | `inherits(x, "data.frame")`
 
 Be careful not to confuse the function `chk_data` with `check_data`.
-Please read the `check_` functions section below and 
-the function documentation.
+Please read the `check_` functions section below and the function documentation.
 
 ### Data Type Checkers
-Check if the function input has a data type
+Check if the function input has a data type.
 You can use the function `typeof()` to confirm the data type.
 
 Function | Code
@@ -216,10 +191,8 @@ Function | Code
 `chk_character(x)` | `is.character(x)`
 
 For numbers there are three functions.
-R differentiates between doubles (`chk_double()`) 
-and integers (`chk_integer()`).
-You can also use the generic function `chk_numeric()`,
-which will detect both.
+R differentiates between doubles (`chk_double()`) and integers (`chk_integer()`).
+You can also use the generic function `chk_numeric()`, which will detect both.
 
 Function | Code
 :- | :---
@@ -227,8 +200,7 @@ Function | Code
 `chk_double(x)` | `is.double(x)`
 `chk_integer(x)` | `is.integer(x)`
 
-Consider that to explicitly create an integer in R,
-you need to use the suffix `L`.
+Consider that to explicitly create an integer in R, you need to use the suffix `L`.
 
 ```{r}
 vld_numeric(33) # TRUE
@@ -241,9 +213,7 @@ vld_integer(33L) # TRUE
 
 
 ### Whole Number Checkers
-These functions accept whole numbers, 
-whether they are explicitly integers or 
-double types without fractional parts.
+These functions accept whole numbers, whether they are explicitly integers or double types without fractional parts.
 
 Function | Code
 :- | :---
@@ -251,10 +221,8 @@ Function | Code
 `chk_whole_number` |  `vld_number(x) && (is.integer(x) || vld_true(all.equal(x, trunc(x))))`
 `chk_count` | `vld_whole_number(x) && x >= 0`
 
-If you want to consider both 3.0 and 3L as integers,
-it is safer to use the function `chk_whole_numeric`.
-Here, `x` is valid if it's an integer or a double
-that can be converted to an integer without changing its value.
+If you want to consider both 3.0 and 3L as integers, it is safer to use the function `chk_whole_numeric`.
+Here, `x` is valid if it's an integer or a double that can be converted to an integer without changing its value.
 
 ```{r}
 # Integer vector
@@ -277,8 +245,7 @@ vld_whole_number(c(1L, 2L, 3L)) # FALSE
 vld_whole_number(c(1L)) # TRUE
 ```
 
-`chk_count()` is a special case of `chk_whole_number`,
-differing in that it ensures values are non-negative whole numbers.
+`chk_count()` is a special case of `chk_whole_number`, differing in that it ensures values are non-negative whole numbers.
 
 ```{r}
 # Positive integer
@@ -299,13 +266,9 @@ Function | Code
 `chk_factor` | `is.factor(x)`
 `chk_character_or_factor` | `is.character(x) || is.factor(x)`
 
-Factors can be specially confusing for users, 
-because despite they are displayed as characters
-are built in top of integer vectors.
+Factors can be specially confusing for users, because despite they are displayed as characters are built in top of integer vectors.
 
-`chk` provides the function `chk_character_or_factor()`
-that allows detecting if the argument
-that the user is providing contains strings. 
+`chk` provides the function `chk_character_or_factor()` that allows detecting if the argument that the user is providing contains strings. 
 
 ```{r}
 # Factor with specified levels
@@ -330,9 +293,7 @@ vld_character_or_factor(factor_fruits) # TRUE
 ### All Elements Checkers
 Check if the function input has a characteristic shared by all its elements.
 
-If you want to apply any of the previously defined functions
-for `length(x) == 1L` to the elements of a vector,
-you can use `chk_all()`.
+If you want to apply any of the previously defined functions for `length(x) == 1L` to the elements of a vector, you can use `chk_all()`.
 
 Function |  Code
 :- | :---
@@ -358,13 +319,10 @@ vld_function(function(x, y) x + y, formals = 2) # TRUE
 ```
 
 ### Name Checkers
-Check if the function input has names and are valid
-`chk_named` function works with vectors, lists, data frames,
-and matrices that have named columns or rows.
+Check if the function input has names and are valid `chk_named` function works with vectors, lists, data frames, and matrices that have named columns or rows.
 Do not confuse with `check_names`.
 
-`chk_valid_name` function specifically designed
-to check if the elements of a character vector are valid R names.
+`chk_valid_name` function specifically designed to check if the elements of a character vector are valid R names.
 If you want to know what is considered a valid name, 
 please refer to the documentation for the `make.names` function.
 
@@ -411,9 +369,7 @@ Function | Code
 `chk_equal(x, y, tolerance = sqrt(.Machine$double.eps))` | `vld_true(all.equal(x, y, tolerance))`
 `chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps))` | `vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))`
 
-In the case you want to compare 
-the elements of a vector, you can use the `check_all_*`
-functions.
+In the case you want to compare the elements of a vector, you can use the `check_all_*` functions.
 
 Function | Code
 :-- | :--
@@ -440,8 +396,7 @@ vld_equivalent(x, y, tolerance = 0.5) # TRUE
 
 ### Order Checker
 Check if the function input are numbers in increasing order
-`chk_sorted` function checks if `x` is sorted in non-decreasing order,
-ignoring any NA values.
+`chk_sorted` function checks if `x` is sorted in non-decreasing order, ignoring any NA values.
 
 Function | Code
 :- | :--
@@ -456,9 +411,7 @@ vld_sorted(c(3, 1, 2, NA, 4))  # FALSE
 ### Set Checkers
 Check if the function input is composed by certain elements 
 
-The `setequal` function in R is used to check if two vectors 
-contain exactly the same elements,
-regardless of the order or number of repetitions.
+The `setequal` function in R is used to check if two vectors contain exactly the same elements, regardless of the order or number of repetitions.
 
 Function | Code
 :- | :---
@@ -473,12 +426,9 @@ vld_setequal(c(1, 2), c(1, 1, 1, 1, 1, 1, 2, 1)) # TRUE
 
 First, the `%in%` function is used to check whether 
 the elements of a vector `x` are present in a specified set of values.
-This returns a logical vector, which is then simplified by `all()`.
-The `all()` function checks if all values in the vector are TRUE.
-If the result is TRUE, it indicates that for `vld_` and `chk_subset()`,
-all elements in the `x` vector are present in `values`.
-Similarly, for `vld_` and `chk_superset()`,
-it indicates that all elements of `values` are present in `x`.
+This returns a logical vector, which is then simplified by `all()`. The `all()` function checks if all values in the vector are TRUE.
+If the result is TRUE, it indicates that for `vld_` and `chk_subset()`, all elements in the `x` vector are present in `values`.
+Similarly, for `vld_` and `chk_superset()`, it indicates that all elements of `values` are present in `x`.
 
 Function | Code
 :-- | :--
@@ -521,10 +471,7 @@ vld_subset(c(), c("apple", "banana"))  # TRUE
 vld_superset(c("apple", "banana"), c())  # TRUE
 ```
 
-`chk_orderset()` validate whether a given set of `values` 
-in a vector x matches a specified set of allowed `values` 
-(represented by `values`) while preserving 
-the order of those values.
+`chk_orderset()` validate whether a given set of `values` in a vector x matches a specified set of allowed `values` (represented by `values`) while preserving the order of those values.
 
 Function | Code
 :-- | :--
@@ -547,8 +494,7 @@ Function | Code
 `chk_s3_class(x, class)` | `!isS4(x) && inherits(x, class)`
 `chk_s4_class(x, class)` | `isS4(x) && methods::is(x, class)`
 
-`chk_is()` checks if x inherits from a specified class,
-regardless of whether it is an S3 or S4 object.
+`chk_is()` checks if x inherits from a specified class, regardless of whether it is an S3 or S4 object.
 
 Function | Code
 :- | :---
@@ -557,8 +503,7 @@ Function | Code
 ### REGEX Checker
 Check if the function input matches a regular expression (REGEX).
 
-`chk_match(x, regexp = ".+")` checks if the regular expression pattern 
-specified by `regexp` matches all the non-missing values in the vector `x`.
+`chk_match(x, regexp = ".+")` checks if the regular expression pattern specified by `regexp` matches all the non-missing values in the vector `x`.
 If `regexp` it is not specified by the user, `chk_match` checks whether all non-missing values in `x` contain at least one character (regexp = ".+")
 
 Function | Code
@@ -569,13 +514,10 @@ Function | Code
 Check if the function input meet some user defined quality criteria.
 
 `chk_not_empty` function checks if the length of the object is not zero.
-For a data frame or matrix, 
-the length corresponds to the number of elements (not rows or columns),
-while for a vector or list, 
-it corresponds to the number of elements.
+For a data frame or matrix, the length corresponds to the number of elements (not rows or columns),
+while for a vector or list, it corresponds to the number of elements.
 
-`chk_not_any_na` function checks if 
-there are no NA values present in the entire object.
+`chk_not_any_na` function checks if there are no NA values present in the entire object.
 
 Function | Code
 :- | :--
@@ -592,9 +534,7 @@ vld_not_empty(data.frame(a = 1:3, b = 4:6)) # TRUE
 vld_not_any_na(data.frame(a = 1:3, b = 4:6)) # TRUE
 vld_not_any_na(data.frame(a = c(1, NA, 3), b = c(4, 5, 6))) # FALSE
 ```
-The `chk_unique()` function is designed to
-verify that there are no duplicates
-elements in a vector.
+The `chk_unique()` function is designed to verify that there are no duplicates elements in a vector.
 
 Function | Code
 :- | :--
@@ -605,10 +545,8 @@ vld_unique(c(1, 2, 3, 4)) # TRUE
 vld_unique(c(1, 2, 2, 4)) # FALSE
 ```
 
-The function `chk_length` checks whether the length of `x` is
-within a specified range. 
-It ensures that the length is at least equal to `length` 
-and no more than `upper`.
+The function `chk_length` checks whether the length of `x` is within a specified range. 
+It ensures that the length is at least equal to `length` and no more than `upper`.
 It can be used with vectors, lists and data frames. 
 
 Function | Code
@@ -632,7 +570,7 @@ vld_length(NULL, length = 1) # FALSE
 ```
 
 
-Another useful function is `chk_compatible_lenghts()`
+Another useful function is `chk_compatible_lenghts()`.
 This function helps to check vectors could be 'strictly recycled'.
 
 ```{r}
@@ -658,12 +596,8 @@ b <- 1:6
 vld_compatible_lengths(a, b) # FALSE
 ```
 
-The `chk_join()` function is designed to validate
-whether the number of rows in the resulting data frame 
-from merging two data frames (`x` and `y`) 
-is equal to the number of rows in the first data frame (`x`). 
-This is useful when you want to ensure that a join operation
-does not change the number of rows in your main data frame.
+The `chk_join()` function is designed to validate whether the number of rows in the resulting data frame from merging two data frames (`x` and `y`) is equal to the number of rows in the first data frame (`x`). 
+This is useful when you want to ensure that a join operation does not change the number of rows in your main data frame.
 
 Function | Code
 :- | :--
