@@ -177,4 +177,8 @@ reference:
   - chk_dbl
   - chk_wnum
   - chkor
-  - chk_null_or
+
+
+development:
+  mode: auto
+
