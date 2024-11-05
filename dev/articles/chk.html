@@ -79,15 +79,49 @@
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
+<p>R functions and packages are great for sharing code, but it’s hard to
+predict how end-users will implement them. Users might pass inputs that
+your function wasn’t designed to handle, leading to incorrect results or
+errors. For example, if a function expects a numeric vector (e.g.,
+<code>c(1, 2, 3)</code>) but receives a character vector
+(e.g.,<code>c("1", "2", "3")</code>), it may return an error.</p>
+<p>The <code>chk</code> package provides a set of functions that check
+user-provided arguments and deliver meaningful error messages to guide
+users when something goes wrong. Including <code>chk</code>’s specially
+designed functions when developing your R package will help improve user
+experience, prevent errors, and make your code more robust by ensuring
+consistent behavior across different inputs. This enhances the
+reliability and reusability of your code.</p>
+<p>Additionally, it can help with performance optimization by ensuring
+that your functions receive inputs of the appropriate size, thereby
+avoiding time-consuming calculations.</p>
+</div>
+<div class="section level2">
+<h2 id="goal">Goal<a class="anchor" aria-label="anchor" href="#goal"></a>
+</h2>
 <p><code>chk</code> is an R package for developers to check
-user-supplied function arguments. It is designed to be simple,
-customizable and fast.</p>
+user-supplied function arguments.</p>
+<p>It is designed to be simple, customizable and fast.</p>
+</div>
+<div class="section level2">
+<h2 id="chk-functions">
+<code>chk</code> Functions<a class="anchor" aria-label="anchor" href="#chk-functions"></a>
+</h2>
+<p>Based on the function prefixes, we can classify <code>chk</code>
+functions into three categories:</p>
+<ol style="list-style-type: decimal">
+<li>
+<code>chk_</code> Functions</li>
+<li>
+<code>vld_</code> Functions</li>
+<li>
+<code>check_</code> Functions</li>
+</ol>
 <div class="section level3">
-<h3 id="chk_-functions">
-<code>chk_</code> Functions<a class="anchor" aria-label="anchor" href="#chk_-functions"></a>
+<h3 id="chk_-functions">1. <code>chk_</code> Functions<a class="anchor" aria-label="anchor" href="#chk_-functions"></a>
 </h3>
 <p><code>chk_</code> functions check the properties of individual
-objects. For example <code>chk_flag(x)</code> checks whether
+objects. For example, <code>chk_flag(x)</code> checks whether
 <code>x</code> is a flag, i.e., a non-missing logical vector of length
 1.</p>
 <p><code>chk_</code> functions are called for their side-effects, i.e.,
@@ -108,8 +142,7 @@ problem with the argument value(s) they are providing. The errors are <a href="h
 subclass <code>'chk_error'</code>.</p>
 </div>
 <div class="section level3">
-<h3 id="vld_-functions">
-<code>vld_</code> Functions<a class="anchor" aria-label="anchor" href="#vld_-functions"></a>
+<h3 id="vld_-functions">2. <code>vld_</code> Functions<a class="anchor" aria-label="anchor" href="#vld_-functions"></a>
 </h3>
 <p>Each <code>chk_</code> function has a matching <code>vld_</code>
 function which returns a flag indicating whether the object passed the
@@ -125,6 +158,13 @@ error messages.</p>
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="../reference/chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="../reference/abort_chk.html">abort_chk</a></span><span class="op">(</span><span class="st">"`NA` is not TRUE or FALSE!!"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;">:</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> `NA` is not TRUE or FALSE!!</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="check_-functions">3. <code>check_</code> Functions<a class="anchor" aria-label="anchor" href="#check_-functions"></a>
+</h3>
+<p>The <code>check_</code> functions are more complex then the
+<code>chk_</code> functions which make them slower but makes doing some
+general tests easier.</p>
 </div>
 </div>
 <div class="section level2">
@@ -197,14 +237,6 @@ capitalizes the first character and adds a missing period.</p>
 <span><span class="fu"><a href="../reference/abort_chk.html">abort_chk</a></span><span class="op">(</span><span class="st">"there %r %n "</span>, <span class="st">"problem director%y%s"</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;">:</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> There are 2 problem directories.</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="check_-functions">
-<code>check_</code> Functions<a class="anchor" aria-label="anchor" href="#check_-functions"></a>
-</h3>
-<p>The <code>check_</code> functions are more complex then the
-<code>chk_</code> functions which make them slower but makes doing some
-general tests easier.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

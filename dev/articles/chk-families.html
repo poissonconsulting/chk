@@ -76,12 +76,188 @@
 
     
     
-<p>The <code>chk_</code> functions (and their <code>vld_</code>
-equivalents) can be divided into the following families. For reasons of
-space, the <code>x_name = NULL</code> argument is not shown.</p>
 <div class="section level2">
-<h2 id="check-logical">Check Logical<a class="anchor" aria-label="anchor" href="#check-logical"></a>
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
+<p>The <code>vld_</code> functions are used within the <code>chk_</code>
+functions. The <code>chk_</code> functions (and their <code>vld_</code>
+equivalents) can be divided into the following families.</p>
+<p>In the code in this examples, we will use <code>vld_*</code>
+functions</p>
+<p>If you want to learn more about the logic behind some of the
+functions explained here, we recommend reading the book <a href="https://adv-r.hadley.nz/" class="external-link">Advanced R</a> (Wickham, 2019).</p>
+<p>For reasons of space, the <code>x_name = NULL</code> argument is not
+shown. For a more simplified list of the <code>chk</code> functions, you
+can see the <a href="https://poissonconsulting.github.io/chk/reference/index.html">Reference</a>
+section.</p>
+</div>
+<div class="section level2">
+<h2 id="chk_-functions">
+<code>chk_</code> Functions<a class="anchor" aria-label="anchor" href="#chk_-functions"></a>
+</h2>
+<div class="section level3">
+<h3 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h3>
+<p><img src="chk_diagram_II.png" width="100%" style="display: block; margin: auto;"></p>
+</div>
+<div class="section level3">
+<h3 id="missing-input-checker">Missing Input Checker<a class="anchor" aria-label="anchor" href="#missing-input-checker"></a>
+</h3>
+<p>Check if the function input is missing or not</p>
+<p><code>chk_missing</code> function uses <code><a href="https://rdrr.io/r/base/missing.html" class="external-link">missing()</a></code> to
+check if an argument has been left out when the function is called.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code><a href="../reference/chk_missing.html">chk_missing()</a></code></td>
+<td align="left"><code><a href="https://rdrr.io/r/base/missing.html" class="external-link">missing()</a></code></td>
+</tr>
+<tr class="even">
+<td align="left"><code><a href="../reference/chk_not_missing.html">chk_not_missing()</a></code></td>
+<td align="left"><code>!missing()</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level3">
+<h3 id="checker">
+<code>...</code> Checker<a class="anchor" aria-label="anchor" href="#checker"></a>
+</h3>
+<p>Check if the function input comes from <code>...</code>
+(<code>dot-dot-dot</code>) or not</p>
+<p>The functions <code>chk_used(...)</code> and
+<code>chk_unused(...)</code> check if any arguments have been provided
+through <code>...</code> (called <code>dot-dot-dot</code> or ellipsis),
+which is commonly used in R to allow a variable number of arguments.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>chk_used(...)</code></td>
+<td align="left"><code>length(list(...)) != 0L</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>chk_unused(...)</code></td>
+<td align="left"><code>length(list(...)) == 0L</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level3">
+<h3 id="external-data-source-checkers">External Data Source Checkers<a class="anchor" aria-label="anchor" href="#external-data-source-checkers"></a>
+</h3>
+<p>Check if the function input is a valid external data source.</p>
+<p>These <code>chk</code> functions check the existence of a file, the
+validity of its extension, and the existence of a directory.</p>
+<table class="table">
+<colgroup>
+<col width="33%">
+<col width="66%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>chk_file(x)</code></td>
+<td align="left"><code>vld_string(x) &amp;&amp; file.exists(x) &amp;&amp; !dir.exists(x)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>chk_ext(x, ext)</code></td>
+<td align="left"><code>vld_string(x) &amp;&amp; vld_subset(tools::file_ext(x), ext)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>chk_dir(x)</code></td>
+<td align="left"><code>vld_string(x) &amp;&amp; dir.exists(x)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level3">
+<h3 id="null-checker">NULL checker<a class="anchor" aria-label="anchor" href="#null-checker"></a>
+</h3>
+<p>Check if the function input is NULL or not</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>chk_null(x)</code></td>
+<td align="left"><code>is.null(x)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>chk_not_null(x)</code></td>
+<td align="left"><code>!is.null(x)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level3">
+<h3 id="scalar-checkers">Scalar Checkers<a class="anchor" aria-label="anchor" href="#scalar-checkers"></a>
+</h3>
+<p>Check if the function input is a scalar. In R, scalars are vectors of
+length 1.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left"><code>chk_scalar(x)</code></td>
+<td align="left"><code>length(x) == 1L</code></td>
+</tr></tbody>
+</table>
+<p>The following functions check if the functions inputs are vectors of
+length 1 of a particular data type. Each data type has a special syntax
+to create an individual value or “scalar”.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>chk_string(x)</code></td>
+<td align="left"><code>is.character(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>chk_number(x)</code></td>
+<td align="left"><code>is.numeric(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></td>
+</tr>
+</tbody>
+</table>
+<p>For logical data types, you can check flags using
+<code><a href="../reference/chk_flag.html">chk_flag()</a></code>, which considers <code>TRUE</code> or
+<code>FALSE</code> as possible values, or use <code><a href="../reference/chk_lgl.html">chk_lgl()</a></code> to
+verify if a scalar is of type logical, including NA as element.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>chk_flag(x)</code></td>
+<td align="left"><code>is.logical(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>chk_lgl(x)</code></td>
+<td align="left"><code>is.logical(x) &amp;&amp; length(x) == 1L</code></td>
+</tr>
+</tbody>
+</table>
+<p>It is also possible to check if the user-provided argument is only
+<code>TRUE</code> or only <code>FALSE</code>:</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Function</th>
@@ -96,20 +272,15 @@ space, the <code>x_name = NULL</code> argument is not shown.</p>
 <td align="left"><code>chk_false(x)</code></td>
 <td align="left"><code>is.logical(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x) &amp;&amp; !x</code></td>
 </tr>
-<tr class="odd">
-<td align="left"><code>chk_flag(x)</code></td>
-<td align="left"><code>is.logical(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>chk_lgl(x)</code></td>
-<td align="left"><code>is.logical(x) &amp;&amp; length(x) == 1L</code></td>
-</tr>
 </tbody>
 </table>
 </div>
-<div class="section level2">
-<h2 id="check-scalars">Check Scalars<a class="anchor" aria-label="anchor" href="#check-scalars"></a>
-</h2>
+<div class="section level3">
+<h3 id="date-or-datetime-checkers">Date or DateTime Checkers<a class="anchor" aria-label="anchor" href="#date-or-datetime-checkers"></a>
+</h3>
+<p>Check if the function input is of class Date or DateTime</p>
+<p>Date and datetime classes can be checked with <code>chk_date</code>
+and <code>chk_datetime</code>.</p>
 <table class="table">
 <colgroup>
 <col width="22%">
@@ -121,39 +292,428 @@ space, the <code>x_name = NULL</code> argument is not shown.</p>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>chk_scalar(x)</code></td>
-<td align="left"><code>length(x) == 1L</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>chk_number(x)</code></td>
-<td align="left"><code>is.numeric(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>chk_whole_number(x)</code></td>
-<td align="left"><code>vld_number(x) &amp;&amp; (is.integer(x) || vld_true(all.equal(x, trunc(x))))</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>chk_string(x)</code></td>
-<td align="left"><code>is.character(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></td>
-</tr>
-<tr class="odd">
 <td align="left"><code>chk_date(x)</code></td>
 <td align="left"><code>inherits(x, "Date") &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>chk_datetime(x)</code></td>
+<td align="left"><code>chk_date_time(x)</code></td>
 <td align="left"><code>inherits(x, "POSIXct") &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x)</code></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>chk_tz(x)</code></td>
-<td align="left"><code>is.character(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x) &amp;&amp; x %in% OlsonNames()</code></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section level2">
-<h2 id="check-ranges">Check Ranges<a class="anchor" aria-label="anchor" href="#check-ranges"></a>
-</h2>
+<div class="section level3">
+<h3 id="time-zone-checker">Time Zone Checker<a class="anchor" aria-label="anchor" href="#time-zone-checker"></a>
+</h3>
+<p>Also you can check the time zone with <code><a href="../reference/chk_tz.html">chk_tz()</a></code>. The
+available time zones can be retrieved using the function
+<code><a href="https://rdrr.io/r/base/timezones.html" class="external-link">OlsonNames()</a></code>.</p>
+<table class="table">
+<colgroup>
+<col width="22%">
+<col width="77%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left"><code>chk_tz(x)</code></td>
+<td align="left"><code>is.character(x) &amp;&amp; length(x) == 1L &amp;&amp; !anyNA(x) &amp;&amp; x %in% OlsonNames()</code></td>
+</tr></tbody>
+</table>
+<div class="section level4">
+<h4 id="data-structure-checker">Data Structure Checker<a class="anchor" aria-label="anchor" href="#data-structure-checker"></a>
+</h4>
+<p>Check if the function input has a specific data structure.</p>
+<p>Vectors are a family of data types that come in two forms: atomic
+vectors and lists. When vectors consist of elements of the same data
+type, they can be considered atomic, matrices, or arrays. The elements
+in a list, however, can be of different types.</p>
+<p>To check if a function argument is a vector you can use
+<code><a href="../reference/chk_vector.html">chk_vector()</a></code>.</p>
+<table class="table">
+<colgroup>
+<col width="33%">
+<col width="66%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left"><code>chk_vector(x)</code></td>
+<td align="left"><code>is.atomic(x) &amp;&amp; !is.matrix(x) &amp;&amp; !is.array(x)) || is.list(x)</code></td>
+</tr></tbody>
+</table>
+<p>Pay attention that <code><a href="../reference/chk_vector.html">chk_vector()</a></code> and
+<code><a href="../reference/chk_vector.html">vld_vector()</a></code> are different from <code><a href="https://rdrr.io/r/base/vector.html" class="external-link">is.vector()</a></code>,
+that will return FALSE if the vector has any attributes except
+names.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">is.vector</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_vector.html">vld_vector</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"a"</span> <span class="op">=</span> <span class="fl">10</span>, <span class="st">"b"</span> <span class="op">=</span> <span class="fl">20</span>, <span class="st">"c"</span> <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">is.vector</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_vector.html">vld_vector</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left"><code>chk_atomic(x)</code></td>
+<td align="left"><code>is.atomic(x)</code></td>
+</tr></tbody>
+</table>
+<p>Notice that <code>is.atomic</code> is true for the types logical,
+integer, numeric, complex, character and raw. Also, it is TRUE for
+NULL.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/is.recursive.html" class="external-link">is.atomic</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_vector.html">vld_vector</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/is.recursive.html" class="external-link">is.atomic</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_vector.html">vld_vector</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+<p>The dimension attribute converts vectors into matrices and
+arrays.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>chk_array(x)</code></td>
+<td align="left"><code>is.array(x)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>chk_matrix(x)</code></td>
+<td align="left"><code>is.matrix(x)</code></td>
+</tr>
+</tbody>
+</table>
+<p>When a vector is composed by heterogeneous data types, can be a list.
+Data frames are among the most important S3 vectors, constructed on top
+of lists.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>chk_list(x)</code></td>
+<td align="left"><code><a href="https://rdrr.io/r/base/list.html" class="external-link">is.list()</a></code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>chk_data(x)</code></td>
+<td align="left"><code>inherits(x, "data.frame")</code></td>
+</tr>
+</tbody>
+</table>
+<p>Be careful not to confuse the function <code>chk_data</code> with
+<code>check_data</code>. Please read the <code>check_</code> functions
+section below and the function documentation.</p>
+</div>
+</div>
+<div class="section level3">
+<h3 id="data-type-checkers">Data Type Checkers<a class="anchor" aria-label="anchor" href="#data-type-checkers"></a>
+</h3>
+<p>Check if the function input has a data type. You can use the function
+<code><a href="https://rdrr.io/r/base/typeof.html" class="external-link">typeof()</a></code> to confirm the data type.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>chk_environment(x)</code></td>
+<td align="left"><code>is.environment(x)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>chk_logical(x)</code></td>
+<td align="left"><code>is.logical(x)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>chk_character(x)</code></td>
+<td align="left"><code>is.character(x)</code></td>
+</tr>
+</tbody>
+</table>
+<p>For numbers there are three functions. R differentiates between
+doubles (<code><a href="../reference/chk_double.html">chk_double()</a></code>) and integers
+(<code><a href="../reference/chk_integer.html">chk_integer()</a></code>). You can also use the generic function
+<code><a href="../reference/chk_numeric.html">chk_numeric()</a></code>, which will detect both.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>chk_numeric(x)</code></td>
+<td align="left"><code>is.numeric(x)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>chk_double(x)</code></td>
+<td align="left"><code>is.double(x)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>chk_integer(x)</code></td>
+<td align="left"><code>is.integer(x)</code></td>
+</tr>
+</tbody>
+</table>
+<p>Consider that to explicitly create an integer in R, you need to use
+the suffix <code>L</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/chk_numeric.html">vld_numeric</a></span><span class="op">(</span><span class="fl">33</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/chk_double.html">vld_double</a></span><span class="op">(</span><span class="fl">33</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_integer.html">vld_integer</a></span><span class="op">(</span><span class="fl">33</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/chk_integer.html">vld_integer</a></span><span class="op">(</span><span class="fl">33L</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="whole-number-checkers">Whole Number Checkers<a class="anchor" aria-label="anchor" href="#whole-number-checkers"></a>
+</h3>
+<p>These functions accept whole numbers, whether they are explicitly
+integers or double types without fractional parts.</p>
+<table class="table">
+<colgroup>
+<col width="33%">
+<col width="66%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>chk_whole_numeric</code></td>
+<td align="left"><code>is.integer(x) || (is.double(x) &amp;&amp; vld_true(all.equal(x[!is.na(x)],  trunc(x[!is.na(x)]))))</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>chk_whole_number</code></td>
+<td align="left"><code>vld_number(x) &amp;&amp; (is.integer(x) || vld_true(all.equal(x, trunc(x))))</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>chk_count</code></td>
+<td align="left"><code>vld_whole_number(x) &amp;&amp; x &gt;= 0</code></td>
+</tr>
+</tbody>
+</table>
+<p>If you want to consider both 3.0 and 3L as integers, it is safer to
+use the function <code>chk_whole_numeric</code>. Here, <code>x</code> is
+valid if it’s an integer or a double that can be converted to an integer
+without changing its value.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Integer vector</span></span>
+<span><span class="fu"><a href="../reference/chk_whole_numeric.html">vld_whole_numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="fl">2L</span>, <span class="fl">3L</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="co"># Double vector representing whole numbers</span></span>
+<span><span class="fu"><a href="../reference/chk_whole_numeric.html">vld_whole_numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.0</span>, <span class="fl">2.0</span>, <span class="fl">3.0</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="co"># Double vector with fractional numbers</span></span>
+<span><span class="fu"><a href="../reference/chk_whole_numeric.html">vld_whole_numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.0</span>, <span class="fl">2.2</span>, <span class="fl">3.0</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+<p>The function <code>chk_whole_number</code> is similar to
+<code>chk_whole_numeric</code>. <code>chk_whole_number</code> checks if
+the number is of <code>length(x) == 1L</code></p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Integer vector</span></span>
+<span><span class="fu"><a href="../reference/chk_whole_numeric.html">vld_whole_numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="fl">2L</span>, <span class="fl">3L</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_whole_number.html">vld_whole_number</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="fl">2L</span>, <span class="fl">3L</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_whole_number.html">vld_whole_number</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1L</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<p><code><a href="../reference/chk_count.html">chk_count()</a></code> is a special case of
+<code>chk_whole_number</code>, differing in that it ensures values are
+non-negative whole numbers.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Positive integer</span></span>
+<span><span class="fu"><a href="../reference/chk_count.html">vld_count</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="co">#TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co"># Zero</span></span>
+<span><span class="fu"><a href="../reference/chk_count.html">vld_count</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co"># Negative number</span></span>
+<span><span class="fu"><a href="../reference/chk_count.html">vld_count</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="co"># Non-whole number</span></span>
+<span><span class="fu"><a href="../reference/chk_count.html">vld_count</a></span><span class="op">(</span><span class="fl">2.5</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="factor-checker">Factor Checker<a class="anchor" aria-label="anchor" href="#factor-checker"></a>
+</h3>
+<p>Check if the function input is a factor</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>chk_factor</code></td>
+<td align="left"><code>is.factor(x)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>chk_character_or_factor</code></td>
+<td align="left"><code>is.character(x) || is.factor(x)</code></td>
+</tr>
+</tbody>
+</table>
+<p>Factors can be specially confusing for users, because despite they
+are displayed as characters are built in top of integer vectors.</p>
+<p><code>chk</code> provides the function
+<code><a href="../reference/chk_character_or_factor.html">chk_character_or_factor()</a></code> that allows detecting if the
+argument that the user is providing contains strings.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Factor with specified levels</span></span>
+<span></span>
+<span><span class="va">vector_fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"apple"</span>, <span class="st">"orange"</span>, <span class="st">"banana"</span>, <span class="st">"apple"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">factor_fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"apple"</span>, <span class="st">"orange"</span>, <span class="st">"banana"</span>, <span class="st">"apple"</span><span class="op">)</span>,</span>
+<span>                levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">is.factor</a></span><span class="op">(</span><span class="va">factor_fruits</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_factor.html">vld_factor</a></span><span class="op">(</span><span class="va">factor_fruits</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">is.character</a></span><span class="op">(</span><span class="va">factor_fruits</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_character.html">vld_character</a></span><span class="op">(</span><span class="va">factor_fruits</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/chk_character_or_factor.html">vld_character_or_factor</a></span><span class="op">(</span><span class="va">factor_fruits</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="all-elements-checkers">All Elements Checkers<a class="anchor" aria-label="anchor" href="#all-elements-checkers"></a>
+</h3>
+<p>Check if the function input has a characteristic shared by all its
+elements.</p>
+<p>If you want to apply any of the previously defined functions for
+<code>length(x) == 1L</code> to the elements of a vector, you can use
+<code><a href="../reference/chk_all.html">chk_all()</a></code>.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left"><code>chk_all(x, chk_fun, ...)</code></td>
+<td align="left"><code>all(vapply(x, chk_fun, TRUE, ...))</code></td>
+</tr></tbody>
+</table>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/chk_all.html">vld_all</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span>, <span class="va">chk_lgl</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="function-checker">Function Checker<a class="anchor" aria-label="anchor" href="#function-checker"></a>
+</h3>
+<p>Check if the function input is another function</p>
+<p><code>formals</code> refers to the count of the number of formal
+arguments</p>
+<table class="table">
+<colgroup>
+<col width="22%">
+<col width="77%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left"><code>chk_function</code></td>
+<td align="left"><code>is.function(x) &amp;&amp; (is.null(formals) || length(formals(x)) == formals)</code></td>
+</tr></tbody>
+</table>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/chk_function.html">vld_function</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span>, formals <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_function.html">vld_function</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="va">x</span> <span class="op">+</span> <span class="va">y</span>, formals <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_function.html">vld_function</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="va">x</span> <span class="op">+</span> <span class="va">y</span>, formals <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="name-checkers">Name Checkers<a class="anchor" aria-label="anchor" href="#name-checkers"></a>
+</h3>
+<p>Check if the function input has names and are valid
+<code>chk_named</code> function works with vectors, lists, data frames,
+and matrices that have named columns or rows. Do not confuse with
+<code>check_names</code>.</p>
+<p><code>chk_valid_name</code> function specifically designed to check
+if the elements of a character vector are valid R names. If you want to
+know what is considered a valid name, please refer to the documentation
+for the <code>make.names</code> function.</p>
+<table class="table">
+<colgroup>
+<col width="40%">
+<col width="60%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>chk_named(x)</code></td>
+<td align="left"><code>!is.null(names(x))</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>chk_valid_name(x)</code></td>
+<td align="left"><code>identical(make.names(x[!is.na(x)]), as.character(x[!is.na(x)]))</code></td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="../reference/chk_valid_name.html">vld_valid_name</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"name1"</span>, <span class="cn">NA</span>, <span class="st">"name_2"</span>, <span class="st">"validName"</span><span class="op">)</span><span class="op">)</span>  <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_valid_name.html">vld_valid_name</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>  <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/chk_named.html">vld_named</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, b <span class="op">=</span> <span class="fl">6</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span>  <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_named.html">vld_named</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_named.html">vld_named</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE </span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_named.html">vld_named</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE </span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="range-checkers">Range Checkers<a class="anchor" aria-label="anchor" href="#range-checkers"></a>
+</h3>
+<p>Check if the function input is part of a range of values. The
+function input should be numeric.</p>
 <table class="table">
 <colgroup>
 <col width="33%">
@@ -187,9 +747,17 @@ space, the <code>x_name = NULL</code> argument is not shown.</p>
 </tbody>
 </table>
 </div>
-<div class="section level2">
-<h2 id="check-equals">Check Equals<a class="anchor" aria-label="anchor" href="#check-equals"></a>
-</h2>
+<div class="section level3">
+<h3 id="equal-checkers">Equal Checkers<a class="anchor" aria-label="anchor" href="#equal-checkers"></a>
+</h3>
+<p>Check if the function input is equal or similar to a predefined
+object.</p>
+<p>The functions <code><a href="../reference/chk_identical.html">chk_identical()</a></code>, <code><a href="../reference/chk_equal.html">chk_equal()</a></code>,
+and <code><a href="../reference/chk_equivalent.html">chk_equivalent()</a></code> are used to compare two objects, but
+they differ in how strict the comparison is.</p>
+<p><code>chk_equal</code> and <code>chk_equivalent</code>checks if x and
+y are numerically equivalent within a specified tolerance, but
+<code>chk_equivalent</code> ignores differences in attributes.</p>
 <table class="table">
 <colgroup>
 <col width="60%">
@@ -214,14 +782,12 @@ space, the <code>x_name = NULL</code> argument is not shown.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section level2">
-<h2 id="check-alls">Check Alls<a class="anchor" aria-label="anchor" href="#check-alls"></a>
-</h2>
+<p>In the case you want to compare the elements of a vector, you can use
+the <code>check_all_*</code> functions.</p>
 <table class="table">
 <colgroup>
-<col width="33%">
-<col width="66%">
+<col width="50%">
+<col width="50%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">Function</th>
@@ -229,115 +795,262 @@ space, the <code>x_name = NULL</code> argument is not shown.</p>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>chk_all(x, chk_fun, ...)</code></td>
-<td align="left"><code>all(vapply(x, chk_fun, TRUE, ...))</code></td>
-</tr>
-<tr class="even">
 <td align="left"><code>chk_all_identical(x)</code></td>
 <td align="left"><code>length(x) &lt; 2L || all(vapply(x, vld_identical, TRUE, y = x[[1]]))</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>chk_all_equal(x, tolerance = sqrt(.Machine$double.eps))</code></td>
 <td align="left"><code>length(x) &lt; 2L || all(vapply(x, vld_equal, TRUE, y = x[[1]], tolerance = tolerance))</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>chk_all_equivalent(x, tolerance = sqrt(.Machine$double.eps))</code></td>
 <td align="left"><code>length(x) &lt; 2L || all(vapply(x, vld_equivalent, TRUE, y = x[[1]], tolerance = tolerance))</code></td>
 </tr>
 </tbody>
 </table>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/chk_all_identical.html">vld_all_identical</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_all_identical.html">vld_all_identical</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_identical.html">vld_identical</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/chk_all_equal.html">vld_all_equal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.12</span>, <span class="fl">0.13</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_all_equal.html">vld_all_equal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.12</span>, <span class="fl">0.13</span><span class="op">)</span>, tolerance <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_equal.html">vld_equal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.12</span>, <span class="fl">0.13</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.12</span>, <span class="fl">0.13</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_equal.html">vld_equal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.12</span>, <span class="fl">0.13</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.12</span>, <span class="fl">0.4</span><span class="op">)</span>, tolerance <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.12</span>, <span class="fl">0.13</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">y</span>, <span class="st">"label"</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"Numbers"</span></span>
+<span><span class="fu"><a href="../reference/chk_equal.html">vld_equal</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, tolerance <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_equivalent.html">vld_equivalent</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, tolerance <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="check-set">Check Set<a class="anchor" aria-label="anchor" href="#check-set"></a>
-</h2>
+<div class="section level3">
+<h3 id="order-checker">Order Checker<a class="anchor" aria-label="anchor" href="#order-checker"></a>
+</h3>
+<p>Check if the function input are numbers in increasing order
+<code>chk_sorted</code> function checks if <code>x</code> is sorted in
+non-decreasing order, ignoring any NA values.</p>
 <table class="table">
-<colgroup>
-<col width="33%">
-<col width="66%">
-</colgroup>
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left"><code>chk_sorted(x)</code></td>
+<td align="left"><code>!is.unsorted(x, na.rm = TRUE)</code></td>
+</tr></tbody>
+</table>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Checking if sorted</span></span>
+<span><span class="fu"><a href="../reference/chk_sorted.html">vld_sorted</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="cn">NA</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span>  <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_sorted.html">vld_sorted</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span>  <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="set-checkers">Set Checkers<a class="anchor" aria-label="anchor" href="#set-checkers"></a>
+</h3>
+<p>Check if the function input is composed by certain elements</p>
+<p>The <code>setequal</code> function in R is used to check if two
+vectors contain exactly the same elements, regardless of the order or
+number of repetitions.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left"><code>chk_setequal(x, values)</code></td>
+<td align="left"><code>setequal(x, values)</code></td>
+</tr></tbody>
+</table>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/chk_setequal.html">vld_setequal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_setequal.html">vld_setequal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_setequal.html">vld_setequal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_setequal.html">vld_setequal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<p>First, the <code>%in%</code> function is used to check whether the
+elements of a vector <code>x</code> are present in a specified set of
+values. This returns a logical vector, which is then simplified by
+<code><a href="https://rdrr.io/r/base/all.html" class="external-link">all()</a></code>. The <code><a href="https://rdrr.io/r/base/all.html" class="external-link">all()</a></code> function checks if all values
+in the vector are TRUE. If the result is TRUE, it indicates that for
+<code>vld_</code> and <code><a href="../reference/chk_subset.html">chk_subset()</a></code>, all elements in the
+<code>x</code> vector are present in <code>values</code>. Similarly, for
+<code>vld_</code> and <code><a href="../reference/chk_superset.html">chk_superset()</a></code>, it indicates that all
+elements of <code>values</code> are present in <code>x</code>.</p>
+<table class="table">
 <thead><tr class="header">
 <th align="left">Function</th>
 <th align="left">Code</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>chk_setequal(x, values)</code></td>
-<td align="left"><code>setequal(x, values)</code></td>
-</tr>
-<tr class="even">
 <td align="left"><code>chk_subset(x, values)</code></td>
 <td align="left"><code>all(x %in% values)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>chk_not_subset(x, values)</code></td>
+<td align="left"><code>!any(x %in% values) || !length(x)</code></td>
 </tr>
 <tr class="odd">
 <td align="left"><code>chk_superset(x, values)</code></td>
 <td align="left"><code>all(values %in% x)</code></td>
 </tr>
-<tr class="even">
-<td align="left"><code>chk_join(x, y, by)</code></td>
-<td align="left"><code>identical(nrow(x), nrow(merge(x, unique(y[if (is.null(names(by))) by else names(by)]), by = by)))</code></td>
-</tr>
 </tbody>
 </table>
-</div>
-<div class="section level2">
-<h2 id="check-is">Check Is<a class="anchor" aria-label="anchor" href="#check-is"></a>
-</h2>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># When both function inputs have the same elements,</span></span>
+<span><span class="co"># all functions return TRUE</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/chk_setequal.html">vld_setequal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_subset.html">vld_subset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_superset.html">vld_superset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/chk_setequal.html">vld_setequal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_subset.html">vld_subset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_superset.html">vld_superset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="co"># When there are elements present in one vector but not the other,</span></span>
+<span><span class="co"># `vld_setequal()` will return FALSE</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/chk_setequal.html">vld_setequal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_setequal.html">vld_setequal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span></span>
+<span><span class="co"># When some elements of the `x` input are not present in `values`,</span></span>
+<span><span class="co"># `vld_subset()` returns FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_subset.html">vld_subset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_superset.html">vld_superset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="co"># When some elements of the `values` input are not present in `x`,</span></span>
+<span><span class="co"># `vld_superset()` returns FALSE</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/chk_subset.html">vld_subset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_superset.html">vld_superset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span></span>
+<span><span class="co"># An empty set is considered a subset of any set, and any set is a superset of an empty set.</span></span>
+<span><span class="fu"><a href="../reference/chk_subset.html">vld_subset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span><span class="op">)</span><span class="op">)</span>  <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_superset.html">vld_superset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>  <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<p><code><a href="../reference/chk_orderset.html">chk_orderset()</a></code> validate whether a given set of
+<code>values</code> in a vector x matches a specified set of allowed
+<code>values</code> (represented by <code>values</code>) while
+preserving the order of those values.</p>
 <table class="table">
 <colgroup>
-<col width="33%">
-<col width="66%">
+<col width="50%">
+<col width="50%">
 </colgroup>
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left"><code>chk_orderset</code></td>
+<td align="left"><code>vld_equivalent(unique(x[x %in% values]), values[values %in% x])</code></td>
+</tr></tbody>
+</table>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/chk_setequal.html">vld_orderset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>,  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_setequal.html">vld_orderset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"B"</span>, <span class="st">"A"</span><span class="op">)</span>,  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_setequal.html">vld_orderset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"C"</span><span class="op">)</span>,  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="class-checkers">Class Checkers<a class="anchor" aria-label="anchor" href="#class-checkers"></a>
+</h3>
+<p>Check if the function input belongs to a class or type.</p>
+<p>These functions check if <code>x</code> is an S3 or S4 object of the
+specified class.</p>
+<table class="table">
 <thead><tr class="header">
 <th align="left">Function</th>
 <th align="left">Code</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>chk_atomic(x)</code></td>
-<td align="left"><code>is.atomic(x)</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>chk_function(x, formals = NULL)</code></td>
-<td align="left"><code>is.function(x) &amp;&amp; (is.null(formals) || length(formals(x)) == formals)</code></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>chk_numeric(x)</code></td>
-<td align="left"><code>is.numeric(x)</code></td>
-</tr>
-<tr class="even">
 <td align="left"><code>chk_s3_class(x, class)</code></td>
 <td align="left"><code>!isS4(x) &amp;&amp; inherits(x, class)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>chk_s4_class(x, class)</code></td>
 <td align="left"><code>isS4(x) &amp;&amp; methods::is(x, class)</code></td>
 </tr>
-<tr class="even">
-<td align="left"><code>chk_vector(x)</code></td>
-<td align="left"><code>is.vector(x)</code></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>chk_whole_numeric(x)</code></td>
-<td align="left"><code>is.integer(x) || (is.double(x) &amp;&amp; vld_true(all.equal(x, as.integer(x))))</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>chk_array(x)</code></td>
-<td align="left"><code>is.array(x)</code></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>chk_matrix(x)</code></td>
-<td align="left"><code>is.matrix(x)</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>chk_data(x)</code></td>
-<td align="left"><code>inherits(x, "data.frame")</code></td>
-</tr>
 </tbody>
 </table>
+<p><code><a href="../reference/chk_is.html">chk_is()</a></code> checks if x inherits from a specified class,
+regardless of whether it is an S3 or S4 object.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left"><code>chk_is(x, class)</code></td>
+<td align="left"><code>inherits(x, class)</code></td>
+</tr></tbody>
+</table>
 </div>
-<div class="section level2">
-<h2 id="check-typeof">Check Typeof<a class="anchor" aria-label="anchor" href="#check-typeof"></a>
-</h2>
+<div class="section level3">
+<h3 id="regex-checker">REGEX Checker<a class="anchor" aria-label="anchor" href="#regex-checker"></a>
+</h3>
+<p>Check if the function input matches a regular expression (REGEX).</p>
+<p><code>chk_match(x, regexp = ".+")</code> checks if the regular
+expression pattern specified by <code>regexp</code> matches all the
+non-missing values in the vector <code>x</code>. If <code>regexp</code>
+it is not specified by the user, <code>chk_match</code> checks whether
+all non-missing values in <code>x</code> contain at least one character
+(regexp = “.+”)</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left"><code>chk_match(x, regexp = ".+")</code></td>
+<td align="left"><code>all(grepl(regexp, x[!is.na(x)]))</code></td>
+</tr></tbody>
+</table>
+</div>
+<div class="section level3">
+<h3 id="quality-checkers-miscellaneous">Quality Checkers (Miscellaneous)<a class="anchor" aria-label="anchor" href="#quality-checkers-miscellaneous"></a>
+</h3>
+<p>Check if the function input meet some user defined quality
+criteria.</p>
+<p><code>chk_not_empty</code> function checks if the length of the
+object is not zero. For a data frame or matrix, the length corresponds
+to the number of elements (not rows or columns), while for a vector or
+list, it corresponds to the number of elements.</p>
+<p><code>chk_not_any_na</code> function checks if there are no NA values
+present in the entire object.</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Function</th>
@@ -345,103 +1058,32 @@ space, the <code>x_name = NULL</code> argument is not shown.</p>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>chk_environment(x)</code></td>
-<td align="left"><code>is.environment(x)</code></td>
+<td align="left"><code>chk_not_empty(x)</code></td>
+<td align="left"><code>length(x) != 0L</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>chk_list(x)</code></td>
-<td align="left"><code>is.list(x)</code></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>chk_logical(x)</code></td>
-<td align="left"><code>is.logical(x)</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>chk_double(x)</code></td>
-<td align="left"><code>is.double(x)</code></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>chk_integer(x)</code></td>
-<td align="left"><code>is.integer(x)</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>chk_character(x)</code></td>
-<td align="left"><code>is.character(x)</code></td>
+<td align="left"><code>chk_not_any_na(x)</code></td>
+<td align="left"><code>!anyNA(x)</code></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section level2">
-<h2 id="check-nulls">Check NULLs<a class="anchor" aria-label="anchor" href="#check-nulls"></a>
-</h2>
-<table class="table">
-<thead><tr class="header">
-<th align="left">Function</th>
-<th align="left">Code</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left"><code>chk_null(x)</code></td>
-<td align="left"><code>is.null(x)</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>chk_not_null(x)</code></td>
-<td align="left"><code>!is.null(x)</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section level2">
-<h2 id="check-ellipsis">Check Ellipsis<a class="anchor" aria-label="anchor" href="#check-ellipsis"></a>
-</h2>
-<table class="table">
-<thead><tr class="header">
-<th align="left">Function</th>
-<th align="left">Code</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left"><code>chk_used(...)</code></td>
-<td align="left"><code>length(list(...)) != 0L</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>chk_unused(...)</code></td>
-<td align="left"><code>length(list(...)) == 0L</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section level2">
-<h2 id="check-files">Check Files<a class="anchor" aria-label="anchor" href="#check-files"></a>
-</h2>
-<table class="table">
-<colgroup>
-<col width="33%">
-<col width="66%">
-</colgroup>
-<thead><tr class="header">
-<th align="left">Function</th>
-<th align="left">Code</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left"><code>chk_file(x)</code></td>
-<td align="left"><code>vld_string(x) &amp;&amp; file.exists(x) &amp;&amp; !dir.exists(x)</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>chk_ext(x, ext)</code></td>
-<td align="left"><code>vld_string(x) &amp;&amp; vld_subset(tools::file_ext(x), ext)</code></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>chk_dir(x)</code></td>
-<td align="left"><code>vld_string(x) &amp;&amp; dir.exists(x)</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section level2">
-<h2 id="check-miscellaneous">Check Miscellaneous<a class="anchor" aria-label="anchor" href="#check-miscellaneous"></a>
-</h2>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/chk_not_empty.html">vld_not_empty</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_not_empty.html">vld_not_empty</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_not_empty.html">vld_not_empty</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_not_empty.html">vld_not_empty</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, b <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/chk_not_any_na.html">vld_not_any_na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, b <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_not_any_na.html">vld_not_any_na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="cn">NA</span>, <span class="fl">3</span><span class="op">)</span>, b <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+<p>The <code><a href="../reference/chk_unique.html">chk_unique()</a></code> function is designed to verify that
+there are no duplicates elements in a vector.</p>
 <table class="table">
 <colgroup>
 <col width="40%">
@@ -451,42 +1093,174 @@ space, the <code>x_name = NULL</code> argument is not shown.</p>
 <th align="left">Function</th>
 <th align="left">Code</th>
 </tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left"><code>chk_match(x, regexp = ".+")</code></td>
-<td align="left"><code>all(grepl(regexp, x[!is.na(x)]))</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>chk_named(x)</code></td>
-<td align="left"><code>!is.null(names(x))</code></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>chk_not_empty(x)</code></td>
-<td align="left"><code>length(x) != 0L</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>chk_not_any_na(x)</code></td>
-<td align="left"><code>!anyNA(x)</code></td>
-</tr>
-<tr class="odd">
+<tbody><tr class="odd">
 <td align="left"><code>chk_unique(x, incomparables = FALSE)</code></td>
 <td align="left"><code>!anyDuplicated(x, incomparables = incomparables)</code></td>
+</tr></tbody>
+</table>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/chk_unique.html">vld_unique</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_unique.html">vld_unique</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+<p>The function <code>chk_length</code> checks whether the length of
+<code>x</code> is within a specified range. It ensures that the length
+is at least equal to <code>length</code> and no more than
+<code>upper</code>. It can be used with vectors, lists and data
+frames.</p>
+<table class="table">
+<colgroup>
+<col width="40%">
+<col width="60%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left"><code>chk_length(x, length = 1L, upper = length)</code></td>
+<td align="left"><code>length(x) &gt;= length &amp;&amp; length(x) &lt;= upper</code></td>
+</tr></tbody>
+</table>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">2</span>, upper <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>  <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>  <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span>, c <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">2</span>, upper <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span>, c <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span></span>
+<span><span class="co"># 2 columns</span></span>
+<span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, y <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">1</span>, upper <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>  <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, y <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>  <span class="co"># FALSE    </span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span></span>
+<span><span class="co"># length of NULL is 0</span></span>
+<span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="cn">NULL</span>, length <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="cn">NULL</span>, length <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+<p>Another useful function is <code>chk_compatible_lenghts()</code>.
+This function helps to check vectors could be ‘strictly recycled’.</p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/chk_compatible_lengths.html">vld_compatible_lengths</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">2</span></span>
+<span><span class="fu"><a href="../reference/chk_compatible_lengths.html">vld_compatible_lengths</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span></span>
+<span><span class="fu"><a href="../reference/chk_compatible_lengths.html">vld_compatible_lengths</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span><span class="fu"><a href="../reference/chk_compatible_lengths.html">vld_compatible_lengths</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span></span>
+<span><span class="fu"><a href="../reference/chk_compatible_lengths.html">vld_compatible_lengths</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span></span>
+<span><span class="fu"><a href="../reference/chk_compatible_lengths.html">vld_compatible_lengths</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+<p>The <code><a href="../reference/chk_join.html">chk_join()</a></code> function is designed to validate whether
+the number of rows in the resulting data frame from merging two data
+frames (<code>x</code> and <code>y</code>) is equal to the number of
+rows in the first data frame (<code>x</code>). This is useful when you
+want to ensure that a join operation does not change the number of rows
+in your main data frame.</p>
+<table class="table">
+<colgroup>
+<col width="40%">
+<col width="60%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Code</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left"><code>chk_join(x, y, by)</code></td>
+<td align="left"><code>identical(nrow(x), nrow(merge(x, unique(y[if (is.null(names(by))) by else names(by)]), by = by)))</code></td>
+</tr></tbody>
+</table>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, value_x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, value_y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"D"</span>, <span class="st">"E"</span>, <span class="st">"F"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/chk_join.html">vld_join</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="co"># Perform a join that reduces the number of rows </span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>, value_y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"D"</span>, <span class="st">"E"</span>, <span class="st">"F"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/chk_join.html">vld_join</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="check_-functions">
+<code>check_</code> functions<a class="anchor" aria-label="anchor" href="#check_-functions"></a>
+</h2>
+<p>The <code>check_</code> functions combine several <code>chk_</code>
+functions internally. Read the documentation for each function to learn
+more about its specific use.</p>
+<table class="table">
+<colgroup>
+<col width="40%">
+<col width="60%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Function</th>
+<th align="left">Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>check_values(x, values)</code></td>
+<td align="left">Checks values and S3 class of an atomic object.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>chk_sorted(x)</code></td>
-<td align="left"><code>is.unsorted(x)</code></td>
+<td align="left"><code>check_key(x, key = character(0), na_distinct = FALSE)</code></td>
+<td align="left">Checks if columns have unique rows.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>check_data(x, values, exclusive, order, nrow, key)</code></td>
+<td align="left">Checks column names, values, number of rows and key for
+a data.frame.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>check_dim(x, dim, values, dim_name)</code></td>
+<td align="left">Checks dimension of an object.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>check_dirs(x, exists)</code></td>
+<td align="left">Checks if all directories exist (or if exists = FALSE
+do not exist as directories or files).</td>
+</tr>
+<tr class="even">
+<td align="left"><code>check_files(x, exists)</code></td>
+<td align="left">Checks if all files exist (or if exists = FALSE do not
+exist as files or directories).</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>check_names(x, names, exclusive, order)</code></td>
+<td align="left">Checks the names of an object.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section level2">
-<h2 id="check">Check<a class="anchor" aria-label="anchor" href="#check"></a>
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<p><strong>Function</strong><br><code>check_data(x, values = NULL, exclusive = FALSE, order = FALSE, nrow = numeric(0), key = character(0))</code></p>
-<p><code>check_dim(x, dim = length, values = numeric(0), dim_name = NULL)</code></p>
-<p><code>check_key(x, key = character(0), na_distinct = FALSE)</code></p>
-<p><code>check_names(x, names = character(0), exclusive = FALSE, order = FALSE)</code></p>
-<p><code>check_values(x, values)</code></p>
+<p>Wickham, H. (2019). Advanced R, Second Edition (2nd ed.). Chapman and
+Hall/CRC. <a href="https://doi.org/10.1201/9781351201315" class="external-link uri">https://doi.org/10.1201/9781351201315</a></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
