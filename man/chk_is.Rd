@@ -41,16 +41,15 @@ vld_is(numeric(0), "numeric")
 vld_is(1L, "double")
 }
 \seealso{
-Other chk_is: 
-\code{\link{chk_array}()},
-\code{\link{chk_atomic}()},
+\code{\link[=inherits]{inherits()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other id_checkers: 
 \code{\link{chk_data}()},
-\code{\link{chk_function}()},
-\code{\link{chk_matrix}()},
-\code{\link{chk_numeric}()},
 \code{\link{chk_s3_class}()},
-\code{\link{chk_s4_class}()},
-\code{\link{chk_vector}()},
-\code{\link{chk_whole_numeric}()}
+\code{\link{chk_s4_class}()}
 }
-\concept{chk_is}
+\concept{id_checkers}

@@ -42,9 +42,25 @@ chk_all_equivalent(list(c(x = 1), c(y = 1)))
 vld_all_equivalent(c(x = 1, y = 1))
 }
 \seealso{
-Other chk_alls: 
+\code{\link[=length]{length()}}
+
+\code{\link[=vld_equivalent]{vld_equivalent()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other equal_checkers: 
+\code{\link{chk_all_equal}()},
+\code{\link{chk_all_identical}()},
+\code{\link{chk_equal}()},
+\code{\link{chk_equivalent}()},
+\code{\link{chk_identical}()}
+
+Other all_checkers: 
 \code{\link{chk_all}()},
 \code{\link{chk_all_equal}()},
 \code{\link{chk_all_identical}()}
 }
-\concept{chk_alls}
+\concept{all_checkers}
+\concept{equal_checkers}

@@ -29,6 +29,9 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 Checks if all values in values using
 
 \code{all(x \%in\% values)}
+
+Pay attention to the order of the arguments \code{value} and \code{x}
+in this function compared to \code{\link[=chk_superset]{chk_superset()}}
 }
 \section{Functions}{
 \itemize{
@@ -51,11 +54,16 @@ vld_subset(1, 1:10)
 vld_subset(11, 1:10)
 }
 \seealso{
-Other chk_set: 
-\code{\link{chk_join}()},
+\code{\link[=all]{all()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other set_checkers: 
 \code{\link{chk_not_subset}()},
 \code{\link{chk_orderset}()},
 \code{\link{chk_superset}()},
 \code{\link{vld_orderset}()}
 }
-\concept{chk_set}
+\concept{set_checkers}

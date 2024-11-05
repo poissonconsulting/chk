@@ -8,7 +8,14 @@
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_is
+#' @family function_checkers
+#' @family ellpisis_checkers
+#' @family missing_checkers
+#'
+#' @seealso [is.function()] [formals()]
+#' @seealso For more details about the use of this function,
+#' please read the article
+#' \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 #'
 #' @examples
 #' # chk_function

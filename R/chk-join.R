@@ -7,7 +7,11 @@
 #' @param y A data.frame with columns in by.
 #' @inherit params return
 #'
-#' @family chk_set
+#' @family misc_checkers
+#'
+#' @seealso For more details about the use of this function,
+#' please read the article
+#' \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 #'
 #' @examples
 #' # chk_join

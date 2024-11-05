@@ -9,10 +9,20 @@
 #'
 #' **Fail**: `logical(0)`, `c(TRUE, TRUE)`, `"TRUE"`, `1`, `NA`.
 #'
+#' Do not confuse this function with [chk_lgl()],
+#' which also checks for logical scalars of `length(x) == 1`
+#' but can include `NA`s.
+#'
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_logical
+#' @family logical_checkers
+#' @family scalar_checkers
+#'
+#' @seealso [is.logical()] [length()]
+#' @seealso For more details about the use of this function,
+#' please read the article
+#' \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 #'
 #' @examples
 #' # chk_flag

@@ -9,7 +9,13 @@
 #' @inherit params return
 #' @return The `chk_` function throws an informative error if the test fails.
 #'
-#' @family chk_ellipsis
+#' @family ellipsis_checkers
+#'
+#' @seealso [length()]
+#'
+#' @seealso For more details about the use of this function,
+#' please read the article
+#' \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 #'
 #' @examples
 #' # chk_unused

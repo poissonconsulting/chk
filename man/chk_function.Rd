@@ -43,16 +43,16 @@ vld_function(1)
 vld_function(list(1))
 }
 \seealso{
-Other chk_is: 
-\code{\link{chk_array}()},
-\code{\link{chk_atomic}()},
-\code{\link{chk_data}()},
-\code{\link{chk_is}()},
-\code{\link{chk_matrix}()},
-\code{\link{chk_numeric}()},
-\code{\link{chk_s3_class}()},
-\code{\link{chk_s4_class}()},
-\code{\link{chk_vector}()},
-\code{\link{chk_whole_numeric}()}
+\code{\link[=is.function]{is.function()}} \code{\link[=formals]{formals()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other missing_checkers: 
+\code{\link{chk_missing}()},
+\code{\link{chk_not_missing}()}
 }
-\concept{chk_is}
+\concept{ellpisis_checkers}
+\concept{function_checkers}
+\concept{missing_checkers}

@@ -24,6 +24,10 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 Checks if logical using
 
 \code{is.logical(x)}
+
+If you want to check if it is a scalar,
+meaning that in addition to being of logical type,
+it has \code{length(x) == 1}, you should use \code{\link[=chk_lgl]{chk_lgl()}}
 }
 \section{Functions}{
 \itemize{
@@ -43,14 +47,25 @@ vld_logical(1)
 vld_logical("TRUE")
 }
 \seealso{
-Other chk_typeof: 
+\code{\link[=is.logical]{is.logical()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other logical_checkers: 
+\code{\link{chk_false}()},
+\code{\link{chk_flag}()},
+\code{\link{chk_lgl}()},
+\code{\link{chk_true}()}
+
+Other data_type_checkers: 
 \code{\link{chk_character}()},
 \code{\link{chk_character_or_factor}()},
-\code{\link{chk_count}()},
 \code{\link{chk_double}()},
 \code{\link{chk_environment}()},
-\code{\link{chk_factor}()},
 \code{\link{chk_integer}()},
-\code{\link{chk_list}()}
+\code{\link{chk_numeric}()}
 }
-\concept{chk_typeof}
+\concept{data_type_checkers}
+\concept{logical_checkers}

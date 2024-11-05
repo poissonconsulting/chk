@@ -56,12 +56,25 @@ vld_date_time("2001-01-02")
 vld_date_time(c(Sys.time(), Sys.time()))
 }
 \seealso{
-Other chk_scalars: 
+\code{\link[=inherits]{inherits()}}, \code{\link[=length]{length()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other scalar_checkers: 
+\code{\link{chk_count}()},
 \code{\link{chk_date}()},
-\code{\link{chk_number}()},
+\code{\link{chk_false}()},
+\code{\link{chk_flag}()},
+\code{\link{chk_lgl}()},
 \code{\link{chk_scalar}()},
 \code{\link{chk_string}()},
-\code{\link{chk_tz}()},
-\code{\link{chk_whole_number}()}
+\code{\link{chk_true}()},
+\code{\link{chk_tz}()}
+
+Other datetime_checkers: 
+\code{\link{chk_date}()}
 }
-\concept{chk_scalars}
+\concept{datetime_checkers}
+\concept{scalar_checkers}

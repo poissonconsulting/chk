@@ -28,6 +28,10 @@ Checks if non-missing logical scalar using
 \strong{Pass}: \code{TRUE}, \code{FALSE}.
 
 \strong{Fail}: \code{logical(0)}, \code{c(TRUE, TRUE)}, \code{"TRUE"}, \code{1}, \code{NA}.
+
+Do not confuse this function with \code{\link[=chk_lgl]{chk_lgl()}},
+which also checks for logical scalars of \code{length(x) == 1}
+but can include \code{NA}s.
 }
 \section{Functions}{
 \itemize{
@@ -43,9 +47,28 @@ vld_flag(TRUE)
 vld_flag(1)
 }
 \seealso{
-Other chk_logical: 
+\code{\link[=is.logical]{is.logical()}} \code{\link[=length]{length()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other logical_checkers: 
 \code{\link{chk_false}()},
 \code{\link{chk_lgl}()},
+\code{\link{chk_logical}()},
 \code{\link{chk_true}()}
+
+Other scalar_checkers: 
+\code{\link{chk_count}()},
+\code{\link{chk_date}()},
+\code{\link{chk_date_time}()},
+\code{\link{chk_false}()},
+\code{\link{chk_lgl}()},
+\code{\link{chk_scalar}()},
+\code{\link{chk_string}()},
+\code{\link{chk_true}()},
+\code{\link{chk_tz}()}
 }
-\concept{chk_logical}
+\concept{logical_checkers}
+\concept{scalar_checkers}

@@ -8,7 +8,17 @@
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_scalars
+#' @family tz_checkers
+#' @family date_checkers
+#' @family scalar_checkers
+#'
+#' @seealso [length()]
+#' @seealso [OlsonNames()]
+#' @seealso [is.character()]
+#'
+#' @seealso For more details about the use of this function,
+#' please read the article
+#' \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 #'
 #' @examples
 #' chk_tz("UTC")

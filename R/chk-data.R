@@ -5,10 +5,19 @@
 #'
 #' `inherits(x, "data.frame")`
 #'
+#' Note that there is a similar function, [check_data()], which checks
+#' the column names, values, number of rows, and keys of a data.frame.
+#'
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_is
+#' @family id_checkers
+#'
+#' @seealso [inherits()]
+#'
+#' @seealso For more details about the use of this function,
+#' please read the article
+#' \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 #'
 #' @examples
 #' # chk_data

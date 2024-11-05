@@ -43,8 +43,19 @@ chk_equivalent(c(x = 1), c(y = 1))
 vld_equivalent(c(x = 1), c(y = 1L))
 }
 \seealso{
-Other chk_equals: 
+\code{\link[=vld_true]{vld_true()}}
+
+\code{\link[=all.equal]{all.equal()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other equal_checkers: 
+\code{\link{chk_all_equal}()},
+\code{\link{chk_all_equivalent}()},
+\code{\link{chk_all_identical}()},
 \code{\link{chk_equal}()},
 \code{\link{chk_identical}()}
 }
-\concept{chk_equals}
+\concept{equal_checkers}

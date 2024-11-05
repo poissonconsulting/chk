@@ -5,11 +5,18 @@
 #'
 #' `is.integer(x) || (is.double(x) && vld_true(all.equal(x, as.integer(x))))`
 #'
-#'
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_is
+#' @family whole_number_checkers
+#'
+#' @seealso [is.integer()]
+#' @seealso [is.double()]
+#' @seealso [vld_true()]
+#' @seealso [all.equal()]
+#' @seealso For more details about the use of this function,
+#' please read the article
+#' \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 #'
 #' @examples
 #' # chk_whole_numeric

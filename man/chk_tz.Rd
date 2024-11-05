@@ -37,12 +37,27 @@ vld_tz("UTC")
 vld_tz("TCU")
 }
 \seealso{
-Other chk_scalars: 
+\code{\link[=length]{length()}}
+
+\code{\link[=OlsonNames]{OlsonNames()}}
+
+\code{\link[=is.character]{is.character()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other scalar_checkers: 
+\code{\link{chk_count}()},
 \code{\link{chk_date}()},
 \code{\link{chk_date_time}()},
-\code{\link{chk_number}()},
+\code{\link{chk_false}()},
+\code{\link{chk_flag}()},
+\code{\link{chk_lgl}()},
 \code{\link{chk_scalar}()},
 \code{\link{chk_string}()},
-\code{\link{chk_whole_number}()}
+\code{\link{chk_true}()}
 }
-\concept{chk_scalars}
+\concept{date_checkers}
+\concept{scalar_checkers}
+\concept{tz_checkers}

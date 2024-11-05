@@ -24,6 +24,9 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 Checks if logical scalar using
 
 \code{is.logical(x) && length(x) == 1L}
+
+If you only want to check the data type (not whether \code{length(x) == 1}),
+you should use the \code{\link[=chk_logical]{chk_logical()}} function.
 }
 \section{Functions}{
 \itemize{
@@ -42,9 +45,30 @@ vld_lgl(1)
 vld_lgl(c(TRUE, TRUE))
 }
 \seealso{
-Other chk_logical: 
+\code{\link[=is.logical]{is.logical()}}
+
+\code{\link[=length]{length()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other logical_checkers: 
 \code{\link{chk_false}()},
 \code{\link{chk_flag}()},
+\code{\link{chk_logical}()},
 \code{\link{chk_true}()}
+
+Other scalar_checkers: 
+\code{\link{chk_count}()},
+\code{\link{chk_date}()},
+\code{\link{chk_date_time}()},
+\code{\link{chk_false}()},
+\code{\link{chk_flag}()},
+\code{\link{chk_scalar}()},
+\code{\link{chk_string}()},
+\code{\link{chk_true}()},
+\code{\link{chk_tz}()}
 }
-\concept{chk_logical}
+\concept{logical_checkers}
+\concept{scalar_checkers}

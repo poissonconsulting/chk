@@ -5,10 +5,20 @@
 #'
 #' `is.logical(x) && length(x) == 1L`
 #'
+#' If you only want to check the data type (not whether `length(x) == 1`),
+#' you should use the [chk_logical()] function.
+#'
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_logical
+#' @family logical_checkers
+#' @family scalar_checkers
+#'
+#' @seealso [is.logical()]
+#' @seealso [length()]
+#' @seealso For more details about the use of this function,
+#' please read the article
+#' \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 #'
 #' @examples
 #' # chk_lgl

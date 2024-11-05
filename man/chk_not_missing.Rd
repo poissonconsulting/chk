@@ -49,15 +49,14 @@ fun()
 fun(1)
 }
 \seealso{
-Other chk_misc: 
-\code{\link{chk_length}()},
-\code{\link{chk_match}()},
-\code{\link{chk_missing}()},
-\code{\link{chk_named}()},
-\code{\link{chk_not_any_na}()},
-\code{\link{chk_not_empty}()},
-\code{\link{chk_sorted}()},
-\code{\link{chk_unique}()},
-\code{\link{chk_valid_name}()}
+\code{\link[=missing]{missing()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other missing_checkers: 
+\code{\link{chk_function}()},
+\code{\link{chk_missing}()}
 }
-\concept{chk_misc}
+\concept{missing_checkers}

@@ -42,12 +42,12 @@ try(chk_number(TRUE))
 vld_number(1.1)
 }
 \seealso{
-Other chk_scalars: 
-\code{\link{chk_date}()},
-\code{\link{chk_date_time}()},
-\code{\link{chk_scalar}()},
-\code{\link{chk_string}()},
-\code{\link{chk_tz}()},
-\code{\link{chk_whole_number}()}
+\code{\link[=is.numeric]{is.numeric()}}
+
+\code{\link[=length]{length()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 }
-\concept{chk_scalars}
+\concept{data_type_checkers scalar_checkers}

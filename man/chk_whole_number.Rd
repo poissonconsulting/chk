@@ -42,12 +42,19 @@ try(chk_whole_number(1.1))
 vld_whole_number(2)
 }
 \seealso{
-Other chk_scalars: 
-\code{\link{chk_date}()},
-\code{\link{chk_date_time}()},
-\code{\link{chk_number}()},
-\code{\link{chk_scalar}()},
-\code{\link{chk_string}()},
-\code{\link{chk_tz}()}
+\code{\link[=is.integer]{is.integer()}}
+
+\code{\link[=vld_true]{vld_true()}}
+
+\code{\link[=vld_number]{vld_number()}}
+
+For more details about the use of this function,
+please read the article
+\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+
+Other whole_number_checkers: 
+\code{\link{chk_count}()},
+\code{\link{chk_whole_numeric}()}
 }
-\concept{chk_scalars}
+\concept{scalar_checker}
+\concept{whole_number_checkers}
