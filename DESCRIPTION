@@ -8,6 +8,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-1416-3412")),
     person("Ayla", "Pearson", role = "aut",
            comment = c(ORCID = "0000-0001-7388-1222")),
+    person("Florencia", "D'Andrea", role = "ctb"),
     person("Nadine", "Hussein", , "nadine@poissonconsulting.ca", role = "ctb",
            comment = c(ORCID = "0000-0003-4470-8361")),
     person("Evan", "Amies-Galonski", , "evan@poissonconsulting.ca", role = "ctb",
