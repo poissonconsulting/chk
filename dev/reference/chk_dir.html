@@ -76,7 +76,12 @@ returns the original object if successful so it can used in pipes.</p>
 </ul></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>Other chk_files:
+    <div class="dont-index"><p><code><a href="chk_string.html">vld_string()</a></code></p>
+<p><code><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.exists()</a></code></p>
+<p>For more details about the use of this function,
+please read the article
+<a href="https://poissonconsulting.github.io/chk/articles/chk-families.html">chk families</a>.</p>
+<p>Other file_checkers:
 <code><a href="chk_ext.html">chk_ext</a>()</code>,
 <code><a href="chk_file.html">chk_file</a>()</code></p></div>
     </div>
@@ -87,7 +92,7 @@ returns the original object if successful so it can used in pipes.</p>
 <span class="r-in"><span><span class="fu">chk_dir</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">chk_dir</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir) : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   `tempfile()` must specify an existing directory ('/tmp/RtmpPUkrzL/file21ff552a0d19' can't be found).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   `tempfile()` must specify an existing directory ('/tmp/Rtmp6mv99x/file225b30937f95' can't be found).</span>
 <span class="r-in"><span><span class="co"># vld_dir</span></span></span>
 <span class="r-in"><span><span class="fu">vld_dir</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>

@@ -76,7 +76,13 @@ returns the original object if successful so it can used in pipes.</p>
 </ul></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>Other chk_files:
+    <div class="dont-index"><p><code><a href="chk_string.html">vld_string()</a></code></p>
+<p><code><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists()</a></code></p>
+<p><code><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.exists()</a></code></p>
+<p>For more details about the use of this function,
+please read the article
+<a href="https://poissonconsulting.github.io/chk/articles/chk-families.html">chk families</a>.</p>
+<p>Other file_checkers:
 <code><a href="chk_dir.html">chk_dir</a>()</code>,
 <code><a href="chk_ext.html">chk_ext</a>()</code></p></div>
     </div>
@@ -86,7 +92,7 @@ returns the original object if successful so it can used in pipes.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># chk_file</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">chk_file</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir) : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   `tempfile()` must specify an existing file ('/tmp/RtmpPUkrzL/file21ff2fda49ab' can't be found).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   `tempfile()` must specify an existing file ('/tmp/Rtmp6mv99x/file225b5e26cd9c' can't be found).</span>
 <span class="r-in"><span><span class="co"># vld_file</span></span></span>
 <span class="r-in"><span><span class="fu">vld_file</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
