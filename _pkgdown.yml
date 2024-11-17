@@ -21,10 +21,11 @@ reference:
   - chk_ext
   - chk_dir
 - title: NULL Checkers
-  desc: Check if the function input is NULL or not
+  desc: Check if the function input is NULL or not or something else
   contents:
   - chk_null
   - chk_not_null
+  - chk_null_or
 - title: Data Structure Checkers
   desc: Check if the function input has a specific data structure
   contents:
