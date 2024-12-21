@@ -1,5 +1,90 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.9.2.9001
+
+## Chore
+
+- Auto-update from GitHub Actions (#137).
+
+## Continuous integration
+
+- Use pkgdown branch (#144).
+
+- Install via R CMD INSTALL ., not pak (#139).
+
+- Install local package for pkgdown builds.
+
+- Improve support for protected branches with fledge.
+
+- Improve support for protected branches, without fledge.
+
+- Fix bash syntax.
+
+- Fix logic.
+
+- Set SHA truly unconditionally.
+
+- Only set status if unset.
+
+- Correct arguments.
+
+- Fix typo.
+
+- Add workflow_dispatch.
+
+- Run workflow after pushing.
+
+- Fix case with existing PR.
+
+- Support merge queues.
+
+- Dynamic workflows get title so that they can be distinguished in the UI.
+
+- Robust creation of PR.
+
+- Robust creation of PR.
+
+- Succeed if PR exists.
+
+- Force-push to auto-generated PR.
+
+- PR without auto-merge if protected, commit if not.
+
+- Use correct branch for PR.
+
+- Second attempt at pushing and merging.
+
+- Pass token.
+
+- Merge PRs instead of committing to main.
+
+- Fix edge case of no suggested packages.
+
+- Use workflows from actions-sync.
+
+- Sync rcc workflows.
+
+- Sync codecov workflows.
+
+## Documentation
+
+- Register usage of poissontemplate (@maelle, #138).
+
+## Uncategorized
+
+- Merge branch 'main' of github.com:poissonconsulting/chk.
+
+- Merge pull request #143 from flor14/docs_references.
+
+- Merge pull request #145 from flor14/docs_roxygen.
+
+- Merge pull request #141 from flor14/docs_getstarted.
+
+- Merge pull request #142 from flor14/docs_chk_families.
+
+- Merge pull request #134 from poissonconsulting/upkeep-2024-08.
+
+
 # chk 0.9.2.9000
 
 - Same as previous version.
