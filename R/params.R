@@ -1,9 +1,11 @@
-#' Parameters for chk functions
+#' Parameter Descriptions for chk Package
 #'
-#' Descriptions of the parameters and return values for the chk functions
+#' Default parameter descriptions which may be overridden in individual
+#' functions.
 #'
-#' @keywords internal
-#' @name params
+#' A flag is a non-missing logical scalar.
+#'
+#' A string is a non-missing character scalar.
 #'
 #' @param x The object to check.
 #' @param x_name A string of the name of object x or NULL.
@@ -39,4 +41,11 @@
 #' returns the original object if successful so it can used in pipes.
 #'
 #' The `vld_` function returns a flag indicating whether the test was met.
-NULL
+#'
+#' @keywords internal
+#' @aliases parameters arguments args
+#' @usage NULL
+# nocov start
+params <- function(...) NULL
+# nocov end
+
