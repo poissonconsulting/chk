@@ -190,15 +190,17 @@ Function | Code
 `chk_logical(x)` | `is.logical(x)`
 `chk_character(x)` | `is.character(x)`
 
-For numbers there are three functions.
+For numbers there are four functions.
 R differentiates between doubles (`chk_double()`) and integers (`chk_integer()`).
 You can also use the generic function `chk_numeric()`, which will detect both.
+The third type of number is complex (`chk_complex()`).
 
 Function | Code
 :- | :---
 `chk_numeric(x)` | `is.numeric(x)`
 `chk_double(x)` | `is.double(x)`
 `chk_integer(x)` | `is.integer(x)`
+`chk_complex(x)` | `is.complex(x)`
 
 Consider that to explicitly create an integer in R, you need to use the suffix `L`.
 

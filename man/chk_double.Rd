@@ -53,6 +53,7 @@ please read the article
 Other data_type_checkers: 
 \code{\link{chk_character}()},
 \code{\link{chk_character_or_factor}()},
+\code{\link{chk_complex}()},
 \code{\link{chk_environment}()},
 \code{\link{chk_integer}()},
 \code{\link{chk_logical}()},
