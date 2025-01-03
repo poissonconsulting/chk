@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# chk <img src="man/figures/logo.png" style="float: right;" />
+# chk <img src="man/figures/logo.png" align="right" alt="chk logo of completed tick mark" />
 
 <!-- badges: start -->
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
@@ -27,25 +27,6 @@ knitr::opts_chunk$set(
 `chk` is an R package for developers to check user-supplied function arguments.
 
 It is designed to be simple, customizable and fast.
-
-
-## Installation
-
-To install the latest release version from CRAN.
-```r
-install.packages("chk")
-```
-
-To install the latest development version from [r-universe](https://poissonconsulting.r-universe.dev/chk).
-```r
-install.packages("chk", repos = c("https://poissonconsulting.r-universe.dev", "https://cloud.r-project.org"))
-```
-
-To install the latest development version from [GitHub](https://github.com/poissonconsulting/chk)
-```r
-# install.packages("pak", repos = sprintf("https://r-lib.github.io/p/pak/stable/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch))
-pak::pak("poissonconsulting/chk")
-```
 
 ## Demonstration
 
@@ -79,6 +60,30 @@ Error messages follow the [tidyverse style guide](https://style.tidyverse.org/er
 ## Information
 
 For more information see the [Get Started](https://poissonconsulting.github.io/chk/articles/chk.html) vignette.
+
+## Installation
+
+### Release
+
+To install the release version from [CRAN](https://CRAN.R-project.org/package=chk).
+```r
+install.packages("chk")
+```
+
+The website for the release version is at <https://poissonconsulting.github.io/chk/>.
+
+### Development
+
+To install the development version from [r-universe](https://poissonconsulting.r-universe.dev/chk).
+```r
+install.packages("chk", repos = c("https://poissonconsulting.r-universe.dev", "https://cloud.r-project.org"))
+```
+
+or from [GitHub](https://github.com/poissonconsulting/chk)
+```r
+# install.packages("remotes")
+remotes::install_github("poissonconsulting/chk")
+```
 
 ## Inspiration
 

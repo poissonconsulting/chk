@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# chk <img src="man/figures/logo.png" style="float: right;" />
+# chk <img src="man/figures/logo.png" align="right" alt="chk logo of completed tick mark" />
 
 <!-- badges: start -->
 
@@ -21,29 +21,6 @@ status](https://www.r-pkg.org/badges/version/chk)](https://cran.r-project.org/pa
 arguments.
 
 It is designed to be simple, customizable and fast.
-
-## Installation
-
-To install the latest release version from CRAN.
-
-``` r
-install.packages("chk")
-```
-
-To install the latest development version from
-[r-universe](https://poissonconsulting.r-universe.dev/chk).
-
-``` r
-install.packages("chk", repos = c("https://poissonconsulting.r-universe.dev", "https://cloud.r-project.org"))
-```
-
-To install the latest development version from
-[GitHub](https://github.com/poissonconsulting/chk)
-
-``` r
-# install.packages("pak", repos = sprintf("https://r-lib.github.io/p/pak/stable/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch))
-pak::pak("poissonconsulting/chk")
-```
 
 ## Demonstration
 
@@ -91,6 +68,36 @@ errors](https://rlang.r-lib.org/reference/abort.html) of class
 For more information see the [Get
 Started](https://poissonconsulting.github.io/chk/articles/chk.html)
 vignette.
+
+## Installation
+
+### Release
+
+To install the release version from
+[CRAN](https://CRAN.R-project.org/package=chk).
+
+``` r
+install.packages("chk")
+```
+
+The website for the release version is at
+<https://poissonconsulting.github.io/chk/>.
+
+### Development
+
+To install the development version from
+[r-universe](https://poissonconsulting.r-universe.dev/chk).
+
+``` r
+install.packages("chk", repos = c("https://poissonconsulting.r-universe.dev", "https://cloud.r-project.org"))
+```
+
+or from [GitHub](https://github.com/poissonconsulting/chk)
+
+``` r
+# install.packages("remotes")
+remotes::install_github("poissonconsulting/chk")
+```
 
 ## Inspiration
 
