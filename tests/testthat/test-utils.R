@@ -9,7 +9,7 @@ test_that("deparse_backtick_chk", {
 
 test_that("backtick_chk", {
   expect_identical(backtick_chk(1), "`1`")
-  expect_identical(backtick_chk("`1`"), "``1``")
+  expect_identical(backtick_chk("`1`"), "`1`")
 })
 
 test_that("unbacktick_chk", {
