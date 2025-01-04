@@ -1,7 +1,11 @@
 url: https://poissonconsulting.github.io/chk/
+
 template:
   bootstrap: 5
   package: poissontemplate
+
+development:
+  mode: auto
 
 reference:
 - title: Missing Input Checkers
@@ -178,8 +182,3 @@ reference:
   - chk_dbl
   - chk_wnum
   - chkor
-
-
-development:
-  mode: auto
-
