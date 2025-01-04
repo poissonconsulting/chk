@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.9.2.9002
+
+- Soft-deprecate `chk_lgl()` for `chk_scalar()` and `chk_logical()`.
+
+- - Avoid nested backticks.
+
+
 # chk 0.9.2.9001
 
 ## Chore
