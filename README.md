@@ -86,17 +86,17 @@ The website for the release version is at
 ### Development
 
 To install the development version from
-[r-universe](https://poissonconsulting.r-universe.dev/chk).
-
-``` r
-install.packages("chk", repos = c("https://poissonconsulting.r-universe.dev", "https://cloud.r-project.org"))
-```
-
-or from [GitHub](https://github.com/poissonconsulting/chk)
+[GitHub](https://github.com/poissonconsulting/chk)
 
 ``` r
 # install.packages("remotes")
 remotes::install_github("poissonconsulting/chk")
+```
+
+or from [r-universe](https://poissonconsulting.r-universe.dev/chk).
+
+``` r
+install.packages("chk", repos = c("https://poissonconsulting.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
 ## Inspiration
