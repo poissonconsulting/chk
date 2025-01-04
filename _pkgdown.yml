@@ -48,6 +48,7 @@ reference:
   - chk_numeric
   - chk_double
   - chk_integer
+  - chk_raw
 - title: Whole Number Checkers
   desc: Check if the function input is a whole number, whether explicitly an integer or a double type without fractional parts
   contents:
