@@ -13,7 +13,7 @@
 #' @seealso [inherits()]
 #' @seealso For more details about the use of this function,
 #' please read the article
-#' \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+#' `vignette("chk-families")`.
 #'
 #' @examples
 #' chk_is(1, "numeric")

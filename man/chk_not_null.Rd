@@ -43,7 +43,7 @@ vld_not_null(NULL)
 
 For more details about the use of this function,
 please read the article
-\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+\code{vignette("chk-families")}.
 
 Other null_checkers: 
 \code{\link{chk_null}()}

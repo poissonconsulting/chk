@@ -50,7 +50,10 @@ vld_whole_number(2)
 
 For more details about the use of this function,
 please read the article
-\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+\code{vignette("chk-families")}.
+
+Other scalar_checker: 
+\code{\link{chk_complex_number}()}
 
 Other whole_number_checkers: 
 \code{\link{chk_count}()},

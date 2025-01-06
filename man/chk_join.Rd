@@ -46,7 +46,7 @@ vld_join(data.frame(z = 1), data.frame(a = 2), by = c(z = "a"))
 \seealso{
 For more details about the use of this function,
 please read the article
-\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+\code{vignette("chk-families")}.
 
 Other misc_checkers: 
 \code{\link{chk_not_any_na}()},
