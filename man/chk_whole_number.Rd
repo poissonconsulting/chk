@@ -52,6 +52,9 @@ For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
+Other scalar_checker: 
+\code{\link{chk_complex_number}()}
+
 Other whole_number_checkers: 
 \code{\link{chk_count}()},
 \code{\link{chk_whole_numeric}()}

@@ -55,6 +55,7 @@ please read the article
 
 Other data_type_checkers: 
 \code{\link{chk_character}()},
+\code{\link{chk_complex}()},
 \code{\link{chk_double}()},
 \code{\link{chk_environment}()},
 \code{\link{chk_integer}()},
