@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.9.2.9003
+
+- Merge branch 'main' of github.com:poissonconsulting/chk.
+
+
 # chk 0.9.2.9002
 
 - Soft-deprecate `chk_lgl()` for `chk_scalar()` and `chk_logical()`.
