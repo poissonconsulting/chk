@@ -51,7 +51,7 @@ vld_not_empty(list())
 
 For more details about the use of this function,
 please read the article
-\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+\code{vignette("chk-families")}.
 
 Other misc_checkers: 
 \code{\link{chk_join}()},

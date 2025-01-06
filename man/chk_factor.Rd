@@ -45,7 +45,7 @@ vld_factor(1L)
 
 For more details about the use of this function,
 please read the article
-\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+\code{vignette("chk-families")}.
 
 Other factor_checkers: 
 \code{\link{chk_character_or_factor}()}

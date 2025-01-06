@@ -53,7 +53,7 @@ vld_whole_numeric(1.5)
 
 For more details about the use of this function,
 please read the article
-\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+\code{vignette("chk-families")}.
 
 Other whole_number_checkers: 
 \code{\link{chk_count}()},

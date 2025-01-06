@@ -45,7 +45,7 @@ vld_s3_class(getClass("MethodDefinition"), "classRepresentation")
 
 For more details about the use of this function,
 please read the article
-\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+\code{vignette("chk-families")}.
 
 Other id_checkers: 
 \code{\link{chk_data}()},

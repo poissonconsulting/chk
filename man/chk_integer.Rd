@@ -47,7 +47,7 @@ vld_integer(TRUE)
 
 For more details about the use of this function,
 please read the article
-\href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
+\code{vignette("chk-families")}.
 
 Other data_type_checkers: 
 \code{\link{chk_character}()},
@@ -56,6 +56,7 @@ Other data_type_checkers:
 \code{\link{chk_double}()},
 \code{\link{chk_environment}()},
 \code{\link{chk_logical}()},
-\code{\link{chk_numeric}()}
+\code{\link{chk_numeric}()},
+\code{\link{chk_raw}()}
 }
 \concept{data_type_checkers}
