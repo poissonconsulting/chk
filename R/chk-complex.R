@@ -17,7 +17,7 @@
 #'
 #' @examples
 #' # chk_complex
-#' chk_complex(as.complex(1))
+#' chk_complex(1i)
 #' try(chk_complex(1))
 #' @export
 chk_complex <- function(x, x_name = NULL) {
