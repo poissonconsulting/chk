@@ -81,7 +81,7 @@ returns the original object if successful so it can used in pipes.</p>
 <p><code><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.exists()</a></code></p>
 <p>For more details about the use of this function,
 please read the article
-<a href="https://poissonconsulting.github.io/chk/articles/chk-families.html">chk families</a>.</p>
+<code><a href="../articles/chk-families.html">vignette("chk-families")</a></code>.</p>
 <p>Other file_checkers:
 <code><a href="chk_dir.html">chk_dir</a>()</code>,
 <code><a href="chk_ext.html">chk_ext</a>()</code></p></div>
@@ -92,7 +92,7 @@ please read the article
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># chk_file</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">chk_file</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir) : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   `tempfile()` must specify an existing file ('/tmp/RtmpiirHTj/file2d066c771957' can't be found).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   `tempfile()` must specify an existing file ('/tmp/RtmptoRUpF/file2cbc3683118' can't be found).</span>
 <span class="r-in"><span><span class="co"># vld_file</span></span></span>
 <span class="r-in"><span><span class="fu">vld_file</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
