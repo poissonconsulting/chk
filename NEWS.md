@@ -1,5 +1,18 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.9.2.9004
+
+## fledge
+
+- Bump version to 0.9.2.9003 (#161).
+
+## Uncategorized
+
+- Add `chk_complex()` and `vld_complex()`. (#158).
+
+- Added `chk_raw()` and `vld_raw()` (#157).
+
+
 # chk 0.9.2.9003
 
 - Merge branch 'main' of github.com:poissonconsulting/chk.
