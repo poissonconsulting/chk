@@ -1,6 +1,7 @@
 test_that("vld_complex_number", {
   expect_false(vld_complex_number(complex(0)))
   expect_false(vld_complex_number(NA_complex_))
+  expect_true(vld_complex_number(1i))
   expect_true(vld_complex_number(as.complex(1)))
   expect_false(vld_complex_number(as.complex(c(1, 2))))
   expect_false(vld_complex_number(TRUE))

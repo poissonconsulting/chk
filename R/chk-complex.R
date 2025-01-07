@@ -32,8 +32,8 @@ chk_complex <- function(x, x_name = NULL) {
 #'
 #' @examples
 #' # vld_complex
-#' vld_complex(as.complex(1))
-#' vld_complex(complex(0))
+#' vld_complex(1i)
+#' vld_complex(complex())
 #' vld_complex(NA_complex_)
 #' vld_complex(1)
 #' vld_complex(TRUE)

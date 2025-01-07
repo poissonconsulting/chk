@@ -32,11 +32,11 @@ Checks if complex using
 }}
 \examples{
 # chk_complex
-chk_complex(as.complex(1))
+chk_complex(1i)
 try(chk_complex(1))
 # vld_complex
-vld_complex(as.complex(1))
-vld_complex(complex(0))
+vld_complex(1i)
+vld_complex(complex())
 vld_complex(NA_complex_)
 vld_complex(1)
 vld_complex(TRUE)
@@ -55,6 +55,7 @@ Other data_type_checkers:
 \code{\link{chk_environment}()},
 \code{\link{chk_integer}()},
 \code{\link{chk_logical}()},
-\code{\link{chk_numeric}()}
+\code{\link{chk_numeric}()},
+\code{\link{chk_raw}()}
 }
 \concept{data_type_checkers}
