@@ -30,7 +30,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">chk</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.2.9002</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.9.2.9005</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -97,7 +97,7 @@ section.</p>
 <div class="section level3">
 <h3 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h3>
-<p><img src="chk_diagram_II.png" width="100%" style="display: block; margin: auto;"></p>
+<p><img src="chk_diagram_II.png" alt="Classification of the chk functions by family" width="100%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
 <h3 id="missing-input-checker">Missing Input Checker<a class="anchor" aria-label="anchor" href="#missing-input-checker"></a>
@@ -452,10 +452,11 @@ section below and the function documentation.</p>
 </tr>
 </tbody>
 </table>
-<p>For numbers there are three functions. R differentiates between
+<p>For numbers there are four functions. R differentiates between
 doubles (<code><a href="../reference/chk_double.html">chk_double()</a></code>) and integers
 (<code><a href="../reference/chk_integer.html">chk_integer()</a></code>). You can also use the generic function
-<code><a href="../reference/chk_numeric.html">chk_numeric()</a></code>, which will detect both.</p>
+<code><a href="../reference/chk_numeric.html">chk_numeric()</a></code>, which will detect both. The third type of
+number is complex (<code><a href="../reference/chk_complex.html">chk_complex()</a></code>).</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Function</th>
@@ -473,6 +474,10 @@ doubles (<code><a href="../reference/chk_double.html">chk_double()</a></code>) a
 <tr class="odd">
 <td align="left"><code>chk_integer(x)</code></td>
 <td align="left"><code>is.integer(x)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>chk_complex(x)</code></td>
+<td align="left"><code>is.complex(x)</code></td>
 </tr>
 </tbody>
 </table>
