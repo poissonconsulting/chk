@@ -1,7 +1,6 @@
 url: https://poissonconsulting.github.io/chk/
 
 template:
-  bootstrap: 5
   package: poissontemplate
 
 development:
@@ -44,6 +43,7 @@ reference:
   contents:
   - chk_environment
   - chk_logical
+  - chk_complex
   - chk_character
   - chk_numeric
   - chk_double
@@ -66,8 +66,8 @@ reference:
   - chk_scalar
   - chk_string
   - chk_number
+  - chk_complex_number
   - chk_flag
-  - chk_lgl
   - chk_true
   - chk_false
 - title: Date or DateTime Checkers
@@ -181,5 +181,6 @@ reference:
   contents:
   - chk_chr
   - chk_dbl
+  - chk_lgl
   - chk_wnum
   - chkor
