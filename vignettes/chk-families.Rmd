@@ -29,7 +29,7 @@ For a more simplified list of the `chk` functions, you can see the [Reference](h
 ## `chk_` Functions
 ### Overview
   
-```{r chk_, echo = FALSE, out.width= "100%", fig.align='center'}
+```{r chk_, echo = FALSE, out.width= "100%", fig.align='center', fig.alt = "Classification of the chk functions by family"}
 knitr::include_graphics("chk_diagram_II.png")
 ```
 
