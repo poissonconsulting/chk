@@ -58,7 +58,7 @@ my_fun(NA)
 ```
 
 Error messages follow the [tidyverse style
-guide](https://style.tidyverse.org/error-messages.html) while the errors
+guide](https://style.tidyverse.org/errors.html) while the errors
 themselves are [rlang
 errors](https://rlang.r-lib.org/reference/abort.html) of class
 `chk_error`.
