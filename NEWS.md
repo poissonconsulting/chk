@@ -1,45 +1,14 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
-# chk 0.9.2.9006
+# chk 0.9.2.9900
 
 ## fledge
 
 - Bump version to 0.9.2.9005 (#163).
 
-
-# chk 0.9.2.9005
-
-## fledge
-
 - Bump version to 0.9.2.9004 (#162).
 
-
-# chk 0.9.2.9004
-
-## fledge
-
 - Bump version to 0.9.2.9003 (#161).
-
-## Uncategorized
-
-- Add `chk_complex()` and `vld_complex()`. (#158).
-
-- Added `chk_raw()` and `vld_raw()` (#157).
-
-
-# chk 0.9.2.9003
-
-- Merge branch 'main' of github.com:poissonconsulting/chk.
-
-
-# chk 0.9.2.9002
-
-- Soft-deprecate `chk_lgl()` for `chk_scalar()` and `chk_logical()`.
-
-- - Avoid nested backticks.
-
-
-# chk 0.9.2.9001
 
 ## Chore
 
@@ -81,8 +50,6 @@
 
 - Robust creation of PR.
 
-- Robust creation of PR.
-
 - Succeed if PR exists.
 
 - Force-push to auto-generated PR.
@@ -111,7 +78,15 @@
 
 ## Uncategorized
 
+- Add `chk_complex()` and `vld_complex()`. (#158).
+
+- Added `chk_raw()` and `vld_raw()` (#157).
+
 - Merge branch 'main' of github.com:poissonconsulting/chk.
+
+- Soft-deprecate `chk_lgl()` for `chk_scalar()` and `chk_logical()`.
+
+- - Avoid nested backticks.
 
 - Merge pull request #143 from flor14/docs_references.
 
@@ -122,9 +97,6 @@
 - Merge pull request #142 from flor14/docs_chk_families.
 
 - Merge pull request #134 from poissonconsulting/upkeep-2024-08.
-
-
-# chk 0.9.2.9000
 
 - Same as previous version.
 
