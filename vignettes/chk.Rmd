@@ -59,7 +59,7 @@ y <- NA
 chk_flag(y)
 ```
 
-The error messages, which follow the [tidyverse style guide](https://style.tidyverse.org/error-messages.html), are designed to allow the user to quickly identify the problem with the argument value(s) they are providing.
+The error messages, which follow the [tidyverse style guide](https://style.tidyverse.org/errors.html), are designed to allow the user to quickly identify the problem with the argument value(s) they are providing.
 The errors are [rlang  errors](https://rlang.r-lib.org/reference/abort.html) of subclass `'chk_error'`.
 
 ### 2. `vld_` Functions

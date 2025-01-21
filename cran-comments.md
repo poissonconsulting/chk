@@ -1,25 +1,16 @@
-## R CMD check results
+chk 0.9.2.9900
 
-0 errors | 0 warnings | 0 notes
+## CRAN Repository Policy
 
-## CRAN Package Check Results
+- [x] Reviewed CRP last edited 2024-08-27.
 
-Fixed `vld_join()` failing on devel version - now returns FALSE as expected.
+## CRAN check results
 
-```
-Result: ERROR 
-
-    ══ Failed tests ════════════════════════════════════════════════════════════════
-    ── Failure ('test-chk-join.R:8:3'): vld_join with by = NULL ────────────────────
-    vld_join(data.frame(z = 1), data.frame(z = 1:2), by = NULL) is not FALSE
-    
-    `actual`:   TRUE 
-    `expected`: FALSE
-```
+No ERRORs, WARNINGs or NOTEs.
 
 ## revdepcheck results
 
-We checked 38 reverse dependencies (20 from CRAN + 18 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.
+We checked 70 reverse dependencies, comparing R CMD check results across CRAN and dev versions of this package.
 
  * We saw 0 new problems
  * We failed to check 0 packages

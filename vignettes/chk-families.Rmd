@@ -631,11 +631,6 @@ Function | Description
 `check_files(x, exists)` | Checks if all files exist (or if exists = FALSE do not exist as files or directories).
 `check_names(x, names, exclusive, order)` | Checks the names of an object.
 
-
 ## References
 
-Wickham, H. (2019). Advanced R, Second Edition (2nd ed.). Chapman and Hall/CRC. https://doi.org/10.1201/9781351201315
-
-
-    
-  
+Wickham, H. (2019). Advanced R, Second Edition (2nd ed.). Chapman and Hall/CRC.
