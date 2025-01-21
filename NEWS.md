@@ -2,7 +2,6 @@
 
 # chk 0.9.2.9900
 
-- Register usage of poissontemplate (@maelle, #138).
 - Added `chk_complex()` and `vld_complex()`. (#158).
 - Added `chk_raw()` and `vld_raw()` (#157).
 - Soft-deprecated `chk_lgl()` for `chk_scalar()` and `chk_logical()`.
