@@ -34,6 +34,8 @@
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_character_or_factor.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_chr.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_compatible_lengths.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/chk/reference/chk_complex.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/chk/reference/chk_complex_number.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_count.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_data.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_date.html</loc></url>
@@ -78,6 +80,7 @@
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_numeric.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_orderset.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_range.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/chk/reference/chk_raw.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_s3_class.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_s4_class.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_scalar.html</loc></url>
