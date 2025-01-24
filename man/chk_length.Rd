@@ -43,7 +43,7 @@ vld_length(2:1, 2)
 vld_length(2:1, 1)
 }
 \seealso{
-\code{\link[=length]{length()}}, \code{\link[=check_dim]{check_dim()}}
+\code{\link[=length]{length()}}, \code{\link[=check_length]{check_length()}}, \code{\link[=check_dim]{check_dim()}}
 
 For more details about the use of this function,
 please read the article
