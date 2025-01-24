@@ -10,15 +10,16 @@
 |collate  |en_US.UTF-8                                |
 |ctype    |en_US.UTF-8                                |
 |tz       |America/Vancouver                          |
-|date     |2025-01-14                                 |
+|date     |2025-01-24                                 |
 |rstudio  |2024.12.0+467 Kousa Dogwood (desktop)      |
 |pandoc   |3.6.2 @ /opt/homebrew/bin/ (via rmarkdown) |
 
 # Dependencies
 
-|package |old        |new        |Δ  |
-|:-------|:----------|:----------|:--|
-|chk     |0.9.2.9006 |0.9.2.9900 |*  |
+|package |old    |new    |Δ  |
+|:-------|:------|:------|:--|
+|chk     |0.10.0 |0.10.0 |   |
+|rlang   |NA     |1.1.4  |*  |
 
 # Revdeps
 

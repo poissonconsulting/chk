@@ -32,7 +32,7 @@ Run `revdepcheck::revdep_details(, "biodbKegg")` for more info
        2. └─biodb (local) `<fn>`(conn = `<KggRctnC>`, opt = `<named list>`)
        3.   └─testthat::expect_true(id %in% ids, msg)
       
-      [ FAIL 12 | WARN 0 | SKIP 0 | PASS 1336 ]
+      [ FAIL 12 | WARN 0 | SKIP 0 | PASS 1315 ]
       Error: Test failures
       Execution halted
     ```
