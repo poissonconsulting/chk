@@ -29,6 +29,7 @@ Other check:
 \code{\link{check_dim}()},
 \code{\link{check_files}()},
 \code{\link{check_key}()},
+\code{\link{check_length}()},
 \code{\link{check_names}()},
 \code{\link{check_values}()}
 }

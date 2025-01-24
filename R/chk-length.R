@@ -10,7 +10,7 @@
 #'
 #' @family length_checkers
 #'
-#' @seealso [length()], [check_dim()]
+#' @seealso [length()], [check_length()], [check_dim()]
 #'
 #' @seealso For more details about the use of this function,
 #' please read the article
