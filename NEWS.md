@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.10.0.9000
+
+- Switching to development version.
+
+
 # chk 0.10.0
 
 - Added `chk_complex()` and `vld_complex()`. (#158).
