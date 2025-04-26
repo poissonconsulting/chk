@@ -1,5 +1,14 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.10.0.9001
+
+## Continuous integration
+
+- Correct installation of xml2 (#175).
+
+- Sync (#173).
+
+
 # chk 0.10.0.9000
 
 - Switching to development version.
