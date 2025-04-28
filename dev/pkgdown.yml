@@ -1,10 +1,10 @@
 pandoc: 3.1.11
-pkgdown: 2.1.1.9000
-pkgdown_sha: 2f04495db2502e7a621ffcb38d823c30a952b84a
+pkgdown: 2.1.2.9000
+pkgdown_sha: 656069f523efadd27812bce6b9322a92c57eb8cb
 articles:
   chk-families: chk-families.html
   chk: chk.html
-last_built: 2025-04-26T17:48Z
+last_built: 2025-04-28T14:07Z
 urls:
   reference: https://poissonconsulting.github.io/chk/reference
   article: https://poissonconsulting.github.io/chk/articles
