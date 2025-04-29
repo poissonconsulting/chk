@@ -1,5 +1,16 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.10.0.9002
+
+## Continuous integration
+
+- Always use `_R_CHECK_FORCE_SUGGESTS_=false` (#178).
+
+## fledge
+
+- Bump version to 0.10.0.9001 (#176).
+
+
 # chk 0.10.0.9001
 
 ## Continuous integration
