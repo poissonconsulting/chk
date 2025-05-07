@@ -9,7 +9,7 @@ bullets <-
 version_bullets <- grep("^R-([0-9]+-[0-9]+-[0-9]+)/$", bullets, value = TRUE)
 versions <- unique(gsub("^R-([0-9]+)-([0-9]+)-[0-9]+/$", "\\1.\\2", version_bullets))
 
-r_release <- head(sort(as.package_version(versions), decreasing = TRUE), 5)
+r_release <- head(sort(as.package_version(versions), decreasing = TRUE), 6)
 
 deps <- desc::desc_get_deps()
 r_crit <- deps$version[deps$package == "R"]
