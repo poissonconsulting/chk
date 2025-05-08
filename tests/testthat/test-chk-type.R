@@ -22,6 +22,10 @@ test_that("chk_s3_class", {
   class(x) <- c("a", "b")
   expect_chk_error(chk_s3_class(x, "c"), "`x` must inherit from S3 class 'c'")
   expect_chk_error(chk_s3_class(x, "c", x_name = "c"), "C must inherit from S3 class 'c'")
+
+  foo <- 1
+  class(foo) <- "a"
+  expect_chk_error(chk_s3_class(foo, c("b", "c")), "`foo` must inherit from S3 class 'b' or 'c'.")
 })
 
 
@@ -41,6 +45,10 @@ test_that("chk_s4_class", {
     chk_s4_class(matrix(1), "numeric"),
     "`matrix[(]1[)]` must inherit from S4 class 'numeric'[.]$"
   )
+
+  foo <- 1
+  class(foo) <- "a"
+  expect_chk_error(chk_s4_class(foo, c("b", "c")), "`foo` must inherit from S4 class 'b' or 'c'.")
 })
 
 test_that("vld_whole_numeric", {
