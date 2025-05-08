@@ -12,7 +12,7 @@ vld_s4_class(x, class)
 \arguments{
 \item{x}{The object to check.}
 
-\item{class}{A string specifying the class.}
+\item{class}{A character vector specifying the possible class values.}
 
 \item{x_name}{A string of the name of object x or NULL.}
 }
