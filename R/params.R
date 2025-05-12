@@ -22,7 +22,7 @@
 #' @param inclusive A flag specifying whether the range is exclusive.
 #' @param regexp A string of a regular expression.
 #' @param values A vector of the permitted values.
-#' @param class A string specifying the class.
+#' @param class A character vector specifying the possible class values.
 #' @param length A count of the length.
 #' @param upper A count of the max length.
 #' @param formals A count of the number of formal arguments.

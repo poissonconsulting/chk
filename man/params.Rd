@@ -37,7 +37,7 @@ upper permitted values.}
 
 \item{values}{A vector of the permitted values.}
 
-\item{class}{A string specifying the class.}
+\item{class}{A character vector specifying the possible class values.}
 
 \item{length}{A count of the length.}
 
