@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.10.0.9006
+
+- Remove internal str2lang() function. (#97, #189).
+
+
 # chk 0.10.0.9005
 
 - Merge pull request #187 from poissonconsulting/chkiserrmsg.
