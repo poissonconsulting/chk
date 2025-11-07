@@ -1,0 +1,404 @@
+# Package index
+
+## Missing Input Checkers
+
+Check if the function input is missing or not
+
+- [`chk_missing()`](https://poissonconsulting.github.io/chk/dev/reference/chk_missing.md)
+  [`vld_missing()`](https://poissonconsulting.github.io/chk/dev/reference/chk_missing.md)
+  : Check Missing Argument
+- [`chk_not_missing()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_missing.md)
+  [`vld_not_missing()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_missing.md)
+  : Check Not Missing Argument
+
+## … Checkers
+
+Check if the function input comes from … (dot-dot-dot) or not
+
+- [`chk_used()`](https://poissonconsulting.github.io/chk/dev/reference/chk_used.md)
+  [`vld_used()`](https://poissonconsulting.github.io/chk/dev/reference/chk_used.md)
+  : Check ... Used
+- [`chk_unused()`](https://poissonconsulting.github.io/chk/dev/reference/chk_unused.md)
+  [`vld_unused()`](https://poissonconsulting.github.io/chk/dev/reference/chk_unused.md)
+  : Check ... Unused
+
+## External Data Source Checkers
+
+Check if the function input is a valid external data source
+
+- [`chk_file()`](https://poissonconsulting.github.io/chk/dev/reference/chk_file.md)
+  [`vld_file()`](https://poissonconsulting.github.io/chk/dev/reference/chk_file.md)
+  : Check File Exists
+- [`chk_ext()`](https://poissonconsulting.github.io/chk/dev/reference/chk_ext.md)
+  [`vld_ext()`](https://poissonconsulting.github.io/chk/dev/reference/chk_ext.md)
+  : Check File Extension
+- [`chk_dir()`](https://poissonconsulting.github.io/chk/dev/reference/chk_dir.md)
+  [`vld_dir()`](https://poissonconsulting.github.io/chk/dev/reference/chk_dir.md)
+  : Check Directory Exists
+
+## NULL Checkers
+
+Check if the function input is NULL or not or something else
+
+- [`chk_null()`](https://poissonconsulting.github.io/chk/dev/reference/chk_null.md)
+  [`vld_null()`](https://poissonconsulting.github.io/chk/dev/reference/chk_null.md)
+  : Check NULL
+- [`chk_not_null()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_null.md)
+  [`vld_not_null()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_null.md)
+  : Check not NULL
+- [`chk_null_or()`](https://poissonconsulting.github.io/chk/dev/reference/chk_null_or.md)
+  : Check NULL Or
+
+## Data Structure Checkers
+
+Check if the function input has a specific data structure
+
+- [`chk_vector()`](https://poissonconsulting.github.io/chk/dev/reference/chk_vector.md)
+  [`vld_vector()`](https://poissonconsulting.github.io/chk/dev/reference/chk_vector.md)
+  : Check Vector
+- [`chk_atomic()`](https://poissonconsulting.github.io/chk/dev/reference/chk_atomic.md)
+  [`vld_atomic()`](https://poissonconsulting.github.io/chk/dev/reference/chk_atomic.md)
+  : Check Atomic
+- [`chk_array()`](https://poissonconsulting.github.io/chk/dev/reference/chk_array.md)
+  [`vld_array()`](https://poissonconsulting.github.io/chk/dev/reference/chk_array.md)
+  : Check Array
+- [`chk_matrix()`](https://poissonconsulting.github.io/chk/dev/reference/chk_matrix.md)
+  [`vld_matrix()`](https://poissonconsulting.github.io/chk/dev/reference/chk_matrix.md)
+  : Check Matrix
+- [`chk_list()`](https://poissonconsulting.github.io/chk/dev/reference/chk_list.md)
+  [`vld_list()`](https://poissonconsulting.github.io/chk/dev/reference/chk_list.md)
+  : Check List
+- [`chk_data()`](https://poissonconsulting.github.io/chk/dev/reference/chk_data.md)
+  [`vld_data()`](https://poissonconsulting.github.io/chk/dev/reference/chk_data.md)
+  : Check Data
+
+## Data Type Checkers
+
+Check if the function input has a data type
+
+- [`chk_environment()`](https://poissonconsulting.github.io/chk/dev/reference/chk_environment.md)
+  [`vld_environment()`](https://poissonconsulting.github.io/chk/dev/reference/chk_environment.md)
+  : Check Environment
+- [`chk_logical()`](https://poissonconsulting.github.io/chk/dev/reference/chk_logical.md)
+  [`vld_logical()`](https://poissonconsulting.github.io/chk/dev/reference/chk_logical.md)
+  : Check Logical
+- [`chk_complex()`](https://poissonconsulting.github.io/chk/dev/reference/chk_complex.md)
+  [`vld_complex()`](https://poissonconsulting.github.io/chk/dev/reference/chk_complex.md)
+  : Check Complex
+- [`chk_character()`](https://poissonconsulting.github.io/chk/dev/reference/chk_character.md)
+  [`vld_character()`](https://poissonconsulting.github.io/chk/dev/reference/chk_character.md)
+  : Check Character
+- [`chk_numeric()`](https://poissonconsulting.github.io/chk/dev/reference/chk_numeric.md)
+  [`vld_numeric()`](https://poissonconsulting.github.io/chk/dev/reference/chk_numeric.md)
+  : Check Numeric
+- [`chk_double()`](https://poissonconsulting.github.io/chk/dev/reference/chk_double.md)
+  [`vld_double()`](https://poissonconsulting.github.io/chk/dev/reference/chk_double.md)
+  : Check Double
+- [`chk_integer()`](https://poissonconsulting.github.io/chk/dev/reference/chk_integer.md)
+  [`vld_integer()`](https://poissonconsulting.github.io/chk/dev/reference/chk_integer.md)
+  : Check Integer
+- [`chk_raw()`](https://poissonconsulting.github.io/chk/dev/reference/chk_raw.md)
+  [`vld_raw()`](https://poissonconsulting.github.io/chk/dev/reference/chk_raw.md)
+  : Check Raw
+
+## Whole Number Checkers
+
+Check if the function input is a whole number, whether explicitly an
+integer or a double type without fractional parts
+
+- [`chk_whole_numeric()`](https://poissonconsulting.github.io/chk/dev/reference/chk_whole_numeric.md)
+  [`vld_whole_numeric()`](https://poissonconsulting.github.io/chk/dev/reference/chk_whole_numeric.md)
+  : Check Whole Numeric
+- [`chk_whole_number()`](https://poissonconsulting.github.io/chk/dev/reference/chk_whole_number.md)
+  [`vld_whole_number()`](https://poissonconsulting.github.io/chk/dev/reference/chk_whole_number.md)
+  : Check Whole Number
+- [`chk_count()`](https://poissonconsulting.github.io/chk/dev/reference/chk_count.md)
+  [`vld_count()`](https://poissonconsulting.github.io/chk/dev/reference/chk_count.md)
+  : Check Count
+
+## Factor Checker
+
+Check if the function input is a factor
+
+- [`chk_factor()`](https://poissonconsulting.github.io/chk/dev/reference/chk_factor.md)
+  [`vld_factor()`](https://poissonconsulting.github.io/chk/dev/reference/chk_factor.md)
+  : Check Factor
+- [`chk_character_or_factor()`](https://poissonconsulting.github.io/chk/dev/reference/chk_character_or_factor.md)
+  [`vld_character_or_factor()`](https://poissonconsulting.github.io/chk/dev/reference/chk_character_or_factor.md)
+  : Check Character or Factor
+
+## Scalar Checkers
+
+Check if the function input is a vector of length 1
+
+- [`chk_scalar()`](https://poissonconsulting.github.io/chk/dev/reference/chk_scalar.md)
+  [`vld_scalar()`](https://poissonconsulting.github.io/chk/dev/reference/chk_scalar.md)
+  : Check Scalar
+- [`chk_string()`](https://poissonconsulting.github.io/chk/dev/reference/chk_string.md)
+  [`vld_string()`](https://poissonconsulting.github.io/chk/dev/reference/chk_string.md)
+  : Check String
+- [`chk_number()`](https://poissonconsulting.github.io/chk/dev/reference/chk_number.md)
+  [`vld_number()`](https://poissonconsulting.github.io/chk/dev/reference/chk_number.md)
+  : Check Number
+- [`chk_complex_number()`](https://poissonconsulting.github.io/chk/dev/reference/chk_complex_number.md)
+  [`vld_complex_number()`](https://poissonconsulting.github.io/chk/dev/reference/chk_complex_number.md)
+  : Check Complex Number
+- [`chk_flag()`](https://poissonconsulting.github.io/chk/dev/reference/chk_flag.md)
+  [`vld_flag()`](https://poissonconsulting.github.io/chk/dev/reference/chk_flag.md)
+  : Check Flag
+- [`chk_true()`](https://poissonconsulting.github.io/chk/dev/reference/chk_true.md)
+  [`vld_true()`](https://poissonconsulting.github.io/chk/dev/reference/chk_true.md)
+  : Check TRUE
+- [`chk_false()`](https://poissonconsulting.github.io/chk/dev/reference/chk_false.md)
+  [`vld_false()`](https://poissonconsulting.github.io/chk/dev/reference/chk_false.md)
+  : Check FALSE
+
+## Date or DateTime Checkers
+
+Check if the function input is of class Date or DateTime
+
+- [`chk_date()`](https://poissonconsulting.github.io/chk/dev/reference/chk_date.md)
+  [`vld_date()`](https://poissonconsulting.github.io/chk/dev/reference/chk_date.md)
+  : Check Date
+- [`chk_date_time()`](https://poissonconsulting.github.io/chk/dev/reference/chk_date_time.md)
+  [`chk_datetime()`](https://poissonconsulting.github.io/chk/dev/reference/chk_date_time.md)
+  [`vld_date_time()`](https://poissonconsulting.github.io/chk/dev/reference/chk_date_time.md)
+  [`vld_datetime()`](https://poissonconsulting.github.io/chk/dev/reference/chk_date_time.md)
+  : Check Date Time
+
+## Time Zone Checker
+
+Check if the function input is a Time Zone
+
+- [`chk_tz()`](https://poissonconsulting.github.io/chk/dev/reference/chk_tz.md)
+  [`vld_tz()`](https://poissonconsulting.github.io/chk/dev/reference/chk_tz.md)
+  : Check Time Zone
+
+## All Elements Checker
+
+Check if the function input has a characteristic shared by all its
+elements
+
+- [`chk_all()`](https://poissonconsulting.github.io/chk/dev/reference/chk_all.md)
+  [`vld_all()`](https://poissonconsulting.github.io/chk/dev/reference/chk_all.md)
+  : Check All
+
+## Function Checker
+
+Check if the function input is another function
+
+- [`chk_function()`](https://poissonconsulting.github.io/chk/dev/reference/chk_function.md)
+  [`vld_function()`](https://poissonconsulting.github.io/chk/dev/reference/chk_function.md)
+  : Check Function
+
+## Names Checkers
+
+Check if the function input has names and are valid
+
+- [`chk_named()`](https://poissonconsulting.github.io/chk/dev/reference/chk_named.md)
+  [`vld_named()`](https://poissonconsulting.github.io/chk/dev/reference/chk_named.md)
+  : Check Named
+- [`chk_valid_name()`](https://poissonconsulting.github.io/chk/dev/reference/chk_valid_name.md)
+  [`vld_valid_name()`](https://poissonconsulting.github.io/chk/dev/reference/chk_valid_name.md)
+  : Check Valid Name
+
+## Range Checkers
+
+Check if the function input is part of a range of values
+
+- [`chk_range()`](https://poissonconsulting.github.io/chk/dev/reference/chk_range.md)
+  [`vld_range()`](https://poissonconsulting.github.io/chk/dev/reference/chk_range.md)
+  : Checks range of non-missing values
+- [`chk_lt()`](https://poissonconsulting.github.io/chk/dev/reference/chk_lt.md)
+  [`vld_lt()`](https://poissonconsulting.github.io/chk/dev/reference/chk_lt.md)
+  : Check Less Than
+- [`chk_lte()`](https://poissonconsulting.github.io/chk/dev/reference/chk_lte.md)
+  [`vld_lte()`](https://poissonconsulting.github.io/chk/dev/reference/chk_lte.md)
+  : Check Less Than or Equal To
+- [`chk_gt()`](https://poissonconsulting.github.io/chk/dev/reference/chk_gt.md)
+  [`vld_gt()`](https://poissonconsulting.github.io/chk/dev/reference/chk_gt.md)
+  : Check Greater Than
+- [`chk_gte()`](https://poissonconsulting.github.io/chk/dev/reference/chk_gte.md)
+  [`vld_gte()`](https://poissonconsulting.github.io/chk/dev/reference/chk_gte.md)
+  : Check Greater Than or Equal To
+
+## Equal Checkers
+
+Check if the function input is equal or similar to a predefined object
+
+- [`chk_identical()`](https://poissonconsulting.github.io/chk/dev/reference/chk_identical.md)
+  [`vld_identical()`](https://poissonconsulting.github.io/chk/dev/reference/chk_identical.md)
+  : Check Identical
+- [`chk_equal()`](https://poissonconsulting.github.io/chk/dev/reference/chk_equal.md)
+  [`vld_equal()`](https://poissonconsulting.github.io/chk/dev/reference/chk_equal.md)
+  : Check Equal
+- [`chk_equivalent()`](https://poissonconsulting.github.io/chk/dev/reference/chk_equivalent.md)
+  [`vld_equivalent()`](https://poissonconsulting.github.io/chk/dev/reference/chk_equivalent.md)
+  : Check Equivalent
+- [`chk_all_identical()`](https://poissonconsulting.github.io/chk/dev/reference/chk_all_identical.md)
+  [`vld_all_identical()`](https://poissonconsulting.github.io/chk/dev/reference/chk_all_identical.md)
+  : Check All Identical
+- [`chk_all_equal()`](https://poissonconsulting.github.io/chk/dev/reference/chk_all_equal.md)
+  [`vld_all_equal()`](https://poissonconsulting.github.io/chk/dev/reference/chk_all_equal.md)
+  : Check All Equal
+- [`chk_all_equivalent()`](https://poissonconsulting.github.io/chk/dev/reference/chk_all_equivalent.md)
+  [`vld_all_equivalent()`](https://poissonconsulting.github.io/chk/dev/reference/chk_all_equivalent.md)
+  : Check All Equivalent
+
+## Order Checker
+
+Check if the function input are numbers in increasing order
+
+- [`chk_sorted()`](https://poissonconsulting.github.io/chk/dev/reference/chk_sorted.md)
+  [`vld_sorted()`](https://poissonconsulting.github.io/chk/dev/reference/chk_sorted.md)
+  : Check Sorted
+
+## Set Checkers
+
+Check if the function input is composed by certain elements
+
+- [`vld_not_subset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_subset.md)
+  [`chk_subset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_subset.md)
+  [`vld_subset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_subset.md)
+  : Check Subset
+- [`chk_not_subset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_subset.md)
+  : Check Not Subset
+- [`chk_superset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_superset.md)
+  [`vld_superset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_superset.md)
+  : Check Superset
+- [`vld_orderset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_setequal.md)
+  [`chk_setequal()`](https://poissonconsulting.github.io/chk/dev/reference/chk_setequal.md)
+  [`vld_setequal()`](https://poissonconsulting.github.io/chk/dev/reference/chk_setequal.md)
+  : Check Set Equal
+- [`chk_orderset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_orderset.md)
+  : Check Set Ordered
+
+## Identity Checkers
+
+Check if the function input belongs to a class
+
+- [`chk_is()`](https://poissonconsulting.github.io/chk/dev/reference/chk_is.md)
+  [`vld_is()`](https://poissonconsulting.github.io/chk/dev/reference/chk_is.md)
+  : Check Class
+- [`chk_s3_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s3_class.md)
+  [`vld_s3_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s3_class.md)
+  : Check Type
+- [`chk_s4_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s4_class.md)
+  [`vld_s4_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s4_class.md)
+  : Check Inherits from S4 Class
+
+## REGEX Checker
+
+Check if the function input matches a REGEX
+
+- [`chk_match()`](https://poissonconsulting.github.io/chk/dev/reference/chk_match.md)
+  [`vld_match()`](https://poissonconsulting.github.io/chk/dev/reference/chk_match.md)
+  : Check Matches
+
+## Length Checkers
+
+Check if the function input object’s length is a specific value or if
+because of its length can be strictly recycled
+
+- [`chk_length()`](https://poissonconsulting.github.io/chk/dev/reference/chk_length.md)
+  [`vld_length()`](https://poissonconsulting.github.io/chk/dev/reference/chk_length.md)
+  : Check Length
+- [`chk_compatible_lengths()`](https://poissonconsulting.github.io/chk/dev/reference/chk_compatible_lengths.md)
+  [`vld_compatible_lengths()`](https://poissonconsulting.github.io/chk/dev/reference/chk_compatible_lengths.md)
+  : Check Compatible Lengths
+
+## Quality Checkers (Miscellaneous)
+
+Check if the function input meet some user defined quality criteria
+
+- [`chk_not_any_na()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_any_na.md)
+  [`vld_not_any_na()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_any_na.md)
+  : Check Not Any Missing Values
+- [`chk_not_empty()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_empty.md)
+  [`vld_not_empty()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_empty.md)
+  : Check Not Empty
+- [`chk_sorted()`](https://poissonconsulting.github.io/chk/dev/reference/chk_sorted.md)
+  [`vld_sorted()`](https://poissonconsulting.github.io/chk/dev/reference/chk_sorted.md)
+  : Check Sorted
+- [`chk_unique()`](https://poissonconsulting.github.io/chk/dev/reference/chk_unique.md)
+  [`vld_unique()`](https://poissonconsulting.github.io/chk/dev/reference/chk_unique.md)
+  : Check Unique
+- [`chk_join()`](https://poissonconsulting.github.io/chk/dev/reference/chk_join.md)
+  [`vld_join()`](https://poissonconsulting.github.io/chk/dev/reference/chk_join.md)
+  : Check Join
+- [`chkor_vld()`](https://poissonconsulting.github.io/chk/dev/reference/chkor_vld.md)
+  : Chk OR
+
+## chk\_ Function Extenders
+
+Extending chk\_ functions
+
+- [`deparse_backtick_chk()`](https://poissonconsulting.github.io/chk/dev/reference/deparse_backtick_chk.md)
+  [`backtick_chk()`](https://poissonconsulting.github.io/chk/dev/reference/deparse_backtick_chk.md)
+  [`unbacktick_chk()`](https://poissonconsulting.github.io/chk/dev/reference/deparse_backtick_chk.md)
+  : Deparse Backtick
+- [`message_chk()`](https://poissonconsulting.github.io/chk/dev/reference/message_chk.md)
+  : Construct Tidyverse Style Message
+- [`abort_chk()`](https://poissonconsulting.github.io/chk/dev/reference/abort_chk.md)
+  : Abort Check
+- [`expect_chk_error()`](https://poissonconsulting.github.io/chk/dev/reference/expect_chk_error.md)
+  : Expect Chk Error
+
+## Message Generators
+
+Generating messages
+
+- [`err()`](https://poissonconsulting.github.io/chk/dev/reference/err.md)
+  [`wrn()`](https://poissonconsulting.github.io/chk/dev/reference/err.md)
+  [`msg()`](https://poissonconsulting.github.io/chk/dev/reference/err.md)
+  : Stop, Warning and Message Messages
+
+## String Manipulators
+
+Manipulating strings
+
+- [`p()`](https://poissonconsulting.github.io/chk/dev/reference/p.md)
+  [`p0()`](https://poissonconsulting.github.io/chk/dev/reference/p.md) :
+  Concatenate Strings
+- [`cc()`](https://poissonconsulting.github.io/chk/dev/reference/cc.md)
+  : Concatenate with Commas
+
+## check\_ Functions
+
+Checks more properties about the objects
+
+- [`check_data()`](https://poissonconsulting.github.io/chk/dev/reference/check_data.md)
+  : Check Data
+- [`check_dim()`](https://poissonconsulting.github.io/chk/dev/reference/check_dim.md)
+  : Check Dimension
+- [`check_dirs()`](https://poissonconsulting.github.io/chk/dev/reference/check_dirs.md)
+  : Check Directories Exist
+- [`check_files()`](https://poissonconsulting.github.io/chk/dev/reference/check_files.md)
+  : Check Files Exist
+- [`check_key()`](https://poissonconsulting.github.io/chk/dev/reference/check_key.md)
+  : Check Key
+- [`check_length()`](https://poissonconsulting.github.io/chk/dev/reference/check_length.md)
+  : Check Length
+- [`check_names()`](https://poissonconsulting.github.io/chk/dev/reference/check_names.md)
+  : Check Names
+- [`check_values()`](https://poissonconsulting.github.io/chk/dev/reference/check_values.md)
+  : Check Values and Class
+
+## Deprecated Functions
+
+Functions that have been deprecated
+
+- [`chk_chr()`](https://poissonconsulting.github.io/chk/dev/reference/chk_chr.md)
+  [`vld_chr()`](https://poissonconsulting.github.io/chk/dev/reference/chk_chr.md)
+  **\[deprecated\]** : Check Character Scalar
+- [`chk_dbl()`](https://poissonconsulting.github.io/chk/dev/reference/chk_dbl.md)
+  [`vld_dbl()`](https://poissonconsulting.github.io/chk/dev/reference/chk_dbl.md)
+  **\[deprecated\]** : Check Double Scalar
+- [`chk_lgl()`](https://poissonconsulting.github.io/chk/dev/reference/chk_lgl.md)
+  [`vld_lgl()`](https://poissonconsulting.github.io/chk/dev/reference/chk_lgl.md)
+  : Check Logical Scalar
+- [`chk_wnum()`](https://poissonconsulting.github.io/chk/dev/reference/chk_wnum.md)
+  [`vld_wnum()`](https://poissonconsulting.github.io/chk/dev/reference/chk_wnum.md)
+  **\[deprecated\]** : Check Whole Numeric Scalar
+- [`chkor()`](https://poissonconsulting.github.io/chk/dev/reference/chkor.md)
+  : Check OR
