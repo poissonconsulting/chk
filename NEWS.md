@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.10.0.9009
+
+## Continuous integration
+
+- Sync (#200).
+
+
 # chk 0.10.0.9008
 
 ## Chore
