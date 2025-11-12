@@ -1,5 +1,12 @@
 # Changelog
 
+## chk 0.10.0.9010
+
+### Continuous integration
+
+- Use workflows for fledge
+  ([\#202](https://github.com/poissonconsulting/chk/issues/202)).
+
 ## chk 0.10.0.9009
 
 ### Continuous integration

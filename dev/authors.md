@@ -32,13 +32,13 @@ Source:
 [`DESCRIPTION`](https://github.com/poissonconsulting/chk/blob/main/DESCRIPTION)
 
 Thorley J, Müller K, Pearson A (2025). *chk: Check User-Supplied
-Function Arguments*. R package version 0.10.0.9009,
+Function Arguments*. R package version 0.10.0.9010,
 <https://github.com/poissonconsulting/chk>.
 
     @Manual{,
       title = {chk: Check User-Supplied Function Arguments},
       author = {Joe Thorley and Kirill Müller and Ayla Pearson},
       year = {2025},
-      note = {R package version 0.10.0.9009},
+      note = {R package version 0.10.0.9010},
       url = {https://github.com/poissonconsulting/chk},
     }
