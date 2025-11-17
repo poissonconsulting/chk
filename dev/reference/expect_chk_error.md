@@ -129,5 +129,5 @@ Other expectations:
 ``` r
 expect_chk_error(chk_true(FALSE))
 try(expect_chk_error(chk_false(FALSE)))
-#> Error : `object` did not throw an error.
+#> Error : Expected `object` to throw a error.
 ```

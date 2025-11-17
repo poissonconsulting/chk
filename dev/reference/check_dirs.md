@@ -45,5 +45,5 @@ Other check:
 check_dirs(tempdir())
 try(check_dirs(tempdir(), exists = FALSE))
 #> Error in eval(expr, envir) : 
-#>   `tempdir()` must not specify existing directories ('/tmp/Rtmp7QEjBP' exists).
+#>   `tempdir()` must not specify existing directories ('/tmp/RtmplqxsJw' exists).
 ```
