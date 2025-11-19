@@ -20,28 +20,27 @@ Description: For developers to check user-supplied function arguments.  It
     follow the tidyverse style guide.
 License: MIT + file LICENSE
 URL: https://github.com/poissonconsulting/chk,
-    https://poissonconsulting.github.io/chk/
+        https://poissonconsulting.github.io/chk/
 BugReports: https://github.com/poissonconsulting/chk/issues/
-Depends: 
-    R (>= 4.1)
-Imports: 
-    lifecycle,
-    methods,
-    rlang,
-    tools
-Suggests: 
-    covr,
-    knitr,
-    rmarkdown,
-    testthat (>= 3.0.0),
-    withr
-VignetteBuilder: 
-    knitr
-RdMacros: 
-    lifecycle
+Depends: R (>= 4.1)
+Imports: lifecycle, methods, rlang, tools
+Suggests: covr, knitr, rmarkdown, testthat (>= 3.0.0), withr
+VignetteBuilder: knitr
+RdMacros: lifecycle
 Config/Needs/website: poissonconsulting/poissontemplate
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3.9000
+NeedsCompilation: no
+Packaged: 2025-11-19 10:15:16 UTC; runner
+Author: Joe Thorley [aut, cre] (ORCID: <https://orcid.org/0000-0002-7683-4592>),
+  Kirill Müller [aut] (ORCID: <https://orcid.org/0000-0002-1416-3412>),
+  Ayla Pearson [aut] (ORCID: <https://orcid.org/0000-0001-7388-1222>),
+  Florencia D'Andrea [ctb],
+  Nadine Hussein [ctb] (ORCID: <https://orcid.org/0000-0003-4470-8361>),
+  Evan Amies-Galonski [ctb] (ORCID:
+    <https://orcid.org/0000-0003-1096-2089>),
+  Poisson Consulting [cph, fnd]
+Maintainer: Joe Thorley <joe@poissonconsulting.ca>

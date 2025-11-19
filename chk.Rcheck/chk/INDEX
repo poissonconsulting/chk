@@ -1,0 +1,93 @@
+abort_chk               Abort Check
+cc                      Concatenate with Commas
+check_data              Check Data
+check_dim               Check Dimension
+check_dirs              Check Directories Exist
+check_files             Check Files Exist
+check_key               Check Key
+check_length            Check Length
+check_names             Check Names
+check_values            Check Values and Class
+chk_all                 Check All
+chk_all_equal           Check All Equal
+chk_all_equivalent      Check All Equivalent
+chk_all_identical       Check All Identical
+chk_array               Check Array
+chk_atomic              Check Atomic
+chk_character           Check Character
+chk_character_or_factor
+                        Check Character or Factor
+chk_chr                 Check Character Scalar
+chk_compatible_lengths
+                        Check Compatible Lengths
+chk_complex             Check Complex
+chk_complex_number      Check Complex Number
+chk_count               Check Count
+chk_data                Check Data
+chk_date                Check Date
+chk_date_time           Check Date Time
+chk_dbl                 Check Double Scalar
+chk_dir                 Check Directory Exists
+chk_double              Check Double
+chk_environment         Check Environment
+chk_equal               Check Equal
+chk_equivalent          Check Equivalent
+chk_ext                 Check File Extension
+chk_factor              Check Factor
+chk_false               Check FALSE
+chk_file                Check File Exists
+chk_flag                Check Flag
+chk_function            Check Function
+chk_gt                  Check Greater Than
+chk_gte                 Check Greater Than or Equal To
+chk_identical           Check Identical
+chk_integer             Check Integer
+chk_is                  Check Class
+chk_join                Check Join
+chk_length              Check Length
+chk_lgl                 Check Logical Scalar
+chk_list                Check List
+chk_logical             Check Logical
+chk_lt                  Check Less Than
+chk_lte                 Check Less Than or Equal To
+chk_match               Check Matches
+chk_matrix              Check Matrix
+chk_missing             Check Missing Argument
+chk_named               Check Named
+chk_not_any_na          Check Not Any Missing Values
+chk_not_empty           Check Not Empty
+chk_not_missing         Check Not Missing Argument
+chk_not_null            Check not NULL
+chk_not_subset          Check Not Subset
+chk_null                Check NULL
+chk_null_or             Check NULL Or
+chk_number              Check Number
+chk_numeric             Check Numeric
+chk_orderset            Check Set Ordered
+chk_range               Checks range of non-missing values
+chk_raw                 Check Raw
+chk_s3_class            Check Type
+chk_s4_class            Check Inherits from S4 Class
+chk_scalar              Check Scalar
+chk_sorted              Check Sorted
+chk_string              Check String
+chk_superset            Check Superset
+chk_true                Check TRUE
+chk_tz                  Check Time Zone
+chk_unique              Check Unique
+chk_unused              Check ... Unused
+chk_used                Check ... Used
+chk_valid_name          Check Valid Name
+chk_vector              Check Vector
+chk_whole_number        Check Whole Number
+chk_whole_numeric       Check Whole Numeric
+chk_wnum                Check Whole Numeric Scalar
+chkor                   Check OR
+chkor_vld               Chk OR
+deparse_backtick_chk    Deparse Backtick
+err                     Stop, Warning and Message Messages
+expect_chk_error        Expect Chk Error
+message_chk             Construct Tidyverse Style Message
+p                       Concatenate Strings
+vld_not_subset          Check Subset
+vld_orderset            Check Set Equal
