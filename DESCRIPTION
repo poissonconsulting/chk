@@ -39,6 +39,7 @@ VignetteBuilder:
     knitr
 RdMacros: 
     lifecycle
+Config/gha/extra-packages: testthat=?ignore-before-r=4.1.0
 Config/Needs/website: poissonconsulting/poissontemplate
 Config/testthat/edition: 3
 Encoding: UTF-8
