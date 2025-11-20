@@ -1,5 +1,12 @@
 # Changelog
 
+## chk 0.10.0.9012
+
+### Continuous integration
+
+- Install binaries from r-universe for dev workflow
+  ([\#206](https://github.com/poissonconsulting/chk/issues/206)).
+
 ## chk 0.10.0.9011
 
 ### Continuous integration
