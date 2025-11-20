@@ -26,7 +26,9 @@ chk_date <- function(x, x_name = NULL) {
   if (vld_date(x)) {
     return(invisible(x))
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   abort_chk(x_name, " must be a date (non-missing Date scalar)", x = x)
 }
 

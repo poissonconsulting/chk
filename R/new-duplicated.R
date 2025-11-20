@@ -14,7 +14,11 @@ new_duplicated <- function(x, incomparables = FALSE, fromLast = FALSE, ...) {
       }
       if (lincomparables > n) {
         # if the list is unnamed and there are more elements in the list than there are columns, then only first n elements
-        warning(paste("more columns in 'incomparables' than x, only using the first", n, "elements"))
+        warning(paste(
+          "more columns in 'incomparables' than x, only using the first",
+          n,
+          "elements"
+        ))
         incomparables <- incomparables[1:n]
       }
     } else {
@@ -37,9 +41,13 @@ new_duplicated <- function(x, incomparables = FALSE, fromLast = FALSE, ...) {
       !identical(x, FALSE)
     })
     if (sum(run_incomp_check) > 0L) {
-      incomp_check <- mapply(FUN = function(column, incomparables) {
-        match(column, incomparables)
-      }, x[run_incomp_check], incomparables[run_incomp_check])
+      incomp_check <- mapply(
+        FUN = function(column, incomparables) {
+          match(column, incomparables)
+        },
+        x[run_incomp_check],
+        incomparables[run_incomp_check]
+      )
       # any rows with an incomparable match means, TRUE, it can override the duplicated result
       overwrite <- apply(data.frame(incomp_check), 1, function(x) {
         any(!is.na(x))

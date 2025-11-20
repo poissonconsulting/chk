@@ -18,3 +18,4 @@
 ^scripts$
 ^\.gitignore$
 ^CRAN-SUBMISSION$
+^air\.toml$

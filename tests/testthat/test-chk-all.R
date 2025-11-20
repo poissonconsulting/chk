@@ -50,7 +50,10 @@ test_that("vld_all_identical", {
 test_that("chk_all_identical", {
   expect_identical(chk_all_identical(NULL), NULL)
   expect_invisible(chk_all_identical(NULL))
-  expect_chk_error(chk_all_identical(c(1, 2)), "^`c[(]1, 2[)]` must have identical elements[.]$")
+  expect_chk_error(
+    chk_all_identical(c(1, 2)),
+    "^`c[(]1, 2[)]` must have identical elements[.]$"
+  )
 })
 
 
@@ -70,7 +73,10 @@ test_that("vld_all_equal", {
 test_that("chk_all_equal", {
   expect_identical(chk_all_equal(NULL), NULL)
   expect_invisible(chk_all_equal(NULL), NULL)
-  expect_chk_error(chk_all_equal(c(1, 2)), "^`c[(]1, 2[)]` must have equal elements[.]$")
+  expect_chk_error(
+    chk_all_equal(c(1, 2)),
+    "^`c[(]1, 2[)]` must have equal elements[.]$"
+  )
 })
 
 test_that("vld_all_equivalent", {
@@ -89,5 +95,8 @@ test_that("vld_all_equivalent", {
 test_that("chk_all_equivalent", {
   expect_identical(chk_all_equivalent(NULL), NULL)
   expect_invisible(chk_all_equivalent(NULL))
-  expect_chk_error(chk_all_equivalent(c(1, 2)), "^`c[(]1, 2[)]` must have equivalent elements[.]$")
+  expect_chk_error(
+    chk_all_equivalent(c(1, 2)),
+    "^`c[(]1, 2[)]` must have equivalent elements[.]$"
+  )
 })

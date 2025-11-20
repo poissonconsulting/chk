@@ -15,7 +15,10 @@ test_that("chk_unique", {
   expect_identical(chk_unique(1), 1)
   expect_invisible(chk_unique(1))
   expect_chk_error(chk_unique(c(1, 1)), "^`c[(]1, 1[)]` must be unique[.]$")
-  expect_chk_error(chk_unique(c(1, 1), x_name = "unicorn"), "^Unicorn must be unique[.]$")
+  expect_chk_error(
+    chk_unique(c(1, 1), x_name = "unicorn"),
+    "^Unicorn must be unique[.]$"
+  )
 })
 
 test_that("vld_unique data frame", {
@@ -62,5 +65,8 @@ test_that("chk_named", {
   expect_identical(chk_named(c(x = 1)), c(x = 1))
   expect_invisible(chk_named(c(x = 1)))
   expect_chk_error(chk_named(1), "^`1` must be named[.]$")
-  expect_chk_error(chk_named(1, x_name = "new born"), "^New born must be named[.]$")
+  expect_chk_error(
+    chk_named(1, x_name = "new born"),
+    "^New born must be named[.]$"
+  )
 })

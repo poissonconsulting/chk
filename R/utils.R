@@ -15,7 +15,12 @@
 #' try(abort_chk("`x` must be NULL"))
 #' try(abort_chk("there %r %n problem value%s", n = 1))
 #' try(abort_chk("there %r %n problem value%s", n = 1.5))
-abort_chk <- function(..., n = NULL, tidy = TRUE, call = rlang::caller_call(2)) {
+abort_chk <- function(
+  ...,
+  n = NULL,
+  tidy = TRUE,
+  call = rlang::caller_call(2)
+) {
   err(..., n = n, tidy = tidy, class = "chk_error", call = call)
 }
 

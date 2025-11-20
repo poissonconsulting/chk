@@ -18,7 +18,8 @@ NULL
 #'
 #' @export
 chk_dirs <- function(x) {
-  deprecate_warn("0.2.0",
+  deprecate_warn(
+    "0.2.0",
     what = "chk::chk_dirs()",
     details = "Please use `chk_all(x, chk_dir)` instead"
   )
@@ -33,7 +34,8 @@ chk_dirs <- function(x) {
 #'
 #' @export
 chk_files <- function(x) {
-  deprecate_warn("0.2.0",
+  deprecate_warn(
+    "0.2.0",
     what = "chk::chk_files()",
     details = "Please use `chk_all(x, chk_file)` instead"
   )
@@ -48,12 +50,11 @@ chk_files <- function(x) {
 #'
 #' @export
 chk_has <- function(x, values, x_name = NULL) {
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   chk_superset(x, values, x_name = x_name)
-  deprecate_warn("0.2.0",
-    what = "chk::chk_has()",
-    with = "chk::chk_superset()"
-  )
+  deprecate_warn("0.2.0", what = "chk::chk_has()", with = "chk::chk_superset()")
   invisible()
 }
 
@@ -65,12 +66,11 @@ chk_has <- function(x, values, x_name = NULL) {
 #'
 #' @export
 chk_in <- function(x, values, x_name = NULL) {
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   chk_subset(x, values, x_name = x_name)
-  deprecate_warn("0.2.0",
-    what = "chk::chk_in()",
-    with = "chk::chk_subset()"
-  )
+  deprecate_warn("0.2.0", what = "chk::chk_in()", with = "chk::chk_subset()")
   invisible()
 }
 
@@ -82,14 +82,18 @@ chk_in <- function(x, values, x_name = NULL) {
 #'
 #' @export
 chk_no_missing <- function(x, x_name = NULL) {
-  deprecate_warn("0.2.0",
-    what = "chk::chk_no_missing()", with = "chk::chk_not_any_na()",
+  deprecate_warn(
+    "0.2.0",
+    what = "chk::chk_no_missing()",
+    with = "chk::chk_not_any_na()",
     id = "chk_no_missing"
   )
   if (vld_no_missing(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   abort_chk(x_name, " must not have missing values", x = x)
 }
 
@@ -101,8 +105,10 @@ chk_no_missing <- function(x, x_name = NULL) {
 #'
 #' @export
 vld_no_missing <- function(x) {
-  deprecate_warn("0.2.0",
-    what = "chk::vld_no_missing()", with = "chk::vld_not_any_na()",
+  deprecate_warn(
+    "0.2.0",
+    what = "chk::vld_no_missing()",
+    with = "chk::vld_not_any_na()",
     id = "chk_no_missing"
   )
   !anyNA(x)
@@ -116,7 +122,8 @@ vld_no_missing <- function(x) {
 #'
 #' @export
 chk_off <- function() {
-  deprecate_stop("0.2.0",
+  deprecate_stop(
+    "0.2.0",
     what = "chk::chk_off()",
     details = "This approach is no longer recommended"
   )
@@ -131,7 +138,8 @@ chk_off <- function() {
 #'
 #' @export
 chk_on <- function() {
-  deprecate_stop("0.2.0",
+  deprecate_stop(
+    "0.2.0",
     what = "chk::chk_on()",
     details = "This approach is no longer recommended"
   )
@@ -146,7 +154,8 @@ chk_on <- function() {
 #'
 #' @export
 is_chk_on <- function() {
-  deprecate_stop("0.2.0",
+  deprecate_stop(
+    "0.2.0",
     what = "chk::is_chk_on()",
     details = "This approach is no longer recommended"
   )
@@ -161,11 +170,14 @@ is_chk_on <- function() {
 #'
 #' @export
 chk_proportion <- function(x, x_name = NULL) {
-  deprecate_warn("0.2.0",
+  deprecate_warn(
+    "0.2.0",
     what = "chk::chk_proportion()",
     details = "Please use `chk_number(x)` or `chk_range(x)` instead"
   )
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   chk_number(x)
   chk_range(x)
 }
@@ -178,7 +190,8 @@ chk_proportion <- function(x, x_name = NULL) {
 #'
 #' @export
 deparse_backtick <- function(x) {
-  deprecate_warn("0.2.0",
+  deprecate_warn(
+    "0.2.0",
     what = "chk::deparse_backtick()",
     with = "chk::deparse_backtick_chk()"
   )

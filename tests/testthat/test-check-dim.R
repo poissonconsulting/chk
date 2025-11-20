@@ -42,7 +42,8 @@ test_that("check_dim length", {
   )
 
   expect_chk_error(
-    check_dim(1, values = 1.1), "^At least one of the following conditions must be met:\n[*] `values` must be a flag [(]TRUE or FALSE[)].\n[*] `values` must be a whole numeric vector \\(integer vector or double equivalent\\)\\.$"
+    check_dim(1, values = 1.1),
+    "^At least one of the following conditions must be met:\n[*] `values` must be a flag [(]TRUE or FALSE[)].\n[*] `values` must be a whole numeric vector \\(integer vector or double equivalent\\)\\.$"
   )
 })
 
@@ -57,11 +58,22 @@ test_that("check_dim nrow", {
     "`nrow[(]data.frame[(]x = integer[(]0[)][)][)]` must be greater than 0, not 0[.]"
   )
   expect_chk_error(
-    check_dim(data.frame(x = integer(0)), dim = nrow, dim_name = "ncol", values = TRUE),
+    check_dim(
+      data.frame(x = integer(0)),
+      dim = nrow,
+      dim_name = "ncol",
+      values = TRUE
+    ),
     "`ncol[(]data.frame[(]x = integer[(]0[)][)][)]` must be greater than 0, not 0[.]"
   )
   expect_chk_error(
-    check_dim(data.frame(x = integer(0)), dim = nrow, x_name = "y", dim_name = "ncol", values = TRUE),
+    check_dim(
+      data.frame(x = integer(0)),
+      dim = nrow,
+      x_name = "y",
+      dim_name = "ncol",
+      values = TRUE
+    ),
     "`ncol[(]y[)]` must be greater than 0, not 0[.]"
   )
 })

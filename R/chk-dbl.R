@@ -28,7 +28,9 @@ chk_dbl <- function(x, x_name = NULL) {
     id = "chk_dbl"
   )
 
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk((substitute(x)))
+  }
   abort_chk(x_name, " must be double (real) scalar", x = x)
 }
 

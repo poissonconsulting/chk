@@ -20,7 +20,10 @@ test_that("chk_not_missing", {
   expect_identical(chk_not_missing(1), 1)
   expect_invisible(chk_not_missing(1))
   expect_chk_error(chk_not_missing(), "^`x` must not be missing\\.$")
-  expect_chk_error(chk_not_missing(x_name = "`y`"), "^`y` must not be missing\\.$")
+  expect_chk_error(
+    chk_not_missing(x_name = "`y`"),
+    "^`y` must not be missing\\.$"
+  )
 })
 
 test_that("chk_not_missing in function", {

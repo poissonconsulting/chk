@@ -11,6 +11,12 @@ test_that("vld_count", {
 test_that("chk_count", {
   expect_identical(chk_count(1), 1)
   expect_invisible(chk_count(1))
-  expect_chk_error(chk_count(1.1), "^`1.1` must be a count [(]non-negative non-missing integer scalar or double equivalent[)][.]$")
-  expect_chk_error(chk_count(1.1, x_name = 1L), "^1 must be a count [(]non-negative non-missing integer scalar or double equivalent[)][.]$")
+  expect_chk_error(
+    chk_count(1.1),
+    "^`1.1` must be a count [(]non-negative non-missing integer scalar or double equivalent[)][.]$"
+  )
+  expect_chk_error(
+    chk_count(1.1, x_name = 1L),
+    "^1 must be a count [(]non-negative non-missing integer scalar or double equivalent[)][.]$"
+  )
 })

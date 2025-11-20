@@ -48,4 +48,3 @@
 # nocov start
 params <- function(...) NULL
 # nocov end
-

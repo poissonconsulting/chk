@@ -23,7 +23,9 @@ chk_is <- function(x, class, x_name = NULL) {
   if (vld_is(x, class)) {
     return(invisible(x))
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   .class <- cc(class, conj = " or ", chk = FALSE)
   abort_chk(x_name, " must inherit from class ", .class, x = x, .class = .class)
 }

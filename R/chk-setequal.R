@@ -25,7 +25,9 @@ chk_setequal <- function(x, values, x_name = NULL) {
   if (vld_setequal(x, values)) {
     return(invisible(x))
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk((substitute(x)))
+  }
   abort_chk(x_name, " must equal set: ", cc(values), x = x, values = values)
 }
 

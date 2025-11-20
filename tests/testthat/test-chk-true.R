@@ -49,5 +49,8 @@ test_that("chk_flag", {
   expect_identical(chk_flag(TRUE), TRUE)
   expect_invisible(chk_flag(TRUE))
   expect_chk_error(chk_flag(1), "^`1` must be a flag [(]TRUE or FALSE[)][.]$")
-  expect_chk_error(chk_flag(1, x_name = "2"), "^2 must be a flag [(]TRUE or FALSE[)][.]$")
+  expect_chk_error(
+    chk_flag(1, x_name = "2"),
+    "^2 must be a flag [(]TRUE or FALSE[)][.]$"
+  )
 })

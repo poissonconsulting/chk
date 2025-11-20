@@ -28,7 +28,9 @@ chk_wnum <- function(x, x_name = NULL) {
     details = "Please use `chk::chk_scalar(x);` `chk::chk_whole_numeric(x)` instead",
     id = "chk_wnum"
   )
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk((substitute(x)))
+  }
   abort_chk(x_name, " must be a whole numeric scalar", x = x)
 }
 
@@ -52,5 +54,7 @@ vld_wnum <- function(x) {
     id = "chk_wnum"
   )
 
-  is.numeric(x) && length(x) == 1L && (is.integer(x) || vld_true(all.equal(x, trunc(x))))
+  is.numeric(x) &&
+    length(x) == 1L &&
+    (is.integer(x) || vld_true(all.equal(x, trunc(x))))
 }

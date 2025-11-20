@@ -29,7 +29,9 @@ chk_number <- function(x, x_name = NULL) {
   if (vld_number(x)) {
     return(invisible(x))
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   abort_chk(x_name, " must be a number (non-missing numeric scalar)", x = x)
 }
 

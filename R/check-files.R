@@ -13,7 +13,9 @@
 #' try(check_files(tempfile("unlikely-that-exists-chk")))
 #' @export
 check_files <- function(x, exists = TRUE, x_name = NULL) {
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk((substitute(x)))
+  }
   chk_string(x_name)
   chk_character(x, x_name = x_name)
   chk_vector(x, x_name = x_name)
@@ -22,7 +24,13 @@ check_files <- function(x, exists = TRUE, x_name = NULL) {
 
   dirs <- vapply(x, vld_dir, TRUE)
   if (any(dirs)) {
-    abort_chk(x_name, " must specify files ('", x[dirs][1], "' is a directory)", x = x)
+    abort_chk(
+      x_name,
+      " must specify files ('",
+      x[dirs][1],
+      "' is a directory)",
+      x = x
+    )
   }
   x <- x[vapply(x, vld_file, TRUE) != exists]
   if (!length(x)) {
@@ -30,7 +38,19 @@ check_files <- function(x, exists = TRUE, x_name = NULL) {
   }
   x <- x[1]
   if (exists) {
-    abort_chk(x_name, " must specify existing files ('", x, "' can't be found)", x = x)
+    abort_chk(
+      x_name,
+      " must specify existing files ('",
+      x,
+      "' can't be found)",
+      x = x
+    )
   }
-  abort_chk(x_name, " must not specify existing files ('", x, "' exists)", x = x)
+  abort_chk(
+    x_name,
+    " must not specify existing files ('",
+    x,
+    "' exists)",
+    x = x
+  )
 }

@@ -10,6 +10,12 @@ test_that("vld_complex_number", {
 test_that("chk_complex_number", {
   expect_identical(chk_complex_number(as.complex(1)), as.complex(1))
   expect_invisible(chk_complex_number(as.complex(1)))
-  expect_chk_error(chk_complex_number(TRUE), "^`TRUE` must be a complex number [(]non-missing complex scalar[)][.]$")
-  expect_chk_error(chk_complex_number(TRUE, x_name = 1L), "^1 must be a complex number [(]non-missing complex scalar[)][.]$")
+  expect_chk_error(
+    chk_complex_number(TRUE),
+    "^`TRUE` must be a complex number [(]non-missing complex scalar[)][.]$"
+  )
+  expect_chk_error(
+    chk_complex_number(TRUE, x_name = 1L),
+    "^1 must be a complex number [(]non-missing complex scalar[)][.]$"
+  )
 })

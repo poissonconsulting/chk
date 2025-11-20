@@ -32,24 +32,47 @@ chk_range <- function(x, range = c(0, 1), inclusive = TRUE, x_name = NULL) {
     return(invisible(x))
   }
 
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
 
   if (length(x) == 1L) {
     if (inclusive && range[1] == range[2]) {
-      abort_chk(x_name, " must be ", cc(range[1]), ", not ", cc(x), x = x, range = range)
+      abort_chk(
+        x_name,
+        " must be ",
+        cc(range[1]),
+        ", not ",
+        cc(x),
+        x = x,
+        range = range
+      )
     }
     abort_chk(
-      x_name, " must be between ", cc(range, " and "),
+      x_name,
+      " must be between ",
+      cc(range, " and "),
       ifelse(isTRUE(inclusive), "", " exclusive"),
-      ", not ", cc(x)
+      ", not ",
+      cc(x)
     )
   }
   if (inclusive && range[1] == range[2]) {
-    abort_chk(x_name, " must have values of ", cc(range[1]), x = x, range = range)
+    abort_chk(
+      x_name,
+      " must have values of ",
+      cc(range[1]),
+      x = x,
+      range = range
+    )
   }
-  abort_chk(x_name, " must have values between ", cc(range, " and "),
+  abort_chk(
+    x_name,
+    " must have values between ",
+    cc(range, " and "),
     ifelse(isTRUE(inclusive), "", " exclusive"),
-    x = x, range = range
+    x = x,
+    range = range
   )
 }
 
