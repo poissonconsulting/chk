@@ -17,7 +17,13 @@ test_that("vld_not_subset", {
 test_that("chk_not_subset", {
   expect_identical(chk_not_subset(integer(0), 1), integer(0), 1)
   expect_invisible(chk_not_subset(integer(0), 1))
-  expect_chk_error(chk_not_subset(1:3, c(0, 1, NA)), "`1:3` must not have any values matching 0, 1 or NA[.]$")
-  expect_chk_error(chk_not_subset(1, c(0, 1, NA)), "^`1` must not match 1, 0 or NA[.]$")
+  expect_chk_error(
+    chk_not_subset(1:3, c(0, 1, NA)),
+    "`1:3` must not have any values matching 0, 1 or NA[.]$"
+  )
+  expect_chk_error(
+    chk_not_subset(1, c(0, 1, NA)),
+    "^`1` must not match 1, 0 or NA[.]$"
+  )
   expect_chk_error(chk_not_subset(0L, 0L), c("^`0L` must not match 0[.]$"))
 })

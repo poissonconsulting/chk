@@ -29,7 +29,9 @@ chk_chr <- function(x, x_name = NULL) {
     id = "chk_chr"
   )
 
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk((substitute(x)))
+  }
   abort_chk(x_name, " must be a character scalar", x = x)
 }
 

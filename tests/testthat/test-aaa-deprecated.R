@@ -13,7 +13,10 @@ test_that("chk_no_missing", {
   expect_null(chk_no_missing(1))
   expect_invisible(chk_no_missing(1))
   expect_chk_error(chk_no_missing(NA), "^`NA` must not have missing values[.]$")
-  expect_chk_error(chk_no_missing(NA, x_name = "1"), "^1 must not have missing values[.]$")
+  expect_chk_error(
+    chk_no_missing(NA, x_name = "1"),
+    "^1 must not have missing values[.]$"
+  )
 })
 
 

@@ -54,7 +54,10 @@ test_that("err", {
 })
 
 test_that("err .subclass deprecated", {
-  lifecycle::expect_deprecated(expect_s3_class(expect_error(err(.subclass = "xx"), "^[.]$"), "xx"))
+  lifecycle::expect_deprecated(expect_s3_class(
+    expect_error(err(.subclass = "xx"), "^[.]$"),
+    "xx"
+  ))
   expect_s3_class(expect_error(err(class = "xx"), "^[.]$"), "xx")
 })
 
@@ -76,7 +79,10 @@ test_that("msg", {
 })
 
 test_that("msg .subclass deprecated", {
-  lifecycle::expect_deprecated(expect_s3_class(expect_message(msg(.subclass = "xx"), "^[.]$"), "xx"))
+  lifecycle::expect_deprecated(expect_s3_class(
+    expect_message(msg(.subclass = "xx"), "^[.]$"),
+    "xx"
+  ))
   expect_s3_class(expect_message(msg(class = "xx"), "^[.]$"), "xx")
 })
 
@@ -98,6 +104,9 @@ test_that("wrn", {
 })
 
 test_that("wrn .subclass deprecated", {
-  lifecycle::expect_deprecated(expect_s3_class(expect_warning(wrn(.subclass = "xx"), "^[.]$"), "xx"))
+  lifecycle::expect_deprecated(expect_s3_class(
+    expect_warning(wrn(.subclass = "xx"), "^[.]$"),
+    "xx"
+  ))
   expect_s3_class(expect_warning(wrn(class = "xx"), "^[.]$"), "xx")
 })

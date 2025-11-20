@@ -13,6 +13,12 @@ test_that("vld_number", {
 test_that("chk_number", {
   expect_identical(chk_number(1), 1)
   expect_invisible(chk_number(1))
-  expect_chk_error(chk_number(TRUE), "^`TRUE` must be a number [(]non-missing numeric scalar[)][.]$")
-  expect_chk_error(chk_number(TRUE, x_name = 1L), "^1 must be a number [(]non-missing numeric scalar[)][.]$")
+  expect_chk_error(
+    chk_number(TRUE),
+    "^`TRUE` must be a number [(]non-missing numeric scalar[)][.]$"
+  )
+  expect_chk_error(
+    chk_number(TRUE, x_name = 1L),
+    "^1 must be a number [(]non-missing numeric scalar[)][.]$"
+  )
 })

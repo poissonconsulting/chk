@@ -22,12 +22,20 @@ chk_join <- function(x, y, by, x_name = NULL) {
   if (vld_join(x, y, by)) {
     return(invisible(x))
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   y_name <- as_label(y)
   obj_of <- if (grepl("^<", y_name)) "the y object of class " else NULL
-  abort_chk("All rows in ", x_name, " must match at least one in ",
-    obj_of, y_name,
-    x = x, y = y, by = by
+  abort_chk(
+    "All rows in ",
+    x_name,
+    " must match at least one in ",
+    obj_of,
+    y_name,
+    x = x,
+    y = y,
+    by = by
   )
 }
 
@@ -46,8 +54,11 @@ vld_join <- function(x, y, by) {
   }
   identical(
     nrow(x),
-    nrow(merge(as.data.frame(x), unique(as.data.frame(y)[by]),
-      by.x = if (is.null(names(by))) by else names(by), by.y = by
+    nrow(merge(
+      as.data.frame(x),
+      unique(as.data.frame(y)[by]),
+      by.x = if (is.null(names(by))) by else names(by),
+      by.y = by
     ))
   )
 }

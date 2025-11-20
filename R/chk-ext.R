@@ -27,12 +27,19 @@ chk_ext <- function(x, ext, x_name = NULL) {
   if (vld_ext(x, ext)) {
     return(invisible(x))
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   chk_string(x, x_name = x_name)
   abort_chk(
-    x_name, " must have extension ", cc(ext, " or "), " (not '",
-    tools::file_ext(x), "')",
-    x = x, ext = ext
+    x_name,
+    " must have extension ",
+    cc(ext, " or "),
+    " (not '",
+    tools::file_ext(x),
+    "')",
+    x = x,
+    ext = ext
   )
 }
 

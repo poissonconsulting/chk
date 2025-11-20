@@ -6,7 +6,10 @@ test_that("check_data works", {
     check_data(data.frame(x = 1, values = list(x = 1))),
     check_data(data.frame(x = 1, values = list(x = 1)))
   )
-  expect_identical(check_data(data.frame(x = 1), nrow = c(1, Inf)), data.frame(x = 1))
+  expect_identical(
+    check_data(data.frame(x = 1), nrow = c(1, Inf)),
+    data.frame(x = 1)
+  )
 })
 
 test_that("check_data fails", {
@@ -19,7 +22,14 @@ test_that("check_data fails", {
     "`names[(]data.frame[(][)][)]` must include 'x'."
   )
 
-  expect_chk_error(check_data(data.frame(x = 1, y = 2), values = list(x = 1), exclusive = TRUE), "^`names[(]data.frame[(]x = 1, y = 2[)][)]` must not include 'y'[.]$")
+  expect_chk_error(
+    check_data(
+      data.frame(x = 1, y = 2),
+      values = list(x = 1),
+      exclusive = TRUE
+    ),
+    "^`names[(]data.frame[(]x = 1, y = 2[)][)]` must not include 'y'[.]$"
+  )
   expect_chk_error(
     check_data(data.frame(x = 1), values = list(x = 1L)),
     "`data.frame[(]x = 1[)][$]x` must inherit from S3 class 'integer'."
@@ -29,7 +39,10 @@ test_that("check_data fails", {
     "^Column 'x' in `data.frame[(]x = c[(]1, 1[)][)]` must be a unique key[.]$"
   )
   expect_chk_error(
-    check_data(data.frame(x = ordered(1:2)), values = list(x = ordered(1:2, levels = 2:1))),
+    check_data(
+      data.frame(x = ordered(1:2)),
+      values = list(x = ordered(1:2, levels = 2:1))
+    ),
     "^`levels[(]data.frame[(]x = ordered[(]1:2[)][)][$]x[)]` must have [(]the first occurence of[)] each of the following elements in the following order: '2', '1'[.]$"
   )
 })

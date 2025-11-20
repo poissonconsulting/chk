@@ -18,5 +18,8 @@ test_that("chk_vector", {
   expect_identical(chk_vector(1), 1)
   expect_invisible(chk_vector(1))
 
-  expect_chk_error(chk_vector(matrix(1)), "^`matrix[(]1[)]` must be a vector[.]$")
+  expect_chk_error(
+    chk_vector(matrix(1)),
+    "^`matrix[(]1[)]` must be a vector[.]$"
+  )
 })

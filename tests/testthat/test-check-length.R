@@ -24,7 +24,10 @@ test_that("check_length length", {
     check_length(1, values = 3:2),
     "^`length[(]1[)]` must be between 2 and 3, not 1[.]"
   )
-  expect_identical(check_length(1:2, values = 2:3), check_length(1:2, values = 2:3))
+  expect_identical(
+    check_length(1:2, values = 2:3),
+    check_length(1:2, values = 2:3)
+  )
   expect_chk_error(
     check_length(2, values = c(2, 2)),
     "`length[(]2[)]` must be equal to 2[.]"
@@ -39,6 +42,7 @@ test_that("check_length length", {
   )
 
   expect_chk_error(
-    check_length(1, values = 1.1), "^At least one of the following conditions must be met:\n[*] `values` must be a flag [(]TRUE or FALSE[)].\n[*] `values` must be a whole numeric vector \\(integer vector or double equivalent\\)\\.$"
+    check_length(1, values = 1.1),
+    "^At least one of the following conditions must be met:\n[*] `values` must be a flag [(]TRUE or FALSE[)].\n[*] `values` must be a whole numeric vector \\(integer vector or double equivalent\\)\\.$"
   )
 })

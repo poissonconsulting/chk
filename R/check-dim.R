@@ -17,7 +17,13 @@
 #' try(check_dim(1, values = c(10, 2)))
 #' try(check_dim(data.frame(x = 1), dim = nrow, values = c(10, 10, 2)))
 #' @export
-check_dim <- function(x, dim = length, values = numeric(0), x_name = NULL, dim_name = NULL) {
+check_dim <- function(
+  x,
+  dim = length,
+  values = numeric(0),
+  x_name = NULL,
+  dim_name = NULL
+) {
   chk_function(dim)
   if (!vld_flag(values) && !vld_whole_numeric(values)) {
     chkor_vld(vld_flag(values), vld_whole_numeric(values))
@@ -25,9 +31,13 @@ check_dim <- function(x, dim = length, values = numeric(0), x_name = NULL, dim_n
   chk_whole_number(dim(x))
   chk_gte(dim(x))
 
-  if (is.null(x_name)) x_name <- deparse((substitute(x)))
+  if (is.null(x_name)) {
+    x_name <- deparse((substitute(x)))
+  }
   chk_string(x_name)
-  if (is.null(dim_name)) dim_name <- deparse((substitute(dim)))
+  if (is.null(dim_name)) {
+    dim_name <- deparse((substitute(dim)))
+  }
   chk_string(dim_name)
 
   x_name <- backtick_chk(p0(dim_name, "(", x_name, ")"))
@@ -39,7 +49,9 @@ check_dim <- function(x, dim = length, values = numeric(0), x_name = NULL, dim_n
   if (vld_true(values)) {
     return(chk_gt(dim(x), x_name = x_name))
   }
-  if (vld_false(values)) values <- 0L
+  if (vld_false(values)) {
+    values <- 0L
+  }
   if (identical(length(values), 2L)) {
     if (!identical(values[1], values[2])) {
       return(chk_range(dim(x), sort(values), x_name = x_name))

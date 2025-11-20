@@ -5,7 +5,14 @@ test_that("vld_atomic", {
   expect_false(vld_atomic(list(1)))
 
   skip_on_cran()
-  if (sub("(R version )((\\d+\\.){2,2}\\d+)(.*)", "\\2", R.version$version.string) <= "4.4.0") {
+  if (
+    sub(
+      "(R version )((\\d+\\.){2,2}\\d+)(.*)",
+      "\\2",
+      R.version$version.string
+    ) <=
+      "4.4.0"
+  ) {
     expect_true(vld_atomic(NULL))
   } else {
     expect_false(vld_atomic(NULL))

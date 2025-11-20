@@ -3,7 +3,7 @@ test_that("vld_raw", {
   expect_false(vld_raw(matrix(1:4)))
   expect_true(vld_raw(raw(0)))
   expect_true(vld_raw(as.raw(1)))
-  expect_true(vld_raw(as.raw(c(1,2))))
+  expect_true(vld_raw(as.raw(c(1, 2))))
   expect_false(vld_raw(1))
   expect_false(vld_raw(TRUE))
 })

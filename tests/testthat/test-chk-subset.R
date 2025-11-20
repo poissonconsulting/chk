@@ -17,10 +17,22 @@ test_that("vld_subset", {
 test_that("chk_subset", {
   expect_identical(chk_subset(integer(0), 1), integer(0), 1)
   expect_invisible(chk_subset(integer(0), 1))
-  expect_chk_error(chk_subset(NA, c(0, Inf)), "^`NA` must match 0 or Inf, not NA[.]$")
-  expect_chk_error(chk_subset(1:3, c(0, 1, NA)), "`1:3` must have values matching 0, 1 or NA[.]$")
-  expect_chk_error(chk_subset(-1, c(0, 1, NA)), "^`-1` must match 0, 1 or NA, not -1[.]$")
-  expect_chk_error(chk_subset(c(1L, 1L), 0L), c("^`c[(]1L, 1L[)]` must have values matching 0[.]$"))
+  expect_chk_error(
+    chk_subset(NA, c(0, Inf)),
+    "^`NA` must match 0 or Inf, not NA[.]$"
+  )
+  expect_chk_error(
+    chk_subset(1:3, c(0, 1, NA)),
+    "`1:3` must have values matching 0, 1 or NA[.]$"
+  )
+  expect_chk_error(
+    chk_subset(-1, c(0, 1, NA)),
+    "^`-1` must match 0, 1 or NA, not -1[.]$"
+  )
+  expect_chk_error(
+    chk_subset(c(1L, 1L), 0L),
+    c("^`c[(]1L, 1L[)]` must have values matching 0[.]$")
+  )
   expect_chk_error(chk_subset(1, ""), "^`1` must match '', not 1[.]$")
   expect_chk_error(
     chk_subset(1, NA),

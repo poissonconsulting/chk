@@ -25,12 +25,28 @@ chk_match <- function(x, regexp = ".+", x_name = NULL) {
   if (vld_match(x, regexp)) {
     return(invisible(x))
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
 
   if (length(x) == 1L) {
-    abort_chk(x_name, " must match regular expression '", regexp, "'", x = x, regexp = regexp)
+    abort_chk(
+      x_name,
+      " must match regular expression '",
+      regexp,
+      "'",
+      x = x,
+      regexp = regexp
+    )
   }
-  abort_chk(x_name, " must have values matching regular expression '", regexp, "'", x = x, regexp = regexp)
+  abort_chk(
+    x_name,
+    " must have values matching regular expression '",
+    regexp,
+    "'",
+    x = x,
+    regexp = regexp
+  )
 }
 
 #' @describeIn chk_match Validate Matches

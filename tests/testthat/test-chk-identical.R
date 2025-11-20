@@ -94,7 +94,10 @@ test_that("vld_equivalent", {
 test_that("chk_equivalent", {
   expect_identical(chk_equivalent(1, 1), 1, 1)
   expect_invisible(chk_equivalent(1, 1))
-  expect_chk_error(chk_equivalent(1, 1.001, 0.0001), c("^`1` must be equivalent to 1[.]001[.]\n"))
+  expect_chk_error(
+    chk_equivalent(1, 1.001, 0.0001),
+    c("^`1` must be equivalent to 1[.]001[.]\n")
+  )
   expect_chk_error(
     chk_equivalent(1, c(1, 5, 1, 9)),
     "^`1` must be equivalent to the y object of class [<]dbl[>][.]\n"
