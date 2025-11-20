@@ -26,8 +26,14 @@ chk_count <- function(x, x_name = NULL) {
   if (vld_count(x)) {
     return(invisible(x))
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
-  abort_chk(x_name, " must be a count (non-negative non-missing integer scalar or double equivalent)", x = x)
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk((substitute(x)))
+  }
+  abort_chk(
+    x_name,
+    " must be a count (non-negative non-missing integer scalar or double equivalent)",
+    x = x
+  )
 }
 
 #' @describeIn chk_count Validate Count

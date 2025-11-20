@@ -8,10 +8,16 @@ test_that("check_dirs works", {
   expect_invisible(check_dirs(character(0), exists = TRUE))
 
   tmp <- withr::local_tempfile()
-  expect_identical(check_dirs(tmp, exists = FALSE), check_dirs(tmp, exists = FALSE))
+  expect_identical(
+    check_dirs(tmp, exists = FALSE),
+    check_dirs(tmp, exists = FALSE)
+  )
   expect_invisible(check_dirs(tmp, exists = FALSE))
   tmp <- withr::local_tempdir()
-  expect_identical(check_dirs(tmp, exists = TRUE), check_dirs(tmp, exists = TRUE))
+  expect_identical(
+    check_dirs(tmp, exists = TRUE),
+    check_dirs(tmp, exists = TRUE)
+  )
   expect_invisible(check_dirs(tmp, exists = TRUE))
 })
 

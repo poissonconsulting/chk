@@ -37,7 +37,9 @@
 #' try(check_values(NA_real_, 1))
 #' @export
 check_values <- function(x, values, x_name = NULL) {
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk((substitute(x)))
+  }
   chk_string(x_name)
   chk_atomic(x, x_name = x_name)
   chk_vector(values)
@@ -57,7 +59,9 @@ check_values <- function(x, values, x_name = NULL) {
   if (!length(x) || !length(values)) {
     return(invisible(x))
   }
-  if (vld_not_any_na(values)) chk_not_any_na(x, x_name = x_name)
+  if (vld_not_any_na(values)) {
+    chk_not_any_na(x, x_name = x_name)
+  }
   x <- x[!is.na(x)]
   values <- values[!is.na(values)]
   if (!length(x) || length(values) < 2) {

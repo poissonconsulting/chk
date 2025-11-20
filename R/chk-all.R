@@ -23,10 +23,14 @@
 #' @export
 chk_all <- function(x, chk_fun, ..., x_name = NULL) {
   if (is.null(x)) {
-    if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+    if (is.null(x_name)) {
+      x_name <- deparse_backtick_chk(substitute(x))
+    }
     return(chk_fun(x, ..., x_name = x_name))
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   x_name <- paste0("all elements of ", x_name)
 
   args <- list(...)

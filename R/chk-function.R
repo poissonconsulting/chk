@@ -26,9 +26,22 @@ chk_function <- function(x, formals = NULL, x_name = NULL) {
   if (vld_function(x, formals)) {
     return(invisible(x))
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if (!is.function(x)) abort_chk(x_name, " must be a function", x = x, formals = formals)
-  abort_chk(x_name, " must have ", formals, " formal arguments (not ", length(formals(x)), ")", x = x, formals = formals)
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
+  if (!is.function(x)) {
+    abort_chk(x_name, " must be a function", x = x, formals = formals)
+  }
+  abort_chk(
+    x_name,
+    " must have ",
+    formals,
+    " formal arguments (not ",
+    length(formals(x)),
+    ")",
+    x = x,
+    formals = formals
+  )
 }
 
 #' @describeIn chk_function Validate Function

@@ -15,7 +15,10 @@ test_that("chk_file", {
     "^`character[(]0[)]` must be a string [(]non-missing character scalar[)][.]$"
   )
 
-  expect_chk_error(chk_file(tempdir()), "`tempdir[(][)]` must specify a file [(]'.*' is a directory[)][.]$")
+  expect_chk_error(
+    chk_file(tempdir()),
+    "`tempdir[(][)]` must specify a file [(]'.*' is a directory[)][.]$"
+  )
 
   file1 <- withr::local_tempfile(fileext = ".csv")
   expect_chk_error(
@@ -30,7 +33,11 @@ test_that("chk_file", {
   expect_invisible(chk_all(character(0), chk_file))
   expect_identical(chk_all(file1, chk_file), file1, chk_file)
   expect_invisible(chk_all(file1, chk_file))
-  expect_identical(chk_all(c(file1, file1), chk_file), c(file1, file1), chk_file)
+  expect_identical(
+    chk_all(c(file1, file1), chk_file),
+    c(file1, file1),
+    chk_file
+  )
   expect_invisible(chk_all(c(file1, file1), chk_file))
   expect_chk_error(
     chk_all(c(file1, p0(file1, "b")), chk_file, x_name = "`vec`"),
@@ -61,8 +68,14 @@ test_that("chk_dir", {
 
   path <- withr::local_tempdir()
   unlink(path, recursive = TRUE)
-  expect_chk_error(chk_dir(path), "^`path` must specify an existing directory [(]'.*' can't be found[)][.]$")
-  expect_chk_error(chk_dir(1), "^`1` must be a string [(]non-missing character scalar[)][.]$")
+  expect_chk_error(
+    chk_dir(path),
+    "^`path` must specify an existing directory [(]'.*' can't be found[)][.]$"
+  )
+  expect_chk_error(
+    chk_dir(1),
+    "^`1` must be a string [(]non-missing character scalar[)][.]$"
+  )
   expect_invisible(chk_all(c(tempdir(), tempdir()), chk_dir))
   expect_chk_error(
     chk_all(c(tempdir(), p0(tempdir(), "b")), chk_dir, x_name = "`vec`"),

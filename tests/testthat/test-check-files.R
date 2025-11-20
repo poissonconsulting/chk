@@ -8,10 +8,16 @@ test_that("check_files works", {
   expect_invisible(check_files(character(0), exists = TRUE))
 
   tmp <- withr::local_tempfile()
-  expect_identical(check_files(tmp, exists = FALSE), check_files(tmp, exists = FALSE))
+  expect_identical(
+    check_files(tmp, exists = FALSE),
+    check_files(tmp, exists = FALSE)
+  )
   expect_invisible(check_files(tmp, exists = FALSE))
   writeLines(tmp, text = "some test data")
-  expect_identical(check_files(tmp, exists = TRUE), check_files(tmp, exists = TRUE))
+  expect_identical(
+    check_files(tmp, exists = TRUE),
+    check_files(tmp, exists = TRUE)
+  )
   expect_invisible(check_files(tmp, exists = TRUE))
 })
 

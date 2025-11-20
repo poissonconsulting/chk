@@ -27,7 +27,9 @@ chk_whole_numeric <- function(x, x_name = NULL) {
   if (vld_whole_numeric(x)) {
     return(invisible(x))
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   abort_chk(
     x_name,
     " must be a whole numeric vector (integer vector or double equivalent)",
@@ -47,6 +49,7 @@ chk_whole_numeric <- function(x, x_name = NULL) {
 #' vld_whole_numeric(1.5)
 #' @export
 vld_whole_numeric <- function(x) {
-  is.integer(x) || (is.double(x) &&
-    vld_true(all.equal(x[!is.na(x)], trunc(x[!is.na(x)]))))
+  is.integer(x) ||
+    (is.double(x) &&
+      vld_true(all.equal(x[!is.na(x)], trunc(x[!is.na(x)]))))
 }

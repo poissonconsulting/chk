@@ -30,9 +30,17 @@ chk_orderset <- function(x, values, x_name = NULL) {
   if (vld_orderset(x, values)) {
     return(invisible(x))
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk((substitute(x)))
+  }
   values <- values[values %in% x]
-  abort_chk(x_name, " must have (the first occurence of) each of the following elements in the following order: ", cc(values), x = x, values = values)
+  abort_chk(
+    x_name,
+    " must have (the first occurence of) each of the following elements in the following order: ",
+    cc(values),
+    x = x,
+    values = values
+  )
 }
 
 #' @describeIn chk_setequal Validate Set Ordered

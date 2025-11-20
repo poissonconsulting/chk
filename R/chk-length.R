@@ -25,11 +25,31 @@ chk_length <- function(x, length = 1L, upper = length, x_name = NULL) {
   if (vld_length(x, length, upper)) {
     return(invisible(x))
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  if (length == upper) {
-    abort_chk(x_name, " must be length ", length, " not ", length(x), x = x, length = length)
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
   }
-  abort_chk(x_name, " must have a length between ", length, " and ", upper, " not ", length(x), x = x, length = length)
+  if (length == upper) {
+    abort_chk(
+      x_name,
+      " must be length ",
+      length,
+      " not ",
+      length(x),
+      x = x,
+      length = length
+    )
+  }
+  abort_chk(
+    x_name,
+    " must have a length between ",
+    length,
+    " and ",
+    upper,
+    " not ",
+    length(x),
+    x = x,
+    length = length
+  )
 }
 
 #' @describeIn chk_length Validate Length
@@ -39,4 +59,6 @@ chk_length <- function(x, length = 1L, upper = length, x_name = NULL) {
 #' vld_length(2:1, 2)
 #' vld_length(2:1, 1)
 #' @export
-vld_length <- function(x, length = 1L, upper = length) length(x) >= length && length(x) <= upper
+vld_length <- function(x, length = 1L, upper = length) {
+  length(x) >= length && length(x) <= upper
+}

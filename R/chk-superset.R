@@ -29,9 +29,17 @@ chk_superset <- function(x, values, x_name = NULL) {
     return(invisible(x))
   }
   values <- sort(unique(values), na.last = TRUE)
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   values <- values[!values %in% x]
-  abort_chk(x_name, " must include ", cc(values, " and "), x = x, values = values)
+  abort_chk(
+    x_name,
+    " must include ",
+    cc(values, " and "),
+    x = x,
+    values = values
+  )
 }
 
 #' @describeIn chk_superset Validates Superset

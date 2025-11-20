@@ -25,7 +25,9 @@ chk_named <- function(x, x_name = NULL) {
   if (vld_named(x)) {
     return(invisible(x))
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk((substitute(x)))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk((substitute(x)))
+  }
   abort_chk(x_name, " must be named", x = x)
 }
 

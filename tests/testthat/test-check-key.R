@@ -4,8 +4,15 @@ test_that("check_key works", {
   expect_invisible(check_key(data.frame(x = 1)))
   expect_invisible(check_key(data.frame(x = 1), "x"))
   expect_invisible(check_key(data.frame(x = c(1, 1), y = 1:2), c("y", "x")))
-  expect_invisible(check_key(data.frame(x = c(1, 1), y = c(NA, 1)), c("y", "x")))
-  expect_invisible(check_key(data.frame(x = c(1, 1), y = NA), c("y", "x"), na_distinct = TRUE))
+  expect_invisible(check_key(
+    data.frame(x = c(1, 1), y = c(NA, 1)),
+    c("y", "x")
+  ))
+  expect_invisible(check_key(
+    data.frame(x = c(1, 1), y = NA),
+    c("y", "x"),
+    na_distinct = TRUE
+  ))
 })
 
 test_that("check_key fails", {

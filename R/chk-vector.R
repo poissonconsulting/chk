@@ -30,7 +30,9 @@ chk_vector <- function(x, x_name = NULL) {
   if (vld_vector(x)) {
     return(invisible(x))
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   abort_chk(x_name, " must be a vector", x = x)
 }
 
@@ -40,4 +42,6 @@ chk_vector <- function(x, x_name = NULL) {
 #' # vld_vector
 #' vld_vector(1)
 #' @export
-vld_vector <- function(x) (is.atomic(x) && !is.matrix(x) && !is.array(x)) || is.list(x)
+vld_vector <- function(x) {
+  (is.atomic(x) && !is.matrix(x) && !is.array(x)) || is.list(x)
+}

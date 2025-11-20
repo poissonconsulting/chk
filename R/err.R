@@ -41,8 +41,13 @@ message_chk <- function(..., n = NULL, tidy = TRUE) {
     string <- gsub("%n", n, string, fixed = TRUE)
   }
   if (vld_true(tidy)) {
-    if (!grepl("([.]|[?]|[!])$", string)) string <- p0(string, ".")
-    string <- p0(toupper(substr(string, 1, 1)), substr(string, 2, nchar(string)))
+    if (!grepl("([.]|[?]|[!])$", string)) {
+      string <- p0(string, ".")
+    }
+    string <- p0(
+      toupper(substr(string, 1, 1)),
+      substr(string, 2, nchar(string))
+    )
   }
   string
 }
@@ -70,7 +75,14 @@ NULL
 #'
 #' # err
 #' try(err("there %r %n problem value%s", n = 2))
-err <- function(..., n = NULL, tidy = TRUE, .subclass = NULL, class = NULL, call = rlang::caller_call(3)) {
+err <- function(
+  ...,
+  n = NULL,
+  tidy = TRUE,
+  .subclass = NULL,
+  class = NULL,
+  call = rlang::caller_call(3)
+) {
   if (!is.null(.subclass)) {
     deprecate_soft("0.8.1", "err(.subclass)", "err(class)")
     class <- .subclass

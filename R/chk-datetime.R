@@ -26,7 +26,9 @@ chk_date_time <- function(x, x_name = NULL) {
   if (vld_date_time(x)) {
     return(invisible(x))
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   abort_chk(x_name, " must be a date time (non-missing POSIXct scalar)", x = x)
 }
 
@@ -36,7 +38,8 @@ chk_date_time <- function(x, x_name = NULL) {
 #'
 #' @export
 chk_datetime <- function(x, x_name = NULL) {
-  deprecate_warn("0.4.1",
+  deprecate_warn(
+    "0.4.1",
     what = "chk::chk_datetime()",
     with = "chk::chk_date_time()",
     id = "chk_datetime"
@@ -44,7 +47,9 @@ chk_datetime <- function(x, x_name = NULL) {
   if (vld_date_time(x)) {
     return(invisible(x))
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   abort_chk(x_name, " must be a date time (non-missing POSIXct scalar)", x = x)
 }
 
@@ -68,7 +73,8 @@ vld_date_time <- function(x) {
 #'
 #' @export
 vld_datetime <- function(x) {
-  deprecate_warn("0.4.1",
+  deprecate_warn(
+    "0.4.1",
     what = "chk::vld_datetime()",
     with = "chk::vld_date_time()",
     id = "chk_datetime"

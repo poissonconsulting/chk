@@ -23,9 +23,14 @@
 #' cc(3:1, brac = "'")
 #' cc(1:11)
 #' cc(as.character(1:2))
-cc <- function(x, conj = ", ", sep = ", ",
-               brac = if (is.character(x) || is.factor(x)) "'" else "",
-               ellipsis = 10L, chk = TRUE) {
+cc <- function(
+  x,
+  conj = ", ",
+  sep = ", ",
+  brac = if (is.character(x) || is.factor(x)) "'" else "",
+  ellipsis = 10L,
+  chk = TRUE
+) {
   if (chk) {
     chk_string(conj)
     chk_string(sep)

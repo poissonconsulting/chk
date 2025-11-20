@@ -1,7 +1,9 @@
 # necessary hack because for data frames
 # argument 'incomparables != FALSE' is not used (yet)
 .anyDuplicated <- function(x, incomparables = FALSE) {
-  if (vld_false(incomparables) || is.null(incomparables) || !length(incomparables)) {
+  if (
+    vld_false(incomparables) || is.null(incomparables) || !length(incomparables)
+  ) {
     return(anyDuplicated(x))
   }
   if (!is.data.frame(x)) {
