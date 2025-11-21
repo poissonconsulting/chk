@@ -1,5 +1,16 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.10.0.9013
+
+## Chore
+
+- Format with air (#210).
+
+## Continuous integration
+
+- Fix checking without testthat.
+
+
 # chk 0.10.0.9012
 
 ## Continuous integration
