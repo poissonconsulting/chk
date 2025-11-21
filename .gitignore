@@ -13,3 +13,7 @@
 docs
 inst/docs
 scripts
+
+# R CMD check artifacts
+*.Rcheck
+*.tar.gz
