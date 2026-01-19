@@ -31,14 +31,14 @@
 Source:
 [`DESCRIPTION`](https://github.com/poissonconsulting/chk/blob/main/DESCRIPTION)
 
-Thorley J, Müller K, Pearson A (2025). *chk: Check User-Supplied
-Function Arguments*. R package version 0.10.0.9012,
+Thorley J, Müller K, Pearson A (2026). *chk: Check User-Supplied
+Function Arguments*. R package version 0.10.0.9013,
 <https://github.com/poissonconsulting/chk>.
 
     @Manual{,
       title = {chk: Check User-Supplied Function Arguments},
       author = {Joe Thorley and Kirill Müller and Ayla Pearson},
-      year = {2025},
-      note = {R package version 0.10.0.9012},
+      year = {2026},
+      note = {R package version 0.10.0.9013},
       url = {https://github.com/poissonconsulting/chk},
     }

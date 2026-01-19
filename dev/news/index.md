@@ -1,5 +1,16 @@
 # Changelog
 
+## chk 0.10.0.9013
+
+### Chore
+
+- Format with air
+  ([\#210](https://github.com/poissonconsulting/chk/issues/210)).
+
+### Continuous integration
+
+- Fix checking without testthat.
+
 ## chk 0.10.0.9012
 
 ### Continuous integration
