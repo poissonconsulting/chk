@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.10.0.9014
+
+## Continuous integration
+
+- Ignore rmarkdown before R 4.1, rappdirs needs R 4.1.
+
+
 # chk 0.10.0.9013
 
 ## Chore
