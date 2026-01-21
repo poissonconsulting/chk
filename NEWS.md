@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.10.0.9015
+
+## Continuous integration
+
+- Test all R versions on branches that start with cran- (#213).
+
+
 # chk 0.10.0.9014
 
 ## Continuous integration
