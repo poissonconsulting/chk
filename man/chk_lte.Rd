@@ -50,7 +50,7 @@ For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
-Other range_checkers: 
+Other range_checkers:
 \code{\link{chk_gt}()},
 \code{\link{chk_gte}()},
 \code{\link{chk_lt}()},

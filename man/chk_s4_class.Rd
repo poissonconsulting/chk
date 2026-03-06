@@ -47,7 +47,7 @@ For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
-Other id_checkers: 
+Other id_checkers:
 \code{\link{chk_data}()},
 \code{\link{chk_is}()},
 \code{\link{chk_s3_class}()}

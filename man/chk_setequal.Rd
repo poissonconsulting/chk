@@ -60,7 +60,7 @@ For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
-Other set_checkers: 
+Other set_checkers:
 \code{\link{chk_not_subset}()},
 \code{\link{chk_orderset}()},
 \code{\link{chk_superset}()},

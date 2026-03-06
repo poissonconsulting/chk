@@ -48,7 +48,7 @@ For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
-Other scalar_checkers: 
+Other scalar_checkers:
 \code{\link{chk_count}()},
 \code{\link{chk_date}()},
 \code{\link{chk_date_time}()},

@@ -50,14 +50,14 @@ For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
-Other equal_checkers: 
+Other equal_checkers:
 \code{\link{chk_all_equivalent}()},
 \code{\link{chk_all_identical}()},
 \code{\link{chk_equal}()},
 \code{\link{chk_equivalent}()},
 \code{\link{chk_identical}()}
 
-Other all_checkers: 
+Other all_checkers:
 \code{\link{chk_all}()},
 \code{\link{chk_all_equivalent}()},
 \code{\link{chk_all_identical}()}

@@ -51,7 +51,7 @@ For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
-Other all_checkers: 
+Other all_checkers:
 \code{\link{chk_all_equal}()},
 \code{\link{chk_all_equivalent}()},
 \code{\link{chk_all_identical}()}

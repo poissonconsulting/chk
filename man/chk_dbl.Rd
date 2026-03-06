@@ -46,7 +46,7 @@ vld_dbl(c(1, 1))
 vld_dbl(1L)
 }
 \seealso{
-Other deprecated: 
+Other deprecated:
 \code{\link{chk_chr}()},
 \code{\link{chk_deprecated}},
 \code{\link{chk_wnum}()}

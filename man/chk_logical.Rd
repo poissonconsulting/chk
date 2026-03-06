@@ -53,13 +53,13 @@ For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
-Other logical_checkers: 
+Other logical_checkers:
 \code{\link{chk_false}()},
 \code{\link{chk_flag}()},
 \code{\link{chk_lgl}()},
 \code{\link{chk_true}()}
 
-Other data_type_checkers: 
+Other data_type_checkers:
 \code{\link{chk_character}()},
 \code{\link{chk_character_or_factor}()},
 \code{\link{chk_complex}()},

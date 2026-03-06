@@ -87,7 +87,7 @@ For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
-Other length_checkers: 
+Other length_checkers:
 \code{\link{chk_length}()}
 }
 \concept{length_checkers}

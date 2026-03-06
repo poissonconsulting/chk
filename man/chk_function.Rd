@@ -49,7 +49,7 @@ For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
-Other missing_checkers: 
+Other missing_checkers:
 \code{\link{chk_missing}()},
 \code{\link{chk_not_missing}()}
 }

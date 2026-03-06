@@ -45,7 +45,7 @@ For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
-Other data_structure_checkers: 
+Other data_structure_checkers:
 \code{\link{chk_array}()},
 \code{\link{chk_atomic}()},
 \code{\link{chk_list}()},

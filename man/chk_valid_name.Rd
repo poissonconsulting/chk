@@ -46,7 +46,7 @@ For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
-Other name_checkers: 
+Other name_checkers:
 \code{\link{chk_named}()}
 }
 \concept{name_checkers}
