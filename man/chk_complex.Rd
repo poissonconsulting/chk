@@ -48,7 +48,7 @@ For more details about the use of this function,
 please read the article
 \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 
-Other data_type_checkers: 
+Other data_type_checkers:
 \code{\link{chk_character}()},
 \code{\link{chk_character_or_factor}()},
 \code{\link{chk_double}()},

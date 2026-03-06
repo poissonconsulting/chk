@@ -52,7 +52,7 @@ For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
-Other misc_checkers: 
+Other misc_checkers:
 \code{\link{chk_join}()},
 \code{\link{chk_not_any_na}()},
 \code{\link{chk_not_empty}()}

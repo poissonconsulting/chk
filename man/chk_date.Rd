@@ -48,7 +48,7 @@ For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
-Other scalar_checkers: 
+Other scalar_checkers:
 \code{\link{chk_count}()},
 \code{\link{chk_date_time}()},
 \code{\link{chk_false}()},
@@ -59,7 +59,7 @@ Other scalar_checkers:
 \code{\link{chk_true}()},
 \code{\link{chk_tz}()}
 
-Other datetime_checkers: 
+Other datetime_checkers:
 \code{\link{chk_date_time}()}
 }
 \concept{datetime_checkers}

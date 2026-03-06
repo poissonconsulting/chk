@@ -45,7 +45,7 @@ For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
-Other null_checkers: 
+Other null_checkers:
 \code{\link{chk_not_null}()}
 }
 \concept{null_checkers}

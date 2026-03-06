@@ -25,7 +25,7 @@ try(check_length(1, values = FALSE))
 try(check_length(1, values = c(10, 2)))
 }
 \seealso{
-Other check: 
+Other check:
 \code{\link{check_data}()},
 \code{\link{check_dim}()},
 \code{\link{check_dirs}()},

@@ -47,7 +47,7 @@ try(check_values(1, 1L))
 try(check_values(NA_real_, 1))
 }
 \seealso{
-Other check: 
+Other check:
 \code{\link{check_data}()},
 \code{\link{check_dim}()},
 \code{\link{check_dirs}()},

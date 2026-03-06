@@ -36,7 +36,7 @@ try(check_names(x, c("y", "x"), order = TRUE))
 try(check_names(x, "x", exclusive = TRUE))
 }
 \seealso{
-Other check: 
+Other check:
 \code{\link{check_data}()},
 \code{\link{check_dim}()},
 \code{\link{check_dirs}()},

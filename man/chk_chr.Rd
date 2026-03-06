@@ -45,7 +45,7 @@ vld_chr(c("a", "b"))
 vld_chr(1)
 }
 \seealso{
-Other deprecated: 
+Other deprecated:
 \code{\link{chk_dbl}()},
 \code{\link{chk_deprecated}},
 \code{\link{chk_wnum}()}

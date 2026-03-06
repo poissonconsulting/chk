@@ -49,7 +49,7 @@ For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
-Other data_type_checkers: 
+Other data_type_checkers:
 \code{\link{chk_character}()},
 \code{\link{chk_character_or_factor}()},
 \code{\link{chk_complex}()},

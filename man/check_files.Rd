@@ -24,7 +24,7 @@ check_files(tempfile("unlikely-that-exists-chk"), exists = FALSE)
 try(check_files(tempfile("unlikely-that-exists-chk")))
 }
 \seealso{
-Other check: 
+Other check:
 \code{\link{check_data}()},
 \code{\link{check_dim}()},
 \code{\link{check_dirs}()},

@@ -27,7 +27,7 @@ check_key(x)
 try(check_key(x, "y"))
 }
 \seealso{
-Other check: 
+Other check:
 \code{\link{check_data}()},
 \code{\link{check_dim}()},
 \code{\link{check_dirs}()},

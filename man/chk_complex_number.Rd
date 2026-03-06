@@ -48,7 +48,7 @@ For more details about the use of this function,
 please read the article
 \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 
-Other scalar_checker: 
+Other scalar_checker:
 \code{\link{chk_whole_number}()}
 }
 \concept{scalar_checker}

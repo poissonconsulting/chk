@@ -24,7 +24,7 @@ check_dirs(tempdir())
 try(check_dirs(tempdir(), exists = FALSE))
 }
 \seealso{
-Other check: 
+Other check:
 \code{\link{check_data}()},
 \code{\link{check_dim}()},
 \code{\link{check_files}()},
