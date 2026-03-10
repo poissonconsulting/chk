@@ -1,5 +1,18 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.10.0.9017
+
+## Chore
+
+- Auto-update from GitHub Actions (#223).
+
+- Auto-update from GitHub Actions (#221).
+
+- Auto-update from GitHub Actions (#219).
+
+- Auto-update from GitHub Actions (#218).
+
+
 # chk 0.10.0.9016
 
 ## Chore
