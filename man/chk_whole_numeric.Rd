@@ -56,7 +56,7 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other whole_number_checkers:
-\code{\link{chk_count}()},
-\code{\link{chk_whole_number}()}
+\code{\link[=chk_count]{chk_count()}},
+\code{\link[=chk_whole_number]{chk_whole_number()}}
 }
 \concept{whole_number_checkers}

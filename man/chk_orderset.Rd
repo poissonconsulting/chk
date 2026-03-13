@@ -39,9 +39,9 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other set_checkers:
-\code{\link{chk_not_subset}()},
-\code{\link{chk_superset}()},
-\code{\link{vld_not_subset}()},
-\code{\link{vld_orderset}()}
+\code{\link[=chk_not_subset]{chk_not_subset()}},
+\code{\link[=chk_superset]{chk_superset()}},
+\code{\link[=vld_not_subset]{vld_not_subset()}},
+\code{\link[=vld_orderset]{vld_orderset()}}
 }
 \concept{set_checkers}

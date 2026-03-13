@@ -56,7 +56,7 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other missing_checkers:
-\code{\link{chk_function}()},
-\code{\link{chk_missing}()}
+\code{\link[=chk_function]{chk_function()}},
+\code{\link[=chk_missing]{chk_missing()}}
 }
 \concept{missing_checkers}

@@ -51,16 +51,16 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other equal_checkers:
-\code{\link{chk_all_equal}()},
-\code{\link{chk_all_identical}()},
-\code{\link{chk_equal}()},
-\code{\link{chk_equivalent}()},
-\code{\link{chk_identical}()}
+\code{\link[=chk_all_equal]{chk_all_equal()}},
+\code{\link[=chk_all_identical]{chk_all_identical()}},
+\code{\link[=chk_equal]{chk_equal()}},
+\code{\link[=chk_equivalent]{chk_equivalent()}},
+\code{\link[=chk_identical]{chk_identical()}}
 
 Other all_checkers:
-\code{\link{chk_all}()},
-\code{\link{chk_all_equal}()},
-\code{\link{chk_all_identical}()}
+\code{\link[=chk_all]{chk_all()}},
+\code{\link[=chk_all_equal]{chk_all_equal()}},
+\code{\link[=chk_all_identical]{chk_all_identical()}}
 }
 \concept{all_checkers}
 \concept{equal_checkers}

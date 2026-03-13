@@ -48,8 +48,8 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other id_checkers:
-\code{\link{chk_data}()},
-\code{\link{chk_is}()},
-\code{\link{chk_s4_class}()}
+\code{\link[=chk_data]{chk_data()}},
+\code{\link[=chk_is]{chk_is()}},
+\code{\link[=chk_s4_class]{chk_s4_class()}}
 }
 \concept{id_checkers}

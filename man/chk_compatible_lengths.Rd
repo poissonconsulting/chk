@@ -88,6 +88,6 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other length_checkers:
-\code{\link{chk_length}()}
+\code{\link[=chk_length]{chk_length()}}
 }
 \concept{length_checkers}

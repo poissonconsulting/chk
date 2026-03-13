@@ -50,8 +50,8 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other missing_checkers:
-\code{\link{chk_missing}()},
-\code{\link{chk_not_missing}()}
+\code{\link[=chk_missing]{chk_missing()}},
+\code{\link[=chk_not_missing]{chk_not_missing()}}
 }
 \concept{ellpisis_checkers}
 \concept{function_checkers}

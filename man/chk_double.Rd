@@ -51,13 +51,13 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other data_type_checkers:
-\code{\link{chk_character}()},
-\code{\link{chk_character_or_factor}()},
-\code{\link{chk_complex}()},
-\code{\link{chk_environment}()},
-\code{\link{chk_integer}()},
-\code{\link{chk_logical}()},
-\code{\link{chk_numeric}()},
-\code{\link{chk_raw}()}
+\code{\link[=chk_character]{chk_character()}},
+\code{\link[=chk_character_or_factor]{chk_character_or_factor()}},
+\code{\link[=chk_complex]{chk_complex()}},
+\code{\link[=chk_environment]{chk_environment()}},
+\code{\link[=chk_integer]{chk_integer()}},
+\code{\link[=chk_logical]{chk_logical()}},
+\code{\link[=chk_numeric]{chk_numeric()}},
+\code{\link[=chk_raw]{chk_raw()}}
 }
 \concept{data_type_checkers}

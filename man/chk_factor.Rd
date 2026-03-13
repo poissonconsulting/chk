@@ -48,7 +48,7 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other factor_checkers:
-\code{\link{chk_character_or_factor}()}
+\code{\link[=chk_character_or_factor]{chk_character_or_factor()}}
 }
 \concept{data-type_checkers}
 \concept{factor_checkers}

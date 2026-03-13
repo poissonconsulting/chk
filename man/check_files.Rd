@@ -25,12 +25,12 @@ try(check_files(tempfile("unlikely-that-exists-chk")))
 }
 \seealso{
 Other check:
-\code{\link{check_data}()},
-\code{\link{check_dim}()},
-\code{\link{check_dirs}()},
-\code{\link{check_key}()},
-\code{\link{check_length}()},
-\code{\link{check_names}()},
-\code{\link{check_values}()}
+\code{\link[=check_data]{check_data()}},
+\code{\link[=check_dim]{check_dim()}},
+\code{\link[=check_dirs]{check_dirs()}},
+\code{\link[=check_key]{check_key()}},
+\code{\link[=check_length]{check_length()}},
+\code{\link[=check_names]{check_names()}},
+\code{\link[=check_values]{check_values()}}
 }
 \concept{check}

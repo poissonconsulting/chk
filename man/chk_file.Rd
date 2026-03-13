@@ -48,7 +48,7 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other file_checkers:
-\code{\link{chk_dir}()},
-\code{\link{chk_ext}()}
+\code{\link[=chk_dir]{chk_dir()}},
+\code{\link[=chk_ext]{chk_ext()}}
 }
 \concept{file_checkers}

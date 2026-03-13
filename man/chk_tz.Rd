@@ -48,15 +48,15 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other scalar_checkers:
-\code{\link{chk_count}()},
-\code{\link{chk_date}()},
-\code{\link{chk_date_time}()},
-\code{\link{chk_false}()},
-\code{\link{chk_flag}()},
-\code{\link{chk_lgl}()},
-\code{\link{chk_scalar}()},
-\code{\link{chk_string}()},
-\code{\link{chk_true}()}
+\code{\link[=chk_count]{chk_count()}},
+\code{\link[=chk_date]{chk_date()}},
+\code{\link[=chk_date_time]{chk_date_time()}},
+\code{\link[=chk_false]{chk_false()}},
+\code{\link[=chk_flag]{chk_flag()}},
+\code{\link[=chk_lgl]{chk_lgl()}},
+\code{\link[=chk_scalar]{chk_scalar()}},
+\code{\link[=chk_string]{chk_string()}},
+\code{\link[=chk_true]{chk_true()}}
 }
 \concept{date_checkers}
 \concept{scalar_checkers}
