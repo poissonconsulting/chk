@@ -50,6 +50,6 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other length_checkers:
-\code{\link{chk_compatible_lengths}()}
+\code{\link[=chk_compatible_lengths]{chk_compatible_lengths()}}
 }
 \concept{length_checkers}

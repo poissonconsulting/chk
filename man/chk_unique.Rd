@@ -53,8 +53,8 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other misc_checkers:
-\code{\link{chk_join}()},
-\code{\link{chk_not_any_na}()},
-\code{\link{chk_not_empty}()}
+\code{\link[=chk_join]{chk_join()}},
+\code{\link[=chk_not_any_na]{chk_not_any_na()}},
+\code{\link[=chk_not_empty]{chk_not_empty()}}
 }
 \concept{misc_checkers}

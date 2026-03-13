@@ -52,6 +52,6 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other name_checkers:
-\code{\link{chk_valid_name}()}
+\code{\link[=chk_valid_name]{chk_valid_name()}}
 }
 \concept{name_checkers}

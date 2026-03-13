@@ -53,9 +53,9 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other range_checkers:
-\code{\link{chk_gte}()},
-\code{\link{chk_lt}()},
-\code{\link{chk_lte}()},
-\code{\link{chk_range}()}
+\code{\link[=chk_gte]{chk_gte()}},
+\code{\link[=chk_lt]{chk_lt()}},
+\code{\link[=chk_lte]{chk_lte()}},
+\code{\link[=chk_range]{chk_range()}}
 }
 \concept{range_checkers}

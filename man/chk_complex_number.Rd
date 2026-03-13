@@ -49,6 +49,6 @@ please read the article
 \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 
 Other scalar_checker:
-\code{\link{chk_whole_number}()}
+\code{\link[=chk_whole_number]{chk_whole_number()}}
 }
 \concept{scalar_checker}

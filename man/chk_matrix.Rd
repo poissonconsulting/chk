@@ -46,9 +46,9 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other data_structure_checkers:
-\code{\link{chk_array}()},
-\code{\link{chk_atomic}()},
-\code{\link{chk_list}()},
-\code{\link{chk_vector}()}
+\code{\link[=chk_array]{chk_array()}},
+\code{\link[=chk_atomic]{chk_atomic()}},
+\code{\link[=chk_list]{chk_list()}},
+\code{\link[=chk_vector]{chk_vector()}}
 }
 \concept{data_structure_checkers}

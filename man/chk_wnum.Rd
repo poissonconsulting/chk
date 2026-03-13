@@ -47,8 +47,8 @@ vld_wnum(1L)
 }
 \seealso{
 Other deprecated:
-\code{\link{chk_chr}()},
-\code{\link{chk_dbl}()},
+\code{\link[=chk_chr]{chk_chr()}},
+\code{\link[=chk_dbl]{chk_dbl()}},
 \code{\link{chk_deprecated}}
 }
 \concept{deprecated}

@@ -31,12 +31,12 @@ try(check_dim(data.frame(x = 1), dim = nrow, values = c(10, 10, 2)))
 }
 \seealso{
 Other check:
-\code{\link{check_data}()},
-\code{\link{check_dirs}()},
-\code{\link{check_files}()},
-\code{\link{check_key}()},
-\code{\link{check_length}()},
-\code{\link{check_names}()},
-\code{\link{check_values}()}
+\code{\link[=check_data]{check_data()}},
+\code{\link[=check_dirs]{check_dirs()}},
+\code{\link[=check_files]{check_files()}},
+\code{\link[=check_key]{check_key()}},
+\code{\link[=check_length]{check_length()}},
+\code{\link[=check_names]{check_names()}},
+\code{\link[=check_values]{check_values()}}
 }
 \concept{check}

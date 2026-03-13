@@ -60,9 +60,9 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other range_checkers:
-\code{\link{chk_gt}()},
-\code{\link{chk_gte}()},
-\code{\link{chk_lt}()},
-\code{\link{chk_lte}()}
+\code{\link[=chk_gt]{chk_gt()}},
+\code{\link[=chk_gte]{chk_gte()}},
+\code{\link[=chk_lt]{chk_lt()}},
+\code{\link[=chk_lte]{chk_lte()}}
 }
 \concept{range_checkers}

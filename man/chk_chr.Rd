@@ -46,9 +46,9 @@ vld_chr(1)
 }
 \seealso{
 Other deprecated:
-\code{\link{chk_dbl}()},
+\code{\link[=chk_dbl]{chk_dbl()}},
 \code{\link{chk_deprecated}},
-\code{\link{chk_wnum}()}
+\code{\link[=chk_wnum]{chk_wnum()}}
 }
 \concept{chk_character}
 \concept{deprecated}
