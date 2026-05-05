@@ -57,6 +57,7 @@ Other set_checkers:
 ## Examples
 
 ``` r
+
 # vld_orderset
 vld_orderset(1, 1)
 #> [1] TRUE

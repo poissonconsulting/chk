@@ -48,6 +48,7 @@ informative error if the object fails the check. Although do return an
 invisible copy of the first argument so they can be used in pipes.
 
 ``` r
+
 library(chk)
 y <- TRUE
 chk_flag(y)
@@ -70,6 +71,7 @@ Each `chk_` function has a matching `vld_` function which returns a flag
 indicating whether the object passed the check.
 
 ``` r
+
 vld_flag(TRUE)
 #> [1] TRUE
 vld_flag(NA)
@@ -80,6 +82,7 @@ The `vld_` functions allow developers to provide their own error
 messages.
 
 ``` r
+
 if (!vld_flag(NA)) abort_chk("`NA` is not TRUE or FALSE!!")
 #> Error:
 #> ! `NA` is not TRUE or FALSE!!
@@ -98,6 +101,7 @@ the object that they received as this is expected to be the name of the
 argument.
 
 ``` r
+
 fun1 <- function(x) {
   chk_whole_number(x)
   # use x
@@ -114,6 +118,7 @@ If this is not the case, developers can provide a different name using
 the `x_name` argument.
 
 ``` r
+
 x <- NA
 chk_flag(x, x_name = "`zzz`")
 #> Error:
@@ -134,6 +139,7 @@ The
 function illustrates the general structure of a `chk_` function.
 
 ``` r
+
 chk_flag
 #> function(x, x_name = NULL){
 #>   if(vld_flag(x)) return(invisible(x))
@@ -169,6 +175,7 @@ function converts multiple arguments to a string using
 and adds a missing period.
 
 ``` r
+
 abort_chk("There %r %n problem director%y%s.", n = 1)
 #> Error:
 #> ! There is 1 problem directory.

@@ -11,6 +11,7 @@ It is designed to be simple, customizable and fast.
 can be combined together for more complex checking.
 
 ``` r
+
 library(chk)
 
 y <- "a"
@@ -29,6 +30,7 @@ chk_range(nrow(data), c(3, 8))
 Or used inside functions to test user-provided arguments.
 
 ``` r
+
 my_fun <- function(x) {
   chk_flag(x)
   x
@@ -60,6 +62,7 @@ To install the release version from
 [CRAN](https://CRAN.R-project.org/package=chk).
 
 ``` r
+
 install.packages("chk")
 ```
 
@@ -72,6 +75,7 @@ To install the development version from
 [GitHub](https://github.com/poissonconsulting/chk)
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("poissonconsulting/chk")
 ```
@@ -79,6 +83,7 @@ remotes::install_github("poissonconsulting/chk")
 or from [r-universe](https://poissonconsulting.r-universe.dev/chk).
 
 ``` r
+
 install.packages("chk", repos = c("https://poissonconsulting.r-universe.dev", "https://cloud.r-project.org"))
 ```
 

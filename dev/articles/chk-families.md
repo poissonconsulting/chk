@@ -31,10 +31,10 @@ Check if the function input is missing or not
 [`missing()`](https://rdrr.io/r/base/missing.html) to check if an
 argument has been left out when the function is called.
 
-| Function                                                                                        | Code                                               |
-|:------------------------------------------------------------------------------------------------|:---------------------------------------------------|
-| [`chk_missing()`](https://poissonconsulting.github.io/chk/dev/reference/chk_missing.md)         | [`missing()`](https://rdrr.io/r/base/missing.html) |
-| [`chk_not_missing()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_missing.md) | `!missing()`                                       |
+| Function | Code |
+|:---|:---|
+| [`chk_missing()`](https://poissonconsulting.github.io/chk/dev/reference/chk_missing.md) | [`missing()`](https://rdrr.io/r/base/missing.html) |
+| [`chk_not_missing()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_missing.md) | `!missing()` |
 
 ### `...` Checker
 
@@ -116,9 +116,9 @@ Check if the function input is of class Date or DateTime
 Date and datetime classes can be checked with `chk_date` and
 `chk_datetime`.
 
-| Function           | Code                                                     |
-|:-------------------|:---------------------------------------------------------|
-| `chk_date(x)`      | `inherits(x, "Date") && length(x) == 1L && !anyNA(x)`    |
+| Function | Code |
+|:---|:---|
+| `chk_date(x)` | `inherits(x, "Date") && length(x) == 1L && !anyNA(x)` |
 | `chk_date_time(x)` | `inherits(x, "POSIXct") && length(x) == 1L && !anyNA(x)` |
 
 ### Time Zone Checker
@@ -128,8 +128,8 @@ Also you can check the time zone with
 The available time zones can be retrieved using the function
 [`OlsonNames()`](https://rdrr.io/r/base/timezones.html).
 
-| Function    | Code                                                                     |
-|:------------|:-------------------------------------------------------------------------|
+| Function | Code |
+|:---|:---|
 | `chk_tz(x)` | `is.character(x) && length(x) == 1L && !anyNA(x) && x %in% OlsonNames()` |
 
 #### Data Structure Checker
@@ -144,8 +144,8 @@ in a list, however, can be of different types.
 To check if a function argument is a vector you can use
 [`chk_vector()`](https://poissonconsulting.github.io/chk/dev/reference/chk_vector.md).
 
-| Function        | Code                                                           |
-|:----------------|:---------------------------------------------------------------|
+| Function | Code |
+|:---|:---|
 | `chk_vector(x)` | `is.atomic(x) && !is.matrix(x) && !is.array(x)) || is.list(x)` |
 
 Pay attention that
@@ -156,6 +156,7 @@ are different from [`is.vector()`](https://rdrr.io/r/base/vector.html),
 that will return FALSE if the vector has any attributes except names.
 
 ``` r
+
 vector <- c(1, 2, 3)
 is.vector(vector) # TRUE
 #> [1] TRUE
@@ -177,6 +178,7 @@ Notice that `is.atomic` is true for the types logical, integer, numeric,
 complex, character and raw. Also, it is TRUE for NULL.
 
 ``` r
+
 vector <- c(1, 2, 3)
 is.atomic(vector) # TRUE
 #> [1] TRUE
@@ -241,6 +243,7 @@ Consider that to explicitly create an integer in R, you need to use the
 suffix `L`.
 
 ``` r
+
 vld_numeric(33) # TRUE
 #> [1] TRUE
 
@@ -258,11 +261,11 @@ vld_integer(33L) # TRUE
 These functions accept whole numbers, whether they are explicitly
 integers or double types without fractional parts.
 
-| Function            | Code                                                                                        |
-|:--------------------|:--------------------------------------------------------------------------------------------|
+| Function | Code |
+|:---|:---|
 | `chk_whole_numeric` | `is.integer(x) || (is.double(x) && vld_true(all.equal(x[!is.na(x)], trunc(x[!is.na(x)]))))` |
-| `chk_whole_number`  | `vld_number(x) && (is.integer(x) || vld_true(all.equal(x, trunc(x))))`                      |
-| `chk_count`         | `vld_whole_number(x) && x >= 0`                                                             |
+| `chk_whole_number` | `vld_number(x) && (is.integer(x) || vld_true(all.equal(x, trunc(x))))` |
+| `chk_count` | `vld_whole_number(x) && x >= 0` |
 
 If you want to consider both 3.0 and 3L as integers, it is safer to use
 the function `chk_whole_numeric`. Here, `x` is valid if it’s an integer
@@ -270,6 +273,7 @@ or a double that can be converted to an integer without changing its
 value.
 
 ``` r
+
 # Integer vector
 vld_whole_numeric(c(1L, 2L, 3L)) # TRUE
 #> [1] TRUE
@@ -287,6 +291,7 @@ The function `chk_whole_number` is similar to `chk_whole_numeric`.
 `chk_whole_number` checks if the number is of `length(x) == 1L`
 
 ``` r
+
 # Integer vector
 vld_whole_numeric(c(1L, 2L, 3L)) # TRUE
 #> [1] TRUE
@@ -301,6 +306,7 @@ is a special case of `chk_whole_number`, differing in that it ensures
 values are non-negative whole numbers.
 
 ``` r
+
 # Positive integer
 vld_count(1) #TRUE
 #> [1] TRUE
@@ -333,6 +339,7 @@ that allows detecting if the argument that the user is providing
 contains strings.
 
 ``` r
+
 # Factor with specified levels
 
 vector_fruits <- c("apple", "banana", "apple", "orange", "banana", "apple")
@@ -369,6 +376,7 @@ If you want to apply any of the previously defined functions for
 | `chk_all(x, chk_fun, ...)` | `all(vapply(x, chk_fun, TRUE, ...))` |
 
 ``` r
+
 vld_all(c(TRUE, TRUE, FALSE), chk_lgl) # FALSE
 #> [1] FALSE
 ```
@@ -379,11 +387,12 @@ Check if the function input is another function
 
 `formals` refers to the count of the number of formal arguments
 
-| Function       | Code                                                                    |
-|:---------------|:------------------------------------------------------------------------|
+| Function | Code |
+|:---|:---|
 | `chk_function` | `is.function(x) && (is.null(formals) || length(formals(x)) == formals)` |
 
 ``` r
+
 vld_function(function(x) x, formals = 1) # TRUE
 #> [1] TRUE
 vld_function(function(x, y) x + y, formals = 1) # FALSE
@@ -403,12 +412,13 @@ of a character vector are valid R names. If you want to know what is
 considered a valid name, please refer to the documentation for the
 `make.names` function.
 
-| Function            | Code                                                              |
-|:--------------------|:------------------------------------------------------------------|
-| `chk_named(x)`      | `!is.null(names(x))`                                              |
+| Function | Code |
+|:---|:---|
+| `chk_named(x)` | `!is.null(names(x))` |
 | `chk_valid_name(x)` | `identical(make.names(x[!is.na(x)]), as.character(x[!is.na(x)]))` |
 
 ``` r
+
 
 vld_valid_name(c("name1", NA, "name_2", "validName"))  # TRUE
 #> [1] TRUE
@@ -431,13 +441,13 @@ vld_named(c(1, 2, 3)) # FALSE
 Check if the function input is part of a range of values. The function
 input should be numeric.
 
-| Function                        | Code                                                       |
-|:--------------------------------|:-----------------------------------------------------------|
+| Function | Code |
+|:---|:---|
 | `chk_range(x, range = c(0, 1))` | `all(x[!is.na(x)] >= range[1] & x[!is.na(x)] <= range[2])` |
-| `chk_lt(x, value = 0)`          | `all(x[!is.na(x)] < value)`                                |
-| `chk_lte(x, value = 0)`         | `all(x[!is.na(x)] <= value)`                               |
-| `chk_gt(x, value = 0)`          | `all(x[!is.na(x)] > value)`                                |
-| `chk_gte(x, value = 0)`         | `all(x[!is.na(x)] >= value)`                               |
+| `chk_lt(x, value = 0)` | `all(x[!is.na(x)] < value)` |
+| `chk_lte(x, value = 0)` | `all(x[!is.na(x)] <= value)` |
+| `chk_gt(x, value = 0)` | `all(x[!is.na(x)] > value)` |
+| `chk_gte(x, value = 0)` | `all(x[!is.na(x)] >= value)` |
 
 ### Equal Checkers
 
@@ -455,22 +465,23 @@ comparison is.
 equivalent within a specified tolerance, but `chk_equivalent` ignores
 differences in attributes.
 
-| Function                                                      | Code                                                             |
-|:--------------------------------------------------------------|:-----------------------------------------------------------------|
-| `chk_identical(x, y)`                                         | `identical(x, y)`                                                |
-| `chk_equal(x, y, tolerance = sqrt(.Machine$double.eps))`      | `vld_true(all.equal(x, y, tolerance))`                           |
+| Function | Code |
+|:---|:---|
+| `chk_identical(x, y)` | `identical(x, y)` |
+| `chk_equal(x, y, tolerance = sqrt(.Machine$double.eps))` | `vld_true(all.equal(x, y, tolerance))` |
 | `chk_equivalent(x, y, tolerance = sqrt(.Machine$double.eps))` | `vld_true(all.equal(x, y, tolerance, check.attributes = FALSE))` |
 
 In the case you want to compare the elements of a vector, you can use
 the `check_all_*` functions.
 
-| Function                                                       | Code                                                                                        |
-|:---------------------------------------------------------------|:--------------------------------------------------------------------------------------------|
-| `chk_all_identical(x)`                                         | `length(x) < 2L || all(vapply(x, vld_identical, TRUE, y = x[[1]]))`                         |
-| `chk_all_equal(x, tolerance = sqrt(.Machine$double.eps))`      | `length(x) < 2L || all(vapply(x, vld_equal, TRUE, y = x[[1]], tolerance = tolerance))`      |
+| Function | Code |
+|:---|:---|
+| `chk_all_identical(x)` | `length(x) < 2L || all(vapply(x, vld_identical, TRUE, y = x[[1]]))` |
+| `chk_all_equal(x, tolerance = sqrt(.Machine$double.eps))` | `length(x) < 2L || all(vapply(x, vld_equal, TRUE, y = x[[1]], tolerance = tolerance))` |
 | `chk_all_equivalent(x, tolerance = sqrt(.Machine$double.eps))` | `length(x) < 2L || all(vapply(x, vld_equivalent, TRUE, y = x[[1]], tolerance = tolerance))` |
 
 ``` r
+
 vld_all_identical(c(1, 2, 3)) # FALSE
 #> [1] FALSE
 vld_all_identical(c(1, 1, 1)) # TRUE
@@ -507,6 +518,7 @@ NA values.
 | `chk_sorted(x)` | `!is.unsorted(x, na.rm = TRUE)` |
 
 ``` r
+
 # Checking if sorted
 vld_sorted(c(1, 2, 3, NA, 4))  # TRUE
 #> [1] TRUE
@@ -527,6 +539,7 @@ repetitions.
 | `chk_setequal(x, values)` | `setequal(x, values)` |
 
 ``` r
+
 vld_setequal(c(1, 2, 3), c(3, 2, 1)) # TRUE
 #> [1] TRUE
 vld_setequal(c(1, 2, 3), c(3, 2, 1, 4)) # FALSE
@@ -557,6 +570,7 @@ it indicates that all elements of `values` are present in `x`.
 | `chk_superset(x, values)`   | `all(values %in% x)`                |
 
 ``` r
+
 
 # When both function inputs have the same elements,
 # all functions return TRUE
@@ -610,11 +624,12 @@ validate whether a given set of `values` in a vector x matches a
 specified set of allowed `values` (represented by `values`) while
 preserving the order of those values.
 
-| Function       | Code                                                              |
-|:---------------|:------------------------------------------------------------------|
+| Function | Code |
+|:---|:---|
 | `chk_orderset` | `vld_equivalent(unique(x[x %in% values]), values[values %in% x])` |
 
 ``` r
+
 vld_orderset(c("A", "B", "C"),  c("A", "B", "C", "D")) # TRUE
 #> [1] TRUE
 vld_orderset(c("C", "B", "A"),  c("A", "B", "C", "D")) # FALSE
@@ -675,6 +690,7 @@ the entire object.
 | `chk_not_any_na(x)` | `!anyNA(x)`       |
 
 ``` r
+
 vld_not_empty(c()) # FALSE
 #> [1] FALSE
 vld_not_empty(list()) # FALSE
@@ -696,11 +712,12 @@ The
 function is designed to verify that there are no duplicates elements in
 a vector.
 
-| Function                               | Code                                               |
-|:---------------------------------------|:---------------------------------------------------|
+| Function | Code |
+|:---|:---|
 | `chk_unique(x, incomparables = FALSE)` | `!anyDuplicated(x, incomparables = incomparables)` |
 
 ``` r
+
 vld_unique(c(1, 2, 3, 4)) # TRUE
 #> [1] TRUE
 vld_unique(c(1, 2, 2, 4)) # FALSE
@@ -712,11 +729,12 @@ specified range. It ensures that the length is at least equal to
 `length` and no more than `upper`. It can be used with vectors, lists
 and data frames.
 
-| Function                                     | Code                                        |
-|:---------------------------------------------|:--------------------------------------------|
+| Function | Code |
+|:---|:---|
 | `chk_length(x, length = 1L, upper = length)` | `length(x) >= length && length(x) <= upper` |
 
 ``` r
+
 vld_length(c(1, 2, 3), length = 2, upper = 5)  # TRUE
 #> [1] TRUE
 vld_length(c("a", "b"), length = 3)  # FALSE
@@ -744,6 +762,7 @@ Another useful function is `chk_compatible_lenghts()`. This function
 helps to check vectors could be ‘strictly recycled’.
 
 ``` r
+
 a <- integer(0)
 b <- numeric(0)
 vld_compatible_lengths(a, b) # TRUE
@@ -780,11 +799,12 @@ to the number of rows in the first data frame (`x`). This is useful when
 you want to ensure that a join operation does not change the number of
 rows in your main data frame.
 
-| Function             | Code                                                                                                |
-|:---------------------|:----------------------------------------------------------------------------------------------------|
+| Function | Code |
+|:---|:---|
 | `chk_join(x, y, by)` | `identical(nrow(x), nrow(merge(x, unique(y[if (is.null(names(by))) by else names(by)]), by = by)))` |
 
 ``` r
+
 x <- data.frame(id = c(1, 2, 3), value_x = c("A", "B", "C"))
 y <- data.frame(id = c(1, 2, 3), value_y = c("D", "E", "F"))
 vld_join(x, y, by = "id") # TRUE
@@ -802,15 +822,15 @@ The `check_` functions combine several `chk_` functions internally. Read
 the documentation for each function to learn more about its specific
 use.
 
-| Function                                                | Description                                                                                  |
-|:--------------------------------------------------------|:---------------------------------------------------------------------------------------------|
-| `check_values(x, values)`                               | Checks values and S3 class of an atomic object.                                              |
-| `check_key(x, key = character(0), na_distinct = FALSE)` | Checks if columns have unique rows.                                                          |
-| `check_data(x, values, exclusive, order, nrow, key)`    | Checks column names, values, number of rows and key for a data.frame.                        |
-| `check_dim(x, dim, values, dim_name)`                   | Checks dimension of an object.                                                               |
-| `check_dirs(x, exists)`                                 | Checks if all directories exist (or if exists = FALSE do not exist as directories or files). |
-| `check_files(x, exists)`                                | Checks if all files exist (or if exists = FALSE do not exist as files or directories).       |
-| `check_names(x, names, exclusive, order)`               | Checks the names of an object.                                                               |
+| Function | Description |
+|:---|:---|
+| `check_values(x, values)` | Checks values and S3 class of an atomic object. |
+| `check_key(x, key = character(0), na_distinct = FALSE)` | Checks if columns have unique rows. |
+| `check_data(x, values, exclusive, order, nrow, key)` | Checks column names, values, number of rows and key for a data.frame. |
+| `check_dim(x, dim, values, dim_name)` | Checks dimension of an object. |
+| `check_dirs(x, exists)` | Checks if all directories exist (or if exists = FALSE do not exist as directories or files). |
+| `check_files(x, exists)` | Checks if all files exist (or if exists = FALSE do not exist as files or directories). |
+| `check_names(x, names, exclusive, order)` | Checks the names of an object. |
 
 ## References
 

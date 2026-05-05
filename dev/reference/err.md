@@ -81,6 +81,7 @@ The user can set the subclass.
 ## Examples
 
 ``` r
+
 # err
 try(err("there %r %n problem value%s", n = 2))
 #> Error in evaluate::evaluate(code, child_env(env), new_device = TRUE, output_handler = output_handler) : 

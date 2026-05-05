@@ -48,6 +48,7 @@ Other set_checkers:
 ## Examples
 
 ``` r
+
 # chk_orderset
 chk_orderset(1:2, 1:2)
 try(chk_orderset(2:1, 1:2))

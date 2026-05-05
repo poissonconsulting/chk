@@ -1,5 +1,49 @@
 # Changelog
 
+## chk 0.10.0.9019
+
+### Chore
+
+- Auto-update from GitHub Actions
+  ([\#227](https://github.com/poissonconsulting/chk/issues/227)).
+
+## chk 0.10.0.9018
+
+### Chore
+
+- Auto-update from GitHub Actions
+  ([\#225](https://github.com/poissonconsulting/chk/issues/225)).
+
+## chk 0.10.0.9017
+
+### Chore
+
+- Auto-update from GitHub Actions
+  ([\#223](https://github.com/poissonconsulting/chk/issues/223)).
+
+- Auto-update from GitHub Actions
+  ([\#221](https://github.com/poissonconsulting/chk/issues/221)).
+
+- Auto-update from GitHub Actions
+  ([\#219](https://github.com/poissonconsulting/chk/issues/219)).
+
+- Auto-update from GitHub Actions
+  ([\#218](https://github.com/poissonconsulting/chk/issues/218)).
+
+## chk 0.10.0.9016
+
+### Chore
+
+- Auto-update from GitHub Actions
+  ([\#216](https://github.com/poissonconsulting/chk/issues/216)).
+
+## chk 0.10.0.9015
+
+### Continuous integration
+
+- Test all R versions on branches that start with cran-
+  ([\#213](https://github.com/poissonconsulting/chk/issues/213)).
+
 ## chk 0.10.0.9014
 
 ### Continuous integration
