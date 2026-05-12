@@ -19,3 +19,5 @@
 ^\.gitignore$
 ^CRAN-SUBMISSION$
 ^air\.toml$
+^\.vscode$
+^[.]?air[.]toml$
