@@ -1,5 +1,19 @@
 # Changelog
 
+## chk 0.10.0.9020
+
+### Continuous integration
+
+- Cosmetics.
+
+- Bump action versions.
+
+- Install clang-format-21.
+
+- Align fledge workflow.
+
+- Harmonize.
+
 ## chk 0.10.0.9019
 
 ### Chore

@@ -45,5 +45,5 @@ Other check:
 check_files(tempfile("unlikely-that-exists-chk"), exists = FALSE)
 try(check_files(tempfile("unlikely-that-exists-chk")))
 #> Error in eval(expr, envir) : 
-#>   `tempfile("unlikely-that-exists-chk")` must specify existing files ('/tmp/Rtmpf215cs/unlikely-that-exists-chk27ea557bf673' can't be found).
+#>   `tempfile("unlikely-that-exists-chk")` must specify existing files ('/tmp/RtmpcUSO2T/unlikely-that-exists-chk26586e6a6250' can't be found).
 ```
