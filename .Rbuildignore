@@ -21,3 +21,4 @@
 ^air\.toml$
 ^\.vscode$
 ^[.]?air[.]toml$
+^\.ccache$
