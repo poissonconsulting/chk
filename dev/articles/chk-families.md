@@ -163,7 +163,7 @@ is.vector(vector) # TRUE
 vld_vector(vector) # TRUE
 #> [1] TRUE
 
-attributes(vector) <-  list("a" = 10, "b" = 20, "c" = 30)
+attributes(vector) <- list("a" = 10, "b" = 20, "c" = 30)
 is.vector(vector) # FALSE
 #> [1] FALSE
 vld_vector(vector) # TRUE
@@ -308,7 +308,7 @@ values are non-negative whole numbers.
 ``` r
 
 # Positive integer
-vld_count(1) #TRUE
+vld_count(1) # TRUE
 #> [1] TRUE
 # Zero
 vld_count(0) # TRUE
@@ -345,7 +345,8 @@ contains strings.
 vector_fruits <- c("apple", "banana", "apple", "orange", "banana", "apple")
 
 factor_fruits <- factor(c("apple", "banana", "apple", "orange", "banana", "apple"),
-                levels = c("apple", "banana", "orange"))
+  levels = c("apple", "banana", "orange")
+)
 
 
 is.factor(factor_fruits) # TRUE
@@ -419,20 +420,19 @@ considered a valid name, please refer to the documentation for the
 
 ``` r
 
-
-vld_valid_name(c("name1", NA, "name_2", "validName"))  # TRUE
+vld_valid_name(c("name1", NA, "name_2", "validName")) # TRUE
 #> [1] TRUE
-vld_valid_name(c(1, 2, 3))  # FALSE
+vld_valid_name(c(1, 2, 3)) # FALSE
 #> [1] FALSE
 
 
-vld_named(data.frame(a = 1:5, b = 6:10))  # TRUE
+vld_named(data.frame(a = 1:5, b = 6:10)) # TRUE
 #> [1] TRUE
 vld_named(list(a = 1, b = 2)) # TRUE
 #> [1] TRUE
-vld_named(c(a = 1, b = 2)) # TRUE 
+vld_named(c(a = 1, b = 2)) # TRUE
 #> [1] TRUE
-vld_named(c(1, 2, 3)) # FALSE 
+vld_named(c(1, 2, 3)) # FALSE
 #> [1] FALSE
 ```
 
@@ -520,9 +520,9 @@ NA values.
 ``` r
 
 # Checking if sorted
-vld_sorted(c(1, 2, 3, NA, 4))  # TRUE
+vld_sorted(c(1, 2, 3, NA, 4)) # TRUE
 #> [1] TRUE
-vld_sorted(c(3, 1, 2, NA, 4))  # FALSE
+vld_sorted(c(3, 1, 2, NA, 4)) # FALSE
 #> [1] FALSE
 ```
 
@@ -571,7 +571,6 @@ it indicates that all elements of `values` are present in `x`.
 
 ``` r
 
-
 # When both function inputs have the same elements,
 # all functions return TRUE
 
@@ -613,9 +612,9 @@ vld_superset(c(1, 2, 3), c(3, 2, 1, 4)) # FALSE
 #> [1] FALSE
 
 # An empty set is considered a subset of any set, and any set is a superset of an empty set.
-vld_subset(c(), c("apple", "banana"))  # TRUE
+vld_subset(c(), c("apple", "banana")) # TRUE
 #> [1] TRUE
-vld_superset(c("apple", "banana"), c())  # TRUE
+vld_superset(c("apple", "banana"), c()) # TRUE
 #> [1] TRUE
 ```
 
@@ -630,11 +629,11 @@ preserving the order of those values.
 
 ``` r
 
-vld_orderset(c("A", "B", "C"),  c("A", "B", "C", "D")) # TRUE
+vld_orderset(c("A", "B", "C"), c("A", "B", "C", "D")) # TRUE
 #> [1] TRUE
-vld_orderset(c("C", "B", "A"),  c("A", "B", "C", "D")) # FALSE
+vld_orderset(c("C", "B", "A"), c("A", "B", "C", "D")) # FALSE
 #> [1] FALSE
-vld_orderset(c("A", "C"),  c("A", "B", "C", "D")) # TRUE
+vld_orderset(c("A", "C"), c("A", "B", "C", "D")) # TRUE
 #> [1] TRUE
 ```
 
@@ -735,9 +734,9 @@ and data frames.
 
 ``` r
 
-vld_length(c(1, 2, 3), length = 2, upper = 5)  # TRUE
+vld_length(c(1, 2, 3), length = 2, upper = 5) # TRUE
 #> [1] TRUE
-vld_length(c("a", "b"), length = 3)  # FALSE
+vld_length(c("a", "b"), length = 3) # FALSE
 #> [1] FALSE
 
 vld_length(list(a = 1, b = 2, c = 3), length = 2, upper = 4) # TRUE
@@ -746,9 +745,9 @@ vld_length(list(a = 1, b = 2, c = 3), length = 4) # FALSE
 #> [1] FALSE
 
 # 2 columns
-vld_length(data.frame(x = 1:3, y = 4:6), length = 1, upper = 3)  # TRUE
+vld_length(data.frame(x = 1:3, y = 4:6), length = 1, upper = 3) # TRUE
 #> [1] TRUE
-vld_length(data.frame(x = 1:3, y = 4:6), length = 3)  # FALSE    
+vld_length(data.frame(x = 1:3, y = 4:6), length = 3) # FALSE
 #> [1] FALSE
 
 # length of NULL is 0
@@ -810,7 +809,7 @@ y <- data.frame(id = c(1, 2, 3), value_y = c("D", "E", "F"))
 vld_join(x, y, by = "id") # TRUE
 #> [1] TRUE
 
-# Perform a join that reduces the number of rows 
+# Perform a join that reduces the number of rows
 y <- data.frame(id = c(1, 2, 1), value_y = c("D", "E", "F"))
 vld_join(x, y, by = "id") # FALSE
 #> [1] FALSE
