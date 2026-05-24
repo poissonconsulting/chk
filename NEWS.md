@@ -1,5 +1,14 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.10.0.9023
+
+## Continuous integration
+
+- Update ccache-action reference.
+
+- Bump action version.
+
+
 # chk 0.10.0.9022
 
 - Merge branch 'main' of github.com:poissonconsulting/chk.
