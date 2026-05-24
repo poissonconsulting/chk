@@ -54,7 +54,7 @@ Other file_checkers:
 # chk_file
 try(chk_file(tempfile()))
 #> Error in eval(expr, envir) : 
-#>   `tempfile()` must specify an existing file ('/tmp/Rtmpu89QDr/file25e91967e539' can't be found).
+#>   `tempfile()` must specify an existing file ('/tmp/Rtmp3Fw8Or/file262f667798f1' can't be found).
 # vld_file
 vld_file(tempfile())
 #> [1] FALSE
