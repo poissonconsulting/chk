@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.10.0.9024
+
+## fledge
+
+- Bump version to 0.10.0.9023 (#245).
+
+
 # chk 0.10.0.9023
 
 ## Continuous integration
