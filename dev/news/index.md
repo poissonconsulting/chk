@@ -1,5 +1,12 @@
 # Changelog
 
+## chk 0.10.0.9025
+
+### fledge
+
+- Bump version to 0.10.0.9024
+  ([\#246](https://github.com/poissonconsulting/chk/issues/246)).
+
 ## chk 0.10.0.9024
 
 ### fledge
