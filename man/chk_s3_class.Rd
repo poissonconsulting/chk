@@ -25,7 +25,7 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 \description{
 Checks inherits from S3 class using
 
-\code{!isS4(x) && inherits(x, class)}
+\code{inherits(x, class) && !isS4(x) && !inherits(1, "envRefClass") && !inherits(x, "R6")}
 }
 \section{Functions}{
 \itemize{
