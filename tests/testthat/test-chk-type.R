@@ -8,11 +8,15 @@ test_that("vld_s3_class", {
   expect_false(vld_s3_class(new("exampleS4class"), "exampleS4class"))
   invisible(removeClass("exampleS4class"))
 
-  expect_true(class(setRefClass("exampleRefClass", fields = "value")$new()) ==
-                "exampleRefClass")
+  expect_true(
+    class(setRefClass("exampleRefClass", fields = "value")$new()) ==
+      "exampleRefClass"
+  )
   expect_true(isS4(setRefClass("exampleRefClass", fields = "value")$new()))
-  expect_false(vld_s3_class(setRefClass("exampleRefClass", fields = "value")$new(),
-                            "exampleRefClass"))
+  expect_false(vld_s3_class(
+    setRefClass("exampleRefClass", fields = "value")$new(),
+    "exampleRefClass"
+  ))
 
   expect_true(R6::is.R6(R6::R6Class("exampleR6class")$new()))
   expect_false(vld_s3_class(R6::R6Class("example")$new(), "R6ClassGenerator"))
