@@ -45,5 +45,8 @@ chk_s3_class <- function(x, class, x_name = NULL) {
 #' vld_s3_class(getClass("MethodDefinition"), "classRepresentation")
 #' @export
 vld_s3_class <- function(x, class) {
-  inherits(x, class) && !isS4(x) && !inherits(1, "envRefClass") && !inherits(x, "R6")
+  inherits(x, class) &&
+    !isS4(x) &&
+    !inherits(1, "envRefClass") &&
+    !inherits(x, "R6")
 }
