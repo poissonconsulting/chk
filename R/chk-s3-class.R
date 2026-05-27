@@ -3,7 +3,7 @@
 #' @description
 #' Checks inherits from S3 class using
 #'
-#' `!isS4(x) && inherits(x, class)`
+#' `inherits(x, class) && !isS4(x) && !inherits(1, "envRefClass") && !inherits(x, "R6")`
 #'
 #' @inheritParams params
 #' @inherit params return
@@ -44,4 +44,6 @@ chk_s3_class <- function(x, class, x_name = NULL) {
 #' vld_s3_class(numeric(0), "numeric")
 #' vld_s3_class(getClass("MethodDefinition"), "classRepresentation")
 #' @export
-vld_s3_class <- function(x, class) !isS4(x) && inherits(x, class)
+vld_s3_class <- function(x, class) {
+  inherits(x, class) && !isS4(x) && !inherits(1, "envRefClass") && !inherits(x, "R6")
+}
