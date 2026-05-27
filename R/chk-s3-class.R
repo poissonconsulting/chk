@@ -46,7 +46,7 @@ chk_s3_class <- function(x, class, x_name = NULL) {
 #' @export
 vld_s3_class <- function(x, class) {
   inherits(x, class) &&
-    !isS4(x) &&
-    !inherits(x, "envRefClass") &&
-    !inherits(x, "R6")
+    !isS4(x) && # R5 classes count as S4
+    !inherits(x, "R6") &&
+    !inherits(x, "S7_object")
 }
