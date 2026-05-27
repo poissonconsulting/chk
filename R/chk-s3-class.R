@@ -3,7 +3,7 @@
 #' @description
 #' Checks inherits from S3 class using
 #'
-#' `inherits(x, class) && !isS4(x) && !inherits(1, "envRefClass") && !inherits(x, "R6")`
+#' `inherits(x, class) && !isS4(x) && !inherits(x, "envRefClass") && !inherits(x, "R6")`
 #'
 #' @inheritParams params
 #' @inherit params return
