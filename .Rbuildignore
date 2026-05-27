@@ -22,3 +22,5 @@
 ^\.vscode$
 ^[.]?air[.]toml$
 ^\.ccache$
+^\.positai$
+^\.claude$
