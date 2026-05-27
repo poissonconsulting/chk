@@ -32,7 +32,7 @@ test_that("check_data fails", {
   )
   expect_chk_error(
     check_data(data.frame(x = 1), values = list(x = 1L)),
-    "`data.frame[(]x = 1[)][$]x` must inherit from S3 class 'integer'."
+    "`data.frame[(]x = 1[)][$]x` must inherit from class 'integer'."
   )
   expect_chk_error(
     check_data(data.frame(x = c(1, 1)), key = "x"),
