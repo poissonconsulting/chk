@@ -45,8 +45,7 @@ chk_s3_class <- function(x, class, x_name = NULL) {
 #' vld_s3_class(getClass("MethodDefinition"), "classRepresentation")
 #' @export
 vld_s3_class <- function(x, class) {
-  inherits(x, class) &&
+  inherits(x, class) && # base objects and S7 classes count as S3
     !isS4(x) && # R5 classes count as S4
-    !inherits(x, "R6") &&
-    !inherits(x, "S7_object")
+    !inherits(x, "R6")
 }
