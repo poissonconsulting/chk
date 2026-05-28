@@ -50,6 +50,7 @@ please read the article
 Other id_checkers:
 \code{\link[=chk_data]{chk_data()}},
 \code{\link[=chk_is]{chk_is()}},
+\code{\link[=chk_s3_class_strict]{chk_s3_class_strict()}},
 \code{\link[=chk_s4_class]{chk_s4_class()}}
 }
 \concept{id_checkers}
