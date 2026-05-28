@@ -5,6 +5,10 @@
 #'
 #' `inherits(x, class) && !isS4(x) && !inherits(x, "envRefClass") && !inherits(x, "R6")`
 #'
+#' @details
+#' Note that [base objects](https://adv-r.hadley.nz/base-types.html) and S7
+#' classes are considered S3 objects.
+#'
 #' @inheritParams params
 #' @inherit params return
 #'
