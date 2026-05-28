@@ -20,10 +20,10 @@ test_that("vld_s3_class", {
   expect_true(R6::is.R6(R6::R6Class("exampleR6class")$new()))
   expect_false(vld_s3_class(R6::R6Class("example")$new(), "R6ClassGenerator"))
 
-  # waiting for Depends on R >= 4.2.0 to add S7 checks
-  # S7_generator <- S7::new_class("exampleS7class")
-  # expect_true(inherits(S7_generator(), S7_generator))
-  # expect_false(vld_s3_class(S7_generator(), "S7ClassGenerator"))
+  # waiting for Depends on R >= 4.2.0 to use inherits()
+  S7_generator <- S7::new_class("exampleS7class")
+  expect_true(S7::S7_inherits(S7_generator(), S7_generator))
+  expect_false(vld_s3_class(S7_generator(), "S7ClassGenerator"))
 
   x <- list()
   class(x) <- c("a", "b")
