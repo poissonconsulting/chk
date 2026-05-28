@@ -15,6 +15,7 @@
 #' @family id_checkers
 #'
 #' @seealso [inherits()]
+#' @seealso [typeof()]
 #' @seealso For more details about the use of this function,
 #' please read the article
 #' `vignette("chk-families")`.
