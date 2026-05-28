@@ -38,4 +38,7 @@ Other contributors:
 - Evan Amies-Galonski <evan@poissonconsulting.ca>
   ([ORCID](https://orcid.org/0000-0003-1096-2089)) \[contributor\]
 
+- Stefano stefano@poissonconsulting.ca Mezzini
+  ([ORCID](https://orcid.org/0000-0001-8551-7436)) \[contributor\]
+
 - Poisson Consulting \[copyright holder, funder\]
