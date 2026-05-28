@@ -23,6 +23,7 @@
 #' @examples
 #' # chk_s3_class
 #' chk_s3_class(1, "numeric")
+#' chk_s3_class(factor(1), "factor")
 #' try(chk_s3_class(getClass("MethodDefinition"), "classRepresentation"))
 #' @export
 chk_s3_class <- function(x, class, x_name = NULL) {
