@@ -14,8 +14,11 @@ test_that("vld_s3_class", {
   )
   expect_true(isS4(setRefClass("exampleRefClass", fields = "value")$new()))
   expect_false(
-    vld_s3_class(setRefClass("exampleRefClass", fields = "value")$new(),
-                 "exampleRefClass"))
+    vld_s3_class(
+      setRefClass("exampleRefClass", fields = "value")$new(),
+      "exampleRefClass"
+    )
+  )
 
   expect_true(R6::is.R6(R6::R6Class("exampleR6class")$new()))
   expect_false(vld_s3_class(R6::R6Class("example")$new(), "R6ClassGenerator"))
@@ -60,8 +63,10 @@ test_that("chk_s3_class", {
     "`foo` must inherit from S3 class 'b' or 'c'."
   )
 
-  expect_chk_error(chk_s3_class(setRefClass("exampleRefClass", fields = "value")$new(),
-                                "exampleRefClass"))
+  expect_chk_error(chk_s3_class(
+    setRefClass("exampleRefClass", fields = "value")$new(),
+    "exampleRefClass"
+  ))
 
   expect_true(R6::is.R6(R6::R6Class("exampleR6class")$new()))
   expect_false(vld_s3_class(R6::R6Class("example")$new(), "R6ClassGenerator"))

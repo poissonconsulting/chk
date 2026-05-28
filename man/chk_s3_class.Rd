@@ -27,6 +27,10 @@ Checks inherits from S3 class using
 
 \code{inherits(x, class) && !isS4(x) && !inherits(x, "envRefClass") && !inherits(x, "R6")}
 }
+\details{
+Note that \href{https://adv-r.hadley.nz/base-types.html}{base objects} and S7
+classes are considered S3 objects.
+}
 \section{Functions}{
 \itemize{
 \item \code{vld_s3_class()}: Validate Inherits from S3 Class
@@ -35,6 +39,7 @@ Checks inherits from S3 class using
 \examples{
 # chk_s3_class
 chk_s3_class(1, "numeric")
+chk_s3_class(factor(1), "factor")
 try(chk_s3_class(getClass("MethodDefinition"), "classRepresentation"))
 # vld_s3_class
 vld_s3_class(numeric(0), "numeric")
@@ -42,6 +47,8 @@ vld_s3_class(getClass("MethodDefinition"), "classRepresentation")
 }
 \seealso{
 \code{\link[=inherits]{inherits()}}
+
+\code{\link[=typeof]{typeof()}}
 
 For more details about the use of this function,
 please read the article
