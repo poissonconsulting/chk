@@ -1,5 +1,22 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.10.0.9026
+
+## fledge
+
+- Bump version to 0.10.0.9025 (#248).
+
+## Uncategorized
+
+- Merge pull request #255 from poissonconsulting/add-stefano-contributor.
+
+  add Stefano as ctb
+
+- Merge pull request #252 from poissonconsulting/depend-on-r-4.1-or-above.
+
+  Depends R \>= 4.1.0
+
+
 # chk 0.10.0.9025
 
 ## fledge
