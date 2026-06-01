@@ -25,7 +25,7 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 \description{
 Checks inherits from S3 class using
 
-\code{inherits(x, class) && !isS4(x) && !inherits(x, "envRefClass") && !inherits(x, "R6")}
+\code{inherits(x, class) && !isS4(x) && !inherits(x, "R6")}
 }
 \details{
 Note that \href{https://adv-r.hadley.nz/base-types.html}{base objects} and S7
