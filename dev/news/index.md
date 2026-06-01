@@ -1,5 +1,26 @@
 # Changelog
 
+## chk 0.10.0.9026
+
+### fledge
+
+- Bump version to 0.10.0.9025
+  ([\#248](https://github.com/poissonconsulting/chk/issues/248)).
+
+### Uncategorized
+
+- Merge pull request
+  [\#255](https://github.com/poissonconsulting/chk/issues/255) from
+  poissonconsulting/add-stefano-contributor.
+
+  add Stefano as ctb
+
+- Merge pull request
+  [\#252](https://github.com/poissonconsulting/chk/issues/252) from
+  poissonconsulting/depend-on-r-4.1-or-above.
+
+  Depends R \>= 4.1.0
+
 ## chk 0.10.0.9025
 
 ### fledge
