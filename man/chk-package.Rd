@@ -4,7 +4,7 @@
 \name{chk-package}
 \alias{chk}
 \alias{chk-package}
-\title{chk: Check User-Supplied Function Arguments}
+\title{chk: Test}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
