@@ -15,7 +15,7 @@ vld_range(x, range = c(0, 1), inclusive = TRUE)
 \item{range}{A non-missing sorted vector of length 2 of the lower and
 upper permitted values.}
 
-\item{inclusive}{A flag specifying whether the range is exclusive.}
+\item{inclusive}{A flag specifying whether the range is inclusive.}
 
 \item{x_name}{A string of the name of object x or NULL.}
 }
