@@ -31,7 +31,7 @@ vld_range(x, range = c(0, 1), inclusive = TRUE)
 
 - inclusive:
 
-  A flag specifying whether the range is exclusive.
+  A flag specifying whether the range is inclusive.
 
 - x_name:
 

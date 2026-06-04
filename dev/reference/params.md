@@ -53,7 +53,7 @@ functions.
 
 - inclusive:
 
-  A flag specifying whether the range is exclusive.
+  A flag specifying whether the range is inclusive.
 
 - regexp:
 
