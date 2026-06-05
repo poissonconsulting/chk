@@ -23,7 +23,7 @@
   Amies-Galonski](https://www.poissonconsulting.ca/author/evan-amies-galonski/)**.
   Contributor. [](https://orcid.org/0000-0003-1096-2089)
 
-- **Stefano stefano@poissonconsulting.ca Mezzini**. Contributor.
+- **Stefano Mezzini**. Contributor.
   [](https://orcid.org/0000-0001-8551-7436)
 
 - **[![](https://github.com/poissonconsulting.png)](https://www.poissonconsulting.ca/)**.
