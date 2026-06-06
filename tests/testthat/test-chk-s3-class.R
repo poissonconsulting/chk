@@ -3,10 +3,9 @@ test_that("vld_s3_class", {
   expect_false(vld_s3_class(1L, "numeric"))
   expect_true(vld_s3_class(1L, "integer"))
 
-  setClass("exampleS4class", slots = c(value = "numeric"))
+  local_s4_class("exampleS4class", slots = c(value = "numeric"))
   expect_true(class(new("exampleS4class")) == "exampleS4class")
   expect_false(vld_s3_class(new("exampleS4class"), "exampleS4class"))
-  invisible(removeClass("exampleS4class"))
 
   expect_true(
     class(setRefClass("exampleRefClass", fields = "value")$new()) ==
