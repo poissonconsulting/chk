@@ -366,20 +366,34 @@ Checks more properties about the objects
 
 - [`check_data()`](https://poissonconsulting.github.io/chk/dev/reference/check_data.md)
   : Check Data
+
 - [`check_dim()`](https://poissonconsulting.github.io/chk/dev/reference/check_dim.md)
   : Check Dimension
+
 - [`check_dirs()`](https://poissonconsulting.github.io/chk/dev/reference/check_dirs.md)
   : Check Directories Exist
+
 - [`check_files()`](https://poissonconsulting.github.io/chk/dev/reference/check_files.md)
   : Check Files Exist
+
 - [`check_key()`](https://poissonconsulting.github.io/chk/dev/reference/check_key.md)
   : Check Key
+
 - [`check_length()`](https://poissonconsulting.github.io/chk/dev/reference/check_length.md)
   : Check Length
+
 - [`check_names()`](https://poissonconsulting.github.io/chk/dev/reference/check_names.md)
   : Check Names
+
 - [`check_values()`](https://poissonconsulting.github.io/chk/dev/reference/check_values.md)
   : Check Values and Class
+
+- [`generate_check_data()`](https://poissonconsulting.github.io/chk/dev/reference/generate_check_data.md)
+  :
+
+  Generate
+  [`check_data()`](https://poissonconsulting.github.io/chk/dev/reference/check_data.md)
+  Code
 
 ## Deprecated Functions
 
