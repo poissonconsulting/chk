@@ -176,6 +176,7 @@ reference:
   - check_length
   - check_names
   - check_values
+  - generate_check_data
 - title: Deprecated Functions
   desc: Functions that have been deprecated
   contents:
