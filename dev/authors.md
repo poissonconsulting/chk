@@ -32,7 +32,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/poissonconsulting/chk/blob/docs-improvements/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/poissonconsulting/chk/blob/main/DESCRIPTION)
 
 Thorley J, Müller K, Pearson A (2026). *chk: Check User-Supplied
 Function Arguments*. R package version 0.10.0.9026,
