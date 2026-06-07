@@ -2,6 +2,22 @@
 
 # chk 0.10.0.9026
 
+## Features
+
+- New `generate_check_data()` generates the code for a `check_data()` call from an example data frame (#124).
+
+- `chkor_vld()` gains an `x_name` argument that is passed to each of the underlying `chk_` calls, so the error message refers to `x_name` rather than the deparsed `vld_` arguments (#100).
+
+## Bug fixes
+
+- `check_data()` now names the offending argument when passed a non-data frame, instead of reporting "data.frame".
+
+- `chk_lte()` now sets the `x` and `value` fields on its condition for scalar input, consistent with `chk_gte()`, `chk_lt()` and `chk_gt()`.
+
+- `chk_null_or()` resolves the matching `chk_` function by direct lookup (including `chk_`/`vld_` pairs defined in other packages) rather than by `parse()`/`eval()`, and falls back to an informative message when no partner can be found.
+
+- Corrected roxygen `@describeIn` and `@family` tags, the `chk_matrix()` and `chk_sorted()` wording, the `is.atomic(NULL)` description in the "chk Families" vignette, and a broken link.
+
 ## fledge
 
 - Bump version to 0.10.0.9025 (#248).
