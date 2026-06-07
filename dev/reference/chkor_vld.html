@@ -43,7 +43,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">chkor_vld</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">chkor_vld</span><span class="op">(</span><span class="va">...</span>, x_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -57,6 +57,13 @@
 If at all possible use <code><a href="chk_null_or.html">chk_null_or()</a></code> or first test using the individual
 <code>vld_</code> functions and then call <code>chkor_vld()</code> to generate an informative
 error message.</p></dd>
+
+
+<dt id="arg-x-name">x_name<a class="anchor" aria-label="anchor" href="#arg-x-name"></a></dt>
+<dd><p>A string of the name of the object to use in the error
+message or NULL. If a string it is passed to each of the <code>chk_</code> calls so
+that the error message refers to <code>x_name</code> rather than the deparsed <code>vld_</code>
+arguments.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -80,6 +87,7 @@ error message.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * `1` must be a flag (TRUE or FALSE).</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * `2` must be a flag (TRUE or FALSE).</span>
 <span class="r-in"><span><span class="fu">chkor_vld</span><span class="op">(</span><span class="fu"><a href="chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>, <span class="fu"><a href="chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">chkor_vld</span><span class="op">(</span><span class="fu"><a href="chk_flag.html">vld_flag</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>, <span class="fu"><a href="chk_number.html">vld_number</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>, x_name <span class="op">=</span> <span class="st">"`arg`"</span><span class="op">)</span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

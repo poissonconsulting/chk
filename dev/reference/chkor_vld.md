@@ -5,7 +5,7 @@ Chk OR
 ## Usage
 
 ``` r
-chkor_vld(...)
+chkor_vld(..., x_name = NULL)
 ```
 
 ## Arguments
@@ -20,6 +20,13 @@ chkor_vld(...)
   [`chk_null_or()`](https://poissonconsulting.github.io/chk/dev/reference/chk_null_or.md)
   or first test using the individual `vld_` functions and then call
   `chkor_vld()` to generate an informative error message.
+
+- x_name:
+
+  A string of the name of the object to use in the error message or
+  NULL. If a string it is passed to each of the `chk_` calls so that the
+  error message refers to `x_name` rather than the deparsed `vld_`
+  arguments.
 
 ## Value
 
@@ -42,4 +49,5 @@ try(chkor_vld(vld_flag(1), vld_flag(2)))
 #> * `1` must be a flag (TRUE or FALSE).
 #> * `2` must be a flag (TRUE or FALSE).
 chkor_vld(vld_flag(1), vld_flag(TRUE))
+try(chkor_vld(vld_flag(1), vld_number(1), x_name = "`arg`"))
 ```
