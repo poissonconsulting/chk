@@ -1,5 +1,26 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.10.0.9027
+
+## fledge
+
+- Bump version to 0.10.0.9026 (#257).
+
+## Uncategorized
+
+- Merge pull request #267 from poissonconsulting/fix-stefano-mezzini-name.
+
+  Fix malformed author name in DESCRIPTION
+
+- Merge pull request #264 from poissonconsulting/fix-inclusive-doc-262.
+
+  Fix inclusive argument docs for chk_range()
+
+- Merge pull request #265 from poissonconsulting/codeowners-joethorley.
+
+  Add CODEOWNERS assigning @joethorley
+
+
 # chk 0.10.0.9026
 
 ## fledge
