@@ -47,6 +47,10 @@ vld__to_chk_ <- function(quo) {
 #' If at all possible use [chk_null_or()] or first test using the individual
 #' `vld_` functions and then call `chkor_vld()` to generate an informative
 #' error message.
+#' @param x_name A string of the name of the object to use in the error
+#' message or NULL. If a string it is passed to each of the `chk_` calls so
+#' that the error message refers to `x_name` rather than the deparsed `vld_`
+#' arguments.
 #'
 #' @return An informative error if the test fails.
 #'
@@ -60,7 +64,8 @@ vld__to_chk_ <- function(quo) {
 #' try(chkor_vld(vld_flag(1)))
 #' try(chkor_vld(vld_flag(1), vld_flag(2)))
 #' chkor_vld(vld_flag(1), vld_flag(TRUE))
-chkor_vld <- function(...) {
+#' try(chkor_vld(vld_flag(1), vld_number(1), x_name = "`arg`"))
+chkor_vld <- function(..., x_name = NULL) {
   quos <- enquos(...)
 
   n <- length(quos)
@@ -73,7 +78,11 @@ chkor_vld <- function(...) {
     }
   }
   for (i in seq_len(n)) {
-    quos[[i]] <- quo_set_expr(quos[[i]], vld__to_chk_(quo_get_expr(quos[[i]])))
+    expr <- vld__to_chk_(quo_get_expr(quos[[i]]))
+    if (!is.null(x_name)) {
+      expr <- call_modify(expr, x_name = x_name)
+    }
+    quos[[i]] <- quo_set_expr(quos[[i]], expr)
   }
   chkor_quos(quos)
 }
