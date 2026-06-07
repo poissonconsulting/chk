@@ -141,7 +141,6 @@ reference:
   contents:
   - chk_not_any_na
   - chk_not_empty
-  - chk_sorted
   - chk_unique
   - chk_join
   - chkor_vld
@@ -185,3 +184,4 @@ reference:
   - chk_lgl
   - chk_wnum
   - chkor
+  - chk_deprecated
