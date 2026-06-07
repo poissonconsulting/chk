@@ -28,7 +28,6 @@ check_data <- function(
   if (is.null(x_name)) {
     x_name <- deparse_backtick_chk(substitute(x))
   }
-  chk_string(x_name)
   chk_data(x, x_name = x_name)
 
   if (is.null(values)) {
