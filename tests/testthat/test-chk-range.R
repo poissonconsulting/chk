@@ -93,6 +93,9 @@ test_that("chk_lte", {
     chk_lte(1, x_name = "0"),
     "^0 must be less than or equal to 0, not 1[.]$"
   )
+  err <- rlang::catch_cnd(chk_lte(1))
+  expect_identical(err$x, 1)
+  expect_identical(err$value, 0)
 })
 
 test_that("vld_gt", {
