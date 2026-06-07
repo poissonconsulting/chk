@@ -1,6 +1,6 @@
 # Changelog
 
-## chk 0.10.0.9026
+## chk 0.10.0.9027
 
 ### Features
 
@@ -43,6 +43,8 @@
   [`chk_sorted()`](https://poissonconsulting.github.io/chk/dev/reference/chk_sorted.md)
   wording, the `is.atomic(NULL)` description in the “chk Families”
   vignette, and a broken link.
+
+## chk 0.10.0.9026
 
 ### fledge
 

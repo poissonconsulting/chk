@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">chk</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9026</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9027</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,19 +37,22 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.10.0.9026" id="chk-01009026">chk 0.10.0.9026<a class="anchor" aria-label="anchor" href="#chk-01009026"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.10.0.9027" id="chk-01009027">chk 0.10.0.9027<a class="anchor" aria-label="anchor" href="#chk-01009027"></a></h2>
 <div class="section level3">
-<h3 id="features-0-10-0-9026">Features<a class="anchor" aria-label="anchor" href="#features-0-10-0-9026"></a></h3>
+<h3 id="features-0-10-0-9027">Features<a class="anchor" aria-label="anchor" href="#features-0-10-0-9027"></a></h3>
 <ul><li><p>New <code><a href="../reference/generate_check_data.html">generate_check_data()</a></code> generates the code for a <code><a href="../reference/check_data.html">check_data()</a></code> call from an example data frame (<a href="https://github.com/poissonconsulting/chk/issues/124" class="external-link">#124</a>).</p></li>
 <li><p><code><a href="../reference/chkor_vld.html">chkor_vld()</a></code> gains an <code>x_name</code> argument that is passed to each of the underlying <code>chk_</code> calls, so the error message refers to <code>x_name</code> rather than the deparsed <code>vld_</code> arguments (<a href="https://github.com/poissonconsulting/chk/issues/100" class="external-link">#100</a>).</p></li>
 </ul></div>
 <div class="section level3">
-<h3 id="bug-fixes-0-10-0-9026">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-10-0-9026"></a></h3>
+<h3 id="bug-fixes-0-10-0-9027">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-10-0-9027"></a></h3>
 <ul><li><p><code><a href="../reference/check_data.html">check_data()</a></code> now names the offending argument when passed a non-data frame, instead of reporting “data.frame”.</p></li>
 <li><p><code><a href="../reference/chk_lte.html">chk_lte()</a></code> now sets the <code>x</code> and <code>value</code> fields on its condition for scalar input, consistent with <code><a href="../reference/chk_gte.html">chk_gte()</a></code>, <code><a href="../reference/chk_lt.html">chk_lt()</a></code> and <code><a href="../reference/chk_gt.html">chk_gt()</a></code>.</p></li>
 <li><p><code><a href="../reference/chk_null_or.html">chk_null_or()</a></code> resolves the matching <code>chk_</code> function by direct lookup (including <code>chk_</code>/<code>vld_</code> pairs defined in other packages) rather than by <code><a href="https://rdrr.io/r/base/parse.html" class="external-link">parse()</a></code>/<code><a href="https://rdrr.io/r/base/eval.html" class="external-link">eval()</a></code>, and falls back to an informative message when no partner can be found.</p></li>
 <li><p>Corrected roxygen <code>@describeIn</code> and <code>@family</code> tags, the <code><a href="../reference/chk_matrix.html">chk_matrix()</a></code> and <code><a href="../reference/chk_sorted.html">chk_sorted()</a></code> wording, the <code>is.atomic(NULL)</code> description in the “chk Families” vignette, and a broken link.</p></li>
 </ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.10.0.9026" id="chk-01009026">chk 0.10.0.9026<a class="anchor" aria-label="anchor" href="#chk-01009026"></a></h2>
 <div class="section level3">
 <h3 id="fledge-0-10-0-9026">fledge<a class="anchor" aria-label="anchor" href="#fledge-0-10-0-9026"></a></h3>
 <ul><li>Bump version to 0.10.0.9025 (<a href="https://github.com/poissonconsulting/chk/issues/248" class="external-link">#248</a>).</li>
