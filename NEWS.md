@@ -1,6 +1,6 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
-# chk 0.10.0.9026
+# chk 0.10.0.9027
 
 ## Features
 
@@ -17,6 +17,8 @@
 - `chk_null_or()` resolves the matching `chk_` function by direct lookup (including `chk_`/`vld_` pairs defined in other packages) rather than by `parse()`/`eval()`, and falls back to an informative message when no partner can be found.
 
 - Corrected roxygen `@describeIn` and `@family` tags, the `chk_matrix()` and `chk_sorted()` wording, the `is.atomic(NULL)` description in the "chk Families" vignette, and a broken link.
+
+# chk 0.10.0.9026
 
 ## fledge
 
