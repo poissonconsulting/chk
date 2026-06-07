@@ -2,9 +2,12 @@
 % Please edit documentation in R/chk-orderset.R
 \name{chk_orderset}
 \alias{chk_orderset}
+\alias{vld_orderset}
 \title{Check Set Ordered}
 \usage{
 chk_orderset(x, values, x_name = NULL)
+
+vld_orderset(x, values)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -23,11 +26,22 @@ Checks if the first occurrence of each shared element
 in x is equivalent to the first occurrence of each shared element in values using
 \code{vld_equivalent(unique(x[x \%in\% values]), values[values \%in\% x])}.
 }
+\section{Functions}{
+\itemize{
+\item \code{vld_orderset()}: Validate Set Ordered
+
+}}
 \examples{
 
 # chk_orderset
 chk_orderset(1:2, 1:2)
 try(chk_orderset(2:1, 1:2))
+
+# vld_orderset
+vld_orderset(1, 1)
+vld_orderset(1:2, 2:1)
+vld_orderset(1, 2:1)
+vld_orderset(1:2, 2)
 }
 \seealso{
 \code{\link[=vld_equivalent]{vld_equivalent()}}
@@ -40,8 +54,8 @@ please read the article
 
 Other set_checkers:
 \code{\link[=chk_not_subset]{chk_not_subset()}},
-\code{\link[=chk_superset]{chk_superset()}},
-\code{\link[=vld_not_subset]{vld_not_subset()}},
-\code{\link[=vld_orderset]{vld_orderset()}}
+\code{\link[=chk_setequal]{chk_setequal()}},
+\code{\link[=chk_subset]{chk_subset()}},
+\code{\link[=chk_superset]{chk_superset()}}
 }
 \concept{set_checkers}

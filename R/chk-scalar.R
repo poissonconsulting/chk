@@ -1,7 +1,7 @@
 #' Check Scalar
 #'
 #' @description
-#' Checks if is a vector using
+#' Checks if is a scalar using
 #'
 #' `length(x) == 1L`
 #'

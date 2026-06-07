@@ -9,7 +9,7 @@
 #' @inherit params return
 #'
 #' @family factor_checkers
-#' @family data-type_checkers
+#' @family data_type_checkers
 #'
 #' @seealso [is.factor()]
 #' @seealso For more details about the use of this function,

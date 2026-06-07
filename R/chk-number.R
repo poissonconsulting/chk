@@ -12,7 +12,8 @@
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family data_type_checkers scalar_checkers
+#' @family data_type_checkers
+#' @family scalar_checkers
 #'
 #' @seealso [is.numeric()]
 #' @seealso [length()]

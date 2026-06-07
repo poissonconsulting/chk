@@ -9,11 +9,10 @@
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family scalar_checker
+#' @family scalar_checkers
 #'
-#' @seealso [is.integer()]
-#' @seealso [vld_true()]
-#' @seealso [vld_number()]
+#' @seealso [is.complex()]
+#' @seealso [length()]
 #'
 #' @seealso For more details about the use of this function,
 #' please read the article
