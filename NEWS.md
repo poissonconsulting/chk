@@ -2,6 +2,10 @@
 
 # chk 0.10.0.9026
 
+## Features
+
+- New `generate_check_data()` generates the code for a `check_data()` call from an example data frame (#124).
+
 ## fledge
 
 - Bump version to 0.10.0.9025 (#248).
