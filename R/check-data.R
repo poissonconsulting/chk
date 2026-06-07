@@ -25,7 +25,11 @@ check_data <- function(
   key = character(0),
   x_name = NULL
 ) {
-  chk_data(x, "data.frame")
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
+  chk_string(x_name)
+  chk_data(x, x_name = x_name)
 
   if (is.null(values)) {
     values <- structure(list(), .Names = character(0))
@@ -34,11 +38,6 @@ check_data <- function(
   chk_named(values)
   chk_unique(names(values))
   chk_all(values, chk_fun = chk_atomic)
-
-  if (is.null(x_name)) {
-    x_name <- deparse_backtick_chk((substitute(x)))
-  }
-  chk_string(x_name)
 
   check_dim(
     x,
