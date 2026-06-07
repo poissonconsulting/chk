@@ -367,20 +367,20 @@ Check if the function input are numbers in increasing order
 
 Check if the function input is composed by certain elements
 
-- [`vld_not_subset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_subset.md)
-  [`chk_subset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_subset.md)
+- [`chk_subset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_subset.md)
   [`vld_subset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_subset.md)
   : Check Subset
 - [`chk_not_subset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_subset.md)
+  [`vld_not_subset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_subset.md)
   : Check Not Subset
 - [`chk_superset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_superset.md)
   [`vld_superset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_superset.md)
   : Check Superset
-- [`vld_orderset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_setequal.md)
-  [`chk_setequal()`](https://poissonconsulting.github.io/chk/dev/reference/chk_setequal.md)
+- [`chk_setequal()`](https://poissonconsulting.github.io/chk/dev/reference/chk_setequal.md)
   [`vld_setequal()`](https://poissonconsulting.github.io/chk/dev/reference/chk_setequal.md)
   : Check Set Equal
 - [`chk_orderset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_orderset.md)
+  [`vld_orderset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_orderset.md)
   : Check Set Ordered
 
 ## Identity Checkers

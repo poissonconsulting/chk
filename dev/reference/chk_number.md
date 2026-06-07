@@ -46,6 +46,32 @@ The `vld_` function returns a flag indicating whether the test was met.
 For more details about the use of this function, please read the article
 [`vignette("chk-families")`](https://poissonconsulting.github.io/chk/dev/articles/chk-families.md).
 
+Other data_type_checkers:
+[`chk_character()`](https://poissonconsulting.github.io/chk/dev/reference/chk_character.md),
+[`chk_character_or_factor()`](https://poissonconsulting.github.io/chk/dev/reference/chk_character_or_factor.md),
+[`chk_complex()`](https://poissonconsulting.github.io/chk/dev/reference/chk_complex.md),
+[`chk_double()`](https://poissonconsulting.github.io/chk/dev/reference/chk_double.md),
+[`chk_environment()`](https://poissonconsulting.github.io/chk/dev/reference/chk_environment.md),
+[`chk_factor()`](https://poissonconsulting.github.io/chk/dev/reference/chk_factor.md),
+[`chk_integer()`](https://poissonconsulting.github.io/chk/dev/reference/chk_integer.md),
+[`chk_logical()`](https://poissonconsulting.github.io/chk/dev/reference/chk_logical.md),
+[`chk_numeric()`](https://poissonconsulting.github.io/chk/dev/reference/chk_numeric.md),
+[`chk_raw()`](https://poissonconsulting.github.io/chk/dev/reference/chk_raw.md)
+
+Other scalar_checkers:
+[`chk_complex_number()`](https://poissonconsulting.github.io/chk/dev/reference/chk_complex_number.md),
+[`chk_count()`](https://poissonconsulting.github.io/chk/dev/reference/chk_count.md),
+[`chk_date()`](https://poissonconsulting.github.io/chk/dev/reference/chk_date.md),
+[`chk_date_time()`](https://poissonconsulting.github.io/chk/dev/reference/chk_date_time.md),
+[`chk_false()`](https://poissonconsulting.github.io/chk/dev/reference/chk_false.md),
+[`chk_flag()`](https://poissonconsulting.github.io/chk/dev/reference/chk_flag.md),
+[`chk_lgl()`](https://poissonconsulting.github.io/chk/dev/reference/chk_lgl.md),
+[`chk_scalar()`](https://poissonconsulting.github.io/chk/dev/reference/chk_scalar.md),
+[`chk_string()`](https://poissonconsulting.github.io/chk/dev/reference/chk_string.md),
+[`chk_true()`](https://poissonconsulting.github.io/chk/dev/reference/chk_true.md),
+[`chk_tz()`](https://poissonconsulting.github.io/chk/dev/reference/chk_tz.md),
+[`chk_whole_number()`](https://poissonconsulting.github.io/chk/dev/reference/chk_whole_number.md)
+
 ## Examples
 
 ``` r

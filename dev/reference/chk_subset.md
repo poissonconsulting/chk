@@ -11,8 +11,6 @@ function compared to
 ## Usage
 
 ``` r
-vld_not_subset(x, values)
-
 chk_subset(x, values, x_name = NULL)
 
 vld_subset(x, values)
@@ -41,8 +39,6 @@ The `vld_` function returns a flag indicating whether the test was met.
 
 ## Functions
 
-- `vld_not_subset()`: Validate Not Subset
-
 - `vld_subset()`: Validate Subset
 
 ## See also
@@ -55,19 +51,12 @@ For more details about the use of this function, please read the article
 Other set_checkers:
 [`chk_not_subset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_subset.md),
 [`chk_orderset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_orderset.md),
-[`chk_superset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_superset.md),
-[`vld_orderset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_setequal.md)
+[`chk_setequal()`](https://poissonconsulting.github.io/chk/dev/reference/chk_setequal.md),
+[`chk_superset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_superset.md)
 
 ## Examples
 
 ``` r
-# vld_not_subset
-vld_not_subset(numeric(0), 1:10)
-#> [1] TRUE
-vld_not_subset(1, 1:10)
-#> [1] FALSE
-vld_not_subset(11, 1:10)
-#> [1] TRUE
 # chk_subset
 chk_subset(1, 1:10)
 try(chk_subset(11, 1:10))

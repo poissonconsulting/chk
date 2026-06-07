@@ -52,7 +52,7 @@ Other data_structure_checkers:
 # chk_matrix
 chk_matrix(matrix(1))
 try(chk_matrix(array(1)))
-#> Error in eval(expr, envir) : `array(1)` must be an matrix.
+#> Error in eval(expr, envir) : `array(1)` must be a matrix.
 # vld_matrix
 vld_matrix(1)
 #> [1] FALSE

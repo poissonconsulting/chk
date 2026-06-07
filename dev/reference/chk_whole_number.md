@@ -48,8 +48,19 @@ The `vld_` function returns a flag indicating whether the test was met.
 For more details about the use of this function, please read the article
 [`vignette("chk-families")`](https://poissonconsulting.github.io/chk/dev/articles/chk-families.md).
 
-Other scalar_checker:
-[`chk_complex_number()`](https://poissonconsulting.github.io/chk/dev/reference/chk_complex_number.md)
+Other scalar_checkers:
+[`chk_complex_number()`](https://poissonconsulting.github.io/chk/dev/reference/chk_complex_number.md),
+[`chk_count()`](https://poissonconsulting.github.io/chk/dev/reference/chk_count.md),
+[`chk_date()`](https://poissonconsulting.github.io/chk/dev/reference/chk_date.md),
+[`chk_date_time()`](https://poissonconsulting.github.io/chk/dev/reference/chk_date_time.md),
+[`chk_false()`](https://poissonconsulting.github.io/chk/dev/reference/chk_false.md),
+[`chk_flag()`](https://poissonconsulting.github.io/chk/dev/reference/chk_flag.md),
+[`chk_lgl()`](https://poissonconsulting.github.io/chk/dev/reference/chk_lgl.md),
+[`chk_number()`](https://poissonconsulting.github.io/chk/dev/reference/chk_number.md),
+[`chk_scalar()`](https://poissonconsulting.github.io/chk/dev/reference/chk_scalar.md),
+[`chk_string()`](https://poissonconsulting.github.io/chk/dev/reference/chk_string.md),
+[`chk_true()`](https://poissonconsulting.github.io/chk/dev/reference/chk_true.md),
+[`chk_tz()`](https://poissonconsulting.github.io/chk/dev/reference/chk_tz.md)
 
 Other whole_number_checkers:
 [`chk_count()`](https://poissonconsulting.github.io/chk/dev/reference/chk_count.md),

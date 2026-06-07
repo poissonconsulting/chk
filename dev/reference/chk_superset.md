@@ -51,8 +51,8 @@ For more details about the use of this function, please read the article
 Other set_checkers:
 [`chk_not_subset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_subset.md),
 [`chk_orderset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_orderset.md),
-[`vld_not_subset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_subset.md),
-[`vld_orderset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_setequal.md)
+[`chk_setequal()`](https://poissonconsulting.github.io/chk/dev/reference/chk_setequal.md),
+[`chk_subset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_subset.md)
 
 ## Examples
 

@@ -45,6 +45,10 @@ The `vld_` function returns a flag indicating whether the test was met.
 For more details about the use of this function, please read the article
 [`vignette("chk-families")`](https://poissonconsulting.github.io/chk/dev/articles/chk-families.md).
 
+Other ellipsis_checkers:
+[`chk_unused()`](https://poissonconsulting.github.io/chk/dev/reference/chk_unused.md),
+[`chk_used()`](https://poissonconsulting.github.io/chk/dev/reference/chk_used.md)
+
 Other missing_checkers:
 [`chk_missing()`](https://poissonconsulting.github.io/chk/dev/reference/chk_missing.md),
 [`chk_not_missing()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_missing.md)

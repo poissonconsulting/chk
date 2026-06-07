@@ -7,8 +7,6 @@ Checks if equal set using
 ## Usage
 
 ``` r
-vld_orderset(x, values)
-
 chk_setequal(x, values, x_name = NULL)
 
 vld_setequal(x, values)
@@ -37,8 +35,6 @@ The `vld_` function returns a flag indicating whether the test was met.
 
 ## Functions
 
-- `vld_orderset()`: Validate Set Ordered
-
 - `vld_setequal()`: Validate Set Equal
 
 ## See also
@@ -51,22 +47,12 @@ For more details about the use of this function, please read the article
 Other set_checkers:
 [`chk_not_subset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_subset.md),
 [`chk_orderset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_orderset.md),
-[`chk_superset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_superset.md),
-[`vld_not_subset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_subset.md)
+[`chk_subset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_subset.md),
+[`chk_superset()`](https://poissonconsulting.github.io/chk/dev/reference/chk_superset.md)
 
 ## Examples
 
 ``` r
-
-# vld_orderset
-vld_orderset(1, 1)
-#> [1] TRUE
-vld_orderset(1:2, 2:1)
-#> [1] FALSE
-vld_orderset(1, 2:1)
-#> [1] TRUE
-vld_orderset(1:2, 2)
-#> [1] TRUE
 # chk_setequal
 chk_setequal(1:2, 2:1)
 try(chk_setequal(1, 1:2))

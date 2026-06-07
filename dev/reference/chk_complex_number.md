@@ -35,17 +35,26 @@ The `vld_` function returns a flag indicating whether the test was met.
 
 ## See also
 
-[`is.integer()`](https://rdrr.io/r/base/integer.html)
+[`is.complex()`](https://rdrr.io/r/base/complex.html)
 
-[`vld_true()`](https://poissonconsulting.github.io/chk/dev/reference/chk_true.md)
-
-[`vld_number()`](https://poissonconsulting.github.io/chk/dev/reference/chk_number.md)
+[`length()`](https://rdrr.io/r/base/length.html)
 
 For more details about the use of this function, please read the article
 [chk
 families](https://poissonconsulting.github.io/chk/articles/chk-families.html).
 
-Other scalar_checker:
+Other scalar_checkers:
+[`chk_count()`](https://poissonconsulting.github.io/chk/dev/reference/chk_count.md),
+[`chk_date()`](https://poissonconsulting.github.io/chk/dev/reference/chk_date.md),
+[`chk_date_time()`](https://poissonconsulting.github.io/chk/dev/reference/chk_date_time.md),
+[`chk_false()`](https://poissonconsulting.github.io/chk/dev/reference/chk_false.md),
+[`chk_flag()`](https://poissonconsulting.github.io/chk/dev/reference/chk_flag.md),
+[`chk_lgl()`](https://poissonconsulting.github.io/chk/dev/reference/chk_lgl.md),
+[`chk_number()`](https://poissonconsulting.github.io/chk/dev/reference/chk_number.md),
+[`chk_scalar()`](https://poissonconsulting.github.io/chk/dev/reference/chk_scalar.md),
+[`chk_string()`](https://poissonconsulting.github.io/chk/dev/reference/chk_string.md),
+[`chk_true()`](https://poissonconsulting.github.io/chk/dev/reference/chk_true.md),
+[`chk_tz()`](https://poissonconsulting.github.io/chk/dev/reference/chk_tz.md),
 [`chk_whole_number()`](https://poissonconsulting.github.io/chk/dev/reference/chk_whole_number.md)
 
 ## Examples

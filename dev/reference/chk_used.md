@@ -34,6 +34,7 @@ For more details about the use of this function, please read the article
 [`vignette("chk-families")`](https://poissonconsulting.github.io/chk/dev/articles/chk-families.md).
 
 Other ellipsis_checkers:
+[`chk_function()`](https://poissonconsulting.github.io/chk/dev/reference/chk_function.md),
 [`chk_unused()`](https://poissonconsulting.github.io/chk/dev/reference/chk_unused.md)
 
 ## Examples

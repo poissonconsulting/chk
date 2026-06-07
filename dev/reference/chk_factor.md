@@ -43,6 +43,18 @@ For more details about the use of this function, please read the article
 Other factor_checkers:
 [`chk_character_or_factor()`](https://poissonconsulting.github.io/chk/dev/reference/chk_character_or_factor.md)
 
+Other data_type_checkers:
+[`chk_character()`](https://poissonconsulting.github.io/chk/dev/reference/chk_character.md),
+[`chk_character_or_factor()`](https://poissonconsulting.github.io/chk/dev/reference/chk_character_or_factor.md),
+[`chk_complex()`](https://poissonconsulting.github.io/chk/dev/reference/chk_complex.md),
+[`chk_double()`](https://poissonconsulting.github.io/chk/dev/reference/chk_double.md),
+[`chk_environment()`](https://poissonconsulting.github.io/chk/dev/reference/chk_environment.md),
+[`chk_integer()`](https://poissonconsulting.github.io/chk/dev/reference/chk_integer.md),
+[`chk_logical()`](https://poissonconsulting.github.io/chk/dev/reference/chk_logical.md),
+[`chk_number()`](https://poissonconsulting.github.io/chk/dev/reference/chk_number.md),
+[`chk_numeric()`](https://poissonconsulting.github.io/chk/dev/reference/chk_numeric.md),
+[`chk_raw()`](https://poissonconsulting.github.io/chk/dev/reference/chk_raw.md)
+
 ## Examples
 
 ``` r

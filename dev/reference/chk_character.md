@@ -45,8 +45,10 @@ Other data_type_checkers:
 [`chk_complex()`](https://poissonconsulting.github.io/chk/dev/reference/chk_complex.md),
 [`chk_double()`](https://poissonconsulting.github.io/chk/dev/reference/chk_double.md),
 [`chk_environment()`](https://poissonconsulting.github.io/chk/dev/reference/chk_environment.md),
+[`chk_factor()`](https://poissonconsulting.github.io/chk/dev/reference/chk_factor.md),
 [`chk_integer()`](https://poissonconsulting.github.io/chk/dev/reference/chk_integer.md),
 [`chk_logical()`](https://poissonconsulting.github.io/chk/dev/reference/chk_logical.md),
+[`chk_number()`](https://poissonconsulting.github.io/chk/dev/reference/chk_number.md),
 [`chk_numeric()`](https://poissonconsulting.github.io/chk/dev/reference/chk_numeric.md),
 [`chk_raw()`](https://poissonconsulting.github.io/chk/dev/reference/chk_raw.md)
 
