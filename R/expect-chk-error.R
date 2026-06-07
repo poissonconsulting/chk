@@ -20,7 +20,7 @@ expect_chk_error <- function(
   class = NULL
 ) {
   if (!is_installed("testthat")) {
-    stop("`testhat` must be installed.")
+    stop("`testthat` must be installed.")
   }
   if (!is.null(class)) {
     stop("`class` must be NULL.")

@@ -11,6 +11,6 @@ test_that("chk_matrix", {
   expect_invisible(chk_matrix(matrix(1)))
   expect_chk_error(
     chk_matrix(1),
-    "^`1` must be an matrix[.]$"
+    "^`1` must be a matrix[.]$"
   )
 })

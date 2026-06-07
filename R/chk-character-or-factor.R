@@ -21,7 +21,7 @@
 #' # chk_character_or_factor
 #' chk_character_or_factor("1")
 #' chk_character_or_factor(factor("1"))
-#' try(chk_character(1))
+#' try(chk_character_or_factor(1))
 #' @export
 chk_character_or_factor <- function(x, x_name = NULL) {
   if (vld_character_or_factor(x)) {

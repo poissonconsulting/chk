@@ -2,9 +2,12 @@
 % Please edit documentation in R/chk-not-subset.R
 \name{chk_not_subset}
 \alias{chk_not_subset}
+\alias{vld_not_subset}
 \title{Check Not Subset}
 \usage{
 chk_not_subset(x, values, x_name = NULL)
+
+vld_not_subset(x, values)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -24,10 +27,19 @@ Checks if not all values in values using
 
 \code{!any(x \%in\% values) || !length(x)}
 }
+\section{Functions}{
+\itemize{
+\item \code{vld_not_subset()}: Validate Not Subset
+
+}}
 \examples{
 # chk_not_subset
 chk_not_subset(11, 1:10)
 try(chk_not_subset(1, 1:10))
+# vld_not_subset
+vld_not_subset(numeric(0), 1:10)
+vld_not_subset(1, 1:10)
+vld_not_subset(11, 1:10)
 }
 \seealso{
 \code{\link[=any]{any()}}
@@ -40,8 +52,8 @@ please read the article
 
 Other set_checkers:
 \code{\link[=chk_orderset]{chk_orderset()}},
-\code{\link[=chk_superset]{chk_superset()}},
-\code{\link[=vld_not_subset]{vld_not_subset()}},
-\code{\link[=vld_orderset]{vld_orderset()}}
+\code{\link[=chk_setequal]{chk_setequal()}},
+\code{\link[=chk_subset]{chk_subset()}},
+\code{\link[=chk_superset]{chk_superset()}}
 }
 \concept{set_checkers}
