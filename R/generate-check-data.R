@@ -52,7 +52,12 @@ generate_check_data <- function(x, data_name = NULL) {
   entries <- vapply(
     names(x),
     function(name) {
-      p0("    ", generate_name_code(name), " = ", generate_values_code(x[[name]]))
+      p0(
+        "    ",
+        generate_name_code(name),
+        " = ",
+        generate_values_code(x[[name]])
+      )
     },
     character(1)
   )
@@ -110,7 +115,11 @@ generate_factor_code <- function(col, has_na) {
     values <- if (has_na) "NA" else "character(0)"
     return(p0("factor(", values, ordered, ")"))
   }
-  levs_code <- p0("c(", p0(vapply(levs, deparse, character(1)), collapse = ", "), ")")
+  levs_code <- p0(
+    "c(",
+    p0(vapply(levs, deparse, character(1)), collapse = ", "),
+    ")"
+  )
   values <- levs
   if (has_na) {
     values <- c(values, NA)
@@ -118,7 +127,11 @@ generate_factor_code <- function(col, has_na) {
   values_code <- p0(
     "c(",
     p0(
-      vapply(values, function(z) if (is.na(z)) "NA" else deparse(z), character(1)),
+      vapply(
+        values,
+        function(z) if (is.na(z)) "NA" else deparse(z),
+        character(1)
+      ),
       collapse = ", "
     ),
     ")"
@@ -174,7 +187,12 @@ generate_literal <- function(val, col) {
     # Use the shortest representation that round-trips, falling back to full
     # precision only when the default would change the value.
     code <- deparse(val)
-    if (!identical(val, tryCatch(eval(parse(text = code)), error = function(e) NULL))) {
+    if (
+      !identical(
+        val,
+        tryCatch(eval(parse(text = code)), error = function(e) NULL)
+      )
+    ) {
       code <- deparse(val, control = "digits17")
     }
     return(code)
