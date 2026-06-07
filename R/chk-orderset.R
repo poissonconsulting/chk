@@ -43,7 +43,7 @@ chk_orderset <- function(x, values, x_name = NULL) {
   )
 }
 
-#' @describeIn chk_setequal Validate Set Ordered
+#' @describeIn chk_orderset Validate Set Ordered
 #'
 #' @export
 #'

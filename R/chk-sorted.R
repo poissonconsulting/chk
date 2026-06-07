@@ -3,7 +3,7 @@
 #' @description
 #' Checks if is sorted using
 #'
-#' `is.unsorted(x, na.rm = TRUE)`
+#' `!is.unsorted(x, na.rm = TRUE)`
 #'
 #' @inheritParams params
 #' @inherit params return

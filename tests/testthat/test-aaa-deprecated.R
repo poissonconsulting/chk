@@ -1,3 +1,9 @@
+test_that("chk_off, chk_on and is_chk_on are defunct", {
+  expect_error(chk_off(), class = "defunctError")
+  expect_error(chk_on(), class = "defunctError")
+  expect_error(is_chk_on(), class = "defunctError")
+})
+
 test_that("vld_no_missing", {
   rlang::local_options(lifecycle_verbosity = "quiet")
 

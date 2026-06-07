@@ -12,8 +12,6 @@
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family chk_character
-#'
 #' @examples
 #' chk_chr("a")
 #' try(chk_chr(1))

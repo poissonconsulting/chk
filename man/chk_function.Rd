@@ -49,10 +49,14 @@ For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
+Other ellipsis_checkers:
+\code{\link[=chk_unused]{chk_unused()}},
+\code{\link[=chk_used]{chk_used()}}
+
 Other missing_checkers:
 \code{\link[=chk_missing]{chk_missing()}},
 \code{\link[=chk_not_missing]{chk_not_missing()}}
 }
-\concept{ellpisis_checkers}
+\concept{ellipsis_checkers}
 \concept{function_checkers}
 \concept{missing_checkers}

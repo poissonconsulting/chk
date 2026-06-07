@@ -48,6 +48,7 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other ellipsis_checkers:
+\code{\link[=chk_function]{chk_function()}},
 \code{\link[=chk_unused]{chk_unused()}}
 }
 \concept{ellipsis_checkers}

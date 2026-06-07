@@ -49,15 +49,18 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other scalar_checkers:
+\code{\link[=chk_complex_number]{chk_complex_number()}},
 \code{\link[=chk_count]{chk_count()}},
 \code{\link[=chk_date_time]{chk_date_time()}},
 \code{\link[=chk_false]{chk_false()}},
 \code{\link[=chk_flag]{chk_flag()}},
 \code{\link[=chk_lgl]{chk_lgl()}},
+\code{\link[=chk_number]{chk_number()}},
 \code{\link[=chk_scalar]{chk_scalar()}},
 \code{\link[=chk_string]{chk_string()}},
 \code{\link[=chk_true]{chk_true()}},
-\code{\link[=chk_tz]{chk_tz()}}
+\code{\link[=chk_tz]{chk_tz()}},
+\code{\link[=chk_whole_number]{chk_whole_number()}}
 
 Other datetime_checkers:
 \code{\link[=chk_date_time]{chk_date_time()}}
