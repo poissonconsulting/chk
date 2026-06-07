@@ -35,7 +35,7 @@ Other contributors:
 - Nadine Hussein <nadine@poissonconsulting.ca>
   ([ORCID](https://orcid.org/0000-0003-4470-8361)) \[contributor\]
 
-- Evan Amies-Galonski <evan@poissonconsulting.ca>
+- Evan Amies-Galonski <evanamiesgalonski@gmail.com>
   ([ORCID](https://orcid.org/0000-0003-1096-2089)) \[contributor\]
 
 - Stefano Mezzini <stefano@poissonconsulting.ca>
