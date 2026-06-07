@@ -11,7 +11,7 @@ Authors@R: c(
     person("Florencia", "D'Andrea", role = "ctb"),
     person("Nadine", "Hussein", , "nadine@poissonconsulting.ca", role = "ctb",
            comment = c(ORCID = "0000-0003-4470-8361")),
-    person("Evan", "Amies-Galonski", , "evan@poissonconsulting.ca", role = "ctb",
+    person("Evan", "Amies-Galonski", , "evanamiesgalonski@gmail.com", role = "ctb",
            comment = c(ORCID = "0000-0003-1096-2089")),
     person("Stefano", "Mezzini", , "stefano@poissonconsulting.ca", role = "ctb",
            comment = c(ORCID = "0000-0001-8551-7436")),
