@@ -69,7 +69,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>chk Families</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/main/vignettes/chk-families.Rmd" class="external-link"><code>vignettes/chk-families.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/chk/blob/docs-improvements/vignettes/chk-families.Rmd" class="external-link"><code>vignettes/chk-families.Rmd</code></a></small>
       <div class="d-none name"><code>chk-families.Rmd</code></div>
     </div>
 
@@ -81,8 +81,8 @@
 <p>The <code>vld_</code> functions are used within the <code>chk_</code>
 functions. The <code>chk_</code> functions (and their <code>vld_</code>
 equivalents) can be divided into the following families.</p>
-<p>In the code in this examples, we will use <code>vld_*</code>
-functions</p>
+<p>In the code in these examples, we will use <code>vld_*</code>
+functions.</p>
 <p>If you want to learn more about the logic behind some of the
 functions explained here, we recommend reading the book <a href="https://adv-r.hadley.nz/" class="external-link">Advanced R</a> (Wickham, 2019).</p>
 <p>For reasons of space, the <code>x_name = NULL</code> argument is not
@@ -342,7 +342,7 @@ in a list, however, can be of different types.</p>
 </tr></thead>
 <tbody><tr class="odd">
 <td align="left"><code>chk_vector(x)</code></td>
-<td align="left"><code>is.atomic(x) &amp;&amp; !is.matrix(x) &amp;&amp; !is.array(x)) || is.list(x)</code></td>
+<td align="left"><code>(is.atomic(x) &amp;&amp; !is.matrix(x) &amp;&amp; !is.array(x)) || is.list(x)</code></td>
 </tr></tbody>
 </table>
 <p>Pay attention that <code><a href="../reference/chk_vector.html">chk_vector()</a></code> and
@@ -371,19 +371,20 @@ names.</p>
 <td align="left"><code>is.atomic(x)</code></td>
 </tr></tbody>
 </table>
-<p>Notice that <code>is.atomic</code> is true for the types logical,
-integer, numeric, complex, character and raw. Also, it is TRUE for
-NULL.</p>
+<p>Notice that <code><a href="https://rdrr.io/r/base/is.recursive.html" class="external-link">is.atomic()</a></code> is <code>TRUE</code> for the
+types logical, integer, numeric, complex, character and raw. As of R
+4.4.0 it is <code>FALSE</code> for <code>NULL</code> (it was
+<code>TRUE</code> in earlier versions).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/is.recursive.html" class="external-link">is.atomic</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="fu"><a href="../reference/chk_vector.html">vld_vector</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_atomic.html">vld_atomic</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/is.recursive.html" class="external-link">is.atomic</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/is.recursive.html" class="external-link">is.atomic</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="co"># FALSE (as of R 4.4.0)</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span>
-<span><span class="fu"><a href="../reference/chk_vector.html">vld_vector</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_atomic.html">vld_atomic</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="co"># FALSE (as of R 4.4.0)</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 <p>The dimension attribute converts vectors into matrices and
 arrays.</p>
@@ -403,9 +404,9 @@ arrays.</p>
 </tr>
 </tbody>
 </table>
-<p>When a vector is composed by heterogeneous data types, can be a list.
-Data frames are among the most important S3 vectors, constructed on top
-of lists.</p>
+<p>When a vector is composed of heterogeneous data types, it can be a
+list. Data frames are among the most important S3 vectors, constructed
+on top of lists.</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Function</th>
@@ -414,7 +415,7 @@ of lists.</p>
 <tbody>
 <tr class="odd">
 <td align="left"><code>chk_list(x)</code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/list.html" class="external-link">is.list()</a></code></td>
+<td align="left"><code>is.list(x)</code></td>
 </tr>
 <tr class="even">
 <td align="left"><code>chk_data(x)</code></td>
@@ -588,8 +589,8 @@ non-negative whole numbers.</p>
 </tr>
 </tbody>
 </table>
-<p>Factors can be specially confusing for users, because despite they
-are displayed as characters are built in top of integer vectors.</p>
+<p>Factors can be especially confusing for users because, despite being
+displayed as characters, they are built on top of integer vectors.</p>
 <p><code>chk</code> provides the function
 <code><a href="../reference/chk_character_or_factor.html">chk_character_or_factor()</a></code> that allows detecting if the
 argument that the user is providing contains strings.</p>
@@ -1147,7 +1148,7 @@ frames.</p>
 <span><span class="co">#&gt; [1] TRUE</span></span>
 <span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="cn">NULL</span>, length <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="co"># FALSE</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
-<p>Another useful function is <code>chk_compatible_lenghts()</code>.
+<p>Another useful function is <code><a href="../reference/chk_compatible_lengths.html">chk_compatible_lengths()</a></code>.
 This function helps to check vectors could be ‘strictly recycled’.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span></span>

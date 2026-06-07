@@ -317,9 +317,6 @@ Check if the function input meet some user defined quality criteria
 - [`chk_not_empty()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_empty.md)
   [`vld_not_empty()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_empty.md)
   : Check Not Empty
-- [`chk_sorted()`](https://poissonconsulting.github.io/chk/dev/reference/chk_sorted.md)
-  [`vld_sorted()`](https://poissonconsulting.github.io/chk/dev/reference/chk_sorted.md)
-  : Check Sorted
 - [`chk_unique()`](https://poissonconsulting.github.io/chk/dev/reference/chk_unique.md)
   [`vld_unique()`](https://poissonconsulting.github.io/chk/dev/reference/chk_unique.md)
   : Check Unique
@@ -402,3 +399,15 @@ Functions that have been deprecated
   **\[deprecated\]** : Check Whole Numeric Scalar
 - [`chkor()`](https://poissonconsulting.github.io/chk/dev/reference/chkor.md)
   : Check OR
+- [`chk_dirs()`](https://poissonconsulting.github.io/chk/dev/reference/chk_deprecated.md)
+  [`chk_files()`](https://poissonconsulting.github.io/chk/dev/reference/chk_deprecated.md)
+  [`chk_has()`](https://poissonconsulting.github.io/chk/dev/reference/chk_deprecated.md)
+  [`chk_in()`](https://poissonconsulting.github.io/chk/dev/reference/chk_deprecated.md)
+  [`chk_no_missing()`](https://poissonconsulting.github.io/chk/dev/reference/chk_deprecated.md)
+  [`vld_no_missing()`](https://poissonconsulting.github.io/chk/dev/reference/chk_deprecated.md)
+  [`chk_off()`](https://poissonconsulting.github.io/chk/dev/reference/chk_deprecated.md)
+  [`chk_on()`](https://poissonconsulting.github.io/chk/dev/reference/chk_deprecated.md)
+  [`is_chk_on()`](https://poissonconsulting.github.io/chk/dev/reference/chk_deprecated.md)
+  [`chk_proportion()`](https://poissonconsulting.github.io/chk/dev/reference/chk_deprecated.md)
+  [`deparse_backtick()`](https://poissonconsulting.github.io/chk/dev/reference/chk_deprecated.md)
+  : Deprecated functions

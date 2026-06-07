@@ -44,8 +44,9 @@ example, `chk_flag(x)` checks whether `x` is a flag, i.e., a non-missing
 logical vector of length 1.
 
 `chk_` functions are called for their side-effects, i.e., they throw an
-informative error if the object fails the check. Although do return an
-invisible copy of the first argument so they can be used in pipes.
+informative error if the object fails the check. They do, however,
+return an invisible copy of the first argument so they can be used in
+pipes.
 
 ``` r
 
@@ -90,8 +91,8 @@ if (!vld_flag(NA)) abort_chk("`NA` is not TRUE or FALSE!!")
 
 ### 3. `check_` Functions
 
-The `check_` functions are more complex then the `chk_` functions which
-make them slower but makes doing some general tests easier.
+The `check_` functions are more complex than the `chk_` functions, which
+makes them slower but makes doing some general tests easier.
 
 ## Using chk
 
@@ -144,7 +145,7 @@ chk_flag
 #> function(x, x_name = NULL){
 #>   if(vld_flag(x)) return(invisible(x))
 #>   if(is.null(x_name))  x_name <- deparse_backtick_chk(substitute(x))
-#>   abort_chk(x_name, " must be a flag (TRUE or FALSE)")
+#>   abort_chk(x_name, " must be a flag (TRUE or FALSE)", x = x)
 #> }
 #> <bytecode: 0x7fe802835670>
 #> <environment: namespace:chk>
@@ -161,7 +162,7 @@ and
 [`abort_chk()`](https://poissonconsulting.github.io/chk/dev/reference/abort_chk.md)
 functions are exported to make it easy for programmers to develop their
 own `chk_` functions. The
-[chk-lgl.R](https://github.com/poissonconsulting/chk/blob/master/R/chk-lgl.R)
+[chk-flag.R](https://github.com/poissonconsulting/chk/blob/main/R/chk-flag.R)
 script illustrates the general template to use when developing your own
 `chk_` functions.
 

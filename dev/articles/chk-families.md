@@ -6,7 +6,7 @@ The `vld_` functions are used within the `chk_` functions. The `chk_`
 functions (and their `vld_` equivalents) can be divided into the
 following families.
 
-In the code in this examples, we will use `vld_*` functions
+In the code in these examples, we will use `vld_*` functions.
 
 If you want to learn more about the logic behind some of the functions
 explained here, we recommend reading the book [Advanced
@@ -146,7 +146,7 @@ To check if a function argument is a vector you can use
 
 | Function | Code |
 |:---|:---|
-| `chk_vector(x)` | `is.atomic(x) && !is.matrix(x) && !is.array(x)) || is.list(x)` |
+| `chk_vector(x)` | `(is.atomic(x) && !is.matrix(x) && !is.array(x)) || is.list(x)` |
 
 Pay attention that
 [`chk_vector()`](https://poissonconsulting.github.io/chk/dev/reference/chk_vector.md)
@@ -174,20 +174,22 @@ vld_vector(vector) # TRUE
 |:----------------|:---------------|
 | `chk_atomic(x)` | `is.atomic(x)` |
 
-Notice that `is.atomic` is true for the types logical, integer, numeric,
-complex, character and raw. Also, it is TRUE for NULL.
+Notice that [`is.atomic()`](https://rdrr.io/r/base/is.recursive.html) is
+`TRUE` for the types logical, integer, numeric, complex, character and
+raw. As of R 4.4.0 it is `FALSE` for `NULL` (it was `TRUE` in earlier
+versions).
 
 ``` r
 
 vector <- c(1, 2, 3)
 is.atomic(vector) # TRUE
 #> [1] TRUE
-vld_vector(vector) # TRUE
+vld_atomic(vector) # TRUE
 #> [1] TRUE
 
-is.atomic(NULL) # TRUE
+is.atomic(NULL) # FALSE (as of R 4.4.0)
 #> [1] FALSE
-vld_vector(NULL) # TRUE
+vld_atomic(NULL) # FALSE (as of R 4.4.0)
 #> [1] FALSE
 ```
 
@@ -198,14 +200,14 @@ The dimension attribute converts vectors into matrices and arrays.
 | `chk_array(x)`  | `is.array(x)`  |
 | `chk_matrix(x)` | `is.matrix(x)` |
 
-When a vector is composed by heterogeneous data types, can be a list.
+When a vector is composed of heterogeneous data types, it can be a list.
 Data frames are among the most important S3 vectors, constructed on top
 of lists.
 
-| Function      | Code                                            |
-|:--------------|:------------------------------------------------|
-| `chk_list(x)` | [`is.list()`](https://rdrr.io/r/base/list.html) |
-| `chk_data(x)` | `inherits(x, "data.frame")`                     |
+| Function      | Code                        |
+|:--------------|:----------------------------|
+| `chk_list(x)` | `is.list(x)`                |
+| `chk_data(x)` | `inherits(x, "data.frame")` |
 
 Be careful not to confuse the function `chk_data` with `check_data`.
 Please read the `check_` functions section below and the function
@@ -330,8 +332,8 @@ Check if the function input is a factor
 | `chk_factor`              | `is.factor(x)`                    |
 | `chk_character_or_factor` | `is.character(x) || is.factor(x)` |
 
-Factors can be specially confusing for users, because despite they are
-displayed as characters are built in top of integer vectors.
+Factors can be especially confusing for users because, despite being
+displayed as characters, they are built on top of integer vectors.
 
 `chk` provides the function
 [`chk_character_or_factor()`](https://poissonconsulting.github.io/chk/dev/reference/chk_character_or_factor.md)
@@ -757,8 +759,9 @@ vld_length(NULL, length = 1) # FALSE
 #> [1] FALSE
 ```
 
-Another useful function is `chk_compatible_lenghts()`. This function
-helps to check vectors could be ‘strictly recycled’.
+Another useful function is
+[`chk_compatible_lengths()`](https://poissonconsulting.github.io/chk/dev/reference/chk_compatible_lengths.md).
+This function helps to check vectors could be ‘strictly recycled’.
 
 ``` r
 
