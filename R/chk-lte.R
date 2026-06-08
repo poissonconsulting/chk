@@ -34,7 +34,8 @@ chk_lte <- function(x, value = 0, x_name = NULL) {
       cc(value),
       ", not ",
       cc(x),
-      ""
+      x = x,
+      value = value
     )
   }
   abort_chk(

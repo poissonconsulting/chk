@@ -9,7 +9,7 @@
 #' @inherit params return
 #'
 #' @family function_checkers
-#' @family ellpisis_checkers
+#' @family ellipsis_checkers
 #' @family missing_checkers
 #'
 #' @seealso [is.function()] [formals()]

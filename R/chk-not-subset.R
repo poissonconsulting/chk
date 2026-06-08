@@ -48,7 +48,7 @@ chk_not_subset <- function(x, values, x_name = NULL) {
   )
 }
 
-#' @describeIn chk_subset Validate Not Subset
+#' @describeIn chk_not_subset Validate Not Subset
 #'
 #' @examples
 #' # vld_not_subset

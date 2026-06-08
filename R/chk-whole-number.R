@@ -12,7 +12,7 @@
 #' @inheritParams params
 #' @inherit params return
 #'
-#' @family scalar_checker
+#' @family scalar_checkers
 #' @family whole_number_checkers
 #'
 #' @seealso [is.integer()]

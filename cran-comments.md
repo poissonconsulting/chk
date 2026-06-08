@@ -1,4 +1,4 @@
-chk 0.9.2.9900
+chk 0.10.0.9026
 
 ## CRAN Repository Policy
 
