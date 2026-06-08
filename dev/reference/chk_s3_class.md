@@ -2,7 +2,7 @@
 
 Checks inherits from S3 class using
 
-`!isS4(x) && inherits(x, class)`
+`inherits(x, class) && !isS4(x) && !inherits(x, "R6")`
 
 ## Usage
 
@@ -33,6 +33,11 @@ returns the original object if successful so it can used in pipes.
 
 The `vld_` function returns a flag indicating whether the test was met.
 
+## Details
+
+Note that [base objects](https://adv-r.hadley.nz/base-types.html) and S7
+classes are considered S3 objects.
+
 ## Functions
 
 - `vld_s3_class()`: Validate Inherits from S3 Class
@@ -40,6 +45,8 @@ The `vld_` function returns a flag indicating whether the test was met.
 ## See also
 
 [`inherits()`](https://rdrr.io/r/base/class.html)
+
+[`typeof()`](https://rdrr.io/r/base/typeof.html)
 
 For more details about the use of this function, please read the article
 [`vignette("chk-families")`](https://poissonconsulting.github.io/chk/dev/articles/chk-families.md).
@@ -54,6 +61,7 @@ Other id_checkers:
 ``` r
 # chk_s3_class
 chk_s3_class(1, "numeric")
+chk_s3_class(factor(1), "factor")
 try(chk_s3_class(getClass("MethodDefinition"), "classRepresentation"))
 #> Error in eval(expr, envir) : 
 #>   `getClass("MethodDefinition")` must inherit from S3 class 'classRepresentation'.
