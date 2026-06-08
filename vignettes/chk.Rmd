@@ -49,7 +49,7 @@ For example,
 
 `chk_` functions are called for their side-effects, 
 i.e., they throw an informative error if the object fails the check.
-Although do return an invisible copy of the first argument so they can be used in pipes.
+They do, however, return an invisible copy of the first argument so they can be used in pipes.
 
 ```{r, error=TRUE}
 library(chk)
@@ -60,7 +60,7 @@ chk_flag(y)
 ```
 
 The error messages, which follow the [tidyverse style guide](https://style.tidyverse.org/errors.html), are designed to allow the user to quickly identify the problem with the argument value(s) they are providing.
-The errors are [rlang  errors](https://rlang.r-lib.org/reference/abort.html) of subclass `'chk_error'`.
+The errors are [rlang errors](https://rlang.r-lib.org/reference/abort.html) of subclass `'chk_error'`.
 
 ### 2. `vld_` Functions
 
@@ -77,7 +77,7 @@ if (!vld_flag(NA)) abort_chk("`NA` is not TRUE or FALSE!!")
 
 ### 3. `check_` Functions
 
-The `check_` functions are more complex then the `chk_` functions which make them slower but 
+The `check_` functions are more complex than the `chk_` functions, which makes them slower but
 makes doing some general tests easier.
 
 ## Using chk
@@ -116,7 +116,7 @@ chk_flag
 #> function(x, x_name = NULL){
 #>   if(vld_flag(x)) return(invisible(x))
 #>   if(is.null(x_name))  x_name <- deparse_backtick_chk(substitute(x))
-#>   abort_chk(x_name, " must be a flag (TRUE or FALSE)")
+#>   abort_chk(x_name, " must be a flag (TRUE or FALSE)", x = x)
 #> }
 #> <bytecode: 0x7fe802835670>
 #> <environment: namespace:chk>
@@ -126,7 +126,7 @@ A `chk_` function initially checks the object (using its `vld_` partner) and if 
 If, and only if, the object fails the check does the `chk_` function construct and then throw an informative error message.
 
 The `deparse_backtick_chk()` and `abort_chk()` functions are exported to make it easy for programmers to develop their own `chk_` functions.
-The [chk-lgl.R](https://github.com/poissonconsulting/chk/blob/master/R/chk-lgl.R) script illustrates
+The [chk-flag.R](https://github.com/poissonconsulting/chk/blob/main/R/chk-flag.R) script illustrates
 the general template to use when developing your own `chk_` functions.
 
 ### `abort_chk()`

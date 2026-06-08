@@ -33,7 +33,7 @@ Other contributors:
 \itemize{
   \item Florencia D'Andrea [contributor]
   \item Nadine Hussein \email{nadine@poissonconsulting.ca} (\href{https://orcid.org/0000-0003-4470-8361}{ORCID}) [contributor]
-  \item Evan Amies-Galonski \email{evan@poissonconsulting.ca} (\href{https://orcid.org/0000-0003-1096-2089}{ORCID}) [contributor]
+  \item Evan Amies-Galonski \email{evanamiesgalonski@gmail.com} (\href{https://orcid.org/0000-0003-1096-2089}{ORCID}) [contributor]
   \item Stefano Mezzini \email{stefano@poissonconsulting.ca} (\href{https://orcid.org/0000-0001-8551-7436}{ORCID}) [contributor]
   \item Poisson Consulting [copyright holder, funder]
 }

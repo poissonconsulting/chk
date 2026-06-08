@@ -4,7 +4,7 @@
 \alias{chkor_vld}
 \title{Chk OR}
 \usage{
-chkor_vld(...)
+chkor_vld(..., x_name = NULL)
 }
 \arguments{
 \item{...}{Multiple \code{vld_} calls.
@@ -15,6 +15,11 @@ A common mistake is to pass \code{chk_} calls.
 If at all possible use \code{\link[=chk_null_or]{chk_null_or()}} or first test using the individual
 \code{vld_} functions and then call \code{chkor_vld()} to generate an informative
 error message.}
+
+\item{x_name}{A string of the name of the object to use in the error
+message or NULL. If a string it is passed to each of the \code{chk_} calls so
+that the error message refers to \code{x_name} rather than the deparsed \code{vld_}
+arguments.}
 }
 \value{
 An informative error if the test fails.
@@ -28,6 +33,7 @@ chkor_vld(vld_flag(TRUE))
 try(chkor_vld(vld_flag(1)))
 try(chkor_vld(vld_flag(1), vld_flag(2)))
 chkor_vld(vld_flag(1), vld_flag(TRUE))
+try(chkor_vld(vld_flag(1), vld_number(1), x_name = "`arg`"))
 }
 \seealso{
 \code{\link[=chk_null_or]{chk_null_or()}}

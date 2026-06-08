@@ -14,6 +14,10 @@ test_that("check_data works", {
 
 test_that("check_data fails", {
   expect_chk_error(
+    check_data(1),
+    "^`1` must be a data.frame[.]$"
+  )
+  expect_chk_error(
     check_data(data.frame(), nrow = TRUE),
     "`nrow[(]data.frame[(][)][)]` must be greater than 0, not 0."
   )

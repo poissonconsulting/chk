@@ -54,7 +54,7 @@ please read the article
 Other set_checkers:
 \code{\link[=chk_not_subset]{chk_not_subset()}},
 \code{\link[=chk_orderset]{chk_orderset()}},
-\code{\link[=vld_not_subset]{vld_not_subset()}},
-\code{\link[=vld_orderset]{vld_orderset()}}
+\code{\link[=chk_setequal]{chk_setequal()}},
+\code{\link[=chk_subset]{chk_subset()}}
 }
 \concept{set_checkers}

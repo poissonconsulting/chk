@@ -142,7 +142,6 @@ reference:
   contents:
   - chk_not_any_na
   - chk_not_empty
-  - chk_sorted
   - chk_unique
   - chk_join
   - chkor_vld
@@ -178,6 +177,7 @@ reference:
   - check_length
   - check_names
   - check_values
+  - generate_check_data
 - title: Deprecated Functions
   desc: Functions that have been deprecated
   contents:
@@ -186,3 +186,4 @@ reference:
   - chk_lgl
   - chk_wnum
   - chkor
+  - chk_deprecated

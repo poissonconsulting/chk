@@ -50,5 +50,4 @@ Other deprecated:
 \code{\link{chk_deprecated}},
 \code{\link[=chk_wnum]{chk_wnum()}}
 }
-\concept{chk_character}
 \concept{deprecated}

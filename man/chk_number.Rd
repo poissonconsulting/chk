@@ -49,5 +49,32 @@ vld_number(1.1)
 For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
+
+Other data_type_checkers:
+\code{\link[=chk_character]{chk_character()}},
+\code{\link[=chk_character_or_factor]{chk_character_or_factor()}},
+\code{\link[=chk_complex]{chk_complex()}},
+\code{\link[=chk_double]{chk_double()}},
+\code{\link[=chk_environment]{chk_environment()}},
+\code{\link[=chk_factor]{chk_factor()}},
+\code{\link[=chk_integer]{chk_integer()}},
+\code{\link[=chk_logical]{chk_logical()}},
+\code{\link[=chk_numeric]{chk_numeric()}},
+\code{\link[=chk_raw]{chk_raw()}}
+
+Other scalar_checkers:
+\code{\link[=chk_complex_number]{chk_complex_number()}},
+\code{\link[=chk_count]{chk_count()}},
+\code{\link[=chk_date]{chk_date()}},
+\code{\link[=chk_date_time]{chk_date_time()}},
+\code{\link[=chk_false]{chk_false()}},
+\code{\link[=chk_flag]{chk_flag()}},
+\code{\link[=chk_lgl]{chk_lgl()}},
+\code{\link[=chk_scalar]{chk_scalar()}},
+\code{\link[=chk_string]{chk_string()}},
+\code{\link[=chk_true]{chk_true()}},
+\code{\link[=chk_tz]{chk_tz()}},
+\code{\link[=chk_whole_number]{chk_whole_number()}}
 }
-\concept{data_type_checkers scalar_checkers}
+\concept{data_type_checkers}
+\concept{scalar_checkers}
