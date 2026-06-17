@@ -1,0 +1,18 @@
+# Tags the dev version on main after a release-path fledge-bump PR merges.
+# Required alongside fledge-bump.yml. Calls the reusable engine in poissonconsulting/.github.
+
+name: fledge-tag-on-merge
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main, master]
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    if: github.event.pull_request.merged == true && github.event.pull_request.head.ref == 'fledge-bump'
+    uses: poissonconsulting/.github/.github/workflows/fledge-tag-on-merge.yml@v1
+    secrets: inherit
