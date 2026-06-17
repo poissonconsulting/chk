@@ -1,0 +1,19 @@
+# Daily fledge dev-version bump. Calls the reusable engine in poissonconsulting/.github.
+# Requires the org-level secrets FLEDGE_APP_ID and FLEDGE_APP_PRIVATE_KEY (passed via
+# `secrets: inherit`) and the companion fledge-tag-on-merge.yml workflow in this repo.
+
+name: fledge-bump
+
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  fledge-bump:
+    uses: poissonconsulting/.github/.github/workflows/fledge-bump.yml@v1
+    secrets: inherit
