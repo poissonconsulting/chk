@@ -35,10 +35,9 @@ help you write a unit test, if needed).
   `usethis::pr_init("brief-description-of-change")`.
 
 - Make your changes, commit to git, and then create a PR by running
-  [`usethis::pr_push()`](https://usethis.r-lib.org/reference/pull-requests.html),
-  and following the prompts in your browser. The title of your PR should
-  briefly describe the change. The body of your PR should contain
-  `Fixes #issue-number`.
+  `usethis::pr_push()`, and following the prompts in your browser. The
+  title of your PR should briefly describe the change. The body of your
+  PR should contain `Fixes #issue-number`.
 
 - Begin commit or merge messages with `-` to indicate user facing
   changes that should be included in NEWS.md. We will use
