@@ -1,5 +1,48 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.10.0.9028
+
+- Merge pull request #250 from poissonconsulting/fix-s3-check.
+
+  Fix S3 check
+
+- Merge pull request #278 from poissonconsulting/issue-124-generate-check-data.
+
+  Add generate_check_data() to scaffold check_data() code (#124)
+
+- Merge pull request #277 from poissonconsulting/issue-100-chkor-vld-x-name.
+
+  Add x_name argument to chkor_vld() (#100)
+
+- A vld passed via a variable raised "unused argument (x_name = x_name)".
+
+- An anonymous function produced the message ".".
+
+- A user-defined vld\_ whose chk\_ partner lived in another namespace.
+
+- A partner that did not error crashed in try_msg(NULL).
+
+- Merge pull request #276 from poissonconsulting/docs-improvements.
+
+  Improve documentation accuracy and completeness
+
+- Merge pull request #274 from poissonconsulting/fix-docs.
+
+  Fix roxygen documentation errors and message typos
+
+- Merge pull request #275 from poissonconsulting/test-cover-defunct.
+
+  Add tests for defunct chk_off(), chk_on() and is_chk_on()
+
+- Merge pull request #273 from poissonconsulting/fix-error-context.
+
+  Fix error context in check_data() and chk_lte()
+
+- Merge pull request #272 from poissonconsulting/update-evan-contact-email.
+
+  Update Evan Amies-Galonski email to personal address
+
+
 # chk 0.10.0.9027
 
 ## Features
