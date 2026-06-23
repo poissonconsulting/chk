@@ -53,7 +53,7 @@ Other file_checkers:
 chk_dir(tempdir())
 try(chk_dir(tempfile()))
 #> Error in eval(expr, envir) : 
-#>   `tempfile()` must specify an existing directory ('/tmp/Rtmp7D7BBe/file1a8f4be23f57' can't be found).
+#>   `tempfile()` must specify an existing directory ('/tmp/Rtmpt1hOfb/file1a38150f533f' can't be found).
 # vld_dir
 vld_dir(1)
 #> [1] FALSE
