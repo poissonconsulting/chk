@@ -1,4 +1,4 @@
-name: R-CMD-check
+name: check-no-suggests
 on:
   push:
     branches: [main, master]
@@ -7,11 +7,8 @@ on:
 permissions:
   contents: read
 jobs:
-  R-CMD-check:
-    uses: poissonconsulting/.github/.github/workflows/R-CMD-check.yaml@v1
+  check-no-suggests:
+    uses: poissonconsulting/.github/.github/workflows/check-no-suggests.yaml@v1
     with:
-      tier: cran
-      jags: false
-      tex: false
       private: false
     secrets: inherit
