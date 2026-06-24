@@ -3,13 +3,12 @@ if (FALSE) {
 }
 
 test_that("chk_class() checks classes correctly.", {
-  # original GitHub issue (https://github.com/poissonconsulting/chk/issues/243)
-  expect_invisible(check_values("01:02:03", ""), "01:02:03")
-  expect_invisible(check_values(lubridate::hms("01:02:03"),
-                                lubridate::hms("01:02:03")),
-                   lubridate::hms("01:02:03"))
+  # original GitHub issue used {lubridate}, which is not in Suggests
+  # (https://github.com/poissonconsulting/chk/issues/243)
   expect_invisible(chk_class("01:02:03", "character"), "01:02:03")
-  expect_invisible(chk_class(lubridate::hms("01:02:03"), "Period"), "01:02:03")
+  local_s4_class("exampleS4class", slots = c(value = "numeric"))
+  expect_invisible(chk_class(new("exampleS4class"), "exampleS4class"),
+                   new("exampleS4class"))
   expect_invisible(chk_class(chk_class, "function"), chk_class)
 
   expect_invisible(chk_class(1, "numeric"), 1)
