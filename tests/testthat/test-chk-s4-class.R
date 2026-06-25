@@ -28,7 +28,7 @@ test_that("chk_s4_class", {
   expect_identical(chk_s4_class(x, c("class_1", "class_3")), x)
   # class(x) only returns "class_2" because it is an extension of "class_1"
   expect_error(chk_s4_class(x, c("class_3", "class_4")),
-               "`x` must inherit from S4 class 'class_3' or 'class_4', not S4 class 'class_2'.")
+               "`x` must inherit from S4 classes 'class_3' or 'class_4', not S4 class 'class_2'.")
 
   expect_chk_error(
     chk_s4_class(1, "integer"),
@@ -36,13 +36,18 @@ test_that("chk_s4_class", {
   )
   expect_chk_error(
     chk_s4_class(matrix(1), "numeric"),
-    "`matrix\\(1\\)` must inherit from S4 class 'numeric', not S3 class 'matrix', 'array'\\.$"
+    "`matrix\\(1\\)` must inherit from S4 class 'numeric', not S3 class 'matrix' and 'array'\\.$"
   )
 
   foo <- 1
   class(foo) <- "a"
   expect_chk_error(
     chk_s4_class(foo, c("b", "c")),
-    "^`foo` must inherit from S4 class 'b' or 'c', not S3 class 'a'\\.$"
+    "^`foo` must inherit from S4 classes 'b' or 'c', not S3 class 'a'\\.$"
+  )
+  class(foo) <- c("a", "z")
+  expect_chk_error(
+    chk_s4_class(foo, c("b", "c")),
+    "^`foo` must inherit from S4 classes 'b' or 'c', not S3 class 'a' and 'z'\\.$"
   )
 })

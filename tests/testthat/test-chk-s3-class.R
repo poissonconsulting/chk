@@ -48,22 +48,28 @@ test_that("chk_s3_class", {
   )
   expect_chk_error(
     chk_s3_class(matrix(1), "numeric"),
-    "^`matrix\\(1\\)` must inherit from S3 class 'numeric', not S3 class 'matrix', 'array'\\.$"
+    "^`matrix\\(1\\)` must inherit from S3 class 'numeric', not S3 class 'matrix' and 'array'\\.$"
   )
   x <- list()
   class(x) <- c("a", "b")
   expect_identical(chk_s3_class(x, c("a", "b")), x)
-  expect_chk_error(chk_s3_class(x, "c"), "^`x` must inherit from S3 class 'c', not S3 class 'a', 'b'\\.$")
+  expect_chk_error(chk_s3_class(x, "c"), "^`x` must inherit from S3 class 'c', not S3 class 'a' and 'b'\\.$")
   expect_chk_error(
     chk_s3_class(x, "c", x_name = "c"),
-    "^C must inherit from S3 class 'c', not S3 class 'a', 'b'\\.$"
+    "^C must inherit from S3 class 'c', not S3 class 'a' and 'b'\\.$"
   )
 
   foo <- 1
   class(foo) <- "a"
   expect_chk_error(
     chk_s3_class(foo, c("b", "c")),
-    "^`foo` must inherit from S3 class 'b' or 'c', not S3 class 'a'\\.$"
+    "^`foo` must inherit from S3 classes 'b' or 'c', not S3 class 'a'\\.$"
+  )
+
+  class(foo) <- c("a", "z")
+  expect_chk_error(
+    chk_s3_class(foo, c("b", "c")),
+    "^`foo` must inherit from S3 classes 'b' or 'c', not S3 class 'a' and 'z'\\.$"
   )
 
   expect_chk_error(chk_s3_class(
