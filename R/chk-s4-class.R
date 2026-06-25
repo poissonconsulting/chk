@@ -32,6 +32,11 @@ chk_s4_class <- function(x, class, x_name = NULL) {
     x_name,
     " must inherit from S4 class ",
     .class,
+    ", not ",
+    if (vld_s4_class(x, class(x))) "S4" else if (inherits(x, "R6")) "R6" else "S3",
+    " class ",
+    cc(class(x)),
+    ".",
     x = x,
     .class = .class
   )
