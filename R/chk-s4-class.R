@@ -49,4 +49,4 @@ chk_s4_class <- function(x, class, x_name = NULL) {
 #' vld_s4_class(numeric(0), "numeric")
 #' vld_s4_class(getClass("MethodDefinition"), "classRepresentation")
 #' @export
-vld_s4_class <- function(x, class) isS4(x) && methods::is(x, class)
+vld_s4_class <- function(x, class) isS4(x) && any(sapply(class, \(.c) methods::is(x, .c)))
