@@ -40,7 +40,7 @@ chk_s3_class <- function(x, class, x_name = NULL) {
     .class,
     ", not ",
     if (vld_s4_class(x, class(x))) "S4" else if (inherits(x, "R6")) "R6" else "S3",
-    " class ",
+    " class", if (length(class(x)) == 1) " " else "es ",
     cc(class(x), conj = " and "),
     ".",
     x = x,

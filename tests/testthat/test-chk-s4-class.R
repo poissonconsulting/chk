@@ -36,7 +36,7 @@ test_that("chk_s4_class", {
   )
   expect_chk_error(
     chk_s4_class(matrix(1), "numeric"),
-    "`matrix\\(1\\)` must inherit from S4 class 'numeric', not S3 class 'matrix' and 'array'\\.$"
+    "`matrix\\(1\\)` must inherit from S4 class 'numeric', not S3 classes 'matrix' and 'array'\\.$"
   )
 
   foo <- 1
@@ -48,6 +48,6 @@ test_that("chk_s4_class", {
   class(foo) <- c("a", "z")
   expect_chk_error(
     chk_s4_class(foo, c("b", "c")),
-    "^`foo` must inherit from S4 classes 'b' or 'c', not S3 class 'a' and 'z'\\.$"
+    "^`foo` must inherit from S4 classes 'b' or 'c', not S3 classes 'a' and 'z'\\.$"
   )
 })
