@@ -125,6 +125,7 @@ reference:
   desc: Check if the function input belongs to a class
   contents:
   - chk_is
+  - chk_class
   - chk_s3_class
   - chk_s4_class
 - title: REGEX Checker
