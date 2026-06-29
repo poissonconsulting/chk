@@ -45,6 +45,7 @@ For more details about the use of this function, please read the article
 [`vignette("chk-families")`](https://poissonconsulting.github.io/chk/dev/articles/chk-families.md).
 
 Other id_checkers:
+[`chk_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_class.md),
 [`chk_data()`](https://poissonconsulting.github.io/chk/dev/reference/chk_data.md),
 [`chk_is()`](https://poissonconsulting.github.io/chk/dev/reference/chk_is.md),
 [`chk_s3_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s3_class.md)
@@ -54,7 +55,8 @@ Other id_checkers:
 ``` r
 # chk_s4_class
 try(chk_s4_class(1, "numeric"))
-#> Error in eval(expr, envir) : `1` must inherit from S4 class 'numeric'.
+#> Error in eval(expr, envir) : 
+#>   `1` must inherit from S4 class 'numeric', not S3 class 'numeric'.
 chk_s4_class(getClass("MethodDefinition"), "classRepresentation")
 # vld_s4_class
 vld_s4_class(numeric(0), "numeric")

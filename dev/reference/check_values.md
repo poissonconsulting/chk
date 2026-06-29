@@ -65,7 +65,7 @@ Other check:
 check_values(1, numeric(0))
 check_values(1, 2)
 try(check_values(1, 1L))
-#> Error in check_values(1, 1L) : `1` must inherit from S3 class 'integer'.
+#> Error in check_values(1, 1L) : `1` must inherit from class 'integer'.
 try(check_values(NA_real_, 1))
 #> Error in check_values(NA_real_, 1) : 
 #>   `NA_real_` must not have any missing values.

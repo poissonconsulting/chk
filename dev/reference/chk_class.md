@@ -1,15 +1,15 @@
 # Check Type
 
-Checks inherits from S3 class using
+Checks inherits from class using
 
-`inherits(x, class) && !isS4(x) && !inherits(x, "R6")`
+`inherits(x, class)`
 
 ## Usage
 
 ``` r
-chk_s3_class(x, class, x_name = NULL)
+chk_class(x, class, x_name = NULL)
 
-vld_s3_class(x, class)
+vld_class(x, class)
 ```
 
 ## Arguments
@@ -33,42 +33,32 @@ returns the original object if successful so it can used in pipes.
 
 The `vld_` function returns a flag indicating whether the test was met.
 
-## Details
-
-Note that [base objects](https://adv-r.hadley.nz/base-types.html) and S7
-classes are considered S3 objects.
-
 ## Functions
 
-- `vld_s3_class()`: Validate Inherits from S3 Class
+- `vld_class()`: Validate Inherits from Class
 
 ## See also
 
 [`inherits()`](https://rdrr.io/r/base/class.html)
 
-[`typeof()`](https://rdrr.io/r/base/typeof.html)
-
 For more details about the use of this function, please read the article
 [`vignette("chk-families")`](https://poissonconsulting.github.io/chk/dev/articles/chk-families.md).
 
 Other id_checkers:
-[`chk_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_class.md),
 [`chk_data()`](https://poissonconsulting.github.io/chk/dev/reference/chk_data.md),
 [`chk_is()`](https://poissonconsulting.github.io/chk/dev/reference/chk_is.md),
+[`chk_s3_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s3_class.md),
 [`chk_s4_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s4_class.md)
 
 ## Examples
 
 ``` r
-# chk_s3_class
-chk_s3_class(1, "numeric")
-chk_s3_class(factor(1), "factor")
-try(chk_s3_class(getClass("MethodDefinition"), "classRepresentation"))
-#> Error in eval(expr, envir) : 
-#>   `getClass("MethodDefinition")` must inherit from S3 class 'classRepresentation', not S4 class 'classRepresentation'.
-# vld_s3_class
-vld_s3_class(numeric(0), "numeric")
+# chk_class
+chk_class(1, "numeric")
+try(chk_class(getClass("MethodDefinition"), "classRepresentation"))
+# vld_class
+vld_class(numeric(0), "numeric")
 #> [1] TRUE
-vld_s3_class(getClass("MethodDefinition"), "classRepresentation")
-#> [1] FALSE
+vld_class(getClass("MethodDefinition"), "classRepresentation")
+#> [1] TRUE
 ```

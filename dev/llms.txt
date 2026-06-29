@@ -390,6 +390,9 @@ Check if the function input belongs to a class
 - [`chk_is()`](https://poissonconsulting.github.io/chk/dev/reference/chk_is.md)
   [`vld_is()`](https://poissonconsulting.github.io/chk/dev/reference/chk_is.md)
   : Check Class
+- [`chk_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_class.md)
+  [`vld_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_class.md)
+  : Check Type
 - [`chk_s3_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s3_class.md)
   [`vld_s3_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s3_class.md)
   : Check Type

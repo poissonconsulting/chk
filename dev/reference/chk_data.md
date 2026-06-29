@@ -46,6 +46,7 @@ For more details about the use of this function, please read the article
 [`vignette("chk-families")`](https://poissonconsulting.github.io/chk/dev/articles/chk-families.md).
 
 Other id_checkers:
+[`chk_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_class.md),
 [`chk_is()`](https://poissonconsulting.github.io/chk/dev/reference/chk_is.md),
 [`chk_s3_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s3_class.md),
 [`chk_s4_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s4_class.md)
