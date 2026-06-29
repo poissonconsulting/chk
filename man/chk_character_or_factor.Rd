@@ -34,7 +34,7 @@ Checks if character or factor using
 # chk_character_or_factor
 chk_character_or_factor("1")
 chk_character_or_factor(factor("1"))
-try(chk_character(1))
+try(chk_character_or_factor(1))
 # vld_character_or_factor
 vld_character_or_factor("1")
 vld_character_or_factor(matrix("a"))
@@ -58,8 +58,10 @@ Other data_type_checkers:
 \code{\link[=chk_complex]{chk_complex()}},
 \code{\link[=chk_double]{chk_double()}},
 \code{\link[=chk_environment]{chk_environment()}},
+\code{\link[=chk_factor]{chk_factor()}},
 \code{\link[=chk_integer]{chk_integer()}},
 \code{\link[=chk_logical]{chk_logical()}},
+\code{\link[=chk_number]{chk_number()}},
 \code{\link[=chk_numeric]{chk_numeric()}},
 \code{\link[=chk_raw]{chk_raw()}}
 

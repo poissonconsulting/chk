@@ -1,0 +1,15 @@
+name: test-coverage
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+permissions:
+  contents: read
+jobs:
+  test-coverage:
+    uses: poissonconsulting/.github/.github/workflows/test-coverage.yaml@v1
+    with:
+      tex: false
+      private: false
+    secrets: inherit

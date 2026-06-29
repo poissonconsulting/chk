@@ -1,0 +1,14 @@
+name: check-no-suggests
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+permissions:
+  contents: read
+jobs:
+  check-no-suggests:
+    uses: poissonconsulting/.github/.github/workflows/check-no-suggests.yaml@v1
+    with:
+      private: false
+    secrets: inherit

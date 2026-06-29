@@ -19,7 +19,7 @@
 #' @param value A non-missing scalar of a value.
 #' @param range A non-missing sorted vector of length 2 of the lower and
 #'   upper permitted values.
-#' @param inclusive A flag specifying whether the range is exclusive.
+#' @param inclusive A flag specifying whether the range is inclusive.
 #' @param regexp A string of a regular expression.
 #' @param values A vector of the permitted values.
 #' @param class A character vector specifying the possible class values.

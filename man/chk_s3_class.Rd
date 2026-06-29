@@ -25,7 +25,11 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 \description{
 Checks inherits from S3 class using
 
-\code{!isS4(x) && inherits(x, class)}
+\code{inherits(x, class) && !isS4(x) && !inherits(x, "R6")}
+}
+\details{
+Note that \href{https://adv-r.hadley.nz/base-types.html}{base objects} and S7
+classes are considered S3 objects.
 }
 \section{Functions}{
 \itemize{
@@ -35,6 +39,7 @@ Checks inherits from S3 class using
 \examples{
 # chk_s3_class
 chk_s3_class(1, "numeric")
+chk_s3_class(factor(1), "factor")
 try(chk_s3_class(getClass("MethodDefinition"), "classRepresentation"))
 # vld_s3_class
 vld_s3_class(numeric(0), "numeric")
@@ -43,11 +48,14 @@ vld_s3_class(getClass("MethodDefinition"), "classRepresentation")
 \seealso{
 \code{\link[=inherits]{inherits()}}
 
+\code{\link[=typeof]{typeof()}}
+
 For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.
 
 Other id_checkers:
+\code{\link[=chk_class]{chk_class()}},
 \code{\link[=chk_data]{chk_data()}},
 \code{\link[=chk_is]{chk_is()}},
 \code{\link[=chk_s3_class_strict]{chk_s3_class_strict()}},

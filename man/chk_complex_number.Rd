@@ -38,17 +38,26 @@ try(chk_complex_number(1.1))
 vld_complex_number(as.complex(2))
 }
 \seealso{
-\code{\link[=is.integer]{is.integer()}}
+\code{\link[=is.complex]{is.complex()}}
 
-\code{\link[=vld_true]{vld_true()}}
-
-\code{\link[=vld_number]{vld_number()}}
+\code{\link[=length]{length()}}
 
 For more details about the use of this function,
 please read the article
 \href{https://poissonconsulting.github.io/chk/articles/chk-families.html}{chk families}.
 
-Other scalar_checker:
+Other scalar_checkers:
+\code{\link[=chk_count]{chk_count()}},
+\code{\link[=chk_date]{chk_date()}},
+\code{\link[=chk_date_time]{chk_date_time()}},
+\code{\link[=chk_false]{chk_false()}},
+\code{\link[=chk_flag]{chk_flag()}},
+\code{\link[=chk_lgl]{chk_lgl()}},
+\code{\link[=chk_number]{chk_number()}},
+\code{\link[=chk_scalar]{chk_scalar()}},
+\code{\link[=chk_string]{chk_string()}},
+\code{\link[=chk_true]{chk_true()}},
+\code{\link[=chk_tz]{chk_tz()}},
 \code{\link[=chk_whole_number]{chk_whole_number()}}
 }
-\concept{scalar_checker}
+\concept{scalar_checkers}

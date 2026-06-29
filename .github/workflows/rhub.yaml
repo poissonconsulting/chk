@@ -5,6 +5,10 @@
 # rhub::rhub_setup()
 #
 # It is unlikely that you need to modify this file manually.
+#
+# Distributed to CRAN-tier packages by poissonconsulting/.github tools/sync-ci.sh.
+# It is dispatch-triggered (run via rhub::rhub_check()), not a push/PR check, so it
+# is vendored as-is rather than called as a reusable workflow.
 
 name: R-hub
 run-name: "${{ github.event.inputs.id }}: ${{ github.event.inputs.name || format('Manually run by {0}', github.triggering_actor) }}"
