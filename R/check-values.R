@@ -46,7 +46,7 @@ check_values <- function(x, values, x_name = NULL) {
   chk_atomic(values)
 
   class <- class(values)[1]
-  chk_s3_class(x, class, x_name = x_name)
+  chk_class(x, class, x_name = x_name)
   if (is.factor(values) && nlevels(values) > 1) {
     x_name_levels <- backtick_chk(p0("levels(", unbacktick_chk(x_name), ")"))
     if (nlevels(values) > 2) {

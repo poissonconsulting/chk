@@ -30,7 +30,7 @@ test_that("cc errors", {
   )
   expect_chk_error(
     cc(1, brac = 1),
-    "^`brac` must inherit from S3 class 'character'[.]$"
+    "^`brac` must inherit from S3 class 'character', not S3 class 'numeric'\\.$"
   )
   expect_chk_error(
     cc(1, brac = character(0)),

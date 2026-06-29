@@ -68,15 +68,15 @@ test_that("check_values fail", {
   )
   expect_chk_error(
     check_values(1L, 1),
-    "^`1L` must inherit from S3 class 'numeric'[.]$"
+    "^`1L` must inherit from class 'numeric'[.]$"
   )
   expect_chk_error(
     check_values(1, 1L),
-    "`1` must inherit from S3 class 'integer'[.]"
+    "`1` must inherit from class 'integer'[.]"
   )
   expect_chk_error(
     check_values(1L, numeric(0)),
-    "`1L` must inherit from S3 class 'numeric'[.]"
+    "`1L` must inherit from class 'numeric'[.]"
   )
   expect_chk_error(
     check_values(NA_real_, 1),
@@ -100,12 +100,12 @@ test_that("check_values fail", {
   )
   expect_chk_error(
     check_values(factor(1:2), as.character(1:3)),
-    "^`factor[(]1:2[)]` must inherit from S3 class 'character'[.]$"
+    "^`factor[(]1:2[)]` must inherit from class 'character'[.]$"
   )
 
   expect_chk_error(
     check_values(factor(1:2), ordered(1:3)),
-    "^`factor[(]1:2[)]` must inherit from S3 class 'ordered'[.]$"
+    "^`factor[(]1:2[)]` must inherit from class 'ordered'[.]$"
   )
 
   expect_chk_error(
