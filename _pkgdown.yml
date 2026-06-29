@@ -127,6 +127,7 @@ reference:
   - chk_is
   - chk_class
   - chk_s3_class
+  - chk_s3_class_strict
   - chk_s4_class
 - title: REGEX Checker
   desc: Check if the function input matches a REGEX
