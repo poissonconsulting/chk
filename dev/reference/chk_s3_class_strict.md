@@ -1,15 +1,15 @@
-# Check Inherits from S4 Class
+# Check Type
 
-Checks inherits from S4 class using
+Checks inherits strictly from S3 class using
 
-`isS4(x) && methods::is(x, class)`
+`is.object(x, class) && !isS4(x) && !inherits(x, "R6") && !inherits(x, "S7_object")`
 
 ## Usage
 
 ``` r
-chk_s4_class(x, class, x_name = NULL)
+chk_s3_class_strict(x, class, x_name = NULL)
 
-vld_s4_class(x, class)
+vld_s3_class_strict(x, class)
 ```
 
 ## Arguments
@@ -35,11 +35,11 @@ The `vld_` function returns a flag indicating whether the test was met.
 
 ## Functions
 
-- `vld_s4_class()`: Validate Inherits from S4 Class
+- `vld_s3_class_strict()`: Validate Inherits from S3 Class
 
 ## See also
 
-[`methods::is()`](https://rdrr.io/r/methods/is.html)
+[`inherits()`](https://rdrr.io/r/base/class.html)
 
 For more details about the use of this function, please read the article
 [`vignette("chk-families")`](https://poissonconsulting.github.io/chk/dev/articles/chk-families.md).
@@ -49,19 +49,22 @@ Other id_checkers:
 [`chk_data()`](https://poissonconsulting.github.io/chk/dev/reference/chk_data.md),
 [`chk_is()`](https://poissonconsulting.github.io/chk/dev/reference/chk_is.md),
 [`chk_s3_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s3_class.md),
-[`chk_s3_class_strict()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s3_class_strict.md)
+[`chk_s4_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s4_class.md)
 
 ## Examples
 
 ``` r
-# chk_s4_class
-try(chk_s4_class(1, "numeric"))
+# chk_s3_class_strict
+chk_s3_class_strict(factor(1), "factor")
+try(chk_s3_class_strict(1, "numeric"))
 #> Error in eval(expr, envir) : 
-#>   `1` must inherit from S4 class 'numeric', not S3 class 'numeric'.
-chk_s4_class(getClass("MethodDefinition"), "classRepresentation")
-# vld_s4_class
-vld_s4_class(numeric(0), "numeric")
+#>   `1` must strictly inherit from an S3 class called 'numeric'.
+try(chk_s3_class_strict(getClass("MethodDefinition"), "classRepresentation"))
+#> Error in eval(expr, envir) : 
+#>   `getClass("MethodDefinition")` must strictly inherit from an S3 class called 'classRepresentation'.
+# vld_s3_class_strict
+vld_s3_class_strict(numeric(0), "numeric")
 #> [1] FALSE
-vld_s4_class(getClass("MethodDefinition"), "classRepresentation")
-#> [1] TRUE
+vld_s3_class_strict(getClass("MethodDefinition"), "classRepresentation")
+#> [1] FALSE
 ```

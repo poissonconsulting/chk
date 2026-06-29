@@ -396,6 +396,9 @@ Check if the function input belongs to a class
 - [`chk_s3_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s3_class.md)
   [`vld_s3_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s3_class.md)
   : Check Type
+- [`chk_s3_class_strict()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s3_class_strict.md)
+  [`vld_s3_class_strict()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s3_class_strict.md)
+  : Check Type
 - [`chk_s4_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s4_class.md)
   [`vld_s4_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s4_class.md)
   : Check Inherits from S4 Class
