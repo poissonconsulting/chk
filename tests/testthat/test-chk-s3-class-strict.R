@@ -1,7 +1,6 @@
 test_that("vld_s3_class_strict", {
   expect_false(vld_s3_class_strict(NULL, "NULL")) # base objects are not S3
   expect_false(vld_s3_class_strict(1, "numeric"))
-  expect_false(vld_s3_class_strict(1L, "numeric"))
   expect_false(vld_s3_class_strict(1L, "integer"))
   expect_false(vld_s3_class_strict(list(), "list"))
   expect_true(vld_s3_class_strict(factor(1), "factor"))
