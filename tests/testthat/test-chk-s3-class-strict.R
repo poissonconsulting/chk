@@ -27,10 +27,6 @@ test_that("vld_s3_class_strict", {
   expect_false(vld_s3_class_strict(R6::R6Class("example")$new(),
                                    "R6ClassGenerator"))
 
-  S7_generator <- S7::new_class("exampleS7class")
-  expect_true(S7::S7_inherits(S7_generator(), S7_generator))
-  expect_false(vld_s3_class_strict(S7_generator(), "S7ClassGenerator"))
-
   x <- list()
   class(x) <- c("a", "b")
   expect_true(vld_s3_class_strict(x, "a"))
@@ -39,6 +35,11 @@ test_that("vld_s3_class_strict", {
     getClass("MethodDefinition"),
     "classRepresentation"
   ))
+
+  skip_if_not_installed("S7")
+  S7_generator <- S7::new_class("exampleS7class")
+  expect_true(S7::S7_inherits(S7_generator(), S7_generator))
+  expect_false(vld_s3_class_strict(S7_generator(), "S7ClassGenerator"))
 })
 
 test_that("chk_s3_class_strict", {
@@ -83,6 +84,7 @@ test_that("chk_s3_class_strict", {
   expect_true(R6::is.R6(R6::R6Class("exampleR6class")$new()))
   expect_false(vld_s3_class_strict(R6::R6Class("example")$new(), "R6ClassGenerator"))
 
+  skip_if_not_installed("S7")
   S7_generator <- S7::new_class("exampleS7class")
   expect_true(inherits(S7_generator(), S7_generator))
   expect_false(vld_s3_class_strict(S7_generator(), "S7ClassGenerator"))
