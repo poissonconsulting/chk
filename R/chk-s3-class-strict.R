@@ -17,7 +17,8 @@
 #'
 #' @examples
 #' # chk_s3_class_strict
-#' chk_s3_class_strict(1, "numeric")
+#' chk_s3_class_strict(factor(1), "factor")
+#' try(chk_s3_class_strict(1, "numeric"))
 #' try(chk_s3_class_strict(getClass("MethodDefinition"), "classRepresentation"))
 #' @export
 chk_s3_class_strict <- function(x, class, x_name = NULL) {
