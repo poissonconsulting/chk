@@ -48,11 +48,16 @@ check_values <- function(x, values, x_name = NULL) {
   class <- class(values)[1]
   chk_class(x, class, x_name = x_name)
   if (is.factor(values)) {
+    chk_subset(unique(values), c(levels(values), NA))
+
     x_name_levels <- backtick_chk(p0("levels(", unbacktick_chk(x_name), ")"))
     if (nlevels(values) == 0) {
-      chk_identical(unique(x), factor(NA, c()))
+      chk_all_na(x, x_name = x_name)
     }
-    if (nlevels(values) > 1) {
+    if (nlevels(values) == 1) {
+      chk_gt(nlevels(x))
+    }
+    if (nlevels(values) > 1 || length(unique(values)) > 1) {
       # using super/subset for more informative errors than chk_identical()
       chk_superset(levels(x), levels(values), x_name = x_name_levels)
       chk_subset(levels(x), levels(values), x_name = x_name_levels)
@@ -64,6 +69,9 @@ check_values <- function(x, values, x_name = NULL) {
   }
   if (vld_not_any_na(values)) {
     chk_not_any_na(x, x_name = x_name)
+  }
+  if (vld_all_na(values)) {
+    chk_all_na(x, x_name = x_name)
   }
   x <- x[!is.na(x)]
   values <- values[!is.na(values)]

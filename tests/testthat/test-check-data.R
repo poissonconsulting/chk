@@ -73,37 +73,42 @@ test_that("factors are handled correctly.", {
                fixed = TRUE)
   expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "z"))),
                              list(fac = factor(levels = c("a", "b", "z")))))
-  expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "z"))),
-                             list(fac = factor("", levels = c("a", "b", "z")))))
+  expect_error(check_data(data.frame(fac = factor(c("a", "b", "z"))),
+                          list(fac = factor("", levels = c("a", "b", "z")))),
+               "`data.frame(fac = factor(c(\"a\", \"b\", \"z\")))$fac` must only have missing values.",
+               fixed = TRUE)
   expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "z"))),
                              list(fac = factor("a", levels = c("a", "b", "z")))))
-  # FIXME: should error: expect all data to be NA
-  expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "z"))),
-                          list(fac = factor("x", levels = c("a", "b", "z")))))
-  # FIXME: should error: expect all data to be NA
-  expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "z"))),
-                             list(fac = factor(NA, levels = c("a", "b", "z")))))
-
-  # FIXME: should error: factor levels don't match!
-  expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "c", "z"))),
-                             list(fac = factor(NA, levels = "b"))))
-  # FIXME: should error: factor levels don't match!
-  expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "c", "z"))),
-                             list(fac = factor(c("b", NA), levels = "b"))))
   expect_error(check_data(data.frame(fac = factor(c("a", "b", "z"))),
-                             list(fac = factor(c("a", "b")))),
-                  "`levels(data.frame(fac = factor(c(\"a\", \"b\", \"z\")))$fac)` must have values matching 'a' or 'b'.",
+                          list(fac = factor("x", levels = c()))),
+               "`data.frame(fac = factor(c(\"a\", \"b\", \"z\")))$fac` must only have missing values.",
                fixed = TRUE)
-  # FIXME: should not error: levels match!
-  expect_error(check_data(data.frame(fac = factor(c("a", "b", "z"), levels = c("a", "z", "b"))),
-                          list(fac = factor(c("a", "b", "z"), levels = c("a", "z", "b")))),
-               "`x_name` must be a string (non-missing character scalar).",
+  expect_error(check_data(data.frame(fac = factor(c("a", "b", "z"))),
+                          list(fac = factor("x", levels = c("a", "b", "z")))),
+               "`data.frame(fac = factor(c(\"a\", \"b\", \"z\")))$fac` must only have missing values.",
                fixed = TRUE)
-  expect_error(check_data(data.frame(fac = factor(c("a", "b", "z"), levels = c("a", "z", "b"))),
+  expect_error(check_data(data.frame(fac = factor(c("a", "b", "z"))),
+                          list(fac = factor(NA, levels = c("a", "b", "z")))),
+               "`data.frame(fac = factor(c(\"a\", \"b\", \"z\")))$fac` must only have missing values.",
+               fixed = TRUE)
+
+  expect_error(check_data(data.frame(fac = factor(c("a", "b", "c", "z"))),
+                          list(fac = factor(NA, levels = "b"))),
+               "`data.frame(fac = factor(c(\"a\", \"b\", \"c\", \"z\")))$fac` must only have missing values.",
+               fixed = TRUE)
+  expect_error(check_data(data.frame(fac = factor(c("a", "b", "c", "z"))),
+                          list(fac = factor(c("b", NA), levels = "b"))),
+               "`levels(data.frame(fac = factor(c(\"a\", \"b\", \"c\", \"z\")))$fac)` must have values matching 'b'.",
+               fixed = TRUE)
+  expect_error(check_data(data.frame(fac = factor(c("a", "b", "z"))),
+                          list(fac = factor(c("a", "b")))),
+               "`levels(data.frame(fac = factor(c(\"a\", \"b\", \"z\")))$fac)` must have values matching 'a' or 'b'.",
+               fixed = TRUE)
+  expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "z"), c("a", "z", "b"))),
+                             list(fac = factor(c("a", "b", "z"), c("a", "z", "b")))))
+  expect_error(check_data(data.frame(fac = factor(c("a", "b", "z"), c("a", "z", "b"))),
                           list(fac = factor(c("a", "b", "z")))),
-               # FIXME: error is not helpful
-               "`x_name` must be a string (non-missing character scalar).",
-               # "`levels(data.frame(fac = factor(c(\"a\", \"z\")))$fac)` must be identical to the y object of class <chr>.",
+               "`levels(data.frame(fac = factor(c(\"a\", \"b\", \"z\"), c(\"a\", \"z\", \"b\")))$fac)` must have (the first occurence of) each of the following elements in the following order: 'a', 'b', 'z'.",
                fixed = TRUE)
   expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "z"))),
                              list(fac = factor(c("a", NA), levels = c("a", "b", "z")))))
