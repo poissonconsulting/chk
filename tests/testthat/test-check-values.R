@@ -115,7 +115,7 @@ test_that("check_values fail", {
 
   expect_chk_error(
     check_values(factor(1:2), factor(1:3)),
-    "^`levels[(]factor[(]1:2[)][)]` must be identical to the y object of class <chr>[.]"
+    "^`levels[(]factor[(]1:2[)][)]` must include '3'\\."
   )
 
   expect_chk_error(
