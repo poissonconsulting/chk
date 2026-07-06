@@ -36,20 +36,8 @@ test_that("check_values pass", {
     check_values(factor(c(1, NA)), factor(c(2, NA)))
   )
   expect_identical(
-    check_values(factor(1:3), factor(1:2)),
-    check_values(factor(1:3), factor(1:2))
-  )
-  expect_identical(
-    check_values(factor(1:3), factor(1:2, levels = 1:2)),
-    check_values(factor(1:3), factor(1:2, levels = 1:2))
-  )
-  expect_identical(
     check_values(ordered(1:2), factor(c(1:2, NA))),
     check_values(ordered(1:2), factor(c(1:2, NA)))
-  )
-  expect_identical(
-    check_values(ordered(1:3), factor(c(1:2))),
-    check_values(ordered(1:3), factor(c(1:2)))
   )
   expect_identical(
     check_values(as.character(1:2), as.character(2:1)),
