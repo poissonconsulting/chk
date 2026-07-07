@@ -685,10 +685,13 @@ corresponds to the number of elements.
 `chk_not_any_na` function checks if there are no NA values present in
 the entire object.
 
+`chk_all_na` function checks if all values are NA in the entire object.
+
 | Function            | Code              |
 |:--------------------|:------------------|
 | `chk_not_empty(x)`  | `length(x) != 0L` |
 | `chk_not_any_na(x)` | `!anyNA(x)`       |
+| `chk_all_na(x)`     | `all(is.na(x))`   |
 
 ``` r
 
@@ -705,6 +708,12 @@ vld_not_empty(data.frame(a = 1:3, b = 4:6)) # TRUE
 vld_not_any_na(data.frame(a = 1:3, b = 4:6)) # TRUE
 #> [1] TRUE
 vld_not_any_na(data.frame(a = c(1, NA, 3), b = c(4, 5, 6))) # FALSE
+#> [1] FALSE
+
+
+vld_all_na(data.frame(a = c(NA_character_, NA_character_), b = NA_real_)) # TRUE
+#> [1] TRUE
+vld_all_na(data.frame(a = c(1, NA, 3), b = c(4, 5, 6))) # FALSE
 #> [1] FALSE
 ```
 

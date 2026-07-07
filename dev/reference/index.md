@@ -317,6 +317,9 @@ because of its length can be strictly recycled
 
 Check if the function input meet some user defined quality criteria
 
+- [`chk_all_na()`](https://poissonconsulting.github.io/chk/dev/reference/chk_all_na.md)
+  [`vld_all_na()`](https://poissonconsulting.github.io/chk/dev/reference/chk_all_na.md)
+  : Check All Missing Values
 - [`chk_not_any_na()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_any_na.md)
   [`vld_not_any_na()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_any_na.md)
   : Check Not Any Missing Values

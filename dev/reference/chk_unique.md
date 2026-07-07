@@ -46,6 +46,7 @@ For more details about the use of this function, please read the article
 [`vignette("chk-families")`](https://poissonconsulting.github.io/chk/dev/articles/chk-families.md).
 
 Other misc_checkers:
+[`chk_all_na()`](https://poissonconsulting.github.io/chk/dev/reference/chk_all_na.md),
 [`chk_join()`](https://poissonconsulting.github.io/chk/dev/reference/chk_join.md),
 [`chk_not_any_na()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_any_na.md),
 [`chk_not_empty()`](https://poissonconsulting.github.io/chk/dev/reference/chk_not_empty.md)

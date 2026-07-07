@@ -1055,6 +1055,8 @@ to the number of elements (not rows or columns), while for a vector or
 list, it corresponds to the number of elements.</p>
 <p><code>chk_not_any_na</code> function checks if there are no NA values
 present in the entire object.</p>
+<p><code>chk_all_na</code> function checks if all values are NA in the
+entire object.</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Function</th>
@@ -1068,6 +1070,10 @@ present in the entire object.</p>
 <tr class="even">
 <td align="left"><code>chk_not_any_na(x)</code></td>
 <td align="left"><code>!anyNA(x)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>chk_all_na(x)</code></td>
+<td align="left"><code>all(is.na(x))</code></td>
 </tr>
 </tbody>
 </table>
@@ -1085,6 +1091,12 @@ present in the entire object.</p>
 <span><span class="fu"><a href="../reference/chk_not_any_na.html">vld_not_any_na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, b <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
 <span><span class="fu"><a href="../reference/chk_not_any_na.html">vld_not_any_na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="cn">NA</span>, <span class="fl">3</span><span class="op">)</span>, b <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/chk_all_na.html">vld_all_na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA_character_</span>, <span class="cn">NA_character_</span><span class="op">)</span>, b <span class="op">=</span> <span class="cn">NA_real_</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_all_na.html">vld_all_na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="cn">NA</span>, <span class="fl">3</span><span class="op">)</span>, b <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 <p>The <code><a href="../reference/chk_unique.html">chk_unique()</a></code> function is designed to verify that
 there are no duplicates elements in a vector.</p>
