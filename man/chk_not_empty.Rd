@@ -54,6 +54,7 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other misc_checkers:
+\code{\link[=chk_all_na]{chk_all_na()}},
 \code{\link[=chk_join]{chk_join()}},
 \code{\link[=chk_not_any_na]{chk_not_any_na()}},
 \code{\link[=chk_unique]{chk_unique()}}

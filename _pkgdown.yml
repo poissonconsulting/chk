@@ -141,6 +141,7 @@ reference:
 - title: Quality Checkers (Miscellaneous)
   desc: Check if the function input meet some user defined quality criteria
   contents:
+  - chk_all_na
   - chk_not_any_na
   - chk_not_empty
   - chk_unique
