@@ -1,5 +1,20 @@
 # Changelog
 
+## chk 0.10.0.9028
+
+- created chk_class() as detailed above
+- substituted chk_s3_class() with chk_class() in check_values()
+- updated the docs with the local RStudio build & check routine
+- added tests for chk_class()
+- errors for chk_s3_class() and chk_s4_class() now specify what the
+  object’s class(es) is (are) to help diagnose issues
+- vectorized vld_s4_class() to check for any of the classes passed,
+  similarly to vld_s3_class(). It previously only accepted one class.
+- updated tests accordingly.
+- (added the AI gitignore stuff that is now in all repos)
+- Add fledge-bump workflow
+- Add fledge-tag-on-merge workflow
+
 ## chk 0.10.0.9027
 
 ### Features

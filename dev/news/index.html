@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">chk</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9027</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.0.9028</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,6 +36,19 @@
       <small>Source: <a href="https://github.com/poissonconsulting/chk/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.10.0.9028" id="chk-01009028">chk 0.10.0.9028<a class="anchor" aria-label="anchor" href="#chk-01009028"></a></h2>
+<ul><li>created chk_class() as detailed above</li>
+<li>substituted chk_s3_class() with chk_class() in check_values()</li>
+<li>updated the docs with the local RStudio build &amp; check routine</li>
+<li>added tests for chk_class()</li>
+<li>errors for chk_s3_class() and chk_s4_class() now specify what the object’s class(es) is (are) to help diagnose issues</li>
+<li>vectorized vld_s4_class() to check for any of the classes passed, similarly to vld_s3_class(). It previously only accepted one class.</li>
+<li>updated tests accordingly.</li>
+<li>(added the AI gitignore stuff that is now in all repos)</li>
+<li>Add fledge-bump workflow</li>
+<li>Add fledge-tag-on-merge workflow</li>
+</ul><!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file --></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.10.0.9027" id="chk-01009027">chk 0.10.0.9027<a class="anchor" aria-label="anchor" href="#chk-01009027"></a></h2>
 <div class="section level3">
@@ -486,7 +499,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>
