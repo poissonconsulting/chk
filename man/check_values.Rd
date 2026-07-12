@@ -36,9 +36,12 @@ To check the range of the values in x pass two non-missing values
 To check that x only includes specific values
 pass three or more non-missing values.
 
-In the case of a factor ensure values has two levels to
-check that the levels of x are an ordered superset of the levels of value
-and three or more levels to check that they are identical.
+In the case of a factor if values has two or more levels,
+or one level together with a missing value,
+then the levels of x must be identical,
+including their order, to the levels of values.
+A factor with one level and no missing values
+only checks that x is a factor.
 }
 \examples{
 check_values(1, numeric(0))

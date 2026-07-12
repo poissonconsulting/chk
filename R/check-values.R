@@ -20,9 +20,12 @@
 #' To check that x only includes specific values
 #' pass three or more non-missing values.
 #'
-#' In the case of a factor ensure values has two levels to
-#' check that the levels of x are an ordered superset of the levels of value
-#' and three or more levels to check that they are identical.
+#' In the case of a factor if values has two or more levels,
+#' or one level together with a missing value,
+#' then the levels of x must be identical,
+#' including their order, to the levels of values.
+#' A factor with one level and no missing values
+#' only checks that x is a factor.
 #'
 #' @inheritParams params
 #' @param values An atomic vector specifying the S3 class and possible values.
@@ -47,22 +50,12 @@ check_values <- function(x, values, x_name = NULL) {
 
   class <- class(values)[1]
   chk_class(x, class, x_name = x_name)
-  if (is.factor(values)) {
-    chk_subset(unique(values), c(levels(values), NA))
-
+  if (is.factor(values) && (nlevels(values) > 1 || length(unique(values)) > 1)) {
     x_name_levels <- backtick_chk(p0("levels(", unbacktick_chk(x_name), ")"))
-    if (nlevels(values) == 0) {
-      chk_all_na(x, x_name = x_name)
-    }
-    if (nlevels(values) == 1) {
-      chk_gt(nlevels(x))
-    }
-    if (nlevels(values) > 1 || length(unique(values)) > 1) {
-      # using super/subset for more informative errors than chk_identical()
-      chk_superset(levels(x), levels(values), x_name = x_name_levels)
-      chk_subset(levels(x), levels(values), x_name = x_name_levels)
-      chk_orderset(levels(x), levels(values), x_name = x_name_levels)
-    }
+    # using super/subset for more informative errors than chk_identical()
+    chk_superset(levels(x), levels(values), x_name = x_name_levels)
+    chk_subset(levels(x), levels(values), x_name = x_name_levels)
+    chk_orderset(levels(x), levels(values), x_name = x_name_levels)
   }
   if (!length(x) || !length(values)) {
     return(invisible(x))
