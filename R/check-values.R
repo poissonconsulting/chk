@@ -20,12 +20,13 @@
 #' To check that x only includes specific values
 #' pass three or more non-missing values.
 #'
-#' In the case of a factor if values has two or more levels,
-#' or one level together with a missing value,
+#' In the case of a factor if values has two or more levels
 #' then the levels of x must be identical,
 #' including their order, to the levels of values.
-#' A factor with one level and no missing values
-#' only checks that x is a factor.
+#' A factor with less than two levels only checks that x is a factor.
+#' Thus `factor(1)` allows any factor without missing values,
+#' `factor(c(1, NA))` any factor with or without missing values and
+#' `factor(NA)` any factor with all missing values.
 #'
 #' @inheritParams params
 #' @param values An atomic vector specifying the S3 class and possible values.
@@ -50,7 +51,7 @@ check_values <- function(x, values, x_name = NULL) {
 
   class <- class(values)[1]
   chk_class(x, class, x_name = x_name)
-  if (is.factor(values) && (nlevels(values) > 1 || length(unique(values)) > 1)) {
+  if (is.factor(values) && nlevels(values) > 1) {
     x_name_levels <- backtick_chk(p0("levels(", unbacktick_chk(x_name), ")"))
     # using super/subset for more informative errors than chk_identical()
     chk_superset(levels(x), levels(values), x_name = x_name_levels)

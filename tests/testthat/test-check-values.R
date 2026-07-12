@@ -47,6 +47,14 @@ test_that("check_values pass", {
     check_values(factor("a"), factor())
   )
   expect_identical(
+    check_values(factor(c(1, NA)), factor(c(2, NA))),
+    check_values(factor(c(1, NA)), factor(c(2, NA)))
+  )
+  expect_identical(
+    check_values(factor(NA), factor(NA)),
+    check_values(factor(NA), factor(NA))
+  )
+  expect_identical(
     check_values(factor(character(0)), factor("z")),
     check_values(factor(character(0)), factor("z"))
   )
@@ -120,8 +128,8 @@ test_that("check_values fail", {
   )
 
   expect_chk_error(
-    check_values(factor(c(1, NA)), factor(c(2, NA))),
-    "^`levels[(]factor[(]c[(]1, NA[)][)][)]` must include '2'[.]$"
+    check_values(factor("a"), factor(NA)),
+    "^`factor[(]\"a\"[)]` must only have missing values[.]$"
   )
 
   expect_chk_error(

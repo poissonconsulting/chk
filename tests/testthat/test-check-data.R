@@ -96,10 +96,9 @@ test_that("factors are handled correctly.", {
                           list(fac = factor(NA, levels = "b"))),
                "`data.frame(fac = factor(c(\"a\", \"b\", \"c\", \"z\")))$fac` must only have missing values.",
                fixed = TRUE)
-  expect_error(check_data(data.frame(fac = factor(c("a", "b", "c", "z"))),
-                          list(fac = factor(c("b", NA), levels = "b"))),
-               "`levels(data.frame(fac = factor(c(\"a\", \"b\", \"c\", \"z\")))$fac)` must have values matching 'b'.",
-               fixed = TRUE)
+  # one level plus NA means any factor with missing values allowed
+  expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "c", "z"))),
+                             list(fac = factor(c("b", NA), levels = "b"))))
   expect_error(check_data(data.frame(fac = factor(c("a", "b", "z"))),
                           list(fac = factor(c("a", "b")))),
                "`levels(data.frame(fac = factor(c(\"a\", \"b\", \"z\")))$fac)` must have values matching 'a' or 'b'.",
