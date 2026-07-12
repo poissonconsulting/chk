@@ -47,7 +47,7 @@ test_that("check_data fails", {
       data.frame(x = ordered(1:2)),
       values = list(x = ordered(1:2, levels = 2:1))
     ),
-    "^`levels[(]data.frame[(]x = ordered[(]1:2[)][)][$]x[)]` must have [(]the first occurence of[)] each of the following elements in the following order: '2', '1'[.]$"
+    "^`levels[(]data.frame[(]x = ordered[(]1:2[)][)][$]x[)]` must have each of the following elements in the following order: '2', '1'[.]$"
   )
 })
 
@@ -108,7 +108,7 @@ test_that("factors are handled correctly.", {
                              list(fac = factor(c("a", "b", "z"), c("a", "z", "b")))))
   expect_error(check_data(data.frame(fac = factor(c("a", "b", "z"), c("a", "z", "b"))),
                           list(fac = factor(c("a", "b", "z")))),
-               "`levels(data.frame(fac = factor(c(\"a\", \"b\", \"z\"), c(\"a\", \"z\", \"b\")))$fac)` must have (the first occurence of) each of the following elements in the following order: 'a', 'b', 'z'.",
+               "`levels(data.frame(fac = factor(c(\"a\", \"b\", \"z\"), c(\"a\", \"z\", \"b\")))$fac)` must have each of the following elements in the following order: 'a', 'b', 'z'.",
                fixed = TRUE)
   expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "z"))),
                              list(fac = factor(c("a", NA), levels = c("a", "b", "z")))))

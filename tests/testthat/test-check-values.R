@@ -139,11 +139,11 @@ test_that("check_values fail", {
 
   expect_chk_error(
     check_values(factor(1:2), factor(1:2, levels = 2:1)),
-    "^`levels[(]factor[(]1:2[)][)]` must have [(]the first occurence of[)] each of the following elements in the following order: '2', '1'[.]$"
+    "^`levels[(]factor[(]1:2[)][)]` must have each of the following elements in the following order: '2', '1'[.]$"
   )
 
   expect_chk_error(
     check_values(ordered(1:2), ordered(1:2, levels = 2:1)),
-    "^`levels[(]ordered[(]1:2[)][)]` must have [(]the first occurence of[)] each of the following elements in the following order: '2', '1'[.]$"
+    "^`levels[(]ordered[(]1:2[)][)]` must have each of the following elements in the following order: '2', '1'[.]$"
   )
 })

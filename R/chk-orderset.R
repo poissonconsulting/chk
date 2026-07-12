@@ -36,7 +36,7 @@ chk_orderset <- function(x, values, x_name = NULL) {
   values <- values[values %in% x]
   abort_chk(
     x_name,
-    " must have (the first occurence of) each of the following elements in the following order: ",
+    " must have each of the following elements in the following order: ",
     cc(values),
     x = x,
     values = values
