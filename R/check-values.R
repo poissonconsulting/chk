@@ -21,7 +21,7 @@
 #' pass three or more non-missing values.
 #'
 #' In the case of a factor if values has two or more levels
-#' then the levels of x must be identical,
+#' then the levels of `x` must be identical,
 #' including their order, to the levels of `values`.
 #' A factor with less than two levels only checks that `x` is a factor.
 #' Thus `factor(1)` allows any factor without missing values,
