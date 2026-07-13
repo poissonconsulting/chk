@@ -37,7 +37,7 @@ To check that x only includes specific values
 pass three or more non-missing values.
 
 In the case of a factor if \code{values} has two or more levels
-then the levels of x must be identical,
+then the levels of \code{x} must be identical,
 including their order, to the levels of \code{values}.
 A factor with less than two levels only checks that \code{x} is a factor.
 Thus \code{factor(1)} allows any factor without missing values,
