@@ -52,6 +52,13 @@ check_data(
 
 An informative error if the test fails or an invisible copy of x.
 
+## Details
+
+The values of each column are checked using
+[`check_values()`](https://poissonconsulting.github.io/chk/dev/reference/check_values.md).
+See its details for the rules including those for factor levels and
+missing values.
+
 ## See also
 
 Other check:

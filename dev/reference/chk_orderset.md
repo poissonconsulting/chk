@@ -59,7 +59,7 @@ Other set_checkers:
 chk_orderset(1:2, 1:2)
 try(chk_orderset(2:1, 1:2))
 #> Error in eval(expr, envir) : 
-#>   `2:1` must have (the first occurence of) each of the following elements in the following order: 1, 2.
+#>   `2:1` must have each of the following elements in the following order: 1, 2.
 
 # vld_orderset
 vld_orderset(1, 1)

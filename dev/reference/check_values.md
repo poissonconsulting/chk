@@ -44,9 +44,12 @@ well as the missing value if required).
 To check that x only includes specific values pass three or more
 non-missing values.
 
-In the case of a factor ensure values has two levels to check that the
-levels of x are an ordered superset of the levels of value and three or
-more levels to check that they are identical.
+In the case of a factor if `values` has two or more levels then the
+levels of `x` must be identical, including their order, to the levels of
+`values`. A factor with less than two levels only checks that `x` is a
+factor. Thus `factor(1)` allows any factor without missing values,
+`factor(c(1, NA))` any factor with or without missing values and
+`factor(NA)` any factor with all missing values.
 
 ## See also
 
