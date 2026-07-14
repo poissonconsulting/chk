@@ -102,6 +102,26 @@ test_that("check_values fail", {
   )
 
   expect_chk_error(
+    check_values(factor(NA), factor("z")),
+    "^`factor[(]NA[)]` must not have any missing values[.]$"
+  )
+
+  expect_chk_error(
+    check_values(factor(1:3), factor(1:2)),
+    "^`levels[(]factor[(]1:3[)][)]` must have values matching '1' or '2'[.]$"
+  )
+
+  expect_chk_error(
+    check_values(factor("a"), factor(NA)),
+    "^`factor[(]\"a\"[)]` must only have missing values[.]$"
+  )
+
+  expect_chk_error(
+    check_values(1, NA_real_),
+    "^`1` must only have missing values[.]$"
+  )
+
+  expect_chk_error(
     check_values(
       ordered(c(1, 3), levels = 1:3),
       ordered(c(1, 2), levels = 1:3)
@@ -111,11 +131,11 @@ test_that("check_values fail", {
 
   expect_chk_error(
     check_values(factor(1:2), factor(1:2, levels = 2:1)),
-    "^`levels[(]factor[(]1:2[)][)]` must have [(]the first occurence of[)] each of the following elements in the following order: '2', '1'[.]$"
+    "^`levels[(]factor[(]1:2[)][)]` must have each of the following elements in the following order: '2', '1'[.]$"
   )
 
   expect_chk_error(
     check_values(ordered(1:2), ordered(1:2, levels = 2:1)),
-    "^`levels[(]ordered[(]1:2[)][)]` must have [(]the first occurence of[)] each of the following elements in the following order: '2', '1'[.]$"
+    "^`levels[(]ordered[(]1:2[)][)]` must have each of the following elements in the following order: '2', '1'[.]$"
   )
 })

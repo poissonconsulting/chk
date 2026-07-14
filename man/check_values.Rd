@@ -36,9 +36,13 @@ To check the range of the values in x pass two non-missing values
 To check that x only includes specific values
 pass three or more non-missing values.
 
-In the case of a factor ensure values has two levels to
-check that the levels of x are an ordered superset of the levels of value
-and three or more levels to check that they are identical.
+In the case of a factor if \code{values} has two or more levels
+then the levels of \code{x} must be identical,
+including their order, to the levels of \code{values}.
+A factor with less than two levels only checks that \code{x} is a factor.
+Thus \code{factor(1)} allows any factor without missing values,
+\code{factor(c(1, NA))} any factor with or without missing values and
+\code{factor(NA)} any factor with all missing values.
 }
 \examples{
 check_values(1, numeric(0))

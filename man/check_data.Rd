@@ -35,6 +35,11 @@ An informative error if the test fails or an invisible copy of x.
 \description{
 Checks column names, values, number of rows and key for a data.frame.
 }
+\details{
+The values of each column are checked using \code{\link[=check_values]{check_values()}}.
+See its details for the rules including those for factor levels
+and missing values.
+}
 \examples{
 check_data(data.frame())
 check_data(data.frame(x = 2), list(x = 1))

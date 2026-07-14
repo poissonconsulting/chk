@@ -47,14 +47,20 @@ test_that("check_data fails", {
       data.frame(x = ordered(1:2)),
       values = list(x = ordered(1:2, levels = 2:1))
     ),
-    "^`levels[(]data.frame[(]x = ordered[(]1:2[)][)][$]x[)]` must have [(]the first occurence of[)] each of the following elements in the following order: '2', '1'[.]$"
+    "^`levels[(]data.frame[(]x = ordered[(]1:2[)][)][$]x[)]` must have each of the following elements in the following order: '2', '1'[.]$"
   )
 })
 
 test_that("factors are handled correctly.", {
   # level doesn't matter: only checking that class is "factor" when check is 1 level and not NA
   expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "c", "z"))),
-                             list(fac = factor("z"))))
+# level doesn't matter: only checking that class is "factor" when values is empty factor
+expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "c", "z"))),
+                           list(fac = factor())))
+
+# level doesn't matter: only checking that class is "factor" when values is 1 level and not NA
+expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "c", "z"))),
+                           list(fac = factor("z"))))
 
   # NAs are not required in the data set
   expect_no_error(check_data(data.frame(fac = factor(c("a", "z"))),
@@ -96,10 +102,9 @@ test_that("factors are handled correctly.", {
                           list(fac = factor(NA, levels = "b"))),
                "`data.frame(fac = factor(c(\"a\", \"b\", \"c\", \"z\")))$fac` must only have missing values.",
                fixed = TRUE)
-  expect_error(check_data(data.frame(fac = factor(c("a", "b", "c", "z"))),
-                          list(fac = factor(c("b", NA), levels = "b"))),
-               "`levels(data.frame(fac = factor(c(\"a\", \"b\", \"c\", \"z\")))$fac)` must have values matching 'b'.",
-               fixed = TRUE)
+  # one level plus NA means any factor with missing values allowed
+  expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "c", "z"))),
+                             list(fac = factor(c("b", NA), levels = "b"))))
   expect_error(check_data(data.frame(fac = factor(c("a", "b", "z"))),
                           list(fac = factor(c("a", "b")))),
                "`levels(data.frame(fac = factor(c(\"a\", \"b\", \"z\")))$fac)` must have values matching 'a' or 'b'.",
@@ -108,7 +113,7 @@ test_that("factors are handled correctly.", {
                              list(fac = factor(c("a", "b", "z"), c("a", "z", "b")))))
   expect_error(check_data(data.frame(fac = factor(c("a", "b", "z"), c("a", "z", "b"))),
                           list(fac = factor(c("a", "b", "z")))),
-               "`levels(data.frame(fac = factor(c(\"a\", \"b\", \"z\"), c(\"a\", \"z\", \"b\")))$fac)` must have (the first occurence of) each of the following elements in the following order: 'a', 'b', 'z'.",
+               "`levels(data.frame(fac = factor(c(\"a\", \"b\", \"z\"), c(\"a\", \"z\", \"b\")))$fac)` must have each of the following elements in the following order: 'a', 'b', 'z'.",
                fixed = TRUE)
   expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "z"))),
                              list(fac = factor(c("a", NA), levels = c("a", "b", "z")))))
