@@ -9,7 +9,6 @@ test_that("check_values pass", {
     check_values(NA_real_, numeric(0))
   )
   expect_identical(check_values(1, -1), check_values(1, -1))
-  expect_identical(check_values(1, NA_real_), check_values(1, NA_real_))
   expect_identical(
     check_values(1, c(2, NA_real_)),
     check_values(1, c(2, NA_real_))
@@ -32,24 +31,8 @@ test_that("check_values pass", {
     check_values(factor(1), factor(2))
   )
   expect_identical(
-    check_values(factor(c(1, NA)), factor(c(2, NA))),
-    check_values(factor(c(1, NA)), factor(c(2, NA)))
-  )
-  expect_identical(
-    check_values(factor(1:3), factor(1:2)),
-    check_values(factor(1:3), factor(1:2))
-  )
-  expect_identical(
-    check_values(factor(1:3), factor(1:2, levels = 1:2)),
-    check_values(factor(1:3), factor(1:2, levels = 1:2))
-  )
-  expect_identical(
     check_values(ordered(1:2), factor(c(1:2, NA))),
     check_values(ordered(1:2), factor(c(1:2, NA)))
-  )
-  expect_identical(
-    check_values(ordered(1:3), factor(c(1:2))),
-    check_values(ordered(1:3), factor(c(1:2)))
   )
   expect_identical(
     check_values(as.character(1:2), as.character(2:1)),
@@ -58,6 +41,22 @@ test_that("check_values pass", {
   expect_identical(
     check_values(factor(1:3), factor(1:3)),
     check_values(factor(1:3), factor(1:3))
+  )
+  expect_identical(
+    check_values(factor("a"), factor()),
+    check_values(factor("a"), factor())
+  )
+  expect_identical(
+    check_values(factor(c(1, NA)), factor(c(2, NA))),
+    check_values(factor(c(1, NA)), factor(c(2, NA)))
+  )
+  expect_identical(
+    check_values(factor(NA), factor(NA)),
+    check_values(factor(NA), factor(NA))
+  )
+  expect_identical(
+    check_values(factor(character(0)), factor("z")),
+    check_values(factor(character(0)), factor("z"))
   )
 })
 
@@ -115,7 +114,27 @@ test_that("check_values fail", {
 
   expect_chk_error(
     check_values(factor(1:2), factor(1:3)),
-    "^`levels[(]factor[(]1:2[)][)]` must be identical to the y object of class <chr>[.]"
+    "^`levels[(]factor[(]1:2[)][)]` must include '3'\\."
+  )
+
+  expect_chk_error(
+    check_values(factor(NA), factor("z")),
+    "^`factor[(]NA[)]` must not have any missing values[.]$"
+  )
+
+  expect_chk_error(
+    check_values(factor(1:3), factor(1:2)),
+    "^`levels[(]factor[(]1:3[)][)]` must have values matching '1' or '2'[.]$"
+  )
+
+  expect_chk_error(
+    check_values(factor("a"), factor(NA)),
+    "^`factor[(]\"a\"[)]` must only have missing values[.]$"
+  )
+
+  expect_chk_error(
+    check_values(1, NA_real_),
+    "^`1` must only have missing values[.]$"
   )
 
   expect_chk_error(
@@ -128,11 +147,11 @@ test_that("check_values fail", {
 
   expect_chk_error(
     check_values(factor(1:2), factor(1:2, levels = 2:1)),
-    "^`levels[(]factor[(]1:2[)][)]` must have [(]the first occurence of[)] each of the following elements in the following order: '2', '1'[.]$"
+    "^`levels[(]factor[(]1:2[)][)]` must have each of the following elements in the following order: '2', '1'[.]$"
   )
 
   expect_chk_error(
     check_values(ordered(1:2), ordered(1:2, levels = 2:1)),
-    "^`levels[(]ordered[(]1:2[)][)]` must have [(]the first occurence of[)] each of the following elements in the following order: '2', '1'[.]$"
+    "^`levels[(]ordered[(]1:2[)][)]` must have each of the following elements in the following order: '2', '1'[.]$"
   )
 })

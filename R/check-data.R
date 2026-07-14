@@ -3,6 +3,11 @@
 #' @description
 #' Checks column names, values, number of rows and key for a data.frame.
 #'
+#' @details
+#' The values of each column are checked using [check_values()].
+#' See its details for the rules including those for factor levels
+#' and missing values.
+#'
 #' @inheritParams params
 #' @param values A uniquely named list of atomic vectors of the column values.
 #' @return An informative error if the test fails or an invisible copy of x.
