@@ -52,7 +52,11 @@ test_that("check_data fails", {
 })
 
 test_that("factors are handled correctly.", {
-  # level doesn't matter: only checking that class is "factor" when check is 1 level and not NA
+  # level doesn't matter: only checking that class is "factor" when values is empty factor
+  expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "c", "z"))),
+                             list(fac = factor())))
+
+  # level doesn't matter: only checking that class is "factor" when values is 1 level and not NA
   expect_no_error(check_data(data.frame(fac = factor(c("a", "b", "c", "z"))),
                              list(fac = factor("z"))))
 

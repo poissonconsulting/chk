@@ -3,7 +3,7 @@ on:
   push:
     branches: [main, master]
   pull_request:
-    branches: [main, master]
+    branches: [main, master, dev]
 permissions:
   contents: read
 jobs:
@@ -12,6 +12,7 @@ jobs:
     with:
       tier: cran
       jags: false
+      cmdstan: false
       tex: false
       private: false
     secrets: inherit
