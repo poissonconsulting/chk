@@ -1,5 +1,9 @@
 # Changelog
 
+## chk 0.10.0.9029
+
+- Same as previous version.
+
 ## chk 0.10.0.9028
 
 - created chk_class() as detailed above
