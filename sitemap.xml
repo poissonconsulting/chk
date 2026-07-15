@@ -2,7 +2,6 @@
 <url><loc>https://poissonconsulting.github.io/chk/404.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/CODE_OF_CONDUCT.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/CONTRIBUTING.html</loc></url>
-<url><loc>https://poissonconsulting.github.io/chk/ISSUE_TEMPLATE.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/LICENSE-text.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/LICENSE.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/SUPPORT.html</loc></url>
@@ -29,11 +28,13 @@
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_all_equal.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_all_equivalent.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_all_identical.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/chk/reference/chk_all_na.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_array.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_atomic.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_character.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_character_or_factor.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_chr.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/chk/reference/chk_class.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_compatible_lengths.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_complex.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_complex_number.html</loc></url>
@@ -83,6 +84,7 @@
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_range.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_raw.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_s3_class.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/chk/reference/chk_s3_class_strict.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_s4_class.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_scalar.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/chk_setequal.html</loc></url>
@@ -105,6 +107,7 @@
 <url><loc>https://poissonconsulting.github.io/chk/reference/deparse_backtick_chk.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/err.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/expect_chk_error.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/chk/reference/generate_check_data.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/index.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/message_chk.html</loc></url>
 <url><loc>https://poissonconsulting.github.io/chk/reference/p.html</loc></url>

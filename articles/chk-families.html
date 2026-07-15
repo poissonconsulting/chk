@@ -6,20 +6,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>chk Families • chk</title>
-<!-- favicons --><link rel="icon" type="image/png" sizes="48x48" href="../favicon-48x48.png">
+<!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="icon" sizes="any" href="../favicon.ico">
 <link rel="manifest" href="../site.webmanifest">
-<script src="../katex-auto.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Roboto_Condensed-0.4.9/font.css" rel="stylesheet">
-<link href="../deps/Roboto_Mono-0.4.9/font.css" rel="stylesheet">
-<link href="../deps/Playfair_Display-0.4.9/font.css" rel="stylesheet">
+<!-- katex math --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><script src="../katex-auto.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Roboto_Condensed-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/Roboto_Mono-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/Playfair_Display-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><link href="../deps/KaTex-0.16.10/katex.min.css" rel="stylesheet">
-<script src="../deps/KaTex-0.16.10/katex.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="chk Families">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="chk Families">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -29,7 +29,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">chk</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.10.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.11.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,8 +80,8 @@
 <p>The <code>vld_</code> functions are used within the <code>chk_</code>
 functions. The <code>chk_</code> functions (and their <code>vld_</code>
 equivalents) can be divided into the following families.</p>
-<p>In the code in this examples, we will use <code>vld_*</code>
-functions</p>
+<p>In the code in these examples, we will use <code>vld_*</code>
+functions.</p>
 <p>If you want to learn more about the logic behind some of the
 functions explained here, we recommend reading the book <a href="https://adv-r.hadley.nz/" class="external-link">Advanced R</a> (Wickham, 2019).</p>
 <p>For reasons of space, the <code>x_name = NULL</code> argument is not
@@ -96,7 +96,7 @@ section.</p>
 <div class="section level3">
 <h3 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h3>
-<p><img src="chk_diagram_II.png" alt="Classification of the chk functions by family" width="100%" style="display: block; margin: auto;"></p>
+<p><img src="chk_diagram_II.png" class="r-plt" alt="Classification of the chk functions by family" width="100%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
 <h3 id="missing-input-checker">Missing Input Checker<a class="anchor" aria-label="anchor" href="#missing-input-checker"></a>
@@ -341,7 +341,7 @@ in a list, however, can be of different types.</p>
 </tr></thead>
 <tbody><tr class="odd">
 <td align="left"><code>chk_vector(x)</code></td>
-<td align="left"><code>is.atomic(x) &amp;&amp; !is.matrix(x) &amp;&amp; !is.array(x)) || is.list(x)</code></td>
+<td align="left"><code>(is.atomic(x) &amp;&amp; !is.matrix(x) &amp;&amp; !is.array(x)) || is.list(x)</code></td>
 </tr></tbody>
 </table>
 <p>Pay attention that <code><a href="../reference/chk_vector.html">chk_vector()</a></code> and
@@ -355,7 +355,7 @@ names.</p>
 <span><span class="fu"><a href="../reference/chk_vector.html">vld_vector</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"a"</span> <span class="op">=</span> <span class="fl">10</span>, <span class="st">"b"</span> <span class="op">=</span> <span class="fl">20</span>, <span class="st">"c"</span> <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"a"</span> <span class="op">=</span> <span class="fl">10</span>, <span class="st">"b"</span> <span class="op">=</span> <span class="fl">20</span>, <span class="st">"c"</span> <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">is.vector</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="co"># FALSE</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span>
 <span><span class="fu"><a href="../reference/chk_vector.html">vld_vector</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="co"># TRUE</span></span>
@@ -370,19 +370,20 @@ names.</p>
 <td align="left"><code>is.atomic(x)</code></td>
 </tr></tbody>
 </table>
-<p>Notice that <code>is.atomic</code> is true for the types logical,
-integer, numeric, complex, character and raw. Also, it is TRUE for
-NULL.</p>
+<p>Notice that <code><a href="https://rdrr.io/r/base/is.recursive.html" class="external-link">is.atomic()</a></code> is <code>TRUE</code> for the
+types logical, integer, numeric, complex, character and raw. As of R
+4.4.0 it is <code>FALSE</code> for <code>NULL</code> (it was
+<code>TRUE</code> in earlier versions).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/is.recursive.html" class="external-link">is.atomic</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="fu"><a href="../reference/chk_vector.html">vld_vector</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_atomic.html">vld_atomic</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/is.recursive.html" class="external-link">is.atomic</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/is.recursive.html" class="external-link">is.atomic</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="co"># FALSE (as of R 4.4.0)</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span>
-<span><span class="fu"><a href="../reference/chk_vector.html">vld_vector</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_atomic.html">vld_atomic</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="co"># FALSE (as of R 4.4.0)</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 <p>The dimension attribute converts vectors into matrices and
 arrays.</p>
@@ -402,9 +403,9 @@ arrays.</p>
 </tr>
 </tbody>
 </table>
-<p>When a vector is composed by heterogeneous data types, can be a list.
-Data frames are among the most important S3 vectors, constructed on top
-of lists.</p>
+<p>When a vector is composed of heterogeneous data types, it can be a
+list. Data frames are among the most important S3 vectors, constructed
+on top of lists.</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Function</th>
@@ -413,7 +414,7 @@ of lists.</p>
 <tbody>
 <tr class="odd">
 <td align="left"><code>chk_list(x)</code></td>
-<td align="left"><code><a href="https://rdrr.io/r/base/list.html" class="external-link">is.list()</a></code></td>
+<td align="left"><code>is.list(x)</code></td>
 </tr>
 <tr class="even">
 <td align="left"><code>chk_data(x)</code></td>
@@ -555,7 +556,7 @@ the number is of <code>length(x) == 1L</code></p>
 non-negative whole numbers.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Positive integer</span></span>
-<span><span class="fu"><a href="../reference/chk_count.html">vld_count</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="co">#TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_count.html">vld_count</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
 <span><span class="co"># Zero</span></span>
 <span><span class="fu"><a href="../reference/chk_count.html">vld_count</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span> <span class="co"># TRUE</span></span>
@@ -587,8 +588,8 @@ non-negative whole numbers.</p>
 </tr>
 </tbody>
 </table>
-<p>Factors can be specially confusing for users, because despite they
-are displayed as characters are built in top of integer vectors.</p>
+<p>Factors can be especially confusing for users because, despite being
+displayed as characters, they are built on top of integer vectors.</p>
 <p><code>chk</code> provides the function
 <code><a href="../reference/chk_character_or_factor.html">chk_character_or_factor()</a></code> that allows detecting if the
 argument that the user is providing contains strings.</p>
@@ -598,7 +599,8 @@ argument that the user is providing contains strings.</p>
 <span><span class="va">vector_fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"apple"</span>, <span class="st">"orange"</span>, <span class="st">"banana"</span>, <span class="st">"apple"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">factor_fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"apple"</span>, <span class="st">"orange"</span>, <span class="st">"banana"</span>, <span class="st">"apple"</span><span class="op">)</span>,</span>
-<span>                levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span><span class="op">)</span><span class="op">)</span></span>
+<span>  levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">is.factor</a></span><span class="op">(</span><span class="va">factor_fruits</span><span class="op">)</span> <span class="co"># TRUE</span></span>
@@ -696,20 +698,19 @@ for the <code>make.names</code> function.</p>
 </tbody>
 </table>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="fu"><a href="../reference/chk_valid_name.html">vld_valid_name</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"name1"</span>, <span class="cn">NA</span>, <span class="st">"name_2"</span>, <span class="st">"validName"</span><span class="op">)</span><span class="op">)</span>  <span class="co"># TRUE</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/chk_valid_name.html">vld_valid_name</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"name1"</span>, <span class="cn">NA</span>, <span class="st">"name_2"</span>, <span class="st">"validName"</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="fu"><a href="../reference/chk_valid_name.html">vld_valid_name</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>  <span class="co"># FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_valid_name.html">vld_valid_name</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span>
 <span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/chk_named.html">vld_named</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, b <span class="op">=</span> <span class="fl">6</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span>  <span class="co"># TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_named.html">vld_named</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, b <span class="op">=</span> <span class="fl">6</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
 <span><span class="fu"><a href="../reference/chk_named.html">vld_named</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="fu"><a href="../reference/chk_named.html">vld_named</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE </span></span>
+<span><span class="fu"><a href="../reference/chk_named.html">vld_named</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="fu"><a href="../reference/chk_named.html">vld_named</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE </span></span>
+<span><span class="fu"><a href="../reference/chk_named.html">vld_named</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -854,9 +855,9 @@ non-decreasing order, ignoring any NA values.</p>
 </table>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Checking if sorted</span></span>
-<span><span class="fu"><a href="../reference/chk_sorted.html">vld_sorted</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="cn">NA</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span>  <span class="co"># TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_sorted.html">vld_sorted</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="cn">NA</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="fu"><a href="../reference/chk_sorted.html">vld_sorted</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span>  <span class="co"># FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_sorted.html">vld_sorted</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -915,8 +916,7 @@ elements of <code>values</code> are present in <code>x</code>.</p>
 </tbody>
 </table>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="co"># When both function inputs have the same elements,</span></span>
+<code class="sourceCode R"><span><span class="co"># When both function inputs have the same elements,</span></span>
 <span><span class="co"># all functions return TRUE</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/chk_setequal.html">vld_setequal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
@@ -957,9 +957,9 @@ elements of <code>values</code> are present in <code>x</code>.</p>
 <span><span class="co">#&gt; [1] FALSE</span></span>
 <span></span>
 <span><span class="co"># An empty set is considered a subset of any set, and any set is a superset of an empty set.</span></span>
-<span><span class="fu"><a href="../reference/chk_subset.html">vld_subset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span><span class="op">)</span><span class="op">)</span>  <span class="co"># TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_subset.html">vld_subset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="fu"><a href="../reference/chk_superset.html">vld_superset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>  <span class="co"># TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_superset.html">vld_superset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p><code><a href="../reference/chk_orderset.html">chk_orderset()</a></code> validate whether a given set of
 <code>values</code> in a vector x matches a specified set of allowed
@@ -980,11 +980,11 @@ preserving the order of those values.</p>
 </tr></tbody>
 </table>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/chk_setequal.html">vld_orderset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>,  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/chk_orderset.html">vld_orderset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="fu"><a href="../reference/chk_setequal.html">vld_orderset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"B"</span>, <span class="st">"A"</span><span class="op">)</span>,  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_orderset.html">vld_orderset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"B"</span>, <span class="st">"A"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span>
-<span><span class="fu"><a href="../reference/chk_setequal.html">vld_orderset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"C"</span><span class="op">)</span>,  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_orderset.html">vld_orderset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"C"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -1054,6 +1054,8 @@ to the number of elements (not rows or columns), while for a vector or
 list, it corresponds to the number of elements.</p>
 <p><code>chk_not_any_na</code> function checks if there are no NA values
 present in the entire object.</p>
+<p><code>chk_all_na</code> function checks if all values are NA in the
+entire object.</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Function</th>
@@ -1067,6 +1069,10 @@ present in the entire object.</p>
 <tr class="even">
 <td align="left"><code>chk_not_any_na(x)</code></td>
 <td align="left"><code>!anyNA(x)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>chk_all_na(x)</code></td>
+<td align="left"><code>all(is.na(x))</code></td>
 </tr>
 </tbody>
 </table>
@@ -1084,6 +1090,12 @@ present in the entire object.</p>
 <span><span class="fu"><a href="../reference/chk_not_any_na.html">vld_not_any_na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, b <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
 <span><span class="fu"><a href="../reference/chk_not_any_na.html">vld_not_any_na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="cn">NA</span>, <span class="fl">3</span><span class="op">)</span>, b <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/chk_all_na.html">vld_all_na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA_character_</span>, <span class="cn">NA_character_</span><span class="op">)</span>, b <span class="op">=</span> <span class="cn">NA_real_</span><span class="op">)</span><span class="op">)</span> <span class="co"># TRUE</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_all_na.html">vld_all_na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="cn">NA</span>, <span class="fl">3</span><span class="op">)</span>, b <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co"># FALSE</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 <p>The <code><a href="../reference/chk_unique.html">chk_unique()</a></code> function is designed to verify that
 there are no duplicates elements in a vector.</p>
@@ -1126,9 +1138,9 @@ frames.</p>
 </tr></tbody>
 </table>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">2</span>, upper <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>  <span class="co"># TRUE</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">2</span>, upper <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>  <span class="co"># FALSE</span></span>
+<span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="co"># FALSE</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span>, c <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">2</span>, upper <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="co"># TRUE</span></span>
@@ -1137,9 +1149,9 @@ frames.</p>
 <span><span class="co">#&gt; [1] FALSE</span></span>
 <span></span>
 <span><span class="co"># 2 columns</span></span>
-<span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, y <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">1</span>, upper <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>  <span class="co"># TRUE</span></span>
+<span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, y <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">1</span>, upper <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, y <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>  <span class="co"># FALSE    </span></span>
+<span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, y <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="co"># FALSE</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span>
 <span></span>
 <span><span class="co"># length of NULL is 0</span></span>
@@ -1147,7 +1159,7 @@ frames.</p>
 <span><span class="co">#&gt; [1] TRUE</span></span>
 <span><span class="fu"><a href="../reference/chk_length.html">vld_length</a></span><span class="op">(</span><span class="cn">NULL</span>, length <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="co"># FALSE</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
-<p>Another useful function is <code>chk_compatible_lenghts()</code>.
+<p>Another useful function is <code><a href="../reference/chk_compatible_lengths.html">chk_compatible_lengths()</a></code>.
 This function helps to check vectors could be ‘strictly recycled’.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span></span>
@@ -1202,7 +1214,7 @@ in your main data frame.</p>
 <span><span class="fu"><a href="../reference/chk_join.html">vld_join</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span> <span class="co"># TRUE</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
 <span></span>
-<span><span class="co"># Perform a join that reduces the number of rows </span></span>
+<span><span class="co"># Perform a join that reduces the number of rows</span></span>
 <span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>, value_y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"D"</span>, <span class="st">"E"</span>, <span class="st">"F"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/chk_join.html">vld_join</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span> <span class="co"># FALSE</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
@@ -1276,7 +1288,7 @@ Hall/CRC.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer>
