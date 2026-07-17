@@ -1,5 +1,11 @@
-release_date: ???
-rel_release_date: ???
-my_news_url: ???
-release_version: ???
-release_details: ???
+release_date: July 31, 2026
+rel_release_date: two weeks
+my_news_url: https://github.com/poissonconsulting/chk/blob/main/NEWS.md
+release_version: 0.11.0
+release_details: >
+  The failures are all caused by intentional improvements to chk's error
+  messages: chk_s3_class() and chk_s4_class() errors now state the class(es)
+  of the object, chkor_vld() now generates a clearer combined message (and
+  gains an x_name argument), and check_data() now names the offending
+  argument when passed a non-data frame. Tests that match the exact text of
+  the old messages need their expected messages updated.

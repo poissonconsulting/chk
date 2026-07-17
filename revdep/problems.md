@@ -1,36 +1,3 @@
-# extras (0.8.0)
-
-* GitHub: <https://github.com/poissonconsulting/extras>
-* Email: <mailto:nicole@poissonconsulting.ca>
-* GitHub mirror: <https://github.com/cran/extras>
-
-Run `revdepcheck::revdep_details(, "extras")` for more info
-
-## Newly broken
-
-*   checking tests ...
-     ```
-       Running ‘testthat.R’
-      ERROR
-     Running the tests in ‘tests/testthat.R’ failed.
-     Last 13 lines of output:
-         2. │ └─testthat:::expect_condition_matching_(...)
-         3. │   └─testthat:::quasi_capture(...)
-         4. │     ├─testthat (local) .capture(...)
-         5. │     │ └─base::withCallingHandlers(...)
-         6. │     └─rlang::eval_bare(quo_get_expr(.quo), quo_get_env(.quo))
-         7. └─extras::chk_pars(x)
-         8.   └─chk::chk_s3_class(x, "character", x_name = x_name)
-         9.     └─chk::abort_chk(...)
-        10.       └─chk::err(..., n = n, tidy = tidy, class = "chk_error", call = call)
-        11.         └─rlang::abort(msg, class = class, !!!args[named], call = call)
-       
-       [ FAIL 1 | WARN 0 | SKIP 17 | PASS 2222 ]
-       Error:
-       ! Test failures.
-       Execution halted
-     ```
-
 # mcmcr (0.6.2)
 
 * GitHub: <https://github.com/poissonconsulting/mcmcr>
