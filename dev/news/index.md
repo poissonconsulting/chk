@@ -1,27 +1,52 @@
 # Changelog
 
-## chk 0.10.0.9029
+## chk 0.11.0.9000
 
 - Same as previous version.
 
-## chk 0.10.0.9028
+## chk 0.11.0
 
-- created chk_class() as detailed above
-- substituted chk_s3_class() with chk_class() in check_values()
-- updated the docs with the local RStudio build & check routine
-- added tests for chk_class()
-- errors for chk_s3_class() and chk_s4_class() now specify what the
-  object’s class(es) is (are) to help diagnose issues
-- vectorized vld_s4_class() to check for any of the classes passed,
-  similarly to vld_s3_class(). It previously only accepted one class.
-- updated tests accordingly.
-- (added the AI gitignore stuff that is now in all repos)
-- Add fledge-bump workflow
-- Add fledge-tag-on-merge workflow
+### Breaking changes
 
-## chk 0.10.0.9027
+- chk now requires R \>= 4.1.
 
-### Features
+- [`check_data()`](https://poissonconsulting.github.io/chk/dev/reference/check_data.md)
+  and
+  [`check_values()`](https://poissonconsulting.github.io/chk/dev/reference/check_values.md)
+  now require the levels of a factor column to be identical (including
+  order) to the levels of `values` whenever `values` has two or more
+  levels; previously two levels only required an ordered superset
+  ([\#297](https://github.com/poissonconsulting/chk/issues/297)).
+
+- [`check_data()`](https://poissonconsulting.github.io/chk/dev/reference/check_data.md)
+  and
+  [`check_values()`](https://poissonconsulting.github.io/chk/dev/reference/check_values.md)
+  now require all values of a column to be missing when the
+  corresponding `values` are all missing.
+
+### New features
+
+- New
+  [`chk_all_na()`](https://poissonconsulting.github.io/chk/dev/reference/chk_all_na.md)
+  and
+  [`vld_all_na()`](https://poissonconsulting.github.io/chk/dev/reference/chk_all_na.md)
+  check that all values are missing
+  ([\#299](https://github.com/poissonconsulting/chk/issues/299)).
+
+- New
+  [`chk_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_class.md)
+  and
+  [`vld_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_class.md)
+  check that an object inherits from a class using
+  [`inherits()`](https://rdrr.io/r/base/class.html) regardless of the
+  object system.
+
+- New
+  [`chk_s3_class_strict()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s3_class_strict.md)
+  and
+  [`vld_s3_class_strict()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s3_class_strict.md)
+  check that an object is an S3 object of the given class (excluding S4,
+  R5, R6 and S7 objects).
 
 - New
   [`generate_check_data()`](https://poissonconsulting.github.io/chk/dev/reference/generate_check_data.md)
@@ -30,11 +55,23 @@
   call from an example data frame
   ([\#124](https://github.com/poissonconsulting/chk/issues/124)).
 
+- [`chk_s3_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s3_class.md)
+  and
+  [`chk_s4_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s4_class.md)
+  errors now state the class(es) of the object to help diagnose issues.
+
 - [`chkor_vld()`](https://poissonconsulting.github.io/chk/dev/reference/chkor_vld.md)
   gains an `x_name` argument that is passed to each of the underlying
   `chk_` calls, so the error message refers to `x_name` rather than the
   deparsed `vld_` arguments
   ([\#100](https://github.com/poissonconsulting/chk/issues/100)).
+
+- [`vld_s4_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s4_class.md)
+  is now vectorized over `class` like
+  [`vld_s3_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s3_class.md),
+  so
+  [`chk_s4_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s4_class.md)
+  accepts multiple classes.
 
 ### Bug fixes
 
@@ -51,256 +88,11 @@
   [`chk_gt()`](https://poissonconsulting.github.io/chk/dev/reference/chk_gt.md).
 
 - [`chk_null_or()`](https://poissonconsulting.github.io/chk/dev/reference/chk_null_or.md)
-  resolves the matching `chk_` function by direct lookup (including
+  now resolves the matching `chk_` function by direct lookup (including
   `chk_`/`vld_` pairs defined in other packages) rather than by
   [`parse()`](https://rdrr.io/r/base/parse.html)/[`eval()`](https://rdrr.io/r/base/eval.html),
-  and falls back to an informative message when no partner can be found.
-
-- Corrected roxygen `@describeIn` and `@family` tags, the
-  [`chk_matrix()`](https://poissonconsulting.github.io/chk/dev/reference/chk_matrix.md)
-  and
-  [`chk_sorted()`](https://poissonconsulting.github.io/chk/dev/reference/chk_sorted.md)
-  wording, the `is.atomic(NULL)` description in the “chk Families”
-  vignette, and a broken link.
-
-## chk 0.10.0.9026
-
-### fledge
-
-- Bump version to 0.10.0.9025
-  ([\#248](https://github.com/poissonconsulting/chk/issues/248)).
-
-### Uncategorized
-
-- Merge pull request
-  [\#255](https://github.com/poissonconsulting/chk/issues/255) from
-  poissonconsulting/add-stefano-contributor.
-
-  add Stefano as ctb
-
-- Merge pull request
-  [\#252](https://github.com/poissonconsulting/chk/issues/252) from
-  poissonconsulting/depend-on-r-4.1-or-above.
-
-  Depends R \>= 4.1.0
-
-## chk 0.10.0.9025
-
-### fledge
-
-- Bump version to 0.10.0.9024
-  ([\#246](https://github.com/poissonconsulting/chk/issues/246)).
-
-## chk 0.10.0.9024
-
-### fledge
-
-- Bump version to 0.10.0.9023
-  ([\#245](https://github.com/poissonconsulting/chk/issues/245)).
-
-## chk 0.10.0.9023
-
-### Continuous integration
-
-- Update ccache-action reference.
-
-- Bump action version.
-
-## chk 0.10.0.9022
-
-- Merge branch ‘main’ of github.com:poissonconsulting/chk.
-
-## chk 0.10.0.9021
-
-### Chore
-
-- Add ccache to `.gitignore` and `.Rbuildignore`.
-
-### Continuous integration
-
-- Create snapshot update PR against correct branch.
-
-- Add reference to `/apply-patch` workflow in commit message.
-
-- Clarify rationale for not deploying on schedule.
-
-- Only run fledge on pushes to main.
-
-- Tweak fledge workflow and ccache action.
-
-## chk 0.10.0.9020
-
-### Continuous integration
-
-- Cosmetics.
-
-- Bump action versions.
-
-- Install clang-format-21.
-
-- Align fledge workflow.
-
-- Harmonize.
-
-## chk 0.10.0.9019
-
-### Chore
-
-- Auto-update from GitHub Actions
-  ([\#227](https://github.com/poissonconsulting/chk/issues/227)).
-
-## chk 0.10.0.9018
-
-### Chore
-
-- Auto-update from GitHub Actions
-  ([\#225](https://github.com/poissonconsulting/chk/issues/225)).
-
-## chk 0.10.0.9017
-
-### Chore
-
-- Auto-update from GitHub Actions
-  ([\#223](https://github.com/poissonconsulting/chk/issues/223)).
-
-- Auto-update from GitHub Actions
-  ([\#221](https://github.com/poissonconsulting/chk/issues/221)).
-
-- Auto-update from GitHub Actions
-  ([\#219](https://github.com/poissonconsulting/chk/issues/219)).
-
-- Auto-update from GitHub Actions
-  ([\#218](https://github.com/poissonconsulting/chk/issues/218)).
-
-## chk 0.10.0.9016
-
-### Chore
-
-- Auto-update from GitHub Actions
-  ([\#216](https://github.com/poissonconsulting/chk/issues/216)).
-
-## chk 0.10.0.9015
-
-### Continuous integration
-
-- Test all R versions on branches that start with cran-
-  ([\#213](https://github.com/poissonconsulting/chk/issues/213)).
-
-## chk 0.10.0.9014
-
-### Continuous integration
-
-- Ignore rmarkdown before R 4.1, rappdirs needs R 4.1.
-
-## chk 0.10.0.9013
-
-### Chore
-
-- Format with air
-  ([\#210](https://github.com/poissonconsulting/chk/issues/210)).
-
-### Continuous integration
-
-- Fix checking without testthat.
-
-## chk 0.10.0.9012
-
-### Continuous integration
-
-- Install binaries from r-universe for dev workflow
-  ([\#206](https://github.com/poissonconsulting/chk/issues/206)).
-
-## chk 0.10.0.9011
-
-### Continuous integration
-
-- Fix reviewdog and add commenting workflow
-  ([\#204](https://github.com/poissonconsulting/chk/issues/204)).
-
-## chk 0.10.0.9010
-
-### Continuous integration
-
-- Use workflows for fledge
-  ([\#202](https://github.com/poissonconsulting/chk/issues/202)).
-
-## chk 0.10.0.9009
-
-### Continuous integration
-
-- Sync ([\#200](https://github.com/poissonconsulting/chk/issues/200)).
-
-## chk 0.10.0.9008
-
-### Chore
-
-- Auto-update from GitHub Actions
-  ([\#194](https://github.com/poissonconsulting/chk/issues/194)).
-
-### Continuous integration
-
-- Use reviewdog for external PRs
-  ([\#195](https://github.com/poissonconsulting/chk/issues/195)).
-
-## chk 0.10.0.9007
-
-### Continuous integration
-
-- Format with air, check detritus, better handling of `extra-packages`
-  ([\#192](https://github.com/poissonconsulting/chk/issues/192)).
-
-## chk 0.10.0.9006
-
-- Remove internal str2lang() function.
-  ([\#97](https://github.com/poissonconsulting/chk/issues/97),
-  [\#189](https://github.com/poissonconsulting/chk/issues/189)).
-
-## chk 0.10.0.9005
-
-- Merge pull request
-  [\#187](https://github.com/poissonconsulting/chk/issues/187) from
-  poissonconsulting/chkiserrmsg.
-
-- Add R 4.0.
-
-## chk 0.10.0.9004
-
-### Continuous integration
-
-- Enhance permissions for workflow
-  ([\#183](https://github.com/poissonconsulting/chk/issues/183)).
-
-## chk 0.10.0.9003
-
-### Continuous integration
-
-- Permissions, better tests for missing suggests, lints
-  ([\#181](https://github.com/poissonconsulting/chk/issues/181)).
-
-## chk 0.10.0.9002
-
-### Continuous integration
-
-- Always use `_R_CHECK_FORCE_SUGGESTS_=false`
-  ([\#178](https://github.com/poissonconsulting/chk/issues/178)).
-
-### fledge
-
-- Bump version to 0.10.0.9001
-  ([\#176](https://github.com/poissonconsulting/chk/issues/176)).
-
-## chk 0.10.0.9001
-
-### Continuous integration
-
-- Correct installation of xml2
-  ([\#175](https://github.com/poissonconsulting/chk/issues/175)).
-
-- Sync ([\#173](https://github.com/poissonconsulting/chk/issues/173)).
-
-## chk 0.10.0.9000
-
-- Switching to development version.
+  and falls back to an informative message when no partner can be found
+  ([\#97](https://github.com/poissonconsulting/chk/issues/97)).
 
 ## chk 0.10.0
 
