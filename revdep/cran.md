@@ -2,7 +2,7 @@
 
 We checked 44 reverse dependencies (38 from CRAN + 6 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.
 
- * We saw 7 new problems
+ * We saw 5 new problems
  * We failed to check 0 packages
 
 Issues with CRAN packages are summarised below.
@@ -19,15 +19,9 @@ Issues with CRAN packages are summarised below.
 * readwritesqlite
   checking tests ...
 
-* rtide
-  checking tests ...
-
 * sims
   checking tests ...
 
 * term
-  checking tests ...
-
-* tidyplus
   checking tests ...
 
