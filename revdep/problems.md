@@ -97,40 +97,6 @@ Run `revdepcheck::revdep_details(, "readwritesqlite")` for more info
        Execution halted
      ```
 
-# rtide (0.0.11)
-
-* GitHub: <https://github.com/millerlp/rtide>
-* Email: <mailto:contact@lukemiller.org>
-* GitHub mirror: <https://github.com/cran/rtide>
-
-Run `revdepcheck::revdep_details(, "rtide")` for more info
-
-## Newly broken
-
-*   checking tests ...
-     ```
-       Running ‘spelling.R’
-       Running ‘testthat.R’
-      ERROR
-     Running the tests in ‘tests/testthat.R’ failed.
-     Last 13 lines of output:
-         3. │   └─testthat:::expect_condition_matching_(...)
-         4. │     └─testthat:::quasi_capture(...)
-         5. │       ├─testthat (local) .capture(...)
-         6. │       │ └─base::withCallingHandlers(...)
-         7. │       └─rlang::eval_bare(quo_get_expr(.quo), quo_get_env(.quo))
-         8. └─rtide::tide_stations(1, rtide::harmonics)
-         9.   └─chk::chk_s3_class(stations, "character")
-        10.     └─chk::abort_chk(...)
-        11.       └─chk::err(..., n = n, tidy = tidy, class = "chk_error", call = call)
-        12.         └─rlang::abort(msg, class = class, !!!args[named], call = call)
-       
-       [ FAIL 1 | WARN 0 | SKIP 0 | PASS 36 ]
-       Error:
-       ! Test failures.
-       Execution halted
-     ```
-
 # sims (0.0.4)
 
 * GitHub: <https://github.com/poissonconsulting/sims>
@@ -195,48 +161,5 @@ Run `revdepcheck::revdep_details(, "term")` for more info
        Error:
        ! Test failures.
        Execution halted
-     ```
-
-# tidyplus (0.2.0)
-
-* GitHub: <https://github.com/poissonconsulting/tidyplus>
-* Email: <mailto:ayla@poissonconsulting.ca>
-* GitHub mirror: <https://github.com/cran/tidyplus>
-
-Run `revdepcheck::revdep_details(, "tidyplus")` for more info
-
-## Newly broken
-
-*   checking tests ...
-     ```
-       Running ‘testthat.R’
-      ERROR
-     Running the tests in ‘tests/testthat.R’ failed.
-     Last 13 lines of output:
-         3. │   └─testthat:::quasi_capture(...)
-         4. │     ├─testthat (local) .capture(...)
-         5. │     │ └─base::withCallingHandlers(...)
-         6. │     └─rlang::eval_bare(quo_get_expr(.quo), quo_get_env(.quo))
-         7. └─tidyplus::duplicates("a")
-         8.   └─chk::check_data(.data)
-         9.     └─chk::chk_data(x, x_name = x_name)
-        10.       └─chk::abort_chk(x_name, " must be a data.frame", x = x)
-        11.         └─chk::err(..., n = n, tidy = tidy, class = "chk_error", call = call)
-        12.           └─rlang::abort(msg, class = class, !!!args[named], call = call)
-       
-       [ FAIL 1 | WARN 0 | SKIP 4 | PASS 192 ]
-       Error:
-       ! Test failures.
-       Execution halted
-     ```
-
-## In both
-
-*   checking DESCRIPTION meta-information ... NOTE
-     ```
-       Missing dependency on R >= 4.1.0 because package code uses the pipe
-       |> or function shorthand \(...) syntax added in R 4.1.0.
-       File(s) using such syntax:
-         ‘summarise2.Rd’
      ```
 
