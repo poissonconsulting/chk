@@ -1,7 +1,7 @@
 # Deparse Backtick
 
 `deparse_backtick_chk` is a wrapper on
-[`deparse()`](https://rdrr.io/r/base/deparse.html) and `backtick_chk`.
+[`deparse1()`](https://rdrr.io/r/base/deparse.html) and `backtick_chk`.
 
 ## Usage
 
@@ -36,7 +36,7 @@ functions.
 
 ## See also
 
-[`deparse()`](https://rdrr.io/r/base/deparse.html)
+[`deparse1()`](https://rdrr.io/r/base/deparse.html)
 
 ## Examples
 

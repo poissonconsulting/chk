@@ -94,6 +94,13 @@
   and falls back to an informative message when no partner can be found
   ([\#97](https://github.com/poissonconsulting/chk/issues/97)).
 
+- [`deparse_backtick_chk()`](https://poissonconsulting.github.io/chk/dev/reference/deparse_backtick_chk.md)
+  now uses [`deparse1()`](https://rdrr.io/r/base/deparse.html) so that
+  `x_name` is a string for arguments whose expressions deparse over
+  multiple lines; previously such calls failed with
+  `` `x_name` must be a string ``
+  ([\#300](https://github.com/poissonconsulting/chk/issues/300)).
+
 ## chk 0.10.0
 
 CRAN release: 2025-01-24
