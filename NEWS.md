@@ -39,6 +39,8 @@
 
 - `chk_null_or()` now resolves the matching `chk_` function by direct lookup (including `chk_`/`vld_` pairs defined in other packages) rather than by `parse()`/`eval()`, and falls back to an informative message when no partner can be found (#97).
 
+- `deparse_backtick_chk()` now uses `deparse1()` so that `x_name` is a string for arguments whose expressions deparse over multiple lines; previously such calls failed with `` `x_name` must be a string `` (#300).
+
 # chk 0.10.0
 
 - Added `chk_complex()` and `vld_complex()`. (#158).
