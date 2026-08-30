@@ -26,7 +26,7 @@ abort_chk <- function(
 
 #' Deparse Backtick
 #'
-#' `deparse_backtick_chk` is a wrapper on [deparse()]
+#' `deparse_backtick_chk` is a wrapper on [deparse1()]
 #' and `backtick_chk`.
 #'
 #' It is exported to allow users to easily construct their own `chk_` functions.
@@ -34,7 +34,7 @@ abort_chk <- function(
 #' @param x A substituted object to deparse.
 #'
 #' @return A string of the backticked substituted object.
-#' @seealso [deparse()]
+#' @seealso [deparse1()]
 #' @export
 #'
 #' @examples
@@ -42,7 +42,7 @@ abort_chk <- function(
 #' # deparse_backtick_chk
 #' deparse_backtick_chk(2)
 #' deparse_backtick_chk(2^2)
-deparse_backtick_chk <- function(x) backtick_chk(deparse(x))
+deparse_backtick_chk <- function(x) backtick_chk(deparse1(x))
 
 #' @describeIn deparse_backtick_chk Backtick
 #' @export

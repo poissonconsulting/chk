@@ -2,7 +2,7 @@ chk 0.11.0
 
 ## CRAN Repository Policy
 
-- [ ] Reviewed CRP revision 6875.
+- [x] Reviewed CRP revision 6875.
 
 ## R CMD check results
 

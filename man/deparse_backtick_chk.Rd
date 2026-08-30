@@ -19,7 +19,7 @@ unbacktick_chk(x)
 A string of the backticked substituted object.
 }
 \description{
-\code{deparse_backtick_chk} is a wrapper on \code{\link[=deparse]{deparse()}}
+\code{deparse_backtick_chk} is a wrapper on \code{\link[=deparse1]{deparse1()}}
 and \code{backtick_chk}.
 }
 \details{
@@ -39,5 +39,5 @@ deparse_backtick_chk(2)
 deparse_backtick_chk(2^2)
 }
 \seealso{
-\code{\link[=deparse]{deparse()}}
+\code{\link[=deparse1]{deparse1()}}
 }

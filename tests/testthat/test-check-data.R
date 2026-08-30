@@ -140,3 +140,22 @@ test_that("factors are handled correctly.", {
                "`data.frame(fac = factor(c(\"a\", \"b\", \"z\", NA)))$fac` must not have any missing values.",
                fixed = TRUE)
 })
+
+test_that("check_data works with expressions that deparse over multiple lines", {
+  data <- data.frame(fac = factor(c("a", "b", "z"), levels = c("a", "z", "b")))
+  expect_identical(
+    check_data(
+      data.frame(fac = factor(c("a", "b", "z"), levels = c("a", "z", "b"))),
+      list(fac = factor(c("a", "b", "z"), levels = c("a", "z", "b")))
+    ),
+    data
+  )
+  expect_error(
+    check_data(
+      data.frame(fac = factor(c("a", "b", "z"), levels = c("a", "z", "b"))),
+      list(fac = factor(c("a", "b"), levels = c("a", "b")))
+    ),
+    "`levels(data.frame(fac = factor(c(\"a\", \"b\", \"z\"), levels = c(\"a\", \"z\", \"b\")))$fac)` must have values matching 'a' or 'b'.",
+    fixed = TRUE
+  )
+})
