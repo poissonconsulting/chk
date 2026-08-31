@@ -5,9 +5,9 @@ A wrapper on [`base::paste()`](https://rdrr.io/r/base/paste.html).
 ## Usage
 
 ``` r
-p(..., sep = " ", collapse = NULL)
+p(..., sep = " ", collapse = NULL, recycle0 = FALSE)
 
-p0(..., collapse = NULL)
+p0(..., collapse = NULL, recycle0 = FALSE)
 ```
 
 ## Arguments
@@ -28,6 +28,14 @@ p0(..., collapse = NULL)
   a string, the result is always a string
   ([`character`](https://rdrr.io/r/base/character.html) of length 1).
 
+- recycle0:
+
+  [`logical`](https://rdrr.io/r/base/logical.html) indicating if
+  zero-length character arguments should result in the zero-length
+  [`character`](https://rdrr.io/r/base/character.html)`(0)`. Note that
+  when `collapse` is a string, `recycle0` does *not* recycle to
+  zero-length, but to `""`.
+
 ## Value
 
 A character vector.
@@ -44,8 +52,16 @@ p("a", "b")
 #> [1] "a b"
 p(c("a", "b"), collapse = " ")
 #> [1] "a b"
+p("a", character(0))
+#> [1] "a "
+p("a", character(0), recycle0 = TRUE)
+#> character(0)
 p0("a", "b")
 #> [1] "ab"
 p0(c("a", "b"), collapse = "")
 #> [1] "ab"
+p0("a", character(0))
+#> [1] "a"
+p0("a", character(0), recycle0 = TRUE)
+#> character(0)
 ```
