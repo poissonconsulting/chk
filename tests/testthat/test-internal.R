@@ -26,3 +26,10 @@ test_that("object_type identifies R6 objects", {
   # a generator is not an R6 object
   expect_identical(object_type(R6::R6Class("exampleR6class")), "S3")
 })
+
+test_that("object_type identifies S7 objects", {
+  skip_if_not_installed("S7")
+  expect_identical(object_type(S7::new_class("exampleS7class")()), "S7")
+  # a generator is itself an S7 object
+  expect_identical(object_type(S7::new_class("exampleS7class")), "S7")
+})
