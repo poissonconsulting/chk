@@ -1,4 +1,9 @@
-<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+<!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
+
+# chk 0.11.0.9001
+
+- Use `deparse1()` in `deparse_backtick_chk()` (#300) (#305).
+
 
 # chk 0.11.0.9000
 
