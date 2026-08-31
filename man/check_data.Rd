@@ -39,6 +39,18 @@ Checks column names, values, number of rows and key for a data.frame.
 The values of each column are checked using \code{\link[=check_values]{check_values()}}.
 See its details for the rules including those for factor levels
 and missing values.
+
+\code{values} is reduced with \code{\link[=unique]{unique()}},
+so a column whose class lacks a correct \code{\link[=unique]{unique()}} method
+is checked against the wrong values.
+In particular \code{\link[=unique]{unique()}} on a lubridate \code{Period} vector discards
+everything but the seconds,
+which collapses \code{values} and silently changes the check applied
+(see \url{https://github.com/tidyverse/lubridate/issues/1154}).
+Either define \code{unique.Period()} in your own code
+or convert the column and \code{values} to a class with a correct
+\code{\link[=unique]{unique()}} method,
+such as the number of seconds with \code{as.numeric(lubridate::as.duration(x))}.
 }
 \examples{
 check_data(data.frame())
