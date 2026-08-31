@@ -487,12 +487,13 @@ vld_orderset(c("A", "C"), c("A", "B", "C", "D")) # TRUE
 ### Class Checkers
 Check if the function input belongs to a class or type.
 
-These functions check if `x` is an S3 or S4 object of the specified class.
+These functions check if `x` is an S3, S4 or R6 object of the specified class.
 
 Function | Code
 :- | :---
 `chk_s3_class(x, class)` | `!isS4(x) && inherits(x, class)`
 `chk_s4_class(x, class)` | `isS4(x) && methods::is(x, class)`
+`chk_r6_class(x, class)` | `inherits(x, "R6") && inherits(x, class)`
 
 `chk_is()` checks if x inherits from a specified class, regardless of whether it is an S3 or S4 object.
 

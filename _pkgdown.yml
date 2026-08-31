@@ -126,6 +126,7 @@ reference:
   contents:
   - chk_is
   - chk_class
+  - chk_r6_class
   - chk_s3_class
   - chk_s3_class_strict
   - chk_s4_class
