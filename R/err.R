@@ -16,9 +16,15 @@
 #' \describe{
 #'   \item{`n`}{The value of n.}
 #'   \item{`s`}{'' if n == 1 otherwise 's'}
+#'   \item{`es`}{'' if n == 1 otherwise 'es'}
 #'   \item{`r`}{'is' if n == 1 otherwise 'are'}
 #'   \item{`y`}{'y' if n == 1 otherwise 'ie'}
+#'   \item{`%`}{A literal '%'.}
 #' }
+#'
+#' The types are replaced in a single left to right pass,
+#' so `%%` escapes a literal '%' and a replacement is never rescanned.
+#' A '%' that does not start a recognized type is left as is.
 #'
 #' @param ... Multiple objects that are converted to a string using
 #' `paste0(..., collapse = '')`.
@@ -32,13 +38,14 @@
 #' message_chk("there %r %n", " problem director%y%s")
 #' message_chk("there %r %n", " problem director%y%s", n = 1)
 #' message_chk("There %r %n", " problem director%y%s.", n = 3)
+#' message_chk("there %r %n problem class%es", n = 1)
+#' message_chk("there %r %n problem class%es", n = 3)
+#' message_chk("%n%% of value%s", n = 2)
 message_chk <- function(..., n = NULL, tidy = TRUE) {
   string <- p0(..., collapse = "")
   if (!is.null(n)) {
-    string <- gsub("%r", if (n == 1) "is" else "are", string, fixed = TRUE)
-    string <- gsub("%s", if (n == 1) "" else "s", string, fixed = TRUE)
-    string <- gsub("%y", if (n == 1) "y" else "ie", string, fixed = TRUE)
-    string <- gsub("%n", n, string, fixed = TRUE)
+    chk_number(n)
+    string <- replace_types_chk(string, n)
   }
   if (vld_true(tidy)) {
     if (!grepl("([.]|[?]|[!])$", string)) {
@@ -49,6 +56,26 @@ message_chk <- function(..., n = NULL, tidy = TRUE) {
       substr(string, 2, nchar(string))
     )
   }
+  string
+}
+
+# a single left to right pass, so that a replacement is never rescanned
+# this is what makes %% an escape and stops %es being consumed by %s
+replace_types_chk <- function(string, n) {
+  types <- c(
+    "%%" = "%",
+    "%r" = if (n == 1) "is" else "are",
+    "%es" = if (n == 1) "" else "es",
+    "%s" = if (n == 1) "" else "s",
+    "%y" = if (n == 1) "y" else "ie",
+    "%n" = as.character(n)
+  )
+  matches <- gregexpr("%%|%es|%r|%s|%y|%n", string)
+  found <- regmatches(string, matches)[[1]]
+  if (!length(found)) {
+    return(string)
+  }
+  regmatches(string, matches) <- list(unname(types[found]))
   string
 }
 

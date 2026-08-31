@@ -36,13 +36,22 @@ The following recognized \code{sprintf}-like types can be used in a message:
 \describe{
 \item{\code{n}}{The value of n.}
 \item{\code{s}}{'' if n == 1 otherwise 's'}
+\item{\code{es}}{'' if n == 1 otherwise 'es'}
 \item{\code{r}}{'is' if n == 1 otherwise 'are'}
 \item{\code{y}}{'y' if n == 1 otherwise 'ie'}
+\item{\verb{\%}}{A literal '\%'.}
 }
+
+The types are replaced in a single left to right pass,
+so \code{\%\%} escapes a literal '\%' and a replacement is never rescanned.
+A '\%' that does not start a recognized type is left as is.
 }
 
 \examples{
 message_chk("there \%r \%n", " problem director\%y\%s")
 message_chk("there \%r \%n", " problem director\%y\%s", n = 1)
 message_chk("There \%r \%n", " problem director\%y\%s.", n = 3)
+message_chk("there \%r \%n problem class\%es", n = 1)
+message_chk("there \%r \%n problem class\%es", n = 3)
+message_chk("\%n\%\% of value\%s", n = 2)
 }

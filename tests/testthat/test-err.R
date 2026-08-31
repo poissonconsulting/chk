@@ -110,3 +110,61 @@ test_that("wrn .subclass deprecated", {
   ))
   expect_s3_class(expect_warning(wrn(class = "xx"), "^[.]$"), "xx")
 })
+
+test_that("message_chk pluralizes with %es", {
+  expect_identical(
+    message_chk("there %r %n problem class%es", n = 1, tidy = FALSE),
+    "there is 1 problem class"
+  )
+  expect_identical(
+    message_chk("there %r %n problem class%es", n = 2, tidy = FALSE),
+    "there are 2 problem classes"
+  )
+})
+
+test_that("message_chk handles %es and %s in the same message", {
+  expect_identical(
+    message_chk("%n class%es and %n value%s", n = 2, tidy = FALSE),
+    "2 classes and 2 values"
+  )
+  expect_identical(
+    message_chk("%n class%es and %n value%s", n = 1, tidy = FALSE),
+    "1 class and 1 value"
+  )
+})
+
+test_that("message_chk escapes %% as a literal %", {
+  expect_identical(
+    message_chk("100%% complete", n = 1, tidy = FALSE),
+    "100% complete"
+  )
+  expect_identical(
+    message_chk("100%%s of value%s", n = 2, tidy = FALSE),
+    "100%s of values"
+  )
+})
+
+test_that("message_chk leaves a lone % untouched", {
+  expect_identical(
+    message_chk("50% of value%s", n = 2, tidy = FALSE),
+    "50% of values"
+  )
+})
+
+test_that("message_chk leaves the types alone when n is NULL", {
+  expect_identical(
+    message_chk("there %r %n problem class%es", tidy = FALSE),
+    "there %r %n problem class%es"
+  )
+})
+
+test_that("message_chk requires n to be a number", {
+  expect_chk_error(
+    message_chk("there %r %n value%s", n = NA),
+    "^`n` must be a number [(]non-missing numeric scalar[)][.]$"
+  )
+  expect_chk_error(
+    message_chk("there %r %n value%s", n = c(1, 2)),
+    "^`n` must be a number [(]non-missing numeric scalar[)][.]$"
+  )
+})
