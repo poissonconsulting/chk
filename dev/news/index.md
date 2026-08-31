@@ -1,5 +1,12 @@
 # Changelog
 
+## chk 0.11.0.9001
+
+- Use [`deparse1()`](https://rdrr.io/r/base/deparse.html) in
+  [`deparse_backtick_chk()`](https://poissonconsulting.github.io/chk/dev/reference/deparse_backtick_chk.md)
+  ([\#300](https://github.com/poissonconsulting/chk/issues/300))
+  ([\#305](https://github.com/poissonconsulting/chk/issues/305)).
+
 ## chk 0.11.0.9000
 
 - Same as previous version.
