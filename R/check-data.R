@@ -8,6 +8,18 @@
 #' See its details for the rules including those for factor levels
 #' and missing values.
 #'
+#' `values` is reduced with [unique()],
+#' so a column whose class lacks a correct [unique()] method
+#' is checked against the wrong values.
+#' In particular [unique()] on a lubridate `Period` vector discards
+#' everything but the seconds,
+#' which collapses `values` and silently changes the check applied
+#' (see <https://github.com/tidyverse/lubridate/issues/1154>).
+#' Either define `unique.Period()` in your own code
+#' or convert the column and `values` to a class with a correct
+#' [unique()] method,
+#' such as the number of seconds with `as.numeric(lubridate::as.duration(x))`.
+#'
 #' @inheritParams params
 #' @param values A uniquely named list of atomic vectors of the column values.
 #' @return An informative error if the test fails or an invisible copy of x.
