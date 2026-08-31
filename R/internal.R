@@ -18,12 +18,14 @@
 }
 
 # the class system an object belongs to, for reporting in error messages
-# R5 reference classes count as S4; base objects and S7 classes count as S3
+# R5 reference classes count as S4; base objects count as S3
 object_type <- function(x) {
   if (vld_s4_class(x, class(x))) {
     "S4"
   } else if (inherits(x, "R6")) {
     "R6"
+  } else if (inherits(x, "S7_object")) {
+    "S7"
   } else {
     "S3"
   }
