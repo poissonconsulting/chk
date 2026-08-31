@@ -30,11 +30,13 @@ chk_s4_class <- function(x, class, x_name = NULL) {
   .class <- cc(class, conj = " or ", chk = FALSE)
   abort_chk(
     x_name,
-    " must inherit from S4 class", if (length(class) == 1) " " else "es ",
+    " must inherit from S4 class",
+    if (length(class) == 1) " " else "es ",
     .class,
     ", not ",
-    if (vld_s4_class(x, class(x))) "S4" else if (inherits(x, "R6")) "R6" else "S3",
-    " class", if (length(class(x)) == 1) " " else "es ",
+    object_type(x),
+    " class",
+    if (length(class(x)) == 1) " " else "es ",
     cc(class(x), conj = " and "),
     ".",
     x = x,
@@ -49,4 +51,6 @@ chk_s4_class <- function(x, class, x_name = NULL) {
 #' vld_s4_class(numeric(0), "numeric")
 #' vld_s4_class(getClass("MethodDefinition"), "classRepresentation")
 #' @export
-vld_s4_class <- function(x, class) isS4(x) && any(sapply(class, \(.c) methods::is(x, .c)))
+vld_s4_class <- function(x, class) {
+  isS4(x) && any(sapply(class, \(.c) methods::is(x, .c)))
+}
