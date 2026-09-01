@@ -161,10 +161,10 @@ test_that("message_chk leaves the types alone when n is NULL", {
 test_that("message_chk requires n to be a number", {
   expect_chk_error(
     message_chk("there %r %n value%s", n = NA),
-    "^`n` must be a number [(]non-missing numeric scalar[)][.]$"
+    "^`n` must be a number \\(non-missing numeric scalar\\)\\.$"
   )
   expect_chk_error(
     message_chk("there %r %n value%s", n = c(1, 2)),
-    "^`n` must be a number [(]non-missing numeric scalar[)][.]$"
+    "^`n` must be a number \\(non-missing numeric scalar\\)\\.$"
   )
 })
