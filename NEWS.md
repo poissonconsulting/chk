@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.11.0.9002
+
+- Internal changes only.
+
+
 # chk 0.11.0.9001
 
 - Use `deparse1()` in `deparse_backtick_chk()` (#300) (#305).
