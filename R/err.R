@@ -18,7 +18,7 @@
 #'   \item{`s`}{'' if n == 1 otherwise 's'}
 #'   \item{`es`}{'' if n == 1 otherwise 'es'}
 #'   \item{`r`}{'is' if n == 1 otherwise 'are'}
-#'   \item{`y`}{'y' if n == 1 otherwise 'ie'}
+#'   \item{`y`}{'y' if n == 1 otherwise 'ies'}
 #'   \item{`%`}{A literal '%'.}
 #' }
 #'
