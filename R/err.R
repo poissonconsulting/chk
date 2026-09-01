@@ -67,7 +67,7 @@ replace_types_chk <- function(string, n) {
     "%r" = if (n == 1) "is" else "are",
     "%es" = if (n == 1) "" else "es",
     "%s" = if (n == 1) "" else "s",
-    "%y" = if (n == 1) "y" else "ie",
+    "%y" = if (n == 1) "y" else "ies",
     "%n" = as.character(n)
   )
   matches <- gregexpr("%%|%es|%r|%s|%y|%n", string)
