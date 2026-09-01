@@ -18,7 +18,8 @@
 #'   \item{`s`}{'' if n == 1 otherwise 's'}
 #'   \item{`es`}{'' if n == 1 otherwise 'es'}
 #'   \item{`r`}{'is' if n == 1 otherwise 'are'}
-#'   \item{`y`}{'y' if n == 1 otherwise 'ies'}
+#'   \item{`y`}{'y' if n == 1 otherwise 'ie'}
+#'   \item{`ies`}{'y' if n == 1 otherwise 'ies'}
 #'   \item{`%`}{A literal '%'.}
 #' }
 #'
@@ -67,10 +68,11 @@ replace_types_chk <- function(string, n) {
     "%r" = if (n == 1) "is" else "are",
     "%es" = if (n == 1) "" else "es",
     "%s" = if (n == 1) "" else "s",
-    "%y" = if (n == 1) "y" else "ies",
+    "%ies" = if (n == 1) "y" else "ies",
+    "%y" = if (n == 1) "y" else "ie",
     "%n" = as.character(n)
   )
-  matches <- gregexpr("%%|%es|%r|%s|%y|%n", string)
+  matches <- gregexpr("%%|%es|%r|%s|%y|%ies|%n", string)
   found <- regmatches(string, matches)[[1]]
   if (!length(found)) {
     return(string)
