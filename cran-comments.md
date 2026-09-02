@@ -17,6 +17,6 @@ We checked 44 reverse dependencies (38 from CRAN + 6 from Bioconductor), compari
 
 The one newly failing package, readwritesqlite, fails because its test suite tests for the exact text of chk error messages, which this release improves.
 There is no change to the chk API.
-readwritesqlite was archived on CRAN on 2025-01-17 at the maintainer's request; revdepcheck still checks its archived tarball.
 A patch that passes with both the current and new version of chk is merged on its development repository (poissonconsulting/readwritesqlite#76).
+We maintain readwritesqlite and will submit the patched version once chk is on CRAN.
 The four packages that were newly failing when this release was previously prepared (mcmcr, nlist, sims and term) have since been updated on CRAN and now pass.
