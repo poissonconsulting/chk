@@ -17,8 +17,8 @@ test_that("check_names fails", {
     check_names(character(0)),
     "^`character[(]0[)]` must be named[.]$"
   )
-  x <- structure(list(), .Names = character(0))
-  x <- structure(list(), .Names = character(0))
+  x <- structure(list(), names = character(0))
+  x <- structure(list(), names = character(0))
   expect_chk_error(
     check_names(c(x = 1), exclusive = TRUE),
     "^`c[(]x = 1[)]` must not have any elements[.]$"

@@ -48,7 +48,7 @@ check_data <- function(
   chk_data(x, x_name = x_name)
 
   if (is.null(values)) {
-    values <- structure(list(), .Names = character(0))
+    values <- structure(list(), names = character(0))
   }
   chk_list(values)
   chk_named(values)
