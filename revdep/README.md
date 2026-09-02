@@ -19,12 +19,3 @@
 |package |old    |new    |Δ  |
 |:-------|:------|:------|:--|
 |chk     |0.10.0 |0.11.0 |*  |
-
-# Revdeps
-
-## New problems (1)
-
-|package         |version |error  |warning |note |
-|:---------------|:-------|:------|:-------|:----|
-|[readwritesqlite](problems.md#readwritesqlite)|0.2.0   |__+1__ |        |     |
-
