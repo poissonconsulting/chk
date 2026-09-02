@@ -45,6 +45,13 @@
   R5, R6 and S7 objects).
 
 - New
+  [`chk_r6_class()`](https://poissonconsulting.github.io/chk/reference/chk_r6_class.md)
+  and
+  [`vld_r6_class()`](https://poissonconsulting.github.io/chk/reference/chk_r6_class.md)
+  check that an object is an R6 object of the given class
+  ([\#306](https://github.com/poissonconsulting/chk/issues/306)).
+
+- New
   [`generate_check_data()`](https://poissonconsulting.github.io/chk/reference/generate_check_data.md)
   generates the code for a
   [`check_data()`](https://poissonconsulting.github.io/chk/reference/check_data.md)
@@ -69,6 +76,18 @@
   [`chk_s4_class()`](https://poissonconsulting.github.io/chk/reference/chk_s4_class.md)
   accepts multiple classes.
 
+- [`message_chk()`](https://poissonconsulting.github.io/chk/reference/message_chk.md)
+  gains a `%es` `sprintf`-like type (for pluralizing words such as
+  class/classes) and treats `%%` as an escape for a literal ‘%’
+  ([\#310](https://github.com/poissonconsulting/chk/issues/310)).
+
+- [`p()`](https://poissonconsulting.github.io/chk/reference/p.md) and
+  [`p0()`](https://poissonconsulting.github.io/chk/reference/p.md) gain
+  a `recycle0` argument that is passed to
+  [`paste()`](https://rdrr.io/r/base/paste.html) and
+  [`paste0()`](https://rdrr.io/r/base/paste.html)
+  ([\#307](https://github.com/poissonconsulting/chk/issues/307)).
+
 ### Bug fixes
 
 - [`check_data()`](https://poissonconsulting.github.io/chk/reference/check_data.md)
@@ -89,6 +108,21 @@
   [`parse()`](https://rdrr.io/r/base/parse.html)/[`eval()`](https://rdrr.io/r/base/eval.html),
   and falls back to an informative message when no partner can be found
   ([\#97](https://github.com/poissonconsulting/chk/issues/97)).
+
+- [`deparse_backtick_chk()`](https://poissonconsulting.github.io/chk/reference/deparse_backtick_chk.md)
+  now uses [`deparse1()`](https://rdrr.io/r/base/deparse.html) so that
+  `x_name` is a string for arguments whose expressions deparse over
+  multiple lines; previously such calls failed with
+  `` `x_name` must be a string ``
+  ([\#300](https://github.com/poissonconsulting/chk/issues/300)).
+
+### Documentation
+
+- [`check_data()`](https://poissonconsulting.github.io/chk/reference/check_data.md)
+  now documents that it does not check for duplicate rows and that
+  [`unique()`](https://rdrr.io/r/base/unique.html) should be used to
+  detect them
+  ([\#309](https://github.com/poissonconsulting/chk/issues/309)).
 
 ## chk 0.10.0
 

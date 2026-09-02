@@ -48,6 +48,7 @@ Other id_checkers:
 [`chk_class()`](https://poissonconsulting.github.io/chk/reference/chk_class.md),
 [`chk_data()`](https://poissonconsulting.github.io/chk/reference/chk_data.md),
 [`chk_is()`](https://poissonconsulting.github.io/chk/reference/chk_is.md),
+[`chk_r6_class()`](https://poissonconsulting.github.io/chk/reference/chk_r6_class.md),
 [`chk_s3_class()`](https://poissonconsulting.github.io/chk/reference/chk_s3_class.md),
 [`chk_s4_class()`](https://poissonconsulting.github.io/chk/reference/chk_s4_class.md)
 

@@ -38,6 +38,14 @@ deparse_backtick(x)
 
   A string of the name of object x or NULL.
 
+## Value
+
+The `chk_` functions throw an informative error if the test fails and
+otherwise return invisibly. `vld_no_missing()` returns a flag indicating
+whether `x` has no missing values and `deparse_backtick()` returns a
+string. `chk_off()`, `chk_on()` and `is_chk_on()` are defunct and always
+throw an error.
+
 ## Functions
 
 - `chk_dirs()`: Check Directories Exist
@@ -117,3 +125,32 @@ Other deprecated:
 [`chk_chr()`](https://poissonconsulting.github.io/chk/reference/chk_chr.md),
 [`chk_dbl()`](https://poissonconsulting.github.io/chk/reference/chk_dbl.md),
 [`chk_wnum()`](https://poissonconsulting.github.io/chk/reference/chk_wnum.md)
+
+## Examples
+
+``` r
+# The deprecated functions signal a deprecation warning when called.
+chk_has(1:2, 1)
+#> Warning: `chk_has()` was deprecated in chk 0.2.0.
+#> ℹ Please use `chk_superset()` instead.
+chk_in(1, 1:2)
+#> Warning: `chk_in()` was deprecated in chk 0.2.0.
+#> ℹ Please use `chk_subset()` instead.
+chk_no_missing(1)
+#> Warning: `chk_no_missing()` was deprecated in chk 0.2.0.
+#> ℹ Please use `chk_not_any_na()` instead.
+vld_no_missing(1)
+#> [1] TRUE
+chk_proportion(0.5)
+#> Warning: `chk_proportion()` was deprecated in chk 0.2.0.
+#> ℹ Please use `chk_number(x)` or `chk_range(x)` instead
+deparse_backtick(quote(x))
+#> Warning: `deparse_backtick()` was deprecated in chk 0.2.0.
+#> ℹ Please use `deparse_backtick_chk()` instead.
+#> [1] "`x`"
+
+# The defunct functions always throw an error.
+try(chk_on())
+#> Error : `chk_on()` was deprecated in chk 0.2.0 and is now defunct.
+#> ℹ This approach is no longer recommended
+```

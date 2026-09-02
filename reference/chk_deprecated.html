@@ -79,6 +79,15 @@
 
 </dl></div>
     <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    <p>The <code>chk_</code> functions throw an informative error if the test fails and
+otherwise return invisibly.
+<code>vld_no_missing()</code> returns a flag indicating whether <code>x</code> has no missing
+values and <code>deparse_backtick()</code> returns a string.
+<code>chk_off()</code>, <code>chk_on()</code> and <code>is_chk_on()</code> are defunct and always throw an
+error.</p>
+    </div>
+    <div class="section level2">
     <h2 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a></h2>
 
 <ul><li><p><code>chk_dirs()</code>: Check Directories Exist</p>
@@ -123,6 +132,34 @@
 <code><a href="chk_wnum.html">chk_wnum()</a></code></p></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># The deprecated functions signal a deprecation warning when called.</span></span></span>
+<span class="r-in"><span><span class="fu">chk_has</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`chk_has()` was deprecated in chk 0.2.0.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please use `chk_superset()` instead.</span>
+<span class="r-in"><span><span class="fu">chk_in</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`chk_in()` was deprecated in chk 0.2.0.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please use `chk_subset()` instead.</span>
+<span class="r-in"><span><span class="fu">chk_no_missing</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`chk_no_missing()` was deprecated in chk 0.2.0.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please use `chk_not_any_na()` instead.</span>
+<span class="r-in"><span><span class="fu">vld_no_missing</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span><span class="fu">chk_proportion</span><span class="op">(</span><span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`chk_proportion()` was deprecated in chk 0.2.0.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please use `chk_number(x)` or `chk_range(x)` instead</span>
+<span class="r-in"><span><span class="fu">deparse_backtick</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substitute.html" class="external-link">quote</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`deparse_backtick()` was deprecated in chk 0.2.0.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please use `deparse_backtick_chk()` instead.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "`x`"</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># The defunct functions always throw an error.</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">chk_on</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error : `chk_on()` was deprecated in chk 0.2.0 and is now defunct.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> This approach is no longer recommended</span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 

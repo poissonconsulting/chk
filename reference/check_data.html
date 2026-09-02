@@ -95,6 +95,17 @@
     <p>The values of each column are checked using <code><a href="check_values.html">check_values()</a></code>.
 See its details for the rules including those for factor levels
 and missing values.</p>
+<p><code>values</code> is reduced with <code><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique()</a></code>,
+so a column whose class lacks a correct <code><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique()</a></code> method
+is checked against the wrong values.
+In particular <code><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique()</a></code> on a <code>lubridate</code> <code>Period</code> vector discards
+everything but the seconds,
+which collapses <code>values</code> and silently changes the check applied
+(see <a href="https://github.com/tidyverse/lubridate/issues/1154" class="external-link">https://github.com/tidyverse/lubridate/issues/1154</a>).
+Either define <code>unique.Period()</code> in your own code
+or convert the column and <code>values</code> to a class with a correct
+<code><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique()</a></code> method,
+such as the number of seconds with <code>as.numeric(lubridate::as.duration(x))</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

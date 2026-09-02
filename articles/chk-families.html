@@ -991,8 +991,8 @@ preserving the order of those values.</p>
 <h3 id="class-checkers">Class Checkers<a class="anchor" aria-label="anchor" href="#class-checkers"></a>
 </h3>
 <p>Check if the function input belongs to a class or type.</p>
-<p>These functions check if <code>x</code> is an S3 or S4 object of the
-specified class.</p>
+<p>These functions check if <code>x</code> is an S3, S4 or R6 object of
+the specified class.</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Function</th>
@@ -1006,6 +1006,10 @@ specified class.</p>
 <tr class="even">
 <td align="left"><code>chk_s4_class(x, class)</code></td>
 <td align="left"><code>isS4(x) &amp;&amp; methods::is(x, class)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>chk_r6_class(x, class)</code></td>
+<td align="left"><code>inherits(x, "R6") &amp;&amp; inherits(x, class)</code></td>
 </tr>
 </tbody>
 </table>

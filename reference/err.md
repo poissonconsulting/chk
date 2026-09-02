@@ -66,6 +66,11 @@ msg(..., n = NULL, tidy = TRUE, .subclass = NULL, class = NULL)
   in error
   messages](https://rlang.r-lib.org/reference/topic-error-call.html).
 
+## Value
+
+`err()` throws an error. `wrn()` signals a warning and `msg()` signals a
+message; both return `NULL` invisibly.
+
 ## Details
 
 The user can set the subclass.
