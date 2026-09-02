@@ -48,6 +48,10 @@ The following recognized `sprintf`-like types can be used in a message:
 
   ” if n == 1 otherwise 's'
 
+- `es`:
+
+  ” if n == 1 otherwise 'es'
+
 - `r`:
 
   'is' if n == 1 otherwise 'are'
@@ -55,6 +59,14 @@ The following recognized `sprintf`-like types can be used in a message:
 - `y`:
 
   'y' if n == 1 otherwise 'ie'
+
+- `%`:
+
+  A literal '%'.
+
+The types are replaced in a single left to right pass, so `%%` escapes a
+literal '%' and a replacement is never rescanned. A '%' that does not
+start a recognized type is left as is.
 
 ## Examples
 
@@ -65,4 +77,10 @@ message_chk("there %r %n", " problem director%y%s", n = 1)
 #> [1] "There is 1 problem directory."
 message_chk("There %r %n", " problem director%y%s.", n = 3)
 #> [1] "There are 3 problem directories."
+message_chk("there %r %n problem class%es", n = 1)
+#> [1] "There is 1 problem class."
+message_chk("there %r %n problem class%es", n = 3)
+#> [1] "There are 3 problem classes."
+message_chk("%n%% of value%s", n = 2)
+#> [1] "2% of values."
 ```
