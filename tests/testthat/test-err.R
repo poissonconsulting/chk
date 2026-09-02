@@ -110,3 +110,143 @@ test_that("wrn .subclass deprecated", {
   ))
   expect_s3_class(expect_warning(wrn(class = "xx"), "^[.]$"), "xx")
 })
+
+test_that("message_chk pluralizes with %es", {
+  expect_identical(
+    message_chk("there %r %n problem class%es", n = 1, tidy = FALSE),
+    "there is 1 problem class"
+  )
+  expect_identical(
+    message_chk("there %r %n problem class%es", n = 2, tidy = FALSE),
+    "there are 2 problem classes"
+  )
+})
+
+test_that("message_chk handles %es and %s in the same message", {
+  expect_identical(
+    message_chk("%n class%es and %n value%s", n = 2, tidy = FALSE),
+    "2 classes and 2 values"
+  )
+  expect_identical(
+    message_chk("%n class%es and %n value%s", n = 1, tidy = FALSE),
+    "1 class and 1 value"
+  )
+})
+
+test_that("message_chk escapes %% as a literal %", {
+  expect_identical(
+    message_chk("100%% complete", n = 1, tidy = FALSE),
+    "100% complete"
+  )
+  expect_identical(
+    message_chk("100%%s of value%s", n = 2, tidy = FALSE),
+    "100%s of values"
+  )
+})
+
+test_that("message_chk leaves a lone % untouched", {
+  expect_identical(
+    message_chk("50% of value%s", n = 2, tidy = FALSE),
+    "50% of values"
+  )
+})
+
+test_that("message_chk leaves the types alone when n is NULL", {
+  expect_identical(
+    message_chk("there %r %n problem class%es", tidy = FALSE),
+    "there %r %n problem class%es"
+  )
+})
+
+test_that("message_chk requires n to be a number", {
+  expect_chk_error(
+    message_chk("there %r %n value%s", n = NA),
+    "^`n` must be a number \\(non-missing numeric scalar\\)\\.$"
+  )
+  expect_chk_error(
+    message_chk("there %r %n value%s", n = c(1, 2)),
+    "^`n` must be a number \\(non-missing numeric scalar\\)\\.$"
+  )
+})
+
+test_that("message_chk pluralizes with %y", {
+  expect_identical(
+    message_chk("%n director%y", n = 1, tidy = FALSE),
+    "1 directory"
+  )
+  expect_identical(
+    message_chk("%n director%y", n = 2, tidy = FALSE),
+    "2 directorie"
+  )
+})
+
+test_that("message_chk pluralizes with %y followed by %s", {
+  expect_identical(
+    message_chk("there %r %n problem director%y%s", n = 1, tidy = FALSE),
+    "there is 1 problem directory"
+  )
+  expect_identical(
+    message_chk("there %r %n problem director%y%s", n = 0, tidy = FALSE),
+    "there are 0 problem directories"
+  )
+  expect_identical(
+    message_chk("there %r %n problem director%y%s", n = 1.5, tidy = FALSE),
+    "there are 1.5 problem directories"
+  )
+  expect_identical(
+    message_chk("there %r %n problem director%y%s", n = 2, tidy = FALSE),
+    "there are 2 problem directories"
+  )
+})
+
+test_that("message_chk pluralizes with %ies", {
+  expect_identical(
+    message_chk("there %r %n problem director%ies", n = 1, tidy = FALSE),
+    "there is 1 problem directory"
+  )
+  expect_identical(
+    message_chk("there %r %n problem director%ies", n = 0, tidy = FALSE),
+    "there are 0 problem directories"
+  )
+  expect_identical(
+    message_chk("there %r %n problem director%ies", n = 1.5, tidy = FALSE),
+    "there are 1.5 problem directories"
+  )
+  expect_identical(
+    message_chk("there %r %n problem director%ies", n = 2, tidy = FALSE),
+    "there are 2 problem directories"
+  )
+})
+
+test_that("message_chk %ies is not consumed by %es or %s", {
+  expect_identical(
+    message_chk(
+      "%n polic%ies and %n class%es and %n value%s",
+      n = 1,
+      tidy = FALSE
+    ),
+    "1 policy and 1 class and 1 value"
+  )
+  expect_identical(
+    message_chk(
+      "%n polic%ies and %n class%es and %n value%s",
+      n = 3,
+      tidy = FALSE
+    ),
+    "3 policies and 3 classes and 3 values"
+  )
+})
+
+test_that("message_chk %% escapes %y and %ies", {
+  expect_identical(
+    message_chk("%%y and %%ies", n = 2, tidy = FALSE),
+    "%y and %ies"
+  )
+})
+
+test_that("message_chk leaves %y and %ies alone when n is NULL", {
+  expect_identical(
+    message_chk("%n director%y%s and %n polic%ies", tidy = FALSE),
+    "%n director%y%s and %n polic%ies"
+  )
+})
