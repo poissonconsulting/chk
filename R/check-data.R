@@ -11,7 +11,7 @@
 #' `values` is reduced with [unique()],
 #' so a column whose class lacks a correct [unique()] method
 #' is checked against the wrong values.
-#' In particular [unique()] on a lubridate `Period` vector discards
+#' In particular [unique()] on a `lubridate` `Period` vector discards
 #' everything but the seconds,
 #' which collapses `values` and silently changes the check applied
 #' (see <https://github.com/tidyverse/lubridate/issues/1154>).
@@ -48,7 +48,7 @@ check_data <- function(
   chk_data(x, x_name = x_name)
 
   if (is.null(values)) {
-    values <- structure(list(), .Names = character(0))
+    values <- structure(list(), names = character(0))
   }
   chk_list(values)
   chk_named(values)

@@ -46,6 +46,10 @@ respectively not display any call or hard-code a code to display.
 
 For more information about error calls, see \ifelse{html}{\link[rlang:topic-error-call]{Including function calls in error messages}}{\link[rlang:topic-error-call]{Including function calls in error messages}}.}
 }
+\value{
+\code{err()} throws an error. \code{wrn()} signals a warning and \code{msg()}
+signals a message; both return \code{NULL} invisibly.
+}
 \description{
 The functions call \code{\link[=message_chk]{message_chk()}} to process
 the message and then

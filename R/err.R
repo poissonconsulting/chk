@@ -93,6 +93,8 @@ replace_types_chk <- function(string, n) {
 #' @inheritParams base::stop
 #' @inheritParams rlang::abort
 #' @inheritParams message_chk
+#' @return `err()` throws an error. `wrn()` signals a warning and `msg()`
+#' signals a message; both return `NULL` invisibly.
 #' @name err
 NULL
 

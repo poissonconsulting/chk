@@ -42,6 +42,14 @@ deparse_backtick(x)
 
 \item{x_name}{A string of the name of object x or NULL.}
 }
+\value{
+The \code{chk_} functions throw an informative error if the test fails and
+otherwise return invisibly.
+\code{vld_no_missing()} returns a flag indicating whether \code{x} has no missing
+values and \code{deparse_backtick()} returns a string.
+\code{chk_off()}, \code{chk_on()} and \code{is_chk_on()} are defunct and always throw an
+error.
+}
 \description{
 Deprecated \code{chk_()} functions.
 }
@@ -114,6 +122,18 @@ Replace by \verb{[chk_number](x); [chk_range](x)}
 Replace with \code{\link[=deparse_backtick_chk]{deparse_backtick_chk()}}
 
 }}
+\examples{
+# The deprecated functions signal a deprecation warning when called.
+chk_has(1:2, 1)
+chk_in(1, 1:2)
+chk_no_missing(1)
+vld_no_missing(1)
+chk_proportion(0.5)
+deparse_backtick(quote(x))
+
+# The defunct functions always throw an error.
+try(chk_on())
+}
 \seealso{
 Other deprecated:
 \code{\link[=chk_chr]{chk_chr()}},

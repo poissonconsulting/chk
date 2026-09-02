@@ -39,6 +39,7 @@ The following recognized \code{sprintf}-like types can be used in a message:
 \item{\code{es}}{'' if n == 1 otherwise 'es'}
 \item{\code{r}}{'is' if n == 1 otherwise 'are'}
 \item{\code{y}}{'y' if n == 1 otherwise 'ie'}
+\item{\code{ies}}{'y' if n == 1 otherwise 'ies'}
 \item{\verb{\%}}{A literal '\%'.}
 }
 

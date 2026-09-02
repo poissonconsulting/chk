@@ -1,20 +1,5 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
-# chk 0.11.0.9002
-
-- Internal changes only.
-
-
-# chk 0.11.0.9001
-
-- Use `deparse1()` in `deparse_backtick_chk()` (#300) (#305).
-
-
-# chk 0.11.0.9000
-
-- Same as previous version.
-
-
 # chk 0.11.0
 
 ## Breaking changes
@@ -33,6 +18,8 @@
 
 - New `chk_s3_class_strict()` and `vld_s3_class_strict()` check that an object is an S3 object of the given class (excluding S4, R5, R6 and S7 objects).
 
+- New `chk_r6_class()` and `vld_r6_class()` check that an object is an R6 object of the given class (#306).
+
 - New `generate_check_data()` generates the code for a `check_data()` call from an example data frame (#124).
 
 - `chk_s3_class()` and `chk_s4_class()` errors now state the class(es) of the object to help diagnose issues.
@@ -40,6 +27,10 @@
 - `chkor_vld()` gains an `x_name` argument that is passed to each of the underlying `chk_` calls, so the error message refers to `x_name` rather than the deparsed `vld_` arguments (#100).
 
 - `vld_s4_class()` is now vectorized over `class` like `vld_s3_class()`, so `chk_s4_class()` accepts multiple classes.
+
+- `message_chk()` gains a `%es` `sprintf`-like type (for pluralizing words such as class/classes) and treats `%%` as an escape for a literal '%' (#310).
+
+- `p()` and `p0()` gain a `recycle0` argument that is passed to `paste()` and `paste0()` (#307).
 
 ## Bug fixes
 
@@ -50,6 +41,10 @@
 - `chk_null_or()` now resolves the matching `chk_` function by direct lookup (including `chk_`/`vld_` pairs defined in other packages) rather than by `parse()`/`eval()`, and falls back to an informative message when no partner can be found (#97).
 
 - `deparse_backtick_chk()` now uses `deparse1()` so that `x_name` is a string for arguments whose expressions deparse over multiple lines; previously such calls failed with `` `x_name` must be a string `` (#300).
+
+## Documentation
+
+- `check_data()` now documents that it does not check for duplicate rows and that `unique()` should be used to detect them (#309).
 
 # chk 0.10.0
 
