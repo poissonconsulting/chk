@@ -63,9 +63,9 @@ missing values.
 [`unique()`](https://rdrr.io/r/base/unique.html), so a column whose
 class lacks a correct [`unique()`](https://rdrr.io/r/base/unique.html)
 method is checked against the wrong values. In particular
-[`unique()`](https://rdrr.io/r/base/unique.html) on a lubridate `Period`
-vector discards everything but the seconds, which collapses `values` and
-silently changes the check applied (see
+[`unique()`](https://rdrr.io/r/base/unique.html) on a `lubridate`
+`Period` vector discards everything but the seconds, which collapses
+`values` and silently changes the check applied (see
 <https://github.com/tidyverse/lubridate/issues/1154>). Either define
 `unique.Period()` in your own code or convert the column and `values` to
 a class with a correct [`unique()`](https://rdrr.io/r/base/unique.html)

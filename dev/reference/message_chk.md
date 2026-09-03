@@ -60,6 +60,10 @@ The following recognized `sprintf`-like types can be used in a message:
 
   'y' if n == 1 otherwise 'ie'
 
+- `ies`:
+
+  'y' if n == 1 otherwise 'ies'
+
 - `%`:
 
   A literal '%'.

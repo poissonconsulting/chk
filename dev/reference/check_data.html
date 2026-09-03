@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">chk</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9002</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.11.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,7 +98,7 @@ and missing values.</p>
 <p><code>values</code> is reduced with <code><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique()</a></code>,
 so a column whose class lacks a correct <code><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique()</a></code> method
 is checked against the wrong values.
-In particular <code><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique()</a></code> on a lubridate <code>Period</code> vector discards
+In particular <code><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique()</a></code> on a <code>lubridate</code> <code>Period</code> vector discards
 everything but the seconds,
 which collapses <code>values</code> and silently changes the check applied
 (see <a href="https://github.com/tidyverse/lubridate/issues/1154" class="external-link">https://github.com/tidyverse/lubridate/issues/1154</a>).
