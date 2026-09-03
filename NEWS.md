@@ -1,10 +1,5 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
-# chk 0.11.0.9000
-
-- Switching to development version.
-
-
 # chk 0.11.0
 
 ## Breaking changes
