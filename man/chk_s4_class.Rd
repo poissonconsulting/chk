@@ -53,6 +53,7 @@ Other id_checkers:
 \code{\link[=chk_is]{chk_is()}},
 \code{\link[=chk_r6_class]{chk_r6_class()}},
 \code{\link[=chk_s3_class]{chk_s3_class()}},
-\code{\link[=chk_s3_class_strict]{chk_s3_class_strict()}}
+\code{\link[=chk_s3_class_strict]{chk_s3_class_strict()}},
+\code{\link[=chk_s7_class]{chk_s7_class()}}
 }
 \concept{id_checkers}
