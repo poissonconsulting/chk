@@ -6,8 +6,25 @@
 #' @family deprecated
 #'
 #' @inheritParams chk_flag
+#' @return The `chk_` functions throw an informative error if the test fails and
+#' otherwise return invisibly.
+#' `vld_no_missing()` returns a flag indicating whether `x` has no missing
+#' values and `deparse_backtick()` returns a string.
+#' `chk_off()`, `chk_on()` and `is_chk_on()` are defunct and always throw an
+#' error.
 #' @keywords internal
 #' @name chk_deprecated
+#' @examples
+#' # The deprecated functions signal a deprecation warning when called.
+#' chk_has(1:2, 1)
+#' chk_in(1, 1:2)
+#' chk_no_missing(1)
+#' vld_no_missing(1)
+#' chk_proportion(0.5)
+#' deparse_backtick(quote(x))
+#'
+#' # The defunct functions always throw an error.
+#' try(chk_on())
 NULL
 
 #' @describeIn chk_deprecated Check Directories Exist
