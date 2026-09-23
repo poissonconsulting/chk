@@ -405,6 +405,9 @@ Check if the function input belongs to a class
 - [`chk_s4_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s4_class.md)
   [`vld_s4_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s4_class.md)
   : Check Inherits from S4 Class
+- [`chk_s7_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s7_class.md)
+  [`vld_s7_class()`](https://poissonconsulting.github.io/chk/dev/reference/chk_s7_class.md)
+  : Check Inherits from S7 Class
 
 ## REGEX Checker
 

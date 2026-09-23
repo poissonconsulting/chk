@@ -6,6 +6,8 @@
 
 ## chk 0.11.0
 
+CRAN release: 2026-09-03
+
 ### Breaking changes
 
 - chk now requires R \>= 4.1.
