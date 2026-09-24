@@ -1,5 +1,9 @@
 # Changelog
 
+## chk 0.11.0.9001
+
+- Same as previous version.
+
 ## chk 0.11.0.9000
 
 - Switching to development version.
