@@ -14,6 +14,7 @@
 #'
 #' @family misc_checkers
 #'
+#' @seealso [chk_finite()]
 #' @seealso For more details about the use of this function,
 #' please read the article
 #' `vignette("chk-families")`.

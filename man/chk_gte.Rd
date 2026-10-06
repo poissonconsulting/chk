@@ -51,6 +51,7 @@ please read the article
 \code{vignette("chk-families")}.
 
 Other range_checkers:
+\code{\link[=chk_finite]{chk_finite()}},
 \code{\link[=chk_gt]{chk_gt()}},
 \code{\link[=chk_lt]{chk_lt()}},
 \code{\link[=chk_lte]{chk_lte()}},
