@@ -450,6 +450,7 @@ input should be numeric.
 | `chk_lte(x, value = 0)` | `all(x[!is.na(x)] <= value)` |
 | `chk_gt(x, value = 0)` | `all(x[!is.na(x)] > value)` |
 | `chk_gte(x, value = 0)` | `all(x[!is.na(x)] >= value)` |
+| `chk_finite(x)` | `is.numeric(x) && all(is.finite(x))` |
 
 ### Equal Checkers
 

@@ -749,6 +749,10 @@ function input should be numeric.</p>
 <td align="left"><code>chk_gte(x, value = 0)</code></td>
 <td align="left"><code>all(x[!is.na(x)] &gt;= value)</code></td>
 </tr>
+<tr class="even">
+<td align="left"><code>chk_finite(x)</code></td>
+<td align="left"><code>is.numeric(x) &amp;&amp; all(is.finite(x))</code></td>
+</tr>
 </tbody>
 </table>
 </div>

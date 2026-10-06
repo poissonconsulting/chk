@@ -209,6 +209,9 @@ Check if the function input is part of a range of values
 - [`chk_range()`](https://poissonconsulting.github.io/chk/dev/reference/chk_range.md)
   [`vld_range()`](https://poissonconsulting.github.io/chk/dev/reference/chk_range.md)
   : Checks range of non-missing values
+- [`chk_finite()`](https://poissonconsulting.github.io/chk/dev/reference/chk_finite.md)
+  [`vld_finite()`](https://poissonconsulting.github.io/chk/dev/reference/chk_finite.md)
+  : Check Finite
 - [`chk_lt()`](https://poissonconsulting.github.io/chk/dev/reference/chk_lt.md)
   [`vld_lt()`](https://poissonconsulting.github.io/chk/dev/reference/chk_lt.md)
   : Check Less Than

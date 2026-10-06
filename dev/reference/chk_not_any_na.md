@@ -39,6 +39,8 @@ The `vld_` function returns a flag indicating whether the test was met.
 
 ## See also
 
+[`chk_finite()`](https://poissonconsulting.github.io/chk/dev/reference/chk_finite.md)
+
 For more details about the use of this function, please read the article
 [`vignette("chk-families")`](https://poissonconsulting.github.io/chk/dev/articles/chk-families.md).
 

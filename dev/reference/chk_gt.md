@@ -45,6 +45,7 @@ For more details about the use of this function, please read the article
 [`vignette("chk-families")`](https://poissonconsulting.github.io/chk/dev/articles/chk-families.md).
 
 Other range_checkers:
+[`chk_finite()`](https://poissonconsulting.github.io/chk/dev/reference/chk_finite.md),
 [`chk_gte()`](https://poissonconsulting.github.io/chk/dev/reference/chk_gte.md),
 [`chk_lt()`](https://poissonconsulting.github.io/chk/dev/reference/chk_lt.md),
 [`chk_lte()`](https://poissonconsulting.github.io/chk/dev/reference/chk_lte.md),
