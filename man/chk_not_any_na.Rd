@@ -47,6 +47,8 @@ vld_not_any_na(c(NA, 1))
 vld_not_any_na(TRUE)
 }
 \seealso{
+\code{\link[=chk_finite]{chk_finite()}}
+
 For more details about the use of this function,
 please read the article
 \code{vignette("chk-families")}.

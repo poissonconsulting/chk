@@ -96,6 +96,7 @@ reference:
   desc: Check if the function input is part of a range of values
   contents:
   - chk_range
+  - chk_finite
   - chk_lt
   - chk_lte
   - chk_gt
