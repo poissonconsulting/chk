@@ -21,15 +21,15 @@ returns the original object if successful so it can used in pipes.
 The \code{vld_} function returns a flag indicating whether the test was met.
 }
 \description{
-Checks if all values are finite using
+Checks if numeric with all values finite using
 
-\code{!is.list(x) && all(is.finite(x))}
+\code{is.numeric(x) && all(is.finite(x))}
 
 Unlike the other range checkers, missing values fail.
 
-\strong{Pass}: \code{1}, \code{c(-1, 0, 1e10)}, \code{TRUE}, \code{numeric(0)}.
+\strong{Pass}: \code{1}, \code{c(-1, 0, 1e10)}, \code{2L}, \code{numeric(0)}.
 
-\strong{Fail}: \code{NA}, \code{NaN}, \code{Inf}, \code{-Inf}, \code{c(1, NA)}, \code{"1"}, \code{list(1)}.
+\strong{Fail}: \code{NA}, \code{NaN}, \code{Inf}, \code{-Inf}, \code{c(1, NA)}, \code{TRUE}, \code{"1"}, \code{list(1)}.
 }
 \section{Functions}{
 \itemize{
@@ -49,6 +49,8 @@ vld_finite(-Inf)
 }
 \seealso{
 \code{\link[=is.finite]{is.finite()}}
+
+\code{\link[=chk_numeric]{chk_numeric()}}
 
 \code{\link[=chk_not_any_na]{chk_not_any_na()}}
 

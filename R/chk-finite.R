@@ -1,15 +1,15 @@
 #' Check Finite
 #'
 #' @description
-#' Checks if all values are finite using
+#' Checks if numeric with all values finite using
 #'
-#' `!is.list(x) && all(is.finite(x))`
+#' `is.numeric(x) && all(is.finite(x))`
 #'
 #' Unlike the other range checkers, missing values fail.
 #'
-#' **Pass**: `1`, `c(-1, 0, 1e10)`, `TRUE`, `numeric(0)`.
+#' **Pass**: `1`, `c(-1, 0, 1e10)`, `2L`, `numeric(0)`.
 #'
-#' **Fail**: `NA`, `NaN`, `Inf`, `-Inf`, `c(1, NA)`, `"1"`, `list(1)`.
+#' **Fail**: `NA`, `NaN`, `Inf`, `-Inf`, `c(1, NA)`, `TRUE`, `"1"`, `list(1)`.
 #'
 #' @inheritParams params
 #' @inherit params return
@@ -17,6 +17,7 @@
 #' @family range_checkers
 #'
 #' @seealso [is.finite()]
+#' @seealso [chk_numeric()]
 #' @seealso [chk_not_any_na()]
 #' @seealso For more details about the use of this function,
 #' please read the article
@@ -34,7 +35,10 @@ chk_finite <- function(x, x_name = NULL) {
   if (is.null(x_name)) {
     x_name <- deparse_backtick_chk(substitute(x))
   }
-  if (length(x) == 1L && !is.list(x)) {
+  if (!is.numeric(x)) {
+    abort_chk(x_name, " must be numeric", x = x)
+  }
+  if (length(x) == 1L) {
     abort_chk(x_name, " must be finite, not ", cc(x), x = x)
   }
   abort_chk(x_name, " must have finite values", x = x)
@@ -50,4 +54,4 @@ chk_finite <- function(x, x_name = NULL) {
 #' vld_finite(NaN)
 #' vld_finite(-Inf)
 #' @export
-vld_finite <- function(x) !is.list(x) && all(is.finite(x))
+vld_finite <- function(x) is.numeric(x) && all(is.finite(x))
