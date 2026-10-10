@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# chk 0.11.0.9004
+
+- Same as previous version.
+
+
 # chk 0.11.0.9003
 
 - Same as previous version.
