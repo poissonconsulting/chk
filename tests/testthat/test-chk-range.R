@@ -146,3 +146,66 @@ test_that("chk_gte", {
     "^Another number must be greater than or equal to 0, not -1[.]$"
   )
 })
+
+test_that("vld_lte with vector value", {
+  expect_true(vld_lte(c(1, 2), c(1, 3)))
+  expect_false(vld_lte(c(2, 2), c(1, 3)))
+  expect_true(vld_lte(c(NA, 2, 1), c(0, 3, 1)))
+  expect_true(vld_lte(c(1, 5, NA), c(2, NA, 0)))
+  expect_true(vld_lte(numeric(0), numeric(0)))
+  expect_error(
+    vld_lte(1:3, 1:2),
+    "`value` must be a scalar or the same length as `x`[.]"
+  )
+  expect_error(
+    vld_lte(1:2, numeric(0)),
+    "`value` must be a scalar or the same length as `x`[.]"
+  )
+})
+
+test_that("vld_lt, vld_gte and vld_gt with vector value", {
+  expect_true(vld_lt(c(1, NA), c(2, 0)))
+  expect_false(vld_lt(c(1, 2), c(2, 2)))
+  expect_true(vld_gte(c(1, NA), c(1, 2)))
+  expect_false(vld_gte(c(1, 2), c(1, 3)))
+  expect_true(vld_gt(c(2, 1), c(1, NA)))
+  expect_false(vld_gt(c(2, 1), c(1, 1)))
+})
+
+test_that("chk_lte with vector value", {
+  x <- c(2, 5, 1)
+  expect_identical(chk_lte(x, c(2, 5, 1)), x)
+  expect_invisible(chk_lte(x, c(2, 5, 1)))
+  expect_chk_error(
+    chk_lte(x, c(1, 3, 1)),
+    "^`x` must have values less than or equal to the corresponding values of `value`, not at positions 1 and 2[.]$"
+  )
+  err <- rlang::catch_cnd(chk_lte(x, c(1, 3, 1)))
+  expect_identical(err$value, c(1, 3, 1))
+})
+
+test_that("chk_lt, chk_gte and chk_gt with vector value", {
+  x <- c(2, 5, 1)
+  expect_chk_error(
+    chk_lt(x, c(3, 5, 2)),
+    "^`x` must have values less than the corresponding values of `value`, not at position 2[.]$"
+  )
+  expect_chk_error(
+    chk_gte(x, c(1, 6, 2)),
+    "^`x` must have values greater than or equal to the corresponding values of `value`, not at positions 2 and 3[.]$"
+  )
+  expect_chk_error(
+    chk_gt(x, c(1, 3, 1)),
+    "^`x` must have values greater than the corresponding values of `value`, not at position 3[.]$"
+  )
+})
+
+test_that("chk_lte with vector value of dates", {
+  start <- as.POSIXct(c("2020-01-02", NA, "2020-01-05"), tz = "UTC")
+  end <- as.POSIXct(c("2020-01-03", "2020-01-01", NA), tz = "UTC")
+  expect_identical(chk_lte(start, end), start)
+  expect_chk_error(
+    chk_lte(start, end - 2 * 86400),
+    "not at position 1[.]$"
+  )
+})

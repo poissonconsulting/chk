@@ -30,3 +30,26 @@ object_type <- function(x) {
     "S3"
   }
 }
+
+# logical vector of the elements of x that fail the comparison with value
+# where value is a scalar or a vector of the same length as x
+# and pairs with a missing value are ignored
+compare_fails <- function(x, value, compare) {
+  if (length(value) != 1L && length(value) != length(x)) {
+    err(
+      "`value` must be a scalar or the same length as `x`.",
+      call = rlang::caller_call(2)
+    )
+  }
+  !is.na(x) & !is.na(value) & !compare(x, value)
+}
+
+vld_compare <- function(x, value, compare) {
+  if (length(value) == 1L) {
+    return(all(compare(x[!is.na(x)], value)))
+  }
+  if (length(value) == length(x) && !anyNA(x) && !anyNA(value)) {
+    return(all(compare(x, value)))
+  }
+  !any(compare_fails(x, value, compare))
+}
