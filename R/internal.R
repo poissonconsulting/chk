@@ -48,5 +48,8 @@ vld_compare <- function(x, value, compare) {
   if (length(value) == 1L) {
     return(all(compare(x[!is.na(x)], value)))
   }
+  if (length(value) == length(x) && !anyNA(x) && !anyNA(value)) {
+    return(all(compare(x, value)))
+  }
   !any(compare_fails(x, value, compare))
 }
