@@ -4,6 +4,9 @@ Checks if all non-missing values are greater than value using
 
 `all(x[!is.na(x)] > value)`
 
+If `value` is the same length as `x` the values are compared
+element-wise and pairs with a missing value are ignored.
+
 ## Usage
 
 ``` r
@@ -20,7 +23,8 @@ vld_gt(x, value = 0)
 
 - value:
 
-  A non-missing scalar of a value.
+  A non-missing scalar, or a vector of the same length as `x`, of the
+  value(s) to compare against.
 
 - x_name:
 
@@ -74,4 +78,6 @@ vld_gt(c(-0.1, 0.2), value = -1)
 #> [1] TRUE
 vld_gt("b", value = "a")
 #> [1] TRUE
+vld_gt(c(1, NA, 3), value = c(2, 0, NA))
+#> [1] FALSE
 ```
