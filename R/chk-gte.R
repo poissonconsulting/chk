@@ -5,7 +5,12 @@
 #'
 #' `all(x[!is.na(x)] >= value)`
 #'
+#' If `value` is the same length as `x` the values are compared
+#' element-wise and pairs with a missing value are ignored.
+#'
 #' @inheritParams params
+#' @param value A non-missing scalar, or a vector of the same length as `x`,
+#'   of the value(s) to compare against.
 #' @inherit params return
 #'
 #' @family range_checkers
@@ -38,6 +43,18 @@ chk_gte <- function(x, value = 0, x_name = NULL) {
       value = value
     )
   }
+  if (length(value) > 1L) {
+    fails <- which(compare_fails(x, value, `>=`))
+    abort_chk(
+      x_name,
+      " must have values greater than or equal to the corresponding values of `value`",
+      ", not at position%s ",
+      cc(fails, " and "),
+      n = length(fails),
+      x = x,
+      value = value
+    )
+  }
   abort_chk(
     x_name,
     " must have values greater than or equal to ",
@@ -56,5 +73,8 @@ chk_gte <- function(x, value = 0, x_name = NULL) {
 #' vld_gte(-0.1)
 #' vld_gte(c(0.1, 0.2, NA))
 #' vld_gte(c(0.1, 0.2, NA), value = 1)
+#' vld_gte(c(1, NA, 3), value = c(2, 0, NA))
 #' @export
-vld_gte <- function(x, value = 0) all(x[!is.na(x)] >= value)
+vld_gte <- function(x, value = 0) {
+  vld_compare(x, value, `>=`)
+}

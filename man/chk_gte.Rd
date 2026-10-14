@@ -12,7 +12,8 @@ vld_gte(x, value = 0)
 \arguments{
 \item{x}{The object to check.}
 
-\item{value}{A non-missing scalar of a value.}
+\item{value}{A non-missing scalar, or a vector of the same length as \code{x},
+of the value(s) to compare against.}
 
 \item{x_name}{A string of the name of object x or NULL.}
 }
@@ -26,6 +27,9 @@ The \code{vld_} function returns a flag indicating whether the test was met.
 Checks if all non-missing values are greater than or equal to y using
 
 \code{all(x[!is.na(x)] >= value)}
+
+If \code{value} is the same length as \code{x} the values are compared
+element-wise and pairs with a missing value are ignored.
 }
 \section{Functions}{
 \itemize{
@@ -42,6 +46,7 @@ vld_gte(0)
 vld_gte(-0.1)
 vld_gte(c(0.1, 0.2, NA))
 vld_gte(c(0.1, 0.2, NA), value = 1)
+vld_gte(c(1, NA, 3), value = c(2, 0, NA))
 }
 \seealso{
 \code{\link[=all]{all()}}
